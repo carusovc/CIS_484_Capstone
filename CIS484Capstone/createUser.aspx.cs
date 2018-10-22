@@ -29,7 +29,7 @@ public partial class createUser : System.Web.UI.Page
                 try
                 {
                     System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-                    sc.ConnectionString = @"Server=LOCALHOST;Database=PBKDF2;Trusted_Connection=Yes;"; // connect to PBKDF2 database
+                    sc.ConnectionString = @"Server=LOCALHOST;Database=WildlifeCenter;Trusted_Connection=Yes;"; // connect to PBKDF2 database
                     lblStatus.Text = "Database Connection Successful";
                     sc.Open();
 
@@ -99,7 +99,7 @@ public partial class createUser : System.Web.UI.Page
 
     protected void lnkLogin_Click(object sender, EventArgs e)
     {
-        Response.Redirect("userLogin.aspx", false);
+        Response.Redirect("createUser.aspx", false);
     }
 
     protected void lnkAnother_Click(object sender, EventArgs e)

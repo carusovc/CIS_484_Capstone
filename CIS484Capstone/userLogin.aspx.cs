@@ -19,7 +19,7 @@ public partial class userLogin : System.Web.UI.Page
         try
         {
             System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            sc.ConnectionString = @"Server=LOCALHOST;Database=PBKDF2;Trusted_Connection=Yes;";
+            sc.ConnectionString = @"Server=LOCALHOST;Database=WildlifeCenter;Trusted_Connection=Yes;";
             lblStatus.Text = "Database Connection Successful";
 
             sc.Open();
