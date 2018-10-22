@@ -23,7 +23,7 @@
 &nbsp;Program:
     <asp:DropDownList ID="ddlProgramTypeID" runat="server" DataSourceID="SqlDataSource1" DataTextField="ProgramName" DataValueField="ProgramTypeID">
 </asp:DropDownList>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildlifeCenterConnectionString %>" SelectCommand="SELECT * FROM [ProgramType]"></asp:SqlDataSource>
+
     
 &nbsp; Program Address:
     <asp:TextBox ID="txtProgramAddress" runat="server" Width="295px"></asp:TextBox>
