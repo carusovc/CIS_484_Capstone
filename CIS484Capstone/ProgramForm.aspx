@@ -58,31 +58,34 @@
     <br />
     <br />
     Educators:
-    <asp:TextBox ID="txtEducators" runat="server" Width="162px"></asp:TextBox>
-&nbsp; 
-    # of Adults:
+    &nbsp;<asp:DropDownList ID="ddlEducator" runat="server" DataSourceID="SqlDataSource4" DataTextField="EducatorFirstName" DataValueField="EducatorFirstName">
+    </asp:DropDownList>
+    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildlifeCenterConnectionString5 %>" SelectCommand="SELECT * FROM [Educators]"></asp:SqlDataSource>
+    &nbsp;# of People:
     <asp:TextBox ID="txtNumOfAdults" runat="server"></asp:TextBox>
 &nbsp; # of Children:&nbsp;
     <asp:TextBox ID="txtNumOfChildren" runat="server"></asp:TextBox>
+    &nbsp; Grade
+<asp:DropDownList ID="ddlGrade" runat="server" DataSourceID="SqlDataSource3" DataTextField="GradeLevel" DataValueField="GradeID">
+</asp:DropDownList>
+<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildlifeCenterConnectionString3 %>" SelectCommand="SELECT * FROM [Grade]"></asp:SqlDataSource>
     <br />
     <br />
     &nbsp;<asp:Button ID="btnAdd" runat="server" Text="Add Animal" OnClick="btnAdd_Click" />
 &nbsp;
     <br />
     <br />
-    <asp:Label ID="lblAnimalType" runat="server" Text="Animal Type:"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-    <asp:Label ID="lblAnimalName" runat="server" Text="Animal Name:"></asp:Label>
-&nbsp;<asp:DropDownList ID="ddlAnimalName" DataTextField="AnimalName" DataValueField="AnimalID" runat="server">
-    </asp:DropDownList>
-<%--&nbsp;<asp:RadioButtonList ID="rboAnimalType" AutoPostBack="true" runat="server" OnSelectedIndexChanged="rboAnimalType_SelectedIndexChanged">
+    <asp:Label ID="lblAnimalType" runat="server" Text="Animal Type:"></asp:Label>&nbsp;<asp:DropDownList ID="ddlAnimalType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
         <asp:ListItem>Bird</asp:ListItem>
         <asp:ListItem>Mammal</asp:ListItem>
         <asp:ListItem>Reptile</asp:ListItem>
-    </asp:RadioButtonList>--%>
-    <asp:RadioButton ID="rboBird" Text="Bird" runat="server" OnCheckedChanged="RadioButton1_CheckedChanged" GroupName="Group1" AutoPostBack="true" />
-                    <asp:RadioButton ID="rboMammal" Text="Mammal" runat="server" OnCheckedChanged="RadioButton1_CheckedChanged" GroupName="Group1" AutoPostBack="true" />
-                    <asp:RadioButton ID="rboReptile" Text="Reptile" runat="server" OnCheckedChanged="RadioButton1_CheckedChanged" GroupName="Group1" AutoPostBack="true" />
-    <br />
+    </asp:DropDownList>
+&nbsp;&nbsp;
+    <asp:Label ID="lblAnimalName" runat="server" Text="Animal Name:"></asp:Label>
+&nbsp;<asp:DropDownList ID="ddlAnimalName" DataTextField="AnimalName" DataValueField="AnimalID" runat="server" AutoPostBack="True">
+    </asp:DropDownList>
+
+    &nbsp;<br />
     Payment Completed?<asp:RadioButtonList ID="rboWaitForPayment" runat="server">
         <asp:ListItem Value="Y">Yes</asp:ListItem>
         <asp:ListItem Value="N">No</asp:ListItem>
@@ -91,6 +94,8 @@
     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
     
 &nbsp;<asp:Button ID="btnLogOut" runat="server" Text="Logout" OnClick="btnLogOut_Click" />
+    
+&nbsp;<asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
     
 </asp:Content>
 

@@ -25,6 +25,7 @@ public class Program
     private char waitForPayment;
     private DateTime dateTime;
     private String reportMonth;
+    private int grade;
 
     public Program()
     {
@@ -32,7 +33,7 @@ public class Program
     }
     //Overload Constructor
     public Program(byte onOff, string status, string programAddress, string reportMonth, DateTime dateTime, int programTypeID,
-        int numOfChildren, int numOfAdult, char waitForPayment)
+        int numOfChildren, int numOfAdult, char waitForPayment, int grade)
     {
         setOnOff(onOff);
         setStatus(status);
@@ -48,6 +49,7 @@ public class Program
         setNumOfChildren(numOfChildren);
         setNumOfAdult(numOfAdult);
         setWaitForPayment(waitForPayment);
+        setGrade(grade);
         //setCity(city);
         //setCountry(country);
 
@@ -101,7 +103,10 @@ public class Program
         this.waitForPayment = waitForPayment;
     }
 
-
+    public void setGrade(int grade)
+    {
+        this.grade = grade;
+    }
 
 
     //Getters
@@ -153,5 +158,8 @@ public class Program
         return waitForPayment;
     }
 
-
+    public int getGrade()
+    {
+        return grade;
+    }
 }
