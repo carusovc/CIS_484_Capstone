@@ -12,6 +12,8 @@
     <form id="form1" runat="server">
     <div>
         <h2>Main Menu</h2>
+        <a runat="server" href = "createUser.aspx">Create User</a>
+        <a runat="server" href = "userLogin.aspx">Login</a>
         <a runat="server" href="ProgramForm.aspx">Program</a>
         <a runat="server" href="Online.aspx">Online</a>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">

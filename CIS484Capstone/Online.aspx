@@ -50,7 +50,7 @@
     <asp:TextBox ID="txtAnimalsUsed" runat="server"></asp:TextBox>
     <br />
     <br />
-    <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
 &nbsp;
 </asp:Content>
 
