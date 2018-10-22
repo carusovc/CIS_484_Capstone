@@ -14,12 +14,13 @@ public partial class ProgramForm : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"Server=LOCALHOST;Database=WildlifeCenter;Trusted_Connection=Yes;";
+        sc.ConnectionString = @"Server=LOCALHOST;Database=WildTech;Trusted_Connection=Yes;";
         sc.Open();
         //lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString();
 
-       System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-       insert.Connection = sc;
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        insert.Connection = sc;
+
 
 
         if (ddlAnimalType.SelectedIndex == 0)
@@ -60,7 +61,9 @@ public partial class ProgramForm : System.Web.UI.Page
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"Server=LOCALHOST;Database=WildlifeCenter;Trusted_Connection=Yes;";
+
+        sc.ConnectionString = @"Server=LOCALHOST;Database=WildTech;Trusted_Connection=Yes;";
+
         sc.Open();
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
@@ -146,7 +149,9 @@ public partial class ProgramForm : System.Web.UI.Page
     {
         ddlAnimalName.AppendDataBoundItems = true;
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"Server=LOCALHOST;Database=WildlifeCenter;Trusted_Connection=Yes;";
+
+        sc.ConnectionString = @"Server=LOCALHOST;Database=WildTech;Trusted_Connection=Yes;";
+
         sc.Open();
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
@@ -189,7 +194,9 @@ public partial class ProgramForm : System.Web.UI.Page
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"Server=LOCALHOST;Database=WildlifeCenter;Trusted_Connection=Yes;";
+
+        sc.ConnectionString = @"Server=LOCALHOST;Database=WildTech;Trusted_Connection=Yes;";
+
         sc.Open();
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;

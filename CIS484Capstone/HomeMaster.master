@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="HomeMaster.master.cs" Inherits="HomeMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> WildTek</title>
+<%--   
+    <link href="http://localhost:62931/Content/bootstrap.css" rel ="stylesheet" />
+    <link href="http://localhost:62931/Content/Login.css" rel="stylesheet" />
+    <link href="http://localhost:62931/Content/custom.css" rel ="stylesheet" />
+    <link href="http://localhost:62931/Content/Site.css" rel ="stylesheet" />
+    <link href="http://localhost:62931/Content" rel ="stylesheet" />--%>
+
+    <!-- Load your Bootstrap Styles first -->
+<link href="Bootstrap.css" rel="stylesheet" type="text/css" />
+<!-- Load your CSS file(s) -->
+<link href="custom.css" rel="stylesheet" type="text/css" />
+    <link href="Login.css" rel="stylesheet" type="text/css" />
+    <link href="sb-admin.css" rel="stylesheet" type="text/css" />
+    <link href="Site.css" rel="stylesheet" type="text/css" />
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+   <%-- <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />--%>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+            <asp:Menu ID="Menu1" runat="server">
+            <Items>
+                <asp:MenuItem NavigateUrl="~/AdminPages/AdminLogin.aspx" Text="Administrator Login" Value="Administrator Login"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/MembersPages/userLogin.aspx" Text="Educator Login" Value="Educator Login"></asp:MenuItem>
+            </Items>
+        </asp:Menu>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+           <script src="http://localhost:62931/Scripts/jquery-3.3.1.slim.min.js"> </script>
+    <script src="http://localhost:62931/Scripts/popper.min.js"> </script>
+    <script src="http://localhost:62931/Scripts/bootstrap.bundle.min.js"> </script>
+</body>
+</html>
