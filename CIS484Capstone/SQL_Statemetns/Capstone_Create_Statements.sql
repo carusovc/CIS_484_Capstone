@@ -57,11 +57,10 @@ NumberOfPeople int NULL,
 City varchar(50) NULL,
 State varchar(50) NULL,
 Country varchar(100) NULL,
-GradeID int NULL,
 TeacherName varchar(100) NULL,
 ContactEmail varchar(100) NULL,
+ExtraComments varchar(250) NULL,
 CONSTRAINT PK_OnlineProgram PRIMARY KEY (OnlineProgramID),
-CONSTRAINT FK_OnlineProgramGrade FOREIGN KEY (GradeID) references Grade,
 CONSTRAINT FK_OnlineProgramOnlineProgramType FOREIGN KEY (OnlineProgramTypeID) references OnlineProgramType);
 
 Create Table OnlineEducators(
@@ -89,13 +88,13 @@ OnOff bit NOT NULL,
 NumberOfChildren int NOT NULL,
 NumberOfAdults int NOT NULL,
 PaymentNeeded char(1) NULL,
-DateAndTime date NOT NULL,
+Date date NOT NULL,
+Time time NOT NULL,
 EventMonth varchar(15) NOT NULL,
-GradeID int NULL,
+ExtraComments varchar(250) NULL,
 CONSTRAINT PK_ProgramID PRIMARY KEY (ProgramID),
 CONSTRAINT FK_OrgID FOREIGN KEY (OrgID) references Organization,
-CONSTRAINT FK_ProgramTypeID FOREIGN KEY (ProgramTypeID) references ProgramType,
-CONSTRAINT FK_ProgramGrade FOREIGN KEY (GradeID) references Grade);
+CONSTRAINT FK_ProgramTypeID FOREIGN KEY (ProgramTypeID) references ProgramType);
 
 
 Create Table ProgramEducators(
@@ -111,3 +110,17 @@ AnimalID int NOT NULL,
 CONSTRAINT PK_ProgramAnimal PRIMARY KEY (ProgramID, AnimalID),
 CONSTRAINT FK_ProgramAnimalProgram FOREIGN KEY (ProgramID) references Program,
 CONSTRAINT FK_ProgramAnimalAnimal FOREIGN KEY (AnimalID) references Animal);
+                               
+Create Table OnlineProgramGrades(
+OnlineProgramID int NOT NULL,
+GradeID int NOT NULL,
+CONSTRAINT PK_OnlineGrade PRIMARY KEY (OnlineProgramID, GradeID),
+CONSTRAINT FK_OnlineGradeOnline FOREIGN KEY (OnlineProgramID) references OnlineProgram,
+CONSTRAINT FK_OnlineGradeGrade FOREIGN KEY (GradeID) references Grade);
+                                       
+Create Table ProgramGrades(
+ProgramID int NOT NULL,
+GradeID int NOT NULL,
+CONSTRAINT PK_ProgramGrade PRIMARY KEY (ProgramID, GradeID),
+CONSTRAINT FK_ProgramGradeProgram FOREIGN KEY (ProgramID) references Program,
+CONSTRAINT FK_ProgramGradeGrade FOREIGN KEY (GradeID) references Grade);
