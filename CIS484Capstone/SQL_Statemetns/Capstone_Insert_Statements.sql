@@ -72,14 +72,25 @@ Insert into [dbo].[Organization](OrgName,City,County) VALUES ('Festival One','Fr
 Insert into [dbo].[Organization](OrgName,City,County) VALUES ('Festival Two','Afton','Nelson');
 
 Insert into [dbo].[Grade](GradeLevel) VALUES ('Preschool');
-Insert into [dbo].[Grade](GradeLevel) VALUES ('Elementary School');
-Insert into [dbo].[Grade](GradeLevel) VALUES ('Middle School');
-Insert into [dbo].[Grade](GradeLevel) VALUES ('High School');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('Kindergarten');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('1st');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('2nd');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('3rd');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('4th');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('5th');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('6th');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('7th');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('8th');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('9th');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('10th');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('11th');
+Insert into [dbo].[Grade](GradeLevel) VALUES ('12th');
 Insert into [dbo].[Grade](GradeLevel) VALUES ('Families');
 Insert into [dbo].[Grade](GradeLevel) VALUES ('Adults Only');
 
 
 Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName) VALUES ('Book Club');
+Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName) VALUES ('Field Trip Zoom');
 Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName) VALUES ('Cam in the Classroom');
 Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName) VALUES ('Hospital Cam');
 Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName) VALUES ('Wildlife Center Classroom Series');
