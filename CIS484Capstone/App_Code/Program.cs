@@ -6,52 +6,57 @@ using System.Web;
 
 public class Program
 {
-    private Boolean onOff;
+
+
+    //private String organizationName;
+    //private String educators;
+    //private String bird;
+    //private String mammal;
+    //private String reptile;
+    //private String city;
+    //private String country;
+
     private String status;
-    private String organizationName;
+    private int programTypeID;
     private String programAddress;
-    private String reportMonth;
-    private DateTime dateTime;
-    private String program;
-    private String educators;
-    private String bird;
-    private String mammal;
-    private String reptile;
+    private byte onOff;
     private int numOfChildren;
     private int numOfAdult;
     private char waitForPayment;
-    private String city;
-    private String country;
+    private DateTime dateTime;
+    private String reportMonth;
+    private int grade;
 
     public Program()
     {
 
     }
     //Overload Constructor
-    public Program(bool onOff, string status, string organizationName, string programAddress, string reportMonth, DateTime dateTime, string program,
-        string educators, string bird, string mammal, string reptile, int numOfChildren, int numOfAdult, char waitForPayment, string city, string country)
+    public Program(byte onOff, string status, string programAddress, string reportMonth, DateTime dateTime, int programTypeID,
+        int numOfChildren, int numOfAdult, char waitForPayment, int grade)
     {
         setOnOff(onOff);
         setStatus(status);
-        setOrganizationName(organizationName);
+        //setOrganizationName(organizationName);
         setProgramAddress(programAddress);
         setReportMonth(reportMonth);
         setDateTime(dateTime);
-        setProgram(program);
-        setEducators(educators);
-        setBird(bird);
-        setMammal(mammal);
-        setReptile(reptile);
+        setProgramTypeID(programTypeID);
+        //setEducators(educators);
+        //setBird(bird);
+        //setMammal(mammal);
+        //setReptile(reptile);
         setNumOfChildren(numOfChildren);
         setNumOfAdult(numOfAdult);
         setWaitForPayment(waitForPayment);
-        setCity(city);
-        setCountry(country);
+        setGrade(grade);
+        //setCity(city);
+        //setCountry(country);
 
     }
 
     //Setters
-    public void setOnOff(bool onOff)
+    public void setOnOff(byte onOff)
     {
         this.onOff = onOff;
     }
@@ -61,10 +66,6 @@ public class Program
         this.status = status;
     }
 
-    public void setOrganizationName(string organizationName)
-    {
-        this.organizationName = organizationName;
-    }
 
     public void setProgramAddress(string programAddress)
     {
@@ -81,30 +82,11 @@ public class Program
         this.dateTime = dateTime;
     }
 
-    public void setProgram(string program)
+    public void setProgramTypeID(int program)
     {
-        this.program = program;
+        this.programTypeID = program;
     }
 
-    public void setEducators(string educators)
-    {
-        this.educators = educators;
-    }
-
-    public void setBird(string bird)
-    {
-        this.bird = bird;
-    }
-
-    public void setMammal(string mammal)
-    {
-        this.mammal = mammal;
-    }
-
-    public void setReptile(string reptile)
-    {
-        this.reptile = reptile;
-    }
 
     public void setNumOfChildren(int numOfChildren)
     {
@@ -121,19 +103,14 @@ public class Program
         this.waitForPayment = waitForPayment;
     }
 
-    public void setCity(string city)
+    public void setGrade(int grade)
     {
-        this.city = city;
-    }
-
-    public void setCountry(string country)
-    {
-        this.country = country;
+        this.grade = grade;
     }
 
 
     //Getters
-    public Boolean getOnOff()
+    public byte getOnOff()
     {
         return onOff;
     }
@@ -143,10 +120,6 @@ public class Program
         return status;
     }
 
-    public String getOrganizationName()
-    {
-        return organizationName;
-    }
 
     public String getProgramAddress()
     {
@@ -163,30 +136,12 @@ public class Program
         return dateTime;
     }
 
-    public String getProgram()
+    public int getProgramTypeID()
     {
-        return program;
+        return programTypeID;
     }
 
-    public String getEducators()
-    {
-        return educators;
-    }
 
-    public String getBird()
-    {
-        return bird;
-    }
-
-    public String getMammal()
-    {
-        return mammal;
-    }
-
-    public String getReptile()
-    {
-        return reptile;
-    }
 
     public int getNumOfChildren()
     {
@@ -203,13 +158,8 @@ public class Program
         return waitForPayment;
     }
 
-    public String getCity()
+    public int getGrade()
     {
-        return city;
-    }
-
-    public String getCountry()
-    {
-        return country;
+        return grade;
     }
 }
