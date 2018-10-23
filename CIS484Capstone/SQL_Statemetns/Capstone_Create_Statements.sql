@@ -1,4 +1,4 @@
-Use WildTech
+Use WildTek
 Go
 
 Create Table OnlineProgramType(

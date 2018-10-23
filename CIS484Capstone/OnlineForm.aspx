@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Online.aspx.cs" Inherits="Online" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="OnlineForm.aspx.cs" Inherits="Online" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -22,15 +22,16 @@
         <asp:ListItem>November</asp:ListItem>
         <asp:ListItem>December</asp:ListItem>
     </asp:DropDownList>
-        &nbsp;
-        Type <asp:TextBox ID="txtType" runat="server"></asp:TextBox>
+        &nbsp;&nbsp; Type: <asp:TextBox ID="txtType" runat="server" Width="103px"></asp:TextBox>
     <br />
     <br />
     # of Kids in Class:&nbsp;
     <asp:TextBox ID="txtNumOfKids" runat="server"></asp:TextBox>
 &nbsp; # of People:
     <asp:TextBox ID="txtNumOfPeople" runat="server"></asp:TextBox>
-&nbsp; State/Country:
+&nbsp; City
+    <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
+    &nbsp; State/Country:
     <asp:TextBox ID="txtStateCountry" runat="server"></asp:TextBox>
     <br />
     <br />
@@ -48,6 +49,10 @@
     <asp:TextBox ID="txtTheme" runat="server"></asp:TextBox>
 &nbsp; Animals Used:&nbsp;
     <asp:TextBox ID="txtAnimalsUsed" runat="server"></asp:TextBox>
+    <br />
+    <br />
+    Comments:
+    <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
     <br />
     <br />
     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />

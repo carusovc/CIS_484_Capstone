@@ -7,6 +7,7 @@ using System.Web;
 public class Online
 {
     private DateTime date;
+    private int dateOfMonth;
     private String month;
     private String type;
     private int kidsInClass;
@@ -73,6 +74,11 @@ public class Online
         this.numOfPeople = numOfPeople;
     }
 
+    public void setDateOfMonth(int dateOfMonth)
+    {
+        this.dateOfMonth = dateOfMonth;
+    }
+
     public void setGrade(string grade)
     {
         this.grade = grade;
@@ -133,6 +139,12 @@ public class Online
     {
         return numOfPeople;
     }
+
+    public int getDateOfMonth()
+    {
+        return dateOfMonth;
+    }
+
 
     public String getGrade()
     {

@@ -29,7 +29,7 @@ public partial class createUser : System.Web.UI.Page
                 try
                 {
                     System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-                    sc.ConnectionString = @"Server=LOCALHOST;Database=WildlifeCenter;Trusted_Connection=Yes;"; // connect to PBKDF2 database
+                    sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;"; // connect to PBKDF2 database
                     lblStatus.Text = "Database Connection Successful";
                     sc.Open();
 

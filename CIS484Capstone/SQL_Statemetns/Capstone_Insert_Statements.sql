@@ -1,4 +1,4 @@
-Use WildTech
+Use WildTek
 
 Insert into [dbo].[ProgramType](ProgramName) VALUES ('Display');
 Insert into [dbo].[ProgramType](ProgramName) VALUES ('Special Request');
