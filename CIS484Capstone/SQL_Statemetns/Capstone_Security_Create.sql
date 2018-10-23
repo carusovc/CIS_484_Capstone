@@ -1,4 +1,4 @@
-USE [WildTech]
+USE [WildTek]
 GO
 
 CREATE TABLE Person(

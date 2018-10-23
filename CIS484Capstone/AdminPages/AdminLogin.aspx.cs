@@ -22,12 +22,12 @@ public partial class AdminPages_AdminLogin : System.Web.UI.Page
 
             //AWS connection
             //SqlConnection cn = new SqlConnection();
-            //cn.ConnectionString = "Data Source=wildlifecenteraws.cpe6s6lt7jmj.us-east-1.rds.amazonaws.com;Initial Catalog=WildTech;Persist Security Info=True;User ID=Master;Password=Wildlife";
+            //cn.ConnectionString = "Data Source=wildlifecenteraws.cpe6s6lt7jmj.us-east-1.rds.amazonaws.com;Initial Catalog=WildTek;Persist Security Info=True;User ID=Master;Password=Wildlife";
 
 
             //localhost connection
             System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            sc.ConnectionString = @"Server=LOCALHOST;Database=WildTech;Trusted_Connection=Yes;";
+            sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
             lblStatus.Text = "Database Connection Successful";
 
             //cn.Open();

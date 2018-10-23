@@ -19,10 +19,12 @@
     <br />
     Organization Name: &nbsp;<asp:DropDownList ID="ddlOrganizationName" runat="server" DataSourceID="SqlDataSource2" DataTextField="OrgName" DataValueField="OrgID">
     </asp:DropDownList>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildlifeCenterConnectionString2 %>" SelectCommand="SELECT [OrgID], [OrgName] FROM [Organization]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString2 %>" SelectCommand="SELECT [OrgID], [OrgName] FROM [Organization]"></asp:SqlDataSource>
 &nbsp;Program:
     <asp:DropDownList ID="ddlProgramTypeID" runat="server" DataSourceID="SqlDataSource1" DataTextField="ProgramName" DataValueField="ProgramTypeID">
 </asp:DropDownList>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [ProgramTypeID], [ProgramName] FROM [ProgramType]"></asp:SqlDataSource>
+&nbsp;Program:
 
     
 &nbsp; Program Address:
@@ -60,7 +62,7 @@
     Educators:
     &nbsp;<asp:DropDownList ID="ddlEducator" runat="server" DataSourceID="SqlDataSource4" DataTextField="EducatorFirstName" DataValueField="EducatorFirstName">
     </asp:DropDownList>
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildlifeCenterConnectionString5 %>" SelectCommand="SELECT * FROM [Educators]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString5 %>" SelectCommand="SELECT * FROM [Educators]"></asp:SqlDataSource>
     &nbsp;# of People:
     <asp:TextBox ID="txtNumOfAdults" runat="server"></asp:TextBox>
 &nbsp; # of Children:&nbsp;
@@ -68,7 +70,7 @@
     &nbsp; Grade
 <asp:DropDownList ID="ddlGrade" runat="server" DataSourceID="SqlDataSource3" DataTextField="GradeLevel" DataValueField="GradeID">
 </asp:DropDownList>
-<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildlifeCenterConnectionString3 %>" SelectCommand="SELECT * FROM [Grade]"></asp:SqlDataSource>
+<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString3 %>" SelectCommand="SELECT * FROM [Grade]"></asp:SqlDataSource>
     <br />
     <br />
     &nbsp;<asp:Button ID="btnAdd" runat="server" Text="Add Animal" OnClick="btnAdd_Click" />
