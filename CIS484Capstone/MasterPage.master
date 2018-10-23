@@ -29,7 +29,7 @@
         <br />
          <asp:Menu ID="Menu2" runat="server">
             <Items>
-                <asp:MenuItem NavigateUrl="~/AdminPages/CreateUser.aspx" Text="Create New Educator" Value="CreateUser"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/CreateUser.aspx" Text="Create New Educator" Value="CreateUser"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/ProgramForm.aspx" Text="Programs" Value="Programs"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/OnlineForm.aspx" Text="Online" Value="Online"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/SimpleReport.aspx" Text="Simple Report" Value="Simple Report"></asp:MenuItem>
