@@ -5,24 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <br />
     <br />
-    <asp:Label ID="lblDate" runat="server" Text="Date"></asp:Label> &nbsp;<asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
-    &nbsp;
-    Month:
-    <asp:DropDownList ID="ddlMonth" runat="server">
-        <asp:ListItem>January</asp:ListItem>
-        <asp:ListItem>February</asp:ListItem>
-        <asp:ListItem>March</asp:ListItem>
-        <asp:ListItem>April</asp:ListItem>
-        <asp:ListItem>May</asp:ListItem>
-        <asp:ListItem>June</asp:ListItem>
-        <asp:ListItem>July</asp:ListItem>
-        <asp:ListItem>August</asp:ListItem>
-        <asp:ListItem>September</asp:ListItem>
-        <asp:ListItem>October</asp:ListItem>
-        <asp:ListItem>November</asp:ListItem>
-        <asp:ListItem>December</asp:ListItem>
-    </asp:DropDownList>
-        &nbsp;&nbsp; Type: <asp:TextBox ID="txtType" runat="server" Width="103px"></asp:TextBox>
+    <asp:Label ID="lblDate" runat="server" Text="Date"></asp:Label> :
+        &nbsp;<asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+    &nbsp; 
+    <br />
+    Type ID: <asp:TextBox ID="txtType" runat="server" Width="103px"></asp:TextBox>
     <br />
     <br />
     # of Kids in Class:&nbsp;

@@ -24,8 +24,8 @@ public partial class Online : System.Web.UI.Page
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         int onlineProgramID; // need to designate identity
-        DateTime prgmDate; // = need to format to convert to DateTime
-        string month = ddlMonth.SelectedValue.ToString();
+        DateTime prgmDate = Calendar1.SelectedDate;
+        string month = setMonth(prgmDate);
         int onlineProgramTypeID = Int32.Parse(txtType.Text.ToString());
         int numOfKids = Int32.Parse(txtNumOfKids.Text.ToString());
         int numOfPeople = Int32.Parse(txtNumOfPeople.Text.ToString());
@@ -39,4 +39,12 @@ public partial class Online : System.Web.UI.Page
 
 
     }
+
+    public string setMonth (DateTime prgmDate)
+    {
+        string month = prgmDate.ToString("MMMM");
+        return month;
+    }
+
+    
 }
