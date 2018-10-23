@@ -54,8 +54,9 @@
         <asp:ListItem>November</asp:ListItem>
         <asp:ListItem>December</asp:ListItem>
     </asp:DropDownList>
-&nbsp; Date/Time:
-    <asp:TextBox ID="txtDateTime" runat="server"></asp:TextBox>
+    &nbsp; Date:
+    <asp:TextBox ID="txtDate" runat="server"></asp:TextBox> &nbsp; Start Time:
+    <asp:TextBox ID="txtTime" runat="server"></asp:TextBox>
     
     <br />
     <br />
@@ -91,8 +92,8 @@
     Payment Completed?<asp:RadioButtonList ID="rboWaitForPayment" runat="server">
         <asp:ListItem Value="Y">Yes</asp:ListItem>
         <asp:ListItem Value="N">No</asp:ListItem>
-    </asp:RadioButtonList>
-    <br />
+    </asp:RadioButtonList> Comments: <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
+    <br /> 
     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
     
 &nbsp;<asp:Button ID="btnLogOut" runat="server" Text="Logout" OnClick="btnLogOut_Click" />

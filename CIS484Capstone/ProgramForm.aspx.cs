@@ -16,7 +16,7 @@ public partial class ProgramForm : System.Web.UI.Page
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         sc.Open();
-        //lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString();
+        
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
@@ -70,6 +70,7 @@ public partial class ProgramForm : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand orgInsert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand educatorInsert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand programAnimalInsert = new System.Data.SqlClient.SqlCommand();
+        
         insert.Connection = sc;
         orgInsert.Connection = sc;
         educatorInsert.Connection = sc;
@@ -83,9 +84,11 @@ public partial class ProgramForm : System.Web.UI.Page
         int numOfChildren = Convert.ToInt32(txtNumOfChildren.Text);
         int numOfAdult = Convert.ToInt32(txtNumOfAdults.Text);
         char waitForPayment = Convert.ToChar(rboWaitForPayment.SelectedItem.Value);
-        DateTime dateTime = Convert.ToDateTime(txtDateTime.Text);
+        DateTime programDate = Convert.ToDateTime(txtDate.Text);
+        TimeSpan programTime = TimeSpan.Parse(txtTime.Text);
+        string extraComments = txtComments.Text;
         string reportMonth = ddlReportMonth.SelectedItem.Value;
-        int grade = Convert.ToInt32(ddlGrade.SelectedItem.Value);
+        
         //Organization class attributes
         string organizationName = Convert.ToString(ddlOrganizationName.SelectedItem);
         string city = txtCity.Text;
@@ -95,26 +98,28 @@ public partial class ProgramForm : System.Web.UI.Page
         //string firstName = txtEducators.Text.Substring(0, txtEducators.Text.IndexOf(" "));
         //string lastName = txtEducators.Text.Substring(txtEducators.Text.IndexOf(" "));
 
+        //int grade = Convert.ToInt32(ddlGrade.SelectedItem.Value);
 
-
-        Program newProgram = new Program(onOff, status, programAddress, reportMonth, dateTime, programTypeID, numOfChildren, numOfAdult, waitForPayment, grade);
+        Program newProgram = new Program(onOff, status, programAddress, reportMonth, programTypeID, numOfChildren, numOfAdult, waitForPayment, programDate, programTime, extraComments);
         Organization newOrganization = new Organization(organizationName, city, county);
         //Educator newEducator = new Educator(firstName, lastName);
 
-        insert.CommandText = "insert into dbo.Program (programTypeID, orgID, programAddress, onOff, numberOfChildren, numberOfPeople, paymentNeeded, DateAndTime, EventMonth, Status, GradeID) values "
-            + "(@programTypeID, @orgID, @programAddress, @onOff, @numberOfChildren, @numberOfPeople, @paymentNeeded, @dateAndTime, @eventMonth, @status, @grade)";
+        insert.CommandText = "insert into dbo.Program (programTypeID, orgID, status, programAddress, onOff, numberOfChildren, numberOfAdults, paymentNeeded, programDate, programTime, EventMonth, ExtraComments) values "
+            + "(@programTypeID, @orgID, @status, @programAddress, @onOff, @numberOfChildren, @numberOfAdults, @paymentNeeded, @programDate, @programTime, @eventMonth, @extraComments)";
 
         insert.Parameters.AddWithValue("@programTypeID", newProgram.getProgramTypeID());
         insert.Parameters.AddWithValue("@orgID", ddlOrganizationName.SelectedItem.Value);
         insert.Parameters.AddWithValue("@programAddress", newProgram.getProgramAddress());
         insert.Parameters.AddWithValue("@onOff", newProgram.getOnOff());
         insert.Parameters.AddWithValue("@numberOfChildren", newProgram.getNumOfChildren());
-        insert.Parameters.AddWithValue("@numberOfPeople", newProgram.getNumOfAdult());
+        insert.Parameters.AddWithValue("@numberOfAdults", newProgram.getNumOfAdult());
         insert.Parameters.AddWithValue("@paymentNeeded", newProgram.getWaitForPayment());
-        insert.Parameters.AddWithValue("@dateAndTime", newProgram.getDateTime());
+        insert.Parameters.AddWithValue("@programDate", newProgram.getDate());
+        insert.Parameters.AddWithValue("@programTime", newProgram.getTime());
         insert.Parameters.AddWithValue("@eventMonth", newProgram.getReportMonth());
         insert.Parameters.AddWithValue("@status", newProgram.getStatus());
-        insert.Parameters.AddWithValue("@grade", newProgram.getGrade());
+        insert.Parameters.AddWithValue("@extraComments", newProgram.getComments());
+        //insert.Parameters.AddWithValue("@grade", newProgram.getGrade());
 
         insert.ExecuteNonQuery();
 
@@ -135,6 +140,8 @@ public partial class ProgramForm : System.Web.UI.Page
         //programAnimalInsert.Parameters.AddWithValue("@programID", "select programID from program where programid = 1");
         //programAnimalInsert.Parameters.AddWithValue("@animalID", ddlAnimalName.SelectedItem.Value);
         //programAnimalInsert.ExecuteNonQuery();
+
+
 
     }
 
@@ -181,7 +188,8 @@ public partial class ProgramForm : System.Web.UI.Page
     protected void btnPopulate_Click(object sender, EventArgs e)
     {
         txtProgramAddress.Text = "123 Mammal Drive";
-        txtDateTime.Text = "1/18/2018";
+        txtDate.Text = "1/18/2018";
+        txtTime.Text = "09:00";
         txtNumOfAdults.Text = "25";
         txtNumOfChildren.Text = "15";
         rboWaitForPayment.SelectedIndex = 0;
@@ -189,6 +197,7 @@ public partial class ProgramForm : System.Web.UI.Page
         txtCounty.Text = "Rockingham";
         rboOnOff.SelectedIndex = 1;
         txtStatus.Text = "Completed";
+        txtComments.Text = "N/A";
     }
 
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)

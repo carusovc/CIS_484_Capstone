@@ -23,24 +23,28 @@ public class Program
     private int numOfChildren;
     private int numOfAdult;
     private char waitForPayment;
-    private DateTime dateTime;
+    private DateTime date;
     private String reportMonth;
-    private int grade;
+    //private int grade;
+    private TimeSpan time;
+    private String comments;
 
     public Program()
     {
 
     }
     //Overload Constructor
-    public Program(byte onOff, string status, string programAddress, string reportMonth, DateTime dateTime, int programTypeID,
-        int numOfChildren, int numOfAdult, char waitForPayment, int grade)
+    public Program(byte onOff, string status, string programAddress, string reportMonth, int programTypeID,
+        int numOfChildren, int numOfAdult, char waitForPayment, DateTime date, TimeSpan time, string comments)
     {
         setOnOff(onOff);
         setStatus(status);
         //setOrganizationName(organizationName);
         setProgramAddress(programAddress);
         setReportMonth(reportMonth);
-        setDateTime(dateTime);
+        setDate(date);
+        setTime(time);
+        setComments(comments);
         setProgramTypeID(programTypeID);
         //setEducators(educators);
         //setBird(bird);
@@ -49,7 +53,7 @@ public class Program
         setNumOfChildren(numOfChildren);
         setNumOfAdult(numOfAdult);
         setWaitForPayment(waitForPayment);
-        setGrade(grade);
+        //setGrade(grade);
         //setCity(city);
         //setCountry(country);
 
@@ -77,10 +81,10 @@ public class Program
         this.reportMonth = reportMonth;
     }
 
-    public void setDateTime(DateTime dateTime)
-    {
-        this.dateTime = dateTime;
-    }
+    //public void setDateTime(DateTime dateTime)
+    //{
+    //    this.dateTime = dateTime;
+    //}
 
     public void setProgramTypeID(int program)
     {
@@ -103,10 +107,24 @@ public class Program
         this.waitForPayment = waitForPayment;
     }
 
-    public void setGrade(int grade)
+    public void setDate(DateTime date)
     {
-        this.grade = grade;
+        this.date = date;
     }
+
+    public void setTime(TimeSpan time)
+    {
+        this.time = time;
+    }
+
+    public void setComments(String comments)
+    {
+        this.comments = comments;
+    }
+    //public void setGrade(int grade)
+    //{
+    //    this.grade = grade;
+    //}
 
 
     //Getters
@@ -131,10 +149,10 @@ public class Program
         return reportMonth;
     }
 
-    public DateTime getDateTime()
-    {
-        return dateTime;
-    }
+    //public DateTime getDateTime()
+    //{
+    //    return dateTime;
+    //}
 
     public int getProgramTypeID()
     {
@@ -158,8 +176,23 @@ public class Program
         return waitForPayment;
     }
 
-    public int getGrade()
+    //public int getGrade()
+    //{
+    //    return grade;
+    //}
+
+    public DateTime getDate()
     {
-        return grade;
+        return date;
+    }
+
+    public TimeSpan getTime()
+    {
+        return time;
+    }
+
+    public String getComments()
+    {
+        return comments;
     }
 }

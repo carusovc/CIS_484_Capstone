@@ -23,28 +23,65 @@ public partial class Online : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        int onlineProgramID; // need to designate identity
-        DateTime prgmDate = Calendar1.SelectedDate;
-        string month = setMonth(prgmDate);
-        int onlineProgramTypeID = Int32.Parse(txtType.Text.ToString());
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+
+        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+        sc.Open();
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        insert.Connection = sc;
+
+        //int onlineProgramID; // need to designate identity
+        DateTime prgmDate = Convert.ToDateTime(txtDate.Text); 
+        string month = ddlMonth.SelectedValue.ToString();
+        int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
+        String type = Convert.ToString(ddlProgramType.SelectedItem);
         int numOfKids = Int32.Parse(txtNumOfKids.Text.ToString());
         int numOfPeople = Int32.Parse(txtNumOfPeople.Text.ToString());
         string city = txtCity.Text.ToString();
-        string state = txtStateCountry.Text.ToString();
-        string country = txtStateCountry.Text.ToString();
+        string stateCountry = txtStateCountry.Text.ToString();
+        //string country = txtStateCountry.Text.ToString();
         string teacherName = txtTeacher.Text.ToString();
         string contactEmail = txtEmail.Text.ToString();
         string extraComments = txtComments.Text.ToString();
 
 
+        OnlineProgram newOnlineProgram = new OnlineProgram(prgmDate, month, onlineProgramTypeID, numOfKids, numOfPeople, city, stateCountry, teacherName, contactEmail, extraComments);
+
+        insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments) " +
+            "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments)";
+
+        insert.Parameters.AddWithValue("@programDate", newOnlineProgram.getDate());
+        insert.Parameters.AddWithValue("@month", newOnlineProgram.getMonth());
+        insert.Parameters.AddWithValue("@typeID", newOnlineProgram.getType());
+        insert.Parameters.AddWithValue("@numOfKids", newOnlineProgram.getKidsInClass());
+        insert.Parameters.AddWithValue("@numOfPeople", newOnlineProgram.getNumOfPeople());
+        insert.Parameters.AddWithValue("@city", newOnlineProgram.getCity());
+        insert.Parameters.AddWithValue("@state", newOnlineProgram.getStateCountry());
+        insert.Parameters.AddWithValue("@country", newOnlineProgram.getStateCountry());
+        insert.Parameters.AddWithValue("@teacherName", newOnlineProgram.getTeacher());
+        insert.Parameters.AddWithValue("@contactEmail", newOnlineProgram.getEmail());
+        insert.Parameters.AddWithValue("@extraComments", newOnlineProgram.getComments());
+
+        insert.ExecuteNonQuery();
 
     }
 
-    public string setMonth (DateTime prgmDate)
+    protected void btnPopulate_Click(object sender, EventArgs e)
     {
-        string month = prgmDate.ToString("MMMM");
-        return month;
-    }
+        txtDate.Text = "10/23/2018";
+        txtNumOfKids.Text = "25";
+        txtNumOfPeople.Text = "50";
+        txtCity.Text = "London";
+        txtStateCountry.Text = "Ontario, Canada";
+        txtEmail.Text = "sarah@dukes.com";
+        ddlGrade.SelectedIndex = 3;
+        txtTeacher.Text = "Sarah";
+        txtEducator.Text = "Raina";
+        txtTheme.Text = "Owl";
+        txtAnimalsUsed.Text = "Gus";
+        txtComments.Text = "N/A";
+        ddlMonth.SelectedValue = "October";
 
-    
+    }
 }

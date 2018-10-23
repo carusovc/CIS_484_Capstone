@@ -3,9 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-
-public class Online
+/// <summary>
+/// Summary description for OnlineProgram
+/// </summary>
+public class OnlineProgram
 {
+    public OnlineProgram()
+    {
+        //
+        // TODO: Add constructor logic here
+        //
+    }
     private DateTime date;
     //private int dateOfMonth;
     private String month;
@@ -22,13 +30,9 @@ public class Online
     //private String animalsUsed;
     //private String grade;
 
-    public Online()
-    {
-
-    }
 
     //Overload Constructor
-    public Online(DateTime date, string month, int type, int kidsInClass, int numOfPeople, string city, string stateCountry, string teacher, string email, string comments)
+    public OnlineProgram(DateTime date, string month, int type, int kidsInClass, int numOfPeople, string city, string stateCountry, string teacher, string email, string comments)
     {
         setDate(date);
         setMonth(month);
@@ -37,8 +41,8 @@ public class Online
         setNumOfPeople(numOfPeople);
         setCity(city);
         setStateCountry(stateCountry);
-        
-       
+
+
         setTeacher(teacher);
         setEmail(email);
         setComments(comments);
@@ -202,4 +206,3 @@ public class Online
     //    return animalsUsed;
     //}
 }
-
