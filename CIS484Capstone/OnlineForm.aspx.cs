@@ -17,11 +17,18 @@ public partial class Online : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
 
+        // Populate Year from 1990 through 2020
+        for (int i = 2020; i >= 1990; i--)
+        {
+            ddlYear.Items.Add(new ListItem(i.ToString()));
+        }
+
+
     }
 
 
-
-    protected void btnSubmit_Click(object sender, EventArgs e)
+    /*
+    protected void btnSubmit_Click1(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
@@ -32,14 +39,14 @@ public partial class Online : System.Web.UI.Page
         insert.Connection = sc;
 
         //int onlineProgramID; // need to designate identity
-        DateTime prgmDate = Convert.ToDateTime(txtDate.Text); 
+        DateTime prgmDate = Convert.ToDateTime(Int32.Parse(ddlMonth.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlDate.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlYear.SelectedIndex.ToString()));
         string month = ddlMonth.SelectedValue.ToString();
         int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
         String type = Convert.ToString(ddlProgramType.SelectedItem);
         int numOfKids = Int32.Parse(txtNumOfKids.Text.ToString());
         int numOfPeople = Int32.Parse(txtNumOfPeople.Text.ToString());
         string city = txtCity.Text.ToString();
-        string stateCountry = txtStateCountry.Text.ToString();
+        //string stateCountry = txtStateCountry.Text.ToString();
         //string country = txtStateCountry.Text.ToString();
         string teacherName = txtTeacher.Text.ToString();
         string contactEmail = txtEmail.Text.ToString();
@@ -66,14 +73,17 @@ public partial class Online : System.Web.UI.Page
         insert.ExecuteNonQuery();
 
     }
-
+    */
     protected void btnPopulate_Click(object sender, EventArgs e)
     {
-        txtDate.Text = "10/23/2018";
+        ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
+        selectMonthDays();
+        ddlDate.SelectedValue = DateTime.Now.Day.ToString();
+        ddlYear.SelectedValue = DateTime.Now.Year.ToString();
         txtNumOfKids.Text = "25";
         txtNumOfPeople.Text = "50";
-        txtCity.Text = "London";
-        txtStateCountry.Text = "Ontario, Canada";
+       txtCity.Text = "London";
+       // txtStateCountry.Text = "Ontario, Canada";
         txtEmail.Text = "sarah@dukes.com";
         ddlGrade.SelectedIndex = 3;
         txtTeacher.Text = "Sarah";
@@ -84,4 +94,69 @@ public partial class Online : System.Web.UI.Page
         ddlMonth.SelectedValue = "October";
 
     }
+
+    public void SetDaysInMonth(int maxDay)
+    {
+        for (int i = 1; i <= maxDay; i++)
+        {
+            ddlDate.Items.Add(new ListItem(i.ToString()));
+        }
+
+    }
+
+    public void selectMonthDays()
+    {
+
+        int selectedMonth = ddlMonth.SelectedIndex;
+
+        if (selectedMonth == 1 || selectedMonth == 3 || selectedMonth == 5 || selectedMonth == 7 || selectedMonth == 8 || selectedMonth == 10 || selectedMonth == 12)
+        {
+            SetDaysInMonth(31);
+
+        }
+        else if (selectedMonth == 4 || selectedMonth == 6 || selectedMonth == 9 || selectedMonth == 11)
+        {
+            SetDaysInMonth(30);
+
+        }
+        else if (selectedMonth == 2)
+        {
+            ddlDate.Items.Clear();
+            if (Int32.Parse(ddlYear.SelectedValue) % 4 == 0)
+            {
+                SetDaysInMonth(29);
+            }
+            else
+            {
+                SetDaysInMonth(28);
+            }
+        }
+    }
+
+
+
+    protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        selectMonthDays();
+    }
+
+    protected void ddlYear_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int selectedMonth = ddlMonth.SelectedIndex;
+
+        if (selectedMonth == 2)
+        {
+            ddlDate.Items.Clear();
+            if (Int32.Parse(ddlYear.SelectedValue) % 4 == 0)
+            {
+                SetDaysInMonth(29);
+            }
+            else
+            {
+                SetDaysInMonth(28);
+            }
+        }
+    }
+
+ 
 }
