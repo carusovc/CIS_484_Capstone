@@ -5,10 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
-// Updated Last 10.22.19 at 4:35 pm
-public partial class AdminPages_AdminLogin : System.Web.UI.Page
-{
 
+public partial class AdminLogin : System.Web.UI.Page
+{
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -19,22 +18,13 @@ public partial class AdminPages_AdminLogin : System.Web.UI.Page
         // connect to database to retrieve stored password string
         try
         {
-
-            //AWS connection
-            //SqlConnection cn = new SqlConnection();
-            //cn.ConnectionString = "Data Source=wildlifecenteraws.cpe6s6lt7jmj.us-east-1.rds.amazonaws.com;Initial Catalog=WildTek;Persist Security Info=True;User ID=Master;Password=Wildlife";
-
-
-            //localhost connection
             System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
             sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
             lblStatus.Text = "Database Connection Successful";
 
-            //cn.Open();
             sc.Open();
             System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
             findPass.Connection = sc;
-           // findPass.Connection = cn;
             // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
             findPass.CommandText = "select PasswordHash from Pass where Username = @Username";
             findPass.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
@@ -53,7 +43,7 @@ public partial class AdminPages_AdminLogin : System.Web.UI.Page
                         btnLogin.Enabled = false;
                         txtUsername.Enabled = false;
                         txtPassword.Enabled = false;
-                        Response.Redirect("~/Landing.aspx", false);
+                        Response.Redirect("ProgramForm.aspx", false);
 
                         Session["USER_ID"] = txtUsername.Text;
                     }
@@ -64,9 +54,6 @@ public partial class AdminPages_AdminLogin : System.Web.UI.Page
             else // if the username doesn't exist, it will show failure
                 lblStatus.Text = "Incorrect Username or Password. Please Try again.";
 
-
-
-            //cn.Close();
             sc.Close();
         }
         catch
@@ -95,11 +82,5 @@ public partial class AdminPages_AdminLogin : System.Web.UI.Page
             this.txtPassword.Text = txtPassword.Text;
         }
 
-    }
-
-    protected void btnCreateNewUser_Click(object sender, EventArgs e)
-    {
-        Session.RemoveAll();
-        Response.Redirect("AdminPages/createUser.aspx", false);
     }
 }
