@@ -12,10 +12,43 @@ public partial class Online : System.Web.UI.Page
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         sc.Open();
-        //lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString();
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
+
+
+        if (!IsPostBack)
+        {
+            if (ddlAnimalType.SelectedIndex == 0)
+            {
+
+                insert.CommandText = "select * from dbo.Animal where animalType = 'bird'";
+
+
+            }
+
+            else if (ddlAnimalType.SelectedIndex == 1)
+            {
+                insert.CommandText = "select * from dbo.Animal where animalType = 'mammal'";
+
+            }
+
+            else
+            {
+                insert.CommandText = "select * from dbo.Animal where animalType = 'reptile'";
+
+            }
+
+            ddlAnimalName.DataSource = insert.ExecuteReader();
+            ddlAnimalName.DataTextField = "AnimalName";
+            ddlAnimalName.DataValueField = "AnimalID";
+            ddlAnimalName.DataBind();
+        }
+
+        //lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString();
+
+        //System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        //insert.Connection = sc;
 
         // Populate Year from 1990 through 2020
         for (int i = 2020; i >= 1990; i--)
@@ -36,8 +69,27 @@ public partial class Online : System.Web.UI.Page
 
             sc.Open();
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+            System.Data.SqlClient.SqlCommand pullOnlineProgramID = new System.Data.SqlClient.SqlCommand();
+            System.Data.SqlClient.SqlCommand pullAnimalID = new System.Data.SqlClient.SqlCommand();
+            System.Data.SqlClient.SqlCommand onlineAnimalInsert = new System.Data.SqlClient.SqlCommand();
+            System.Data.SqlClient.SqlCommand pullEducatorID = new System.Data.SqlClient.SqlCommand();
+            System.Data.SqlClient.SqlCommand onlineEducatorsInsert = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullGradeID = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand onlineProgramGradesInsert = new System.Data.SqlClient.SqlCommand();
+
             insert.Connection = sc;
 
+            pullOnlineProgramID.Connection = sc;
+            pullAnimalID.Connection = sc;
+            onlineAnimalInsert.Connection = sc;
+
+            pullEducatorID.Connection = sc;
+            onlineEducatorsInsert.Connection = sc;
+
+            pullGradeID.Connection = sc;
+            onlineProgramGradesInsert.Connection = sc;
+            
+            //Online Program Variables
             DateTime prgmDate = Convert.ToDateTime((ddlMonth.SelectedItem.Value) + "/" + (ddlDate.SelectedItem.Value) + "/" + (ddlYear.SelectedItem.Value));
             string month = ddlMonth.SelectedValue.ToString();
             int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
@@ -51,11 +103,15 @@ public partial class Online : System.Web.UI.Page
             string contactEmail = txtEmail.Text.ToString();
             string extraComments = txtComments.Text.ToString();
 
+        //Temporary LastUpdated and LastUpdatedBy
+        DateTime tempLastUpdated = DateTime.Today;
+        String tempLastUpdatedBy = "TempWildTekDevs";
 
+            //OnlineProgram table inserts
             OnlineProgram newOnlineProgram = new OnlineProgram(prgmDate, month, onlineProgramTypeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments);
-
-            insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments) " +
-                "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments)";
+            
+            insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments, lastUpdated, lastUpdatedBy) " +
+                "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments, @lastUpdated, @lastUpdatedBy)";
 
             insert.Parameters.AddWithValue("@programDate", newOnlineProgram.getDate());
             insert.Parameters.AddWithValue("@month", newOnlineProgram.getMonth());
@@ -68,10 +124,58 @@ public partial class Online : System.Web.UI.Page
             insert.Parameters.AddWithValue("@teacherName", newOnlineProgram.getTeacher());
             insert.Parameters.AddWithValue("@contactEmail", newOnlineProgram.getEmail());
             insert.Parameters.AddWithValue("@extraComments", newOnlineProgram.getComments());
+        insert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated);
+        insert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy);
 
             insert.ExecuteNonQuery();
 
-        }
+        //Pull onlineProgramID
+        pullOnlineProgramID.CommandText = "Select MAX(onlineProgramID) from OnlineProgram";
+        int tempOnlineProgramID = (int)pullOnlineProgramID.ExecuteScalar();
+
+        //Pull animalID
+        pullAnimalID.CommandText = "Select AnimalID from Animal where AnimalName = @animalName";
+        pullAnimalID.Parameters.AddWithValue("@animalName", ddlAnimalName.SelectedItem.Text);
+        int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+
+        //Insert into onlineAnimal table
+        onlineAnimalInsert.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
+        onlineAnimalInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
+        onlineAnimalInsert.Parameters.AddWithValue("@animalID", tempAnimalID);
+        onlineAnimalInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated);
+        onlineAnimalInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy);
+
+        onlineAnimalInsert.ExecuteNonQuery();
+
+        //Pull educatorID
+        pullEducatorID.CommandText = "Select EducatorID from Educators where EducatorFirstName = @EducatorFN";
+        pullEducatorID.Parameters.AddWithValue("@EducatorFN", ddlEducator.SelectedItem.Text);
+        int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
+
+        //Insert into onlineEducators table
+        onlineEducatorsInsert.CommandText = "Insert into OnlineEducators (OnlineProgramID, EducatorID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @educatorID, @lastUpdated, @lastUpdatedBy)";
+        onlineEducatorsInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
+        onlineEducatorsInsert.Parameters.AddWithValue("@educatorID", tempEducatorID);
+        onlineEducatorsInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated);
+        onlineEducatorsInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy);
+
+        onlineEducatorsInsert.ExecuteNonQuery();
+
+        //Pull gradeID
+        pullGradeID.CommandText = "Select GradeID from Grade where GradeLevel = @gradeLevel";
+        pullGradeID.Parameters.AddWithValue("@gradeLevel", ddlGrade.SelectedItem.Text);
+        int tempGradeID = (int)pullGradeID.ExecuteScalar();
+
+        //Insert into onlineProgramGrades table
+        onlineProgramGradesInsert.CommandText = "Insert into OnlineProgramGrades (OnlineProgramID, GradeID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @gradeID, @lastUpdated, @lastUpdatedBy)";
+        onlineProgramGradesInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
+        onlineProgramGradesInsert.Parameters.AddWithValue("@gradeID", tempGradeID);
+        onlineProgramGradesInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated);
+        onlineProgramGradesInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy);
+
+        onlineProgramGradesInsert.ExecuteNonQuery();
+
+    }
         
         protected void btnPopulate_Click(object sender, EventArgs e)
     {
@@ -87,9 +191,9 @@ public partial class Online : System.Web.UI.Page
         txtEmail.Text = "sarah@dukes.com";
         ddlGrade.SelectedIndex = 3;
         txtTeacher.Text = "Sarah";
-        txtEducator.Text = "Raina";
+        //txtEducator.Text = "Raina";
         txtTheme.Text = "Owl";
-        txtAnimalsUsed.Text = "Gus";
+        //txtAnimalsUsed.Text = "Gus";
         txtComments.Text = "N/A";
 
     }
@@ -181,6 +285,46 @@ public partial class Online : System.Web.UI.Page
         } else
         {
             ddlState.SelectedIndex = 0;
+        }
+    }
+
+    protected void ddlAnimalType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+
+        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+        sc.Open();
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        insert.Connection = sc;
+
+        if (ddlAnimalType.SelectedValue == "bird")
+        {
+            ddlAnimalName.Items.Clear();
+            insert.CommandText = "select * from dbo.Animal where animalType = 'bird'";
+            ddlAnimalName.DataSource = insert.ExecuteNonQuery();
+            ddlAnimalName.DataTextField = "AnimalName";
+            ddlAnimalName.DataValueField = "AnimalID";
+            ddlAnimalName.DataBind();
+        }
+        else if (ddlAnimalType.SelectedValue == "mammal")
+        {
+            ddlAnimalName.Items.Clear();
+            insert.CommandText = "select * from dbo.Animal where animalType = 'mammal'";
+            ddlAnimalName.DataSource = insert.ExecuteReader();
+            ddlAnimalName.DataTextField = "AnimalName";
+            ddlAnimalName.DataValueField = "AnimalID";
+            ddlAnimalName.DataBind();
+        }
+
+        else if (ddlAnimalType.SelectedValue == "reptile")
+        {
+            ddlAnimalName.Items.Clear();
+            insert.CommandText = "select * from dbo.Animal where animalType = 'reptile'";
+            ddlAnimalName.DataSource = insert.ExecuteReader();
+            ddlAnimalName.DataTextField = "AnimalName";
+            ddlAnimalName.DataValueField = "AnimalID";
+            ddlAnimalName.DataBind();
         }
     }
 }
