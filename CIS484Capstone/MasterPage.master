@@ -32,10 +32,10 @@
                 <asp:MenuItem NavigateUrl="~/CreateUser.aspx" Text="Create New Educator" Value="CreateUser"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/ProgramForm.aspx" Text="Programs" Value="Programs"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/OnlineForm.aspx" Text="Online" Value="Online"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/SimpleReport.aspx" Text="Simple Report" Value="Simple Report"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/MonthlyWildlifeReport.aspx" Text="Simple Report" Value="Simple Report"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/ProgramForm.aspx" Text="Animal" Value="Animal"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/Payment.aspx" Text="Payment" Value="Payment"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/Home.aspx" Text="LogOut" Value="LogOut"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/userLogin.aspx" Text="LogOut" Value="LogOut"></asp:MenuItem>
             </Items>
         </asp:Menu>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">

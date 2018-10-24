@@ -51,6 +51,11 @@ public partial class ProgramForm : System.Web.UI.Page
 
 
 
+        // Populate Year from 1990 through 2020
+        for (int i = 2020; i >= 1990; i--)
+        {
+            ddlYear.Items.Add(new ListItem(i.ToString()));
+        }
 
 
 
@@ -68,13 +73,21 @@ public partial class ProgramForm : System.Web.UI.Page
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand orgInsert = new System.Data.SqlClient.SqlCommand();
-        System.Data.SqlClient.SqlCommand educatorInsert = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand programEducatorInsert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand programAnimalInsert = new System.Data.SqlClient.SqlCommand();
-        
+        System.Data.SqlClient.SqlCommand pullProgramID = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullEducatorID = new System.Data.SqlClient.SqlCommand();
+
+
+
+
+
         insert.Connection = sc;
         orgInsert.Connection = sc;
-        educatorInsert.Connection = sc;
+        programEducatorInsert.Connection = sc;
         programAnimalInsert.Connection = sc;
+        pullProgramID.Connection = sc;
+        pullEducatorID.Connection = sc;
 
         //Program class attributes
         byte onOff = Convert.ToByte(rboOnOff.SelectedIndex);
@@ -84,15 +97,16 @@ public partial class ProgramForm : System.Web.UI.Page
         int numOfChildren = Convert.ToInt32(txtNumOfChildren.Text);
         int numOfAdult = Convert.ToInt32(txtNumOfAdults.Text);
         char waitForPayment = Convert.ToChar(rboWaitForPayment.SelectedItem.Value);
-        DateTime programDate = Convert.ToDateTime(txtDate.Text);
+        DateTime programDate = Convert.ToDateTime((ddlReportMonth.SelectedItem.Value) + "/" + (ddlDate.SelectedItem.Value) + "/" + (ddlYear.SelectedItem.Value));
         TimeSpan programTime = TimeSpan.Parse(txtTime.Text);
         string extraComments = txtComments.Text;
-        string reportMonth = ddlReportMonth.SelectedItem.Value;
-        
+        string reportMonth = ddlReportMonth.SelectedValue.ToString();
+        string cityCounty = txtCity.Text;
+        string state = ddlState1.SelectedValue.ToString();
+
         //Organization class attributes
         string organizationName = Convert.ToString(ddlOrganizationName.SelectedItem);
-        string city = txtCity.Text;
-        string county = txtCounty.Text;
+        
 
         //Educator class attributes
         //string firstName = txtEducators.Text.Substring(0, txtEducators.Text.IndexOf(" "));
@@ -100,16 +114,18 @@ public partial class ProgramForm : System.Web.UI.Page
 
         //int grade = Convert.ToInt32(ddlGrade.SelectedItem.Value);
 
-        Program newProgram = new Program(onOff, status, programAddress, reportMonth, programTypeID, numOfChildren, numOfAdult, waitForPayment, programDate, programTime, extraComments);
-        Organization newOrganization = new Organization(organizationName, city, county);
+        Program newProgram = new Program(onOff, status, programAddress, cityCounty, state, reportMonth, programTypeID, numOfChildren, numOfAdult, waitForPayment, programDate, programTime, extraComments);
+        Organization newOrganization = new Organization(organizationName, cityCounty, state); // NEED TO VERIFY 10/23/18 CVC
         //Educator newEducator = new Educator(firstName, lastName);
 
-        insert.CommandText = "insert into dbo.Program (programTypeID, orgID, status, programAddress, onOff, numberOfChildren, numberOfAdults, paymentNeeded, programDate, programTime, EventMonth, ExtraComments) values "
-            + "(@programTypeID, @orgID, @status, @programAddress, @onOff, @numberOfChildren, @numberOfAdults, @paymentNeeded, @programDate, @programTime, @eventMonth, @extraComments)";
+        insert.CommandText = "insert into dbo.Program (programTypeID, orgID, status, programAddress, CityCounty, State, onOff, numberOfChildren, numberOfAdults, paymentNeeded, programDate, programTime, EventMonth, ExtraComments) values "
+            + "(@programTypeID, @orgID, @status, @programAddress, @cityCounty, @State, @onOff, @numberOfChildren, @numberOfAdults, @paymentNeeded, @programDate, @programTime, @eventMonth, @extraComments)";
 
         insert.Parameters.AddWithValue("@programTypeID", newProgram.getProgramTypeID());
         insert.Parameters.AddWithValue("@orgID", ddlOrganizationName.SelectedItem.Value);
         insert.Parameters.AddWithValue("@programAddress", newProgram.getProgramAddress());
+        insert.Parameters.AddWithValue("@cityCounty", newProgram.getCityCounty());
+        insert.Parameters.AddWithValue("@State", newProgram.getState());
         insert.Parameters.AddWithValue("@onOff", newProgram.getOnOff());
         insert.Parameters.AddWithValue("@numberOfChildren", newProgram.getNumOfChildren());
         insert.Parameters.AddWithValue("@numberOfAdults", newProgram.getNumOfAdult());
@@ -129,6 +145,28 @@ public partial class ProgramForm : System.Web.UI.Page
         orgInsert.Parameters.AddWithValue("@county", newOrganization.getCounty());
 
         orgInsert.ExecuteNonQuery();
+
+        pullProgramID.CommandText = "SELECT MAX(ProgramID) From Program";
+        int tempProgramID = (int)pullProgramID.ExecuteScalar();
+
+
+        pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE EducatorFirstName = @EducatorFN";
+         pullEducatorID.Parameters.AddWithValue("@EducatorFN", ddlEducator.SelectedValue.ToString());
+        int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
+
+        programEducatorInsert.CommandText = "INSERT INTO ProgramEducators (ProgramID, EducatorID) values (@programID, @educatorID)";
+        programEducatorInsert.Parameters.AddWithValue("@programID", tempProgramID);
+        programEducatorInsert.Parameters.AddWithValue("@educatorID", tempEducatorID);
+
+        programEducatorInsert.ExecuteNonQuery();
+
+
+
+
+
+
+
+
 
         //educatorInsert.CommandText = "insert into dbo.Educators (educatorFirstName, educatorLastName) values (@firstName, @lastName)";
         //educatorInsert.Parameters.AddWithValue("@firstName", firstName);
@@ -188,13 +226,16 @@ public partial class ProgramForm : System.Web.UI.Page
     protected void btnPopulate_Click(object sender, EventArgs e)
     {
         txtProgramAddress.Text = "123 Mammal Drive";
-        txtDate.Text = "1/18/2018";
+        ddlReportMonth.SelectedValue = DateTime.Now.ToString("MMMM");
+        selectMonthDays();
+        ddlDate.SelectedValue = DateTime.Now.Day.ToString();
+        ddlYear.SelectedValue = DateTime.Now.Year.ToString();
         txtTime.Text = "09:00";
         txtNumOfAdults.Text = "25";
         txtNumOfChildren.Text = "15";
         rboWaitForPayment.SelectedIndex = 0;
         txtCity.Text = "Harrisonburg";
-        txtCounty.Text = "Rockingham";
+        ddlState1.SelectedValue = "VA";
         rboOnOff.SelectedIndex = 1;
         txtStatus.Text = "Completed";
         txtComments.Text = "N/A";
@@ -241,4 +282,73 @@ public partial class ProgramForm : System.Web.UI.Page
 
 
     }
+
+
+    // sets days in dropdown for month
+    public void SetDaysInMonth(int maxDay)
+    {
+        for (int i = 1; i <= maxDay; i++)
+        {
+            ddlDate.Items.Add(new ListItem(i.ToString()));
+        }
+
+    }
+
+    // if statements to call SetDaysInMonth
+    public void selectMonthDays()
+    {
+
+        int selectedMonth = ddlReportMonth.SelectedIndex;
+
+        if (selectedMonth == 1 || selectedMonth == 3 || selectedMonth == 5 || selectedMonth == 7 || selectedMonth == 8 || selectedMonth == 10 || selectedMonth == 12)
+        {
+            SetDaysInMonth(31);
+
+        }
+        else if (selectedMonth == 4 || selectedMonth == 6 || selectedMonth == 9 || selectedMonth == 11)
+        {
+            SetDaysInMonth(30);
+
+        }
+        else if (selectedMonth == 2)
+        {
+            ddlDate.Items.Clear();
+            if (Int32.Parse(ddlYear.SelectedValue) % 4 == 0)
+            {
+                SetDaysInMonth(29);
+            }
+            else
+            {
+                SetDaysInMonth(28);
+            }
+        }
+    }
+
+
+    //Changes based on selected month
+    protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        selectMonthDays();
+    }
+
+    // Accounts for leap years
+    protected void ddlYear_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int selectedMonth = ddlReportMonth.SelectedIndex;
+
+        if (selectedMonth == 2)
+        {
+            ddlDate.Items.Clear();
+            if (Int32.Parse(ddlYear.SelectedValue) % 4 == 0)
+            {
+                SetDaysInMonth(29);
+            }
+            else
+            {
+                SetDaysInMonth(28);
+            }
+        }
+    }
+
+    
 }

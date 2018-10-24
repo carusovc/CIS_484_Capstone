@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AdminLogin.aspx.cs" Inherits="AdminLogin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AdminLogin-TO BE DELETED - DON'T USE.aspx.cs" Inherits="AdminLogin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 
