@@ -73,13 +73,21 @@ public partial class ProgramForm : System.Web.UI.Page
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand orgInsert = new System.Data.SqlClient.SqlCommand();
-        System.Data.SqlClient.SqlCommand educatorInsert = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand programEducatorInsert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand programAnimalInsert = new System.Data.SqlClient.SqlCommand();
-        
+        System.Data.SqlClient.SqlCommand pullProgramID = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullEducatorID = new System.Data.SqlClient.SqlCommand();
+
+
+
+
+
         insert.Connection = sc;
         orgInsert.Connection = sc;
-        educatorInsert.Connection = sc;
+        programEducatorInsert.Connection = sc;
         programAnimalInsert.Connection = sc;
+        pullProgramID.Connection = sc;
+        pullEducatorID.Connection = sc;
 
         //Program class attributes
         byte onOff = Convert.ToByte(rboOnOff.SelectedIndex);
@@ -137,6 +145,28 @@ public partial class ProgramForm : System.Web.UI.Page
         orgInsert.Parameters.AddWithValue("@county", newOrganization.getCounty());
 
         orgInsert.ExecuteNonQuery();
+
+        pullProgramID.CommandText = "SELECT MAX(ProgramID) From Program";
+        int tempProgramID = (int)pullProgramID.ExecuteScalar();
+
+
+        pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE EducatorFirstName = @EducatorFN";
+         pullEducatorID.Parameters.AddWithValue("@EducatorFN", ddlEducator.SelectedValue.ToString());
+        int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
+
+        programEducatorInsert.CommandText = "INSERT INTO ProgramEducators (ProgramID, EducatorID) values (@programID, @educatorID)";
+        programEducatorInsert.Parameters.AddWithValue("@programID", tempProgramID);
+        programEducatorInsert.Parameters.AddWithValue("@educatorID", tempEducatorID);
+
+        programEducatorInsert.ExecuteNonQuery();
+
+
+
+
+
+
+
+
 
         //educatorInsert.CommandText = "insert into dbo.Educators (educatorFirstName, educatorLastName) values (@firstName, @lastName)";
         //educatorInsert.Parameters.AddWithValue("@firstName", firstName);
@@ -319,4 +349,6 @@ public partial class ProgramForm : System.Web.UI.Page
             }
         }
     }
+
+    
 }
