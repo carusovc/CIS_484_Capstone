@@ -24,7 +24,12 @@
 
         </Columns>
     </asp:GridView>
-   <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Animal.AnimalType, Program.ProgramID, SUM(CASE WHEN Program.onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN Program.onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, Program.NumberOfChildren, Program.NumberOfAdults,SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants, Animal.AnimalName FROM Animal LEFT OUTER JOIN ProgramAnimal ON Animal.AnimalID = ProgramAnimal.AnimalID LEFT OUTER JOIN Program ON ProgramAnimal.ProgramID = Program.ProgramID WHERE (Animal.AnimalType = @AnimalType) GROUP BY Animal.AnimalType, Animal.AnimalName, ProgramAnimal.AnimalID, Program.ProgramID, Program.NumberOfChildren, Program.NumberOfAdults">
+   <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Animal.AnimalType, 
+       Program.ProgramID, SUM(CASE WHEN Program.onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN Program.onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, 
+       Program.NumberOfChildren, Program.NumberOfAdults,SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants, Animal.AnimalName FROM Animal 
+       LEFT OUTER JOIN ProgramAnimal ON Animal.AnimalID = ProgramAnimal.AnimalID LEFT OUTER JOIN Program ON ProgramAnimal.ProgramID = Program.ProgramID 
+       WHERE (Animal.AnimalType = @AnimalType) GROUP BY Animal.AnimalType, Animal.AnimalName, ProgramAnimal.AnimalID, Program.ProgramID, Program.NumberOfChildren, 
+       Program.NumberOfAdults">
         <SelectParameters>
             <asp:ControlParameter ControlID="DropDownList1" Name="AnimalType" PropertyName="SelectedValue" />
         </SelectParameters>
