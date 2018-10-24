@@ -37,11 +37,11 @@ CONSTRAINT PK_ProgramType PRIMARY KEY (ProgramTypeID));
 
 Create Table PaymentRecord(
 PaymentID int IDENTITY(1,1) NOT NULL,
-PaymentAmount int NOT NULL,
-Month varchar(25) NOT NULL,
+PaymentAmount float NOT NULL,
+paymentDate DateTime NOT NULL,
 CheckNumber varchar(25) NULL,
 PaymentType varchar(25) NOT NULL,
-Invoice varchar(25) NOT NULL,
+Invoice varchar(50) NOT NULL,
 CancelledInvoice char(1) NOT NULL,
 OrgID int NOT NULL,
 CONSTRAINT PK_PaymentRecord PRIMARY KEY (PaymentID),
