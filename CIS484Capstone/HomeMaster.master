@@ -41,12 +41,12 @@
 <body>
     <form id="form1" runat="server">
     <div>
-            <asp:Menu ID="Menu1" runat="server">
+           <%-- <asp:Menu ID="Menu1" runat="server">
             <Items>
                 <asp:MenuItem NavigateUrl="~/userLogin.aspx" Text="Administrator Login" Value="Administrator Login"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/ProgramForm.aspx" Text="Volunteer Login" Value="Volunteer Login"></asp:MenuItem>
             </Items>
-        </asp:Menu>
+        </asp:Menu>--%>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>

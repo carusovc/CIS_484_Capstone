@@ -7,20 +7,21 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CIS484Capstone", "CIS484Cap
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_58211"
-		Debug.AspNetCompiler.PhysicalPath = "D:\CAPSTONE\carusovc\CIS_484_Capstone\CIS484Capstone\"
+		Debug.AspNetCompiler.PhysicalPath = "CIS484Capstone\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58211\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_58211"
-		Release.AspNetCompiler.PhysicalPath = "D:\CAPSTONE\carusovc\CIS_484_Capstone\CIS484Capstone\"
+		Release.AspNetCompiler.PhysicalPath = "CIS484Capstone\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58211\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "58211"
+		SlnRelativePath = "CIS484Capstone\"
 	EndProjectSection
 EndProject
 Global

@@ -1,9 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Landing.aspx.cs" Inherits="Landing" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomeMaster.master" AutoEventWireup="true" CodeFile="FormChoice.aspx.cs" Inherits="FormChoice" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-   <!doctype html>
+ 
+   
+    <!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -21,13 +24,11 @@
     <div class="container">
 	<div class="row">
 		<div class="col-md-4 login-sec">
-		    <%--<h2 class="text-center">Choose </h2>--%>
+		    <h2 class="text-center">Choose a Program Form to Complete</h2>
 		    <form class="login-form text-center">
   
-      <asp:Button ID="createUser" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btncreateUser_Click" Text="Create User" />
-        <asp:Button ID="modifyDBinformation" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btnmodifyDBinformation" Text="Modify Wildlife Center Information" />
-      <asp:Button ID="viewReports" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btnviewReports_Click" Text="View Reports" />
-        <asp:Button ID="finances" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btnfinances_Click" Text="Payment Records" />
+      <asp:Button ID="liveForm" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btnLiveCreate_Click" Text="Live Program Form" />
+        <asp:Button ID="onlineFrom" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btnOnlineCreate_Click" Text="Online Program Form" />
      
     </form>
 		
@@ -45,5 +46,5 @@
 <!-- end of do not delete -->
 </body>
 </html>
-   </asp:Content>
+</asp:Content>
 

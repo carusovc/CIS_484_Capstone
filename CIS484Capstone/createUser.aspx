@@ -24,7 +24,7 @@
 
 <div class="container">
       <div class="card card-register mx-auto mt-5">
-        <div class="card-header NewUserTitle">Ceate an Account</div>
+        <div class="card-header NewUserTitle">Create an Account</div>
         <div class="card-body">
           <form>
             <div class="form-group">
