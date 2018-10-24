@@ -1,6 +1,11 @@
 Use WildTek
 Go
 
+Create Table Statuses(
+ StatusID int IDENTITY(1,1) NOT NULL,
+ Status varchar(50) NOT NULL,
+ CONSTRAINT PK_StatusID PRIMARY KEY (StatusID));
+
 Create Table OnlineProgramType(
 OnlineProgramTypeID int IDENTITY(1,1) NOT NULL,
 OnlineProgramTypeName varchar(100) NOT NULL,
@@ -52,6 +57,7 @@ OnlineProgramID int IDENTITY(1,1)  NOT NULL,
 ProgramDate date NOT NULL,
 Month varchar(25) NOT NULL,
 OnlineProgramTypeID int NOT NULL,
+StatusID int NOT NULL,
 NumberOfKids int NULL,
 NumberOfPeople int NULL,
 City varchar(50) NULL,
@@ -61,7 +67,8 @@ TeacherName varchar(100) NULL,
 ContactEmail varchar(100) NULL,
 ExtraComments varchar(250) NULL,
 CONSTRAINT PK_OnlineProgram PRIMARY KEY (OnlineProgramID),
-CONSTRAINT FK_OnlineProgramOnlineProgramType FOREIGN KEY (OnlineProgramTypeID) references OnlineProgramType);
+CONSTRAINT FK_OnlineProgramOnlineProgramType FOREIGN KEY (OnlineProgramTypeID) references OnlineProgramType,
+CONSTRAINT FK_OnlineProgramStatusID FOREIGN KEY (StatusID) references Statuses);
 
 Create Table OnlineEducators(
 OnlineProgramID int NOT NULL,
@@ -82,7 +89,7 @@ Create table Program (
 ProgramID int IDENTITY(1,1) NOT NULL,
 ProgramTypeID int NOT NULL,
 OrgID int NOT NULL,
-Status varchar(50) NOT NULL,
+StatusID int NOT NULL,
 ProgramAddress varchar(50) NULL,
 CityCounty varchar(50) NULL,
 State varchar(50) NULL,
@@ -96,7 +103,8 @@ EventMonth varchar(15) NOT NULL,
 ExtraComments varchar(250) NULL,
 CONSTRAINT PK_ProgramID PRIMARY KEY (ProgramID),
 CONSTRAINT FK_OrgID FOREIGN KEY (OrgID) references Organization,
-CONSTRAINT FK_ProgramTypeID FOREIGN KEY (ProgramTypeID) references ProgramType);
+CONSTRAINT FK_ProgramTypeID FOREIGN KEY (ProgramTypeID) references ProgramType,
+CONSTRAINT FK_StatusID FOREIGN KEY (StatusID) references Statuses);
 
 
 Create Table ProgramEducators(
