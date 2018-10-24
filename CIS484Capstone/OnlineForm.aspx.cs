@@ -38,7 +38,7 @@ public partial class Online : System.Web.UI.Page
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
             insert.Connection = sc;
 
-            DateTime prgmDate = Convert.ToDateTime(Int32.Parse(ddlMonth.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlDate.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlYear.SelectedIndex.ToString()));
+            DateTime prgmDate = Convert.ToDateTime((ddlMonth.SelectedItem.Value) + "/" + (ddlDate.SelectedItem.Value) + "/" + (ddlYear.SelectedItem.Value));
             string month = ddlMonth.SelectedValue.ToString();
             int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
             String type = Convert.ToString(ddlProgramType.SelectedItem);

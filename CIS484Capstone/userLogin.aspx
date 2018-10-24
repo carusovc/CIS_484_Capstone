@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="userLogin.aspx.cs" Inherits="userLogin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomeMaster.master" AutoEventWireup="true" CodeFile="userLogin.aspx.cs" Inherits="userLogin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 
@@ -43,8 +43,9 @@
   </div>
   
   <%--<label ID="lblStatus" runat="server"> </label>--%>
-
-    <asp:Label ID="lblStatus" runat="server"></asp:Label>
+    <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>
+                <br />
+    <asp:Label ID="lblStatus" ForeColor="red" runat="server"></asp:Label>
                  
     <div class="form-check">
     <%--<label class="form-check-label">
@@ -52,7 +53,7 @@
       <small>Remember Me</small>
     </label>--%> <br>
 
-    <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>
+    
 
     <%--<a href="New-User.html"><label class="form-check-label">
       
@@ -61,10 +62,14 @@
     <br>
     
     <%--<a class="btn float-right btn-login" id="btnLogin" runat="server" OnClick="btnLogin_Click" role="button" runat="server">Submit</a> --%>
-    <asp:Button ID="btnLogin" class="btn float-right btn-login" runat="server" OnClick="btnLogin_Click" Text="Login" />
+    <asp:Button ID="btnLogin" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
   
-  </div>
-  
+    </div>
+    <br>
+    <div class="text-center">
+        <a class="d-block small mt-3" href="createUser.aspx">Create New User</a>
+    </div>
+    <br />
 </form>
 		</div>
 		<div class="col-md-8 banner-sec">
@@ -124,4 +129,3 @@
        </div>--%>
 
 </asp:Content>
-

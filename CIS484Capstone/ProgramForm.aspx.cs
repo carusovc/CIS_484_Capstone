@@ -89,7 +89,7 @@ public partial class ProgramForm : System.Web.UI.Page
         int numOfChildren = Convert.ToInt32(txtNumOfChildren.Text);
         int numOfAdult = Convert.ToInt32(txtNumOfAdults.Text);
         char waitForPayment = Convert.ToChar(rboWaitForPayment.SelectedItem.Value);
-        DateTime programDate = Convert.ToDateTime(Int32.Parse(ddlReportMonth.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlDate.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlYear.SelectedIndex.ToString()));
+        DateTime programDate = Convert.ToDateTime((ddlReportMonth.SelectedItem.Value) + "/" + (ddlDate.SelectedItem.Value) + "/" + (ddlYear.SelectedItem.Value));
         TimeSpan programTime = TimeSpan.Parse(txtTime.Text);
         string extraComments = txtComments.Text;
         string reportMonth = ddlReportMonth.SelectedValue.ToString();

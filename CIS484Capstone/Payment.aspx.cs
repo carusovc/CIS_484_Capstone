@@ -38,7 +38,8 @@ public partial class Online : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
 
-        DateTime paymentDate = Convert.ToDateTime(Int32.Parse(ddlMonth.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlDate.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlYear.SelectedIndex.ToString()));
+        //DateTime paymentDate = Convert.ToDateTime(Int32.Parse(ddlMonth.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlDate.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlYear.SelectedIndex.ToString()));
+        DateTime paymentDate = Convert.ToDateTime((ddlMonth.SelectedItem.Value) + "/" + (ddlDate.SelectedItem.Value) + "/" + (ddlYear.SelectedItem.Value));
         string month = ddlMonth.SelectedValue.ToString();
         float paymentAmount = float.Parse(txtAmount.Text.ToString());
         string checkNum = txtCheckNum.Text.ToString();
@@ -118,7 +119,7 @@ public partial class Online : System.Web.UI.Page
         else if (selectedMonth == 2)
         {
             ddlDate.Items.Clear();
-            if (Int32.Parse(ddlYear.SelectedValue) % 4 == 0)
+            if (Int32.Parse(ddlYear.SelectedItem.Value) % 4 == 0)
             {
                 SetDaysInMonth(29);
             }
@@ -144,7 +145,7 @@ public partial class Online : System.Web.UI.Page
         if (selectedMonth == 2)
         {
             ddlDate.Items.Clear();
-            if (Int32.Parse(ddlYear.SelectedValue) % 4 == 0)
+            if (Int32.Parse(ddlYear.SelectedItem.Value) % 4 == 0)
             {
                 SetDaysInMonth(29);
             }

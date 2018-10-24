@@ -134,10 +134,6 @@
 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString3 %>" SelectCommand="SELECT * FROM [Grade]"></asp:SqlDataSource>
     <br />
     <br />
-    &nbsp;<asp:Button ID="btnAdd" runat="server" Text="Add Animal" OnClick="btnAdd_Click" />
-&nbsp;
-    <br />
-    <br />
     <asp:Label ID="lblAnimalType" runat="server" Text="Animal Type:"></asp:Label>&nbsp;<asp:DropDownList ID="ddlAnimalType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
         <asp:ListItem>Bird</asp:ListItem>
         <asp:ListItem>Mammal</asp:ListItem>
@@ -149,6 +145,9 @@
     </asp:DropDownList>
 
     &nbsp;<br />
+    &nbsp;<asp:Button ID="Button1" runat="server" Text="Add Another Animal Used in Program" OnClick="btnAdd_Click" />
+&nbsp;
+    <br />
     Payment Completed?<asp:RadioButtonList ID="rboWaitForPayment" runat="server">
         <asp:ListItem Value="Y">Yes</asp:ListItem>
         <asp:ListItem Value="N">No</asp:ListItem>
