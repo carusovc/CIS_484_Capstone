@@ -102,23 +102,8 @@ Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName, LastUpdated, LastUp
 Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName, LastUpdated, LastUpdatedBy) VALUES ('Skype: Snakes', GETDATE(), 'WildTekDevelopers');
                    
 
-INSERT INTO [dbo].[Program](
-[ProgramTypeID],
-[OrgID],
-[Status],
-[ProgramAddress],
-[CityCounty],
-[State],
-[OnOff],
-[NumberOfChildren],
-[NumberOfAdults],
-[PaymentNeeded],
-[ProgramDate],
-[ProgramTime],
-[EventMonth],
-[ExtraComments])
+INSERT INTO [dbo].[Program]([ProgramTypeID],[OrgID],[Status],[ProgramAddress],[CityCounty],[State],[OnOff],[NumberOfChildren],[NumberOfAdults],[PaymentNeeded],[ProgramDate],[ProgramTime],[EventMonth],[ExtraComments])
+VALUES (1, 1, 'Completed', null, 'Blacksburg, Montgomery', 'Virginia', 'true', 0, 200, 'Y', '1/15/18', '1:00', 'January', 'Was a great learning experience for all!');
 
-VALUES
-(1, 1, 'Completed', null, 'Blacksburg, Montgomery', 'Virginia', 'true', 0, 200, 'Y', '1/15/18', '1:00', 'January', 'Was a great learning experience for all!');
-                   
+                                      
                    
