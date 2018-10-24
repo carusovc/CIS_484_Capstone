@@ -101,8 +101,6 @@ Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName, LastUpdated, LastUp
 Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName, LastUpdated, LastUpdatedBy) VALUES ('Skype: Opossums', GETDATE(), 'WildTekDevelopers');
 Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName, LastUpdated, LastUpdatedBy) VALUES ('Skype: Snakes', GETDATE(), 'WildTekDevelopers');
                    
-Insert into [dbo].[Statuses](Status, LastUpdated, LastUpdatedBy) VALUES ('Completed', GETDATE(), 'WildTekDevelopers');
-Insert into [dbo].[Statuses](Status, LastUpdated, LastUpdatedBy) VALUES ('Scheduled', GETDATE(), 'WildTekDevelopers');
 
 INSERT INTO [dbo].[Program](
 [ProgramTypeID],
