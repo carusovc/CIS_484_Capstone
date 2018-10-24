@@ -29,6 +29,7 @@ public partial class createUser : System.Web.UI.Page
                 try
                 {
                     System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+                    //sc.ConnectionString = @"Data Source=wildlifecenteraws.cpe6s6lt7jmj.us-east-1.rds.amazonaws.com;Initial Catalog=WildlifeCenter;Persist Security Info=True;User ID=Master;Password=Wildlife"; // connect to database
                     sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;"; // connect to PBKDF2 database
                     lblStatus.Text = "Database Connection Successful";
                     sc.Open();
