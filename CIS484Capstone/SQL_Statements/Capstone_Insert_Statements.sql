@@ -100,6 +100,9 @@ Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName) VALUES ('Skype: Owl
 Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName) VALUES ('Skype: Turtles');
 Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName) VALUES ('Skype: Opossums');
 Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName) VALUES ('Skype: Snakes');
+                   
+Insert into [dbo].[Statuses](Status) VALUES ('Completed');
+Insert into [dbo].[Statuses](Status) VALUES ('Scheduled');
 
 INSERT INTO [dbo].[Program](
 [ProgramTypeID],
