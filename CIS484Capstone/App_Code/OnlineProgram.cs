@@ -20,7 +20,8 @@ public class OnlineProgram
     private int type;
     private int kidsInClass;
     private String city;
-    private String stateCountry;
+    private String stateTerritory;
+    private String country;
     private int numOfPeople;
     private String comments;
     private String teacher;
@@ -32,7 +33,7 @@ public class OnlineProgram
 
 
     //Overload Constructor
-    public OnlineProgram(DateTime date, string month, int type, int kidsInClass, int numOfPeople, string city, string stateCountry, string teacher, string email, string comments)
+    public OnlineProgram(DateTime date, string month, int type, int kidsInClass, int numOfPeople, string city, string stateTerritory, string country, string teacher, string email, string comments)
     {
         setDate(date);
         setMonth(month);
@@ -40,7 +41,8 @@ public class OnlineProgram
         setKidsInClass(kidsInClass);
         setNumOfPeople(numOfPeople);
         setCity(city);
-        setStateCountry(stateCountry);
+        setstateTerritory(stateTerritory);
+        setCountry(country);
 
 
         setTeacher(teacher);
@@ -79,9 +81,14 @@ public class OnlineProgram
         this.city = city;
     }
 
-    public void setStateCountry(string stateCountry)
+    public void setstateTerritory(string stateTerritory)
     {
-        this.stateCountry = stateCountry;
+        this.stateTerritory = stateTerritory;
+    }
+
+    public void setCountry (string country)
+    {
+        this.country = country;
     }
 
     public void setNumOfPeople(int numOfPeople)
@@ -150,9 +157,14 @@ public class OnlineProgram
         return kidsInClass;
     }
 
-    public String getStateCountry()
+    public String getstateTerritory()
     {
-        return stateCountry;
+        return stateTerritory;
+    }
+
+    public String getCountry()
+    {
+        return country;
     }
 
     public int getNumOfPeople()

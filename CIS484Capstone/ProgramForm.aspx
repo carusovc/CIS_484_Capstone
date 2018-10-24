@@ -32,15 +32,68 @@
     
     <br />
     <br />
-    City:
+    City/County:
     <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
-&nbsp; County:
-    <asp:TextBox ID="txtCounty" runat="server" Width="191px"></asp:TextBox>
+    &nbsp; State:
+    <asp:DropDownList ID="ddlState1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+        <asp:ListItem>State</asp:ListItem>
+        <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
+        <asp:ListItem Value="AL"></asp:ListItem>
+        <asp:ListItem Value="AK"></asp:ListItem>
+        <asp:ListItem Value="AZ"></asp:ListItem>
+        <asp:ListItem Value="AR"></asp:ListItem>
+        <asp:ListItem Value="CA"></asp:ListItem>
+        <asp:ListItem Value="CO"></asp:ListItem>
+        <asp:ListItem Value="CT"></asp:ListItem>
+        <asp:ListItem Value="DE"></asp:ListItem>
+        <asp:ListItem Value="FL"></asp:ListItem>
+        <asp:ListItem Value="GA"></asp:ListItem>
+        <asp:ListItem Value="HI"></asp:ListItem>
+        <asp:ListItem Value="ID"></asp:ListItem>
+        <asp:ListItem Value="IL"></asp:ListItem>
+        <asp:ListItem Value="IN"></asp:ListItem>
+        <asp:ListItem Value="IA"></asp:ListItem>
+        <asp:ListItem Value="KS"></asp:ListItem>
+        <asp:ListItem Value="KY"></asp:ListItem>
+        <asp:ListItem Value="LA"></asp:ListItem>
+        <asp:ListItem Value="ME"></asp:ListItem>
+        <asp:ListItem Value="MD"></asp:ListItem>
+        <asp:ListItem Value="MA"></asp:ListItem>
+        <asp:ListItem Value="MI"></asp:ListItem>
+        <asp:ListItem Value="MN"></asp:ListItem>
+        <asp:ListItem Value="MS"></asp:ListItem>
+        <asp:ListItem Value="MO"></asp:ListItem>
+        <asp:ListItem Value="MT"></asp:ListItem>
+        <asp:ListItem Value="NE"></asp:ListItem>
+        <asp:ListItem Value="NV"></asp:ListItem>
+        <asp:ListItem Value="NH"></asp:ListItem>
+        <asp:ListItem Value="NJ"></asp:ListItem>
+        <asp:ListItem Value="NM"></asp:ListItem>
+        <asp:ListItem Value="NY"></asp:ListItem>
+        <asp:ListItem Value="NC"></asp:ListItem>
+        <asp:ListItem Value="ND"></asp:ListItem>
+        <asp:ListItem Value="OH"></asp:ListItem>
+        <asp:ListItem Value="OK"></asp:ListItem>
+        <asp:ListItem Value="OR"></asp:ListItem>
+        <asp:ListItem Value="PA"></asp:ListItem>
+        <asp:ListItem Value="RI"></asp:ListItem>
+        <asp:ListItem Value="SC"></asp:ListItem>
+        <asp:ListItem Value="SD"></asp:ListItem>
+        <asp:ListItem Value="TN"></asp:ListItem>
+        <asp:ListItem Value="TX"></asp:ListItem>
+        <asp:ListItem Value="UT"></asp:ListItem>
+        <asp:ListItem Value="VT"></asp:ListItem>
+        <asp:ListItem Value="VA"></asp:ListItem>
+        <asp:ListItem Value="WA"></asp:ListItem>
+        <asp:ListItem Value="WV"></asp:ListItem>
+        <asp:ListItem Value="WI"></asp:ListItem>
+        <asp:ListItem Value="WY"></asp:ListItem>
+    </asp:DropDownList>
     
     <br />
     <br />
-    Report Month:
-    <asp:DropDownList ID="ddlReportMonth" runat="server">
+    Month:
+    <asp:DropDownList ID="ddlReportMonth" runat="server" AutoPostBack="True">
         <asp:ListItem>January</asp:ListItem>
         <asp:ListItem>February</asp:ListItem>
         <asp:ListItem>March</asp:ListItem>
@@ -54,8 +107,15 @@
         <asp:ListItem>November</asp:ListItem>
         <asp:ListItem>December</asp:ListItem>
     </asp:DropDownList>
-    &nbsp; Date:
-    <asp:TextBox ID="txtDate" runat="server"></asp:TextBox> &nbsp; Start Time:
+    &nbsp; Date:&nbsp;
+    <asp:DropDownList ID="ddlDate" runat="server" AutoPostBack="True">
+        <asp:ListItem Value="Day"></asp:ListItem>
+    </asp:DropDownList>
+    &nbsp;&nbsp; Year:
+    <asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged">
+        <asp:ListItem Value="Year"></asp:ListItem>
+    </asp:DropDownList>
+&nbsp; Start Time:
     <asp:TextBox ID="txtTime" runat="server"></asp:TextBox>
     
     <br />
