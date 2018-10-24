@@ -10,6 +10,7 @@
                         </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT DISTINCT [EventMonth] FROM [Program]"></asp:SqlDataSource>
     
+
              <asp:Label ID="lblYear" runat="server" Text="Select a Year:"></asp:Label>
             <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
                         <asp:ListItem></asp:ListItem>
@@ -39,6 +40,7 @@
         <SelectParameters>
             <asp:ControlParameter ControlID="DropDownList1" Name="EventMonth" PropertyName="SelectedValue" Type="String" />
              <asp:ControlParameter ControlID="drpYear" Name="ProgramDate" PropertyName="SelectedValue" Type="String" />
+
         </SelectParameters>
      </asp:SqlDataSource>
     <br />
