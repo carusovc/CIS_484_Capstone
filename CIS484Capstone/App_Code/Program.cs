@@ -13,9 +13,8 @@ public class Program
     //private String bird;
     //private String mammal;
     //private String reptile;
-    //private String city;
-    //private String country;
-
+    private String cityCounty;
+    private String state;
     private String status;
     private int programTypeID;
     private String programAddress;
@@ -34,7 +33,7 @@ public class Program
 
     }
     //Overload Constructor
-    public Program(byte onOff, string status, string programAddress, string reportMonth, int programTypeID,
+    public Program(byte onOff, string status, string programAddress, string cityCounty, string state, string reportMonth, int programTypeID,
         int numOfChildren, int numOfAdult, char waitForPayment, DateTime date, TimeSpan time, string comments)
     {
         setOnOff(onOff);
@@ -54,8 +53,8 @@ public class Program
         setNumOfAdult(numOfAdult);
         setWaitForPayment(waitForPayment);
         //setGrade(grade);
-        //setCity(city);
-        //setCountry(country);
+        setCityCounty(cityCounty);
+        setState(state);
 
     }
 
@@ -68,6 +67,16 @@ public class Program
     public void setStatus(string status)
     {
         this.status = status;
+    }
+
+    public void setCityCounty(string cityCounty)
+    {
+        this.cityCounty = cityCounty;
+    }
+
+    public void setState(string state)
+    {
+        this.state = state;
     }
 
 
@@ -138,6 +147,15 @@ public class Program
         return status;
     }
 
+    public String getCityCounty()
+    {
+        return cityCounty;
+    }
+
+    public String getState()
+    {
+        return state;
+    }
 
     public String getProgramAddress()
     {

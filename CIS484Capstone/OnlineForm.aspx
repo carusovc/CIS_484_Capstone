@@ -42,7 +42,7 @@
 &nbsp; City/County
     <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
     &nbsp; State:
-    <asp:DropDownList ID="DropDownList1" runat="server">
+    <asp:DropDownList ID="ddlState" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
         <asp:ListItem>State</asp:ListItem>
         <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
         <asp:ListItem Value="AL"></asp:ListItem>
@@ -97,7 +97,7 @@
         <asp:ListItem Value="WY"></asp:ListItem>
     </asp:DropDownList>
 &nbsp;Country:
-    <asp:DropDownList ID="DropDownList2" runat="server">
+    <asp:DropDownList ID="ddlCountry" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged">
         <asp:ListItem Value="Country"></asp:ListItem>
         <asp:ListItem Value="Afghanistan"></asp:ListItem>
         <asp:ListItem Value="Albania"></asp:ListItem>

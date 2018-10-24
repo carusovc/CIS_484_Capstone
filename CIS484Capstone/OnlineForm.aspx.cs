@@ -27,54 +27,53 @@ public partial class Online : System.Web.UI.Page
     }
 
 
-    /*
-    protected void btnSubmit_Click1(object sender, EventArgs e)
-    {
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        
+        protected void btnSubmit_Click1(object sender, EventArgs e)
+        {
+            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+            sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
 
-        sc.Open();
-        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-        insert.Connection = sc;
+            sc.Open();
+            System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+            insert.Connection = sc;
 
-        //int onlineProgramID; // need to designate identity
-        DateTime prgmDate = Convert.ToDateTime(Int32.Parse(ddlMonth.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlDate.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlYear.SelectedIndex.ToString()));
-        string month = ddlMonth.SelectedValue.ToString();
-        int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
-        String type = Convert.ToString(ddlProgramType.SelectedItem);
-        int numOfKids = Int32.Parse(txtNumOfKids.Text.ToString());
-        int numOfPeople = Int32.Parse(txtNumOfPeople.Text.ToString());
-        string city = txtCity.Text.ToString();
-        //string stateCountry = txtStateCountry.Text.ToString();
-        //string country = txtStateCountry.Text.ToString();
-        string teacherName = txtTeacher.Text.ToString();
-        string contactEmail = txtEmail.Text.ToString();
-        string extraComments = txtComments.Text.ToString();
+            DateTime prgmDate = Convert.ToDateTime(Int32.Parse(ddlMonth.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlDate.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlYear.SelectedIndex.ToString()));
+            string month = ddlMonth.SelectedValue.ToString();
+            int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
+            String type = Convert.ToString(ddlProgramType.SelectedItem);
+            int numOfKids = Int32.Parse(txtNumOfKids.Text.ToString());
+            int numOfPeople = Int32.Parse(txtNumOfPeople.Text.ToString());
+            string city = txtCity.Text.ToString();
+            string stateTerritory = ddlState.SelectedValue.ToString();
+            string country = ddlCountry.SelectedValue.ToString();
+            string teacherName = txtTeacher.Text.ToString();
+            string contactEmail = txtEmail.Text.ToString();
+            string extraComments = txtComments.Text.ToString();
 
 
-        OnlineProgram newOnlineProgram = new OnlineProgram(prgmDate, month, onlineProgramTypeID, numOfKids, numOfPeople, city, stateCountry, teacherName, contactEmail, extraComments);
+            OnlineProgram newOnlineProgram = new OnlineProgram(prgmDate, month, onlineProgramTypeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments);
 
-        insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments) " +
-            "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments)";
+            insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments) " +
+                "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments)";
 
-        insert.Parameters.AddWithValue("@programDate", newOnlineProgram.getDate());
-        insert.Parameters.AddWithValue("@month", newOnlineProgram.getMonth());
-        insert.Parameters.AddWithValue("@typeID", newOnlineProgram.getType());
-        insert.Parameters.AddWithValue("@numOfKids", newOnlineProgram.getKidsInClass());
-        insert.Parameters.AddWithValue("@numOfPeople", newOnlineProgram.getNumOfPeople());
-        insert.Parameters.AddWithValue("@city", newOnlineProgram.getCity());
-        insert.Parameters.AddWithValue("@state", newOnlineProgram.getStateCountry());
-        insert.Parameters.AddWithValue("@country", newOnlineProgram.getStateCountry());
-        insert.Parameters.AddWithValue("@teacherName", newOnlineProgram.getTeacher());
-        insert.Parameters.AddWithValue("@contactEmail", newOnlineProgram.getEmail());
-        insert.Parameters.AddWithValue("@extraComments", newOnlineProgram.getComments());
+            insert.Parameters.AddWithValue("@programDate", newOnlineProgram.getDate());
+            insert.Parameters.AddWithValue("@month", newOnlineProgram.getMonth());
+            insert.Parameters.AddWithValue("@typeID", newOnlineProgram.getType());
+            insert.Parameters.AddWithValue("@numOfKids", newOnlineProgram.getKidsInClass());
+            insert.Parameters.AddWithValue("@numOfPeople", newOnlineProgram.getNumOfPeople());
+            insert.Parameters.AddWithValue("@city", newOnlineProgram.getCity());
+            insert.Parameters.AddWithValue("@state", newOnlineProgram.getstateTerritory());
+            insert.Parameters.AddWithValue("@country", newOnlineProgram.getCountry());
+            insert.Parameters.AddWithValue("@teacherName", newOnlineProgram.getTeacher());
+            insert.Parameters.AddWithValue("@contactEmail", newOnlineProgram.getEmail());
+            insert.Parameters.AddWithValue("@extraComments", newOnlineProgram.getComments());
 
-        insert.ExecuteNonQuery();
+            insert.ExecuteNonQuery();
 
-    }
-    */
-    protected void btnPopulate_Click(object sender, EventArgs e)
+        }
+        
+        protected void btnPopulate_Click(object sender, EventArgs e)
     {
         ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
         selectMonthDays();
@@ -82,8 +81,9 @@ public partial class Online : System.Web.UI.Page
         ddlYear.SelectedValue = DateTime.Now.Year.ToString();
         txtNumOfKids.Text = "25";
         txtNumOfPeople.Text = "50";
-       txtCity.Text = "London";
-       // txtStateCountry.Text = "Ontario, Canada";
+        txtCity.Text = "Rockingham County";
+        ddlState.SelectedValue = "VA";
+        ddlCountry.SelectedIndex = 187;
         txtEmail.Text = "sarah@dukes.com";
         ddlGrade.SelectedIndex = 3;
         txtTeacher.Text = "Sarah";
@@ -91,10 +91,10 @@ public partial class Online : System.Web.UI.Page
         txtTheme.Text = "Owl";
         txtAnimalsUsed.Text = "Gus";
         txtComments.Text = "N/A";
-        ddlMonth.SelectedValue = "October";
 
     }
 
+    // sets days in dropdown for month
     public void SetDaysInMonth(int maxDay)
     {
         for (int i = 1; i <= maxDay; i++)
@@ -104,6 +104,7 @@ public partial class Online : System.Web.UI.Page
 
     }
 
+    // if statements to call SetDaysInMonth
     public void selectMonthDays()
     {
 
@@ -134,12 +135,13 @@ public partial class Online : System.Web.UI.Page
     }
 
 
-
+    //Changes based on selected month
     protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
     {
         selectMonthDays();
     }
 
+    // Accounts for leap years
     protected void ddlYear_SelectedIndexChanged(object sender, EventArgs e)
     {
         int selectedMonth = ddlMonth.SelectedIndex;
@@ -158,5 +160,27 @@ public partial class Online : System.Web.UI.Page
         }
     }
 
- 
+
+
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddlState.SelectedIndex != 0 && ddlState.SelectedIndex != 1)
+        {
+            ddlCountry.SelectedIndex = 187;
+        } else
+        {
+            ddlCountry.SelectedIndex = 0;
+        }
+    }
+
+    protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddlCountry.SelectedIndex != 187)
+        {
+            ddlState.SelectedIndex = 1;
+        } else
+        {
+            ddlState.SelectedIndex = 0;
+        }
+    }
 }
