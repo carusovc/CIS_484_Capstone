@@ -359,7 +359,18 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
     
-    
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
+    rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
+<script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('[id*=lstFruits]').multiselect({
+            includeSelectAllOption: true
+        });
+    });
+</script>
     
     
 
@@ -1020,8 +1031,17 @@
 </ul>
   </div>
 </div>
-  
+  <asp:listbox ID="DropDownList1" runat="server" AutoPostBack="True">
+        <asp:ListItem Value="Day" CssClass="small DropdownAnimal" value="option1" tabIndex="-1" Text="Buddy"></asp:ListItem>
+    </asp:listbox>
 
+     <asp:ListBox ID="lstFruits" runat="server" SelectionMode="Multiple">
+    <asp:ListItem Text="Mango" Value="1" />
+    <asp:ListItem Text="Apple" Value="2" />
+    <asp:ListItem Text="Banana" Value="3" />
+    <asp:ListItem Text="Guava" Value="4" />
+    <asp:ListItem Text="Orange" Value="5" />
+</asp:ListBox>
  
  
  
