@@ -17,10 +17,11 @@
 	  <!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
+<link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
 
 </head>
 
-<body>
+<body class ="login">
 <section class="login-block">
     <div class="container">
 	<div class="row">
