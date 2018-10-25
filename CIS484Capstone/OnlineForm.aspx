@@ -307,11 +307,21 @@
 &nbsp;<br />
     <br />
     Educator:
-    <asp:TextBox ID="txtEducator" runat="server"></asp:TextBox>
+    <asp:DropDownList ID="ddlEducator" runat="server" DataSourceID="SqlDataSource4" DataTextField="EducatorFirstName" DataValueField="EducatorID">
+    </asp:DropDownList>
+    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="Data Source=localhost;Initial Catalog=WildTek;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Educators]"></asp:SqlDataSource>
 &nbsp;Theme:
     <asp:TextBox ID="txtTheme" runat="server"></asp:TextBox>
-&nbsp; Animals Used:&nbsp;
-    <asp:TextBox ID="txtAnimalsUsed" runat="server"></asp:TextBox>
+&nbsp; Animals Type:&nbsp;
+    <asp:DropDownList ID="ddlAnimalType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlAnimalType_SelectedIndexChanged">
+        <asp:ListItem>Bird</asp:ListItem>
+        <asp:ListItem>Mammal</asp:ListItem>
+        <asp:ListItem>Reptile</asp:ListItem>
+    </asp:DropDownList>
+&nbsp;&nbsp;&nbsp; Animal Name:
+    <asp:DropDownList ID="ddlAnimalName" runat="server">
+    </asp:DropDownList>
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="Data Source=localhost;Initial Catalog=WildTek;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Animal]"></asp:SqlDataSource>
     <br />
     <br />
     Comments:
