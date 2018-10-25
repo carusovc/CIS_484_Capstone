@@ -231,7 +231,6 @@ Insert into dbo.ProgramAnimal(ProgramID,AnimalID,LastUpdated,LastUpdatedBy) VALU
 Insert into dbo.ProgramAnimal(ProgramID,AnimalID,LastUpdated,LastUpdatedBy) VALUES (10,12, '10/25/2018', 'Tyler Stewart');
 Insert into dbo.ProgramAnimal(ProgramID,AnimalID,LastUpdated,LastUpdatedBy) VALUES (12,9, '10/25/2018', 'Tyler Stewart');
 
-Insert into dbo.ProgramAnimal(ProgramID,AnimalID,LastUpdated,LastUpdatedBy) VALUES (10,16, '10/25/2018', 'Tyler Stewart');
 
 Insert into dbo.ProgramAnimal(ProgramID,AnimalID,LastUpdated,LastUpdatedBy) VALUES (15,7, '10/25/2018', 'Tyler Stewart');
 Insert into dbo.ProgramAnimal(ProgramID,AnimalID,LastUpdated,LastUpdatedBy) VALUES (1,9, '10/25/2018', 'Tyler Stewart');
