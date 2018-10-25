@@ -141,7 +141,7 @@
     </asp:DropDownList>
 &nbsp;&nbsp;
     <asp:Label ID="lblAnimalName" runat="server" Text="Animal Name:"></asp:Label>
-&nbsp;<asp:DropDownList ID="ddlAnimalName" DataTextField="AnimalName" DataValueField="AnimalID" runat="server" AutoPostBack="True">
+&nbsp;<asp:DropDownList ID="ddlAnimalName" DataTextField="AnimalName" DataValueField="AnimalID" runat="server">
     </asp:DropDownList>
 
     &nbsp;<br />
