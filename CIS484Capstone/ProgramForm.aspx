@@ -145,7 +145,7 @@
     </asp:DropDownList>
 
     &nbsp;<br />
-    &nbsp;<asp:Button ID="Button1" runat="server" Text="Add Another Animal Used in Program" OnClick="btnAdd_Click" />
+    &nbsp;<asp:Button ID="Button1" runat="server" Text="Add Animal to Program" OnClick="btnAdd_Click" />
 &nbsp;
     <br />
     Payment Completed?<asp:RadioButtonList ID="rboWaitForPayment" runat="server">
