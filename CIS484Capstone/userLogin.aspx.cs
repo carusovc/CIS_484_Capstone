@@ -43,7 +43,7 @@ public partial class userLogin : System.Web.UI.Page
                         btnLogin.Enabled = false;
                         txtUsername.Enabled = false;
                         txtPassword.Enabled = false;
-                        Response.Redirect("ProgramForm.aspx", false);
+                        Response.Redirect("Landing.aspx", false);
 
                         Session["USER_ID"] = txtUsername.Text;
                     }
@@ -64,7 +64,7 @@ public partial class userLogin : System.Web.UI.Page
 
     protected void lnkCreate_Click(object sender, EventArgs e)
     {
-        Response.Redirect("createUser.aspx", false);
+        Response.Redirect("Landing.aspx", false);
     }
 
     //Method to show password on checkbox clicked

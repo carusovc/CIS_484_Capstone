@@ -11,4 +11,21 @@ public partial class modifyDB : System.Web.UI.Page
     {
 
     }
+
+
+    protected void ModifyAnimal_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ModifyAnimal.aspx");
+    }
+
+    protected void ModifyEducator_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ModifyWildlifeEducators.aspx");
+    }
+
+    protected void ModifyPrograms_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ModifyPrograms.aspx");
+    }
+
 }

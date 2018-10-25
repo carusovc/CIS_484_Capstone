@@ -35,18 +35,25 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-   <%-- <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />--%>
+   <link href="~/Images/falcon-fav.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-           <%-- <asp:Menu ID="Menu1" runat="server">
-            <Items>
-                <asp:MenuItem NavigateUrl="~/userLogin.aspx" Text="Administrator Login" Value="Administrator Login"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/ProgramForm.aspx" Text="Volunteer Login" Value="Volunteer Login"></asp:MenuItem>
-            </Items>
-        </asp:Menu>--%>
+            <nav class="navbar navbar-default">
+         <div class="container-fluid">
+                <div class="navbar-header">
+                <a class="navbar-brand" href="userLogin.aspx" >WildTek</a>
+                </div>
+    <ul class="nav">
+      <li><a href="userLogin.aspx">Login</a>&nbsp;&nbsp;&nbsp; </li>
+        <li><a href="ProgramForm.aspx">Live Program</a>&nbsp;&nbsp;&nbsp; </li>
+      <li><a href="OnlineForm.aspx">Online Program</a>&nbsp;&nbsp;&nbsp; </li>
+      
+    </ul>
+  </div>
+</nav>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>

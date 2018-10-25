@@ -1,13 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Landing.aspx.cs" Inherits="Landing" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ModifyAnimal.aspx.cs" Inherits="ModifyAnimal" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-   <!doctype html>
+    <!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>WildTek Login</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 	  <!-- Bootstrap v4 -->
@@ -18,19 +17,25 @@
 
 <body>
 <section class="login-block">
-    <div class="container">
-	<div class="row">
-		<div class="col-md-4 login-sec">
-		    <%--<h2 class="text-center">Choose </h2>--%>
-		    <form class="login-form text-center">
+    
 
-                <asp:Label ID="lblWelcome" runat="server" Text=""></asp:Label>
-    </form>
-		
-	</div>
-</div>
-</div>
+<div class="container">
+      <div class="card card-register mx-auto mt-5">
+          <div class="card-header NewUserTitle">Modify Educational Animals Information</div>
+    
+        <div class="card-body">
+          <form>
 
+           
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+
+       
 </section>
 
 
@@ -41,5 +46,5 @@
 <!-- end of do not delete -->
 </body>
 </html>
-   </asp:Content>
+</asp:Content>
 

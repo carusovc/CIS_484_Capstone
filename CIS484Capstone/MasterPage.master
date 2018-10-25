@@ -6,45 +6,45 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> WildTek</title>
+    <title>WildTek</title>
     <link href="http://localhost:62931/Content/" rel ="stylesheet" />
+    
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <link href="~/Images/falcon-fav.ico" rel="shortcut icon" type="image/x-icon" />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-<<<<<<< Backend-Sprint-1.1
+        <nav class="navbar navbar-default">
+         <div class="container-fluid">
+                <div class="navbar-header">
+                <a class="navbar-brand" href="userLogin.aspx" >WildTek</a>
+                <asp:Label ID="lblWelcome" runat="server" Text=""></asp:Label>
+                </div>
+        <ul class="nav">
+            <li><a href="createUser.aspx">Create User |</a>&nbsp;&nbsp;&nbsp; </li>
+            <li><a href="FormChoice.aspx">Forms |</a>&nbsp;&nbsp;&nbsp; </li>
+            <li><a href="ReportChoice.aspx">Reports |</a>&nbsp;&nbsp;&nbsp; </li>
+            <li><a href="modifyDB.aspx">Modify Wildlife Center Information |</a>&nbsp;&nbsp;&nbsp; </li>
+            <li><a href="Payment.aspx">Payment |</a>&nbsp;&nbsp;&nbsp; </li>
+            <li><a href="userLogin.aspx">LogOut</a></li>
+        </ul>
+        </div>
+        </nav>
 
-        <%--<a runat="server" href = "AdminPages/createUser.aspx">Create User</a>--%>
-        <%--<a runat="server" href = "AdminPages/AdminLogin.aspx">Admin Login</a>
-        <a runat="server" href = "MembersPages/userLogin.aspx">Login</a>--%>
-        <%--<a runat="server" href="ProgramForm.aspx">Program</a>
-        <a runat="server" href="Online.aspx">Online</a>--%>
-        <br />
-         <asp:Menu ID="Menu2" runat="server">
-            <Items>
-                <asp:MenuItem NavigateUrl="~/CreateUser.aspx" Text="Create New Educator" Value="CreateUser"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/ProgramForm.aspx" Text="Programs" Value="Programs"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/OnlineForm.aspx" Text="Online" Value="Online"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/MonthlyWildlifeReport.aspx" Text="Simple Report" Value="Simple Report"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/ProgramForm.aspx" Text="Animal" Value="Animal"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/Payment.aspx" Text="Payment" Value="Payment"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/userLogin.aspx" Text="LogOut" Value="LogOut"></asp:MenuItem>
-            </Items>
-        </asp:Menu>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
-    </div>
+
     </form>
-    <script src="http://localhost:62931/Scripts/jquery-3.3.1.slim.min.js"> </script>
-    <script src="http://localhost:62931/Scripts/popper.min.js"> </script>
-    <script src="http://localhost:62931/Scripts/bootstrap.bundle.min.js"> </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<!-- end of do not delete -->
 </body>
 </html>

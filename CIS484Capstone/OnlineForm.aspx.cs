@@ -12,7 +12,7 @@ public partial class Online : System.Web.UI.Page
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         sc.Open();
-        //lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString();
+       
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
