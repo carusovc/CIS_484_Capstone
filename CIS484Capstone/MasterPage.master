@@ -23,7 +23,7 @@
         <nav class="navbar navbar-default">
          <div class="container-fluid">
                 <div class="navbar-header">
-                <a class="navbar-brand" href="userLogin.aspx" >WildTek</a>
+                <a class="navbar-brand" href="Default.aspx" >WildTek</a>
                 <asp:Label ID="lblWelcome" runat="server" Text=""></asp:Label>
                 </div>
         <ul class="nav">
@@ -32,7 +32,7 @@
             <li><a href="ReportChoice.aspx">Reports |</a>&nbsp;&nbsp;&nbsp; </li>
             <li><a href="modifyDB.aspx">Modify Wildlife Center Information |</a>&nbsp;&nbsp;&nbsp; </li>
             <li><a href="Payment.aspx">Payment |</a>&nbsp;&nbsp;&nbsp; </li>
-            <li><a href="userLogin.aspx">LogOut</a></li>
+            <li><a href="Default.aspx">LogOut</a></li>
         </ul>
         </div>
         </nav>

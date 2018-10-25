@@ -243,7 +243,7 @@ public partial class ProgramForm : System.Web.UI.Page
     protected void btnLogOut_Click(object sender, EventArgs e)
     {
         Session.RemoveAll();
-        Response.Redirect("userLogin.aspx", false);
+        Response.Redirect("Default.aspx", false);
     }
 
 

@@ -15,7 +15,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         catch
         {
-            Response.Redirect("userLogin.aspx");
+            Response.Redirect("Default.aspx");
         }*/
     }   
 }

@@ -15,7 +15,7 @@ public partial class Landing : System.Web.UI.Page
         }
         catch
         {
-            Response.Redirect("userLogin.aspx");
+            Response.Redirect("Default.aspx");
         }
        
     }

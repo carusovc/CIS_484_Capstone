@@ -44,10 +44,10 @@
             <nav class="navbar navbar-default">
          <div class="container-fluid">
                 <div class="navbar-header">
-                <a class="navbar-brand" href="userLogin.aspx" >WildTek</a>
+                <a class="navbar-brand" href="Default.aspx" >WildTek</a>
                 </div>
     <ul class="nav">
-      <li><a href="userLogin.aspx">Login</a>&nbsp;&nbsp;&nbsp; </li>
+      <li><a href="Default.aspx">Login</a>&nbsp;&nbsp;&nbsp; </li>
         <li><a href="ProgramForm.aspx">Live Program</a>&nbsp;&nbsp;&nbsp; </li>
       <li><a href="OnlineForm.aspx">Online Program</a>&nbsp;&nbsp;&nbsp; </li>
       
