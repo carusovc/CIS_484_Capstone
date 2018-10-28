@@ -255,7 +255,7 @@ INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[N
 INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
  VALUES ('02/25/2018','February',10,130,10,'Rome',null,'Italy','Tyler Shupack','shup@gmail.com',null,GETDATE(),'Tyler Stewart');
 INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
- VALUES ('02/27/2018','February',13,26,null,'Brooklyn','NY','United States of America','Steven Brooks','Brooks@gmail.com','Awesome and great time!',GETDATE(),'Tyler Stewart');
+ VALUES ('02/27/2018','February',4,26,null,'Brooklyn','NY','United States of America','Steven Brooks','Brooks@gmail.com','Awesome and great time!',GETDATE(),'Tyler Stewart');
 
 
 INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
@@ -266,9 +266,9 @@ INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[N
  VALUES ('04/07/2018','April',6,70,5,'Berlin',null,'Germany','Tony Kroos','kroosorlose@gmail.com',null,GETDATE(),'Tyler Stewart');
 
 INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
- VALUES ('04/20/2018','April',12,24,1,'Harrisonburg','VA','United States of America','Sony Smith','sony@gmail.com','Awesome time!',GETDATE(),'Tyler Stewart');
+ VALUES ('04/20/2018','April',1,24,1,'Harrisonburg','VA','United States of America','Sony Smith','sony@gmail.com','Awesome time!',GETDATE(),'Tyler Stewart');
  INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
- VALUES ('04/22/2018','April',12,44,2,'Harrisonburg','VA','United States of America','Sony Smith','sony@gmail.com','Awesome time!',GETDATE(),'Tyler Stewart');
+ VALUES ('04/22/2018','April',10,44,2,'Harrisonburg','VA','United States of America','Sony Smith','sony@gmail.com','Awesome time!',GETDATE(),'Tyler Stewart');
 
 
  INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
@@ -289,7 +289,7 @@ INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[N
  VALUES ('07/03/2018','July',5,130,5,'Chapel Hill','NC','United States of America','Mike Jordan','jordan@gmail.com','Buckets!',GETDATE(),'Tyler Stewart');
 
 INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
- VALUES ('07/24/2018','July',12,16,null,'Princeton','NJ','United States of America','Max Toglia','mtogs11@gmail.com','What a guy.',GETDATE(),'Tyler Stewart');
+ VALUES ('07/24/2018','July',11,16,null,'Princeton','NJ','United States of America','Max Toglia','mtogs11@gmail.com','What a guy.',GETDATE(),'Tyler Stewart');
 
 
  INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
@@ -310,9 +310,8 @@ INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[N
  VALUES ('10/22/2018','October',5,6,1,'Alexandria','VA','United States of America','Shelly Reid','reid@gmu.edu','Good time.',GETDATE(),'Tyler Stewart');
  
 INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
- VALUES ('10/22/2018','October',12,100,4,'Seattle','WA','United States of America','Anthony Kurns','kurns@gmail.com',null,GETDATE(),'Tyler Stewart');
+ VALUES ('10/22/2018','October',11,100,4,'Seattle','WA','United States of America','Anthony Kurns','kurns@gmail.com',null,GETDATE(),'Tyler Stewart');
 
 INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
  VALUES ('10/25/2018','October',9,26,3,'Atlanta','GA','United States of America','Paul Rabil','prabil@gmu.edu','Guy was ok.',GETDATE(),'Tyler Stewart');
- 
  
