@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 public partial class Online : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -53,7 +54,7 @@ public partial class Online : System.Web.UI.Page
         // Populate Year from 1990 through 2020
         for (int i = 2020; i >= 1990; i--)
         {
-            ddlYear.Items.Add(new ListItem(i.ToString()));
+          //  ddlYear.Items.Add(new ListItem(i.ToString()));
         }
 
 
@@ -90,7 +91,7 @@ public partial class Online : System.Web.UI.Page
             onlineProgramGradesInsert.Connection = sc;
             
             //Online Program Variables
-            DateTime prgmDate = Convert.ToDateTime((ddlMonth.SelectedItem.Value) + "/" + (ddlDate.SelectedItem.Value) + "/" + (ddlYear.SelectedItem.Value));
+            //DateTime prgmDate = Convert.ToDateTime((ddlMonth.SelectedItem.Value) + "/" + (ddlDate.SelectedItem.Value) + "/" + (ddlYear.SelectedItem.Value));
             string month = ddlMonth.SelectedValue.ToString();
             int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
             String type = Convert.ToString(ddlProgramType.SelectedItem);
@@ -108,26 +109,26 @@ public partial class Online : System.Web.UI.Page
         String tempLastUpdatedBy = "TempWildTekDevs";
 
             //OnlineProgram table inserts
-            OnlineProgram newOnlineProgram = new OnlineProgram(prgmDate, month, onlineProgramTypeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments);
+        //    OnlineProgram newOnlineProgram = new OnlineProgram(prgmDate, month, onlineProgramTypeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments);
             
-            insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments, lastUpdated, lastUpdatedBy) " +
-                "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments, @lastUpdated, @lastUpdatedBy)";
+        //    insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments, lastUpdated, lastUpdatedBy) " +
+        //        "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments, @lastUpdated, @lastUpdatedBy)";
 
-            insert.Parameters.AddWithValue("@programDate", newOnlineProgram.getDate());
-            insert.Parameters.AddWithValue("@month", newOnlineProgram.getMonth());
-            insert.Parameters.AddWithValue("@typeID", newOnlineProgram.getType());
-            insert.Parameters.AddWithValue("@numOfKids", newOnlineProgram.getKidsInClass());
-            insert.Parameters.AddWithValue("@numOfPeople", newOnlineProgram.getNumOfPeople());
-            insert.Parameters.AddWithValue("@city", newOnlineProgram.getCity());
-            insert.Parameters.AddWithValue("@state", newOnlineProgram.getstateTerritory());
-            insert.Parameters.AddWithValue("@country", newOnlineProgram.getCountry());
-            insert.Parameters.AddWithValue("@teacherName", newOnlineProgram.getTeacher());
-            insert.Parameters.AddWithValue("@contactEmail", newOnlineProgram.getEmail());
-            insert.Parameters.AddWithValue("@extraComments", newOnlineProgram.getComments());
-        insert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated);
-        insert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy);
+        //    insert.Parameters.AddWithValue("@programDate", newOnlineProgram.getDate());
+        //    insert.Parameters.AddWithValue("@month", newOnlineProgram.getMonth());
+        //    insert.Parameters.AddWithValue("@typeID", newOnlineProgram.getType());
+        //    insert.Parameters.AddWithValue("@numOfKids", newOnlineProgram.getKidsInClass());
+        //    insert.Parameters.AddWithValue("@numOfPeople", newOnlineProgram.getNumOfPeople());
+        //    insert.Parameters.AddWithValue("@city", newOnlineProgram.getCity());
+        //    insert.Parameters.AddWithValue("@state", newOnlineProgram.getstateTerritory());
+        //    insert.Parameters.AddWithValue("@country", newOnlineProgram.getCountry());
+        //    insert.Parameters.AddWithValue("@teacherName", newOnlineProgram.getTeacher());
+        //    insert.Parameters.AddWithValue("@contactEmail", newOnlineProgram.getEmail());
+        //    insert.Parameters.AddWithValue("@extraComments", newOnlineProgram.getComments());
+        //insert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated);
+        //insert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy);
 
-            insert.ExecuteNonQuery();
+        //    insert.ExecuteNonQuery();
 
         //Pull onlineProgramID
         pullOnlineProgramID.CommandText = "Select MAX(onlineProgramID) from OnlineProgram";
@@ -181,8 +182,8 @@ public partial class Online : System.Web.UI.Page
     {
         ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
         selectMonthDays();
-        ddlDate.SelectedValue = DateTime.Now.Day.ToString();
-        ddlYear.SelectedValue = DateTime.Now.Year.ToString();
+        //ddlDate.SelectedValue = DateTime.Now.Day.ToString();
+        //ddlYear.SelectedValue = DateTime.Now.Year.ToString();
         txtNumOfKids.Text = "25";
         txtNumOfPeople.Text = "50";
         txtCity.Text = "Rockingham County";
@@ -203,7 +204,7 @@ public partial class Online : System.Web.UI.Page
     {
         for (int i = 1; i <= maxDay; i++)
         {
-            ddlDate.Items.Add(new ListItem(i.ToString()));
+            //ddlDate.Items.Add(new ListItem(i.ToString()));
         }
 
     }
@@ -226,15 +227,15 @@ public partial class Online : System.Web.UI.Page
         }
         else if (selectedMonth == 2)
         {
-            ddlDate.Items.Clear();
-            if (Int32.Parse(ddlYear.SelectedValue) % 4 == 0)
-            {
-                SetDaysInMonth(29);
-            }
-            else
-            {
-                SetDaysInMonth(28);
-            }
+            //ddlDate.Items.Clear();
+            //if (Int32.Parse(ddlYear.SelectedValue) % 4 == 0)
+            //{
+            //    SetDaysInMonth(29);
+            //}
+            //else
+            //{
+            //    SetDaysInMonth(28);
+            //}
         }
     }
 
@@ -252,15 +253,15 @@ public partial class Online : System.Web.UI.Page
 
         if (selectedMonth == 2)
         {
-            ddlDate.Items.Clear();
-            if (Int32.Parse(ddlYear.SelectedValue) % 4 == 0)
-            {
-                SetDaysInMonth(29);
-            }
-            else
-            {
-                SetDaysInMonth(28);
-            }
+            //ddlDate.Items.Clear();
+            //if (Int32.Parse(ddlYear.SelectedValue) % 4 == 0)
+            //{
+            //    SetDaysInMonth(29);
+            //}
+            //else
+            //{
+            //    SetDaysInMonth(28);
+            //}
         }
     }
 

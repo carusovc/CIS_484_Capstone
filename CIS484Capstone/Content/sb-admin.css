@@ -528,3 +528,8 @@ body.sidebar-toggled footer.sticky-footer {
 .ProgramCaption {
     padding-top: 5px;
 }
+
+
+.PrevImg {max-height: 150px;
+          max-width: 150px;
+}

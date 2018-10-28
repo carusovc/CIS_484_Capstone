@@ -1,47 +1,400 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomeMaster.master" AutoEventWireup="true" CodeFile="OnlineForm.aspx.cs" Inherits="Online" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="modifyDB.aspx.cs" Inherits="modifyDB" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>WildTek Online</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+    
+    
+    
+    
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+      <a class="navbar-brand mr-1" href="index.html">WildTek</a>
+
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Navbar Search -->
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Navbar -->
+      <ul class="navbar-nav ml-auto ml-md-0">
+        
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle fa-fw"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          </div>
+        </li>
+      </ul>
+
+    </nav>
+
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <ul class="sidebar navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-book-open"></i>
+            <span>Programs</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Online.html">
+            <i class="fas fa-fw fa-wifi"></i>
+            <span>Online</span></a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Simple Report</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-address-card"></i>
+            <span>Animal</span></a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-dollar-sign"></i>
+            <span>Payment</span></a>
+        </li>
+      </ul>
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+          
+
+       <!-- Programs-->
+       <div class="row">
+		<div class="col-md-12 ProgramTitle">
+			<h1 >Online Programs</h1>
+			
+		</div>
+	</div>
+       <div class="col-md-12">
+        <br>
+			</div>
+     
+     <div class="container1">
+
+      
+
+      <div class="row text-center text-lg-center">
+
+        <div id="Program1" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
+          
+            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/skype.png" alt="">
+            <br> <h6 class="ProgramCaption">Skype Program</h6>
+          
+        </div>
+        <div id="Program2" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
+          
+            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/camera.png" alt="">
+            <br> <h6 class="ProgramCaption">Cam in the Classroom</h6>
+          
+        </div>
+        <div id="Program3" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
+          
+            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/skype.png" alt="">
+            <br> <h6 class="ProgramCaption">California</h6>
+          
+        </div>
+        <div id="Program4" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
+          
+            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/special.png" alt="">
+            <br> <h6 class="ProgramCaption">Germany</h6>
+          
+        </div>
+        <div id="Program5" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
+          
+            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/skype.png" alt="">
+            <br> <h6 class="ProgramCaption">Greece</h6>
+          
+        </div>
+        <div id="Program6" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
+          
+            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/skype.png" alt="">
+            <br> <h6 class="ProgramCaption">Tokyo, Japan</h6>
+          
+        </div>
+		  
+        <div id="AddProgram" data-toggle="modal" data-target="#AddOnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
+          
+            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/Add.png" alt="">
+            <br> <h6 class="ProgramCaption">Add Program</h6>
+          
+        </div>
+        
+        <div class="row">
+        	
+        	<br><br>
    
-    </asp:Label> Month:
-    <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
-        <asp:ListItem>Month</asp:ListItem>
-        <asp:ListItem>January</asp:ListItem>
-        <asp:ListItem>February</asp:ListItem>
-        <asp:ListItem>March</asp:ListItem>
-        <asp:ListItem>April</asp:ListItem>
-        <asp:ListItem>May</asp:ListItem>
-        <asp:ListItem>June</asp:ListItem>
-        <asp:ListItem>July</asp:ListItem>
-        <asp:ListItem>August</asp:ListItem>
-        <asp:ListItem>September</asp:ListItem>
-        <asp:ListItem>October</asp:ListItem>
-        <asp:ListItem>November</asp:ListItem>
-        <asp:ListItem>December</asp:ListItem>
-    </asp:DropDownList>
-        &nbsp;&nbsp; Date:
-    <asp:DropDownList ID="ddlDate" runat="server" AutoPostBack="True">
-        <asp:ListItem Value="Day"></asp:ListItem>
-    </asp:DropDownList>
-&nbsp; Year:
-    <asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged">
-        <asp:ListItem Value="Year"></asp:ListItem>
-    </asp:DropDownList>
-&nbsp; Program Type: 
-    <asp:DropDownList ID="ddlProgramType" runat="server" DataSourceID="SqlDataSource1" DataTextField="OnlineProgramTypeName" DataValueField="OnlineProgramTypeID">
-    </asp:DropDownList>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString6 %>" SelectCommand="SELECT * FROM [OnlineProgramType]"></asp:SqlDataSource>
-    <br />
-    <br />
-<%--    # of Kids in Class:&nbsp;
-    <asp:TextBox ID="txtNumOfKids" runat="server"></asp:TextBox>
-&nbsp; # of People:
-    <asp:TextBox ID="txtNumOfPeople" runat="server"></asp:TextBox>
-&nbsp; City/County
-    <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>--%>
-    &nbsp; State:
-    <asp:DropDownList ID="ddlState" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+        </div>
+        
+      </div>
+    </div>
+     
+		 </div>
+     
+      
+     <!-- Pop Up modal to add program --> 
+       
+       <div class="modal" id="AddOnlineProgramModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-full" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"> Add Online Program Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body p-4" id="resultAddOnlineProgram">
+                    
+                  
+				<div class="row ">           
+	    <div class=" col-md-4 ProgramInfoPop">
+	     <h4> Status:</h4> 
+	    <%--<input type="text" class="form-control" id="AddOnlineStatus" placeholder="Add Status">--%>
+            <asp:DropDownList CssClass="form-control" ID="listAddOnlineStatus" runat="server" placeholder="Add Status" SelectionMode="Multiple" class="dropdown-menu">
+                <asp:ListItem Text="" Value="0" />
+                <asp:ListItem Text="Completed" Value="1" />
+                <asp:ListItem Text="In Progress" Value="2" />
+                <asp:ListItem Text="Not Started" Value="3" />
+                </asp:DropDownList>
+			</div> 
+			
+			
+
+	     
+<div class="col-md-4 ProgramInfoPop"><h4>Type</h4> 
+   <%-- <div class="button-group">--%>
+   <%-- <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Type <span class="caret"></span></button>--%>
+<%--<ul class="dropdown-menu">
+  <li><a href="#" class="small DropdownAnimal" data-value="option0" tabIndex="-1"><input type="radio" value="0" name="alphabet"/>&nbsp;Book Club</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="radio" value="1" name="alphabet"/>&nbsp;Field Trip</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="radio" value="2" name="alphabet"/>&nbsp;Cam in the Classroom</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="radio" value="3" name="alphabet"/>&nbsp;Hospital Cam</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="radio" value="4" name="alphabet"/>&nbsp;Classroom Series</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="radio" value="5" name="alphabet"/>&nbsp;Special Guest</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option6" tabIndex="-1"><input type="radio" value="6" name="alphabet"/>&nbsp;Special Event</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option7" tabIndex="-1"><input type="radio" value="7" name="alphabet"/>&nbsp;Skype: Owls</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option8" tabIndex="-1"><input type="radio" value="8" name="alphabet"/>&nbsp;Skype: Turtles</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option9" tabIndex="-1"><input type="radio" value="9" name="alphabet"/>&nbsp;Skype: Opossum</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option10" tabIndex="-1"><input type="radio" value="10" name="alphabet"/>&nbsp;Skype: Snakes</a></li>--%>
+  
+  
+<asp:DropDownList CssClass="form-control" ID="ddlProgramType" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+  
+    <asp:ListItem Text="" Value="0" />
+    <asp:ListItem Text="Book Club" Value="1" />
+    <asp:ListItem Text="Field Trip" Value="2" />
+    <asp:ListItem Text="Cam in the Classroom" Value="3" />
+    <asp:ListItem Text="Hospital Cam" Value="4" />
+    <asp:ListItem Text="Classroom Series" Value="5" />
+     <asp:ListItem Text="Special Guest" Value="6" />
+    <asp:ListItem Text="Special Event" Value="7" />
+    <asp:ListItem Text="Skype: Owls" Value="8" />
+    <asp:ListItem Text="Skype: Turtles" Value="9" />
+    <asp:ListItem Text="Skype: Opossum" Value="10" />
+     <asp:ListItem Text="Skype: Snakes" Value="11"/>
+      
+</asp:DropDownList>
+
+  <%--  might need to use this List<ListItem> selected = new List<ListItem>();
+foreach (ListItem item in CBLGold.Items)
+    if (item.Selected) selected.Add(item);--%>
+  
+  
+<%--</ul>--%>
+     
+	<%--</div> --%>   
+
+         <div class=" col-md-4 ProgramInfoPop">
+	    <h4>Add New Program </h4> 
+    
+	    <%--<input type="text" class="form-control" id="txtOnlineType" placeholder="Add Program Type">--%>
+             <asp:TextBox cssclass="form-control" ID="txtOnlineType" runat="server" placeholder="Add Program Type" ></asp:TextBox>   
+			</div>
+	    
+			</div>			
+			
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+         
+         <div class="row ">           
+	    
+			<div class=" col-md-4 ProgramInfoPop">
+	    <h4>Teacher Name </h4> 
+    
+	<%--<input type="text" class="form-control" id="AddOnlineTeacher" placeholder="Add Teacher">--%>
+                <asp:TextBox cssclass="form-control" ID="AddOnlineTeacher" runat="server" placeholder="Add Teacher" ></asp:TextBox>   
+			</div>
+	     
+			<div class=" col-md-4 ProgramInfoPop">
+	    <h4> Children </h4> 
+     
+	 <asp:TextBox cssclass="form-control" ID="txtNumOfKids" runat="server" placeholder="Add # of Children" ></asp:TextBox>   
+	        
+	    
+	    
+			</div>
+			 
+			 <div class=" col-md-4 ProgramInfoPop">
+	    <h4> People </h4>  
+	 <asp:TextBox cssclass="form-control" ID="txtNumOfPeople" runat="server" placeholder="Add # of People" ></asp:TextBox>   
+	       
+	    
+	    
+			</div>
+
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+          
+        
+          <div class="row">
+			  
+			  <div class="col-md-4 ProgramInfoPop"><h4>Grade</h4> 
+   <%-- <div class="button-group">
+    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Grade <span class="caret"></span></button>
+<ul class="dropdown-menu">
+  <li><a href="#" class="small DropdownAnimal" data-value="option0" tabIndex="-1"><input type="radio" value="0" name="alphabet"/>&nbsp;Pre-K</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="radio" value="1" name="alphabet"/>&nbsp;K</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="radio" value="2" name="alphabet"/>&nbsp;1st</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="radio" value="3" name="alphabet"/>&nbsp;2nd</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="radio" value="4" name="alphabet"/>&nbsp;3rd</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="radio" value="5" name="alphabet"/>&nbsp;4th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option6" tabIndex="-1"><input type="radio" value="6" name="alphabet"/>&nbsp;5th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option7" tabIndex="-1"><input type="radio" value="7" name="alphabet"/>&nbsp;6th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option8" tabIndex="-1"><input type="radio" value="8" name="alphabet"/>&nbsp;7th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option9" tabIndex="-1"><input type="radio" value="9" name="alphabet"/>&nbsp;8th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option10" tabIndex="-1"><input type="radio" value="10" name="alphabet"/>&nbsp;9th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option11" tabIndex="-1"><input type="radio" value="11" name="alphabet"/>&nbsp;10th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option12" tabIndex="-1"><input type="radio" value="12" name="alphabet"/>&nbsp;11th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option13" tabIndex="-1"><input type="radio" value="13" name="alphabet"/>&nbsp;12th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option14" tabIndex="-1"><input type="radio" value="14" name="alphabet"/>&nbsp;Familes</a></li>
+	<li><a href="#" class="small DropdownAnimal" data-value="option14" tabIndex="-1"><input type="radio" value="14" name="alphabet"/>&nbsp;Adults Only</a></li>
+  --%>
+  <asp:DropDownList CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Status" SelectionMode="Multiple" class="dropdown-menu">
+    <asp:ListItem Text="" Value="0" />
+      <asp:ListItem Text="Pre-K" Value="1" />
+    <asp:ListItem Text="K" Value="2" />
+    <asp:ListItem Text="1st" Value="3" />
+    <asp:ListItem Text="2nd" Value="4" />
+    <asp:ListItem Text="3rd" Value="5" />
+     <asp:ListItem Text="4th" Value="6" />
+    <asp:ListItem Text="5th" Value="7" />
+    <asp:ListItem Text="6th" Value="8" />
+    <asp:ListItem Text="7th" Value="9" />
+    <asp:ListItem Text="8th" Value="10" />
+     <asp:ListItem Text="9th" Value="11"/>
+       <asp:ListItem Text="10th" Value="12" />
+    <asp:ListItem Text="11th" Value="13" />
+     <asp:ListItem Text="12th" Value="14"/>
+       <asp:ListItem Text="Families" Value="15" />
+    <asp:ListItem Text="Adults" Value="16" />
+
+</asp:DropDownList>
+
+
+  
+<%--</ul>--%>
+     
+<%--	</div> --%>   
+	    
+			</div>
+    <div class="col-md-4 ProgramInfoPop"><h4> Educators</h4> 
+   <%--  <div class="button-group">
+       <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Educators <span class="caret"></span></button>
+<ul class="dropdown-menu">
+  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Raina</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Alex</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;IDk</a></li>
+  
+  
+  
+</ul>--%>
+
+        <asp:DropDownList CssClass="form-control" ID="drpEducators" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+     <asp:ListItem Text="" Value="0" />
+    <asp:ListItem Text="Raina" Value="1" />
+    <asp:ListItem Text="Alex" Value="2" />
+    <asp:ListItem Text="Raina" Value="3" />
+    <asp:ListItem Text="Alex" Value="4" />
+    <asp:ListItem Text="Raina" Value="5" />
+
+</asp:DropDownList>
+
+  </div>
+			  </div>
+			  
+			  <div class=" col-md-4 ProgramInfoPop">
+	    <h4> Email </h4> 
+   
+	 <input type="email" class="form-control" id="AddOnlineEmail" placeholder="Add Email">   
+	    
+	    
+			</div>
+			  
+</div>
+	  
+			
+    
+    <div class="row">
+		<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> 
+	  <input type="city" class="form-control" id="AddOnlineProgramcity" placeholder="Add City/County">
+	  
+    </div>
+    
+    <div class="col-md-4 ProgramInfoPop"><h4> State/Province:</h4> 
+        <asp:DropDownList ID="ddlState" runat="server" class="form-control" placeholder="Add State/Province">
         <asp:ListItem>State</asp:ListItem>
         <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
         <asp:ListItem Value="AL"></asp:ListItem>
@@ -59,7 +412,7 @@
         <asp:ListItem Value="IL"></asp:ListItem>
         <asp:ListItem Value="IN"></asp:ListItem>
         <asp:ListItem Value="IA"></asp:ListItem>
-        <asp:ListItem Value="KS"></asp:ListItem>
+        <asp:ListItem Value="KS"></asp:ListItem>       
         <asp:ListItem Value="KY"></asp:ListItem>
         <asp:ListItem Value="LA"></asp:ListItem>
         <asp:ListItem Value="ME"></asp:ListItem>
@@ -95,9 +448,13 @@
         <asp:ListItem Value="WI"></asp:ListItem>
         <asp:ListItem Value="WY"></asp:ListItem>
     </asp:DropDownList>
-&nbsp;Country:
-    <asp:DropDownList ID="ddlCountry" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged">
-        <asp:ListItem Value="Country"></asp:ListItem>
+
+
+
+			  </div>
+		<div class="col-md-4 ProgramInfoPop"><h4> Country:</h4> 
+      <asp:DropDownList ID="ddlCountry" runat="server" class="form-control" placeholder="Add Country" >
+        <asp:ListItem Value=""></asp:ListItem>
         <asp:ListItem Value="Afghanistan"></asp:ListItem>
         <asp:ListItem Value="Albania"></asp:ListItem>
         <asp:ListItem Value="Algeria"></asp:ListItem>
@@ -294,394 +651,6 @@
         <asp:ListItem Value="Zambia"></asp:ListItem>
         <asp:ListItem Value="Zimbabwe"></asp:ListItem>
     </asp:DropDownList>
-    <br />
-    <br />
-    <%--Teacher:
-    <asp:TextBox ID="txtTeacher" runat="server"></asp:TextBox>--%>
-<%--&nbsp; Email:
-    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>--%>
-&nbsp; Grade:&nbsp;<asp:DropDownList ID="ddlGrade" runat="server" DataSourceID="SqlDataSource2" DataTextField="GradeLevel" DataValueField="GradeID">
-    </asp:DropDownList>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString7 %>" SelectCommand="SELECT * FROM [Grade]"></asp:SqlDataSource>
-&nbsp;<br />
-    <br />
-    Educator:
-    <asp:DropDownList ID="ddlEducator" runat="server" DataSourceID="SqlDataSource4" DataTextField="EducatorFirstName" DataValueField="EducatorID">
-    </asp:DropDownList>
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="Data Source=localhost;Initial Catalog=WildTek;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Educators]"></asp:SqlDataSource>
-&nbsp;Theme:
-    <asp:TextBox ID="txtTheme" runat="server"></asp:TextBox>
-&nbsp; Animals Type:&nbsp;
-    <asp:DropDownList ID="ddlAnimalType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlAnimalType_SelectedIndexChanged">
-        <asp:ListItem>Bird</asp:ListItem>
-        <asp:ListItem>Mammal</asp:ListItem>
-        <asp:ListItem>Reptile</asp:ListItem>
-    </asp:DropDownList>
-&nbsp;&nbsp;&nbsp; Animal Name:
-    <asp:DropDownList ID="ddlAnimalName" runat="server">
-    </asp:DropDownList>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="Data Source=localhost;Initial Catalog=WildTek;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Animal]"></asp:SqlDataSource>
-    <br />
-    <br />
-<%--    Comments:
-    <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>--%>
-    <br />
-    <br />
-<%--    <<asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />--%>
-    &nbsp;
-    <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
-&nbsp;
-    <%--<asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" Text="Submit" />--%>
-
-    <%--    << this is the new>>--%>
-    <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>WildTek Online</title>
-
-    <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Page level plugin CSS-->
-    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
-    
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
-    rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
-<script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js" type="text/javascript"></script>
-<script type="text/javascript">
-    $(function () {
-        $('[id*=lstFruits]').multiselect({
-            includeSelectAllOption: true
-        });
-    });
-</script>
-    
-    
-
-  </head>
-
-  <body id="page-top">
-
-    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
-      <a class="navbar-brand mr-1" href="index.html">WildTek</a>
-
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <!-- Navbar Search -->
-      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
-
-      <!-- Navbar -->
-      <ul class="navbar-nav ml-auto ml-md-0">
-        
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
-      </ul>
-
-    </nav>
-
-    <div id="wrapper">
-
-      <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-book-open"></i>
-            <span>Programs</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Online.html">
-            <i class="fas fa-fw fa-wifi"></i>
-            <span>Online</span></a>
-        </li>
-       
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Simple Report</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-address-card"></i>
-            <span>Animal</span></a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-dollar-sign"></i>
-            <span>Payment</span></a>
-        </li>
-      </ul>
-
-      <div id="content-wrapper">
-
-        <div class="container-fluid">
-
-          
-
-       <!-- Programs-->
-       <div class="row">
-		<div class="col-md-12 ProgramTitle">
-			<h1 >Online Programs</h1>
-			
-		</div>
-	</div>
-       <div class="col-md-12">
-        <br>
-			</div>
-     
-     <div class="container">
-
-      
-
-      <div class="row text-center text-lg-center">
-
-        <div id="Program1" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail" src="images/Wildlife-Pics/colorado_orig.jpg" alt="">
-            <br> <h6 class="ProgramCaption">Colorado</h6>
-          
-        </div>
-        <div id="Program2" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail" src="images/Wildlife-Pics/Ontario.jpg" alt="">
-            <br> <h6 class="ProgramCaption">Ontario, Canada</h6>
-          
-        </div>
-        <div id="Program3" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail" src="images/Wildlife-Pics/CA.jpg" alt="">
-            <br> <h6 class="ProgramCaption">California</h6>
-          
-        </div>
-        <div id="Program4" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail" src="images/Wildlife-Pics/Germany.jpg" alt="">
-            <br> <h6 class="ProgramCaption">Germany</h6>
-          
-        </div>
-        <div id="Program5" ddata-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail" src="images/Wildlife-Pics/Greece.jpg" alt="">
-            <br> <h6 class="ProgramCaption">Greece</h6>
-          
-        </div>
-        <div id="Program6" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail" src="images/Wildlife-Pics/Tokyo.jpg" alt="">
-            <br> <h6 class="ProgramCaption">Tokyo, Japan</h6>
-          
-        </div>
-		  
-        <div id="AddProgram" data-toggle="modal" data-target="#AddOnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail" src="images/Add.png" alt="">
-            <br> <h6 class="ProgramCaption">Add Program</h6>
-          
-        </div>
-        
-        <div class="row">
-        	
-        	<br><br>
-   
-        </div>
-        
-      </div>
-    </div>
-     
-		 </div>
-     
-      
-     <!-- Pop Up modal to add program --> 
-       
-       <div class="modal" id="AddOnlineProgramModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-full" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"> Add Online Program Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body p-4" id="resultAddOnlineProgram">
-                    
-                  
-				<div class="row ">           
-	    <div class=" col-md-4 ProgramInfoPop">
-	     <h4> Status:</h4> 
-	    <input type="text" class="form-control" id="AddOnlineStatus" placeholder="Add Status">
-	     
-	    
-			</div> 
-			
-			
-     <div class=" col-md-4 ProgramInfoPop">
-	    <h4>Add New Type </h4> 
-    
-	    <input type="text" class="form-control" id="AddOnlineType" placeholder="Add Type">
-			</div>
-	     
-<div class="col-md-4 ProgramInfoPop"><h4>Type</h4> 
-    <div class="button-group">
-    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Type <span class="caret"></span></button>
-<ul class="dropdown-menu">
-  <li><a href="#" class="small DropdownAnimal" data-value="option0" tabIndex="-1"><input type="radio" value="0" name="alphabet"/>&nbsp;Book Club</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="radio" value="1" name="alphabet"/>&nbsp;Field Trip</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="radio" value="2" name="alphabet"/>&nbsp;Cam in the Classroom</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="radio" value="3" name="alphabet"/>&nbsp;Hospital Cam</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="radio" value="4" name="alphabet"/>&nbsp;Classroom Series</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="radio" value="5" name="alphabet"/>&nbsp;Special Guest</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option6" tabIndex="-1"><input type="radio" value="6" name="alphabet"/>&nbsp;Special Event</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option7" tabIndex="-1"><input type="radio" value="7" name="alphabet"/>&nbsp;Skype: Owls</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option8" tabIndex="-1"><input type="radio" value="8" name="alphabet"/>&nbsp;Skype: Turtles</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option9" tabIndex="-1"><input type="radio" value="9" name="alphabet"/>&nbsp;Skype: Opossum</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option10" tabIndex="-1"><input type="radio" value="10" name="alphabet"/>&nbsp;Skype: Snakes</a></li>
-  
-  
-  
-  
-</ul>
-     
-	</div>    
-	    
-			</div>			
-			
-			<!-- End  Description --> 
-	</div><!-- End  row --> 
-         
-         <div class="row ">           
-	    
-			<div class=" col-md-4 ProgramInfoPop">
-	    <h4>Teacher Name </h4> 
-    
-	<input type="text" class="form-control" id="AddOnlineTeacher" placeholder="Add Teacher">
-			</div>
-	     
-			<div class=" col-md-4 ProgramInfoPop">
-	    <h4> Children </h4> 
-   
-	 <input type="number" class="form-control" id="AddOnlineChild" placeholder="Add # of Children">   
-	    
-	    
-			</div>
-			 
-			 <div class=" col-md-4 ProgramInfoPop">
-	    <h4> People </h4> 
-   
-	 <input type="number" class="form-control" id="AddOnlinePeople" placeholder="Add # of People">   
-	    
-	    
-			</div>
-			
-			 
-			
-	
-			
-			<!-- End  Description --> 
-	</div><!-- End  row --> 
-          
-        
-          <div class="row">
-			  
-			  <div class="col-md-4 ProgramInfoPop"><h4>Grade</h4> 
-    <div class="button-group">
-    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Grade <span class="caret"></span></button>
-<ul class="dropdown-menu">
-  <li><a href="#" class="small DropdownAnimal" data-value="option0" tabIndex="-1"><input type="radio" value="0" name="alphabet"/>&nbsp;Pre-K</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="radio" value="1" name="alphabet"/>&nbsp;K</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="radio" value="2" name="alphabet"/>&nbsp;1st</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="radio" value="3" name="alphabet"/>&nbsp;2nd</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="radio" value="4" name="alphabet"/>&nbsp;3rd</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="radio" value="5" name="alphabet"/>&nbsp;4th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option6" tabIndex="-1"><input type="radio" value="6" name="alphabet"/>&nbsp;5th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option7" tabIndex="-1"><input type="radio" value="7" name="alphabet"/>&nbsp;6th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option8" tabIndex="-1"><input type="radio" value="8" name="alphabet"/>&nbsp;7th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option9" tabIndex="-1"><input type="radio" value="9" name="alphabet"/>&nbsp;8th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option10" tabIndex="-1"><input type="radio" value="10" name="alphabet"/>&nbsp;9th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option11" tabIndex="-1"><input type="radio" value="11" name="alphabet"/>&nbsp;10th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option12" tabIndex="-1"><input type="radio" value="12" name="alphabet"/>&nbsp;11th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option13" tabIndex="-1"><input type="radio" value="13" name="alphabet"/>&nbsp;12th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option14" tabIndex="-1"><input type="radio" value="14" name="alphabet"/>&nbsp;Familes</a></li>
-	<li><a href="#" class="small DropdownAnimal" data-value="option14" tabIndex="-1"><input type="radio" value="14" name="alphabet"/>&nbsp;Adults Only</a></li>
-  
-  
-  
-</ul>
-     
-	</div>    
-	    
-			</div>
-    <div class="col-md-4 ProgramInfoPop"><h4> Educators</h4> 
-    <div class="button-group">
-        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Educators <span class="caret"></span></button>
-<ul class="dropdown-menu">
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Raina</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Alex</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;IDk</a></li>
-  
-  
-  
-</ul>
-  </div>
-			  </div>
-			  
-			  <div class=" col-md-4 ProgramInfoPop">
-	    <h4> Email </h4> 
-   
-	 <input type="email" class="form-control" id="AddOnlineEmail" placeholder="Add Email">   
-	    
-	    
-			</div>
-			  
-</div>
-	  
-			
-    
-    <div class="row">
-		<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> 
-	  <input type="city" class="form-control" id="AddOnlineProgramcity" placeholder="Add City/County">
-	  
-    </div>
-    
-    <div class="col-md-4 ProgramInfoPop"><h4> State/Province:</h4> 
-    <input type="county" class="form-control" id="AddOnlineProgramCountry" placeholder="Add State/Province">
-			  </div>
-		<div class="col-md-4 ProgramInfoPop"><h4> Country:</h4> 
-    <input type="county" class="form-control" id="AddProgramCounty" placeholder="Add Country">
 			  </div>
 </div>
 
@@ -689,12 +658,12 @@
   
  
  <div class="row">
-    <div class="col-md-4 ProgramInfoPop"> 
+<%--    <div class="col-md-4 ProgramInfoPop"> 
     <h4> Report Month</h4>
      <input type="month" class="form-control" id="AddProgramMonth" placeholder="Add Month">
 	
    </div>
-   
+   --%>
    
     <div class="col-md-4 ProgramInfoPop">
      <h4> Date:</h4> 
@@ -719,7 +688,7 @@
  
   
        <div class="col-lg-4 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
-     <div class="button-group">
+<%--     <div class="button-group">
         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Birds <span class="caret"></span></button>
 <ul class="dropdown-menu">
   <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Buddy</a></li>
@@ -739,7 +708,27 @@
   <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;Jaz</a></li>
   
 </ul>
-  </div>
+  </div>--%>
+
+           <asp:DropDownList ID="ddlBirds"  CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder ="Select Birds">
+       <asp:ListItem Text="" Value="0" />
+       <asp:ListItem Text="Buddy" Value="1" />
+    <asp:ListItem Text="Verlon" Value="2" />
+    <asp:ListItem Text="Edie" Value="3" />
+    <asp:ListItem Text="Maggie" Value="4" />
+    <asp:ListItem Text="Grayson" Value="5" />
+     <asp:ListItem Text="Keeya" Value="6" />
+    <asp:ListItem Text="Ruby" Value="7" />
+    <asp:ListItem Text="Rosalie" Value="8" />
+    <asp:ListItem Text="Athena" Value="9" />
+    <asp:ListItem Text="Gus" Value="20" />
+     <asp:ListItem Text="Papa G'Ho" Value="11" />
+    <asp:ListItem Text="Quin" Value="12" />
+    <asp:ListItem Text="Alex" Value="13" />
+    <asp:ListItem Text="Buttercup" Value="14" />
+    <asp:ListItem Text="Jaz" Value="15" />
+</asp:DropDownList>
+
 </div>
   
 
@@ -749,7 +738,7 @@
 	  
   
        <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
-     <div class="button-group">
+<%--     <div class="button-group">
         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Reptiles <span class="caret"></span></button>
 <ul class="dropdown-menu">
   <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Malcom</a></li>
@@ -760,7 +749,19 @@
   <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Wilson</a></li>
 </ul>
   
-</div>
+
+</div>--%>
+
+<asp:DropDownList CssClass="form-control" ID="ddlReptiles" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+     <asp:ListItem Text="" Value="0" />
+    <asp:ListItem Text="Malcom" Value="1" />
+    <asp:ListItem Text="Albus" Value="2" />
+    <asp:ListItem Text="Severus" Value="3" />
+    <asp:ListItem Text="Oscar" Value="4" />
+    <asp:ListItem Text="Emma" Value="5" />
+    <asp:ListItem Text="Wilson" Value="6" />
+
+</asp:DropDownList>
   
 </div>
 	     
@@ -768,7 +769,7 @@
 	     
   
        <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
-     <div class="button-group">
+<%--     <div class="button-group">
         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Mammals <span class="caret"></span></button>
 <ul class="dropdown-menu">
   <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Bo</a></li>
@@ -778,26 +779,33 @@
   
 </ul>
  
-</div>
+</div>--%>
+
+<asp:ListBox ID="lstMammals" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+     <asp:ListItem Text="" Value="0" />
+    <asp:ListItem Text="Bo" Value="1" />
+    <asp:ListItem Text="Posie" Value="2" />
+    <asp:ListItem Text="Willow" Value="3" />
+</asp:ListBox>
  
 </div>
  </div>
  
  <div class="row">
     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
-    <label class="checkbox-inline "><input type="radio" value="1" name="alphabet" > Paid</label>
+    <asp:label  runat="server" class="checkbox-inline "><input type="radio" value="1" name="alphabet" > Paid</asp:label>
     <br>
-<label class="checkbox-inline"><input type="radio" value="2" name="alphabet" > Not Paid</label></div>
+<asp:label runat="server" CssClass="checkbox-inline"><input type="radio" value="2" name="alphabet" > Not Paid</asp:label></div>
     <div class="col-md-9 ProgramInfoPop"><div class="form-group">
   <label for="comment">Comment:</label>
-  <textarea class="form-control" rows="5" id="AddOnlineComment"></textarea>
+  <asp:TextBox  runat="server" class="form-control" rows="5" cols = "20" id="AddOnlineComment"></asp:TextBox>
 </div></div>
 </div>
   
   
             <div class="modal-footer">
          <button type="button" class="btn btn-primary LoginButton" data-toggle="modal" data-target="#OnlineProgramModal" data-dismiss="modal">Add</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <asp:button runat ="server" type="button" class="btn btn-secondary" data-dismiss="modal" Text ="Close"></asp:button>
             </div>
         </div>
     </div>
@@ -809,312 +817,6 @@
       <!-- /.content-wrapper -->
  </div>
 
- 
-   
-    <!-- Pop Up modal to Editprogram --> 
-   
-   <div class="modal" id="EditOnlineProgramModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-full" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"> Edit Online Program Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body p-4" id="resultEditOnlineProgram">
-                    
-                  
-				<div class="row ">           
-	    <div class=" col-md-4 ProgramInfoPop">
-	     <h4> Status:</h4> 
-	    <input type="text" class="form-control" id="EditOnlineStatus" placeholder="Edit Status">
-	     
-	    
-			</div> 
-			
-			
-     <div class=" col-md-4 ProgramInfoPop">
-	    <h4>Add New Type </h4> 
-    
-	    <input type="text" class="form-control" id="EditOnlineType" placeholder="Edit Type">
-			</div>
-	     
-<div class="col-md-4 ProgramInfoPop"><h4>Type</h4> 
-    <div class="button-group">
-    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Type <span class="caret"></span></button>
-<ul class="dropdown-menu">
-  <li><a href="#" class="small DropdownAnimal" data-value="option0" tabIndex="-1"><input type="radio" value="0" name="alphabet"/>&nbsp;Book Club</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="radio" value="1" name="alphabet"/>&nbsp;Field Trip</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="radio" value="2" name="alphabet"/>&nbsp;Cam in the Classroom</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="radio" value="3" name="alphabet"/>&nbsp;Hospital Cam</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="radio" value="4" name="alphabet"/>&nbsp;Classroom Series</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="radio" value="5" name="alphabet"/>&nbsp;Special Guest</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option6" tabIndex="-1"><input type="radio" value="6" name="alphabet"/>&nbsp;Special Event</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option7" tabIndex="-1"><input type="radio" value="7" name="alphabet"/>&nbsp;Skype: Owls</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option8" tabIndex="-1"><input type="radio" value="8" name="alphabet"/>&nbsp;Skype: Turtles</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option9" tabIndex="-1"><input type="radio" value="9" name="alphabet"/>&nbsp;Skype: Opossum</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option10" tabIndex="-1"><input type="radio" value="10" name="alphabet"/>&nbsp;Skype: Snakes</a></li>
-  
-  
-  
-  
-</ul>
-     
-	</div>    
-	    
-			</div>			
-			
-			<!-- End  Description --> 
-	</div><!-- End  row --> 
-         
-         <div class="row ">           
-	    
-			<div class=" col-md-4 ProgramInfoPop">
-	    <h4>Teacher Name </h4> 
-    
-	<%--<input class="form-control" id="txtTeacher" runat="server" placeholder="Edit Teacher">--%>
-                 <asp:TextBox class="form-control" id="txtTeacher" runat="server" placeholder="Edit Teacher"></asp:TextBox>
-			</div>
-	     
-			<div class=" col-md-4 ProgramInfoPop">
-	    <h4> Children </h4> 
-   
-	 <asp:TextBox cssclass="form-control" ID="txtNumOfKids" runat="server" placeholder="Edit # of Children" ></asp:TextBox>   
-	      <%--csstype="number"--%>
-	    
-			</div>
-			 
-			 <div class=" col-md-4 ProgramInfoPop">
-	    <h4> People </h4> 
-   
-	 <asp:TextBox  cssclass="form-control" id="txtNumOfPeople" runat="server" placeholder="Edit # of People"></asp:TextBox>    
-	     <%--csstype="number"--%>
-	    
-			</div>
-
-			<!-- End  Description --> 
-	</div><!-- End  row --> 
-          
-        
-          <div class="row">
-			  
-			  <div class="col-md-4 ProgramInfoPop"><h4>Grade</h4> 
-    <div class="button-group">
-    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Grade <span class="caret"></span></button>
-<ul class="dropdown-menu">
-  <li><a href="#" class="small DropdownAnimal" data-value="option0" tabIndex="-1"><input type="checkbox"/>&nbsp;Pre-K</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;K</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;1st</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;2nd</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;3rd</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;4th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option6" tabIndex="-1"><input type="checkbox"/>&nbsp;5th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option7" tabIndex="-1"><input type="checkbox"/>&nbsp;6th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option8" tabIndex="-1"><input type="checkbox"/>&nbsp;7th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option9" tabIndex="-1"><input type="checkbox"/>&nbsp;8th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option10" tabIndex="-1"><input type="checkbox"/>&nbsp;9th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option11" tabIndex="-1"><input type="checkbox"/>&nbsp;10th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option12" tabIndex="-1"><input type="checkbox"/>&nbsp;11th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option13" tabIndex="-1"><input type="checkbox"/>&nbsp;12th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option14" tabIndex="-1"><input type="checkbox"/>&nbsp;Familes</a></li>
-	<li><a href="#" class="small DropdownAnimal" data-value="option14" tabIndex="-1"><input type="checkbox"/>&nbsp;Adults Only</a></li>
-  
-  
-  
-</ul>
-     
-	</div>    
-			</div>
-<%--<asp:DropDownList ID="ddlGrade" runat="server" DataSourceID="SqlDataSource2" DataTextField="GradeLevel" DataValueField="GradeID">
-    </asp:DropDownList>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString7 %>" SelectCommand="SELECT * FROM [Grade]"></asp:SqlDataSource>--%>
-
-
-
-    <div class="col-md-4 ProgramInfoPop"><h4> Educators</h4> 
-    <div class="button-group">
-        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Educators <span class="caret"></span></button>
-<ul class="dropdown-menu">
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Raina</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Alex</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;IDk</a></li>
-
-</ul>
-  </div>
-</div>
-
-<%--<asp:DropDownList ID="ddlEducator" runat="server" DataSourceID="SqlDataSource4" DataTextField="EducatorFirstName" DataValueField="EducatorID">
-    </asp:DropDownList>
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="Data Source=localhost;Initial Catalog=WildTek;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Educators]"></asp:SqlDataSource>--%>
-
-			  
-			  <div class=" col-md-4 ProgramInfoPop">
-	    <h4> Email </h4> 
-   
-	 <input type="email" class="form-control" id="EditOnlineEmail" placeholder="Edit Email">   
-                    <asp:TextBox ID="txtEmail" runat="server" type="email" class="form-control" placeholder="Edit Email"></asp:TextBox>
-
-			</div>
-			  
-</div>
-	  
-			
-    
-    <div class="row">
-		<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> 
-	  <asp:TextBox class="form-control" id="txtCity" runat="server" placeholder="Edit City/County"></asp:TextBox>
-	  
-    </div>
-    
-    <div class="col-md-4 ProgramInfoPop"><h4> State/Province:</h4> 
-    <asp:TextBox type="state" CssClass="form-control" id="txtState" runat="server" placeholder="Edit State/Province"></asp:TextBox>
-			  </div>
-		<div class="col-md-4 ProgramInfoPop"><h4> Country:</h4> 
-    <asp:TextBox class="form-control" id="txtCountry" runat="server" placeholder="Edit Country"></asp:TextBox>
-			  </div>
-</div>
-
- 
-  
- 
- <div class="row">
-    <div class="col-md-4 ProgramInfoPop"> 
-    <h4> Report Month</h4>
-     <input type="month" class="form-control" id="EditProgramMonth" placeholder="Edit Month">
-	
-   </div>
-   
-   
-    <div class="col-md-4 ProgramInfoPop">
-     <h4> Date:</h4> 
-     <input type="date" class="form-control" id="EditProgramDate" placeholder="Edit Date">
-     
-     </div>
-     
-    <div class="col-md-4 ProgramInfoPop"> 
-    
-    <h4> Start Time:</h4> 
-    <input type="time" class="form-control" id="EditProgramTime" placeholder="Edit Time">
-   </div> 
-</div>
- 
- 
- 
- 
- <div class="row">
-
- 
-  
- 
-  
-       <div class="col-lg-4 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
-     <div class="button-group">
-        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Birds <span class="caret"></span></button>
-<ul class="dropdown-menu">
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Buddy</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Verlon</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;Edie</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;Maggie</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;Grayson</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Keeya</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Ruby</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;Rosalie</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;Athena</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;Gus</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Papa G'Ho</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Quin</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;Alex</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;Buttercup</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;Jaz</a></li>
-  
-</ul>
-  </div>
-</div>
-  <asp:listbox ID="DropDownList1" runat="server" AutoPostBack="True">
-        <asp:ListItem Value="Day" CssClass="small DropdownAnimal" value="option1" tabIndex="-1" Text="Buddy"></asp:ListItem>
-    </asp:listbox>
-
-     <asp:ListBox ID="lstFruits" runat="server" SelectionMode="Multiple">
-    <asp:ListItem Text="Mango" Value="1" />
-    <asp:ListItem Text="Apple" Value="2" />
-    <asp:ListItem Text="Banana" Value="3" />
-    <asp:ListItem Text="Guava" Value="4" />
-    <asp:ListItem Text="Orange" Value="5" />
-</asp:ListBox>
- 
- 
- 
-	  
-  
-       <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
-     <div class="button-group">
-        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Reptiles <span class="caret"></span></button>
-<ul class="dropdown-menu">
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Malcom</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Albus</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;Severus</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;Oscar</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;Emma</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Wilson</a></li>
-</ul>
-  
-</div>
-  
-</div>
-	     
-	     
-	     
-  
-       <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
-     <div class="button-group">
-        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Mammals <span class="caret"></span></button>
-<ul class="dropdown-menu">
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Bo</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Posie</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Willow</a></li>
-
-  
-</ul>
- 
-</div>
- 
-</div>
- </div>
- 
- <div class="row">
-    <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
-    <label class="checkbox-inline "><input type="radio" value="1" name="alphabet" > Paid</label>
-    <br>
-<label class="checkbox-inline"><input type="radio" value="2" name="alphabet" > Not Paid</label></div>
-    <div class="col-md-9 ProgramInfoPop"><div class="form-group">
-  <label for="comment">Comment:</label>
-  <asp:TextBox cssclass="form-control" rows="5" id="txtComments" runat="server" TextMode="multiline" ></asp:TextBox>
-</div></div>
-</div>
-  
-  
-            <div class="modal-footer">
-                <asp:Button ID="Button1" runat="server" OnClick="btnSubmit_Click1" Text="Save" type="button" class="btn btn-primary LoginButton" data-toggle="modal" data-target="#OnlineProgramModal" data-dismiss="modal"/>
-    <%--     <button type="button" class="btn btn-primary LoginButton" data-toggle="modal" data-target="#OnlineProgramModal" data-dismiss="modal">Save</button>--%>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-
-
-      <!-- /.content-wrapper -->
- </div>
-
-   
-   
-   
-   
-   
-   
        <!-- Pop Up modal to View program --> 
        
        <div class="modal" id="OnlineProgramModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1122,9 +824,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"> Online Program Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
+                <asp:button type="button" runat="server" class="close" data-dismiss="modal" aria-label="Close" Text ="X ">
+                   <%-- <span aria-hidden="true">×</span>--%>
+                </asp:button>
             </div>
             <div class="modal-body p-4" id="resultOnlineProgram">
                     
@@ -1272,41 +974,20 @@
   
   
             <div class="modal-footer">
-         <button type="button" class="btn btn-primary LoginButton"  data-toggle="modal" data-target="#EditOnlineProgramModal" data-dismiss="modal">Edit</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%-- <button type="button" class="btn btn-primary LoginButton"  data-toggle="modal" data-target="#EditOnlineProgramModal" data-dismiss="modal">Edit</button>--%>
+                <asp:button runat="server" type="button" class="btn btn-secondary" data-dismiss="modal" Text ="Close"></asp:button>
             </div>
         </div>
     </div>
     </div>
 
-
-
-
       <!-- /.content-wrapper -->
  </div>
- 
+
    
-   
-   
-   
-   
-   
-   
-   
-   </div> </div>
+   </div> 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     <!-- /#wrapper -->
 
     <!-- Scroll to Top Button-->
@@ -1326,7 +1007,7 @@
           </div>
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <asp:button runat="server" class="btn btn-secondary" type="button" Text ="Cancel" data-dismiss="modal"></asp:button>
             <a class="btn btn-primary" href="Login-2.html">Logout</a>
           </div>
         </div>
@@ -1355,7 +1036,16 @@
 </html>
 
 
+       
+</section>
 
 
+<!-- jQuery and Bootstrap links - do not delete! -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<!-- end of do not delete -->
+</body>
+</html>
 </asp:Content>
 
