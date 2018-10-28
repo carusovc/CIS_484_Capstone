@@ -1,5 +1,4 @@
 Use WildTek
-
 Insert into [dbo].[ProgramType](ProgramName, LastUpdated, LastUpdatedBy) VALUES ('Display', GETDATE(), 'WildTekDevelopers');
 Insert into [dbo].[ProgramType](ProgramName, LastUpdated, LastUpdatedBy) VALUES ('Special Request', GETDATE(), 'WildTekDevelopers');
 Insert into [dbo].[ProgramType](ProgramName, LastUpdated, LastUpdatedBy) VALUES ('Open House', GETDATE(), 'WildTekDevelopers');
@@ -157,16 +156,16 @@ VALUES (18, 1, 'Completed', null, 'Shenandoah, Page', 'Virginia', 'true', 30, 50
 
 
 INSERT INTO [dbo].[Program]([ProgramTypeID],[OrgID],[Status],[ProgramAddress],[CityCounty],[State],[OnOff],[NumberOfChildren],[NumberOfAdults],[PaymentNeeded],[ProgramDate],[ProgramTime],[EventMonth],[ExtraComments],[LastUpdated],[LastUpdatedBy])
-VALUES (19, 8, 'Completed', null, 'Stuarts Draft, Augusta', 'Virginia', 'false', 330, 60, 'N', '08/20/18', '3:00', 'August', 'Alright group.', '10/25/2018', 'Tyler Stewart'); 
+VALUES (18, 8, 'Completed', null, 'Stuarts Draft, Augusta', 'Virginia', 'false', 330, 60, 'N', '08/20/18', '3:00', 'August', 'Alright group.', '10/25/2018', 'Tyler Stewart'); 
 
 INSERT INTO [dbo].[Program]([ProgramTypeID],[OrgID],[Status],[ProgramAddress],[CityCounty],[State],[OnOff],[NumberOfChildren],[NumberOfAdults],[PaymentNeeded],[ProgramDate],[ProgramTime],[EventMonth],[ExtraComments],[LastUpdated],[LastUpdatedBy])
-VALUES (20, 4, 'Completed', null, 'Stone Ridge, Loudoun', 'Virginia', 'true', 30, 50, 'Y', '09/25/18', '3:00', 'September', 'Great group.', '10/25/2018', 'Tyler Stewart');
+VALUES (16, 4, 'Completed', null, 'Stone Ridge, Loudoun', 'Virginia', 'true', 30, 50, 'Y', '09/25/18', '3:00', 'September', 'Great group.', '10/25/2018', 'Tyler Stewart');
 
 INSERT INTO [dbo].[Program]([ProgramTypeID],[OrgID],[Status],[ProgramAddress],[CityCounty],[State],[OnOff],[NumberOfChildren],[NumberOfAdults],[PaymentNeeded],[ProgramDate],[ProgramTime],[EventMonth],[ExtraComments],[LastUpdated],[LastUpdatedBy])
-VALUES (21, 12, 'Completed', null, 'Fredericksburg, Rappahannock', 'Virginia', 'false', 110, 50, 'Y', '10/15/18', '3:00', 'October', null, '10/25/2018', 'Tyler Stewart');
+VALUES (10, 12, 'Completed', null, 'Fredericksburg, Rappahannock', 'Virginia', 'false', 110, 50, 'Y', '10/15/18', '3:00', 'October', null, '10/25/2018', 'Tyler Stewart');
 
 INSERT INTO [dbo].[Program]([ProgramTypeID],[OrgID],[Status],[ProgramAddress],[CityCounty],[State],[OnOff],[NumberOfChildren],[NumberOfAdults],[PaymentNeeded],[ProgramDate],[ProgramTime],[EventMonth],[ExtraComments],[LastUpdated],[LastUpdatedBy])
-VALUES (22, 15, 'Completed', null, 'Stone Ridge, Loudoun', 'Virginia', 'true', 0, 150, 'Y', '10/25/18', '2:00', 'October', 'Okay group.', '10/25/2018', 'Tyler Stewart');
+VALUES (6, 15, 'Completed', null, 'Stone Ridge, Loudoun', 'Virginia', 'true', 0, 150, 'Y', '10/25/18', '2:00', 'October', 'Okay group.', '10/25/2018', 'Tyler Stewart');
 
 Insert into dbo.ProgramAnimal(ProgramID,AnimalID,LastUpdated,LastUpdatedBy) VALUES (1, 14, '10/25/2018', 'Tyler Stewart');
 Insert into dbo.ProgramAnimal(ProgramID,AnimalID,LastUpdated,LastUpdatedBy) VALUES (1,15, '10/25/2018', 'Tyler Stewart');
@@ -237,6 +236,3 @@ Insert into dbo.ProgramAnimal(ProgramID,AnimalID,LastUpdated,LastUpdatedBy) VALU
 
 Insert into dbo.ProgramAnimal(ProgramID,AnimalID,LastUpdated,LastUpdatedBy) VALUES (5,21, '10/25/2018', 'Tyler Stewart');
 Insert into dbo.ProgramAnimal(ProgramID,AnimalID,LastUpdated,LastUpdatedBy) VALUES (6,17, '10/25/2018', 'Tyler Stewart');
-
-
-                   
