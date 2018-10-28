@@ -9,6 +9,7 @@ html {
     min-height: 100%;
 }
 
+
 body {
     background-image: url(../Images/FlyingBirdsBG.jpg);
     background-color: #c3dbf5; /* Used if the image is unavailable */
@@ -261,7 +262,6 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
                 display: none;
             }
 }
-
 
 .sidebar.fixed-top {
     top: 56px;
