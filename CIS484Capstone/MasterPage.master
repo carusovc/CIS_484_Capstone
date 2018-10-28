@@ -20,7 +20,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navbar-default">
+       <%-- <nav class="navbar navbar-default">
          <div class="container-fluid">
                 <div class="navbar-header">
                 <a class="navbar-brand" href="Default.aspx" >WildTek</a>
@@ -35,7 +35,7 @@
             <li><a href="Default.aspx">LogOut</a></li>
         </ul>
         </div>
-        </nav>
+        </nav>--%>
 
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
