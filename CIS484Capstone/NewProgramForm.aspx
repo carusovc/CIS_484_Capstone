@@ -53,7 +53,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">WildTek</a>
+      <a class="navbar-brand mr-1" href="createUser.aspx">WildTek</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -91,15 +91,15 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="ProgramForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
-            <span>Programs</span>
+            <span>Live Program Form</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Online.html">
+          <a class="nav-link" href="OnlineForm.aspx">
             <i class="fas fa-fw fa-wifi"></i>
-            <span>Online</span></a>
+            <span>Online Program Form</span></a>
         </li>
        
         <li class="nav-item">
@@ -114,7 +114,7 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="Payment.aspx">
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Payment</span></a>
         </li>
