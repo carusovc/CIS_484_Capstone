@@ -66,7 +66,7 @@
     <asp:Button ID="btnLogin" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
         <br/>
         <br/>
-       <h2 class="text-center">OR</h2>
+    
     <asp:Button ID="createForm" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
     </div>
      <%--  <div class="text-center">

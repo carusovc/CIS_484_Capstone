@@ -8,26 +8,9 @@ body, html {
     height: 100%;
 }
 
-body {
-    background-image: url("../Images/BirdBg.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-
-
-
-body {
-    background-image: url("../Images/BirdBg.jpg");
-    background-color: #c3dbf5; /* Used if the image is unavailable */
-    height: auto; /* You must set a specified height */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-}
 
 .login-block {
-    background-image: url("../Images/FlyingBirdsBG.jpg");
+    background-image: url("Images/Icons/Add.png");
     background-color: #c3dbf5; /* Used if the image is unavailable */
     height: auto; /* You must set a specified height */
     background-position: center; /* Center the image */
@@ -43,7 +26,8 @@ body {
 }
 
 .banner-sec {
-    background: url("../Images/BirdBg.jpg") no-repeat left bottom;
+    background: url("Images/Icons/Add.png");
+    /*no-repeat: left bottom;*/
     background-size: cover;
     min-height: 400px;
     border-radius: 0 10px 10px 0;
