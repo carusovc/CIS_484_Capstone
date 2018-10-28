@@ -13,16 +13,17 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 	  <!-- Bootstrap v4 -->
+	  <!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
+<link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
+
 
 </head>
-
-<body>
+   
+<body class =" login">
 <section class="login-block">
-    
-
-<div class="container">
+<div class="container1">
       <div class="card card-register mx-auto mt-5">
         <div class="card-header NewUserTitle">Create an Account</div>
         <div class="card-body">
@@ -81,7 +82,7 @@
             <br />
           </form>
           <div class="text-center">
-            <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
+           <a class="d-block small mt-3" href="Default.aspx">Login Page</a>
             <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
           </div>
         </div>

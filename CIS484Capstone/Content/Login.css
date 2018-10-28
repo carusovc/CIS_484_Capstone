@@ -3,15 +3,22 @@
 
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
-body.login {
+
+
+body, html {
     height: 100%;
-    background: #DE6262; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #FFB88C, #DE6262);
+    
 }
 
+
 .login-block {
-    background-color: #FFB687; /* fallback for old browsers */
+    background-image: url(../Images/FlyingBirdsBG.jpg);
+    /* background-color: #c3dbf5;  Used if the image is unavailable */
+    height: auto; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+
     float: left;
     width: 100%;
     padding: 50px 0;
@@ -22,7 +29,9 @@ body.login {
 }
 
 .banner-sec {
-    background: url(../Images/Login-bg.jpg) no-repeat left bottom;
+
+    background-image: url(../Images/BirdBg.jpg);
+    /*no-repeat: left bottom;*/
     background-size: cover;
     min-height: 400px;
     border-radius: 0 10px 10px 0;
@@ -34,6 +43,14 @@ body.login {
     border-radius: 10px;
     box-shadow: 15px 20px 0px rgba(0,0,0,0.1);
 }
+
+
+.block {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 15px 20px 0px rgba(0,0,0,0.1);
+}
+
 
 .carousel-inner {
     border-radius: 0 10px 10px 0;
@@ -47,6 +64,11 @@ body.login {
 .login-sec {
     padding: 50px 30px;
     position: relative;
+
+    
+}
+.logo {
+    font-family: 'Orbitron', sans-serif;
 }
 
     .login-sec .copy-text {

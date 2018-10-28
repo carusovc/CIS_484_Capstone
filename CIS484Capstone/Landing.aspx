@@ -13,25 +13,43 @@
 	  <!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
 
 </head>
 
 <body>
-<section class="login-block">
+<%--<section class="login-block">
     <div class="container">
 	<div class="row">
 		<div class="col-md-4 login-sec">
-		    <%--<h2 class="text-center">Choose </h2>--%>
+		    <%--<h2 class="text-center">Choose </h2>
 		    <form class="login-form text-center">
 
-                <asp:Label ID="lblWelcome" runat="server" Text=""></asp:Label>
+                
     </form>
 		
 	</div>
 </div>
 </div>
 
-</section>
+</section>--%>
+          <div id="content-wrapper">
+        <div class="container-fluid">
+         
+      <!-- Programs-->
+       <div class="row">
+		<div class="col-md-12 ProgramTitle">
+			<h1 >Online Programs</h1>
+            <asp:Label ID="lblWelcome" runat="server" Text=""></asp:Label>
+			
+		</div>
+	</div>
+ 
+            <div class="col-md-12">
+        <br>
+			</div>
+		</div>
+	</div>
 
 
 <!-- jQuery and Bootstrap links - do not delete! -->
