@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+  
   <!DOCTYPE html>
 <html lang="en">
 
@@ -503,6 +504,7 @@
  
  <div class="row">
     <div class="col-md-4 ProgramInfoPop"> <h4> Report Month</h4><input type="month" class="form-control" id="EditReportMonth" placeholder="Edit Month"></div>
+
     
     <div class="col-md-4 ProgramInfoPop"> <h4> Date:</h4> <input type="date" class="form-control" id="EditDate" placeholder="Edit Status"></div>
     <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <input type="Time" class="form-control" id="EditTime" placeholder="Edit Status"></div>
