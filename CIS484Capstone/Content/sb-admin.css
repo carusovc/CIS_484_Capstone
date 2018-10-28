@@ -10,10 +10,12 @@ html {
 }
 
 body.login {
-    height: 100%;
-    background: #DE6262; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #FFB88C, #DE6262);
+    background-image: url("../Images/FlyingBirdsBG.jpg");
+    background-color: #c3dbf5; /* Used if the image is unavailable */
+    height: auto; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
 }
 
 #wrapper {
@@ -527,9 +529,4 @@ body.sidebar-toggled footer.sticky-footer {
 
 .ProgramCaption {
     padding-top: 5px;
-}
-
-
-.PrevImg {max-height: 150px;
-          max-width: 150px;
 }

@@ -322,7 +322,7 @@ foreach (ListItem item in CBLGold.Items)
   <li><a href="#" class="small DropdownAnimal" data-value="option14" tabIndex="-1"><input type="radio" value="14" name="alphabet"/>&nbsp;Familes</a></li>
 	<li><a href="#" class="small DropdownAnimal" data-value="option14" tabIndex="-1"><input type="radio" value="14" name="alphabet"/>&nbsp;Adults Only</a></li>
   --%>
-  <asp:DropDownList CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Status" SelectionMode="Multiple" class="dropdown-menu">
+  <asp:ListBox CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Status" SelectionMode="Multiple" class="dropdown-menu">
     <asp:ListItem Text="" Value="0" />
       <asp:ListItem Text="Pre-K" Value="1" />
     <asp:ListItem Text="K" Value="2" />
@@ -341,7 +341,7 @@ foreach (ListItem item in CBLGold.Items)
        <asp:ListItem Text="Families" Value="15" />
     <asp:ListItem Text="Adults" Value="16" />
 
-</asp:DropDownList>
+</asp:ListBox>
 
 
   
@@ -710,7 +710,7 @@ foreach (ListItem item in CBLGold.Items)
 </ul>
   </div>--%>
 
-           <asp:DropDownList ID="ddlBirds"  CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder ="Select Birds">
+           <asp:ListBox ID="ddlBirds"  CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder ="Select Birds">
        <asp:ListItem Text="" Value="0" />
        <asp:ListItem Text="Buddy" Value="1" />
     <asp:ListItem Text="Verlon" Value="2" />
@@ -727,7 +727,7 @@ foreach (ListItem item in CBLGold.Items)
     <asp:ListItem Text="Alex" Value="13" />
     <asp:ListItem Text="Buttercup" Value="14" />
     <asp:ListItem Text="Jaz" Value="15" />
-</asp:DropDownList>
+</asp:ListBox>
 
 </div>
   
@@ -752,7 +752,7 @@ foreach (ListItem item in CBLGold.Items)
 
 </div>--%>
 
-<asp:DropDownList CssClass="form-control" ID="ddlReptiles" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+<asp:ListBox CssClass="form-control" ID="ddlReptiles" runat="server" SelectionMode="Multiple" class="dropdown-menu">
      <asp:ListItem Text="" Value="0" />
     <asp:ListItem Text="Malcom" Value="1" />
     <asp:ListItem Text="Albus" Value="2" />
@@ -761,7 +761,7 @@ foreach (ListItem item in CBLGold.Items)
     <asp:ListItem Text="Emma" Value="5" />
     <asp:ListItem Text="Wilson" Value="6" />
 
-</asp:DropDownList>
+</asp:ListBox>
   
 </div>
 	     
@@ -781,8 +781,8 @@ foreach (ListItem item in CBLGold.Items)
  
 </div>--%>
 
-<asp:ListBox ID="lstMammals" runat="server" SelectionMode="Multiple" class="dropdown-menu">
-     <asp:ListItem Text="" Value="0" />
+<asp:ListBox ID="lstMammals" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+    <asp:ListItem Text="" Value="0" />
     <asp:ListItem Text="Bo" Value="1" />
     <asp:ListItem Text="Posie" Value="2" />
     <asp:ListItem Text="Willow" Value="3" />
