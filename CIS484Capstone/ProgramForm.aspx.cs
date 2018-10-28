@@ -292,34 +292,34 @@ public partial class ProgramForm : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
 
-        if (ddlAnimalType.SelectedIndex == 0)
-        {
-            ddlAnimalName.Items.Clear();
-            insert.CommandText = "select * from dbo.Animal where animalType = 'bird'";
-            ddlAnimalName.DataSource = insert.ExecuteReader();
-            ddlAnimalName.DataTextField = "AnimalName";
-            ddlAnimalName.DataValueField = "AnimalID";
-            ddlAnimalName.DataBind();
-        }
-        else if (ddlAnimalType.SelectedIndex == 1)
-        {
-            ddlAnimalName.Items.Clear();
-            insert.CommandText = "select * from dbo.Animal where animalType = 'mammal'";
-            ddlAnimalName.DataSource = insert.ExecuteReader();
-            ddlAnimalName.DataTextField = "AnimalName";
-            ddlAnimalName.DataValueField = "AnimalID";
-            ddlAnimalName.DataBind();
-        }
+        //if (ddlAnimalType.SelectedIndex == 0)
+        //{
+        //    ddlAnimalName.Items.Clear();
+        //    insert.CommandText = "select * from dbo.Animal where animalType = 'bird'";
+        //    ddlAnimalName.DataSource = insert.ExecuteReader();
+        //    ddlAnimalName.DataTextField = "AnimalName";
+        //    ddlAnimalName.DataValueField = "AnimalID";
+        //    ddlAnimalName.DataBind();
+        //}
+        //else if (ddlAnimalType.SelectedIndex == 1)
+        //{
+        //    ddlAnimalName.Items.Clear();
+        //    insert.CommandText = "select * from dbo.Animal where animalType = 'mammal'";
+        //    ddlAnimalName.DataSource = insert.ExecuteReader();
+        //    ddlAnimalName.DataTextField = "AnimalName";
+        //    ddlAnimalName.DataValueField = "AnimalID";
+        //    ddlAnimalName.DataBind();
+        //}
 
-        else if (ddlAnimalType.SelectedIndex == 2)
-        {
-            ddlAnimalName.Items.Clear();
-            insert.CommandText = "select * from dbo.Animal where animalType = 'reptile'";
-            ddlAnimalName.DataSource = insert.ExecuteReader();
-            ddlAnimalName.DataTextField = "AnimalName";
-            ddlAnimalName.DataValueField = "AnimalID";
-            ddlAnimalName.DataBind();
-        }
+        //else if (ddlAnimalType.SelectedIndex == 2)
+        //{
+        //    ddlAnimalName.Items.Clear();
+        //    insert.CommandText = "select * from dbo.Animal where animalType = 'reptile'";
+        //    ddlAnimalName.DataSource = insert.ExecuteReader();
+        //    ddlAnimalName.DataTextField = "AnimalName";
+        //    ddlAnimalName.DataValueField = "AnimalID";
+        //    ddlAnimalName.DataBind();
+        //}
 
 
     }
