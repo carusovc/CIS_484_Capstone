@@ -39,7 +39,7 @@
         <i class="fas fa-bars"></i>
       </button>
 
-      <!-- Navbar Search -->
+<%--      <!-- Navbar Search -->
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -49,7 +49,7 @@
             </button>
           </div>
         </div>
-      </form>
+      </form>--%>
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
@@ -115,7 +115,7 @@
        <!-- Programs-->
        <div class="row">
 		<div class="col-md-12 ProgramTitle">
-			<h1 >Animal Monthly Wildlife Report</h1>
+			<h1 >Payment Information Form</h1>
 			
 		</div>
 	</div>
@@ -130,7 +130,7 @@
 
 <div class="container">
       <div class="card card-register mx-auto mt-5">
-          <div class="card-header NewUserTitle">Payment Information Form</div>
+          <%--<div class="card-header NewUserTitle">Payment Information Form</div>--%>
     
         <div class="card-body">
          <form class="login-form">
