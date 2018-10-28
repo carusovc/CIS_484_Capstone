@@ -247,7 +247,7 @@ INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[N
 
   
 INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
- VALUES ('02/05/2018','February',4,130,10,'Interlaken',null,'Switerzland','Steve Watts','watts@gmail.com','Fun!',GETDATE(),'Tyler Stewart');
+ VALUES ('02/05/2018','February',4,130,10,'Interlaken',null,'Switzerland','Steve Watts','watts@gmail.com','Fun!',GETDATE(),'Tyler Stewart');
 
 INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
  VALUES ('02/17/2018','February',8,306,3,'Queens','NY','United States of America','David Kim','kimda@gmail.com','Awesome time!',GETDATE(),'Tyler Stewart');
