@@ -28,20 +28,23 @@
    <%-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">--%>
 
 	  <!-- Bootstrap v4 -->
+	  <!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
-<link href="css/Login.css" rel="stylesheet" type="text/css" media="screen">
+<link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
+
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-   <link href="~/Images/falcon-fav.ico" rel="shortcut icon" type="image/x-icon" />
+   <link href="~/Images/logo.png" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-            <nav class="navbar navbar-default">
+         <nav class="navbar navbar-default">
          <div class="container-fluid">
                 <div class="navbar-header">
                 <a class="navbar-brand" href="Default.aspx" >WildTek</a>
