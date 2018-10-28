@@ -51,15 +51,16 @@
 
   <body>
 
-    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
+       
+      <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
 
-      <a class="navbar-brand mr-1" href="createUser.aspx">WildTek</a>
-
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <%--<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="~/carvet-square-down.svg">
         <i class="fas fa-bars"></i>
-      </button>
+      </button>--%>
 
-      <!-- Navbar Search -->
+    <%--  <!-- Navbar Search -->
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -69,7 +70,7 @@
             </button>
           </div>
         </div>
-      </form>
+      </form>--%>
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
@@ -91,7 +92,7 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="ProgramForm.aspx">
+          <a class="nav-link" href="Default.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Live Program Form</span>
           </a>
@@ -103,15 +104,11 @@
         </li>
        
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="ReportChoice.aspx">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Simple Report</span></a>
+            <span>Reports</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-address-card"></i>
-            <span>Animal</span></a>
-        </li>
+      
         
         <li class="nav-item">
           <a class="nav-link" href="Payment.aspx">
