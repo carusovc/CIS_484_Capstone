@@ -13,11 +13,13 @@
 <meta charset="UTF-8">
 <title>WildTek Login</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
 	  <!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
+
 
 </head>
 
@@ -26,7 +28,7 @@
     <div class="container">
 	<div class="row">
 		<div class="col-md-4 login-sec">
-		    <h2 class="text-center">WildTek Login</h2>
+		    <h2 class="text-center logo">WildTek Login</h2>
 		    <form class="login-form">
   <div class="form-group">
     <label for="txtUsername" class="text-uppercase" runat="server">Username</label>
@@ -66,6 +68,7 @@
     <asp:Button ID="btnLogin" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
         <br/>
         <br/>
+        <h2 class="text-center logo">OR</h2>
     
     <asp:Button ID="createForm" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
     </div>

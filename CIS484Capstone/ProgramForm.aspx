@@ -27,6 +27,9 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
+
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     
     
     
@@ -36,8 +39,8 @@
 
   <body id="page-top">
 
-    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
+       
       <a class="navbar-brand mr-1" href="index.html">WildTek</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
@@ -199,9 +202,15 @@
                   <div class="row  ">           
 	    <div class=" col-md-4 ProgramInfoPop">
 	    <h4>On-Site/Off-Site </h4> 
-    <label class="checkbox-inline "><input type="checkbox" value=""> On</label>
+    <%--<label class="checkbox-inline "><input type="checkbox" value=""> On</label>
     <br>
-<label class="checkbox-inline"><input type="checkbox" value=""> Off</label>
+<label class="checkbox-inline"><input type="checkbox" value=""> Off</label>--%>
+
+<asp:RadioButtonList ID="RadioButtonList1" runat="server" CssClass ="checkbox-inline">
+    <asp:ListItem Text="On" Value="1" />
+    <asp:ListItem Text="Off" Value="0" />
+</asp:RadioButtonList>
+
 	    
 			</div> 
 			
@@ -226,6 +235,8 @@
  
 
 </ul></div>
+
+      
 
 
 
@@ -252,44 +263,37 @@
 </div>
  
  <div class="row">
-    <div class="col-md-4 ProgramInfoPop"> <h4> Report Month</h4><div class="dropdown">
     
-  <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="AddReportMonthDrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Month
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu DropdownAnimal" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Prog 1</a></li>
-    <li><a href="#">Prog 2</a></li>
-    <li><a href="#">Prog 3</a></li>
-  </ul>
-</div></div>
     <div class="col-md-4 ProgramInfoPop"> <h4> Date:</h4> <input type="date" class="form-control" id="AddDate" placeholder="Add Status"></div>
     <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <input type="Time" class="form-control" id="AddTime" placeholder="Add Status"></div>
 </div>
  
  <div class="row">
-    <div class="col-md-2 ProgramInfoPop"> <h4>Grade</h4><div class="dropdown">
+    <div class="col-md-3 ProgramInfoPop"> <h4>Grade</h4><div class="dropdown">
     
   <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="AddEd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     Grade
     <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu DropdownAnimal" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Pre-K</a></li>
-    <li><a href="#">K</a></li>
-    <li><a href="#">1st</a></li>
-    <li><a href="#">2nd</a></li>
-    <li><a href="#">3rd</a></li>
-    <li><a href="#">4th</a></li>
-    <li><a href="#">5th</a></li>
-    <li><a href="#">6th</a></li>
-    <li><a href="#">7th</a></li>
-    <li><a href="#">8th</a></li>
-    <li><a href="#">9th</a></li>
-    <li><a href="#">10th</a></li>
-    <li><a href="#">11th</a></li>
-    <li><a href="#">12</a></li>
+<%--  <ul class="dropdown-menu DropdownAnimal" aria-labelledby="dropdownMenu1">--%>
+    <ul class="dropdown-menu">
+  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Pre-K</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;K</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;1st</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;2nd</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;3rd</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;4th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;5th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;6th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;7th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;8th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;9th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;10th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;11th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;12th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;College</a></li>
+  
+
   </ul>
 </div></div>
    
@@ -304,8 +308,13 @@
   
 </ul>
   </div></div>
-    <div class="col-md-3 ProgramInfoPop"> <h4> # of Adults:</h4> <input type="number" class="form-control" id="Add#Adult" placeholder="# of Adults"></div>
-    <div class="col-md-4 ProgramInfoPop"> <h4> # of Children:</h4> <input type="Number" class="form-control" id="Add#Kidss" placeholder="# of Children"></div>
+    <div class="col-md-3 ProgramInfoPop"> <h4> # of Adults:</h4> 
+<%--        <input type="number" class="form-control" id="Add#Adult" placeholder="# of Adults">--%></div>
+     <asp:TextBox cssclass="form-control" ID="AddNumAdult" runat="server" placeholder="Add # of Adults" ></asp:TextBox>
+    
+     <div class="col-md-4 ProgramInfoPop"> <h4> # of Children:</h4> 
+      <%--  <input type="Number" class="form-control" id="Add#Kidss" placeholder="# of Children"> --%></div>
+     <asp:TextBox cssclass="form-control" ID="AddNumChildren" runat="server" placeholder="Add # of Children" ></asp:TextBox>
     
     
  </div>
@@ -369,10 +378,10 @@
        <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
      <div class="button-group">
         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Mammals <span class="caret"></span></button>
-<ul class="dropdown-menu">
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Bo</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Posie</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Willow</a></li>
+<ul id="listChoice" class="dropdown-menu">
+  <li id="listBo"><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Bo</a></li>
+  <li id="listPosie"><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Posie</a></li>
+  <li id="listWillow"><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Willow</a></li>
 
   
 </ul>
@@ -384,12 +393,18 @@
  
  <div class="row">
     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
-    <label class="checkbox-inline "><input type="checkbox" value=""> Yes</label>
+<%--   <label class="checkbox-inline "><input type="checkbox" value=""> Yes</label>
     <br>
-<label class="checkbox-inline"><input type="checkbox" value=""> No</label></div>
-    <div class="col-md-9 ProgramInfoPop"><div class="form-group">
-  <label for="comment">Comment:</label>
-  <textarea class="form-control" rows="5" id="comment"></textarea>
+<label ><input type="checkbox" value=""> No</label></div>--%>
+
+<asp:RadioButtonList ID="paymentCompleteAdd" runat="server" CssClass ="checkbox-inline">
+    <asp:ListItem Text="Yes" Value="1" />
+    <asp:ListItem Text="No" Value="0" />
+</asp:RadioButtonList>
+        
+        <div class="col-md-9 ProgramInfoPop"><div class="form-group">
+        <asp:label for="comment" runat ="server">Comment:</asp:label>
+  <asp:textbox runat="server" class="form-control" cols= "12" rows="5" id="comment"></asp:textbox>
 </div></div>
 </div>
  
@@ -493,36 +508,31 @@
     <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <input type="Time" class="form-control" id="EditTime" placeholder="Edit Status"></div>
 </div>
  
- <div class="row">
-    <div class="col-md-2 ProgramInfoPop"><h4>Grade</h4> 
-    <div class="button-group">
-    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Grade <span class="caret"></span></button>
+
+    <div class="col-lg-4 ProgramInfoPop"><h4 class="Animal"> Grade:</h4>
+     <div class="button-group">
+        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Grade <span class="caret"></span></button>
 <ul class="dropdown-menu">
-  <li><a href="#" class="small DropdownAnimal" data-value="option0" tabIndex="-1"><input type="radio" value="0" name="alphabet"/>&nbsp;Pre-K</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="radio" value="1" name="alphabet"/>&nbsp;K</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="radio" value="2" name="alphabet"/>&nbsp;1st</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="radio" value="3" name="alphabet"/>&nbsp;2nd</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="radio" value="4" name="alphabet"/>&nbsp;3rd</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="radio" value="5" name="alphabet"/>&nbsp;4th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option6" tabIndex="-1"><input type="radio" value="6" name="alphabet"/>&nbsp;5th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option7" tabIndex="-1"><input type="radio" value="7" name="alphabet"/>&nbsp;6th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option8" tabIndex="-1"><input type="radio" value="8" name="alphabet"/>&nbsp;7th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option9" tabIndex="-1"><input type="radio" value="9" name="alphabet"/>&nbsp;8th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option10" tabIndex="-1"><input type="radio" value="10" name="alphabet"/>&nbsp;9th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option11" tabIndex="-1"><input type="radio" value="11" name="alphabet"/>&nbsp;10th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option12" tabIndex="-1"><input type="radio" value="12" name="alphabet"/>&nbsp;11th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option13" tabIndex="-1"><input type="radio" value="13" name="alphabet"/>&nbsp;12th</a></li>
-  <li><a href="#" class="small DropdownAnimal" data-value="option14" tabIndex="-1"><input type="radio" value="14" name="alphabet"/>&nbsp;College</a></li>
-  
-  
+  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Pre-K</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;K</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;1st</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;2nd</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;3rd</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;4th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;5th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;6th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;7th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;8th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;9th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;10th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;11th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;12th</a></li>
+  <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;College</a></li>
   
 </ul>
-     
-	</div>    
-	    
-			</div>
-
-   
+  </div>
+</div>
+  
    <div class="col-md-3 ProgramInfoPop"> <h4> Educators</h4> <div class="button-group">
         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Educators <span class="caret"></span></button>
 <ul class="dropdown-menu">
@@ -536,11 +546,9 @@
   </div></div>
     <div class="col-md-3 ProgramInfoPop"> <h4> # of Adults:</h4> <input type="number" class="form-control" id="Edit#Adult" placeholder="# of Adults"></div>
     <div class="col-md-4 ProgramInfoPop"> <h4> # of Children:</h4> <input type="Number" class="form-control" id="Edit#Kidss" placeholder="# of Children"></div>
-    
-    
+        
  </div>
- 
- 
+
  <div class="row">
 
  
@@ -571,6 +579,7 @@
   </div>
 </div>
   
+
 
  
  
@@ -614,10 +623,22 @@
  
  <div class="row">
     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
-    <label class="checkbox-inline "><input type="radio" value="1" name="alphabet" > Paid</label>
+    <%--<label class="checkbox-inline "><input type="radio" value="1" name="alphabet" > Paid</label>
     <br>
-<label class="checkbox-inline"><input type="radio" value="2" name="alphabet" > Not Paid</label></div>
+<label class="checkbox-inline"><input type="radio" value="2" name="alphabet" > Not Paid</label>--%>
+
+     <asp:RadioButtonList ID="paymentComplete" runat="server" CssClass ="checkbox-inline">
+    <asp:ListItem Text="Paid" Value="1" />
+    <asp:ListItem Text="Not Paid" Value="0" />
+</asp:RadioButtonList>
+        </div>
+
     <div class="col-md-9 ProgramInfoPop"><div class="form-group">
+
+
+
+
+        
   <label for="comment">Comment:</label>
   <textarea class="form-control" rows="5" id="EditComment"></textarea>
 </div></div>

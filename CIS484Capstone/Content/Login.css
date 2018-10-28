@@ -6,12 +6,13 @@
 
 body, html {
     height: 100%;
+    
 }
 
 
 .login-block {
-    background-image: url("Images/Icons/Add.png");
-    background-color: #c3dbf5; /* Used if the image is unavailable */
+    background-image: url(../Images/FlyingBirdsBG.jpg);
+    /* background-color: #c3dbf5;  Used if the image is unavailable */
     height: auto; /* You must set a specified height */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -26,7 +27,7 @@ body, html {
 }
 
 .banner-sec {
-    background: url("Images/Icons/Add.png");
+    background-image: url(../Images/BirdBg.jpg);
     /*no-repeat: left bottom;*/
     background-size: cover;
     min-height: 400px;
@@ -40,6 +41,13 @@ body, html {
     box-shadow: 15px 20px 0px rgba(0,0,0,0.1);
 }
 
+.block {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 15px 20px 0px rgba(0,0,0,0.1);
+}
+
+
 .carousel-inner {
     border-radius: 0 10px 10px 0;
 }
@@ -52,6 +60,10 @@ body, html {
 .login-sec {
     padding: 50px 30px;
     position: relative;
+    
+}
+.logo {
+    font-family: 'Orbitron', sans-serif;
 }
 
     .login-sec .copy-text {

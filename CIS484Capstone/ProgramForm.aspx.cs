@@ -22,10 +22,12 @@ public partial class ProgramForm : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
 
+        
+        
 
         if (!IsPostBack)
         {
-
+            
             //if (ddlAnimalType.SelectedIndex == 0)
             //{
 

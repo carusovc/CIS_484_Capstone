@@ -273,15 +273,17 @@ foreach (ListItem item in CBLGold.Items)
      
 	<%--</div> --%>   
 
-         <div class=" col-md-4 ProgramInfoPop">
+         
+	    
+			</div>			
+			
+                    <div class=" col-md-4 ProgramInfoPop">
 	    <h4>Add New Program </h4> 
     
 	    <%--<input type="text" class="form-control" id="txtOnlineType" placeholder="Add Program Type">--%>
              <asp:TextBox cssclass="form-control" ID="txtOnlineType" runat="server" placeholder="Add Program Type" ></asp:TextBox>   
 			</div>
-	    
-			</div>			
-			
+
 			<!-- End  Description --> 
 	</div><!-- End  row --> 
          
@@ -390,6 +392,8 @@ foreach (ListItem item in CBLGold.Items)
 
   </div>
 			  </div>
+
+               
 			  
 			  <div class=" col-md-4 ProgramInfoPop">
 	    <h4> Email </h4> 
@@ -400,7 +404,7 @@ foreach (ListItem item in CBLGold.Items)
 	    
 			</div>
 			  
-</div>
+
 	  
 			
     
@@ -819,7 +823,7 @@ foreach (ListItem item in CBLGold.Items)
   <asp:TextBox  runat="server" class="form-control" rows="5" cols = "20" id="AddOnlineComment"></asp:TextBox>
 </div></div>
 </div>
-  
+  </div>
   
             <div class="modal-footer">
          <button type="button" class="btn btn-primary LoginButton" data-toggle="modal" data-target="#OnlineProgramModal" data-dismiss="modal">Add</button>
@@ -992,7 +996,7 @@ foreach (ListItem item in CBLGold.Items)
   
   
             <div class="modal-footer">
-        <%-- <button type="button" class="btn btn-primary LoginButton"  data-toggle="modal" data-target="#EditOnlineProgramModal" data-dismiss="modal">Edit</button>--%>
+         <button type="button" class="btn btn-primary LoginButton"  data-toggle="modal" data-target="#EditOnlineProgramModal" data-dismiss="modal">Edit</button>
                 <asp:button runat="server" type="button" class="btn btn-secondary" data-dismiss="modal" Text ="Close"></asp:button>
             </div>
         </div>

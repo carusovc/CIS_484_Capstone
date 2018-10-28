@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    background-image: url("images/FlyingBirdsBG.jpg");
+    background-image: url(../Images/FlyingBirdsBG.jpg);
     background-color: #c3dbf5; /* Used if the image is unavailable */
     height: auto; /* You must set a specified height */
     background-position: center; /* Center the image */
@@ -18,14 +18,14 @@ body {
     background-size: cover; /* Resize the background image to cover the entire container */
 }
 
-body.login {
-    background-image: url("images/FlyingBirdsBG.jpg");
-    background-color: #c3dbf5; /* Used if the image is unavailable */
-    height: auto; /* You must set a specified height */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-}
+    body.login {
+        background-image: url(../Images/FlyingBirdsBG.jpg);
+        background-color: #c3dbf5; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover; /* Resize the background image to cover the entire container */
+    }
 
 #wrapper {
     display: -webkit-box;
@@ -261,6 +261,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
                 display: none;
             }
 }
+
 
 .sidebar.fixed-top {
     top: 56px;
