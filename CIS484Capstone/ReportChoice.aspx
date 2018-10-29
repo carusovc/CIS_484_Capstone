@@ -20,7 +20,7 @@
     
 </head>
 
-<body>
+<body class="login">
 
               <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
        
@@ -101,28 +101,61 @@
 
       <div id="content-wrapper">
 
-        <div class="container-fluid block">
+        <div class="container-fluid ">
      
  
     
           <div class="row">
 		<div class="col-md-12 ProgramTitle">
 			<h1 >Reports</h1>
-			
-		
-	       <div class="form-group form-row col-md-6 form-label-group text-center">
-                <asp:Button ID="MonthlyReports" class="btn btn-primary btn-login btn-block" runat="server" Text="Monthly Reports" OnClick="TabMonthlyReports_Click" />
-                 <asp:Button ID="AnimalReports" class="btn btn-primary btn-login btn-block" runat="server" Text="Animal Reports" OnClick="TabAnimalReports_Click" />
-                 <asp:Button ID="YearlyReports" class="btn btn-primary btn-login btn-block" runat="server" Text="Yearly Reports" OnClick="TabYearlyReports_Click" />
-                 <asp:Button ID="OnlineProgramReports" class="btn btn-primary btn-login btn-block" runat="server" Text="Live Program Reports" OnClick="TabLiveReports_Click" />
-                 <asp:Button ID="LiveReports" class="btn btn-primary btn-login btn-block" runat="server" Text="Online Program Reports" OnClick="TabOnlineProgramReports_Click" />
+			</div>
+		  </div> 
+<div class="  mx-auto">
+    <div class="row"> <br /><br /></div>
+
+             <div class="row">
+                 
+	       <div class="form-group form-row col-md-12 form-label-group d-flex justify-content-center">
+               <asp:Button ID="Button2" class="btn btn-primary btn-block btn-xlarge btn-inside " runat="server" Text="Animal Reports" OnClick="TabAnimalReports_Click" />
+	       </div>
+
+	      
             </div>
-          </div>    
-              </div>
+
+            <div class="row">
+                
+	       <div class="form-group form-row  col-sm-6 col-md-6 form-label-group mx-auto d-flex justify-content-center"> 
+                <asp:Button ID="Button1" class="btn btn-primary btn-block btn-xlarge btn-inside" runat="server" Text="Monthly Reports" OnClick="TabMonthlyReports_Click" />
+	       </div>
+
+                 <div class="form-group form-row  col-sm-6 col-md-6 form-label-group  mx-auto d-flex justify-content-center">
+               <asp:Button ID="Button3" class="btn btn-primary btn-block btn-xlarge btn-inside" runat="server" Text="Yearly Reports" OnClick="TabYearlyReports_Click" />
+               
+	       </div>
+                
+                </div>
+
+           
+             
+               <div class="row">
+                
+                   <div class="form-group form-row   col-sm-6 col-md-6 form-label-group  mx-auto d-flex justify-content-center">
+                 <asp:Button ID="OnlineProgramReports" class="btn btn-primary btn-block btn-xlarge btn-inside" runat="server" Text="Live Program Reports" OnClick="TabLiveReports_Click" />
+                
+            </div>
+           
+            <div class="form-group form-row col-md-6  col-sm-6 form-label-group d-flex  mx-auto justify-content-center">
+                 <asp:Button ID="LiveReports" class="btn btn-primary btn-inside btn-xlarge btn-block" runat="server" Text="Online Program Reports" OnClick="TabOnlineProgramReports_Click" />
+                </div>
+                   
+               </div>
+    <br />
+            </div>
+              
     </div>
     </div>
  
-</div>
+
 
 
        

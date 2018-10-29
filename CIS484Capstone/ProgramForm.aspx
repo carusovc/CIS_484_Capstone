@@ -120,7 +120,7 @@
 
       <div id="content-wrapper">
 
-        <div class="container-fluid block">
+        <div class="container-fluid ">
 
           
 
@@ -143,43 +143,43 @@
 
         <div id="Program1" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail" src="images/icons/offsite.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
             <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
           
         </div>
         <div id="Program2" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail" src="images/icons/offsite.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
             <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
           
         </div>
         <div id="Program3" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail" src="images/icons/offsite.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
             <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
           
         </div>
         <div id="Program4" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail"src="images/icons/offsite.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox"src="images/icons/offsite.png" alt="">
             <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
           
         </div>
         <div id="Program5" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail" src="images/icons/offsite.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
             <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
           
         </div>
         <div id="Program6" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail" src="images/icons/offsite.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
             <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
           
         </div>
         <div id="AddProgram" data-toggle="modal" data-target="#AddProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/Add.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox" src="images/icons/Add.png" alt="">
             <br> <h6 class="ProgramCaption">Add Program</h6>
           
         </div>

@@ -11,18 +11,7 @@ body, html {
 }
 
 
-.login-block {
-    background-image: url(../Images/FlyingBirdsBG.jpg);
-    /* background-color: #c3dbf5;  Used if the image is unavailable */
-    height: auto; /* You must set a specified height */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
 
-    float: left;
-    width: 100%;
-    padding: 50px 0;
-}
 
 .ForgotLogin {
     background-color: whitesmoke;
@@ -48,7 +37,13 @@ body, html {
 .block {
     background: white;
     border-radius: 10px;
-    box-shadow: 15px 20px 0px rgba(0,0,0,0.1);
+    
+}
+
+.Insideblock {
+    background: white;
+    border-radius: 10px;
+
 }
 
 
@@ -116,6 +111,29 @@ body, html {
     .btn-login:hover {
         background: #DE8372;
     }
+
+.btn-inside {
+    background: #FFA203;
+    color: #fff;
+    font-weight: 600;
+    border: 0px;
+   
+   
+}
+
+    .btn-login:hover {
+        background: #DE8372;
+    }
+
+.btn-xlarge {
+    padding: 22px 23px !important;
+    font-size: 22px;
+    //change this to your desired size line-height: normal;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+   margin-bottom: 5px !important;
+}
 
 .banner-text {
     width: 70%;
