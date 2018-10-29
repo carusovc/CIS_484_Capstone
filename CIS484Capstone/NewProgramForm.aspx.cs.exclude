@@ -129,7 +129,7 @@ public partial class NewProgramForm : System.Web.UI.Page
         //int grade = Convert.ToInt32(ddlGrade.SelectedItem.Value);
 
         Program newProgram = new Program(onOff, status, programAddress, cityCounty, state, reportMonth, programTypeID, numOfChildren, numOfAdult, waitForPayment, programDate, programTime, extraComments);
-        Organization newOrganization = new Organization(organizationName, cityCounty, state); // NEED TO VERIFY 10/23/18 CVC
+        /*Organization newOrganization = new Organization(organizationName, cityCounty, state);*/ // NEED TO VERIFY 10/23/18 CVC
                                                                                               //Educator newEducator = new Educator(firstName, lastName);
 
         insert.CommandText = "insert into dbo.Program (programTypeID, orgID, status, programAddress, CityCounty, State, onOff, numberOfChildren, numberOfAdults, paymentNeeded, programDate, programTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy) values "
