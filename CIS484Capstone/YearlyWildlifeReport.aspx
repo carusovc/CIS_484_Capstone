@@ -127,6 +127,7 @@
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" ReadOnly="True" />
             <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="TotalOnSitePrograms" SortExpression="TotalOnSitePrograms" ReadOnly="True" />
             <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="TotalOffSitePrograms" SortExpression="TotalOffSitePrograms" ReadOnly="True" />
+            <asp:BoundField DataField="TotalLivePrograms" HeaderText="TotalLivePrograms" SortExpression="TotalLivePrograms" ReadOnly="true" />
             <asp:BoundField DataField="NumberOfChildren" HeaderText="NumberOfChildren" SortExpression="NumberOfChildren" ReadOnly="True" />
             <asp:BoundField DataField="NumberOFAdults" HeaderText="NumberOfAdults" SortExpression="NumberOFAdults" ReadOnly="True" />
             <asp:BoundField DataField="TotalParticipants" HeaderText="TotalParticipants" SortExpression="TotalParticipants" ReadOnly="True" />
@@ -150,7 +151,8 @@
             when 11 then 'November'
             when 12 then 'December'
            END
-      AS MonthName, SUM(CASE WHEN onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, SUM(NumberOfChildren) as NumberOfChildren,
+      AS MonthName, SUM(CASE WHEN onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, Count(Program.ProgramID) as TotalLivePrograms,
+        SUM(NumberOfChildren) as NumberOfChildren,
 		SUM(NumberOfAdults) AS NumberOFAdults, 
         SUM(NumberOfChildren + NumberOfAdults) AS TotalParticipants FROM Program WHERE (YEAR(ProgramDate) = @Year) GROUP BY { fn MONTH(Program.ProgramDate) } ORDER BY { fn MONTH(Program.ProgramDate) }">
         <SelectParameters>

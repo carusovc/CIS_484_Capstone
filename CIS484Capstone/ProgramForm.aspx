@@ -248,7 +248,7 @@
 </ul></div>--%>
 
 <asp:DropDownList CssClass="form-control" ID="ddlProgram" runat="server" class="dropdown-menu radioButtonList">
-    <asp:ListItem Text="" Value="0" />
+       <asp:ListItem Text="" Value="0" />
     <asp:ListItem Text="Display" Value="1" />
     <asp:ListItem Text="Special Request" Value="2" />
     <asp:ListItem Text="Open House" Value="3" />
@@ -268,6 +268,7 @@
     <asp:ListItem Text="Classroom Visit: Opossums" Value="17" /> 
     <asp:ListItem Text="Classroom Visit: Special" Value="18" />  
 </asp:DropDownList>
+
 </div>
 		
 			
