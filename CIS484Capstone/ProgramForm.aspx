@@ -150,31 +150,31 @@
         <div id="Program2" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
             <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
-            <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
+            <br> <h6 class="ProgramCaption">Spotswood High School</h6>
           
         </div>
         <div id="Program3" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
             <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
-            <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
+            <br> <h6 class="ProgramCaption">James Madison University</h6>
           
         </div>
         <div id="Program4" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
             <img class="img-fluid img-thumbnail InfoBox"src="images/icons/offsite.png" alt="">
-            <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
+            <br> <h6 class="ProgramCaption">Washington Lee High School</h6>
           
         </div>
         <div id="Program5" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
             <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
-            <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
+            <br> <h6 class="ProgramCaption">Lake Braddock High School</h6>
           
         </div>
         <div id="Program6" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
             <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
-            <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
+            <br> <h6 class="ProgramCaption">Paul VI Catholic High School</h6>
           
         </div>
         <div id="AddProgram" data-toggle="modal" data-target="#AddProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
@@ -281,7 +281,7 @@
                          <asp:DropDownList CssClass="form-control" ID="ddlStatus" runat="server" class="dropdown-menu radioButtonList">
                             <asp:ListItem Text="" Value="0" />
                             <asp:ListItem Text="Completed" Value="1" />
-                             <asp:ListItem Text="Incompleted" Value="2" />
+                             <asp:ListItem Text="Not Started" Value="2" />
                         </asp:DropDownList>
                         </div>
 	 

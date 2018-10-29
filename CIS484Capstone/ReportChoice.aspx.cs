@@ -36,4 +36,9 @@ public partial class ReportChoice : System.Web.UI.Page
     {
         Response.Redirect("TabLiveReports.aspx");
     }
+
+    protected void TabGradeReport_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TabGradeReport.aspx");
+    }
 }
