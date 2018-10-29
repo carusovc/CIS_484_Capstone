@@ -45,6 +45,7 @@ public partial class userLogin : System.Web.UI.Page
                         txtPassword.Enabled = false;
                         Response.Redirect("Landing.aspx", false);
 
+
                         Session["USER_ID"] = txtUsername.Text;
                     }
                     else
