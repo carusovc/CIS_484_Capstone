@@ -28,11 +28,15 @@ public partial class createUser : System.Web.UI.Page
                 // COMMIT VALUES
                 try
                 {
-                    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+
                     //sc.ConnectionString = @"Data Source=wildlifecenteraws.cpe6s6lt7jmj.us-east-1.rds.amazonaws.com;Initial Catalog=WildlifeCenter;Persist Security Info=True;User ID=Master;Password=Wildlife"; // connect to database
-                    sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;"; // connect to PBKDF2 database
-                    lblStatus.Text = "Database Connection Successful";
+                    //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;"; // connect to PBKDF2 database
+
+                    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+                    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+                    sc.ConnectionString = cs;
                     sc.Open();
+                    
 
                     bool exists = false;
 
@@ -51,6 +55,9 @@ public partial class createUser : System.Web.UI.Page
                     {
                         System.Data.SqlClient.SqlCommand createUser = new System.Data.SqlClient.SqlCommand();
                         createUser.Connection = sc;
+
+
+
                         // INSERT USER RECORD
                         createUser.CommandText = "insert into[dbo].[Person] values(@FName, @LName, @Username)";
                         createUser.Parameters.Add(new SqlParameter("@FName", txtFirstName.Text));
@@ -161,8 +168,9 @@ public partial class createUser : System.Web.UI.Page
     public static bool CheckUserName(string username)
     {
         bool status = false;
-        string constr = ConfigurationManager.ConnectionStrings["conString"].ConnectionString;
-        using (SqlConnection conn = new SqlConnection(constr))
+        //string constr = ConfigurationManager.ConnectionStrings["conString"].ConnectionString;
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        using (SqlConnection conn = new SqlConnection(cs))
         {
             using (SqlCommand cmd = new SqlCommand("CheckUserAvailability", conn))
             {

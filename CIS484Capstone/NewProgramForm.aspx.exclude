@@ -95,13 +95,13 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Login</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="NewProgramForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>New Program Form</span>
           </a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="NewOnlineForm.aspx">
             <i class="fas fa-fw fa-wifi"></i>
             <span>Online Program Form</span></a>
@@ -257,6 +257,7 @@
     <br />
              &nbsp;<asp:Button ID="btnAddEducator" runat="server" Text="Add Educator to Program" OnClick="btnAddEducator_Click" />
     <br />
+            <br />
     <asp:Label ID="lblAnimalType" runat="server" Text="Animal Type:"></asp:Label>&nbsp;<asp:DropDownList ID="ddlAnimalType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
         <asp:ListItem>Bird</asp:ListItem>
         <asp:ListItem>Mammal</asp:ListItem>
@@ -286,7 +287,7 @@
 <%--&nbsp;<asp:Button ID="btnLogOut" runat="server" Text="Logout" OnClick="btnLogOut_Click" />--%>
     
 &nbsp;<asp:Button ID="btnPopulate"  class="btn btn-primary btn-login btn-block" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
-
+            <br />
 
  </div>
 </div>

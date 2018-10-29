@@ -10,12 +10,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-
-    <!doctype html>
-<html>
-<head>
 <meta charset="UTF-8">
-<title>WildTek Login</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
@@ -26,9 +21,11 @@
 <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
 
 
-</head>
 
-<body>
+<%-- </head>--%>
+
+ <%-- <body>--%>
+
 <section class="login-block">
     <div class="container">
 	<div class="row">
@@ -70,13 +67,15 @@
     <br/>
     
     <%--<a class="btn float-right btn-login" id="btnLogin" runat="server" OnClick="btnLogin_Click" role="button" runat="server">Submit</a> --%>
+
     <asp:Button ID="btnLogin" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
         <a href="createUser"> Create User</a>
+
         <br/>
-        <br/>
-        <h2 class="text-center logo">OR</h2>
+     
+        <h2 class="text-center logo mx-auto">OR</h2>
     
-    <asp:Button ID="createForm" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
+    <asp:Button ID="createForm" class="btn btn-primary mx-auto btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
     </div>
      <%--  <div class="text-center">
         <%--<a class="d-block small mt-3" href="createUser.aspx">Create New User</a>
@@ -84,23 +83,25 @@
     </div>--%>
     <br />
 <%--</form>--%>
-		</div>
+             </div>	  
+		
 		<div class="col-md-8 banner-sec">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                  
             
-    <div class="carousel-item active">
-      <div class="carousel-caption d-none d-md-block">
-        <div class="banner-text">
-            <h2>WildTek</h2>
-        </div>	
-  </div>
+   <%--  <div class="carousel-item active"> --%>
+    <%--   <div class="carousel-caption d-none d-md-block">--%>
+        <%-- <div class="banner-text">--%>
+            <%--<h2>WildTek</h2>--%>
+            <%-- commented out bc I couldnt figure out how to display it  --%>
+        <%-- </div>	  --%>
+   <%--</div>  --%>
 		
-            </div>	   
-		    
+
 		</div>
 	</div>
 </div>
+        </div>
 	</div>
 </section>
 
@@ -110,25 +111,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <!-- end of do not delete -->
-</body>
-</html>
 
-       <%-- <div>
 
-            <br />
-            <br />
-            <strong>Login</strong><br />
-            Username:
-            <asp:TextBox ID="txtUsername" CssClass="Login.css" runat="server"></asp:TextBox>
-            <br />
-            Password:
-            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-            <br />
-            <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" />
-            <br />
-            <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>
-            <br />
-            <asp:Label ID="lblStatus" runat="server"></asp:Label>--
-       </div>--%>
-
+     
 </asp:Content>

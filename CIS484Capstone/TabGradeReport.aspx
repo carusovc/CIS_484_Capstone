@@ -1,12 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ReportChoice.aspx.cs" Inherits="ReportChoice" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomeMaster.master" AutoEventWireup="true" CodeFile="TabGradeReport.aspx.cs" Inherits="TabGradeReport" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 	  <!-- Bootstrap v4 -->
@@ -18,11 +15,7 @@
       <!-- Logo FOnt-->
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     
-</head>
-
-<body class="login">
-
-              <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
+        <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
        
       <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
 
@@ -86,11 +79,6 @@
             <span>Payment</span></a>
         </li>
 
-            <li class="nav-item">
-          <a class="nav-link" href="CreateUser.aspx">
-            <i class="fas fa-fw fa-person"></i>
-            <span>Create Educator Access</span></a>
-        </li>
            <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
             <i class="fas fa-fw fa-door"></i>
@@ -102,72 +90,28 @@
       <div id="content-wrapper">
 
         <div class="container-fluid ">
-     
- 
-    
-          <div class="row">
-		<div class="col-md-12 ProgramTitle">
-			<h1 >Reports</h1>
-			</div>
-		  </div> 
-<div class="  mx-auto">
-    <div class="row"> <br /><br /></div>
+     <div class='tableauPlaceholder' id='viz1540835282581' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Gr&#47;GradeReport&#47;GradeDash&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GradeReport&#47;GradeDash' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Gr&#47;GradeReport&#47;GradeDash&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1540835282581');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>   
 
-             <div class="row">
-                 
-	       <div class="form-group form-row col-md-12 form-label-group d-flex justify-content-center">
-               <asp:Button ID="Button2" class="btn btn-primary btn-block btn-xlarge btn-inside " runat="server" Text="Animal Reports" OnClick="TabAnimalReports_Click" />
-	       </div>
-
-	      
-            </div>
-
-            <div class="row">
-                
-	       <div class="form-group form-row  col-sm-6 col-md-6 form-label-group mx-auto d-flex justify-content-center"> 
-                <asp:Button ID="Button1" class="btn btn-primary btn-block btn-xlarge btn-inside" runat="server" Text="Monthly Reports" OnClick="TabMonthlyReports_Click" />
-	       </div>
-
-                 <div class="form-group form-row  col-sm-6 col-md-6 form-label-group  mx-auto d-flex justify-content-center">
-               <asp:Button ID="Button3" class="btn btn-primary btn-block btn-xlarge btn-inside" runat="server" Text="Yearly Reports" OnClick="TabYearlyReports_Click" />
-               
-	       </div>
-                
-                </div>
-
-           
-             
-               <div class="row">
-                
-                   <div class="form-group form-row   col-sm-6 col-md-6 form-label-group  mx-auto d-flex justify-content-center">
-                 <asp:Button ID="OnlineProgramReports" class="btn btn-primary btn-block btn-xlarge btn-inside" runat="server" Text="Live Program Reports" OnClick="TabLiveReports_Click" />
-                
-            </div>
-           
-            <div class="form-group form-row col-md-6  col-sm-6 form-label-group d-flex  mx-auto justify-content-center">
-                 <asp:Button ID="LiveReports" class="btn btn-primary btn-inside btn-xlarge btn-block" runat="server" Text="Online Program Reports" OnClick="TabOnlineProgramReports_Click" />
-                </div>
+        </div>
+          <br />
                    
-               </div>
-    <br />
-            </div>
-              
-    </div>
-    </div>
- 
+          
+          <div class="row WildTable">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
 
+    <asp:Button ID="Button1" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
+             </div>
+        </div>
+          
+          
+   </div>
 
-
-       
-
-
-
-<!-- jQuery and Bootstrap links - do not delete! -->
+        
+   <!-- jQuery and Bootstrap links - do not delete! -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <!-- end of do not delete -->
-</body>
-</html>
+
 </asp:Content>
 

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Configuration;
 
 public partial class userLogin : System.Web.UI.Page
 {
@@ -19,8 +20,12 @@ public partial class userLogin : System.Web.UI.Page
         try
         {
             System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-            lblStatus.Text = "Database Connection Successful";
+            String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+            sc.ConnectionString = cs;
+
+           
+            //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+            //lblStatus.Text = "Database Connection Successful";
 
             sc.Open();
             System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();

@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/LICENSE)
  */
 
-html {
+body html {
     position: relative;
     min-height: 100%;
 }
@@ -17,6 +17,7 @@ body {
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
 }
 
     body.login {
@@ -421,7 +422,13 @@ body.sidebar-toggled footer.sticky-footer {
 /* Programs Page*/
 .ProgramTitle h1 {
     text-align: center;
-    color: #d55c1d;
+    color: white;
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+    margin-top: 10px;
+}
+.ProgramTitle h4 {
+    text-align: center;
+    color: white;
     font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
     margin-top: 10px;
 }
@@ -533,10 +540,28 @@ body.sidebar-toggled footer.sticky-footer {
     align-content: center;
 }
 
-.img-thumbnail {
-    height: 150px;
-}
+
 
 .ProgramCaption {
     padding-top: 5px;
+    color: white;
+}
+
+.InfoBox {
+    height: 200px;
+    width: 200px;
+}
+
+@media (min-width: 1300px) {
+    .ProgramBox {
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+}
+
+.WildTable {margin: 10px !important;}
+
+.table{background-color:white;
+       border-radius: 15px;
+       border: none;
 }

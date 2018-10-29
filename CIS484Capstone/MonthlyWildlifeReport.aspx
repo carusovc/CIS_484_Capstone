@@ -74,8 +74,8 @@
             <span>Online Program Form</span></a>
         </li>
        
-        <li class="nav-item">
-          <a class="nav-link active" href="ReportChoice.aspx">
+        <li class="nav-item active">
+          <a class="nav-link" href="ReportChoice.aspx">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Reports</span></a>
         </li>
@@ -96,44 +96,65 @@
 
       <div id="content-wrapper">
 
-        <div class="container-fluid block">
+        <div class="container-fluid ">
 
           
 
        <!-- Programs-->
        <div class="row">
 		<div class="col-md-12 ProgramTitle">
-			<h1 >Monthly WildTek Reports</h1>
+			<h1>Reports Based on Month</h1>
 			
 		</div>
 	</div>
      
 
 <%--    <h2>Monthly Reports for WildTek</h2>--%>
-            <asp:Label ID="lblMonth" runat="server" Text="Select a Month:"></asp:Label>
+
+            <div class="row WildTable">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
+    
                         <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="EventMonth" DataValueField="EventMonth">
                         <asp:ListItem></asp:ListItem>
                         </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT DISTINCT [EventMonth] FROM [Program]"></asp:SqlDataSource>
     
 
-             <asp:Label ID="lblYear" runat="server" Text="Select a Year:"></asp:Label>
+             
             <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
                         <asp:ListItem></asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct(YEAR(ProgramDate)) AS YEAR FROM Program"></asp:SqlDataSource>
     <br />
 
+             </div>
+        </div>
 
-    <h4>Total Live Program Based on Month</h4>
-        <asp:GridView ID="gridPrograms" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" DataKeyNames="ProgramID" AllowSorting="True">
+           
+
+
+   
+<div class="row">
+		<div class="col-md-12 ProgramTitle">
+			 <h4 class="ProgramTitle">Monthly Totals Based on Live Programs</h4>
+			
+		</div>
+	</div>
+  
+
+
+             <div class="col-md-12 mx-auto d-flex justify-content-center">
+    <br />
+     <br />
+   
+<asp:GridView ID="gridPrograms" runat="server" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" DataKeyNames="ProgramID" AllowSorting="True">
         <Columns>
             <asp:BoundField DataField="EventMonth" HeaderText="Month" SortExpression="EventMonth" />
             <%--<asp:BoundField DataField="ProgramID" HeaderText="ID" SortExpression="ProgramID" />--%>
-            <asp:TemplateField></asp:TemplateField>
+            
             <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="Total OnSite Programs" SortExpression="TotalOnSitePrograms" ReadOnly="True" />
             <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="Total OffSite Programs" SortExpression="TotalOffSitePrograms" ReadOnly="True" />
-            <asp:TemplateField></asp:TemplateField>
+            
             <asp:BoundField DataField="NumberOfChildren" HeaderText="Total Number Of Children" SortExpression="NumberOfChildren" />
             <asp:BoundField DataField="NumberOfAdults" HeaderText="Total Number Of Adults" SortExpression="NumberOfAdults" />
             <asp:BoundField DataField="TotalParticipants" HeaderText="Total Attendance" SortExpression="TotalParticipants" ReadOnly="True" />
@@ -150,9 +171,21 @@
         </SelectParameters>
      </asp:SqlDataSource>
     <br />
+         
+             </div>
 
-    <h4>Total Online Program Based on Month</h4>
-     <asp:GridView runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
+            <div class="row">
+		<div class="col-md-12 ProgramTitle">
+			<h4>Monthly Totals Based on Online Programs</h4>
+			
+		</div>
+	</div>
+
+            <div class="col-md-12 mx-auto d-flex justify-content-center">
+    <br />
+     <br />
+   
+<asp:GridView runat="server" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
          <Columns>
              <asp:BoundField DataField="Month" HeaderText="Event Month" SortExpression="Month" />
              <asp:BoundField DataField="NumberOfKids" HeaderText="Number Of Kids" SortExpression="NumberOfKids" />
@@ -168,8 +201,15 @@
     </asp:SqlDataSource>
 
     <br />
+         
+             </div>
 
-        <h4>TOTALSSSSS Live Program Counts Based on Month</h4>
+        
+
+  
+     
+   
+<%--<h4>TOTALSSSSS Live Program Counts Based on Month</h4>
      <asp:GridView runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
          <Columns>
              <asp:BoundField DataField="ProgramDate" HeaderText="ProgramDate" SortExpression="ProgramDate" />
@@ -177,7 +217,7 @@
              <asp:BoundField DataField="NumberOfChildren" HeaderText="NumberOfKids" SortExpression="NumberOfChildren" />
              <asp:BoundField DataField="NumberOfAdults" HeaderText="NumberOfPeople" SortExpression="NumberOfAdults" />
          </Columns>
-        
+     
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT SUM(ProgramAnimal.ProgramID) AS TotalPrograms,
         SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants FROM Animal LEFT OUTER JOIN ProgramAnimal ON Animal.AnimalID = ProgramAnimal.AnimalID LEFT OUTER JOIN Program 
@@ -187,7 +227,6 @@
         </SelectParameters>
 
     </asp:SqlDataSource>
-
 
         <h4>TOTALSSSSS Online Program Counts Based on Month</h4>
      <asp:GridView runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
@@ -206,19 +245,29 @@
             <asp:ControlParameter ControlID="DropDownList1" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
         </SelectParameters>
 
-    </asp:SqlDataSource>
+    </asp:SqlDataSource>--%>
             <br />
-                 <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn float-left btn-login btn-block" OnClick="btnVisualize_Click"></asp:Button>   
-                 <br />
-                 <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn float-left btn-login btn-block" OnClick="btnBack_Click"></asp:Button>
+
+
+            <div class="row WildTable">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
+
+    <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
+                
+                 <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
+             </div>
+        </div>
+
+
+                
                 <br />
                
                 <br />
 
 </div>
 </div>
-</div>
-
+</div> 
+     
 
 
     <!-- jQuery and Bootstrap links - do not delete! -->
