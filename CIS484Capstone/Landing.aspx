@@ -14,7 +14,10 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
     <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
-
+    
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -59,7 +62,7 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="Default.aspx">
+          <a class="nav-link" href="ProgramForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Live Program Form</span>
           </a>
@@ -81,6 +84,18 @@
           <a class="nav-link" href="Payment.aspx">
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Payment</span></a>
+        </li>
+
+            <li class="nav-item">
+          <a class="nav-link" href="CreateUser.aspx">
+            <i class="fas fa-fw fa-person"></i>
+            <span>Create Educator Access</span></a>
+        </li>
+
+            <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Logout</span></a>
         </li>
       </ul>
 

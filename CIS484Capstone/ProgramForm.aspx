@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   
   <!DOCTYPE html>
-<html lang="en">
+<html>
 
   <head>
 
@@ -15,7 +15,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>WildTek Programs</title>
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +37,7 @@
 
   </head>
 
-  <body id="page-top">
+  <body>
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
        
@@ -80,7 +79,7 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="Default.aspx">
+          <a class="nav-link" href="ProgramForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Live Program Form</span>
           </a>
@@ -103,6 +102,20 @@
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Payment</span></a>
         </li>
+
+          <li class="nav-item">
+          <a class="nav-link" href="CreateUser.aspx">
+            <i class="fas fa-fw fa-person"></i>
+            <span>Create Educator Access</span></a>
+        </li>
+
+
+           <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Logout</span></a>
+        </li>
+
       </ul>
 
       <div id="content-wrapper">
@@ -114,7 +127,7 @@
        <!-- Programs-->
        <div class="row">
 		<div class="col-md-12 ProgramTitle">
-			<h1 >Programs</h1>
+			<h1 >Live Program Listings</h1>
 			
 		</div>
 	</div>
@@ -190,9 +203,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"> Add Program Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <%-- <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">×</span>
-                </button>
+                </button>--%>
+                 <asp:Button ID="btnClose" runat="server" OnClick="btnClose_Click"  class ="close" href="OnlineForm.aspx" Text="X" aria-hidden="true"/>
             </div>
             <div class="modal-body p-4" id="resultAddProgram">
                     
@@ -219,7 +233,7 @@
 			
 			
   <div class="col-md-2 ProgramInfoPop"><h4>Program</h4> 
-    <div class="button-group">
+<%--    <div class="button-group">
     <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Program<span class="caret"></span></button>
 <ul class="dropdown-menu">
   <li><a href="#" class="small DropdownAnimal" data-value="option0" tabIndex="-1"><input type="radio" value="0" name="alphabet"/>&nbsp;Program 1</a></li>
@@ -231,12 +245,18 @@
   <li><a href="#" class="small DropdownAnimal" data-value="option6" tabIndex="-1"><input type="radio" value="6" name="alphabet"/>&nbsp;Program 7</a></li>
  
 
-</ul></div>
+</ul></div>--%>
 
-      
-
-
-
+<asp:DropDownList CssClass="form-control" ID="ddlProgram" runat="server" class="dropdown-menu radioButtonList">
+    <asp:ListItem Text="" Value="0" />
+    <asp:ListItem Text="Program 1" Value="1" />
+    <asp:ListItem Text="Program 2" Value="2" />
+    <asp:ListItem Text="Program 3" Value="3" />
+    <asp:ListItem Text="Program 4" Value="4" />
+    <asp:ListItem Text="Program 5" Value="5" />
+     <asp:ListItem Text="Program 6" Value="6" />
+    <asp:ListItem Text="Program 7" Value="7" />    
+</asp:DropDownList>
 </div>
 		
 			
@@ -268,12 +288,14 @@
  <div class="row">
     <div class="col-md-3 ProgramInfoPop"> <h4>Grade</h4><div class="dropdown">
     
-  <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="AddEd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+ <%-- <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="AddEd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     Grade
     <span class="caret"></span>
-  </button>
+  </button>--%>
+<%-- <asp:Button ID="btnAddGrade" runat="server" OnClick="btnAddGrade_Click"  class="btn btn-default btn-sm dropdown-toggle" Text="Grade" aria-haspopup="true" aria-expanded="true"/>--%>
+
 <%--  <ul class="dropdown-menu DropdownAnimal" aria-labelledby="dropdownMenu1">--%>
-    <ul class="dropdown-menu">
+<%--    <ul class="dropdown-menu">
   <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Pre-K</a></li>
   <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;K</a></li>
   <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;1st</a></li>
@@ -289,22 +311,62 @@
   <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;11th</a></li>
   <li><a href="#" class="small DropdownAnimal" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;12th</a></li>
   <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;College</a></li>
-  
 
-  </ul>
-</div></div>
+  </ul>--%>
+
+
+      <asp:ListBox CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
+    <asp:ListItem Text="" Value="0" />
+      <asp:ListItem Text="Pre-K" Value="1" />
+    <asp:ListItem Text="K" Value="2" />
+    <asp:ListItem Text="1st" Value="3" />
+    <asp:ListItem Text="2nd" Value="4" />
+    <asp:ListItem Text="3rd" Value="5" />
+     <asp:ListItem Text="4th" Value="6" />
+    <asp:ListItem Text="5th" Value="7" />
+    <asp:ListItem Text="6th" Value="8" />
+    <asp:ListItem Text="7th" Value="9" />
+    <asp:ListItem Text="8th" Value="10" />
+     <asp:ListItem Text="9th" Value="11"/>
+       <asp:ListItem Text="10th" Value="12" />
+    <asp:ListItem Text="11th" Value="13" />
+     <asp:ListItem Text="12th" Value="14"/>
+       <asp:ListItem Text="Families" Value="15" />
+    <asp:ListItem Text="Adults" Value="16" />
+
+</asp:ListBox>
+
+        </div></div>
    
-   <div class="col-md-3 ProgramInfoPop"> <h4> Educators</h4> <div class="button-group">
-        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Educators <span class="caret"></span></button>
-<ul class="dropdown-menu">
+   <div class="col-md-3 ProgramInfoPop"> <h4> Educators</h4> 
+      <%-- <div class="button-group">--%>
+       <%-- <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Educators <span class="caret"></span></button>--%>
+       <%--<asp:Button ID="btnAddEduc" runat="server" OnClick="btnAddEducators_Click"  class="btn btn-default btn-sm dropdown-toggle" Text="Choose Educators"/>--%>
+
+<%--<ul class="dropdown-menu">
   <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Raina</a></li>
   <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Alex</a></li>
   <li><a href="#" class="small DropdownAnimal" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;IDk</a></li>
-  
-  
-  
-</ul>
-  </div></div>
+ 
+</ul>--%>
+
+
+        <asp:ListBox CssClass="form-control" ID="drpEducators" runat="server" SelectionMode="Multiple">
+     <asp:ListItem Text="" Value="0" />
+    <asp:ListItem Text="Raina" Value="1" />
+    <asp:ListItem Text="Alex" Value="2" />
+    <asp:ListItem Text="Ed" Value="3" />
+    <asp:ListItem Text="Amanda" Value="4" />
+    <asp:ListItem Text="Shelly" Value="5" />
+    <asp:ListItem Text="Peg" Value="6" />
+    <asp:ListItem Text="Lydia" Value="7" />
+    <asp:ListItem Text="Doug" Value="8" />
+   
+
+</asp:ListBox>
+  <%--</div>--%>
+
+   </div>
     <div class="col-md-3 ProgramInfoPop"> <h4> # of Adults:</h4> 
 <%--        <input type="number" class="form-control" id="Add#Adult" placeholder="# of Adults">--%></div>
      <asp:TextBox cssclass="form-control" ID="AddNumAdult" runat="server" placeholder="Add # of Adults" ></asp:TextBox>
@@ -324,7 +386,7 @@
  
   
        <div class="col-lg-4 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
-     <div class="button-group">
+<%--     <div class="button-group">
         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Birds <span class="caret"></span></button>
 <ul class="dropdown-menu">
   <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Buddy</a></li>
@@ -344,7 +406,26 @@
   <li><a href="#" class="small DropdownAnimal" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;Jaz</a></li>
   
 </ul>
-  </div>
+  </div>--%>
+             <asp:ListBox ID="ddlBirds"  CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder ="Select Birds">
+       <asp:ListItem Text="" Value="0" />
+       <asp:ListItem Text="Buddy" Value="1" />
+    <asp:ListItem Text="Verlon" Value="2" />
+    <asp:ListItem Text="Edie" Value="3" />
+    <asp:ListItem Text="Maggie" Value="4" />
+    <asp:ListItem Text="Grayson" Value="5" />
+     <asp:ListItem Text="Keeya" Value="6" />
+    <asp:ListItem Text="Ruby" Value="7" />
+    <asp:ListItem Text="Rosalie" Value="8" />
+    <asp:ListItem Text="Athena" Value="9" />
+    <asp:ListItem Text="Gus" Value="20" />
+     <asp:ListItem Text="Papa G'Ho" Value="11" />
+    <asp:ListItem Text="Quin" Value="12" />
+    <asp:ListItem Text="Alex" Value="13" />
+    <asp:ListItem Text="Buttercup" Value="14" />
+    <asp:ListItem Text="Jaz" Value="15" />
+</asp:ListBox>
+
 </div>
   
 
@@ -355,7 +436,7 @@
   
        <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
      <div class="button-group">
-        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Reptiles <span class="caret"></span></button>
+<%--        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Reptiles <span class="caret"></span></button>
 <ul class="dropdown-menu">
   <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Malcom</a></li>
   <li><a href="#" class="small DropdownAnimal" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Albus</a></li>
@@ -365,7 +446,18 @@
   <li><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Wilson</a></li>
 </ul>
   
-</div>
+</div>--%>
+
+           <asp:ListBox CssClass="form-control" ID="ddlReptiles" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+     <asp:ListItem Text="" Value="0" />
+    <asp:ListItem Text="Malcom" Value="1" />
+    <asp:ListItem Text="Albus" Value="2" />
+    <asp:ListItem Text="Severus" Value="3" />
+    <asp:ListItem Text="Oscar" Value="4" />
+    <asp:ListItem Text="Emma" Value="5" />
+    <asp:ListItem Text="Wilson" Value="6" />
+
+</asp:ListBox>
   
 </div>
 	     
@@ -373,7 +465,7 @@
 	     
   
        <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
-     <div class="button-group">
+   <%--  <div class="button-group">
         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Choose Mammals <span class="caret"></span></button>
 <ul id="listChoice" class="dropdown-menu">
   <li id="listBo"><a href="#" class="small DropdownAnimal" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Bo</a></li>
@@ -383,8 +475,13 @@
   
 </ul>
  
-</div>
- 
+</div>--%>
+ <asp:ListBox ID="lstMammals" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+    <asp:ListItem Text="" Value="0" />
+    <asp:ListItem Text="Bo" Value="1" />
+    <asp:ListItem Text="Posie" Value="2" />
+    <asp:ListItem Text="Willow" Value="3" />
+</asp:ListBox>
 </div>
  </div>
  
@@ -416,10 +513,13 @@
   
             <div class="modal-footer">
                 <div class="row">
-    <div class="col-md-4"> <button data-dismiss="modal" class="btn btn-primary LoginButton" type="submit">Add</button></div>
-   
+    <div class="col-md-4"> 
+        <%--<button class="btn btn-primary LoginButton" type="submit">Add</button>--%>
+                      <asp:Button ID="btnSubmitForm" runat="server" OnClick="btnSubmitForm_Click"  class ="btn btn-primary LoginButton" href="OnlineForm.aspx" Text="Add" aria-hidden="true"/>
+   </div>
 </div>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<%--                <button type="button" class="btn btn-secondary" >Close</button>--%>
+                  <asp:Button ID="btnClose2" runat="server" OnClick="btnClose_Click"  class ="btn btn-secondary" href="OnlineForm.aspx" Text="Close" aria-hidden="true"/>
             </div>
         </div>
     </div>
@@ -431,13 +531,13 @@
  </div> 
    
    
-   
-   <div class="modal" id="EditProgramModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Pop Up modal to Edit program --> 
+  <%-- <div class="modal" id="EditProgramModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-full" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"> Edit Program Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
@@ -623,7 +723,7 @@
     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
     <%--<label class="checkbox-inline "><input type="radio" value="1" name="alphabet" > Paid</label>
     <br>
-<label class="checkbox-inline"><input type="radio" value="2" name="alphabet" > Not Paid</label>--%>
+<label class="checkbox-inline"><input type="radio" value="2" name="alphabet" > Not Paid</label>
 
      <asp:RadioButtonList ID="paymentComplete" runat="server" CssClass ="checkbox-inline">
     <asp:ListItem Text="Paid" Value="1" />
@@ -643,35 +743,24 @@
 </div>
  
  
- 
- 
- 
- 
- 
- 
   </div>
   
             <div class="modal-footer">
                 <div class="row">
-    <div class="col-md-4"> <button data-dismiss="modal" data-toggle="modal" data-target="#ProgramModal" class="btn btn-primary LoginButton" type="submit">Save</button></div>
+    <div class="col-md-4"> <button data-toggle="modal" data-target="#ProgramModal" class="btn btn-primary LoginButton" type="submit">Save</button></div>
    
 </div>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary">Close</button>
             </div>
         </div>
     </div>
 
 
 
-
       <!-- /.content-wrapper -->
- </div>
+ </div>--%>
 
-   
-   
-   
-   
-   
+
    
        <!-- Pop Up modal to View program --> 
        
@@ -680,9 +769,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"> Program Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <%-- <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">×</span>
-                </button>
+                </button>--%>
+                <asp:Button ID="btnClose3" runat="server" OnClick="btnClose_Click"  class ="close" href="OnlineForm.aspx" aria-label="Close" Text="X" aria-hidden="true"/>
+            
             </div>
             <div class="modal-body p-4" id="resultProgram">
                     
@@ -807,9 +898,14 @@
   
   
             <div class="modal-footer">
-         <button type="button" class="btn btn-primary LoginButton"  data-toggle="modal" data-target="#EditProgramModal" data-dismiss="modal">Edit</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%-- <button type="button" class="btn btn-primary LoginButton"  data-toggle="modal" data-target="#EditProgramModal">Edit</button>
+                <button type="button" class="btn btn-secondary" >Close</button>--%>
+
+                 <asp:Button ID="btnEdit" runat="server" OnClick="btnClose_Click"  class="btn btn-primary LoginButton" data-toggle="modal" data-target="#EditProgramModal" href="OnlineForm.aspx" aria-label="Close" Text="Edit" aria-hidden="true"/>
+                 <asp:Button ID="btnClose4" runat="server" OnClick="btnClose_Click"  class="btn btn-secondary"  href="OnlineForm.aspx" aria-label="Close" Text="Close" aria-hidden="true"/>
+            
             </div>
+
         </div>
     </div>
     </div>
@@ -819,28 +915,9 @@
 
       <!-- /.content-wrapper -->
  </div> 
-   
-   
-   
-   
-   
-   
-   
-   
+
    </div> </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     <!-- /#wrapper -->
 
     <!-- Scroll to Top Button-->
@@ -854,13 +931,17 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <%--<button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
-            </button>
+            </button>--%>
+               <asp:Button ID="btnClose5" runat="server" OnClick="btnClose_Click"  class="close"  href="OnlineForm.aspx" aria-label="Close" Text="X" aria-hidden="true"/>
+            
           </div>
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+           <%-- <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>--%>
+               <asp:Button ID="btnCancel" runat="server" OnClick="btnClose_Click"  class="btn btn-secondary"  href="OnlineForm.aspx" Text="Cancel"/>
+            
             <a class="btn btn-primary" href="Login-2.html">Logout</a>
           </div>
         </div>

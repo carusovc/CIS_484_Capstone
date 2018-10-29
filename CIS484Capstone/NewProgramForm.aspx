@@ -2,18 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <!DOCTYPE html>
-<html>
-
-  <head>
-
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>WildTek Online</title>
+   
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,6 +22,11 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
+
+      
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" type ="text/css" />
@@ -46,10 +47,6 @@
 
     </script>
 <!-- end of do not delete -->
-
-  </head>
-
-  <body>
 
     
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
@@ -89,32 +86,27 @@
 
     <div id="wrapper">
 
-      <!-- Sidebar -->
+     <!-- Sidebar -->
+
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
+
+          <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
-            <span>Live Program Form</span>
-          </a>
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Login</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="OnlineForm.aspx">
+          <a class="nav-link" href="NewProgramForm.aspx">
+            <i class="fas fa-fw fa-book-open"></i>
+            <span>New Program Form</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="NewOnlineForm.aspx">
             <i class="fas fa-fw fa-wifi"></i>
             <span>Online Program Form</span></a>
         </li>
        
-        <li class="nav-item">
-          <a class="nav-link" href="ReportChoice.aspx">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span></a>
-        </li>
-      
-        
-        <li class="nav-item">
-          <a class="nav-link" href="Payment.aspx">
-            <i class="fas fa-fw fa-dollar-sign"></i>
-            <span>Payment</span></a>
-        </li>
       </ul>
 
       <div id="content-wrapper">
@@ -153,8 +145,8 @@
     <asp:DropDownList ID="ddlProgramTypeID" runat="server" DataSourceID="SqlDataSource1" DataTextField="ProgramName" DataValueField="ProgramTypeID">
 </asp:DropDownList>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [ProgramTypeID], [ProgramName] FROM [ProgramType]"></asp:SqlDataSource>
-&nbsp;Program:
-
+<br />
+            <br />
     
 &nbsp; Program Address:
     <asp:TextBox ID="txtProgramAddress" runat="server" Width="295px"></asp:TextBox>
@@ -260,8 +252,10 @@
     &nbsp; Grade
 <asp:DropDownList ID="ddlGrade" runat="server" DataSourceID="SqlDataSource3" DataTextField="GradeLevel" DataValueField="GradeID">
 </asp:DropDownList>
+
 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString3 %>" SelectCommand="SELECT * FROM [Grade]"></asp:SqlDataSource>
     <br />
+             &nbsp;<asp:Button ID="btnAddEducator" runat="server" Text="Add Educator to Program" OnClick="btnAddEducator_Click" />
     <br />
     <asp:Label ID="lblAnimalType" runat="server" Text="Animal Type:"></asp:Label>&nbsp;<asp:DropDownList ID="ddlAnimalType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
         <asp:ListItem>Bird</asp:ListItem>
@@ -274,23 +268,28 @@
     </asp:DropDownList>
 
     &nbsp;<br />
-    &nbsp;<asp:Button ID="Button1" runat="server" Text="Add Animal to Program" OnClick="btnAdd_Click" />
+            <br />
+    &nbsp;<asp:Button ID="btnAddAnimal" runat="server" Text="Add Animal to Program" OnClick="btnAdd_Click" />
 &nbsp;
+            <br />
     <br />
     Payment Completed?<asp:RadioButtonList ID="rboWaitForPayment" runat="server">
         <asp:ListItem Value="Y">Yes</asp:ListItem>
         <asp:ListItem Value="N">No</asp:ListItem>
-    </asp:RadioButtonList> Comments: <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
+    </asp:RadioButtonList> 
+            <br />
+            Comments: <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
     <br /> 
-    <asp:Button ID="btnSubmit" runat="server" Text="Submit"  href="ProgramForm.aspx" OnClick="btnSubmit_Click" />
+            <br />
+    <asp:Button ID="btnSubmit" runat="server" Text="Submit" class="btn btn-primary btn-login btn-block" href="ProgramForm.aspx" OnClick="btnSubmit_Click" />
     
 <%--&nbsp;<asp:Button ID="btnLogOut" runat="server" Text="Logout" OnClick="btnLogOut_Click" />--%>
     
-&nbsp;<asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
+&nbsp;<asp:Button ID="btnPopulate"  class="btn btn-primary btn-login btn-block" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
 
 
  </div>
-
+</div>
    
    </div> 
                
@@ -309,22 +308,8 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
-	 
+	       
 
-  </body>
-
-</html>
-
-
-       
-</section>
-
-
-
-
-
-</body>
-</html>
-    
+   
 </asp:Content>
 

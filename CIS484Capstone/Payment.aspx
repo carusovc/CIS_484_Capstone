@@ -15,22 +15,13 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
     <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
-
+    
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    
 </head>
 
 <body>
-
-<ul class="navbar-nav ml-auto ml-md-0">
-        
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
-      </ul>
           
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
        
@@ -71,8 +62,8 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="Default.aspx">
+        <li class="nav-item ">
+          <a class="nav-link" href="ProgramForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Live Program Form</span>
           </a>
@@ -90,26 +81,36 @@
         </li>
       
         
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="Payment.aspx">
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Payment</span></a>
         </li>
+            <li class="nav-item">
+          <a class="nav-link" href="CreateUser.aspx">
+            <i class="fas fa-fw fa-person"></i>
+            <span>Create Educator Access</span></a>
+        </li>
+
+           <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Logout</span></a>
+        </li>
+
       </ul>
 
-      <div id="content-wrapper">
+       <div id="content-wrapper">
 
-        
-
-<%--<section class="login-block">--%>
+        <div class="container-fluid block text-center">
+     
+ 
     
-
-<div class="container">
-      <div class="card card-register mx-auto mt-5">
-          <%--<div class="card-header NewUserTitle">Payment Information Form</div>--%>
-    
-        <div class="card-body">
-         <form class="login-form">
+          <div class="row">
+		<div class="col-md-12 ProgramTitle">
+			<h1>Payment</h1>
+                </div>
+         <br />
   <div class="form-group">
          <label for="Month">Month:</label>
     <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
@@ -152,24 +153,15 @@
     <asp:TextBox ID="txtCancelledChar" runat="server" MaxLength="1" Width="23px"></asp:TextBox>
 
   </div>
-
+              </div>
         <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" class="btn btn-primary  btn-login btn-block" />
         <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary  btn-login btn-block" Text="Submit" />
-  
-
-   
-</form>
+            <br />
+            <br />
+        </div>
 
         </div>
-      </div>
-    </div>
 
-
-
-       
-<%--</section>--%>
-
-</div>
 </div>
 
 

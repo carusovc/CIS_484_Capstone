@@ -28,6 +28,10 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
+      
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" type ="text/css" />
@@ -93,13 +97,13 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="Default.aspx">
+        <li class="nav-item">
+          <a class="nav-link" href="ProgramForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Live Program Form</span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="OnlineForm.aspx">
             <i class="fas fa-fw fa-wifi"></i>
             <span>Online Program Form</span></a>
@@ -117,6 +121,20 @@
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Payment</span></a>
         </li>
+
+            <li class="nav-item">
+          <a class="nav-link" href="CreateUser.aspx">
+            <i class="fas fa-fw fa-person"></i>
+            <span>Create Educator Access</span></a>
+        </li>
+
+          <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Logout</span></a>
+        </li>
+
+
       </ul>
 
       <div id="content-wrapper">
@@ -128,7 +146,7 @@
        <!-- Programs-->
        <div class="row">
 		<div class="col-md-12 ProgramTitle">
-			<h1 >Online Programs</h1>
+			<h1 >Online Program Listings</h1>
 			
 		</div>
 	</div>
@@ -145,7 +163,7 @@
         <div id="Program1" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
             <img class="img-fluid img-thumbnail PrevImg" src="images/icons/skype.png" alt="">
-            <br> <h6 class="ProgramCaption">Skype Program</h6>
+            <br> <h6 class="ProgramCaption">Skype Program: Owls</h6>
           
         </div>
         <div id="Program2" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
@@ -157,25 +175,25 @@
         <div id="Program3" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
             <img class="img-fluid img-thumbnail PrevImg" src="images/icons/skype.png" alt="">
-            <br> <h6 class="ProgramCaption">California</h6>
+            <br> <h6 class="ProgramCaption">Skype Program: Snakes</h6>
           
         </div>
         <div id="Program4" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
             <img class="img-fluid img-thumbnail PrevImg" src="images/icons/special.png" alt="">
-            <br> <h6 class="ProgramCaption">Germany</h6>
+            <br> <h6 class="ProgramCaption">Book Club</h6>
           
         </div>
         <div id="Program5" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
             <img class="img-fluid img-thumbnail PrevImg" src="images/icons/skype.png" alt="">
-            <br> <h6 class="ProgramCaption">Greece</h6>
+            <br> <h6 class="ProgramCaption">Skype Program: Turtles</h6>
           
         </div>
         <div id="Program6" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/skype.png" alt="">
-            <br> <h6 class="ProgramCaption">Tokyo, Japan</h6>
+            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/camera.png" alt="">
+            <br> <h6 class="ProgramCaption">Hospital Cam</h6>
           
         </div>
 		  
@@ -337,7 +355,7 @@ foreach (ListItem item in CBLGold.Items)
   <li><a href="#" class="small DropdownAnimal" data-value="option14" tabIndex="-1"><input type="radio" value="14" name="alphabet"/>&nbsp;Familes</a></li>
 	<li><a href="#" class="small DropdownAnimal" data-value="option14" tabIndex="-1"><input type="radio" value="14" name="alphabet"/>&nbsp;Adults Only</a></li>
   --%>
-  <asp:ListBox CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Status" SelectionMode="Multiple" class="dropdown-menu">
+  <asp:ListBox CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Grade" SelectionMode="Multiple" class="dropdown-menu">
     <asp:ListItem Text="" Value="0" />
       <asp:ListItem Text="Pre-K" Value="1" />
     <asp:ListItem Text="K" Value="2" />
@@ -377,15 +395,18 @@ foreach (ListItem item in CBLGold.Items)
   
 </ul>--%>
 
-        <asp:DropDownList CssClass="form-control" ID="drpEducators" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+        <asp:ListBox CssClass="form-control" ID="drpEducators" runat="server" SelectionMode="Multiple" class="dropdown-menu">
      <asp:ListItem Text="" Value="0" />
     <asp:ListItem Text="Raina" Value="1" />
     <asp:ListItem Text="Alex" Value="2" />
-    <asp:ListItem Text="Raina" Value="3" />
-    <asp:ListItem Text="Alex" Value="4" />
-    <asp:ListItem Text="Raina" Value="5" />
+   <asp:ListItem Text="Ed" Value="3" />
+    <asp:ListItem Text="Amanda" Value="4" />
+    <asp:ListItem Text="Shelly" Value="5" />
+    <asp:ListItem Text="Peg" Value="6" />
+    <asp:ListItem Text="Lydia" Value="7" />
+    <asp:ListItem Text="Doug" Value="8" />
 
-</asp:DropDownList>
+</asp:ListBox>
 
   </div>
 			  </div>
@@ -503,7 +524,7 @@ foreach (ListItem item in CBLGold.Items)
         <asp:ListItem Value="Burkina Faso"></asp:ListItem>
         <asp:ListItem Value="Burundi"></asp:ListItem>
         <asp:ListItem Value="Côte d'Ivoire"></asp:ListItem>
-        <asp:ListItem>Cabo Verde</asp:ListItem>
+        <asp:ListItem> Cabo Verde</asp:ListItem>
         <asp:ListItem Value="Cambodia"></asp:ListItem>
         <asp:ListItem Value="Cameroon"></asp:ListItem>
         <asp:ListItem Value="Canada"></asp:ListItem>

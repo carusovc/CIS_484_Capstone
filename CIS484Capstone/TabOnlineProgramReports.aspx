@@ -3,6 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <meta charset="UTF-8">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+	  <!-- Bootstrap v4 -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
+<link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
+<link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
+
+    
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    
         <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
        
       <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
@@ -42,8 +54,8 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="Default.aspx">
+        <li class="nav-item">
+          <a class="nav-link" href="ProgramForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Live Program Form</span>
           </a>
@@ -54,7 +66,7 @@
             <span>Online Program Form</span></a>
         </li>
        
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="ReportChoice.aspx">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Reports</span></a>
@@ -66,16 +78,36 @@
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Payment</span></a>
         </li>
-      </ul>
 
+           <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Logout</span></a>
+        </li>
+
+      </ul>
+       
       <div id="content-wrapper">
 
         <div class="container-fluid block">
-    <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click" Width="67px" />
+   
     <div class='tableauPlaceholder' id='viz1540761750995' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;On&#47;OnlineProgram&#47;OnlineDash&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='OnlineProgram&#47;OnlineDash' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;On&#47;OnlineProgram&#47;OnlineDash&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1540761750995');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-
+</div>
+<br />
+            <div class="col-md-4 text-center"> 
+ <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-login btn-block" OnClick="btnBack_Click"></asp:Button>
+               </div>
+                <br />
             </div>
-          </div>
+          
+     </div>
+
+
+            <!-- jQuery and Bootstrap links - do not delete! -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<!-- end of do not delete -->
 
 
 </asp:Content>

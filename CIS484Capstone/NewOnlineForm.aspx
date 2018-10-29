@@ -3,18 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-   <!DOCTYPE html>
-<html>
-
-  <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>WildTek Online</title>
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,6 +21,11 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
+
+      
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" type ="text/css" />
@@ -47,10 +46,6 @@
 
     </script>
 <!-- end of do not delete -->
-
-  </head>
-
-  <body>
 
    
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
@@ -91,31 +86,26 @@
     <div id="wrapper">
 
       <!-- Sidebar -->
+
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
+
+          <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
-            <span>Live Program Form</span>
-          </a>
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Login</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="OnlineForm.aspx">
+          <a class="nav-link" href="NewProgramForm.aspx">
+            <i class="fas fa-fw fa-book-open"></i>
+            <span>New Program Form</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="NewOnlineForm.aspx">
             <i class="fas fa-fw fa-wifi"></i>
             <span>Online Program Form</span></a>
         </li>
        
-        <li class="nav-item">
-          <a class="nav-link" href="ReportChoice.aspx">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span></a>
-        </li>
-      
-        
-        <li class="nav-item">
-          <a class="nav-link" href="Payment.aspx">
-            <i class="fas fa-fw fa-dollar-sign"></i>
-            <span>Payment</span></a>
-        </li>
       </ul>
 
       <div id="content-wrapper">
@@ -170,6 +160,8 @@
     <asp:TextBox ID="txtNumOfPeople" runat="server"></asp:TextBox>
 &nbsp; City/County
     <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
+            <br />
+            <br />
     &nbsp; State:
     <asp:DropDownList ID="ddlState" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
         <asp:ListItem>State</asp:ListItem>
@@ -459,12 +451,13 @@
     <br />
 <%--    <<asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />--%>
     &nbsp;
-    <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" />
+    <asp:Button ID="btnPopulate" runat="server" Text="Populate" class="btn btn-primary btn-login btn-block" OnClick="btnPopulate_Click" />
 &nbsp;
-    <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1"  href="OnlineForm.aspx" Text="Submit" />
+    <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1"  class="btn btn-primary btn-login btn-block" href="OnlineForm.aspx" Text="Submit" />
+            <br />
 
              </div>
-
+         </div>
    
    </div> 
                
@@ -483,25 +476,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
-	 
-
-  </body>
-
-</html>
-
-
-       
-</section>
-
-
-
-
-
-</body>
-</html>
-
-
-
 
 </asp:Content>
 

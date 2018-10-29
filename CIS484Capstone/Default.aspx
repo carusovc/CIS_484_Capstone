@@ -4,6 +4,10 @@
 
 </asp:Content>
 
+<%--<asp:Content ID="Content3" ContentPlaceHolderID="Nav" Runat="Server">
+   <!-- Nothing here -->
+</asp:Content>--%>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
 
@@ -14,6 +18,7 @@
 <title>WildTek Login</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+
 
 	  <!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
@@ -29,7 +34,7 @@
 	<div class="row">
 		<div class="col-md-4 login-sec">
 		    <h2 class="text-center logo">WildTek Login</h2>
-		    <form class="login-form">
+		    <%--<form class="login-form">--%>
   <div class="form-group">
     <label for="txtUsername" class="text-uppercase" runat="server">Username</label>
     <%--<input class="input-md emailinput form-control" id="txtUsername" name="email" placeholder="Email address" style="margin-bottom: 10px" type="email" runat="server"/>--%>
@@ -65,19 +70,19 @@
     <br/>
     
     <%--<a class="btn float-right btn-login" id="btnLogin" runat="server" OnClick="btnLogin_Click" role="button" runat="server">Submit</a> --%>
-    <asp:Button ID="btnLogin" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
+    <asp:Button ID="btnLogin" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
         <br/>
         <br/>
         <h2 class="text-center logo">OR</h2>
     
-    <asp:Button ID="createForm" class="btn btn-primary btn float-left btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
+    <asp:Button ID="createForm" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
     </div>
      <%--  <div class="text-center">
         <%--<a class="d-block small mt-3" href="createUser.aspx">Create New User</a>
 
     </div>--%>
     <br />
-</form>
+<%--</form>--%>
 		</div>
 		<div class="col-md-8 banner-sec">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -106,16 +111,6 @@
 <!-- end of do not delete -->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
        <%-- <div>
 

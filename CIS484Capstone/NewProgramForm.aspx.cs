@@ -257,7 +257,13 @@ public partial class NewProgramForm : System.Web.UI.Page
         ////rboAnimalType.Visible = true;
         //ddlAnimalName.Visible = true;
     }
-
+    protected void btnAddEducator_Click(object sender, EventArgs e)
+    {
+        //lblAnimalType.Text = "Animal Type:";
+        //lblAnimalName.Text = "Animal Name:";
+        ////rboAnimalType.Visible = true;
+        //ddlAnimalName.Visible = true;
+    }
     protected void btnPopulate_Click(object sender, EventArgs e)
     {
         txtProgramAddress.Text = "123 Mammal Drive";

@@ -21,13 +21,13 @@ public partial class ProgramForm : System.Web.UI.Page
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
 
-        
-        
+
 
         if (!IsPostBack)
         {
-            
+
             //if (ddlAnimalType.SelectedIndex == 0)
             //{
 
@@ -59,7 +59,7 @@ public partial class ProgramForm : System.Web.UI.Page
             // Populate Year from 1990 through 2020
             for (int i = 2020; i >= 1990; i--)
             {
-               // ddlYear.Items.Add(new ListItem(i.ToString()));
+                // ddlYear.Items.Add(new ListItem(i.ToString()));
             }
 
         }
@@ -213,7 +213,7 @@ public partial class ProgramForm : System.Web.UI.Page
         //programGradeInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
         //programGradeInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
         //programGradeInsert.ExecuteNonQuery();
-        
+
 
 
 
@@ -256,12 +256,36 @@ public partial class ProgramForm : System.Web.UI.Page
     protected void btnAdd_Click(object sender, EventArgs e)
     {
 
-    //    lblAnimalType.Text = "Animal Type:";
-    //    lblAnimalName.Text = "Animal Name:";
-    //    //rboAnimalType.Visible = true;
-    //    ddlAnimalName.Visible = true;
+        //    lblAnimalType.Text = "Animal Type:";
+        //    lblAnimalName.Text = "Animal Name:";
+        //    //rboAnimalType.Visible = true;
+        //    ddlAnimalName.Visible = true;
 
     }
+    //protected void btnAddEducators_Click(object sender, EventArgs e)
+    //{
+
+
+
+    //}
+    protected void btnClose_Click(object sender, EventArgs e)
+    {
+
+
+
+    }
+    protected void btnSubmitForm_Click(object sender, EventArgs e)
+    {
+
+
+
+    }
+    //protected void btnAddGrade_Click(object sender, EventArgs e)
+    //{
+
+
+
+    //}
 
     protected void btnPopulate_Click(object sender, EventArgs e)
     {

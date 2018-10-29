@@ -18,6 +18,8 @@ public partial class OnlineForm : System.Web.UI.Page
         insert.Connection = sc;
 
 
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
         //if (!IsPostBack)
         //{
         //    if (ddlAnimalType.SelectedIndex == 0)
@@ -54,63 +56,63 @@ public partial class OnlineForm : System.Web.UI.Page
         // Populate Year from 1990 through 2020
         for (int i = 2020; i >= 1990; i--)
         {
-          // ddlYear.Items.Add(new ListItem(i.ToString()));
+            // ddlYear.Items.Add(new ListItem(i.ToString()));
         }
 
 
     }
 
 
-        
-        protected void btnSubmit_Click1(object sender, EventArgs e)
-        {
-            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-            sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+    protected void btnSubmit_Click1(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-            sc.Open();
-            System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-            System.Data.SqlClient.SqlCommand pullOnlineProgramID = new System.Data.SqlClient.SqlCommand();
-            System.Data.SqlClient.SqlCommand pullAnimalID = new System.Data.SqlClient.SqlCommand();
-            System.Data.SqlClient.SqlCommand onlineAnimalInsert = new System.Data.SqlClient.SqlCommand();
-            System.Data.SqlClient.SqlCommand pullEducatorID = new System.Data.SqlClient.SqlCommand();
-            System.Data.SqlClient.SqlCommand onlineEducatorsInsert = new System.Data.SqlClient.SqlCommand();
+        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+        sc.Open();
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullOnlineProgramID = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullAnimalID = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand onlineAnimalInsert = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullEducatorID = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand onlineEducatorsInsert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullGradeID = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand onlineProgramGradesInsert = new System.Data.SqlClient.SqlCommand();
 
-            insert.Connection = sc;
+        insert.Connection = sc;
 
-            pullOnlineProgramID.Connection = sc;
-            pullAnimalID.Connection = sc;
-            onlineAnimalInsert.Connection = sc;
+        pullOnlineProgramID.Connection = sc;
+        pullAnimalID.Connection = sc;
+        onlineAnimalInsert.Connection = sc;
 
-            pullEducatorID.Connection = sc;
-            onlineEducatorsInsert.Connection = sc;
+        pullEducatorID.Connection = sc;
+        onlineEducatorsInsert.Connection = sc;
 
-            pullGradeID.Connection = sc;
-            onlineProgramGradesInsert.Connection = sc;
-            
-            //Online Program Variables
-            //DateTime prgmDate = Convert.ToDateTime((ddlMonth.SelectedItem.Value) + "/" + (ddlDate.SelectedItem.Value) + "/" + (ddlYear.SelectedItem.Value));
-            //string month = ddlMonth.SelectedValue.ToString();
-            //int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
-            //String type = Convert.ToString(ddlProgramType.SelectedItem);
-            //int numOfKids = Int32.Parse(txtNumOfKids.Text.ToString());
-            //int numOfPeople = Int32.Parse(txtNumOfPeople.Text.ToString());
-            //string city = txtCity.Text.ToString();
-            //string stateTerritory = ddlState.SelectedValue.ToString();
-            //string country = ddlCountry.SelectedValue.ToString();
-            //string teacherName = txtTeacher.Text.ToString();
-            //string contactEmail = txtEmail.Text.ToString();
-            //string extraComments = txtComments.Text.ToString();
+        pullGradeID.Connection = sc;
+        onlineProgramGradesInsert.Connection = sc;
+
+        //Online Program Variables
+        //DateTime prgmDate = Convert.ToDateTime((ddlMonth.SelectedItem.Value) + "/" + (ddlDate.SelectedItem.Value) + "/" + (ddlYear.SelectedItem.Value));
+        //string month = ddlMonth.SelectedValue.ToString();
+        //int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
+        //String type = Convert.ToString(ddlProgramType.SelectedItem);
+        //int numOfKids = Int32.Parse(txtNumOfKids.Text.ToString());
+        //int numOfPeople = Int32.Parse(txtNumOfPeople.Text.ToString());
+        //string city = txtCity.Text.ToString();
+        //string stateTerritory = ddlState.SelectedValue.ToString();
+        //string country = ddlCountry.SelectedValue.ToString();
+        //string teacherName = txtTeacher.Text.ToString();
+        //string contactEmail = txtEmail.Text.ToString();
+        //string extraComments = txtComments.Text.ToString();
 
         //Temporary LastUpdated and LastUpdatedBy
         DateTime tempLastUpdated = DateTime.Today;
         String tempLastUpdatedBy = "TempWildTekDevs";
 
-            //OnlineProgram table inserts
+        //OnlineProgram table inserts
         //    OnlineProgram newOnlineProgram = new OnlineProgram(prgmDate, month, onlineProgramTypeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments);
-            
+
         //    insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments, lastUpdated, lastUpdatedBy) " +
         //        "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments, @lastUpdated, @lastUpdatedBy)";
 
@@ -177,8 +179,8 @@ public partial class OnlineForm : System.Web.UI.Page
         onlineProgramGradesInsert.ExecuteNonQuery();
 
     }
-        
-        protected void btnPopulate_Click(object sender, EventArgs e)
+
+    protected void btnPopulate_Click(object sender, EventArgs e)
     {
         //ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
         //selectMonthDays();
@@ -197,7 +199,7 @@ public partial class OnlineForm : System.Web.UI.Page
         ////txtAnimalsUsed.Text = "Gus";
         //txtComments.Text = "N/A";
         //listAddOnlineStatus.SelectedIndex = 3;
-        
+
 
     }
 
@@ -215,7 +217,7 @@ public partial class OnlineForm : System.Web.UI.Page
     public void selectMonthDays()
     {
 
-       // int selectedMonth = ddlMonth.SelectedIndex;
+        // int selectedMonth = ddlMonth.SelectedIndex;
 
         //if (selectedMonth == 1 || selectedMonth == 3 || selectedMonth == 5 || selectedMonth == 7 || selectedMonth == 8 || selectedMonth == 10 || selectedMonth == 12)
         //{
@@ -264,72 +266,72 @@ public partial class OnlineForm : System.Web.UI.Page
         //    //{
         //    //    SetDaysInMonth(28);
         //    //}
-        }
     }
+}
 
 
 
 
-    //protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    ////    if (ddlState.SelectedIndex != 0 && ddlState.SelectedIndex != 1)
-    ////    {
-    ////        ddlCountry.SelectedIndex = 187;
-    ////    } else
-    ////    {
-    ////        ddlCountry.SelectedIndex = 0;
-    ////    }
-    //}
+//protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+//{
+////    if (ddlState.SelectedIndex != 0 && ddlState.SelectedIndex != 1)
+////    {
+////        ddlCountry.SelectedIndex = 187;
+////    } else
+////    {
+////        ddlCountry.SelectedIndex = 0;
+////    }
+//}
 
-    //protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    //if (ddlCountry.SelectedIndex != 187)
-    //    //{
-    //    //    ddlState.SelectedIndex = 1;
-    //    //} else
-    //    //{
-    //    //    ddlState.SelectedIndex = 0;
-    //    //}
-    //}
+//protected void ddlCountry_SelectedIndexChanged(object sender, EventArgs e)
+//{
+//    //if (ddlCountry.SelectedIndex != 187)
+//    //{
+//    //    ddlState.SelectedIndex = 1;
+//    //} else
+//    //{
+//    //    ddlState.SelectedIndex = 0;
+//    //}
+//}
 
-    //protected void ddlAnimalType_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+//protected void ddlAnimalType_SelectedIndexChanged(object sender, EventArgs e)
+//{
+//    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-    //    sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+//    sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
 
-    //    sc.Open();
-    //    System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-    //    insert.Connection = sc;
+//    sc.Open();
+//    System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+//    insert.Connection = sc;
 
-    //    if (ddlAnimalType.SelectedIndex == 0)
-    //    {
-    //        ddlAnimalName.Items.Clear();
-    //        insert.CommandText = "select * from dbo.Animal where animalType = 'bird'";
-    //        ddlAnimalName.DataSource = insert.ExecuteReader();
-    //        ddlAnimalName.DataTextField = "AnimalName";
-    //        ddlAnimalName.DataValueField = "AnimalID";
-    //        ddlAnimalName.DataBind();
-    //    }
-    //    else if (ddlAnimalType.SelectedIndex == 1)
-    //    {
-    //        ddlAnimalName.Items.Clear();
-    //        insert.CommandText = "select * from dbo.Animal where animalType = 'mammal'";
-    //        ddlAnimalName.DataSource = insert.ExecuteReader();
-    //        ddlAnimalName.DataTextField = "AnimalName";
-    //        ddlAnimalName.DataValueField = "AnimalID";
-    //        ddlAnimalName.DataBind();
-    //    }
+//    if (ddlAnimalType.SelectedIndex == 0)
+//    {
+//        ddlAnimalName.Items.Clear();
+//        insert.CommandText = "select * from dbo.Animal where animalType = 'bird'";
+//        ddlAnimalName.DataSource = insert.ExecuteReader();
+//        ddlAnimalName.DataTextField = "AnimalName";
+//        ddlAnimalName.DataValueField = "AnimalID";
+//        ddlAnimalName.DataBind();
+//    }
+//    else if (ddlAnimalType.SelectedIndex == 1)
+//    {
+//        ddlAnimalName.Items.Clear();
+//        insert.CommandText = "select * from dbo.Animal where animalType = 'mammal'";
+//        ddlAnimalName.DataSource = insert.ExecuteReader();
+//        ddlAnimalName.DataTextField = "AnimalName";
+//        ddlAnimalName.DataValueField = "AnimalID";
+//        ddlAnimalName.DataBind();
+//    }
 
-    //    else if (ddlAnimalType.SelectedIndex == 2)
-    //    {
-    //        ddlAnimalName.Items.Clear();
-    //        insert.CommandText = "select * from dbo.Animal where animalType = 'reptile'";
-    //        ddlAnimalName.DataSource = insert.ExecuteReader();
-    //        ddlAnimalName.DataTextField = "AnimalName";
-    //        ddlAnimalName.DataValueField = "AnimalID";
-    //        ddlAnimalName.DataBind();
-    //    }
-    //}
+//    else if (ddlAnimalType.SelectedIndex == 2)
+//    {
+//        ddlAnimalName.Items.Clear();
+//        insert.CommandText = "select * from dbo.Animal where animalType = 'reptile'";
+//        ddlAnimalName.DataSource = insert.ExecuteReader();
+//        ddlAnimalName.DataTextField = "AnimalName";
+//        ddlAnimalName.DataValueField = "AnimalID";
+//        ddlAnimalName.DataBind();
+//    }
+//}
 //}
 

@@ -17,16 +17,16 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
     SqlConnection con;
 
-  
 
 
-        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+
+    System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (!IsPostBack)
         {
+
 
             DropDownList1.Items.Add("Bird");
             DropDownList1.Items.Add("Mammal");
@@ -36,13 +36,9 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
             ShowData();
 
-
-     
-
-         
-          
         }
-        
+
+
     }
 
     protected void ShowData()
@@ -69,4 +65,13 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
     }
 
+
+    protected void btnVisualize_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TabAnimalReports.aspx");
+    }
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ReportChoice.aspx");
+    }
 }

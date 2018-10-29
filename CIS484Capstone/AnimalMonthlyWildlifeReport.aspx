@@ -16,6 +16,10 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
+        
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    
 
 </head>
         <body>
@@ -69,8 +73,8 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="Default.aspx">
+        <li class="nav-item">
+          <a class="nav-link" href="ProgramForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Live Program Form</span>
           </a>
@@ -81,7 +85,7 @@
             <span>Online Program Form</span></a>
         </li>
        
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="ReportChoice.aspx">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Reports</span></a>
@@ -93,6 +97,12 @@
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Payment</span></a>
         </li>
+
+          <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Logout</span></a>
+        </li>
       </ul>
 
       <div id="content-wrapper">
@@ -103,7 +113,7 @@
        <!-- Programs-->
        <div class="row">
 		<div class="col-md-12 ProgramTitle">
-			<h1 >Report Based on Animal Type</h1>
+			<h1 >Reports Based on Animal Type</h1>
 			
 		</div>
 	</div>
@@ -120,6 +130,7 @@
 <%--    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT DISTINCT [AnimalType] FROM [Animal]">
     </asp:SqlDataSource>--%>
     <br />
+     <br />
     <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False">
         <Columns>
             <asp:BoundField DataField="AnimalName" HeaderText="AnimalName" SortExpression="AnimalName" />
@@ -156,7 +167,13 @@
         </SelectParameters>
 
     </asp:SqlDataSource>
-
+<br />
+                 <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-login btn-block" OnClick="btnVisualize_Click"></asp:Button>   
+              
+                 <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-login btn-block" OnClick="btnBack_Click"></asp:Button>
+                <br />
+               
+                <br />
 
 </div>
 </div>
