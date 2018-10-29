@@ -3,27 +3,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    
-         <!doctype html>
-    <html>
 
-    <head>
 <meta charset="UTF-8">
-<title>WildTek</title>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-	  <!-- Bootstrap v4 -->
+<!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
         
-      <!-- Logo FOnt-->
-      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+<!-- Logo Font-->
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     
 
-</head>
-        <body>
-                <ul class="navbar-nav ml-auto ml-md-0">
+<ul class="navbar-nav ml-auto ml-md-0">
         
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
@@ -154,7 +148,7 @@
         </SelectParameters>
     </asp:SqlDataSource>--%>
     <br />
-        <asp:Label ID="lblSumTotals" runat="server" Text="Total for this Month:"></asp:Label>
+        <asp:Label ID="lblSumTotals" runat="server" Text="Totals Based on Animal Type:"></asp:Label>
      <asp:GridView runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
          <Columns>
              <asp:BoundField DataField="TotalPrograms" HeaderText="TotalPrograms" ReadOnly="True" SortExpression="TotalPrograms" />
@@ -186,9 +180,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <!-- end of do not delete -->
-        </body>
-
-
-</html>
+ 
 
 </asp:Content>

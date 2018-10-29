@@ -4,13 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 public partial class NewOnlineForm : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+
         sc.Open();
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
@@ -64,10 +69,12 @@ public partial class NewOnlineForm : System.Web.UI.Page
     protected void btnSubmit_Click1(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-
-        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-
+     //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+     
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
         sc.Open();
+
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullOnlineProgramID = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullAnimalID = new System.Data.SqlClient.SqlCommand();
@@ -294,7 +301,10 @@ public partial class NewOnlineForm : System.Web.UI.Page
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
 
         sc.Open();
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();

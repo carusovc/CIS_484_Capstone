@@ -281,7 +281,11 @@
  
  <div class="row">
     
-    <div class="col-md-4 ProgramInfoPop"> <h4> Date:</h4> <input type="date" class="form-control" id="AddDate" placeholder="Add Status"></div>
+    <div class="col-md-4 ProgramInfoPop"> <h4> Date:</h4>
+        <input type="date" class="form-control" id="AddDate" placeholder="Add Status"></div>
+     <asp:Calendar ID="calendar1" runat="server"> </asp:Calendar>
+     <asp:TextBox cssclass="form-control" ID="AddDate" runat="server" placeholder="Add # of Children" ></asp:TextBox>
+
     <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <input type="Time" class="form-control" id="AddTime" placeholder="Add Status"></div>
 </div>
  
