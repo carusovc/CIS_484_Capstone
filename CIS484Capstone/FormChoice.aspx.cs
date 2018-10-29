@@ -14,11 +14,11 @@ public partial class FormChoice : System.Web.UI.Page
 
     protected void btnLiveCreate_Click(object sender, EventArgs e)
     {
-        Response.Redirect("NewProgramForm.aspx");
+        Response.Redirect("NoLogProgramForm.aspx");
     }
 
     protected void btnOnlineCreate_Click(object sender, EventArgs e)
     {
-        Response.Redirect("NewOnlineForm.aspx");
+        Response.Redirect("NoLogOnlineForm.aspx");
     }
 }

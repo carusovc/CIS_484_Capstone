@@ -100,13 +100,13 @@
           </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="NewProgramForm.aspx">
+          <a class="nav-link" href="NoLogProgramForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Live Program Form</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="NewOnlineForm.aspx">
+          <a class="nav-link" href="NoLogOnlineForm.aspx">
             <i class="fas fa-fw fa-wifi"></i>
             <span>Online Program Form</span></a>
         </li>

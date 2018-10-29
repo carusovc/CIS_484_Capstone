@@ -56,14 +56,17 @@ public partial class Payments : System.Web.UI.Page
         char[] cancelledCharArr = cancelledSet.ToCharArray();
         char CanclledStatus = cancelledCharArr[0];
 
+        //Temporary LastUpdated and LastUpdatedBy
+        DateTime tempLastUpdated = DateTime.Today;
+        String tempLastUpdatedBy = "TempWildTekDevs";
 
 
 
 
         Payment newPayment = new Payment(paymentAmount, paymentDate, checkNum, paymentType, invoice, CanclledStatus, orgID);
 
-        insert.CommandText = "insert into dbo.PaymentRecord (PaymentAmount, paymentDate, CheckNumber, PaymentType, Invoice, CancelledInvoice, OrgID) " +
-            "values (@paymentAmount, @paymentDate, @CheckNumber, @PaymentType, @Invoice, @CancelledInvoice, @OrgID)";
+        insert.CommandText = "insert into dbo.PaymentRecord (PaymentAmount, paymentDate, CheckNumber, PaymentType, Invoice, CancelledInvoice, OrgID, LastUpdated, LastUpdatedBy) " +
+            "values (@paymentAmount, @paymentDate, @CheckNumber, @PaymentType, @Invoice, @CancelledInvoice, @OrgID, @LastUpdated, @LastUpdatedBy)";
 
         insert.Parameters.AddWithValue("@paymentAmount", newPayment.getPaymentAmount());
         insert.Parameters.AddWithValue("@paymentDate", newPayment.getPaymentDate());
@@ -72,6 +75,10 @@ public partial class Payments : System.Web.UI.Page
         insert.Parameters.AddWithValue("@Invoice", newPayment.getInvoice());
         insert.Parameters.AddWithValue("@CancelledInvoice", newPayment.getCancelledInvoice());
         insert.Parameters.AddWithValue("@OrgID", newPayment.getOrgId());
+        insert.Parameters.AddWithValue("@LastUpdated", tempLastUpdated);
+        insert.Parameters.AddWithValue("@LastUpdatedBy", tempLastUpdatedBy);
+
+
 
 
         insert.ExecuteNonQuery();

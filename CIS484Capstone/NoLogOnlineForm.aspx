@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="OnlineForm.aspx.cs" Inherits="OnlineForm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="NoLogOnlineForm.aspx.cs" Inherits="OnlineForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -79,7 +79,7 @@
       </form>--%>
 
       <!-- Navbar -->
-      <ul class="navbar-nav ml-auto ml-md-0">
+     <%-- <ul class="navbar-nav ml-auto ml-md-0">
         
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -89,14 +89,14 @@
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>
-      </ul>
+      </ul>--%>
 
     </nav>
 
     <div id="wrapper">
 
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
+     <%-- <ul class="sidebar navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="ProgramForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
@@ -135,6 +135,26 @@
         </li>
 
 
+      </ul>--%>
+
+        <ul class="sidebar navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Login</span></a>
+          </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="NoLogProgramForm.aspx">
+            <i class="fas fa-fw fa-book-open"></i>
+            <span>Live Program Form</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="NoLogOnlineForm.aspx">
+            <i class="fas fa-fw fa-wifi"></i>
+            <span>Online Program Form</span></a>
+        </li>
       </ul>
 
       <div id="content-wrapper">

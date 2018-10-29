@@ -34,10 +34,11 @@ public class OnlineProgram
 
 
     //Overload Constructor
-    public OnlineProgram(DateTime date, TimeSpan programTime, int type, int kidsInClass, int numOfPeople, string city, string stateTerritory, string country, string teacher, string email, string comments)
+    public OnlineProgram(DateTime date, string month, int type, int kidsInClass, int numOfPeople, string city, string stateTerritory, string country, string teacher, string email, string comments)
     {
         setDate(date);
-        setProgramTime(programTime);
+        //setProgramTime(date);
+        setMonth(month);
         setType(type);
         setKidsInClass(kidsInClass);
         setNumOfPeople(numOfPeople);
