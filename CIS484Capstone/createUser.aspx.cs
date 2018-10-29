@@ -175,4 +175,9 @@ public partial class createUser : System.Web.UI.Page
         }
         return status;
     }
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
+    }
 }
+

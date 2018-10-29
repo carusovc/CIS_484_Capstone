@@ -9,13 +9,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       /* try
-        {
-            lblWelcome.Text = Session["USER_ID"].ToString();
-        }
-        catch
-        {
-            Response.Redirect("Default.aspx");
-        }*/
-    }   
+        /* try
+         {
+             lblWelcome.Text = Session["USER_ID"].ToString();
+         }
+         catch
+         {
+             Response.Redirect("Default.aspx");
+         }*/
+    }
 }
