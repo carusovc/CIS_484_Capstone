@@ -120,7 +120,7 @@
 
       <div id="content-wrapper">
 
-        <div class="container-fluid block">
+        <div class="container-fluid">
 
           
 
@@ -143,43 +143,43 @@
 
         <div id="Program1" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail" src="images/icons/offsite.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
             <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
           
         </div>
         <div id="Program2" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail" src="images/icons/offsite.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
             <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
           
         </div>
         <div id="Program3" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail" src="images/icons/offsite.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
             <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
           
         </div>
         <div id="Program4" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail"src="images/icons/offsite.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox"src="images/icons/offsite.png" alt="">
             <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
           
         </div>
         <div id="Program5" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail" src="images/icons/offsite.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
             <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
           
         </div>
         <div id="Program6" data-toggle="modal" data-target="#ProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail" src="images/icons/offsite.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox" src="images/icons/offsite.png" alt="">
             <br> <h6 class="ProgramCaption">Harrisonburg High School</h6>
           
         </div>
         <div id="AddProgram" data-toggle="modal" data-target="#AddProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/Add.png" alt="">
+            <img class="img-fluid img-thumbnail InfoBox" src="images/icons/Add.png" alt="">
             <br> <h6 class="ProgramCaption">Add Program</h6>
           
         </div>
@@ -209,7 +209,9 @@
                  <asp:Button ID="btnClose" runat="server" OnClick="btnClose_Click"  class ="close" href="OnlineForm.aspx" Text="X" aria-hidden="true"/>
             </div>
             <div class="modal-body p-4" id="resultAddProgram">
-                    
+               
+                
+
                   <div class="row  ">           
 	    <div class=" col-md-4 ProgramInfoPop">
 	    <h4>On-Site/Off-Site </h4> 
@@ -232,7 +234,7 @@
 			
 			
 			
-  <div class="col-md-2 ProgramInfoPop"><h4>Program</h4> 
+  <div class="col-md-4 ProgramInfoPop"><h4>Program</h4> 
 <%--    <div class="button-group">
     <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Program<span class="caret"></span></button>
 <ul class="dropdown-menu">
@@ -273,7 +275,7 @@
 		
 			
 					
-					 <div class=" col-md-6 ProgramInfoPop">
+					 <div class=" col-md-4 ProgramInfoPop">
 	  <h4> Status:</h4> <%--<input type="text" class="form-control" id="AddStatus" placeholder="Add Status">--%>
                          <%--<asp:TextBox cssclass="form-control" ID="txtStatus" runat="server" placeholder="Add Status" ></asp:TextBox>--%>
                          <asp:DropDownList CssClass="form-control" ID="ddlStatus" runat="server" class="dropdown-menu radioButtonList">
@@ -284,12 +286,16 @@
                         </div>
 	 
 			</div>
-	</div><!-- End  row --> 
+	<!-- End  row --> 
           
         
           <div class="row">
-    <div class="col-md-6 ProgramInfoPop"><h4> Organization Name:</h4> <%--<input type="text" class="form-control" id="AddOrg" placeholder="Add Organization Name">--%></div>
+    <div class="col-md-4 ProgramInfoPop">
+        <h4> Organization Name:</h4> <%--<input type="text" class="form-control" id="AddOrg" placeholder="Add Organization Name">--%>
               <asp:TextBox cssclass="form-control" ID="txtOrgName" runat="server" placeholder="Add Organization Name" ></asp:TextBox>
+
+    </div>
+
 <%--              <asp:DropDownList CssClass="form-control" ID="ddlOrg" runat="server" class="dropdown-menu radioButtonList">
                 <asp:ListItem Text="" Value="0" />
                 <asp:ListItem Text="Library One" Value="1" />
@@ -305,14 +311,22 @@
             </div>--%>
 
     
-    <div class="col-md-6 ProgramInfoPop"><h4> Program Address:</h4> <%--<input type="Address" class="form-control" id="AddAddress" placeholder="Add Address">--%><asp:TextBox cssclass="form-control" ID="txtAddress" runat="server" placeholder="Add Address" ></asp:TextBox></div></div>
+    <div class="col-md-4 ProgramInfoPop"><h4> Program Address:</h4> <%--<input type="Address" class="form-control" id="AddAddress" placeholder="Add Address">--%>
+        <asp:TextBox cssclass="form-control" ID="txtAddress" runat="server" placeholder="Add Address" ></asp:TextBox>
+
+    </div>
+
+              <div class="col-md-2 ProgramInfoPop"> <h4> Date:</h4> <%--<input type="date" class="form-control" id="AddDate" placeholder="Add Status">--%><asp:TextBox cssclass="form-control" ID="txtDate" runat="server" placeholder="Add Date" ></asp:TextBox></div>
+    <div class="col-md-2 ProgramInfoPop"> <h4> Start Time:</h4> <%--<input type="Time" class="form-control" id="AddTime" placeholder="Add Status">--%><asp:TextBox cssclass="form-control" ID="txtTime" runat="server" placeholder="Add Time" ></asp:TextBox></div>
+
+          </div>
 
  
   <div class="row">
-    <div class="col-md-6 ProgramInfoPop"><h4> City:</h4> <asp:TextBox cssclass="form-control" ID="txtCity" runat="server" placeholder="Add City" ></asp:TextBox></div>
-    <div class="col-md-6 ProgramInfoPop"><h4> County:</h4> <asp:TextBox cssclass="form-control" ID="txtCounty" runat="server" placeholder="Add County" ></asp:TextBox></div>
-</div>
-             <div class="ProgramInfoPop"><h4> State/Province:</h4> 
+    <div class="col-md-4 ProgramInfoPop"><h4> City:</h4> <asp:TextBox cssclass="form-control" ID="txtCity" runat="server" placeholder="Add City" ></asp:TextBox></div>
+    <div class="col-md-4 ProgramInfoPop"><h4> County:</h4> <asp:TextBox cssclass="form-control" ID="txtCounty" runat="server" placeholder="Add County" ></asp:TextBox></div>
+
+             <div class=" col-md-4 ProgramInfoPop"><h4> State/Province:</h4> 
         <asp:DropDownList ID="ddlState" runat="server" class="form-control" placeholder="Add State/Province">
         <asp:ListItem>State</asp:ListItem>
         <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
@@ -367,12 +381,10 @@
         <asp:ListItem Value="WI"></asp:ListItem>
         <asp:ListItem Value="WY"></asp:ListItem>
     </asp:DropDownList>
+
+                 </div>
  
- <div class="row">
-    
-    <div class="col-md-4 ProgramInfoPop"> <h4> Date:</h4> <%--<input type="date" class="form-control" id="AddDate" placeholder="Add Status">--%><asp:TextBox cssclass="form-control" ID="txtDate" runat="server" placeholder="Add Date" ></asp:TextBox></div>
-    <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <%--<input type="Time" class="form-control" id="AddTime" placeholder="Add Status">--%><asp:TextBox cssclass="form-control" ID="txtTime" runat="server" placeholder="Add Time" ></asp:TextBox></div>
-</div>
+ </div>
  
  <div class="row">
     <div class="col-md-3 ProgramInfoPop"> <h4>Grade</h4><div class="dropdown">
@@ -457,22 +469,20 @@
 
    </div>
     <div class="col-md-3 ProgramInfoPop"> <h4> # of Adults:</h4> 
-<%--        <input type="number" class="form-control" id="Add#Adult" placeholder="# of Adults">--%></div>
+<%--        <input type="number" class="form-control" id="Add#Adult" placeholder="# of Adults">--%>
      <asp:TextBox cssclass="form-control" ID="AddNumAdult" runat="server" placeholder="Add # of Adults" ></asp:TextBox>
+        </div>
     
-     <div class="col-md-4 ProgramInfoPop"> <h4> # of Children:</h4> 
-      <%--  <input type="Number" class="form-control" id="Add#Kidss" placeholder="# of Children"> --%></div>
+     <div class="col-md-3 ProgramInfoPop"> <h4> # of Children:</h4> 
+      <%--  <input type="Number" class="form-control" id="Add#Kidss" placeholder="# of Children"> --%>
      <asp:TextBox cssclass="form-control" ID="AddNumChildren" runat="server" placeholder="Add # of Children" ></asp:TextBox>
-    
+    </div>
     
  </div>
  
  
  <div class="row">
 
- 
-  
- 
   
        <div class="col-lg-4 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
 <%--     <div class="button-group">
@@ -550,7 +560,7 @@
   
 </div>
 	     
-	     
+	   </div>  
 	     
   
        <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
@@ -572,7 +582,7 @@
     <asp:ListItem Text="Willow" Value="3" />
 </asp:ListBox>
 </div>
- </div>
+  </div>
  
  <div class="row">
     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
@@ -584,12 +594,12 @@
     <asp:ListItem Text="Yes" Value="1" />
     <asp:ListItem Text="No" Value="0" />
 </asp:RadioButtonList>
-        
+        </div>
         <div class="col-md-9 ProgramInfoPop"><div class="form-group">
         <asp:label for="comment" runat ="server">Comment:</asp:label>
   <asp:textbox runat="server" class="form-control" cols= "12" rows="5" id="comment"></asp:textbox>
 </div></div>
-</div>
+
  
  
  
@@ -610,8 +620,8 @@
 <%--                <button type="button" class="btn btn-secondary" >Close</button>--%>
                   <asp:Button ID="btnClose2" runat="server" OnClick="btnClose_Click"  class ="btn btn-secondary" href="OnlineForm.aspx" Text="Close" aria-hidden="true"/>
             </div>
-        </div>
-    </div>
+       
+    
 
 
 
@@ -620,7 +630,15 @@
  </div> 
    
    
-    <!-- Pop Up modal to Edit program --> 
+    
+</div>
+
+   
+     
+
+   </div> </div>
+
+          <!-- Pop Up modal to Edit program --> 
   <%-- <div class="modal" id="EditProgramModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-full" role="document">
         <div class="modal-content">
@@ -849,9 +867,7 @@
       <!-- /.content-wrapper -->
  </div>--%>
 
-
-   
-       <!-- Pop Up modal to View program --> 
+            <!-- Pop Up modal to View program --> 
        
        <div class="modal" id="ProgramModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-full" role="document">
@@ -914,7 +930,7 @@
      <h4> Date:</h4> <h6 class="ProgramDescription" id="ProgramDate"> 10/14/18</h6></div>
      
      
-    <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="ProgramTime"> 3:00 pmS</h6></div>
+    <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="ProgramTime"> 3:00 pm</h6></div>
 </div>
  
  <div class="row">
@@ -990,7 +1006,7 @@
         <%-- <button type="button" class="btn btn-primary LoginButton"  data-toggle="modal" data-target="#EditProgramModal">Edit</button>
                 <button type="button" class="btn btn-secondary" >Close</button>--%>
 
-                 <asp:Button ID="btnEdit" runat="server" OnClick="btnClose_Click"  class="btn btn-primary LoginButton" data-toggle="modal" data-target="#EditProgramModal" href="OnlineForm.aspx" aria-label="Close" Text="Edit" aria-hidden="true"/>
+                 <%--<asp:Button ID="btnEdit" runat="server" OnClick="btnClose_Click"  class="btn btn-primary LoginButton" data-toggle="modal" data-target="#EditProgramModal" href="OnlineForm.aspx" aria-label="Close" Text="Edit" aria-hidden="true"/>--%>
                  <asp:Button ID="btnClose4" runat="server" OnClick="btnClose_Click"  class="btn btn-secondary"  href="OnlineForm.aspx" aria-label="Close" Text="Close" aria-hidden="true"/>
             
             </div>
@@ -1004,8 +1020,6 @@
 
       <!-- /.content-wrapper -->
  </div> 
-
-   </div> </div>
 
     <!-- /#wrapper -->
 
