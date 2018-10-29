@@ -430,6 +430,7 @@ foreach (ListItem item in CBLGold.Items)
 		<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> 
 	<%--  <input type="city" class="form-control" id="AddOnlineProgramcity" placeholder="Add City/County">--%>
              <asp:TextBox cssclass="form-control" ID="AddOnlineProgramcity" runat="server" placeholder="Add City/County" ></asp:TextBox> 
+
 	  
     </div>
     
@@ -707,14 +708,16 @@ foreach (ListItem item in CBLGold.Items)
    
     <div class="col-md-4 ProgramInfoPop">
      <h4> Date:</h4> 
-     <input type="date" class="form-control" id="AddProgramDate" placeholder="Add Date">
+<%--     <input type="date" class="form-control" id="AddProgramDate" placeholder="Add Date">--%>
+        <asp:TextBox CssClass="form-control" ID="txtDate" runat="server" placeholder="Add Date"></asp:TextBox>
      
      </div>
      
     <div class="col-md-4 ProgramInfoPop"> 
     
     <h4> Start Time:</h4> 
-    <input type="time" class="form-control" id="AddProgramTime" placeholder="Add Time">
+<%--    <input type="time" class="form-control" id="AddProgramTime" placeholder="Add Time">--%>
+        <asp:TextBox CssClass="form-control" ID="txtTime" runat="server" placeholder="Add Time"></asp:TextBox>
    </div> 
 </div>
  
@@ -844,7 +847,8 @@ foreach (ListItem item in CBLGold.Items)
   </div>
   
             <div class="modal-footer">
-         <button type="button" class="btn btn-primary LoginButton" data-toggle="modal" data-target="#OnlineProgramModal" data-dismiss="modal">Add</button>
+        <%-- <button type="button" class="btn btn-primary LoginButton" data-toggle="modal" data-target="#OnlineProgramModal" data-dismiss="modal">Add</button>--%>
+                  <asp:Button ID="btnSubmitForm" runat="server" OnClick="btnSubmit_Click1"  class ="btn btn-primary LoginButton" href="ProgramForm.aspx" Text="Add" aria-hidden="true"/>
                 <asp:button runat ="server" type="button" class="btn btn-secondary" data-dismiss="modal" Text ="Close"></asp:button>
             </div>
         </div>
