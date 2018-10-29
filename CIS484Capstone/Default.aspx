@@ -28,7 +28,7 @@
 
 </head>
 
-<body class ="login">
+<body>
 <section class="login-block">
     <div class="container">
 	<div class="row">
@@ -71,6 +71,7 @@
     
     <%--<a class="btn float-right btn-login" id="btnLogin" runat="server" OnClick="btnLogin_Click" role="button" runat="server">Submit</a> --%>
     <asp:Button ID="btnLogin" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
+        <a href="createUser"> Create User</a>
         <br/>
         <br/>
         <h2 class="text-center logo">OR</h2>
