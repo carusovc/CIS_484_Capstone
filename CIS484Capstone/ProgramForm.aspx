@@ -120,7 +120,7 @@
 
       <div id="content-wrapper">
 
-        <div class="container-fluid ">
+        <div class="container-fluid">
 
           
 
@@ -209,7 +209,9 @@
                  <asp:Button ID="btnClose" runat="server" OnClick="btnClose_Click"  class ="close" href="OnlineForm.aspx" Text="X" aria-hidden="true"/>
             </div>
             <div class="modal-body p-4" id="resultAddProgram">
-                    
+               
+                
+
                   <div class="row  ">           
 	    <div class=" col-md-4 ProgramInfoPop">
 	    <h4>On-Site/Off-Site </h4> 
@@ -217,7 +219,7 @@
     <br>
 <label class="checkbox-inline"><input type="checkbox" value=""> Off</label>--%>
 
-<asp:RadioButtonList ID="RadioButtonList1" runat="server" CssClass ="checkbox-inline">
+<asp:RadioButtonList ID="rboOnOff" runat="server" CssClass ="checkbox-inline">
     <asp:ListItem Text="On" Value="1" />
     <asp:ListItem Text="Off" Value="0" />
 </asp:RadioButtonList>
@@ -232,7 +234,7 @@
 			
 			
 			
-  <div class="col-md-2 ProgramInfoPop"><h4>Program</h4> 
+  <div class="col-md-4 ProgramInfoPop"><h4>Program</h4> 
 <%--    <div class="button-group">
     <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Program<span class="caret"></span></button>
 <ul class="dropdown-menu">
@@ -248,46 +250,141 @@
 </ul></div>--%>
 
 <asp:DropDownList CssClass="form-control" ID="ddlProgram" runat="server" class="dropdown-menu radioButtonList">
-    <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Program 1" Value="1" />
-    <asp:ListItem Text="Program 2" Value="2" />
-    <asp:ListItem Text="Program 3" Value="3" />
-    <asp:ListItem Text="Program 4" Value="4" />
-    <asp:ListItem Text="Program 5" Value="5" />
-     <asp:ListItem Text="Program 6" Value="6" />
-    <asp:ListItem Text="Program 7" Value="7" />    
+       <asp:ListItem Text="" Value="0" />
+    <asp:ListItem Text="Display" Value="1" />
+    <asp:ListItem Text="Special Request" Value="2" />
+    <asp:ListItem Text="Open House" Value="3" />
+    <asp:ListItem Text="Tour" Value="4" />
+    <asp:ListItem Text="Whoos Awake in the Night" Value="5" />
+     <asp:ListItem Text="Wild Winder Worlds" Value="6" />
+    <asp:ListItem Text="Home Sweet Habitat" Value="7" />
+    <asp:ListItem Text="You Are What You Eat" Value="8" />
+    <asp:ListItem Text="Critters Dont Need Litter" Value="9" />  
+    <asp:ListItem Text="For Goodness Snakes!" Value="10" /> 
+    <asp:ListItem Text="A View from the Top" Value="11" />
+    <asp:ListItem Text="Treat to Release" Value="12" /> 
+    <asp:ListItem Text="Classroom Visit: Owls" Value="13" />  
+    <asp:ListItem Text="Classroom Visit: Turtles" Value="14" />
+    <asp:ListItem Text="Classroom Visit: Snakes" Value="15" />  
+    <asp:ListItem Text="Classroom Visit: Falcons" Value="16" />  
+    <asp:ListItem Text="Classroom Visit: Opossums" Value="17" /> 
+    <asp:ListItem Text="Classroom Visit: Special" Value="18" />  
 </asp:DropDownList>
+
 </div>
 		
 			
 					
-					 <div class=" col-md-6 ProgramInfoPop">
-	  <h4> Status:</h4> <input type="text" class="form-control" id="AddStatus" placeholder="Add Status">
+					 <div class=" col-md-4 ProgramInfoPop">
+	  <h4> Status:</h4> <%--<input type="text" class="form-control" id="AddStatus" placeholder="Add Status">--%>
+                         <%--<asp:TextBox cssclass="form-control" ID="txtStatus" runat="server" placeholder="Add Status" ></asp:TextBox>--%>
+                         <asp:DropDownList CssClass="form-control" ID="ddlStatus" runat="server" class="dropdown-menu radioButtonList">
+                            <asp:ListItem Text="" Value="0" />
+                            <asp:ListItem Text="Completed" Value="1" />
+                             <asp:ListItem Text="Incompleted" Value="2" />
+                        </asp:DropDownList>
+                        </div>
 	 
 			</div>
-	</div><!-- End  row --> 
+	<!-- End  row --> 
           
         
           <div class="row">
-    <div class="col-md-6 ProgramInfoPop"><h4> Organization Name:</h4> <input type="text" class="form-control" id="AddOrg" placeholder="Add Organization Name"></div>
+    <div class="col-md-4 ProgramInfoPop">
+        <h4> Organization Name:</h4> <%--<input type="text" class="form-control" id="AddOrg" placeholder="Add Organization Name">--%>
+              <asp:TextBox cssclass="form-control" ID="txtOrgName" runat="server" placeholder="Add Organization Name" ></asp:TextBox>
+
+    </div>
+
+<%--              <asp:DropDownList CssClass="form-control" ID="ddlOrg" runat="server" class="dropdown-menu radioButtonList">
+                <asp:ListItem Text="" Value="0" />
+                <asp:ListItem Text="Library One" Value="1" />
+                <asp:ListItem Text="Library Two" Value="2" />
+                <asp:ListItem Text="School One" Value="3" />
+                <asp:ListItem Text="School Two" Value="4" />
+                <asp:ListItem Text="School Three" Value="5" />
+                 <asp:ListItem Text="Private Group" Value="6" />
+                <asp:ListItem Text="Open House Group" Value="7" />
+                  <asp:ListItem Text="Festival One" Value="8" />
+                  <asp:ListItem Text="Festival Two" Value="7" />  
+            </asp:DropDownList>
+            </div>--%>
+
     
-    <div class="col-md-6 ProgramInfoPop"><h4> Program Address:</h4> <input type="Address" class="form-control" id="AddAddress" placeholder="Add Address"></div></div>
+    <div class="col-md-4 ProgramInfoPop"><h4> Program Address:</h4> <%--<input type="Address" class="form-control" id="AddAddress" placeholder="Add Address">--%>
+        <asp:TextBox cssclass="form-control" ID="txtAddress" runat="server" placeholder="Add Address" ></asp:TextBox>
+
+    </div>
+
+              <div class="col-md-2 ProgramInfoPop"> <h4> Date:</h4> <%--<input type="date" class="form-control" id="AddDate" placeholder="Add Status">--%><asp:TextBox cssclass="form-control" ID="txtDate" runat="server" placeholder="Add Date" ></asp:TextBox></div>
+    <div class="col-md-2 ProgramInfoPop"> <h4> Start Time:</h4> <%--<input type="Time" class="form-control" id="AddTime" placeholder="Add Status">--%><asp:TextBox cssclass="form-control" ID="txtTime" runat="server" placeholder="Add Time" ></asp:TextBox></div>
+
+          </div>
 
  
   <div class="row">
-    <div class="col-md-6 ProgramInfoPop"><h4> City:</h4> <input type="City" class="form-control" id="AddCity" placeholder="Add City"></div>
-    <div class="col-md-6 ProgramInfoPop"><h4> County:</h4> <input type="County" class="form-control" id="AddCounty" placeholder="Add County"></div>
-</div>
- 
- <div class="row">
-    
-    <div class="col-md-4 ProgramInfoPop"> <h4> Date:</h4>
-        <input type="date" class="form-control" id="AddDate" placeholder="Add Status"></div>
-     <asp:Calendar ID="calendar1" runat="server"> </asp:Calendar>
-     <asp:TextBox cssclass="form-control" ID="AddDate" runat="server" placeholder="Add # of Children" ></asp:TextBox>
+    <div class="col-md-4 ProgramInfoPop"><h4> City:</h4> <asp:TextBox cssclass="form-control" ID="txtCity" runat="server" placeholder="Add City" ></asp:TextBox></div>
+    <div class="col-md-4 ProgramInfoPop"><h4> County:</h4> <asp:TextBox cssclass="form-control" ID="txtCounty" runat="server" placeholder="Add County" ></asp:TextBox></div>
 
-    <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <input type="Time" class="form-control" id="AddTime" placeholder="Add Status"></div>
-</div>
+             <div class=" col-md-4 ProgramInfoPop"><h4> State/Province:</h4> 
+        <asp:DropDownList ID="ddlState" runat="server" class="form-control" placeholder="Add State/Province">
+        <asp:ListItem>State</asp:ListItem>
+        <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
+        <asp:ListItem Value="AL"></asp:ListItem>
+        <asp:ListItem Value="AK"></asp:ListItem>
+        <asp:ListItem Value="AZ"></asp:ListItem>
+        <asp:ListItem Value="AR"></asp:ListItem>
+        <asp:ListItem Value="CA"></asp:ListItem>
+        <asp:ListItem Value="CO"></asp:ListItem>
+        <asp:ListItem Value="CT"></asp:ListItem>
+        <asp:ListItem Value="DE"></asp:ListItem>
+        <asp:ListItem Value="FL"></asp:ListItem>
+        <asp:ListItem Value="GA"></asp:ListItem>
+        <asp:ListItem Value="HI"></asp:ListItem>
+        <asp:ListItem Value="ID"></asp:ListItem>
+        <asp:ListItem Value="IL"></asp:ListItem>
+        <asp:ListItem Value="IN"></asp:ListItem>
+        <asp:ListItem Value="IA"></asp:ListItem>
+        <asp:ListItem Value="KS"></asp:ListItem>       
+        <asp:ListItem Value="KY"></asp:ListItem>
+        <asp:ListItem Value="LA"></asp:ListItem>
+        <asp:ListItem Value="ME"></asp:ListItem>
+        <asp:ListItem Value="MD"></asp:ListItem>
+        <asp:ListItem Value="MA"></asp:ListItem>
+        <asp:ListItem Value="MI"></asp:ListItem>
+        <asp:ListItem Value="MN"></asp:ListItem>
+        <asp:ListItem Value="MS"></asp:ListItem>
+        <asp:ListItem Value="MO"></asp:ListItem>
+        <asp:ListItem Value="MT"></asp:ListItem>
+        <asp:ListItem Value="NE"></asp:ListItem>
+        <asp:ListItem Value="NV"></asp:ListItem>
+        <asp:ListItem Value="NH"></asp:ListItem>
+        <asp:ListItem Value="NJ"></asp:ListItem>
+        <asp:ListItem Value="NM"></asp:ListItem>
+        <asp:ListItem Value="NY"></asp:ListItem>
+        <asp:ListItem Value="NC"></asp:ListItem>
+        <asp:ListItem Value="ND"></asp:ListItem>
+        <asp:ListItem Value="OH"></asp:ListItem>
+        <asp:ListItem Value="OK"></asp:ListItem>
+        <asp:ListItem Value="OR"></asp:ListItem>
+        <asp:ListItem Value="PA"></asp:ListItem>
+        <asp:ListItem Value="RI"></asp:ListItem>
+        <asp:ListItem Value="SC"></asp:ListItem>
+        <asp:ListItem Value="SD"></asp:ListItem>
+        <asp:ListItem Value="TN"></asp:ListItem>
+        <asp:ListItem Value="TX"></asp:ListItem>
+        <asp:ListItem Value="UT"></asp:ListItem>
+        <asp:ListItem Value="VT"></asp:ListItem>
+        <asp:ListItem Value="VA"></asp:ListItem>
+        <asp:ListItem Value="WA"></asp:ListItem>
+        <asp:ListItem Value="WV"></asp:ListItem>
+        <asp:ListItem Value="WI"></asp:ListItem>
+        <asp:ListItem Value="WY"></asp:ListItem>
+    </asp:DropDownList>
+
+                 </div>
+ 
+ </div>
  
  <div class="row">
     <div class="col-md-3 ProgramInfoPop"> <h4>Grade</h4><div class="dropdown">
@@ -321,8 +418,8 @@
 
       <asp:ListBox CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
     <asp:ListItem Text="" Value="0" />
-      <asp:ListItem Text="Pre-K" Value="1" />
-    <asp:ListItem Text="K" Value="2" />
+      <asp:ListItem Text="Preschool" Value="1" />
+    <asp:ListItem Text="Kindergarten" Value="2" />
     <asp:ListItem Text="1st" Value="3" />
     <asp:ListItem Text="2nd" Value="4" />
     <asp:ListItem Text="3rd" Value="5" />
@@ -336,7 +433,7 @@
     <asp:ListItem Text="11th" Value="13" />
      <asp:ListItem Text="12th" Value="14"/>
        <asp:ListItem Text="Families" Value="15" />
-    <asp:ListItem Text="Adults" Value="16" />
+    <asp:ListItem Text="Adults Only" Value="16" />
 
 </asp:ListBox>
 
@@ -372,22 +469,20 @@
 
    </div>
     <div class="col-md-3 ProgramInfoPop"> <h4> # of Adults:</h4> 
-<%--        <input type="number" class="form-control" id="Add#Adult" placeholder="# of Adults">--%></div>
+<%--        <input type="number" class="form-control" id="Add#Adult" placeholder="# of Adults">--%>
      <asp:TextBox cssclass="form-control" ID="AddNumAdult" runat="server" placeholder="Add # of Adults" ></asp:TextBox>
+        </div>
     
-     <div class="col-md-4 ProgramInfoPop"> <h4> # of Children:</h4> 
-      <%--  <input type="Number" class="form-control" id="Add#Kidss" placeholder="# of Children"> --%></div>
+     <div class="col-md-3 ProgramInfoPop"> <h4> # of Children:</h4> 
+      <%--  <input type="Number" class="form-control" id="Add#Kidss" placeholder="# of Children"> --%>
      <asp:TextBox cssclass="form-control" ID="AddNumChildren" runat="server" placeholder="Add # of Children" ></asp:TextBox>
-    
+    </div>
     
  </div>
  
  
  <div class="row">
 
- 
-  
- 
   
        <div class="col-lg-4 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
 <%--     <div class="button-group">
@@ -465,7 +560,7 @@
   
 </div>
 	     
-	     
+	   </div>  
 	     
   
        <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
@@ -480,14 +575,14 @@
 </ul>
  
 </div>--%>
- <asp:ListBox ID="lstMammals" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+ <asp:ListBox ID="ddlMammals" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
     <asp:ListItem Text="" Value="0" />
     <asp:ListItem Text="Bo" Value="1" />
     <asp:ListItem Text="Posie" Value="2" />
     <asp:ListItem Text="Willow" Value="3" />
 </asp:ListBox>
 </div>
- </div>
+  </div>
  
  <div class="row">
     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
@@ -499,12 +594,12 @@
     <asp:ListItem Text="Yes" Value="1" />
     <asp:ListItem Text="No" Value="0" />
 </asp:RadioButtonList>
-        
+        </div>
         <div class="col-md-9 ProgramInfoPop"><div class="form-group">
         <asp:label for="comment" runat ="server">Comment:</asp:label>
   <asp:textbox runat="server" class="form-control" cols= "12" rows="5" id="comment"></asp:textbox>
 </div></div>
-</div>
+
  
  
  
@@ -525,8 +620,8 @@
 <%--                <button type="button" class="btn btn-secondary" >Close</button>--%>
                   <asp:Button ID="btnClose2" runat="server" OnClick="btnClose_Click"  class ="btn btn-secondary" href="OnlineForm.aspx" Text="Close" aria-hidden="true"/>
             </div>
-        </div>
-    </div>
+       
+    
 
 
 
@@ -535,7 +630,15 @@
  </div> 
    
    
-    <!-- Pop Up modal to Edit program --> 
+    
+</div>
+
+   
+     
+
+   </div> </div>
+
+          <!-- Pop Up modal to Edit program --> 
   <%-- <div class="modal" id="EditProgramModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-full" role="document">
         <div class="modal-content">
@@ -764,9 +867,7 @@
       <!-- /.content-wrapper -->
  </div>--%>
 
-
-   
-       <!-- Pop Up modal to View program --> 
+            <!-- Pop Up modal to View program --> 
        
        <div class="modal" id="ProgramModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-full" role="document">
@@ -829,7 +930,7 @@
      <h4> Date:</h4> <h6 class="ProgramDescription" id="ProgramDate"> 10/14/18</h6></div>
      
      
-    <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="ProgramTime"> 3:00 pmS</h6></div>
+    <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="ProgramTime"> 3:00 pm</h6></div>
 </div>
  
  <div class="row">
@@ -905,7 +1006,7 @@
         <%-- <button type="button" class="btn btn-primary LoginButton"  data-toggle="modal" data-target="#EditProgramModal">Edit</button>
                 <button type="button" class="btn btn-secondary" >Close</button>--%>
 
-                 <asp:Button ID="btnEdit" runat="server" OnClick="btnClose_Click"  class="btn btn-primary LoginButton" data-toggle="modal" data-target="#EditProgramModal" href="OnlineForm.aspx" aria-label="Close" Text="Edit" aria-hidden="true"/>
+                 <%--<asp:Button ID="btnEdit" runat="server" OnClick="btnClose_Click"  class="btn btn-primary LoginButton" data-toggle="modal" data-target="#EditProgramModal" href="OnlineForm.aspx" aria-label="Close" Text="Edit" aria-hidden="true"/>--%>
                  <asp:Button ID="btnClose4" runat="server" OnClick="btnClose_Click"  class="btn btn-secondary"  href="OnlineForm.aspx" aria-label="Close" Text="Close" aria-hidden="true"/>
             
             </div>
@@ -919,8 +1020,6 @@
 
       <!-- /.content-wrapper -->
  </div> 
-
-   </div> </div>
 
     <!-- /#wrapper -->
 

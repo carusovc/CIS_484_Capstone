@@ -23,9 +23,9 @@
 </head>
         <body>
                 
-            <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
+            <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-       <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
+      <a class="navbar-brand mr-1" href="index.html">WildTek</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -108,7 +108,7 @@
        <!-- Programs-->
        <div class="row">
 		<div class="col-md-12 ProgramTitle">
-			<h1>Reports Based on Year</h1>
+			<h1 >Reports Based on Year</h1>
 			
 		</div>
 	</div>
@@ -119,16 +119,17 @@
         <asp:ListItem></asp:ListItem>
     </asp:DropDownList>
     <br />
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT YEAR(ProgramDate) AS YEAR, ProgramID FROM Program"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct YEAR(ProgramDate) AS YEAR FROM Program Order By YEAR(ProgramDate)"></asp:SqlDataSource>
   
      <h4>Totals Based on Live Programs</h4>
-    <asp:GridView ID="gridPrograms" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True">
+    <asp:GridView ID="gridPrograms" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"  AllowSorting="True">
         <Columns>
-            <asp:BoundField DataField="EventMonth" HeaderText="EventMonth" SortExpression="EventMonth" />
+            <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" ReadOnly="True" />
             <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="TotalOnSitePrograms" SortExpression="TotalOnSitePrograms" ReadOnly="True" />
             <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="TotalOffSitePrograms" SortExpression="TotalOffSitePrograms" ReadOnly="True" />
-            <asp:BoundField DataField="NumberOfChildren" HeaderText="NumberOfChildren" SortExpression="NumberOfChildren" />
-            <asp:BoundField DataField="NumberOfAdults" HeaderText="NumberOfAdults" SortExpression="NumberOfAdults" />
+            <asp:BoundField DataField="TotalLivePrograms" HeaderText="TotalLivePrograms" SortExpression="TotalLivePrograms" ReadOnly="true" />
+            <asp:BoundField DataField="NumberOfChildren" HeaderText="NumberOfChildren" SortExpression="NumberOfChildren" ReadOnly="True" />
+            <asp:BoundField DataField="NumberOFAdults" HeaderText="NumberOfAdults" SortExpression="NumberOFAdults" ReadOnly="True" />
             <asp:BoundField DataField="TotalParticipants" HeaderText="TotalParticipants" SortExpression="TotalParticipants" ReadOnly="True" />
             
         </Columns>
@@ -136,21 +137,61 @@
     <br />
     <br />
      <h4>Totals Based on Online Programs</h4>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT DISTINCT EventMonth, SUM(CASE WHEN onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, NumberOfChildren, NumberOfAdults, SUM(NumberOfChildren + NumberOfAdults) AS TotalParticipants FROM Program AS p GROUP BY EventMonth, NumberOfChildren, NumberOfAdults"></asp:SqlDataSource>
-
-    <asp:GridView ID="gridOnlinePrograms" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" DataKeyNames="OnlineProgramID" AllowSorting="True">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(Program.ProgramDate) } 
+            when 1 then 'January'
+            when 2 then 'February'
+            when 3 then 'March'
+            when 4 then 'April'
+            when 5 then 'May'
+            when 6 then 'June'
+            when 7 then 'July'
+            when 8 then 'August'
+            when 9 then 'September'
+            when 10 then 'October'
+            when 11 then 'November'
+            when 12 then 'December'
+           END
+      AS MonthName, SUM(CASE WHEN onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, Count(Program.ProgramID) as TotalLivePrograms,
+        SUM(NumberOfChildren) as NumberOfChildren,
+		SUM(NumberOfAdults) AS NumberOFAdults, 
+        SUM(NumberOfChildren + NumberOfAdults) AS TotalParticipants FROM Program WHERE (YEAR(ProgramDate) = @Year) GROUP BY { fn MONTH(Program.ProgramDate) } ORDER BY { fn MONTH(Program.ProgramDate) }">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="drpYear" Name="YEAR" PropertyName="SelectedValue" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+            <%--DataKeyNames="OnlineProgramID"--%>
+    <asp:GridView ID="gridOnlinePrograms" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowSorting="True">
         <Columns>
-            <asp:BoundField DataField="Month" HeaderText="Month" SortExpression="Month" />
+            <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" />
             <asp:BoundField DataField="TotalOnlinePrograms" HeaderText="TotalOnlinePrograms" SortExpression="TotalOnlinePrograms" ReadOnly="True" />
-            <asp:BoundField DataField="NumberOfKids" HeaderText="NumberOfKids" SortExpression="NumberOfKids" />
+            <asp:BoundField DataField="NumberOfKids" HeaderText="NumberOfChildren" SortExpression="NumberOfKids" />
             
             <asp:BoundField DataField="NumberOfPeople" HeaderText="NumberOfPeople" SortExpression="NumberOfPeople" />
             
         </Columns>
         
      </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct(Month), 
-        OnlineProgramID, COUNT(*) AS TotalOnlinePrograms, NumberOfKids, NumberOfPeople FROM OnlineProgram GROUP BY Month, OnlineProgramID, NumberOfKids, NumberOfPeople"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(OnlineProgram.ProgramDate) } 
+            when 1 then 'January'
+            when 2 then 'February'
+            when 3 then 'March'
+            when 4 then 'April'
+            when 5 then 'May'
+            when 6 then 'June'
+            when 7 then 'July'
+            when 8 then 'August'
+            when 9 then 'September'
+            when 10 then 'October'
+            when 11 then 'November'
+            when 12 then 'December'
+           END
+      AS MonthName,  count(distinct OnlineProgram.OnlineProgramID) as TotalOnlinePrograms, SUM(NumberOfKids) as NumberOfKids,
+		SUM(NumberOfPeople) AS NumberOfPeople
+		FROM OnlineProgram WHERE (YEAR(ProgramDate) = @Year) GROUP BY { fn MONTH(OnlineProgram.ProgramDate) } ORDER BY { fn MONTH(OnlineProgram.ProgramDate) }">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="drpYear" Name="YEAR" PropertyName="SelectedValue" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 
                 <br />
                  <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-login btn-block" OnClick="btnVisualize_Click"></asp:Button>   

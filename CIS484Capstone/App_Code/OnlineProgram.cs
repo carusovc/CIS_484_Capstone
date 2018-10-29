@@ -15,6 +15,7 @@ public class OnlineProgram
         //
     }
     private DateTime date;
+    private TimeSpan programTime;
     //private int dateOfMonth;
     private String month;
     private int type;
@@ -33,10 +34,10 @@ public class OnlineProgram
 
 
     //Overload Constructor
-    public OnlineProgram(DateTime date, string month, int type, int kidsInClass, int numOfPeople, string city, string stateTerritory, string country, string teacher, string email, string comments)
+    public OnlineProgram(DateTime date, TimeSpan programTime, int type, int kidsInClass, int numOfPeople, string city, string stateTerritory, string country, string teacher, string email, string comments)
     {
         setDate(date);
-        setMonth(month);
+        setProgramTime(programTime);
         setType(type);
         setKidsInClass(kidsInClass);
         setNumOfPeople(numOfPeople);
@@ -53,6 +54,11 @@ public class OnlineProgram
         //setAnimalsUsed(animalsUsed);     
         //setGrade(grade);
 
+    }
+
+    public void setProgramTime(TimeSpan programTime)
+    {
+        this.programTime = programTime;
     }
 
     //Setters
@@ -137,6 +143,11 @@ public class OnlineProgram
     //}
 
     //Getters
+    public TimeSpan getProgramTime()
+    {
+        return programTime;
+    }
+     
     public DateTime getDate()
     {
         return date;

@@ -33,7 +33,7 @@ public class Program
 
     }
     //Overload Constructor
-    public Program(byte onOff, string status, string programAddress, string cityCounty, string state, string reportMonth, int programTypeID,
+    public Program(byte onOff, string status, string programAddress, string cityCounty, string reportMonth, int programTypeID,
         int numOfChildren, int numOfAdult, char waitForPayment, DateTime date, TimeSpan time, string comments)
     {
         setOnOff(onOff);
@@ -54,7 +54,7 @@ public class Program
         setWaitForPayment(waitForPayment);
         //setGrade(grade);
         setCityCounty(cityCounty);
-        setState(state);
+        //setState(state);
 
     }
 
@@ -74,10 +74,10 @@ public class Program
         this.cityCounty = cityCounty;
     }
 
-    public void setState(string state)
-    {
-        this.state = state;
-    }
+    //public void setState(string state)
+    //{
+    //    this.state = state;
+    //}
 
 
     public void setProgramAddress(string programAddress)
@@ -152,10 +152,10 @@ public class Program
         return cityCounty;
     }
 
-    public String getState()
-    {
-        return state;
-    }
+    //public String getState()
+    //{
+    //    return state;
+    //}
 
     public String getProgramAddress()
     {
