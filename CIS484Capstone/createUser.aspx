@@ -3,24 +3,28 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+
+<!doctype html>
+<html>
+<head>
 <meta charset="UTF-8">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<title>WildTek Login</title>
+<%--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">--%>
 
-	  <!-- Bootstrap v4 -->
-	  <!-- Bootstrap v4 -->
+<%--	  <!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
-<link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
-<link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
-    
-      <!-- Logo FOnt-->
-      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+<link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">--%>
+
+</head>
+
+<body>
+<section class="login-block">
     
 
-  
-<section class="login login-block">
-<div class="container1">
+<div class="container">
       <div class="card card-register mx-auto mt-5">
-        <div class="card-header NewUserTitle">Grant Educator Access</div>
+        <div class="card-header NewUserTitle">Add Outreach Coordinator</div>
         <div class="card-body">
           <form>
             <div class="form-group">
@@ -29,6 +33,7 @@
                   <div class="form-label-group">
                       <%--<input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus>--%>
                       <label for="firstName">FIRST NAME</label>
+                      <br />
                       <asp:TextBox ID="txtFirstName" runat="server" class="form-control" placeholder="First name" required="required"></asp:TextBox>
                     
                   </div>
@@ -38,6 +43,7 @@
                   <div class="form-label-group">
                       <%--<input type="text" id="lastName" class="form-control" placeholder="Last name" required="required">--%>
                       <label for="lastName">LAST NAME</label>
+                      <br />
                       <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server"></asp:TextBox>
                     
                   </div>
@@ -48,6 +54,7 @@
               <div class="form-label-group">
                 <%--<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">--%>
                 <label for="inputEmail">USERNAME</label>
+                  <br />
                 <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox>
               </div>
             </div>
@@ -57,6 +64,7 @@
                   <div class="form-label-group">
                     <%--<input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">--%>
                     <label for="inputPassword">PASSWORD</label>
+                      <br />
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" placeholder="Password" required="required"></asp:TextBox>
                     <asp:Label ID="lblReminder" runat="server" Text="Password must include: 1 Number, 1 Special Character, 1 Capital letter, and at least 8 characters long."></asp:Label>
                   </div>
@@ -77,9 +85,7 @@
             <br />
           </form>
           <div class="text-center">
-         <%--  <a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
-           <asp:Button ID="btnLogin" class="btn btn-primary btn-login btn-block" href="Deault.aspx" runat="server" OnClick="btnSubmit_Click" Text="Login" />
-            <br />
+            <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
             <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
           </div>
         </div>
@@ -97,8 +103,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <!-- end of do not delete -->
+</body>
+</html>
 
-          <%--<div>
+
+
+
+
+
+
+
+
+
+            <%--<div>
             
             <br />
             <br />

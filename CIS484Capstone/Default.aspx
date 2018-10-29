@@ -21,6 +21,11 @@
 <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
 
 
+
+<%-- </head>--%>
+
+ <%-- <body>--%>
+
 <section class="login-block">
     <div class="container">
 	<div class="row">
@@ -62,7 +67,10 @@
     <br/>
     
     <%--<a class="btn float-right btn-login" id="btnLogin" runat="server" OnClick="btnLogin_Click" role="button" runat="server">Submit</a> --%>
-    <asp:Button ID="btnLogin" class="btn btn-primary btn-login mx-auto btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
+
+    <asp:Button ID="btnLogin" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
+        <a href="createUser"> Create User</a>
+
         <br/>
      
         <h2 class="text-center logo mx-auto">OR</h2>
