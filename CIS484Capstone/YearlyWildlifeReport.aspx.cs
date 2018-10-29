@@ -11,4 +11,12 @@ public partial class YearlyWildlifeReport : System.Web.UI.Page
     {
 
     }
+    protected void btnVisualize_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TabYearlyReports.aspx");
+    }
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ReportChoice.aspx");
+    }
 }

@@ -13,18 +13,27 @@ public partial class ReportChoice : System.Web.UI.Page
     }
 
 
-    protected void MonthlyReport_Click(object sender, EventArgs e)
+    protected void TabMonthlyReports_Click(object sender, EventArgs e)
     {
-        Response.Redirect("MonthlyWildlifeReport.aspx");
+           Response.Redirect("MonthlyWildlifeReport.aspx");
+   
     }
 
-    protected void AnimalReport_Click(object sender, EventArgs e)
+    protected void TabAnimalReports_Click(object sender, EventArgs e)
     {
         Response.Redirect("AnimalMonthlyWildlifeReport.aspx");
     }
 
-    protected void YearlyReport_Click(object sender, EventArgs e)
+    protected void TabYearlyReports_Click(object sender, EventArgs e)
     {
         Response.Redirect("YearlyWildlifeReport.aspx");
+    }
+    protected void TabOnlineProgramReports_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TabOnlineProgramReports.aspx");
+    }
+    protected void TabLiveReports_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TabLiveReports.aspx");
     }
 }

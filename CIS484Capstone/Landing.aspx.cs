@@ -9,15 +9,15 @@ public partial class Landing : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        try
-        {
-            lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString();
-        }
-        catch
-        {
-            Response.Redirect("Default.aspx");
-        }
-       
+        //try
+        //{
+        //    lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString();
+        //}
+        //catch
+        //{
+        //    Response.Redirect("Default.aspx");
+        //}
+
     }
 
     protected void btncreateUser_Click(object sender, EventArgs e)
