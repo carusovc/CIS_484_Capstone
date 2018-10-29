@@ -70,12 +70,12 @@
     <br/>
     
     <%--<a class="btn float-right btn-login" id="btnLogin" runat="server" OnClick="btnLogin_Click" role="button" runat="server">Submit</a> --%>
-    <asp:Button ID="btnLogin" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
+    <asp:Button ID="btnLogin" class="btn btn-primary btn-login mx-auto btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
         <br/>
-        <br/>
-        <h2 class="text-center logo">OR</h2>
+     
+        <h2 class="text-center logo mx-auto">OR</h2>
     
-    <asp:Button ID="createForm" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
+    <asp:Button ID="createForm" class="btn btn-primary mx-auto btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
     </div>
      <%--  <div class="text-center">
         <%--<a class="d-block small mt-3" href="createUser.aspx">Create New User</a>
@@ -88,14 +88,7 @@
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                  
             
-    <div class="carousel-item active">
-      <div class="carousel-caption d-none d-md-block">
-        <div class="banner-text">
-            <h2>WildTek</h2>
-        </div>	
-  </div>
-		
-            </div>	   
+   	   
 		    
 		</div>
 	</div>

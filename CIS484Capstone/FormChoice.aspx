@@ -114,14 +114,26 @@
 
       <div id="content-wrapper">
    
-        <div class="container-fluid block">
-	       <h2 class="text-center">Choose a Program Form to Complete</h2>
-	<div class="row align-items-center">
-        <br />
-      <asp:Button ID="liveForm" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnLiveCreate_Click" Text="Live Program Form" />
+        <div class="container-fluid">
+            <div class="row">
+		<div class="col-md-12 ProgramTitle">
+			<h1 >Choose a Program Form to Complete</h1>
+            <br />
+			</div>
+		  </div> 
+	       
+	<div class="row align-items-center ProgramBox">
+        
+        <div class="col-sm-6 col-md-6  mx-auto d-flex justify-content-center">
+
+      <asp:Button ID="liveForm" class="btn btn-primary btn-block btn-xlarge btn-inside" runat="server" OnClick="btnLiveCreate_Click" Text="Live Program Form" />
+            <br />
+            </div>
+        <div class="col-sm-6 col-md-6  mx-auto d-flex justify-content-center">
        <br />
-        <asp:Button ID="onlineFrom" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnOnlineCreate_Click" Text="Online Program Form" />
- 
+        <asp:Button ID="onlineFrom" class="btn btn-primary btn-block btn-xlarge btn-inside" runat="server" OnClick="btnOnlineCreate_Click" Text="Online Program Form" />
+            <br />
+ </div>
       <br />
               <br />
 </div>

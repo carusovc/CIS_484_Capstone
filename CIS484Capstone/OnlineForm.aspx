@@ -139,7 +139,7 @@
 
       <div id="content-wrapper">
 
-        <div class="container-fluid block">
+        <div class="container-fluid ">
 
           
 
@@ -162,44 +162,44 @@
 
         <div id="Program1" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/skype.png" alt="">
+            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/owl.png" alt="">
             <br> <h6 class="ProgramCaption">Skype Program: Owls</h6>
           
         </div>
         <div id="Program2" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/camera.png" alt="">
+            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/camera.png" alt="">
             <br> <h6 class="ProgramCaption">Cam in the Classroom</h6>
           
         </div>
         <div id="Program3" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/skype.png" alt="">
+            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/snake.png" alt="">
             <br> <h6 class="ProgramCaption">Skype Program: Snakes</h6>
           
         </div>
         <div id="Program4" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/special.png" alt="">
+            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/book.png" alt="">
             <br> <h6 class="ProgramCaption">Book Club</h6>
           
         </div>
         <div id="Program5" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/skype.png" alt="">
+            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/turtle.png" alt="">
             <br> <h6 class="ProgramCaption">Skype Program: Turtles</h6>
           
         </div>
         <div id="Program6" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/camera.png" alt="">
+            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/camera.png" alt="">
             <br> <h6 class="ProgramCaption">Hospital Cam</h6>
           
         </div>
 		  
         <div id="AddProgram" data-toggle="modal" data-target="#AddOnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
           
-            <img class="img-fluid img-thumbnail PrevImg" src="images/icons/Add.png" alt="">
+            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/Add.png" alt="">
             <br> <h6 class="ProgramCaption">Add Program</h6>
           
         </div>
