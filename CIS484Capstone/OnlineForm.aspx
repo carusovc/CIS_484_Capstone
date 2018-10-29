@@ -237,9 +237,8 @@
             <asp:DropDownList CssClass="form-control" ID="listAddOnlineStatus" runat="server" placeholder="Add Status" SelectionMode="Multiple" class="dropdown-menu">
                 <asp:ListItem Text="" Value="0" />
                 <asp:ListItem Text="Completed" Value="1" />
-                <asp:ListItem Text="In Progress" Value="2" />
-                <asp:ListItem Text="Not Started" Value="3" />
-                </asp:DropDownList>
+                 <asp:ListItem Text="Not Started" Value="2" />
+             </asp:DropDownList>
 			</div> 
 			
 			

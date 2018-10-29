@@ -7,12 +7,12 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 
 
-public partial class OnlineForm : System.Web.UI.Page
+public partial class NoLogOnlineForm : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-       // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
