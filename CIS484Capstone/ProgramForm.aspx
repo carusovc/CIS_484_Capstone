@@ -476,7 +476,7 @@
 </ul>
  
 </div>--%>
- <asp:ListBox ID="lstMammals" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+ <asp:ListBox ID="ddlMammals" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
     <asp:ListItem Text="" Value="0" />
     <asp:ListItem Text="Bo" Value="1" />
     <asp:ListItem Text="Posie" Value="2" />
