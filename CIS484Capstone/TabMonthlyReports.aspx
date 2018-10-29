@@ -89,9 +89,10 @@
 
       <div id="content-wrapper">
 
-        <div class="container-fluid block">
+        <div class="container-fluid ">
 
-    
+     <div class="row">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
     <div class='tableauPlaceholder' id='viz1540499143308' style='position: relative'>
             <noscript>
                 <a href='#'>
@@ -120,10 +121,17 @@
         
             </div>
           <br />
-                    <div class="col-md-4 text-center"> 
- <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-login btn-block" OnClick="btnBack_Click"></asp:Button>
-               </div>
-                <br />
+          
+
+                   
+   </div>
+            <div class="row WildTable">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
+
+    <asp:Button ID="Button1" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
+             </div>
+        </div>
+
             </div>
    </div>
 

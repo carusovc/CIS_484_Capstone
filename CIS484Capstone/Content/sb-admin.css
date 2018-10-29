@@ -426,6 +426,12 @@ body.sidebar-toggled footer.sticky-footer {
     font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
     margin-top: 10px;
 }
+.ProgramTitle h4 {
+    text-align: center;
+    color: white;
+    font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+    margin-top: 10px;
+}
 
 .Food h1 {
     margin-bottom: 30px;
