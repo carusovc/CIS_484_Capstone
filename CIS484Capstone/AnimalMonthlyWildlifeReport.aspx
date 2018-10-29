@@ -107,7 +107,7 @@
 
       <div id="content-wrapper">
 
-        <div class="container-fluid block">
+        <div class="container-fluid ">
          
 
        <!-- Programs-->
@@ -121,29 +121,44 @@
         <br>
 			</div>
 
-            <div class="container1">
-    
+            <div class="container1 ">
+    <div class="row WildTable">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
     <%--<h2>Report Based on Animal Type</h2>--%>
-    <asp:Label ID="Label1" runat="server" Text="Animal Type:"></asp:Label>
+ 
     <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
+       
         </asp:DropDownList>
-<%--    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT DISTINCT [AnimalType] FROM [Animal]">
-    </asp:SqlDataSource>--%>
+
+             </div>
+        </div>
+
+
+
+                <div class="row WildTable">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
     <br />
      <br />
-    <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False">
+    <asp:GridView ID="GridView1" class="table table-borderless table-condensed table-hover" runat="server"  AutoGenerateColumns="False">
         <Columns>
-            <asp:BoundField DataField="AnimalName" HeaderText="AnimalName" SortExpression="AnimalName" />
-           <%-- <asp:BoundField DataField="ProgramID" HeaderText="ProgramID" SortExpression="ProgramID" InsertVisible="False" ReadOnly="True" />--%>
-            <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="TotalOnSitePrograms" ReadOnly="True" SortExpression="TotalOnSitePrograms" />
 
-            <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="TotalOffSitePrograms" ReadOnly="True" SortExpression="TotalOffSitePrograms" />
-            <asp:BoundField DataField="NumberOfChildren" HeaderText="NumberOfChildren" SortExpression="NumberOfChildren" />
-            <asp:BoundField DataField="NumberOfAdults" HeaderText="NumberOfAdults" SortExpression="NumberOfAdults" />
-            <asp:BoundField DataField="TotalParticipants" HeaderText="TotalParticipants" ReadOnly="True" SortExpression="TotalParticipants" />
+            <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+           <%-- <asp:BoundField DataField="ProgramID" HeaderText="ProgramID" SortExpression="ProgramID" InsertVisible="False" ReadOnly="True" />--%>
+            <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="Total OnSite Programs" ReadOnly="True" SortExpression="TotalOnSitePrograms" />
+
+            <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="Total OffSite Programs" ReadOnly="True" SortExpression="TotalOffSitePrograms" />
+            <asp:BoundField DataField="NumberOfChildren" HeaderText="Number Of Children" SortExpression="NumberOfChildren" />
+            <asp:BoundField DataField="NumberOfAdults" HeaderText="Number Of Adults" SortExpression="NumberOfAdults" />
+            <asp:BoundField DataField="TotalParticipants" HeaderText="Total Participants" ReadOnly="True" SortExpression="TotalParticipants" />
 
         </Columns>
     </asp:GridView>
+             </div>
+        </div>
+
+<%--    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT DISTINCT [AnimalType] FROM [Animal]">
+    </asp:SqlDataSource>--%>
+    
 
 <%--<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand=" SELECT  Animal.AnimalName, SUM(CASE WHEN Program.onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN Program.onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms,
                 SUM(Program.NumberOfChildren) AS NumberOfChildren, SUM(Program.NumberOfAdults) AS NumberOfAdults, SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants 
@@ -154,23 +169,51 @@
         </SelectParameters>
     </asp:SqlDataSource>--%>
     <br />
-        <asp:Label ID="lblSumTotals" runat="server" Text="Total for this Month:"></asp:Label>
-     <asp:GridView runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
+
+                <div class="row WildTable">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
+            
+   
+            
+
+
+              <asp:GridView runat="server" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" >
          <Columns>
              <asp:BoundField DataField="TotalPrograms" HeaderText="TotalPrograms" ReadOnly="True" SortExpression="TotalPrograms" />
              <asp:BoundField DataField="TotalParticipants" HeaderText="TotalParticipants" ReadOnly="True" SortExpression="TotalParticipants" />
          </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT COUNT(ProgramAnimal.ProgramID) AS TotalPrograms, SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants FROM Animal LEFT OUTER JOIN ProgramAnimal ON Animal.AnimalID = ProgramAnimal.AnimalID LEFT OUTER JOIN Program ON ProgramAnimal.ProgramID = Program.ProgramID WHERE (Animal.AnimalType = @AnimalType) ">
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server"  ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT COUNT(ProgramAnimal.ProgramID) AS TotalPrograms, SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants FROM Animal LEFT OUTER JOIN ProgramAnimal ON Animal.AnimalID = ProgramAnimal.AnimalID LEFT OUTER JOIN Program ON ProgramAnimal.ProgramID = Program.ProgramID WHERE (Animal.AnimalType = @AnimalType) ">
         <SelectParameters>
             <asp:ControlParameter ControlID="DropDownList1" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
         </SelectParameters>
 
     </asp:SqlDataSource>
+
+             </div>
+        </div>
+
+
+
+
+        
+
+
+
 <br />
-                 <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-login btn-block" OnClick="btnVisualize_Click"></asp:Button>   
+
+                 <div class="row WildTable">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
+
+    <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
               
-                 <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-login btn-block" OnClick="btnBack_Click"></asp:Button>
+                 <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-inside " OnClick="btnBack_Click"></asp:Button>
+
+             </div>
+        </div>
+
+
+               
                 <br />
                
                 <br />
