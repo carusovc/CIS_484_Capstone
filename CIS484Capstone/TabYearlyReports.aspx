@@ -91,7 +91,7 @@
 
       <div id="content-wrapper">
 
-        <div class="container-fluid block text-center">
+        <div class="container-fluid text-center">
             
 
     <br />
@@ -99,7 +99,13 @@
 			<h1 >This site is under construction.</h1>
 			
 		</div>
-                 <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-login btn-block" OnClick="btnBack_Click"></asp:Button>
+            <div class="row WildTable">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
+
+    <asp:Button ID="Button1" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
+             </div>
+        </div>
+                 
                 <br />
                
                 <br />

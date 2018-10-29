@@ -101,7 +101,7 @@
 
           
 
-        <div class="container-fluid block">
+        <div class="container-fluid ">
 
           
 
@@ -113,31 +113,71 @@
 		</div>
 	</div>
 
-   
-     <asp:Label ID="lblYear" runat="server" Text="Select a Year:"></asp:Label>
+
+             <div class="row WildTable">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
+    
     <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
         <asp:ListItem></asp:ListItem>
     </asp:DropDownList>
     <br />
     <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct YEAR(ProgramDate) AS YEAR FROM Program Order By YEAR(ProgramDate)"></asp:SqlDataSource>
   
-     <h4>Totals Based on Live Programs</h4>
-    <asp:GridView ID="gridPrograms" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"  AllowSorting="True">
+
+                       
+             </div>
+        </div>
+   
+    
+
+
+            <div class="row">
+		<div class="col-md-12 ProgramTitle">
+			 <h4>Totals Based on Live Programs</h4>
+			
+		</div>
+	</div>
+
+
+              <div class="col-md-12 mx-auto d-flex justify-content-center">
+    <br />
+     <br />
+   
+<asp:GridView ID="gridPrograms"  class="table table-borderless table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"  AllowSorting="True">
         <Columns>
-            <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" ReadOnly="True" />
-            <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="TotalOnSitePrograms" SortExpression="TotalOnSitePrograms" ReadOnly="True" />
-            <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="TotalOffSitePrograms" SortExpression="TotalOffSitePrograms" ReadOnly="True" />
-            <asp:BoundField DataField="TotalLivePrograms" HeaderText="TotalLivePrograms" SortExpression="TotalLivePrograms" ReadOnly="true" />
-            <asp:BoundField DataField="NumberOfChildren" HeaderText="NumberOfChildren" SortExpression="NumberOfChildren" ReadOnly="True" />
-            <asp:BoundField DataField="NumberOFAdults" HeaderText="NumberOfAdults" SortExpression="NumberOFAdults" ReadOnly="True" />
-            <asp:BoundField DataField="TotalParticipants" HeaderText="TotalParticipants" SortExpression="TotalParticipants" ReadOnly="True" />
+            <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month Name" ReadOnly="True" />
+            <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="Total OnSite Programs" SortExpression="TotalOnSitePrograms" ReadOnly="True" />
+            <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="Total OffSite Programs" SortExpression="TotalOffSitePrograms" ReadOnly="True" />
+            <asp:BoundField DataField="TotalLivePrograms" HeaderText="Total Live Programs" SortExpression="TotalLivePrograms" ReadOnly="true" />
+            <asp:BoundField DataField="NumberOfChildren" HeaderText="Number Of Children" SortExpression="NumberOfChildren" ReadOnly="True" />
+            <asp:BoundField DataField="NumberOFAdults" HeaderText="Number Of Adults" SortExpression="NumberOFAdults" ReadOnly="True" />
+            <asp:BoundField DataField="TotalParticipants" HeaderText="Total Participants" SortExpression="TotalParticipants" ReadOnly="True" />
             
         </Columns>
      </asp:GridView>
     <br />
     <br />
-     <h4>Totals Based on Online Programs</h4>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(Program.ProgramDate) } 
+         
+             </div>
+
+
+
+    
+    
+
+            <div class="row">
+		<div class="col-md-12 ProgramTitle">
+			<h4>Totals Based on Online Programs</h4>
+			
+		</div>
+	</div>
+
+
+            <div class="col-md-12 mx-auto d-flex justify-content-center">
+    <br />
+     <br />
+   
+ <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(Program.ProgramDate) } 
             when 1 then 'January'
             when 2 then 'February'
             when 3 then 'March'
@@ -160,13 +200,13 @@
         </SelectParameters>
     </asp:SqlDataSource>
             <%--DataKeyNames="OnlineProgramID"--%>
-    <asp:GridView ID="gridOnlinePrograms" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowSorting="True">
+    <asp:GridView ID="gridOnlinePrograms"  class="table table-borderless table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowSorting="True">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" />
-            <asp:BoundField DataField="TotalOnlinePrograms" HeaderText="TotalOnlinePrograms" SortExpression="TotalOnlinePrograms" ReadOnly="True" />
-            <asp:BoundField DataField="NumberOfKids" HeaderText="NumberOfChildren" SortExpression="NumberOfKids" />
+            <asp:BoundField DataField="TotalOnlinePrograms" HeaderText="Total Online Programs" SortExpression="TotalOnlinePrograms" ReadOnly="True" />
+            <asp:BoundField DataField="NumberOfKids" HeaderText="Number Of Children" SortExpression="NumberOfKids" />
             
-            <asp:BoundField DataField="NumberOfPeople" HeaderText="NumberOfPeople" SortExpression="NumberOfPeople" />
+            <asp:BoundField DataField="NumberOfPeople" HeaderText="Number Of People" SortExpression="NumberOfPeople" />
             
         </Columns>
         
@@ -193,15 +233,26 @@
         </SelectParameters>
     </asp:SqlDataSource>
 
-                <br />
-                 <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-login btn-block" OnClick="btnVisualize_Click"></asp:Button>   
-              
-                 <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-login btn-block" OnClick="btnBack_Click"></asp:Button>
-                <br />
+     
+   
+
                
-                <br />
 
 </div>
+
+             <div class="row WildTable">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
+
+   <br />
+                 <asp:Button ID="Button1" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
+              
+                 <asp:Button ID="Button2" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
+                <br />
+               
+                <br />  
+             </div>
+        </div>
+
 </div>
 </div>
 
