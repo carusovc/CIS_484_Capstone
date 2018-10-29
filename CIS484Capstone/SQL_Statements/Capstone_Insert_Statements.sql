@@ -314,4 +314,26 @@ INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[N
 
 INSERT INTO [dbo].[OnlineProgram]([ProgramDate],[Month],[OnlineProgramTypeID],[NumberOfKids],[NumberOfPeople],[City],[State],[Country],[TeacherName],[ContactEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy])
  VALUES ('10/25/2018','October',9,26,3,'Atlanta','GA','United States of America','Paul Rabil','prabil@gmu.edu','Guy was ok.',GETDATE(),'Tyler Stewart');
- 
+
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (1,16,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (2,4,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (3,11,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (4,16,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (5,3,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (6,8,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (7,10,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (8,12,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (9,2,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (10,1,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (11,6,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (12,2,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (13,8,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (14,10,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (15,15,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (16,13,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (17,5,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (18,7,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (19,14,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (20,4,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (21,9,GETDATE(),'WildTekDevelopers');
+INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (22,16,GETDATE(),'WildTekDevelopers');
