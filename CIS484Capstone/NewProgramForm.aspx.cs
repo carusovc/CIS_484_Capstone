@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 public partial class NewProgramForm : System.Web.UI.Page
 {
@@ -15,7 +16,9 @@ public partial class NewProgramForm : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
         sc.Open();
 
 
@@ -70,8 +73,9 @@ public partial class NewProgramForm : System.Web.UI.Page
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-
+        //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
         sc.Open();
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
@@ -230,7 +234,9 @@ public partial class NewProgramForm : System.Web.UI.Page
         ddlAnimalName.AppendDataBoundItems = true;
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
 
         sc.Open();
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
@@ -286,8 +292,9 @@ public partial class NewProgramForm : System.Web.UI.Page
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-
+        //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
         sc.Open();
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;

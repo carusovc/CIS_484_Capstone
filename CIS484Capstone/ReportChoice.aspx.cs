@@ -15,15 +15,8 @@ public partial class ReportChoice : System.Web.UI.Page
 
     protected void TabMonthlyReports_Click(object sender, EventArgs e)
     {
-        try
-        {
-            Response.Redirect("MonthlyWildlifeReport.aspx");
-        }
-        catch
-        {
-            Response.Redirect("TabMonthlyReports.aspx");
-        }
-
+           Response.Redirect("MonthlyWildlifeReport.aspx");
+   
     }
 
     protected void TabAnimalReports_Click(object sender, EventArgs e)

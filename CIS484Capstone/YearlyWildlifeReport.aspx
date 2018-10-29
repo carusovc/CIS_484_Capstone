@@ -23,9 +23,9 @@
 </head>
         <body>
                 
-            <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+            <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
 
-      <a class="navbar-brand mr-1" href="index.html">WildTek</a>
+       <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -108,7 +108,7 @@
        <!-- Programs-->
        <div class="row">
 		<div class="col-md-12 ProgramTitle">
-			<h1 >Reports Based on Year</h1>
+			<h1>Reports Based on Year</h1>
 			
 		</div>
 	</div>
@@ -121,26 +121,22 @@
     <br />
     <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT YEAR(ProgramDate) AS YEAR, ProgramID FROM Program"></asp:SqlDataSource>
   
-     <h4>Totals Based on InPerson Programs</h4>
-    <asp:GridView ID="gridPrograms" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" DataKeyNames="ProgramID" AllowSorting="True">
+     <h4>Totals Based on Live Programs</h4>
+    <asp:GridView ID="gridPrograms" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True">
         <Columns>
-            <asp:BoundField DataField="EventMonth" HeaderText="Month" SortExpression="EventMonth" />
-            <asp:TemplateField></asp:TemplateField>
-            <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="Total OnSite Programs" SortExpression="TotalOnSitePrograms" ReadOnly="True" />
-            <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="Total OffSite Programs" SortExpression="TotalOffSitePrograms" ReadOnly="True" />
-            <asp:TemplateField></asp:TemplateField>
-            <asp:BoundField DataField="NumberOfChildren" HeaderText="Total Number Of Children" SortExpression="NumberOfChildren" />
-            <asp:BoundField DataField="NumberOfAdults" HeaderText="Total Number Of Adults" SortExpression="NumberOfAdults" />
-            <asp:BoundField DataField="TotalParticipants" HeaderText="Total Attendance" SortExpression="TotalParticipants" ReadOnly="True" />
+            <asp:BoundField DataField="EventMonth" HeaderText="EventMonth" SortExpression="EventMonth" />
+            <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="TotalOnSitePrograms" SortExpression="TotalOnSitePrograms" ReadOnly="True" />
+            <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="TotalOffSitePrograms" SortExpression="TotalOffSitePrograms" ReadOnly="True" />
+            <asp:BoundField DataField="NumberOfChildren" HeaderText="NumberOfChildren" SortExpression="NumberOfChildren" />
+            <asp:BoundField DataField="NumberOfAdults" HeaderText="NumberOfAdults" SortExpression="NumberOfAdults" />
+            <asp:BoundField DataField="TotalParticipants" HeaderText="TotalParticipants" SortExpression="TotalParticipants" ReadOnly="True" />
             
         </Columns>
      </asp:GridView>
     <br />
     <br />
      <h4>Totals Based on Online Programs</h4>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT EventMonth, ProgramID, 
-        SUM(CASE WHEN onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, NumberOfChildren, NumberOfAdults, 
-        SUM(NumberOfChildren + NumberOfAdults) AS TotalParticipants FROM Program AS p GROUP BY EventMonth, ProgramID, NumberOfChildren, NumberOfAdults"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT DISTINCT EventMonth, SUM(CASE WHEN onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, NumberOfChildren, NumberOfAdults, SUM(NumberOfChildren + NumberOfAdults) AS TotalParticipants FROM Program AS p GROUP BY EventMonth, NumberOfChildren, NumberOfAdults"></asp:SqlDataSource>
 
     <asp:GridView ID="gridOnlinePrograms" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" DataKeyNames="OnlineProgramID" AllowSorting="True">
         <Columns>

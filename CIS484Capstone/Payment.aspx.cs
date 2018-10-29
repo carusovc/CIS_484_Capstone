@@ -4,13 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 public partial class Payments : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
         sc.Open();
         //lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString();
 
@@ -32,8 +35,10 @@ public partial class Payments : System.Web.UI.Page
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
 
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
         sc.Open();
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;

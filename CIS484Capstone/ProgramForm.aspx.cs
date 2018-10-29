@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 public partial class ProgramForm : System.Web.UI.Page
 {
@@ -15,7 +16,9 @@ public partial class ProgramForm : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
         sc.Open();
 
 
@@ -72,7 +75,9 @@ public partial class ProgramForm : System.Web.UI.Page
     {
         //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-        //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        ////sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        //String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        //sc.ConnectionString = cs;
 
         //sc.Open();
 
