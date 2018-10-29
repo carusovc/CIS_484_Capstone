@@ -16,20 +16,13 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
-
+        
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    
 </head>
         <body>
-                <ul class="navbar-nav ml-auto ml-md-0">
-        
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
-      </ul>
+                
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
       <a class="navbar-brand mr-1" href="index.html">WildTek</a>
@@ -70,64 +63,57 @@
 
             <div id="wrapper">
 
-
-
-<ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+ <!-- Sidebar -->
+      <ul class="sidebar navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
             <i class="fas fa-fw fa-book-open"></i>
-            <span>Programs</span>
+            <span>Live Program Form</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Online.html">
+          <a class="nav-link" href="OnlineForm.aspx">
             <i class="fas fa-fw fa-wifi"></i>
-            <span>Online</span></a>
+            <span>Online Program Form</span></a>
         </li>
        
-        <li class="nav-item">
-          <a class="nav-link" href="#">
+        <li class="nav-item active">
+          <a class="nav-link" href="ReportChoice.aspx">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Simple Report</span></a>
+            <span>Reports</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-address-card"></i>
-            <span>Animal</span></a>
-        </li>
+      
         
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="Payment.aspx">
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Payment</span></a>
         </li>
+           <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Logout</span></a>
+        </li>
+
       </ul>
 
       <div id="content-wrapper">
 
           
 
-        <div class="container-fluid">
+        <div class="container-fluid block">
 
           
 
        <!-- Programs-->
        <div class="row">
 		<div class="col-md-12 ProgramTitle">
-			<h1 >Yearly Reports for WildTek</h1>
+			<h1 >Reports Based on Year</h1>
 			
 		</div>
 	</div>
-       <div class="col-md-12">
-        <br>
-			</div>
 
-            <div class="container1">
-    
-<%--    <h2>Yearly Reports for WildTek</h2>--%>
-
- 
-
+   
      <asp:Label ID="lblYear" runat="server" Text="Select a Year:"></asp:Label>
     <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
         <asp:ListItem></asp:ListItem>
@@ -170,8 +156,14 @@
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct(Month), 
         OnlineProgramID, COUNT(*) AS TotalOnlinePrograms, NumberOfKids, NumberOfPeople FROM OnlineProgram GROUP BY Month, OnlineProgramID, NumberOfKids, NumberOfPeople"></asp:SqlDataSource>
 
+                <br />
+                 <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-login btn-block" OnClick="btnVisualize_Click"></asp:Button>   
+              
+                 <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-login btn-block" OnClick="btnBack_Click"></asp:Button>
+                <br />
+               
+                <br />
 
-</div>
 </div>
 </div>
 </div>

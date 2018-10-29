@@ -14,21 +14,14 @@
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
 
+    
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    
 </head>
 
 <body>
 
- <ul class="navbar-nav ml-auto ml-md-0">
-        
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
-      </ul>
               <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
        
       <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
@@ -68,8 +61,8 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="Default.aspx">
+        <li class="nav-item">
+          <a class="nav-link" href="ProgramForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Live Program Form</span>
           </a>
@@ -80,7 +73,7 @@
             <span>Online Program Form</span></a>
         </li>
        
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="ReportChoice.aspx">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Reports</span></a>
@@ -92,52 +85,43 @@
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Payment</span></a>
         </li>
+
+            <li class="nav-item">
+          <a class="nav-link" href="CreateUser.aspx">
+            <i class="fas fa-fw fa-person"></i>
+            <span>Create Educator Access</span></a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Logout</span></a>
+        </li>
+
       </ul>
 
       <div id="content-wrapper">
 
         <div class="container-fluid block">
-          
-
-       <!-- Programs-->
-       <div class="row">
+     
+ 
+    
+          <div class="row">
 		<div class="col-md-12 ProgramTitle">
 			<h1 >Reports</h1>
 			
-		</div>
-	</div>
-       <div class="col-md-12">
-        <br>
-			</div>
-
-            <div class="container1">
-
-<section class="login-block">
-    
-
-<div class="container">
-      <div class="card card-register mx-auto mt-5">
-          <div class="card-header NewUserTitle">Modify Wildlife Center Information</div>
-    
-        <div class="card-body">
-          <form>
-
-            <div class="form-group form-row col-md-6 form-label-group">
-                <asp:Button ID="MonthlyReport" class="btn btn-primary btn-login btn-block" runat="server" Text="Monthly Report" OnClick="MonthlyReport_Click" />
-                 <asp:Button ID="AnimalReport" class="btn btn-primary btn-login btn-block" runat="server" Text="Animal Report" OnClick="AnimalReport_Click" />
-                 <asp:Button ID="YearlyReport" class="btn btn-primary btn-login btn-block" runat="server" Text="Yearly Report" OnClick="YearlyReport_Click" />
+		
+	       <div class="form-group form-row col-md-6 form-label-group text-center">
+                <asp:Button ID="MonthlyReports" class="btn btn-primary btn-login btn-block" runat="server" Text="Monthly Reports" OnClick="TabMonthlyReports_Click" />
+                 <asp:Button ID="AnimalReports" class="btn btn-primary btn-login btn-block" runat="server" Text="Animal Reports" OnClick="TabAnimalReports_Click" />
+                 <asp:Button ID="YearlyReports" class="btn btn-primary btn-login btn-block" runat="server" Text="Yearly Reports" OnClick="TabYearlyReports_Click" />
+                 <asp:Button ID="OnlineProgramReports" class="btn btn-primary btn-login btn-block" runat="server" Text="Live Program Reports" OnClick="TabLiveReports_Click" />
+                 <asp:Button ID="LiveReports" class="btn btn-primary btn-login btn-block" runat="server" Text="Online Program Reports" OnClick="TabOnlineProgramReports_Click" />
             </div>
-
-          </form>
-
-        </div>
-      </div>
+          </div>    
+              </div>
     </div>
-    </section>
     </div>
-            
-
-</div>
+ 
 </div>
 
 

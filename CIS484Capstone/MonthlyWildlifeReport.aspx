@@ -16,20 +16,12 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
-
+        
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    
 </head>
         <body>
-                <ul class="navbar-nav ml-auto ml-md-0">
-        
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
-      </ul>
           
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
        
@@ -70,8 +62,8 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="Default.aspx">
+        <li class="nav-item">
+          <a class="nav-link" href="ProgramForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Live Program Form</span>
           </a>
@@ -83,7 +75,7 @@
         </li>
        
         <li class="nav-item">
-          <a class="nav-link" href="ReportChoice.aspx">
+          <a class="nav-link active" href="ReportChoice.aspx">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Reports</span></a>
         </li>
@@ -94,6 +86,12 @@
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Payment</span></a>
         </li>
+           <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Logout</span></a>
+        </li>
+
       </ul>
 
       <div id="content-wrapper">
@@ -109,12 +107,7 @@
 			
 		</div>
 	</div>
-       <div class="col-md-12">
-        <br>
-			</div>
-
-            <div class="container1">
-
+     
 
 <%--    <h2>Monthly Reports for WildTek</h2>--%>
             <asp:Label ID="lblMonth" runat="server" Text="Select a Month:"></asp:Label>
@@ -214,11 +207,18 @@
         </SelectParameters>
 
     </asp:SqlDataSource>
+            <br />
+                 <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn float-left btn-login btn-block" OnClick="btnVisualize_Click"></asp:Button>   
+                 <br />
+                 <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn float-left btn-login btn-block" OnClick="btnBack_Click"></asp:Button>
+                <br />
+               
+                <br />
 
 </div>
 </div>
 </div>
-</div>
+
 
 
     <!-- jQuery and Bootstrap links - do not delete! -->

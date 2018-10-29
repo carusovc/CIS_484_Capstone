@@ -17,7 +17,7 @@ public partial class Landing : System.Web.UI.Page
         //{
         //    Response.Redirect("Default.aspx");
         //}
-       
+
     }
 
     protected void btncreateUser_Click(object sender, EventArgs e)
