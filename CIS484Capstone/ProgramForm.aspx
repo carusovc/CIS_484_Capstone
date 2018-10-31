@@ -250,8 +250,8 @@
 </ul></div>--%>
 
 <asp:DropDownList CssClass="form-control" ID="ddlProgram" runat="server" class="dropdown-menu radioButtonList">
-       <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Display" Value="1" />
+       <asp:ListItem Text="--Select Program--" Value="0" />
+<%--    <asp:ListItem Text="Display" Value="1" />
     <asp:ListItem Text="Special Request" Value="2" />
     <asp:ListItem Text="Open House" Value="3" />
     <asp:ListItem Text="Tour" Value="4" />
@@ -268,7 +268,7 @@
     <asp:ListItem Text="Classroom Visit: Snakes" Value="15" />  
     <asp:ListItem Text="Classroom Visit: Falcons" Value="16" />  
     <asp:ListItem Text="Classroom Visit: Opossums" Value="17" /> 
-    <asp:ListItem Text="Classroom Visit: Special" Value="18" />  
+    <asp:ListItem Text="Classroom Visit: Special" Value="18" />  --%>
 </asp:DropDownList>
 
 </div>
@@ -417,8 +417,8 @@
 
 
       <asp:ListBox CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
-    <asp:ListItem Text="" Value="0" />
-      <asp:ListItem Text="Preschool" Value="1" />
+    <asp:ListItem Text="--Select Grades--" Value="0" />
+<%--      <asp:ListItem Text="Preschool" Value="1" />
     <asp:ListItem Text="Kindergarten" Value="2" />
     <asp:ListItem Text="1st" Value="3" />
     <asp:ListItem Text="2nd" Value="4" />
@@ -433,7 +433,7 @@
     <asp:ListItem Text="11th" Value="13" />
      <asp:ListItem Text="12th" Value="14"/>
        <asp:ListItem Text="Families" Value="15" />
-    <asp:ListItem Text="Adults Only" Value="16" />
+    <asp:ListItem Text="Adults Only" Value="16" />--%>
 
 </asp:ListBox>
 

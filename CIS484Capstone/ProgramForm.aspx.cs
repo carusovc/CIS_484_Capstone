@@ -28,6 +28,53 @@ public partial class ProgramForm : System.Web.UI.Page
         insert.Connection = sc;
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
 
+        if (ddlProgram.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+
+                string read = "Select * from ProgramType";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
+
+                while (myRead.Read())
+                {
+
+                    ddlProgram.Items.Add(new ListItem(myRead["ProgramName"].ToString(), myRead["ProgramTypeID"].ToString()));
+                }
+
+            }
+
+
+        }
+
+        if (AddGrade.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+
+                string read = "Select * from Grade";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
+
+                while (myRead.Read())
+                {
+
+                    AddGrade.Items.Add(new ListItem(myRead["GradeLevel"].ToString(), myRead["GradeID"].ToString()));
+                }
+
+            }
+
+
+        }
+
+
 
 
         if (!IsPostBack)
