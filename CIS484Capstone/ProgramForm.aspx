@@ -250,8 +250,8 @@
 </ul></div>--%>
 
 <asp:DropDownList CssClass="form-control" ID="ddlProgram" runat="server" class="dropdown-menu radioButtonList">
-       <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Display" Value="1" />
+       <asp:ListItem Text="--Select Program--" Value="0" />
+<%--    <asp:ListItem Text="Display" Value="1" />
     <asp:ListItem Text="Special Request" Value="2" />
     <asp:ListItem Text="Open House" Value="3" />
     <asp:ListItem Text="Tour" Value="4" />
@@ -268,7 +268,7 @@
     <asp:ListItem Text="Classroom Visit: Snakes" Value="15" />  
     <asp:ListItem Text="Classroom Visit: Falcons" Value="16" />  
     <asp:ListItem Text="Classroom Visit: Opossums" Value="17" /> 
-    <asp:ListItem Text="Classroom Visit: Special" Value="18" />  
+    <asp:ListItem Text="Classroom Visit: Special" Value="18" />  --%>
 </asp:DropDownList>
 
 </div>
@@ -279,7 +279,7 @@
 	  <h4> Status:</h4> <%--<input type="text" class="form-control" id="AddStatus" placeholder="Add Status">--%>
                          <%--<asp:TextBox cssclass="form-control" ID="txtStatus" runat="server" placeholder="Add Status" ></asp:TextBox>--%>
                          <asp:DropDownList CssClass="form-control" ID="ddlStatus" runat="server" class="dropdown-menu radioButtonList">
-                            <asp:ListItem Text="" Value="0" />
+                            <asp:ListItem Text="--Select Status--" Value="0" />
                             <asp:ListItem Text="Completed" Value="1" />
                              <asp:ListItem Text="Not Started" Value="2" />
                         </asp:DropDownList>
@@ -417,8 +417,8 @@
 
 
       <asp:ListBox CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
-    <asp:ListItem Text="" Value="0" />
-      <asp:ListItem Text="Preschool" Value="1" />
+    <asp:ListItem Text="--Select Grades--" Value="0" />
+<%--      <asp:ListItem Text="Preschool" Value="1" />
     <asp:ListItem Text="Kindergarten" Value="2" />
     <asp:ListItem Text="1st" Value="3" />
     <asp:ListItem Text="2nd" Value="4" />
@@ -433,7 +433,7 @@
     <asp:ListItem Text="11th" Value="13" />
      <asp:ListItem Text="12th" Value="14"/>
        <asp:ListItem Text="Families" Value="15" />
-    <asp:ListItem Text="Adults Only" Value="16" />
+    <asp:ListItem Text="Adults Only" Value="16" />--%>
 
 </asp:ListBox>
 
@@ -453,15 +453,15 @@
 
 
         <asp:ListBox CssClass="form-control" ID="drpEducators" runat="server" SelectionMode="Multiple">
-     <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Raina" Value="1" />
+     <asp:ListItem Text="--Select Educators--" Value="0" />
+<%--    <asp:ListItem Text="Raina" Value="1" />
     <asp:ListItem Text="Alex" Value="2" />
     <asp:ListItem Text="Ed" Value="3" />
     <asp:ListItem Text="Amanda" Value="4" />
     <asp:ListItem Text="Shelly" Value="5" />
     <asp:ListItem Text="Peg" Value="6" />
     <asp:ListItem Text="Lydia" Value="7" />
-    <asp:ListItem Text="Doug" Value="8" />
+    <asp:ListItem Text="Doug" Value="8" />--%>
    
 
 </asp:ListBox>
@@ -507,8 +507,8 @@
 </ul>
   </div>--%>
              <asp:ListBox ID="ddlBirds"  CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder ="Select Birds">
-       <asp:ListItem Text="" Value="0" />
-       <asp:ListItem Text="Buddy" Value="1" />
+       <asp:ListItem Text="--Select Birds--" Value="0" />
+<%--       <asp:ListItem Text="Buddy" Value="1" />
     <asp:ListItem Text="Verlon" Value="2" />
     <asp:ListItem Text="Edie" Value="3" />
     <asp:ListItem Text="Maggie" Value="4" />
@@ -522,7 +522,7 @@
     <asp:ListItem Text="Quin" Value="12" />
     <asp:ListItem Text="Alex" Value="13" />
     <asp:ListItem Text="Buttercup" Value="14" />
-    <asp:ListItem Text="Jaz" Value="15" />
+    <asp:ListItem Text="Jaz" Value="15" />--%>
 </asp:ListBox>
 
 </div>
@@ -548,13 +548,13 @@
 </div>--%>
 
            <asp:ListBox CssClass="form-control" ID="ddlReptiles" runat="server" SelectionMode="Multiple" class="dropdown-menu">
-     <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Malcom" Value="1" />
+     <asp:ListItem Text="--Select Reptiles--" Value="0" />
+<%--    <asp:ListItem Text="Malcom" Value="1" />
     <asp:ListItem Text="Albus" Value="2" />
     <asp:ListItem Text="Severus" Value="3" />
     <asp:ListItem Text="Oscar" Value="4" />
     <asp:ListItem Text="Emma" Value="5" />
-    <asp:ListItem Text="Wilson" Value="6" />
+    <asp:ListItem Text="Wilson" Value="6" />--%>
 
 </asp:ListBox>
   
@@ -576,10 +576,10 @@
  
 </div>--%>
  <asp:ListBox ID="ddlMammals" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
-    <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Bo" Value="1" />
+    <asp:ListItem Text="--Select Mammals--" Value="0" />
+<%--    <asp:ListItem Text="Bo" Value="1" />
     <asp:ListItem Text="Posie" Value="2" />
-    <asp:ListItem Text="Willow" Value="3" />
+    <asp:ListItem Text="Willow" Value="3" />--%>
 </asp:ListBox>
 </div>
   </div>
