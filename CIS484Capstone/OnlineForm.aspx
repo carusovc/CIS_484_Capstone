@@ -800,8 +800,7 @@ foreach (ListItem item in CBLGold.Items)
     <asp:ListItem Text="Albus" Value="2" />
     <asp:ListItem Text="Severus" Value="3" />
     <asp:ListItem Text="Oscar" Value="4" />
-    <asp:ListItem Text="Emma" Value="5" />
-    <asp:ListItem Text="Wilson" Value="6" />
+    <asp:ListItem Text="Wilson" Value="5" />
 
 </asp:ListBox>
   

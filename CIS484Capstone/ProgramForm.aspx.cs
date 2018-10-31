@@ -89,11 +89,11 @@ public partial class ProgramForm : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand orgInsert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand programEducatorInsert = new System.Data.SqlClient.SqlCommand();
-        ////System.Data.SqlClient.SqlCommand programAnimalInsert = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand programAnimalInsert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand programGradeInsert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullProgramID = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullEducatorID = new System.Data.SqlClient.SqlCommand();
-        ////System.Data.SqlClient.SqlCommand pullAnimalID = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullAnimalID = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullGradeID = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullOrgID = new System.Data.SqlClient.SqlCommand();
 
@@ -106,11 +106,11 @@ public partial class ProgramForm : System.Web.UI.Page
         orgInsert.Connection = sc;
         pullOrgID.Connection = sc;
         programEducatorInsert.Connection = sc;
-        //programAnimalInsert.Connection = sc;
+        programAnimalInsert.Connection = sc;
         programGradeInsert.Connection = sc;
         pullProgramID.Connection = sc;
         pullEducatorID.Connection = sc;
-        //pullAnimalID.Connection = sc;
+        pullAnimalID.Connection = sc;
         pullGradeID.Connection = sc;
 
         ////Program class attributes
@@ -185,61 +185,142 @@ public partial class ProgramForm : System.Web.UI.Page
 
         insert.ExecuteNonQuery();
 
-
-
-
-        //// Pulls Program ID
+        // Pulls Program ID
         pullProgramID.CommandText = "SELECT MAX(ProgramID) From Program";
         int tempProgramID = (int)pullProgramID.ExecuteScalar();
 
-        //// Pulls Educator Name based on the selected educator
-        //// MAY NEED TO CHANGE IF WE COMPOSITE EDUCATORS
-        pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE EducatorFirstName = @EducatorFN";
-        pullEducatorID.Parameters.AddWithValue("@EducatorFN", drpEducators.SelectedItem.Text);
-        int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
+        // Pulls Educator Name based on the selected educator
+        foreach (ListItem li in drpEducators.Items)
+        {
+            if (li.Selected == true)
+            {
+                pullEducatorID.Parameters.Clear();
+                programEducatorInsert.Parameters.Clear();
 
 
-        //// Inserts programID and EducatorID into Assocaited table ProgramEducators
-        programEducatorInsert.CommandText = "INSERT INTO ProgramEducators (ProgramID, EducatorID, LastUpdated, LastUpdatedBy) values (@programID, @educatorID, @lastUpdated, @lastUpdatedBy)";
-        programEducatorInsert.Parameters.AddWithValue("@programID", tempProgramID);
-        programEducatorInsert.Parameters.AddWithValue("@educatorID", tempEducatorID);
-        programEducatorInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
-        programEducatorInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
-        programEducatorInsert.ExecuteNonQuery();
+                //// Pulls Educator Name based on the selected educator
+                //// MAY NEED TO CHANGE IF WE COMPOSITE EDUCATORS
+                pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE EducatorFirstName = @EducatorFN";
+                pullEducatorID.Parameters.AddWithValue("@EducatorFN", li.Text);
+                int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
 
-        //// Pull program animal based on selected Animal
-        //// MAY NEED TO CAHNGE IF WE COMPOSITE EDUCATORS
-        //pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
-        //pullAnimalID.Parameters.AddWithValue("@AnimalName", ddlAnimalName.SelectedItem.Text);
+                //// Inserts programID and EducatorID into Assocaited table ProgramEducators
+                programEducatorInsert.CommandText = "INSERT INTO ProgramEducators (ProgramID, EducatorID, LastUpdated, LastUpdatedBy) values (@programID, @educatorID, @lastUpdated, @lastUpdatedBy)";
+                programEducatorInsert.Parameters.AddWithValue("@programID", tempProgramID);
+                programEducatorInsert.Parameters.AddWithValue("@educatorID", tempEducatorID);
+                programEducatorInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+                programEducatorInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+                programEducatorInsert.ExecuteNonQuery();
+            }
+            else
+            {
+                continue;
+            }
+        }
 
-        //int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
 
-        //// Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
-        //programAnimalInsert.CommandText = "INSERT INTO ProgramAnimal (ProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@programID, @animalID, @lastUpdated, @lastUpdatedBy)";
-        //programAnimalInsert.Parameters.AddWithValue("@programID", tempProgramID);
-        //programAnimalInsert.Parameters.AddWithValue("@animalID", tempAnimalID);
-        //programAnimalInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
-        //programAnimalInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
-        //programAnimalInsert.ExecuteNonQuery();
+        // Pull program animal based on selected Animal
+        foreach (ListItem li in ddlBirds.Items)
+        {
+            if( li.Selected == true)
+            {
+                pullAnimalID.Parameters.Clear();
+                programAnimalInsert.Parameters.Clear();
+                pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
+                pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
+
+                int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+
+                // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
+                programAnimalInsert.CommandText = "INSERT INTO ProgramAnimal (ProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@programID, @animalID, @lastUpdated, @lastUpdatedBy)";
+                programAnimalInsert.Parameters.AddWithValue("@programID", tempProgramID);
+                programAnimalInsert.Parameters.AddWithValue("@animalID", tempAnimalID);
+                programAnimalInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+                programAnimalInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+                programAnimalInsert.ExecuteNonQuery();
+            }
+            else
+            {
+                continue;
+            }
+
+        }
+
+        foreach (ListItem li in ddlMammals.Items)
+        {
+            if (li.Selected == true)
+            {
+                pullAnimalID.Parameters.Clear();
+                programAnimalInsert.Parameters.Clear();
+                pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
+                pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
+
+                int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+
+                // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
+                programAnimalInsert.CommandText = "INSERT INTO ProgramAnimal (ProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@programID, @animalID, @lastUpdated, @lastUpdatedBy)";
+                programAnimalInsert.Parameters.AddWithValue("@programID", tempProgramID);
+                programAnimalInsert.Parameters.AddWithValue("@animalID", tempAnimalID);
+                programAnimalInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+                programAnimalInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+                programAnimalInsert.ExecuteNonQuery();
+            }
+            else
+            {
+                continue;
+            }
+        }
+
+        foreach (ListItem li in ddlReptiles.Items)
+        {
+            if (li.Selected == true)
+            {
+                pullAnimalID.Parameters.Clear();
+                programAnimalInsert.Parameters.Clear();
+                pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
+                pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
+
+                int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+
+                // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
+                programAnimalInsert.CommandText = "INSERT INTO ProgramAnimal (ProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@programID, @animalID, @lastUpdated, @lastUpdatedBy)";
+                programAnimalInsert.Parameters.AddWithValue("@programID", tempProgramID);
+                programAnimalInsert.Parameters.AddWithValue("@animalID", tempAnimalID);
+                programAnimalInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+                programAnimalInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+                programAnimalInsert.ExecuteNonQuery();
+            }
+            else
+            {
+                continue;
+            }
+        }
+
 
         //// Pull program grade based on selected Grade
-        //// WILL NEED TO CHANGE WITH COMPOSITE GRADES
-        pullGradeID.CommandText = "SELECT GradeID From Grade WHERE GradeLevel = @GradeLevel";
-        pullGradeID.Parameters.AddWithValue("@GradeLevel", AddGrade.SelectedItem.Text);
-        int tempGradeID = (int)pullGradeID.ExecuteScalar();
+        foreach (ListItem li in AddGrade.Items)
+        {
+            if (li.Selected == true)
+            {
+                pullGradeID.Parameters.Clear();
+                programGradeInsert.Parameters.Clear();
+                pullGradeID.CommandText = "SELECT GradeID From Grade WHERE GradeLevel = @GradeLevel";
+                pullGradeID.Parameters.AddWithValue("@GradeLevel", li.Text);
+                int tempGradeID = (int)pullGradeID.ExecuteScalar();
 
-
-        //// Insert ProgramID and GradeID into Assocaited table ProgrameID
-        programGradeInsert.CommandText = "INSERT INTO ProgramGrades (ProgramID, GradeID, LastUpdated, LastUpdatedBy) values (@programID, @gradeID, @lastUpdated, @lastUpdatedBy)";
-        programGradeInsert.Parameters.AddWithValue("@programID", tempProgramID);
-        programGradeInsert.Parameters.AddWithValue("@gradeID", tempGradeID);
-        programGradeInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
-        programGradeInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
-        programGradeInsert.ExecuteNonQuery();
-
-
-
-
+                //// Insert ProgramID and GradeID into Assocaited table ProgrameID
+                programGradeInsert.CommandText = "INSERT INTO ProgramGrades (ProgramID, GradeID, LastUpdated, LastUpdatedBy) values (@programID, @gradeID, @lastUpdated, @lastUpdatedBy)";
+                programGradeInsert.Parameters.AddWithValue("@programID", tempProgramID);
+                programGradeInsert.Parameters.AddWithValue("@gradeID", tempGradeID);
+                programGradeInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+                programGradeInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+                programGradeInsert.ExecuteNonQuery();
+            }
+            else
+            {
+                continue;
+            }
+        }
 
 
     }
