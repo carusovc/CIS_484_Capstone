@@ -17,7 +17,8 @@
     </p>
     <p>
         <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
-    </p>
+    &nbsp;
+        </p>
     </p>
 </asp:Content>
 
