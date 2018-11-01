@@ -22,6 +22,7 @@
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
+      <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <!-- Page level plugin CSS-->
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
@@ -77,32 +78,97 @@
     <div id="wrapper">
 
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="ProgramForm.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
-            <span>Live Program Form</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="OnlineForm.aspx">
-            <i class="fas fa-fw fa-wifi"></i>
-            <span>Online Program Form</span></a>
-        </li>
-       
-        <li class="nav-item">
-          <a class="nav-link" href="ReportChoice.aspx">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span></a>
-        </li>
-      
-        
-        <li class="nav-item">
-          <a class="nav-link" href="Payment.aspx">
-            <i class="fas fa-fw fa-dollar-sign"></i>
-            <span>Payment</span></a>
-        </li>
+           <ul class="sidebar navbar-nav">
+                <li class="nav-item">
+                 <div class="dropdown"> 
+                    <i class="fas fa-fw fa-wifi"></i>
+                    <button class="dropbtn">Online Programs</button>
+                    <div class="dropdown-content">
+                        <a href="OnlineForm.aspx">View Online Programs</a>
+                        <a href="OnlineForm.aspx">Add Online Program</a>
+                        <a href="OnlineForm.aspx">Edit Online Programs</a>
+                    </div>
+                </div>
+                </li>
 
+                  <li class="nav-item active">
+                 <div class="dropdown"> 
+                      <i class="fas fa-fw fa-book-open"></i>
+                    <button class="dropbtn">Live Programs</button>
+                    <div class="dropdown-content">
+                        <a href="ProgramForm.aspx">View Live Programs</a>
+                        <a href="ProgramForm.aspx">Add Live Program</a>
+                        <a href="ProgramForm.aspx">Edit Live Programs</a>
+                    </div>
+                </div>
+                </li>    
+      
+        <%--  <a class="nav-link" href="ReportChoice.aspx">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Reports</span></a>--%>
+        
+    <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-person"></i>
+            <span>Animals</span></a>
+        </li>    
+
+        <li class="nav-item">
+          <div class="dropdown"> 
+              <i class="fas fa-fw fa-chart-area"></i>
+               
+  <button class="dropbtn">Animals</button>
+  <div class="dropdown-content">
+      <a href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+      <a href="MonthlyWildlifeReport.aspx">Monthly</a>
+      <a href="TabYearlyReports.aspx">Yearly</a>
+       <a href="TabGradeReport.aspx">Grade Level</a>
+       <a href="TabLiveReport.aspx">Live Program</a>
+       <a href="TabOnlineProgramReports.aspx">Online Program</a>
+  </div>
+</div>
+</li>
+
+<li class="nav-item">
+     <div class="dropdown"> 
+     <i class="fas fa-fw fa-chart-area"></i>
+               
+  <button class="dropbtn">Organization</button>
+  <div class="dropdown-content">
+      <a href="#">Add New Organization</a>
+    
+  </div>
+</div>
+</li>
+
+
+            <li class="nav-item">
+          <div class="dropdown"> 
+              <i class="fas fa-fw fa-chart-area"></i>
+               
+  <button class="dropbtn">Reports</button>
+  <div class="dropdown-content">
+      <a href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+      <a href="MonthlyWildlifeReport.aspx">Monthly</a>
+      <a href="TabYearlyReports.aspx">Yearly</a>
+       <a href="TabGradeReport.aspx">Grade Level</a>
+       <a href="TabLiveReport.aspx">Live Program</a>
+       <a href="TabOnlineProgramReports.aspx">Online Program</a>
+  </div>
+</div>
+</li>
+
+                <li class="nav-item active">
+                 <div class="dropdown"> 
+                      <i class="fas fa-fw fa-dollar-sign"></i>
+                    <button class="dropbtn">Payment</button>
+                    <div class="dropdown-content">
+                        <a href="ProgramForm.aspx">View Payments</a>
+                        <a href="ProgramForm.aspx">Add New Payment</a>
+                        <a href="ProgramForm.aspx">Edit Payments</a>
+                    </div>
+                </div>
+                </li>    
           <li class="nav-item">
           <a class="nav-link" href="CreateUser.aspx">
             <i class="fas fa-fw fa-person"></i>
