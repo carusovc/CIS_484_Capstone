@@ -155,20 +155,31 @@
 
     
 
-
+<div>
     
+         <asp:Button ID="Button1" runat="server" Text="Add Program" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
+     <asp:Button ID="Button2" runat="server" Text="Edit Program" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
+     <asp:Button ID="Button3" runat="server" Text="Update Program" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
+       </div>  
 
-         
-             <div class="col-lg-8 col-md-12 col-s-12 mx-auto">
+
+        <div id="search">         
+         <asp:TextBox ID="txtSearchMaster" runat="server"></asp:TextBox>
+         <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
+     </div>
+
+
+             <div class="col-lg-8 col-md-12 col-s-12 mx-auto block">
 
 <table class="table table-condensed table-borderless table-hover" style="border-collapse:collapse;">
+    
     <thead>
         <tr>
             
             <th>Date</th>
             <th>Organization Name</th>
             <th>Program Type</th>
-            <th>educator(s)</th>
+            <th>Educator(s)</th>
             
         </tr>
     </thead>

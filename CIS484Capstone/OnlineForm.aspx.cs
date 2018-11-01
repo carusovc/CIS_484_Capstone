@@ -446,6 +446,29 @@ public partial class OnlineForm : System.Web.UI.Page
 
     }
 
+    protected void btnBack_Click(object sender, EventArgs e)
+    {
+        //ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
+        //selectMonthDays();
+        ////ddlDate.SelectedValue = DateTime.Now.Day.ToString();
+        ////ddlYear.SelectedValue = DateTime.Now.Year.ToString();
+        //txtNumOfKids.Text = "25";
+        //txtNumOfPeople.Text = "50";
+        //txtCity.Text = "Rockingham County";
+        //ddlState.SelectedValue = "VA";
+        //ddlCountry.SelectedIndex = 187;
+        //txtEmail.Text = "sarah@dukes.com";
+        //ddlGrade.SelectedIndex = 3;
+        //txtTeacher.Text = "Sarah";
+        ////txtEducator.Text = "Raina";
+        //txtTheme.Text = "Owl";
+        ////txtAnimalsUsed.Text = "Gus";
+        //txtComments.Text = "N/A";
+        //listAddOnlineStatus.SelectedIndex = 3;
+
+
+    }
+
     // sets days in dropdown for month
     public void SetDaysInMonth(int maxDay)
     {
