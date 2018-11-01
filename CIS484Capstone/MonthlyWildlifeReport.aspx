@@ -108,9 +108,6 @@
 		</div>
 	</div>
      
-
-<%--    <h2>Monthly Reports for WildTek</h2>--%>
-
             <div class="row WildTable">
         <div class="col-md-12 mx-auto d-flex justify-content-center">
     
@@ -143,9 +140,6 @@
              </div>
         </div>
 
-           
-
-
    
 <div class="row">
 		<div class="col-md-12 ProgramTitle">
@@ -162,9 +156,7 @@
    
 <asp:GridView ID="gridPrograms" runat="server" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowSorting="True">
         <Columns>
-            <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" ReadOnly="True" />
-            <%--<asp:BoundField DataField="ProgramID" HeaderText="ID" SortExpression="ProgramID" />--%>
-            
+            <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" ReadOnly="True" />          
             <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="TotalOnSitePrograms" SortExpression="TotalOnSitePrograms" ReadOnly="True" />
             <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="TotalOffSitePrograms" SortExpression="TotalOffSitePrograms" ReadOnly="True" />
             <asp:BoundField DataField="TotalLivePrograms" HeaderText="TotalLivePrograms" SortExpression="TotalLivePrograms" ReadOnly="True" />
@@ -219,7 +211,7 @@
 			
 		</div>
 	</div>
-
+             <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
             <div class="col-md-12 mx-auto d-flex justify-content-center">
     <br />
      <br />
@@ -272,49 +264,7 @@
          
              </div>
 
-        
-
-  
-     
-   
-<%--<h4>TOTALSSSSS Live Program Counts Based on Month</h4>
-     <asp:GridView runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
-         <Columns>
-             <asp:BoundField DataField="ProgramDate" HeaderText="ProgramDate" SortExpression="ProgramDate" />
-             <asp:BoundField DataField="Month" HeaderText="Month" SortExpression="Month" />
-             <asp:BoundField DataField="NumberOfChildren" HeaderText="NumberOfKids" SortExpression="NumberOfChildren" />
-             <asp:BoundField DataField="NumberOfAdults" HeaderText="NumberOfPeople" SortExpression="NumberOfAdults" />
-         </Columns>
-     
-    </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT SUM(ProgramAnimal.ProgramID) AS TotalPrograms,
-        SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants FROM Animal LEFT OUTER JOIN ProgramAnimal ON Animal.AnimalID = ProgramAnimal.AnimalID LEFT OUTER JOIN Program 
-        ON ProgramAnimal.ProgramID = Program.ProgramID WHERE (Animal.AnimalType = @AnimalType) ">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="DropDownList1" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
-        </SelectParameters>
-
-    </asp:SqlDataSource>
-
-        <h4>TOTALSSSSS Online Program Counts Based on Month</h4>
-     <asp:GridView runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
-         <Columns>
-             <asp:BoundField DataField="ProgramDate" HeaderText="ProgramDate" SortExpression="ProgramDate" />
-             <asp:BoundField DataField="Month" HeaderText="Month" SortExpression="Month" />
-             <asp:BoundField DataField="NumberOfKids" HeaderText="NumberOfKids" SortExpression="NumberOfKids" />
-             <asp:BoundField DataField="NumberOfPeople" HeaderText="NumberOfPeople" SortExpression="NumberOfPeople" />
-         </Columns>
-        
-    </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT SUM(ProgramAnimal.ProgramID) AS TotalPrograms,
-        SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants FROM Animal LEFT OUTER JOIN ProgramAnimal ON Animal.AnimalID = ProgramAnimal.AnimalID LEFT OUTER JOIN Program 
-        ON ProgramAnimal.ProgramID = Program.ProgramID WHERE (Animal.AnimalType = @AnimalType) ">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="DropDownList1" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
-        </SelectParameters>
-
-    </asp:SqlDataSource>--%>
-            <br />
+           <br />
 
 
             <div class="row WildTable">
@@ -325,11 +275,7 @@
                  <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
              </div>
         </div>
-
-
-                
-                <br />
-               
+                <br />               
                 <br />
 
 </div>
