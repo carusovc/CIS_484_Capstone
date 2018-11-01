@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 
 
 public partial class OnlineForm : System.Web.UI.Page
@@ -23,38 +25,136 @@ public partial class OnlineForm : System.Web.UI.Page
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
 
-        //if (!IsPostBack)
-        //{
-        //    if (ddlAnimalType.SelectedIndex == 0)
-        //    {
+        if (ddlProgramType.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
 
-        //        insert.CommandText = "select * from dbo.Animal where animalType = 'bird'";
+                string read = "Select * from OnlineProgramType order by OnlineProgramTypeName";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
+
+                while (myRead.Read())
+                {
+
+                    ddlProgramType.Items.Add(new ListItem(myRead["OnlineProgramTypeName"].ToString(), myRead["OnlineProgramTypeID"].ToString()));
+                }
+
+            }
 
 
-        //    }
+        }
 
-        //    else if (ddlAnimalType.SelectedIndex == 1)
-        //    {
-        //        insert.CommandText = "select * from dbo.Animal where animalType = 'mammal'";
+        if (AddGrade.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
 
-        //    }
+                string read = "Select * from Grade";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
 
-        //    else
-        //    {
-        //        insert.CommandText = "select * from dbo.Animal where animalType = 'reptile'";
+                while (myRead.Read())
+                {
 
-        //    }
+                    AddGrade.Items.Add(new ListItem(myRead["GradeLevel"].ToString(), myRead["GradeID"].ToString()));
+                }
 
-        //    ddlAnimalName.DataSource = insert.ExecuteReader();
-        //    ddlAnimalName.DataTextField = "AnimalName";
-        //    ddlAnimalName.DataValueField = "AnimalID";
-        //    ddlAnimalName.DataBind();
-        //}
+            }
 
-        //lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString();
 
-        //System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-        //insert.Connection = sc;
+        }
+
+        if (drpEducators.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+
+                string read = "Select * from Educators order by EducatorFirstName";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
+
+                while (myRead.Read())
+                {
+
+                    drpEducators.Items.Add(new ListItem(myRead["EducatorFirstName"].ToString() + " " + myRead["EducatorLastName"].ToString(), myRead["EducatorID"].ToString()));
+                }
+
+            }
+        }
+
+        if (ddlBirds.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+
+                string read = "Select * from Animal where AnimalType = 'Bird' order by AnimalName";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
+
+                while (myRead.Read())
+                {
+
+                    ddlBirds.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+                }
+
+            }
+        }
+
+        if (ddlReptiles.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+
+                string read = "Select * from Animal where AnimalType = 'Reptile' order by AnimalName";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
+
+                while (myRead.Read())
+                {
+
+                    ddlReptiles.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+                }
+
+            }
+        }
+
+        if (lstMammals.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+
+                string read = "Select * from Animal where AnimalType = 'Mammal' order by AnimalName";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
+
+                while (myRead.Read())
+                {
+
+                    lstMammals.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+                }
+
+            }
+        }
+
 
         // Populate Year from 1990 through 2020
         for (int i = 2020; i >= 1990; i--)
@@ -108,7 +208,7 @@ public partial class OnlineForm : System.Web.UI.Page
         string city = AddOnlineProgramcity.Text.ToString();
         string stateTerritory = ddlState.SelectedValue.ToString();
         string country = ddlCountry.SelectedValue.ToString();
-        string teacherName = drpEducators.SelectedItem.Text.ToString();
+        string teacherName = AddOnlineTeacher.Text.ToString();
         string contactEmail = AddOnlineEmail.Text.ToString();
         string extraComments = AddOnlineComment.Text.ToString();
 

@@ -905,8 +905,8 @@ for (i = 0; i < acc.length; i++) {
   
 <asp:DropDownList CssClass="form-control" ID="ddlProgramType" runat="server" SelectionMode="Multiple" class="dropdown-menu">
   
-    <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Book Club" Value="1" />
+    <asp:ListItem Text="--Select Program Type--" Value="0" />
+<%--    <asp:ListItem Text="Book Club" Value="1" />
     <asp:ListItem Text="Field Trip" Value="2" />
     <asp:ListItem Text="Cam in the Classroom" Value="3" />
     <asp:ListItem Text="Hospital Cam" Value="4" />
@@ -916,7 +916,7 @@ for (i = 0; i < acc.length; i++) {
     <asp:ListItem Text="Skype: Owls" Value="8" />
     <asp:ListItem Text="Skype: Turtles" Value="9" />
     <asp:ListItem Text="Skype: Opossum" Value="10" />
-     <asp:ListItem Text="Skype: Snakes" Value="11"/>
+     <asp:ListItem Text="Skype: Snakes" Value="11"/>--%>
       
 </asp:DropDownList>
 
@@ -997,8 +997,8 @@ foreach (ListItem item in CBLGold.Items)
 	<li><a href="#" class="small DropdownAnimal" data-value="option14" tabIndex="-1"><input type="radio" value="14" name="alphabet"/>&nbsp;Adults Only</a></li>
   --%>
   <asp:ListBox CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Grade" SelectionMode="Multiple" class="dropdown-menu">
-    <asp:ListItem Text="" Value="0" />
-      <asp:ListItem Text="Pre-K" Value="1" />
+    <asp:ListItem Text="--Select Grades--" Value="0" />
+<%--      <asp:ListItem Text="Pre-K" Value="1" />
     <asp:ListItem Text="K" Value="2" />
     <asp:ListItem Text="1st" Value="3" />
     <asp:ListItem Text="2nd" Value="4" />
@@ -1013,7 +1013,7 @@ foreach (ListItem item in CBLGold.Items)
     <asp:ListItem Text="11th" Value="13" />
      <asp:ListItem Text="12th" Value="14"/>
        <asp:ListItem Text="Families" Value="15" />
-    <asp:ListItem Text="Adults" Value="16" />
+    <asp:ListItem Text="Adults" Value="16" />--%>
 
 </asp:ListBox>
 
@@ -1037,15 +1037,15 @@ foreach (ListItem item in CBLGold.Items)
 </ul>--%>
 
         <asp:ListBox CssClass="form-control" ID="drpEducators" runat="server" SelectionMode="Multiple" class="dropdown-menu">
-     <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Raina" Value="1" />
+     <asp:ListItem Text="--Select Educators--" Value="0" />
+<%--    <asp:ListItem Text="Raina" Value="1" />
     <asp:ListItem Text="Alex" Value="2" />
    <asp:ListItem Text="Ed" Value="3" />
     <asp:ListItem Text="Amanda" Value="4" />
     <asp:ListItem Text="Shelly" Value="5" />
     <asp:ListItem Text="Peg" Value="6" />
     <asp:ListItem Text="Lydia" Value="7" />
-    <asp:ListItem Text="Doug" Value="8" />
+    <asp:ListItem Text="Doug" Value="8" />--%>
 
 </asp:ListBox>
 
@@ -1395,8 +1395,8 @@ foreach (ListItem item in CBLGold.Items)
   </div>--%>
 
            <asp:ListBox ID="ddlBirds"  CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder ="Select Birds">
-       <asp:ListItem Text="" Value="0" />
-       <asp:ListItem Text="Buddy" Value="1" />
+       <asp:ListItem Text="--Select Birds--" Value="0" />
+<%--       <asp:ListItem Text="Buddy" Value="1" />
     <asp:ListItem Text="Verlon" Value="2" />
     <asp:ListItem Text="Edie" Value="3" />
     <asp:ListItem Text="Maggie" Value="4" />
@@ -1410,7 +1410,7 @@ foreach (ListItem item in CBLGold.Items)
     <asp:ListItem Text="Quin" Value="12" />
     <asp:ListItem Text="Alex" Value="13" />
     <asp:ListItem Text="Buttercup" Value="14" />
-    <asp:ListItem Text="Jaz" Value="15" />
+    <asp:ListItem Text="Jaz" Value="15" />--%>
 </asp:ListBox>
 
 </div>
@@ -1437,12 +1437,12 @@ foreach (ListItem item in CBLGold.Items)
 </div>--%>
 
 <asp:ListBox CssClass="form-control" ID="ddlReptiles" runat="server" SelectionMode="Multiple" class="dropdown-menu">
-     <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Malcom" Value="1" />
+     <asp:ListItem Text="--Select Reptiles--" Value="0" />
+<%--    <asp:ListItem Text="Malcom" Value="1" />
     <asp:ListItem Text="Albus" Value="2" />
     <asp:ListItem Text="Severus" Value="3" />
     <asp:ListItem Text="Oscar" Value="4" />
-    <asp:ListItem Text="Wilson" Value="5" />
+    <asp:ListItem Text="Wilson" Value="5" />--%>
 
 </asp:ListBox>
   
@@ -1465,10 +1465,10 @@ foreach (ListItem item in CBLGold.Items)
 </div>--%>
 
 <asp:ListBox ID="lstMammals" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
-    <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Bo" Value="1" />
+    <asp:ListItem Text="--Select Mammals-" Value="0" />
+<%--    <asp:ListItem Text="Bo" Value="1" />
     <asp:ListItem Text="Posie" Value="2" />
-    <asp:ListItem Text="Willow" Value="3" />
+    <asp:ListItem Text="Willow" Value="3" />--%>
 </asp:ListBox>
  
 </div>
