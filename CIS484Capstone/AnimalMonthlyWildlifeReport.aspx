@@ -3,40 +3,29 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    
-         <!doctype html>
-    <html>
-
-    <head>
 <meta charset="UTF-8">
-<title>WildTek</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-	  <!-- Bootstrap v4 -->
+<!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
         
-      <!-- Logo FOnt-->
-      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-    
+<!-- Logo FOnt-->
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
-</head>
-        <body>
-                <ul class="navbar-nav ml-auto ml-md-0">
-        
+    <ul class="navbar-nav ml-auto ml-md-0">
         <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-            <i class="fas fa-user-circle fa-fw"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle fa-fw"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            </div>
         </li>
-      </ul>
-           <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
-       
-      <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
+    </ul>
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
+    <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
 
       <%--<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="~/carvet-square-down.svg">
         <i class="fas fa-bars"></i>
@@ -106,29 +95,23 @@
       </ul>
 
       <div id="content-wrapper">
-
         <div class="container-fluid ">
-         
 
-       <!-- Programs-->
+       <!-- Title-->
        <div class="row">
 		<div class="col-md-12 ProgramTitle">
 			<h1 >Reports Based on Animal Type</h1>
-			
 		</div>
 	</div>
        <div class="col-md-12">
         <br>
-			</div>
-
-            <div class="container1 ">
+	   </div>
+       <div class="container1 ">
     <div class="row WildTable">
-        <div class="col-md-12 mx-auto d-flex justify-content-center">
-    <%--<h2>Report Based on Animal Type</h2>--%>
- 
+    <div class="col-md-12 mx-auto d-flex justify-content-center">
+   
     <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
-       
-        </asp:DropDownList>
+ </asp:DropDownList>
 
              </div>
         </div>
@@ -143,79 +126,43 @@
         <Columns>
 
             <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
-           <%-- <asp:BoundField DataField="ProgramID" HeaderText="ProgramID" SortExpression="ProgramID" InsertVisible="False" ReadOnly="True" />--%>
             <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="Total OnSite Programs" ReadOnly="True" SortExpression="TotalOnSitePrograms" />
-
             <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="Total OffSite Programs" ReadOnly="True" SortExpression="TotalOffSitePrograms" />
             <asp:BoundField DataField="NumberOfChildren" HeaderText="Number Of Children" SortExpression="NumberOfChildren" />
             <asp:BoundField DataField="NumberOfAdults" HeaderText="Number Of Adults" SortExpression="NumberOfAdults" />
             <asp:BoundField DataField="TotalParticipants" HeaderText="Total Participants" ReadOnly="True" SortExpression="TotalParticipants" />
-
         </Columns>
     </asp:GridView>
              </div>
         </div>
-
-<%--    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT DISTINCT [AnimalType] FROM [Animal]">
-    </asp:SqlDataSource>--%>
-    
-
-<%--<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand=" SELECT  Animal.AnimalName, SUM(CASE WHEN Program.onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN Program.onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms,
-                SUM(Program.NumberOfChildren) AS NumberOfChildren, SUM(Program.NumberOfAdults) AS NumberOfAdults, SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants 
-                FROM Animal, Program, ProgramAnimal WHERE (Animal.AnimalType = @AnimalType) AND Animal.AnimalID = ProgramAnimal.AnimalID AND ProgramAnimal.ProgramID = Program.ProgramID
-                GROUP BY Animal.AnimalName, Animal.AnimalType ORDER BY Animal.AnimalName"
->        <SelectParameters>
-            <asp:ControlParameter ControlID="DropDownList1" Name="AnimalType" PropertyName="SelectedValue" />
-        </SelectParameters>
-    </asp:SqlDataSource>--%>
     <br />
-
-                <div class="row WildTable">
+    <div class="row WildTable">
         <div class="col-md-12 mx-auto d-flex justify-content-center">
-            
-   
-            
-
-
-              <asp:GridView runat="server" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" >
-         <Columns>
+         <asp:GridView runat="server" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" >
+            <Columns>
              <asp:BoundField DataField="TotalPrograms" HeaderText="Total Programs" ReadOnly="True" SortExpression="TotalPrograms" />
              <asp:BoundField DataField="TotalParticipants" HeaderText="Total Participants" ReadOnly="True" SortExpression="TotalParticipants" />
-         </Columns>
-    </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server"  ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT COUNT(ProgramAnimal.ProgramID) AS TotalPrograms, SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants FROM Animal LEFT OUTER JOIN ProgramAnimal ON Animal.AnimalID = ProgramAnimal.AnimalID LEFT OUTER JOIN Program ON ProgramAnimal.ProgramID = Program.ProgramID WHERE (Animal.AnimalType = @AnimalType) ">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="DropDownList1" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
-        </SelectParameters>
-
-    </asp:SqlDataSource>
-
-             </div>
-        </div>
-
-
-
-
+            </Columns>
+        </asp:GridView>
         
-
-
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server"  ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT COUNT(ProgramAnimal.ProgramID) AS TotalPrograms, SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants FROM Animal LEFT OUTER JOIN ProgramAnimal ON Animal.AnimalID = ProgramAnimal.AnimalID LEFT OUTER JOIN Program ON ProgramAnimal.ProgramID = Program.ProgramID WHERE (Animal.AnimalType = @AnimalType) ">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="DropDownList1" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        </div>
+   </div>
 
 <br />
 
-                 <div class="row WildTable">
+  <div class="row WildTable">
         <div class="col-md-12 mx-auto d-flex justify-content-center">
-
-    <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
-              
-                 <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-inside " OnClick="btnBack_Click"></asp:Button>
-
-             </div>
+            <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
+            <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-inside " OnClick="btnBack_Click"></asp:Button>
         </div>
-
-
-               
+  </div>
+                  
                 <br />
-               
                 <br />
 
 </div>
@@ -229,9 +176,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <!-- end of do not delete -->
-        </body>
-
-
-</html>
-
 </asp:Content>
