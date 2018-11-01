@@ -115,7 +115,7 @@
             <div class ="modifyOptions">
          <asp:Button ID="Button1" runat="server" Text="Add Animal" class="btn btn-primary btn-inside" OnClick="btnAddAnimal_Click"></asp:Button>
      <asp:Button ID="Button2" runat="server" Text="Edit Animal" class="btn btn-primary btn-inside" OnClick="btnEditAnimal_Click"></asp:Button>
-     <asp:Button ID="Button3" runat="server" Text="View Animal" class="btn btn-primary btn-inside" OnClick="btnViewAnimal_Click"></asp:Button>
+     <%--<asp:Button ID="Button3" runat="server" Text="View Animal" class="btn btn-primary btn-inside" OnClick="btnViewAnimal_Click"></asp:Button>--%>
 
        </div>
 
@@ -125,7 +125,7 @@
    
                  <div runat="server" id="ViewAnimals">
     <asp:Label ID="Label1" runat="server" Text="Mammals"></asp:Label>      
-    <asp:GridView ID="gridAnimalMammal"  class="table table-borderless table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowSorting="True">
+    <asp:GridView ID="gridAnimalMammal"  class="table table-borderless table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowSorting="True" >
         <Columns>
             <asp:BoundField DataField="AnimalType" HeaderText="AnimalType" SortExpression="AnimalType" />
             <asp:BoundField DataField="AnimalName" HeaderText="AnimalName" SortExpression="AnimalName" />
@@ -178,32 +178,47 @@
 
 
                     </div>
-</div>s
+</div>
                 </div>
                 </div>
 
-                <div runat= server id="addAnimal">
+
+   
+        
+
+
+   
+
+
+
+
+    <div runat= server id="addAnimal">
     <h2>Create New Animal</h2>
     <p>&nbsp;</p>
-    <p>Animal Type:
+    <p><div>Animal Type:
         <asp:DropDownList ID="ddlAnimalType" runat="server">
             <asp:ListItem>Bird</asp:ListItem>
             <asp:ListItem>Mammal</asp:ListItem>
             <asp:ListItem>Reptile</asp:ListItem>
         </asp:DropDownList>
-    &nbsp;&nbsp; Animal Name:
+    &nbsp;&nbsp; 
+        </div>
+        <div>
+        Animal Name:
         <asp:TextBox ID="txtAnimalName" runat="server"></asp:TextBox>
-
+        </div>
     </p>
+
     <p>
-        <asp:Label ID="lblLastUpdated" runat="server" Text=""></asp:Label>
-
-
+    <div>
+        <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
+    </div>
+    <asp:Label ID="lblLastUpdated" runat="server" Text=""></asp:Label>
     &nbsp;<asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>
 
 
     </p>
-        </div>
+    </div>
 
 
 
