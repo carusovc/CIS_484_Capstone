@@ -3,9 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <!doctype html>
-<html>
-<head>
+
 <meta charset="UTF-8">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
@@ -16,10 +14,7 @@
     
       <!-- Logo FOnt-->
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-    
-</head>
 
-<body>
    
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
        
@@ -138,7 +133,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <!-- end of do not delete -->
-</body>
-</html>
+
 </asp:Content>
 

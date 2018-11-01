@@ -3,24 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <!doctype html>
-<html>
-<head>
+  
+
 <meta charset="UTF-8">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	  <!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
 
+
+
     
       <!-- Logo FOnt-->
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-    
-</head>
-
-<body>
 
               <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
        
@@ -73,11 +72,47 @@
             <span>Online Program Form</span></a>
         </li>
        
-        <li class="nav-item active">
+       <%-- <li class="nav-item active">
           <a class="nav-link" href="ReportChoice.aspx">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Reports</span></a>
-        </li>
+            <button class="dropbtn" onclick="myFunction()">Dropdown
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown">
+            <div class="dropdown-content">
+                <a href="AnimalMonthlyReport.aspx">Animal Monthly Report</a>
+                <a href="MonthlyWildlifeReport.aspx">Monthly Wildlife Report</a>
+                <a href="TabYearlyReports.aspx">Yearly Visualize Report</a>
+                <a href="TabGradeReport.aspx">Animal Monthly Report</a>
+                <a href="TabLiveReport.aspx">Live Program Report</a>
+                <a href="TabOnlineProgramReports.aspx">Online Program Report</a>
+            </div>
+            </div> 
+        </li>--%>
+                <%-- <li class="nav-item active dropdown">
+          <a class="nav-link dropdown-toggle" href="ReportChoice.aspx"id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Reports</span></a>
+             
+            <div class="dropdown">
+            <div class="dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="AnimalMonthlyReport.aspx">Animal Monthly Report</a>
+                <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly Wildlife Report</a>
+                <a class="dropdown-item" href="TabYearlyReports.aspx">Yearly Visualize Report</a>
+                <a class="dropdown-item" href="TabGradeReport.aspx">Animal Monthly Report</a>
+                <a class="dropdown-item" href="TabLiveReport.aspx">Live Program Report</a>
+                <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program Report</a>
+            </div>
+            </div> 
+        </li>--%>
+
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Page 1-1</a></li>
+          <li><a href="#">Page 1-2</a></li>
+          <li><a href="#">Page 1-3</a></li>
+        </ul>
       
         
         <li class="nav-item">
@@ -157,7 +192,7 @@
               
     </div>
     </div>
- 
+ </div>
 
 
 
@@ -170,7 +205,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <!-- end of do not delete -->
-</body>
-</html>
+
 </asp:Content>
 
