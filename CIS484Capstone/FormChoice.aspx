@@ -1,29 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomeMaster.master" AutoEventWireup="true" CodeFile="FormChoice.aspx.cs" Inherits="FormChoice" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="FormChoice.aspx.cs" Inherits="FormChoice" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- 
-   
-    <!doctype html>
-<html>
-<head>
 <meta charset="UTF-8">
-<title>WildTek Login</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-	  <!-- Bootstrap v4 -->
+ <!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
+   
+ <!-- Logo FOnt-->
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
-    
-      <!-- Logo FOnt-->
-      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-    
-</head>
-
-<body>
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
        
       <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
@@ -45,7 +35,7 @@
       </form>--%>
 
       <!-- Navbar -->
-      <ul class="navbar-nav ml-auto ml-md-0">
+   <%--   <ul class="navbar-nav ml-auto ml-md-0">
         
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,43 +45,11 @@
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>
-      </ul>
+      </ul>--%>
 
     </nav>
 
     <div id="wrapper">
-
-<%--      <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="ProgramForm.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
-            <span>Live Program Form</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="OnlineForm.aspx">
-            <i class="fas fa-fw fa-wifi"></i>
-            <span>Online Program Form</span></a>
-        </li>
-       
-        <li class="nav-item">
-          <a class="nav-link" href="ReportChoice.aspx">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span></a>
-        </li>
-      
-        
-        <li class="nav-item">
-          <a class="nav-link" href="Payment.aspx">
-            <i class="fas fa-fw fa-dollar-sign"></i>
-            <span>Payment</span></a>
-        </li>
-           <li class="nav-item">
-          <a class="nav-link" href="Default.aspx">
-            <i class="fas fa-fw fa-door"></i>
-            <span>Logout</span></a>
-        </li>--%>
         <ul class="sidebar navbar-nav">
       <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
@@ -147,7 +105,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <!-- end of do not delete -->
-</body>
-</html>
+
 </asp:Content>
 

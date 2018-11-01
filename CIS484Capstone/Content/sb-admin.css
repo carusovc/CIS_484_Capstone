@@ -7,6 +7,8 @@
 body html {
     position: relative;
     min-height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 
@@ -102,6 +104,14 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
     z-index: 1;
 }
 
+
+.navbar-nav {
+    background-color: #34383a !important;
+}
+
+.bg-dark {
+    background-color: #34383a !important;
+}
 .navbar-nav .form-inline .input-group {
     width: 100%;
 }
@@ -149,7 +159,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 
 .sidebar {
     width: 90px !important;
-    background-color: #212529;
+    background-color: #34383a;
     min-height: calc(100vh - 56px);
 }
 
@@ -197,6 +207,8 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
         width: 0 !important;
         overflow: hidden;
     }
+
+
 
 @media (min-width: 768px) {
     .sidebar {
@@ -564,4 +576,105 @@ body.sidebar-toggled footer.sticky-footer {
 .table{background-color:white;
        border-radius: 15px;
        border: none;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    /*background-color: #4CAF50;
+    color: white;*/
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    background-color: #212529;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: auto;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: auto;
+}
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        width: auto;
+    }
+
+/* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+            width: auto;
+        }
+            
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    width: auto;
+
+.accordion {
+    background-color: #e0d7c3 !important;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    border-radius: 15px;
+    margin-bottom: 2px;
+    height:75% !important;
+    padding-top: 2px;
+    padding-bottom: 0px;
+  
+   
+}
+
+     .accordion:hover {
+        background-color:#919b90 !important;
+        border: none;
+    }
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 15px;
+
+}
+@media (max-width: 2600px) {
+    .ProgramHeading { visibility: hidden;
+    }
+}
+
+@media (min-width: 800px) {
+    .ProgramHeading {
+        display: block;
+    }
+}
+
+
+
+
+.hiddenRow {
+    padding: 0 !important;
 }
