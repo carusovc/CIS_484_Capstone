@@ -35,9 +35,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" type ="text/css" />
-
+     
     
-<script src ="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js"> </script>
+<%--<script src ="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js"> </script>--%>
     <script type ="text/javascript"> 
         $(function () {
             $('#lstMammals').multiselect({
@@ -99,17 +99,27 @@
             <span>Live Program Form</span>
           </a>
         </li>
+
         <li class="nav-item active">
           <a class="nav-link" href="OnlineForm.aspx">
             <i class="fas fa-fw fa-wifi"></i>
             <span>Online Program Form</span></a>
         </li>
+
+       <li class="nav-item dropdown">
+        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Reports
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Animal</a>
+          <a class="dropdown-item" href="#">Month</a>
+          <a class="dropdown-item" href="#">Year</a>
+            <a class="dropdown-item" href="#">Live Program</a>
+            <a class="dropdown-item" href="#">Online Program</a>
+            <a class="dropdown-item" href="#">Grades</a>
+        </div>
+           </li>
        
-        <li class="nav-item">
-          <a class="nav-link" href="ReportChoice.aspx">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span></a>
-        </li>
       
         
         <li class="nav-item">
@@ -780,7 +790,7 @@
             
         </tr>
     </thead>
-    <tbody>
+    <tbody id="ProgramTable">
         <tr data-toggle="collapse" data-target="#Program1" class="accordion-toggle">
            <td class="ShortOrgTime">11/5/18 3:00 pm</td>
                 <td class="ShortOrgName">James Madison University</td>
@@ -1082,10 +1092,10 @@
 
 
 
-</div>
-
-                                              </div></td>
-        </tr>
+</div></div></td></tr>
+                <div id="Programdiv1"> 
+                                              
+        
         <tr data-toggle="collapse" data-target="#Program3" class="accordion-toggle">
            <td class="ShortOrgTime">11/5/18 3:00 pm</td>
                 <td class="ShortOrgName">James Madison University</td>
@@ -1240,16 +1250,19 @@
 
              </div></td>
         </tr>
+
+        </div>
     </tbody>
 </table>
+        
     </div>
     
   </div>
 </div>
             </div>
+        
 
-
-
+        
 
 <%--<button type="button" > 
 	<div class="table-responsive .d-none">
@@ -1871,13 +1884,6 @@ for (i = 0; i < acc.length; i++) {
 		
 		
 		
-</form>
-  </div>
-</div>
-
-
-
-
 
 
 

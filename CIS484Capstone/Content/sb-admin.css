@@ -118,7 +118,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 
 .navbar-nav .nav-item.active .nav-link {
     color: #fff;
-    text-align: center;
+    
 }
 
 .navbar-nav .nav-item.dropdown .dropdown-toggle::after {
@@ -193,7 +193,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 
         .sidebar .nav-item .dropdown-menu.dropup {
             bottom: 0;
-            top: auto !important;
+            
         }
 
     .sidebar .nav-item.dropdown .dropdown-toggle::after {
@@ -235,7 +235,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 
         .sidebar .nav-item .dropdown-menu {
             position: static !important;
-            margin: 0 1rem;
+           
             top: 0;
         }
 
@@ -273,7 +273,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 
                 .sidebar.toggled .nav-item .dropdown-menu.dropup {
                     bottom: 0;
-                    top: auto !important;
+                    
                 }
 
             .sidebar.toggled .nav-item.dropdown .dropdown-toggle::after {
@@ -282,7 +282,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 }
 
 .sidebar.fixed-top {
-    top: 56px;
+   
     height: calc(100vh - 56px);
     overflow-y: auto;
 }
@@ -591,7 +591,7 @@ body.sidebar-toggled footer.sticky-footer {
     font-size: 16px;
     border: none;
     /*background-color: #212529;*/
-    background-color: #34383a;
+    background-color: #34383a !important;
     color: rgba(255, 255, 255, 0.5);
     width: 100%;
 
@@ -609,18 +609,17 @@ body.sidebar-toggled footer.sticky-footer {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: #34383a !important;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     width: 100%;
-   
 }
 
     /* Links inside the dropdown */
     .dropdown-content a {
         color: black;
-        padding: 12px 16px;
+       
         text-decoration: none;
         display: block;
         width: 100%;
@@ -753,3 +752,7 @@ body.sidebar-toggled footer.sticky-footer {
 .tab-pane {padding-left: 5px !important;}
 
 .ProgramSearch {margin-bottom: 5px !important;}
+
+.extraPersonTemplate {
+    display: none;
+}
