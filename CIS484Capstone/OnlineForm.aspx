@@ -139,12 +139,27 @@
 
                <div class="row">
 		<div class="col-md-12 ProgramTitle">
-			<h1 >Online Program Listings</h1>
+			<h1 >Program Listings</h1>
 			
 		</div>
 	</div>
           
             <div >
+
+
+                <div class="row ProgramSearch">
+    <div class="col-md-2 ml-auto">
+        <div id="search">         
+         <asp:TextBox ID="txtSearchMaster" class="rounded" runat="server"></asp:TextBox>
+         <asp:Button ID="btnSearch"  class="rounded" runat="server" Text="Search" ></asp:Button>
+            
+     </div>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+<br />
   <div class="">
 	 
     <form>
@@ -155,23 +170,37 @@
 
     
 
-<div>
+<%--<div>
     
          <asp:Button ID="Button1" runat="server" Text="Add Program" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
      <asp:Button ID="Button2" runat="server" Text="Edit Program" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
      <asp:Button ID="Button3" runat="server" Text="Update Program" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
-       </div>  
+       </div> --%> 
 
 
-        <div id="search">         
-         <asp:TextBox ID="txtSearchMaster" runat="server"></asp:TextBox>
-         <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
-     </div>
+        
 
 
-             <div class="col-lg-8 col-md-12 col-s-12 mx-auto block">
+           
+        <div class="col-lg-8 col-md-12 col-s-12 mx-auto">
+<div class="container1 block">
+    
+  
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Online Program</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">Live Program</a>
+    </li>
+    
+  </ul>
 
-<table class="table table-condensed table-borderless table-hover" style="border-collapse:collapse;">
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container1 block tab-pane active"><br>
+      <table class="table table-condensed table-borderless table-hover" style="border-collapse:collapse;">
     
     <thead>
         <tr>
@@ -184,14 +213,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+        <tr data-toggle="collapse" data-target="#OnlineProgram1" class="accordion-toggle">
            <td class="ShortOrgTime">11/5/18 3:00 pm</td>
                 <td class="ShortOrgName">James Madison University</td>
                 <td class="ShortDT">Skype: Turtles</td>
             <td class="ShortEd">Raina, Alex</td>
         </tr>
         <tr >
-            <td colspan="6" class="hiddenRow"><div class="accordian-body collapse" id="demo1">
+            <td colspan="6" class="hiddenRow"><div class="accordian-body collapse" id="OnlineProgram1">
                 <div >
   
     <div class="text-center">
@@ -200,7 +229,7 @@
                 <h5 class=""> Online Program Details</h5>
                
             </div>
-            <div class="modal-body p-4" id="resultOnlineProgram">
+            <div class=" p-4" id="resultOnlineProgram">
                     
                   
 				<div class="row ">           
@@ -367,14 +396,14 @@
 
                                               </div> </td>
         </tr>
-        <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+        <tr data-toggle="collapse" data-target="#OnlineProgram2" class="accordion-toggle">
            <td class="ShortOrgTime">11/5/18 3:00 pm</td>
                 <td class="ShortOrgName">James Madison University</td>
                 <td class="ShortDT">Skype: Turtles</td>
             <td class="ShortEd">Raina, Alex</td>
         </tr>
         <tr>
-            <td colspan="6" class="hiddenRow"><div id="demo2" class="accordian-body collapse">
+            <td colspan="6" class="hiddenRow"><div id="OnlineProgram2" class="accordian-body collapse">
 
                 <div >
   
@@ -384,7 +413,7 @@
                 <h5 class=""> Online Program Details</h5>
                
             </div>
-            <div class="modal-body p-4" id="resultOnlineProgram">
+            <div class=" p-4" id="resultOnlineProgram">
                     
                   
 				<div class="row ">           
@@ -551,7 +580,7 @@
 
                                               </div></td>
         </tr>
-        <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
+        <tr data-toggle="collapse" data-target="#OnlineProgram3" class="accordion-toggle">
            <td class="ShortOrgTime">11/5/18 3:00 pm</td>
                 <td class="ShortOrgName">James Madison University</td>
                 <td class="ShortDT">Skype: Turtles</td>
@@ -559,7 +588,7 @@
         </tr>
         <tr>
             <td colspan="6"  class="hiddenRow">
-                <div id="demo3" class="accordian-body collapse">
+                <div id="OnlineProgram3" class="accordian-body collapse">
 
                <div >
   
@@ -569,7 +598,7 @@
                 <h5 class=""> Online Program Details</h5>
                
             </div>
-            <div class="modal-body p-4" id="resultOnlineProgram">
+            <div class=" p-4" id="resultOnlineProgram">
                     
                   
 				<div class="row ">           
@@ -737,8 +766,488 @@
              </div></td>
         </tr>
     </tbody>
-</table>
+</table></div>
+    <div id="menu1" class="container1 block tab-pane fade"><br>
+     <table class="table table-condensed table-borderless table-hover" style="border-collapse:collapse;">
+    
+    <thead>
+        <tr>
+            
+            <th>Date</th>
+            <th>Organization Name</th>
+            <th>Program Type</th>
+            <th>Educator(s)</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-toggle="collapse" data-target="#Program1" class="accordion-toggle">
+           <td class="ShortOrgTime">11/5/18 3:00 pm</td>
+                <td class="ShortOrgName">James Madison University</td>
+                <td class="ShortDT">Special Request</td>
+            <td class="ShortEd">Raina, Alex</td>
+        </tr>
+        <tr >
+            <td colspan="6" class="hiddenRow"><div class="accordian-body collapse" id="Program1">
+                <div >
+  
+    <div class="text-center">
+            <div class="">
+                <h5 class=""> Program Details</h5>
+               <%-- <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>--%>
+                
+            
+            </div>
+            <div class=" p-4" id="resultProgram">
+                    
+                  <div class="row  ">           
+	    <div class=" col-md-6 ProgramInfoPop">
+	    <h4>On-Site/Off-Site </h4> 
+    <h6 class="ProgramDescription" id="ProgramSite"> On</h6>
+	    
+			</div> 
+			<div class=" col-md-6 ProgramInfoPop">
+	    <h4>Program </h4> 
+    <h6 class="ProgramDescription" id="ProgramName"> Intro</h6>
+	    
+			</div>
+			
+	
+			
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+          
+        
+          <div class="row">
+    <div class="col-md-6 ProgramInfoPop"><h4> Organization Name:</h4> <h6 class="ProgramDescription" id="OrgName"> James Madison University</h6></div>
+    
+    <div class=" col-md-6 ProgramInfoPop">
+	  <h4> Status:</h4> <h6 class="ProgramDescription" id="ProgramStatus"> Completed</h6>
+	  
+			</div> 
+    
+    </div>
+
+ 
+  <div class="row">
+   <div class="col-md-5 ProgramInfoPop"><h4> Program Address:</h4> <h6 class="ProgramDescription" id="ProgramAddress"> 800 S Main, Harrisonburg, VA, 22801</h6></div>
+    <div class="col-md-3 ProgramInfoPop"><h4> City:</h4> <h6 class="ProgramDescription" id="Programcity"> Harrisonburg</h6>
+    </div>
+    
+    <div class="col-md-4 ProgramInfoPop"><h4> County:</h4> <h6 class="ProgramDescription" id="ProgramCounty"> Rockingham County</h6></div>
 </div>
+ 
+ <div class="row">
+    <div class="col-md-5 ProgramInfoPop"> 
+    <h4> Report Month</h4>
+	<h6 class="ProgramDescription" id="ProgramMonth"> October</h6> 
+   </div>
+   
+   
+    <div class="col-md-3 ProgramInfoPop">
+     <h4> Date:</h4> <h6 class="ProgramDescription" id="ProgramDate"> 10/14/18</h6></div>
+     
+     
+    <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="ProgramTime"> 3:00 pm</h6></div>
+</div>
+ 
+ <div class="row">
+    
+  
+    
+    <div class="col-md-2 ProgramInfoPop"> 
+    <h4>Grade</h4>
+    <h6 class="ProgramDescription" id="ProgramGrade"> 3rd</h6></div>
+   
+   <div class="col-md-3 ProgramInfoPop"> 
+   <h4> Educators</h4>
+   <h6 class="ProgramDescription" id="ProgramEd"> Raina, Alex</h6></div>
+   
+   
+     <div class="col-md-3 ProgramInfoPop"> <h4> # of Adults:</h4> <h6 class="ProgramDescription" id="ProgramAdults"> 4</h6></div>
+    
+    
+    <div class="col-md-3 ProgramInfoPop"> <h4> # of Children:</h4> <h6 class="ProgramDescription" id="ProgramChild"> 26</h6></div>
+    
+    
+ </div>
+ 
+ 
+ <div class="row">
+
+ 
+  
+ 
+  
+       <div class="col-lg-4 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
+     <h6 class="ProgramDescription" id="ProgramBirds"> Buddy, Edie, Verlon</h6>
+</div>
+  
+
+ 
+ 
+ 
+	  
+  
+       <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
+     <h6 class="ProgramDescription" id="ProgramReptiles"> Severus</h6>
+  
+</div>
+	     
+	     
+	     
+  
+       <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
+     <h6 class="ProgramDescription" id="ProgramMammals"> Bo</h6>
+ 
+</div>
+ </div>
+ 
+ <div class="row">
+    <div class="col-md-12 ProgramInfoPop"><h4>Payment Complete?</h4> 
+    <h6 class="ProgramDescription" id="ProgramPayment"> Paid</h6>
+    
+</div>
+ 
+  </div>
+  
+  
+  <div class="row">
+  <div class="col-md-12 ProgramInfoPop"><div class="form-group">
+  <h6 > Comments</h6>
+  <p>This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program.</p>
+</div></div>
+</div>
+  
+  
+           
+
+        </div>
+    </div>
+
+
+
+</div>
+
+                                              </div> </td>
+        </tr>
+        <tr data-toggle="collapse" data-target="#Program2" class="accordion-toggle">
+           <td class="ShortOrgTime">11/5/18 3:00 pm</td>
+                <td class="ShortOrgName">James Madison University</td>
+                <td class="ShortDT">Open House</td>
+            <td class="ShortEd">Raina, Alex</td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow"><div id="Program2" class="accordian-body collapse">
+
+                <div >
+  
+    <div class="text-center">
+            <div class="">
+                <h5 class=""> Program Details</h5>
+               <%-- <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>--%>
+                
+            
+            </div>
+            <div class=" p-4" id="resultProgram">
+                    
+                  <div class="row  ">           
+	    <div class=" col-md-6 ProgramInfoPop">
+	    <h4>On-Site/Off-Site </h4> 
+    <h6 class="ProgramDescription" id="ProgramSite"> On</h6>
+	    
+			</div> 
+			<div class=" col-md-6 ProgramInfoPop">
+	    <h4>Program </h4> 
+    <h6 class="ProgramDescription" id="ProgramName"> Intro</h6>
+	    
+			</div>
+			
+	
+			
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+          
+        
+          <div class="row">
+    <div class="col-md-6 ProgramInfoPop"><h4> Organization Name:</h4> <h6 class="ProgramDescription" id="OrgName"> James Madison University</h6></div>
+    
+    <div class=" col-md-6 ProgramInfoPop">
+	  <h4> Status:</h4> <h6 class="ProgramDescription" id="ProgramStatus"> Completed</h6>
+	  
+			</div> 
+    
+    </div>
+
+ 
+  <div class="row">
+   <div class="col-md-5 ProgramInfoPop"><h4> Program Address:</h4> <h6 class="ProgramDescription" id="ProgramAddress"> 800 S Main, Harrisonburg, VA, 22801</h6></div>
+    <div class="col-md-3 ProgramInfoPop"><h4> City:</h4> <h6 class="ProgramDescription" id="Programcity"> Harrisonburg</h6>
+    </div>
+    
+    <div class="col-md-4 ProgramInfoPop"><h4> County:</h4> <h6 class="ProgramDescription" id="ProgramCounty"> Rockingham County</h6></div>
+</div>
+ 
+ <div class="row">
+    <div class="col-md-5 ProgramInfoPop"> 
+    <h4> Report Month</h4>
+	<h6 class="ProgramDescription" id="ProgramMonth"> October</h6> 
+   </div>
+   
+   
+    <div class="col-md-3 ProgramInfoPop">
+     <h4> Date:</h4> <h6 class="ProgramDescription" id="ProgramDate"> 10/14/18</h6></div>
+     
+     
+    <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="ProgramTime"> 3:00 pm</h6></div>
+</div>
+ 
+ <div class="row">
+    
+  
+    
+    <div class="col-md-2 ProgramInfoPop"> 
+    <h4>Grade</h4>
+    <h6 class="ProgramDescription" id="ProgramGrade"> 3rd</h6></div>
+   
+   <div class="col-md-3 ProgramInfoPop"> 
+   <h4> Educators</h4>
+   <h6 class="ProgramDescription" id="ProgramEd"> Raina, Alex</h6></div>
+   
+   
+     <div class="col-md-3 ProgramInfoPop"> <h4> # of Adults:</h4> <h6 class="ProgramDescription" id="ProgramAdults"> 4</h6></div>
+    
+    
+    <div class="col-md-3 ProgramInfoPop"> <h4> # of Children:</h4> <h6 class="ProgramDescription" id="ProgramChild"> 26</h6></div>
+    
+    
+ </div>
+ 
+ 
+ <div class="row">
+
+ 
+  
+ 
+  
+       <div class="col-lg-4 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
+     <h6 class="ProgramDescription" id="ProgramBirds"> Buddy, Edie, Verlon</h6>
+</div>
+  
+
+ 
+ 
+ 
+	  
+  
+       <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
+     <h6 class="ProgramDescription" id="ProgramReptiles"> Severus</h6>
+  
+</div>
+	     
+	     
+	     
+  
+       <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
+     <h6 class="ProgramDescription" id="ProgramMammals"> Bo</h6>
+ 
+</div>
+ </div>
+ 
+ <div class="row">
+    <div class="col-md-12 ProgramInfoPop"><h4>Payment Complete?</h4> 
+    <h6 class="ProgramDescription" id="ProgramPayment"> Paid</h6>
+    
+</div>
+ 
+  </div>
+  
+  
+  <div class="row">
+  <div class="col-md-12 ProgramInfoPop"><div class="form-group">
+  <h6 > Comments</h6>
+  <p>This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program.</p>
+</div></div>
+</div>
+  
+  
+           
+
+        </div>
+    </div>
+
+
+
+</div>
+
+                                              </div></td>
+        </tr>
+        <tr data-toggle="collapse" data-target="#Program3" class="accordion-toggle">
+           <td class="ShortOrgTime">11/5/18 3:00 pm</td>
+                <td class="ShortOrgName">James Madison University</td>
+                <td class="ShortDT">Tour</td>
+            <td class="ShortEd">Raina, Alex</td>
+        </tr>
+        <tr>
+            <td colspan="6"  class="hiddenRow">
+                <div id="Program3" class="accordian-body collapse">
+
+               <div >
+  
+    <div class="text-center">
+            <div class="">
+                <h5 class=""> Program Details</h5>
+               <%-- <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>--%>
+                
+            
+            </div>
+            <div class=" p-4" id="resultProgram">
+                    
+                  <div class="row  ">           
+	    <div class=" col-md-6 ProgramInfoPop">
+	    <h4>On-Site/Off-Site </h4> 
+    <h6 class="ProgramDescription" id="ProgramSite"> On</h6>
+	    
+			</div> 
+			<div class=" col-md-6 ProgramInfoPop">
+	    <h4>Program </h4> 
+    <h6 class="ProgramDescription" id="ProgramName"> Intro</h6>
+	    
+			</div>
+			
+	
+			
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+          
+        
+          <div class="row">
+    <div class="col-md-6 ProgramInfoPop"><h4> Organization Name:</h4> <h6 class="ProgramDescription" id="OrgName"> James Madison University</h6></div>
+    
+    <div class=" col-md-6 ProgramInfoPop">
+	  <h4> Status:</h4> <h6 class="ProgramDescription" id="ProgramStatus"> Completed</h6>
+	  
+			</div> 
+    
+    </div>
+
+ 
+  <div class="row">
+   <div class="col-md-5 ProgramInfoPop"><h4> Program Address:</h4> <h6 class="ProgramDescription" id="ProgramAddress"> 800 S Main, Harrisonburg, VA, 22801</h6></div>
+    <div class="col-md-3 ProgramInfoPop"><h4> City:</h4> <h6 class="ProgramDescription" id="Programcity"> Harrisonburg</h6>
+    </div>
+    
+    <div class="col-md-4 ProgramInfoPop"><h4> County:</h4> <h6 class="ProgramDescription" id="ProgramCounty"> Rockingham County</h6></div>
+</div>
+ 
+ <div class="row">
+    <div class="col-md-5 ProgramInfoPop"> 
+    <h4> Report Month</h4>
+	<h6 class="ProgramDescription" id="ProgramMonth"> October</h6> 
+   </div>
+   
+   
+    <div class="col-md-3 ProgramInfoPop">
+     <h4> Date:</h4> <h6 class="ProgramDescription" id="ProgramDate"> 10/14/18</h6></div>
+     
+     
+    <div class="col-md-4 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="ProgramTime"> 3:00 pm</h6></div>
+</div>
+ 
+ <div class="row">
+    
+  
+    
+    <div class="col-md-2 ProgramInfoPop"> 
+    <h4>Grade</h4>
+    <h6 class="ProgramDescription" id="ProgramGrade"> 3rd</h6></div>
+   
+   <div class="col-md-3 ProgramInfoPop"> 
+   <h4> Educators</h4>
+   <h6 class="ProgramDescription" id="ProgramEd"> Raina, Alex</h6></div>
+   
+   
+     <div class="col-md-3 ProgramInfoPop"> <h4> # of Adults:</h4> <h6 class="ProgramDescription" id="ProgramAdults"> 4</h6></div>
+    
+    
+    <div class="col-md-3 ProgramInfoPop"> <h4> # of Children:</h4> <h6 class="ProgramDescription" id="ProgramChild"> 26</h6></div>
+    
+    
+ </div>
+ 
+ 
+ <div class="row">
+
+ 
+  
+ 
+  
+       <div class="col-lg-4 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
+     <h6 class="ProgramDescription" id="ProgramBirds"> Buddy, Edie, Verlon</h6>
+</div>
+  
+
+ 
+ 
+ 
+	  
+  
+       <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
+     <h6 class="ProgramDescription" id="ProgramReptiles"> Severus</h6>
+  
+</div>
+	     
+	     
+	     
+  
+       <div class="col-lg-4 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
+     <h6 class="ProgramDescription" id="ProgramMammals"> Bo</h6>
+ 
+</div>
+ </div>
+ 
+ <div class="row">
+    <div class="col-md-12 ProgramInfoPop"><h4>Payment Complete?</h4> 
+    <h6 class="ProgramDescription" id="ProgramPayment"> Paid</h6>
+    
+</div>
+ 
+  </div>
+  
+  
+  <div class="row">
+  <div class="col-md-12 ProgramInfoPop"><div class="form-group">
+  <h6 > Comments</h6>
+  <p>This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program.</p>
+</div></div>
+</div>
+  
+  
+           
+
+        </div>
+    </div>
+
+
+
+</div>
+
+             </div></td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+    
+  </div>
+</div>
+            </div>
+
 
 
 
