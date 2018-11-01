@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+   
+    
+    <div class="addAnimal">
     <h2>Create New Animal</h2>
     <p>&nbsp;</p>
     <p>Animal Type:
@@ -28,5 +31,8 @@
 
 
     </p>
+
+
+        </div>
 </asp:Content>
 
