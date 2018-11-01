@@ -43,6 +43,7 @@ INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedB
 INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Verlon', GETDATE(), 'WildTekDevelopers');
 
 INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Mammal','Bo', GETDATE(), 'WildTekDevelopers');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Mammal','Posie', GETDATE(), 'WildTekDevelopers');
 INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Mammal','Willow', GETDATE(), 'WildTekDevelopers');
 
 INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Greenbean', GETDATE(), 'WildTekDevelopers');
