@@ -26,13 +26,13 @@
     <!-- Page level plugin CSS-->
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
+<%--    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">--%>
       
       <!-- Logo FOnt-->
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" type ="text/css" />
 
@@ -137,6 +137,12 @@
 
         <div class="container-fluid ">
 
+               <div class="row">
+		<div class="col-md-12 ProgramTitle">
+			<h1 >Online Program Listings</h1>
+			
+		</div>
+	</div>
           
             <div >
   <div class="">
@@ -144,34 +150,40 @@
     <form>
  	
 
-<button type="button" class="accordion"> 
-	<div class="table-responsive  ">
-    <table class="table table-borderless  table-hover ProgramBioShort">
-        <thead>
-            <tr>
-               <th>Date</th>
-                <th>Organization Name</th>
-                <th>Program Type</th>
-                <th>Educator(s)</th>
-              
-               
-            </tr>
-        </thead>
-      <tbody>
-            <tr>
-               
-               <td class="ShortOrgTime">11/3/18 3:00 pm</td>
+
+       
+
+    
+
+
+    
+
+         
+             <div class="col-lg-8 col-md-12 col-s-12 mx-auto">
+
+<table class="table table-condensed table-borderless table-hover" style="border-collapse:collapse;">
+    <thead>
+        <tr>
+            
+            <th>Date</th>
+            <th>Organization Name</th>
+            <th>Program Type</th>
+            <th>educator(s)</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+           <td class="ShortOrgTime">11/5/18 3:00 pm</td>
                 <td class="ShortOrgName">James Madison University</td>
-                <td class="ShortDT">Skype: Opossum</td>
+                <td class="ShortDT">Skype: Turtles</td>
             <td class="ShortEd">Raina, Alex</td>
-            </tr>
-           
-        </tbody>
-    </table>
-</div></button>
-<div class="panel">
+        </tr>
+        <tr >
+            <td colspan="6" class="hiddenRow"><div class="accordian-body collapse" id="demo1">
+                <div >
   
-    <div class="">
+    <div class="text-center">
             <div class="">
                 <br />
                 <h5 class=""> Online Program Details</h5>
@@ -211,13 +223,13 @@
    
    
    
-    <div class=" col-md-3 ProgramInfoPop">
+    <div class=" col-md-4 ProgramInfoPop">
 	    <h4>Teacher Name </h4> 
     <h6 class="ProgramDescription" id="OnlineTeacher"> Mrs. Johnson</h6>
 	
 			</div>
 
-                    <div class=" col-md-3 ProgramInfoPop">
+                    <div class=" col-md-4 ProgramInfoPop">
 	    <h4> Grade </h4> 
     <h6 class="ProgramDescription" id="OnlineGrade"> 3rd</h6>
 	    
@@ -226,7 +238,7 @@
 			</div>
 
 
-                     <div class="col-md-3 ProgramInfoPop"> 
+                     <div class="col-md-4 ProgramInfoPop"> 
     <h4> Report Month</h4>
 	<h6 class="ProgramDescription" id="OnlineProgramMonth"> October</h6> 
    </div>
@@ -263,12 +275,12 @@
      
 	  
 	<div class="row">
-		<div class="col-md-3 ProgramInfoPop"><h4> City/County:</h4> <h6 class="ProgramDescription" id="OnlineProgramcity"> Harrisonburg</h6>
+		<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> <h6 class="ProgramDescription" id="OnlineProgramcity"> Harrisonburg</h6>
     </div>
     
-    <div class="col-md-3 ProgramInfoPop"><h4> State/Province:</h4> <h6 class="ProgramDescription" id="OnlineProgramState"> Rockingham County</h6></div>
+    <div class="col-md-4 ProgramInfoPop"><h4> State/Province:</h4> <h6 class="ProgramDescription" id="OnlineProgramState"> Rockingham County</h6></div>
 		
-		<div class="col-md-3 ProgramInfoPop"><h4> Country:</h4> <h6 class="ProgramDescription" id="OnlineProgramCountry"> Rockingham County</h6></div>
+		<div class="col-md-4 ProgramInfoPop"><h4> Country:</h4> <h6 class="ProgramDescription" id="OnlineProgramCountry"> Rockingham County</h6></div>
 
         
 
@@ -342,7 +354,776 @@
 
 </div>
 
-<button type="button" class="accordion"> 
+                                              </div> </td>
+        </tr>
+        <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+           <td class="ShortOrgTime">11/5/18 3:00 pm</td>
+                <td class="ShortOrgName">James Madison University</td>
+                <td class="ShortDT">Skype: Turtles</td>
+            <td class="ShortEd">Raina, Alex</td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow"><div id="demo2" class="accordian-body collapse">
+
+                <div >
+  
+    <div class="text-center">
+            <div class="">
+                <br />
+                <h5 class=""> Online Program Details</h5>
+               
+            </div>
+            <div class="modal-body p-4" id="resultOnlineProgram">
+                    
+                  
+				<div class="row ">           
+	    <div class=" col-md-3 ProgramInfoPop">
+	     <h4> Status:</h4> <h6 class="ProgramDescription" id="OnlineProgramStatus"> Completed</h6>
+	    
+			</div> 
+			
+			
+     <div class=" col-md-3 ProgramInfoPop">
+	    <h4>Type </h4> 
+    <h6 class="ProgramDescription" id="OnlineType"> Skype: Oppossum</h6>
+	    
+			</div>
+	     
+
+
+                     <div class="col-md-3 ProgramInfoPop">
+     <h4> Date:</h4> <h6 class="ProgramDescription" id="OnlineProgramDate"> 10/14/18</h6></div>
+     
+     
+    <div class="col-md-3 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="OnlineProgramTime"> 3:00 pm</h6></div>
+
+
+			
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+         
+
+                <div class="row">
+   
+   
+   
+    <div class=" col-md-4 ProgramInfoPop">
+	    <h4>Teacher Name </h4> 
+    <h6 class="ProgramDescription" id="OnlineTeacher"> Mrs. Johnson</h6>
+	
+			</div>
+
+                    <div class=" col-md-4 ProgramInfoPop">
+	    <h4> Grade </h4> 
+    <h6 class="ProgramDescription" id="OnlineGrade"> 3rd</h6>
+	    
+	    
+	    
+			</div>
+
+
+                     <div class="col-md-4 ProgramInfoPop"> 
+    <h4> Report Month</h4>
+	<h6 class="ProgramDescription" id="OnlineProgramMonth"> October</h6> 
+   </div>
+</div>
+
+         <div class="row ">           
+	    
+			
+	     
+			<div class=" col-md-3 ProgramInfoPop">
+	    <h4> Children </h4> 
+    <h6 class="ProgramDescription" id="OnlineChild"> 25</h6>
+	    
+	    
+	    
+			</div>
+			
+			<div class=" col-md-3 ProgramInfoPop">
+	    <h4> People</h4> 
+    <h6 class="ProgramDescription" id="OnlinePeople"> 45</h6>
+	    
+	    
+	    
+			</div>
+			
+	 <div class="col-md-3 ProgramInfoPop"><h4> Educators</h4> <h6 class="OnlineEd" id="OrgName"> Raina</h6></div>
+			  
+ <div class="col-md-3 ProgramInfoPop"><h4> Email</h4> <h6 class="OnlineEmail" id="OnlineEmail"> School@gmail.com</h6></div>
+			
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+          
+        
+     
+	  
+	<div class="row">
+		<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> <h6 class="ProgramDescription" id="OnlineProgramcity"> Harrisonburg</h6>
+    </div>
+    
+    <div class="col-md-4 ProgramInfoPop"><h4> State/Province:</h4> <h6 class="ProgramDescription" id="OnlineProgramState"> Rockingham County</h6></div>
+		
+		<div class="col-md-4 ProgramInfoPop"><h4> Country:</h4> <h6 class="ProgramDescription" id="OnlineProgramCountry"> Rockingham County</h6></div>
+
+        
+
+</div>		
+    
+    
+
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class="row">
+
+ 
+  
+ 
+  
+       <div class="col-md-3 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
+     <h6 class="ProgramDescription" id="OnlineProgramBirds"> Buddy, Edie, Verlon</h6>
+</div>
+  
+
+ 
+ 
+ 
+	  
+  
+       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
+     <h6 class="ProgramDescription" id="OnlineProgramReptiles"> Severus</h6>
+  
+</div>
+	     
+	     
+	     
+  
+       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
+     <h6 class="ProgramDescription" id="OnlineProgramMammals"> Bo</h6>
+ 
+</div>
+
+     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
+    <h6 class="ProgramDescription" id="OnlineProgramPayment"> Paid</h6>
+    
+</div>
+
+ </div>
+ 
+ 
+    
+ 
+  
+  
+  
+  <div class="row">
+  <div class="col-md-12 ProgramInfoPop"><div class="form-group">
+  <h6 > Comments</h6>
+  <p>This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program.</p>
+</div></div>
+</div>
+  
+  
+            
+        </div>
+    </div>
+
+
+
+</div>
+
+                                              </div></td>
+        </tr>
+        <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
+           <td class="ShortOrgTime">11/5/18 3:00 pm</td>
+                <td class="ShortOrgName">James Madison University</td>
+                <td class="ShortDT">Skype: Turtles</td>
+            <td class="ShortEd">Raina, Alex</td>
+        </tr>
+        <tr>
+            <td colspan="6"  class="hiddenRow">
+                <div id="demo3" class="accordian-body collapse">
+
+               <div >
+  
+    <div class="text-center">
+            <div class="">
+                <br />
+                <h5 class=""> Online Program Details</h5>
+               
+            </div>
+            <div class="modal-body p-4" id="resultOnlineProgram">
+                    
+                  
+				<div class="row ">           
+	    <div class=" col-md-3 ProgramInfoPop">
+	     <h4> Status:</h4> <h6 class="ProgramDescription" id="OnlineProgramStatus"> Completed</h6>
+	    
+			</div> 
+			
+			
+     <div class=" col-md-3 ProgramInfoPop">
+	    <h4>Type </h4> 
+    <h6 class="ProgramDescription" id="OnlineType"> Skype: Oppossum</h6>
+	    
+			</div>
+	     
+
+
+                     <div class="col-md-3 ProgramInfoPop">
+     <h4> Date:</h4> <h6 class="ProgramDescription" id="OnlineProgramDate"> 10/14/18</h6></div>
+     
+     
+    <div class="col-md-3 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="OnlineProgramTime"> 3:00 pm</h6></div>
+
+
+			
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+         
+
+                <div class="row">
+   
+   
+   
+    <div class=" col-md-4 ProgramInfoPop">
+	    <h4>Teacher Name </h4> 
+    <h6 class="ProgramDescription" id="OnlineTeacher"> Mrs. Johnson</h6>
+	
+			</div>
+
+                    <div class=" col-md-4 ProgramInfoPop">
+	    <h4> Grade </h4> 
+    <h6 class="ProgramDescription" id="OnlineGrade"> 3rd</h6>
+	    
+	    
+	    
+			</div>
+
+
+                     <div class="col-md-4 ProgramInfoPop"> 
+    <h4> Report Month</h4>
+	<h6 class="ProgramDescription" id="OnlineProgramMonth"> October</h6> 
+   </div>
+</div>
+
+         <div class="row ">           
+	    
+			
+	     
+			<div class=" col-md-3 ProgramInfoPop">
+	    <h4> Children </h4> 
+    <h6 class="ProgramDescription" id="OnlineChild"> 25</h6>
+	    
+	    
+	    
+			</div>
+			
+			<div class=" col-md-3 ProgramInfoPop">
+	    <h4> People</h4> 
+    <h6 class="ProgramDescription" id="OnlinePeople"> 45</h6>
+	    
+	    
+	    
+			</div>
+			
+	 <div class="col-md-3 ProgramInfoPop"><h4> Educators</h4> <h6 class="OnlineEd" id="OrgName"> Raina</h6></div>
+			  
+ <div class="col-md-3 ProgramInfoPop"><h4> Email</h4> <h6 class="OnlineEmail" id="OnlineEmail"> School@gmail.com</h6></div>
+			
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+          
+        
+     
+	  
+	<div class="row">
+		<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> <h6 class="ProgramDescription" id="OnlineProgramcity"> Harrisonburg</h6>
+    </div>
+    
+    <div class="col-md-4 ProgramInfoPop"><h4> State/Province:</h4> <h6 class="ProgramDescription" id="OnlineProgramState"> Rockingham County</h6></div>
+		
+		<div class="col-md-4 ProgramInfoPop"><h4> Country:</h4> <h6 class="ProgramDescription" id="OnlineProgramCountry"> Rockingham County</h6></div>
+
+        
+
+</div>		
+    
+    
+
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class="row">
+
+ 
+  
+ 
+  
+       <div class="col-md-3 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
+     <h6 class="ProgramDescription" id="OnlineProgramBirds"> Buddy, Edie, Verlon</h6>
+</div>
+  
+
+ 
+ 
+ 
+	  
+  
+       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
+     <h6 class="ProgramDescription" id="OnlineProgramReptiles"> Severus</h6>
+  
+</div>
+	     
+	     
+	     
+  
+       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
+     <h6 class="ProgramDescription" id="OnlineProgramMammals"> Bo</h6>
+ 
+</div>
+
+     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
+    <h6 class="ProgramDescription" id="OnlineProgramPayment"> Paid</h6>
+    
+</div>
+
+ </div>
+ 
+ 
+    
+ 
+  
+  
+  
+  <div class="row">
+  <div class="col-md-12 ProgramInfoPop"><div class="form-group">
+  <h6 > Comments</h6>
+  <p>This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program.</p>
+</div></div>
+</div>
+  
+  
+            
+        </div>
+    </div>
+
+
+
+</div>
+
+             </div></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+
+<%--<button type="button" > 
+	<div class="table-responsive .d-none">
+    <table class="table table-borderless table-hover ProgramBioShort">
+        <thead  >
+            <tr>
+                <th >Date</th>
+                 <th>Organization Name</th>
+                 <th>Program Type</th>
+                  <th>Educator(s)</th>
+              
+               
+            </tr>
+        </thead>
+      <tbody>
+          
+           <tr class="accordion">
+               
+               <td class="ShortOrgTime">11/9/18 3:00 pm</td>
+                <td class="ShortOrgName">James Madison University</td>
+                <td class="ShortDT">Skype: Owls</td>
+            <td class="ShortEd">Raina, Alex</td>
+            </tr>
+          <div>
+              <div class="panel">
+  
+    <div class="text-center">
+            <div class="">
+                <br />
+                <h5 class=""> Online Program Details</h5>
+               
+            </div>
+            <div class="modal-body p-4" id="resultOnlineProgram">
+                    
+                  
+				<div class="row ">           
+	    <div class=" col-md-3 ProgramInfoPop">
+	     <h4> Status:</h4> <h6 class="ProgramDescription" id="OnlineProgramStatus"> Completed</h6>
+	    
+			</div> 
+			
+			
+     <div class=" col-md-3 ProgramInfoPop">
+	    <h4>Type </h4> 
+    <h6 class="ProgramDescription" id="OnlineType"> Skype: Oppossum</h6>
+	    
+			</div>
+	     
+
+
+                     <div class="col-md-3 ProgramInfoPop">
+     <h4> Date:</h4> <h6 class="ProgramDescription" id="OnlineProgramDate"> 10/14/18</h6></div>
+     
+     
+    <div class="col-md-3 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="OnlineProgramTime"> 3:00 pm</h6></div>
+
+
+			
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+         
+
+                <div class="row">
+   
+   
+   
+    <div class=" col-md-4 ProgramInfoPop">
+	    <h4>Teacher Name </h4> 
+    <h6 class="ProgramDescription" id="OnlineTeacher"> Mrs. Johnson</h6>
+	
+			</div>
+
+                    <div class=" col-md-4 ProgramInfoPop">
+	    <h4> Grade </h4> 
+    <h6 class="ProgramDescription" id="OnlineGrade"> 3rd</h6>
+	    
+	    
+	    
+			</div>
+
+
+                     <div class="col-md-4 ProgramInfoPop"> 
+    <h4> Report Month</h4>
+	<h6 class="ProgramDescription" id="OnlineProgramMonth"> October</h6> 
+   </div>
+</div>
+
+         <div class="row ">           
+	    
+			
+	     
+			<div class=" col-md-3 ProgramInfoPop">
+	    <h4> Children </h4> 
+    <h6 class="ProgramDescription" id="OnlineChild"> 25</h6>
+	    
+	    
+	    
+			</div>
+			
+			<div class=" col-md-3 ProgramInfoPop">
+	    <h4> People</h4> 
+    <h6 class="ProgramDescription" id="OnlinePeople"> 45</h6>
+	    
+	    
+	    
+			</div>
+			
+	 <div class="col-md-3 ProgramInfoPop"><h4> Educators</h4> <h6 class="OnlineEd" id="OrgName"> Raina</h6></div>
+			  
+ <div class="col-md-3 ProgramInfoPop"><h4> Email</h4> <h6 class="OnlineEmail" id="OnlineEmail"> School@gmail.com</h6></div>
+			
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+          
+        
+     
+	  
+	<div class="row">
+		<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> <h6 class="ProgramDescription" id="OnlineProgramcity"> Harrisonburg</h6>
+    </div>
+    
+    <div class="col-md-4 ProgramInfoPop"><h4> State/Province:</h4> <h6 class="ProgramDescription" id="OnlineProgramState"> Rockingham County</h6></div>
+		
+		<div class="col-md-4 ProgramInfoPop"><h4> Country:</h4> <h6 class="ProgramDescription" id="OnlineProgramCountry"> Rockingham County</h6></div>
+
+        
+
+</div>		
+    
+    
+
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class="row">
+
+ 
+  
+ 
+  
+       <div class="col-md-3 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
+     <h6 class="ProgramDescription" id="OnlineProgramBirds"> Buddy, Edie, Verlon</h6>
+</div>
+  
+
+ 
+ 
+ 
+	  
+  
+       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
+     <h6 class="ProgramDescription" id="OnlineProgramReptiles"> Severus</h6>
+  
+</div>
+	     
+	     
+	     
+  
+       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
+     <h6 class="ProgramDescription" id="OnlineProgramMammals"> Bo</h6>
+ 
+</div>
+
+     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
+    <h6 class="ProgramDescription" id="OnlineProgramPayment"> Paid</h6>
+    
+</div>
+
+ </div>
+ 
+ 
+    
+ 
+  
+  
+  
+  <div class="row">
+  <div class="col-md-12 ProgramInfoPop"><div class="form-group">
+  <h6 > Comments</h6>
+  <p>This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program.</p>
+</div></div>
+</div>
+  
+  
+            
+        </div>
+    </div>
+
+
+
+</div>
+           </div>
+           <tr class="accordion">
+               
+               <td class="ShortOrgTime">11/9/18 3:00 pm</td>
+                <td class="ShortOrgName">James Madison University</td>
+                <td class="ShortDT">Skype: Owls</td>
+            <td class="ShortEd">Raina, Alex</td>
+            </tr>
+           <tr class="accordion">
+               
+               <td class="ShortOrgTime">11/9/18 3:00 pm</td>
+                <td class="ShortOrgName">James Madison University</td>
+                <td class="ShortDT">Skype: Owls</td>
+            <td class="ShortEd">Raina, Alex</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div></button>
+<div class="panel">
+  
+    <div class="text-center">
+            <div class="">
+                <br />
+                <h5 class=""> Online Program Details</h5>
+               
+            </div>
+            <div class="modal-body p-4" id="resultOnlineProgram">
+                    
+                  
+				<div class="row ">           
+	    <div class=" col-md-3 ProgramInfoPop">
+	     <h4> Status:</h4> <h6 class="ProgramDescription" id="OnlineProgramStatus"> Completed</h6>
+	    
+			</div> 
+			
+			
+     <div class=" col-md-3 ProgramInfoPop">
+	    <h4>Type </h4> 
+    <h6 class="ProgramDescription" id="OnlineType"> Skype: Oppossum</h6>
+	    
+			</div>
+	     
+
+
+                     <div class="col-md-3 ProgramInfoPop">
+     <h4> Date:</h4> <h6 class="ProgramDescription" id="OnlineProgramDate"> 10/14/18</h6></div>
+     
+     
+    <div class="col-md-3 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="OnlineProgramTime"> 3:00 pm</h6></div>
+
+
+			
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+         
+
+                <div class="row">
+   
+   
+   
+    <div class=" col-md-4 ProgramInfoPop">
+	    <h4>Teacher Name </h4> 
+    <h6 class="ProgramDescription" id="OnlineTeacher"> Mrs. Johnson</h6>
+	
+			</div>
+
+                    <div class=" col-md-4 ProgramInfoPop">
+	    <h4> Grade </h4> 
+    <h6 class="ProgramDescription" id="OnlineGrade"> 3rd</h6>
+	    
+	    
+	    
+			</div>
+
+
+                     <div class="col-md-4 ProgramInfoPop"> 
+    <h4> Report Month</h4>
+	<h6 class="ProgramDescription" id="OnlineProgramMonth"> October</h6> 
+   </div>
+</div>
+
+         <div class="row ">           
+	    
+			
+	     
+			<div class=" col-md-3 ProgramInfoPop">
+	    <h4> Children </h4> 
+    <h6 class="ProgramDescription" id="OnlineChild"> 25</h6>
+	    
+	    
+	    
+			</div>
+			
+			<div class=" col-md-3 ProgramInfoPop">
+	    <h4> People</h4> 
+    <h6 class="ProgramDescription" id="OnlinePeople"> 45</h6>
+	    
+	    
+	    
+			</div>
+			
+	 <div class="col-md-3 ProgramInfoPop"><h4> Educators</h4> <h6 class="OnlineEd" id="OrgName"> Raina</h6></div>
+			  
+ <div class="col-md-3 ProgramInfoPop"><h4> Email</h4> <h6 class="OnlineEmail" id="OnlineEmail"> School@gmail.com</h6></div>
+			
+			<!-- End  Description --> 
+	</div><!-- End  row --> 
+          
+        
+     
+	  
+	<div class="row">
+		<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> <h6 class="ProgramDescription" id="OnlineProgramcity"> Harrisonburg</h6>
+    </div>
+    
+    <div class="col-md-4 ProgramInfoPop"><h4> State/Province:</h4> <h6 class="ProgramDescription" id="OnlineProgramState"> Rockingham County</h6></div>
+		
+		<div class="col-md-4 ProgramInfoPop"><h4> Country:</h4> <h6 class="ProgramDescription" id="OnlineProgramCountry"> Rockingham County</h6></div>
+
+        
+
+</div>		
+    
+    
+
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class="row">
+
+ 
+  
+ 
+  
+       <div class="col-md-3 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
+     <h6 class="ProgramDescription" id="OnlineProgramBirds"> Buddy, Edie, Verlon</h6>
+</div>
+  
+
+ 
+ 
+ 
+	  
+  
+       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
+     <h6 class="ProgramDescription" id="OnlineProgramReptiles"> Severus</h6>
+  
+</div>
+	     
+	     
+	     
+  
+       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
+     <h6 class="ProgramDescription" id="OnlineProgramMammals"> Bo</h6>
+ 
+</div>
+
+     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
+    <h6 class="ProgramDescription" id="OnlineProgramPayment"> Paid</h6>
+    
+</div>
+
+ </div>
+ 
+ 
+    
+ 
+  
+  
+  
+  <div class="row">
+  <div class="col-md-12 ProgramInfoPop"><div class="form-group">
+  <h6 > Comments</h6>
+  <p>This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program.</p>
+</div></div>
+</div>
+  
+  
+            
+        </div>
+    </div>
+
+
+
+</div>--%>
+                
+
+<%--<div class="row">
+        <div class="col-md-6 mx-auto">
+<button type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    
 	<div class="table-responsive">
     <table class="table table-borderless  table-hover ProgramBioShort">
         <thead>
@@ -367,7 +1148,9 @@
         </tbody>
     </table>
 </div></button>
-<div class="panel">
+            </div>
+    <div class="col-md-6 mx-auto">
+<div class="panel collapse multi-collapse collapsed" id="collapseExample">
   
     <div class="">
             <div class="">
@@ -539,204 +1322,12 @@
 
 
 </div>
-
-<button type="button" class="accordion"> 
-	<div class="table-responsive">
-    <table class="table table-borderless table-hover ProgramBioShort">
-        <thead>
-            <tr>
-               <th>Date</th>
-                <th>Organization Name</th>
-                <th>Program Type</th>
-                <th>Educator(s)</th>
-              
-               
-            </tr>
-        </thead>
-      <tbody>
-           <tr>
-               
-               <td class="ShortOrgTime">11/9/18 3:00 pm</td>
-                <td class="ShortOrgName">James Madison University</td>
-                <td class="ShortDT">Skype: Owls</td>
-            <td class="ShortEd">Raina, Alex</td>
-            </tr>
-           
-        </tbody>
-    </table>
-</div></button>
-<div class="panel">
-  
-    <div class="">
-            <div class="">
-                <br />
-                <h5 class=""> Online Program Details</h5>
-               
-            </div>
-            <div class="modal-body p-4" id="resultOnlineProgram">
-                    
-                  
-				<div class="row ">           
-	    <div class=" col-md-3 ProgramInfoPop">
-	     <h4> Status:</h4> <h6 class="ProgramDescription" id="OnlineProgramStatus"> Completed</h6>
-	    
-			</div> 
-			
-			
-     <div class=" col-md-3 ProgramInfoPop">
-	    <h4>Type </h4> 
-    <h6 class="ProgramDescription" id="OnlineType"> Skype: Oppossum</h6>
-	    
-			</div>
-	     
-
-
-                     <div class="col-md-3 ProgramInfoPop">
-     <h4> Date:</h4> <h6 class="ProgramDescription" id="OnlineProgramDate"> 10/14/18</h6></div>
-     
-     
-    <div class="col-md-3 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="OnlineProgramTime"> 3:00 pm</h6></div>
-
-
-			
-			<!-- End  Description --> 
-	</div><!-- End  row --> 
-         
-
-                <div class="row">
-   
-   
-   
-    <div class=" col-md-3 ProgramInfoPop">
-	    <h4>Teacher Name </h4> 
-    <h6 class="ProgramDescription" id="OnlineTeacher"> Mrs. Johnson</h6>
-	
-			</div>
-
-                    <div class=" col-md-3 ProgramInfoPop">
-	    <h4> Grade </h4> 
-    <h6 class="ProgramDescription" id="OnlineGrade"> 3rd</h6>
-	    
-	    
-	    
-			</div>
-
-
-                     <div class="col-md-3 ProgramInfoPop"> 
-    <h4> Report Month</h4>
-	<h6 class="ProgramDescription" id="OnlineProgramMonth"> October</h6> 
-   </div>
-</div>
-
-         <div class="row ">           
-	    
-			
-	     
-			<div class=" col-md-3 ProgramInfoPop">
-	    <h4> Children </h4> 
-    <h6 class="ProgramDescription" id="OnlineChild"> 25</h6>
-	    
-	    
-	    
-			</div>
-			
-			<div class=" col-md-3 ProgramInfoPop">
-	    <h4> People</h4> 
-    <h6 class="ProgramDescription" id="OnlinePeople"> 45</h6>
-	    
-	    
-	    
-			</div>
-			
-	 <div class="col-md-3 ProgramInfoPop"><h4> Educators</h4> <h6 class="OnlineEd" id="OrgName"> Raina</h6></div>
-			  
- <div class="col-md-3 ProgramInfoPop"><h4> Email</h4> <h6 class="OnlineEmail" id="OnlineEmail"> School@gmail.com</h6></div>
-			
-			<!-- End  Description --> 
-	</div><!-- End  row --> 
-          
-        
-     
-	  
-	<div class="row">
-		<div class="col-md-3 ProgramInfoPop"><h4> City/County:</h4> <h6 class="ProgramDescription" id="OnlineProgramcity"> Harrisonburg</h6>
-    </div>
-    
-    <div class="col-md-3 ProgramInfoPop"><h4> State/Province:</h4> <h6 class="ProgramDescription" id="OnlineProgramState"> Rockingham County</h6></div>
-		
-		<div class="col-md-3 ProgramInfoPop"><h4> Country:</h4> <h6 class="ProgramDescription" id="OnlineProgramCountry"> Rockingham County</h6></div>
-
-        
-
-</div>		
-    
-    
-
- 
-  
- 
- 
- 
- 
- 
- 
- <div class="row">
-
- 
-  
- 
-  
-       <div class="col-md-3 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
-     <h6 class="ProgramDescription" id="OnlineProgramBirds"> Buddy, Edie, Verlon</h6>
-</div>
-  
-
- 
- 
- 
-	  
-  
-       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
-     <h6 class="ProgramDescription" id="OnlineProgramReptiles"> Severus</h6>
-  
-</div>
-	     
-	     
-	     
-  
-       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
-     <h6 class="ProgramDescription" id="OnlineProgramMammals"> Bo</h6>
- 
-</div>
-
-     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
-    <h6 class="ProgramDescription" id="OnlineProgramPayment"> Paid</h6>
-    
-</div>
-
- </div>
- 
- 
-    
- 
-  
-  
-  
-  <div class="row">
-  <div class="col-md-12 ProgramInfoPop"><div class="form-group">
-  <h6 > Comments</h6>
-  <p>This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program.</p>
-</div></div>
-</div>
-  
-  
-            
-        </div>
-    </div>
+             </div>
+        </div>--%>
 
 
 
-</div>
+
 
 <script>
 var acc = document.getElementsByClassName("accordion");
@@ -786,17 +1377,12 @@ for (i = 0; i < acc.length; i++) {
 
 
        <!-- Programs-->
-       <div class="row">
-		<div class="col-md-12 ProgramTitle">
-			<h1 >Online Program Listings</h1>
-			
-		</div>
-	</div>
-       <div class="col-md-12">
+    
+       <%--<div class="col-md-12">
         <br>
-			</div>
+			</div>--%>
      
-     <div class="container1">
+     <%--<div class="container1">
 
       
 
@@ -853,7 +1439,7 @@ for (i = 0; i < acc.length; i++) {
         </div>
         
       </div>
-    </div>
+    </div>--%>
      
 		 </div>
      
@@ -1716,11 +2302,6 @@ foreach (ListItem item in CBLGold.Items)
     <script src="js/sb-admin.min.js"></script>
 	 
 
-
-<!-- jQuery and Bootstrap links - do not delete! -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 
 
