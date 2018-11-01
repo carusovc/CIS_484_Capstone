@@ -162,15 +162,24 @@
      <asp:Button ID="Button3" runat="server" Text="Update Program" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
        </div>  
 
-
-        <div id="search">         
-         <asp:TextBox ID="txtSearchMaster" runat="server"></asp:TextBox>
-         <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
+<div class="row ProgramSearch">
+    <div class="col-lg-2 col-md-2 col-s-2 ml-auto">
+         <div id="search">         
+         <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
+         <asp:Button ID="Button4" runat="server" class="ProgramSearch" Text="Search"></asp:Button>
+             <br />
      </div>
-
-
-             <div class="col-lg-8 col-md-12 col-s-12 mx-auto block">
-
+    </div>
+    <div class="col-lg-2 col-md-2 col-s-2">
+        <br />
+    </div>
+    <br />
+</div>
+      
+        <div class="row ProgramSearch">
+            <br />
+            <div class="col-lg-8 col-md-12 col-s-12 mx-auto block ProgramSearch">
+                <br />
 <table class="table table-condensed table-borderless table-hover" style="border-collapse:collapse;">
     
     <thead>
@@ -739,6 +748,9 @@
     </tbody>
 </table>
 </div>
+        </div>
+
+             
 
 
 
