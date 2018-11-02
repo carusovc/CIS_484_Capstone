@@ -13,6 +13,8 @@ public partial class OnlineForm : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
+
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
@@ -161,11 +163,18 @@ public partial class OnlineForm : System.Web.UI.Page
         {
             // ddlYear.Items.Add(new ListItem(i.ToString()));
         }
-
-
     }
 
 
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "document", "function()", true);
+
+        }
+
+    }
 
     protected void btnSubmit_Click1(object sender, EventArgs e)
     {
