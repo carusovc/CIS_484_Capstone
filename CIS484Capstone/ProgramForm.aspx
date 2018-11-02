@@ -22,6 +22,7 @@
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
+      <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <!-- Page level plugin CSS-->
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
@@ -77,34 +78,89 @@
     <div id="wrapper">
 
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="ProgramForm.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
-            <span>Live Program Form</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="OnlineForm.aspx">
-            <i class="fas fa-fw fa-wifi"></i>
-            <span>Online Program Form</span></a>
-        </li>
-       
-        <li class="nav-item">
-          <a class="nav-link" href="ReportChoice.aspx">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span></a>
-        </li>
-      
-        
-        <li class="nav-item">
-          <a class="nav-link" href="Payment.aspx">
-            <i class="fas fa-fw fa-dollar-sign"></i>
-            <span>Payment</span></a>
-        </li>
+           <ul class="sidebar navbar-nav">
+                <li class="nav-item active">
+                 <div class="dropdown"> 
+                      <i class="fas fa-fw fa-book-open"></i>
+                    <button class="dropbtn">Live Programs</button>
+                    <div class="dropdown-content">
+                        <a href="ProgramForm.aspx">View Live Programs</a>
+                        <a href="ProgramForm.aspx">Add Live Program</a>
+                        <a href="ProgramForm.aspx">Edit Live Programs</a>
+                    </div>
+                </div>
+                </li>   
+                <li class="nav-item">
+                 <div class="dropdown"> 
+                    <i class="fas fa-fw fa-wifi"></i>
+                    <button class="dropbtn">Online Programs</button>
+                    <div class="dropdown-content">
+                        <a href="OnlineForm.aspx">View Online Programs</a>
+                        <a href="OnlineForm.aspx">Add Online Program</a>
+                        <a href="OnlineForm.aspx">Edit Online Programs</a>
+                    </div>
+                </div>
+                </li>
 
+                  
+      
+        <%--  <a class="nav-link" href="ReportChoice.aspx">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Reports</span></a>--%>
+        
+    <li class="nav-item">
+          <div class="dropdown">
+            <i class="fas fa-fw fa-person"></i>
+           <button class="dropbtn">Animals</button>
+  <div class="dropdown-content">
+      <a href="#">Add New Animal</a>
+      <a href="#">Views Animal</a>
+      </div>
+              </div>
+        </li>    
+
+<li class="nav-item">
+     <div class="dropdown"> 
+     <i class="fas fa-fw fa-chart-area"></i>
+               
+  <button class="dropbtn">Organization</button>
+  <div class="dropdown-content">
+      <a href="#">Add New Organization</a>
+    
+  </div>
+</div>
+</li>
+
+
+            <li class="nav-item">
+          <div class="dropdown"> 
+              <i class="fas fa-fw fa-chart-area"></i>
+               
+  <button class="dropbtn">Reports</button>
+  <div class="dropdown-content">
+      <a href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+      <a href="MonthlyWildlifeReport.aspx">Monthly</a>
+      <a href="TabYearlyReports.aspx">Yearly</a>
+       <a href="TabGradeReport.aspx">Grade Level</a>
+       <a href="TabLiveReport.aspx">Live Program</a>
+       <a href="TabOnlineProgramReports.aspx">Online Program</a>
+  </div>
+</div>
+</li>
+
+                <li class="nav-item active">
+                 <div class="dropdown"> 
+                      <i class="fas fa-fw fa-dollar-sign"></i>
+                    <button class="dropbtn">Payment</button>
+                    <div class="dropdown-content">
+                        <a href="ProgramForm.aspx">View Payments</a>
+                        <a href="ProgramForm.aspx">Add New Payment</a>
+                        <a href="ProgramForm.aspx">Edit Payments</a>
+                    </div>
+                </div>
+                </li>    
           <li class="nav-item">
-          <a class="nav-link" href="CreateUser.aspx">
+             <a class="nav-link" href="CreateUser.aspx">
             <i class="fas fa-fw fa-person"></i>
             <span>Create Educator Access</span></a>
         </li>
@@ -250,8 +306,8 @@
 </ul></div>--%>
 
 <asp:DropDownList CssClass="form-control" ID="ddlProgram" runat="server" class="dropdown-menu radioButtonList">
-       <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Display" Value="1" />
+       <asp:ListItem Text="--Select Program--" Value="0" />
+<%--    <asp:ListItem Text="Display" Value="1" />
     <asp:ListItem Text="Special Request" Value="2" />
     <asp:ListItem Text="Open House" Value="3" />
     <asp:ListItem Text="Tour" Value="4" />
@@ -268,7 +324,7 @@
     <asp:ListItem Text="Classroom Visit: Snakes" Value="15" />  
     <asp:ListItem Text="Classroom Visit: Falcons" Value="16" />  
     <asp:ListItem Text="Classroom Visit: Opossums" Value="17" /> 
-    <asp:ListItem Text="Classroom Visit: Special" Value="18" />  
+    <asp:ListItem Text="Classroom Visit: Special" Value="18" />  --%>
 </asp:DropDownList>
 
 </div>
@@ -279,7 +335,7 @@
 	  <h4> Status:</h4> <%--<input type="text" class="form-control" id="AddStatus" placeholder="Add Status">--%>
                          <%--<asp:TextBox cssclass="form-control" ID="txtStatus" runat="server" placeholder="Add Status" ></asp:TextBox>--%>
                          <asp:DropDownList CssClass="form-control" ID="ddlStatus" runat="server" class="dropdown-menu radioButtonList">
-                            <asp:ListItem Text="" Value="0" />
+                            <asp:ListItem Text="--Select Status--" Value="0" />
                             <asp:ListItem Text="Completed" Value="1" />
                              <asp:ListItem Text="Not Started" Value="2" />
                         </asp:DropDownList>
@@ -417,8 +473,8 @@
 
 
       <asp:ListBox CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
-    <asp:ListItem Text="" Value="0" />
-      <asp:ListItem Text="Preschool" Value="1" />
+    <asp:ListItem Text="--Select Grades--" Value="0" />
+<%--      <asp:ListItem Text="Preschool" Value="1" />
     <asp:ListItem Text="Kindergarten" Value="2" />
     <asp:ListItem Text="1st" Value="3" />
     <asp:ListItem Text="2nd" Value="4" />
@@ -433,7 +489,7 @@
     <asp:ListItem Text="11th" Value="13" />
      <asp:ListItem Text="12th" Value="14"/>
        <asp:ListItem Text="Families" Value="15" />
-    <asp:ListItem Text="Adults Only" Value="16" />
+    <asp:ListItem Text="Adults Only" Value="16" />--%>
 
 </asp:ListBox>
 
@@ -453,15 +509,15 @@
 
 
         <asp:ListBox CssClass="form-control" ID="drpEducators" runat="server" SelectionMode="Multiple">
-     <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Raina" Value="1" />
+     <asp:ListItem Text="--Select Educators--" Value="0" />
+<%--    <asp:ListItem Text="Raina" Value="1" />
     <asp:ListItem Text="Alex" Value="2" />
     <asp:ListItem Text="Ed" Value="3" />
     <asp:ListItem Text="Amanda" Value="4" />
     <asp:ListItem Text="Shelly" Value="5" />
     <asp:ListItem Text="Peg" Value="6" />
     <asp:ListItem Text="Lydia" Value="7" />
-    <asp:ListItem Text="Doug" Value="8" />
+    <asp:ListItem Text="Doug" Value="8" />--%>
    
 
 </asp:ListBox>
@@ -507,8 +563,8 @@
 </ul>
   </div>--%>
              <asp:ListBox ID="ddlBirds"  CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder ="Select Birds">
-       <asp:ListItem Text="" Value="0" />
-       <asp:ListItem Text="Buddy" Value="1" />
+       <asp:ListItem Text="--Select Birds--" Value="0" />
+<%--       <asp:ListItem Text="Buddy" Value="1" />
     <asp:ListItem Text="Verlon" Value="2" />
     <asp:ListItem Text="Edie" Value="3" />
     <asp:ListItem Text="Maggie" Value="4" />
@@ -522,7 +578,7 @@
     <asp:ListItem Text="Quin" Value="12" />
     <asp:ListItem Text="Alex" Value="13" />
     <asp:ListItem Text="Buttercup" Value="14" />
-    <asp:ListItem Text="Jaz" Value="15" />
+    <asp:ListItem Text="Jaz" Value="15" />--%>
 </asp:ListBox>
 
 </div>
@@ -548,13 +604,13 @@
 </div>--%>
 
            <asp:ListBox CssClass="form-control" ID="ddlReptiles" runat="server" SelectionMode="Multiple" class="dropdown-menu">
-     <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Malcom" Value="1" />
+     <asp:ListItem Text="--Select Reptiles--" Value="0" />
+<%--    <asp:ListItem Text="Malcom" Value="1" />
     <asp:ListItem Text="Albus" Value="2" />
     <asp:ListItem Text="Severus" Value="3" />
     <asp:ListItem Text="Oscar" Value="4" />
     <asp:ListItem Text="Emma" Value="5" />
-    <asp:ListItem Text="Wilson" Value="6" />
+    <asp:ListItem Text="Wilson" Value="6" />--%>
 
 </asp:ListBox>
   
@@ -576,10 +632,10 @@
  
 </div>--%>
  <asp:ListBox ID="ddlMammals" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
-    <asp:ListItem Text="" Value="0" />
-    <asp:ListItem Text="Bo" Value="1" />
+    <asp:ListItem Text="--Select Mammals--" Value="0" />
+<%--    <asp:ListItem Text="Bo" Value="1" />
     <asp:ListItem Text="Posie" Value="2" />
-    <asp:ListItem Text="Willow" Value="3" />
+    <asp:ListItem Text="Willow" Value="3" />--%>
 </asp:ListBox>
 </div>
   </div>
