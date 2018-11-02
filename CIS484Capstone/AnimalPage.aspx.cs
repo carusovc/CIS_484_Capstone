@@ -10,18 +10,18 @@ public partial class AnimalPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        addAnimal.Visible = false;
+        AnimalAddDiv.Visible = false;
     }
 
     protected void btnAddAnimal_Click(object sender, EventArgs e)
     {
-        addAnimal.Visible = true;
+        AnimalAddDiv.Visible = true;
         ViewAnimals.Visible = true;
 
     }
     protected void btnEditAnimal_Click(object sender, EventArgs e)
     {
-        addAnimal.Visible = true;
+        AnimalAddDiv.Visible = true;
         ViewAnimals.Visible = false;
 
     }
@@ -69,5 +69,5 @@ public partial class AnimalPage : System.Web.UI.Page
     }
 
 
-   
+
 }
