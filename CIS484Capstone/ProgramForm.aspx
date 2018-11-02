@@ -79,6 +79,17 @@
 
       <!-- Sidebar -->
            <ul class="sidebar navbar-nav">
+                <li class="nav-item active">
+                 <div class="dropdown"> 
+                      <i class="fas fa-fw fa-book-open"></i>
+                    <button class="dropbtn">Live Programs</button>
+                    <div class="dropdown-content">
+                        <a href="ProgramForm.aspx">View Live Programs</a>
+                        <a href="ProgramForm.aspx">Add Live Program</a>
+                        <a href="ProgramForm.aspx">Edit Live Programs</a>
+                    </div>
+                </div>
+                </li>   
                 <li class="nav-item">
                  <div class="dropdown"> 
                     <i class="fas fa-fw fa-wifi"></i>
@@ -91,43 +102,22 @@
                 </div>
                 </li>
 
-                  <li class="nav-item active">
-                 <div class="dropdown"> 
-                      <i class="fas fa-fw fa-book-open"></i>
-                    <button class="dropbtn">Live Programs</button>
-                    <div class="dropdown-content">
-                        <a href="ProgramForm.aspx">View Live Programs</a>
-                        <a href="ProgramForm.aspx">Add Live Program</a>
-                        <a href="ProgramForm.aspx">Edit Live Programs</a>
-                    </div>
-                </div>
-                </li>    
+                  
       
         <%--  <a class="nav-link" href="ReportChoice.aspx">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Reports</span></a>--%>
         
     <li class="nav-item">
-          <a class="nav-link" href="#">
+          <div class="dropdown">
             <i class="fas fa-fw fa-person"></i>
-            <span>Animals</span></a>
-        </li>    
-
-        <li class="nav-item">
-          <div class="dropdown"> 
-              <i class="fas fa-fw fa-chart-area"></i>
-               
-  <button class="dropbtn">Animals</button>
+           <button class="dropbtn">Animals</button>
   <div class="dropdown-content">
-      <a href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-      <a href="MonthlyWildlifeReport.aspx">Monthly</a>
-      <a href="TabYearlyReports.aspx">Yearly</a>
-       <a href="TabGradeReport.aspx">Grade Level</a>
-       <a href="TabLiveReport.aspx">Live Program</a>
-       <a href="TabOnlineProgramReports.aspx">Online Program</a>
-  </div>
-</div>
-</li>
+      <a href="#">Add New Animal</a>
+      <a href="#">Views Animal</a>
+      </div>
+              </div>
+        </li>    
 
 <li class="nav-item">
      <div class="dropdown"> 
@@ -170,7 +160,7 @@
                 </div>
                 </li>    
           <li class="nav-item">
-          <a class="nav-link" href="CreateUser.aspx">
+             <a class="nav-link" href="CreateUser.aspx">
             <i class="fas fa-fw fa-person"></i>
             <span>Create Educator Access</span></a>
         </li>

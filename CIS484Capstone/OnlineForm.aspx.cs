@@ -13,6 +13,8 @@ public partial class OnlineForm : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
+
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
@@ -161,11 +163,18 @@ public partial class OnlineForm : System.Web.UI.Page
         {
             // ddlYear.Items.Add(new ListItem(i.ToString()));
         }
-
-
     }
 
 
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "document", "function()", true);
+
+        }
+
+    }
 
     protected void btnSubmit_Click1(object sender, EventArgs e)
     {
@@ -424,6 +433,29 @@ public partial class OnlineForm : System.Web.UI.Page
     }
 
     protected void btnPopulate_Click(object sender, EventArgs e)
+    {
+        //ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
+        //selectMonthDays();
+        ////ddlDate.SelectedValue = DateTime.Now.Day.ToString();
+        ////ddlYear.SelectedValue = DateTime.Now.Year.ToString();
+        //txtNumOfKids.Text = "25";
+        //txtNumOfPeople.Text = "50";
+        //txtCity.Text = "Rockingham County";
+        //ddlState.SelectedValue = "VA";
+        //ddlCountry.SelectedIndex = 187;
+        //txtEmail.Text = "sarah@dukes.com";
+        //ddlGrade.SelectedIndex = 3;
+        //txtTeacher.Text = "Sarah";
+        ////txtEducator.Text = "Raina";
+        //txtTheme.Text = "Owl";
+        ////txtAnimalsUsed.Text = "Gus";
+        //txtComments.Text = "N/A";
+        //listAddOnlineStatus.SelectedIndex = 3;
+
+
+    }
+
+    protected void btnBack_Click(object sender, EventArgs e)
     {
         //ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
         //selectMonthDays();
