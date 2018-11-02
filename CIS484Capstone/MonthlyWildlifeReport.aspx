@@ -211,7 +211,7 @@
 			
 		</div>
 	</div>
-             <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+             <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click1" />
             <div class="col-md-12 mx-auto d-flex justify-content-center">
     <br />
      <br />

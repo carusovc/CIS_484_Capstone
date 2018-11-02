@@ -17,17 +17,6 @@ public partial class toexcel : System.Web.UI.Page
 
     
 
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        //DataSet ds0 = new DataSet();
-        //ds0 = ;
-        //DataView dataview_ldata = dsldata.Tables[0].DefaultView;
-        //DataTable dt = dsldata.Tables[0];
-       // GridView1.DataSource = (DataSet)Session["data"];
-        //GridView1.DataBind();
-        //ExportToExcel(gridPrograms);
-
-    }
 
     private void ExportToExcel(GridView GrdView)
     {
@@ -78,10 +67,11 @@ public partial class toexcel : System.Web.UI.Page
 
         da.Fill(ds);
 
-        string excelname = "Program_Report";
-        string current = DateTime.Today.ToShortDateString();
+        //string excelname = "Program_Report";
+        //string current = DateTime.Today.ToShortDateString();
+        string filename = "Program_Report" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString();
 
-        ds.WriteXml(@"C:\Users\labpatron\Desktop\"+ excelname + ".xls");
+        ds.WriteXml(@"C:\Users\labpatron\Desktop\"+ filename + ".xls");
         sc.Close();
     }
 
