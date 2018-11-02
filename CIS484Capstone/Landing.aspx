@@ -111,7 +111,9 @@
 			
 		</div>
 	</div>
- 
+ <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Button" />
+            <asp:Label ID="lblResults" runat="server" Text =""></asp:Label>
+
             <div class="col-md-12">
         <br>
 			</div>

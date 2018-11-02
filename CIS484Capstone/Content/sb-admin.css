@@ -9,6 +9,7 @@ body html {
     min-height: 100%;
     margin: 0px;
     padding: 0px;
+
 }
 
 
@@ -576,7 +577,14 @@ body.sidebar-toggled footer.sticky-footer {
     }
 }
 
-.WildTable {margin: 10px !important;}
+.WildTable {margin: 10px !important;
+            color: black !important;
+}
+
+a.WildTable {
+    margin: 10px !important;
+    color: black !important;
+}
 
 .table{background-color:white;
        border-radius: 15px;
@@ -749,6 +757,7 @@ body.sidebar-toggled footer.sticky-footer {
         background-color: #555 !important;
     }
 
+
 .tab-pane {padding-left: 5px !important;}
 
 .ProgramSearch {margin-bottom: 5px !important;}
@@ -756,3 +765,4 @@ body.sidebar-toggled footer.sticky-footer {
 .extraPersonTemplate {
     display: none;
 }
+
