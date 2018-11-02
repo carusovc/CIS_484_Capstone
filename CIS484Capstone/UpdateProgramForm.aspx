@@ -10,9 +10,11 @@
         </asp:DropDownList>
             <p>
        Program Type:
-                <asp:TextBox ID="txtProgramType" runat="server"></asp:TextBox>
-                &nbsp;&nbsp; Organization:
-    <asp:TextBox ID="txtOrganization" runat="server"></asp:TextBox>
+                &nbsp;<asp:DropDownList ID="ddlProgramType" runat="server">
+                </asp:DropDownList>
+                &nbsp; Organization:
+                <asp:DropDownList ID="ddlOrganization" runat="server">
+                </asp:DropDownList>
                 &nbsp; Status:
 &nbsp;<asp:TextBox ID="txtStatus" runat="server"></asp:TextBox>
     </p>

@@ -34,13 +34,30 @@ public partial class UpdateProgramForm : System.Web.UI.Page
             {
 
                 string read = "Select * from Program";
+                string programNameRead = "Select * from ProgramType";
+                string organizationRead = "Select * from Organization";
+
+                SqlCommand cmd1 = new SqlCommand(programNameRead, con);
+                SqlCommand cmd2 = new SqlCommand(organizationRead, con);
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlDataReader myRead = cmd.ExecuteReader();
+                SqlDataReader myRead1 = cmd1.ExecuteReader();
+                SqlDataReader myRead2 = cmd2.ExecuteReader();
 
                 while (myRead.Read())
                 {
 
                     ddlProgramID.Items.Add(new ListItem(myRead["ProgramID"].ToString(),myRead["ProgramID"].ToString()));
+                }
+
+                while (myRead1.Read())
+                {
+                    ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
+                }
+
+                while (myRead2.Read())
+                {
+                    ddlOrganization.Items.Add(new ListItem(myRead2["OrgName"].ToString(), myRead2["OrgID"].ToString()));
                 }
                 ddlProgramID.DataBind();
 
@@ -50,7 +67,60 @@ public partial class UpdateProgramForm : System.Web.UI.Page
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+        
+        System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
+        update.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
 
+        update.CommandText = "update program set programTypeID = @programTypeID, orgID = @orgID, status = @status, programAddress = @programAddress, citycounty = @cityCounty, state = @state, onOff = @onOff, numberOfChildren = @numOfChildren," +
+            "numberOfAdults = @numofAdults, paymentNeeded= @paymentNeeded, programDate = @programDate, programTime = @programTime, eventMonth = @month, extraComments = @comments, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where programID = @programID";
+        update.Parameters.AddWithValue("@programTypeID", ddlProgramType.SelectedItem.Value);
+        update.Parameters.AddWithValue("@orgID", ddlOrganization.SelectedItem.Value);
+        update.Parameters.AddWithValue("@programID", ddlProgramID.SelectedItem.Value);
+        update.Parameters.AddWithValue("@status", txtStatus.Text);
+        update.Parameters.AddWithValue("@programAddress", txtAddress.Text);
+        update.Parameters.AddWithValue("@cityCounty", txtCity.Text + ", " + txtCounty.Text);
+        update.Parameters.AddWithValue("@state", txtState.Text);
+        update.Parameters.AddWithValue("@onOff", rboOnOff.SelectedIndex);
+        update.Parameters.AddWithValue("@numOfChildren", txtNumOfChildren.Text);
+        update.Parameters.AddWithValue("@numofAdults", txtNumOfAdults.Text);
+        update.Parameters.AddWithValue("@paymentNeeded", rboPayment.SelectedIndex);
+        update.Parameters.AddWithValue("@programDate", txtProgramDate.Text);
+        update.Parameters.AddWithValue("@programTime", txtProgramTime.Text);
+        update.Parameters.AddWithValue("@month", txtMonth.Text);
+        update.Parameters.AddWithValue("@comments", txtComments.Text);
+
+
+        update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
+        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.ExecuteNonQuery();
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        SqlConnection con2 = new SqlConnection(cs);
+
+        ddlProgramID.Items.Clear();
+        //call read array
+        con.Open();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from Program";
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            while (myRead.Read())
+            {
+
+                ddlProgramID.Items.Add(new ListItem(myRead["ProgramID"].ToString(), myRead["ProgramID"].ToString()));
+            }
+            // ddlAnimal.DataBind();
+
+        }
     }
 
     protected void ddlProgramID_SelectedIndexChanged1(object sender, EventArgs e)
@@ -86,7 +156,7 @@ public partial class UpdateProgramForm : System.Web.UI.Page
         organization.Parameters.AddWithValue("@programID", ddlProgramID.SelectedItem.Value);
 
 
-
+        
 
 
 
@@ -99,12 +169,16 @@ public partial class UpdateProgramForm : System.Web.UI.Page
 
             while (sdr.Read())
             {
+                String cityCounty = sdr[5].ToString();
+                String[] words = cityCounty.Split(',');
+                String city = words[0];
+                String county = words[1];
                 //txtProgramType.Text = sdr[1].ToString();
                 //txtOrganization.Text = sdr[2].ToString();
                 txtStatus.Text = sdr[3].ToString();
                 txtAddress.Text = sdr[4].ToString();
-                txtCity.Text = sdr[5].ToString();
-                txtCounty.Text = sdr[5].ToString();
+                txtCity.Text = city;
+                txtCounty.Text = county;
                 txtState.Text = sdr[6].ToString();
                 if (sdr[7].ToString() == "1")
                 {
@@ -137,13 +211,13 @@ public partial class UpdateProgramForm : System.Web.UI.Page
 
             while (sdr1.Read())
             {
-                txtProgramType.Text = sdr1[0].ToString();
+                ddlProgramType.SelectedItem.Text = sdr1[0].ToString();
             }
 
 
             while (sdr2.Read())
             {
-                txtOrganization.Text = sdr2[0].ToString();
+                ddlOrganization.SelectedItem.Text = sdr2[0].ToString();
             }
 
         }
