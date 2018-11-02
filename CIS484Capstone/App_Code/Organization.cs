@@ -12,6 +12,7 @@ public class Organization
     private String orgName;
     private String city;
     private String county;
+
    
     public Organization(String orgName, String city, String county)
     {

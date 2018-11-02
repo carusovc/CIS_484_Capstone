@@ -8,11 +8,6 @@ public class Program
 {
 
 
-    //private String organizationName;
-    //private String educators;
-    //private String bird;
-    //private String mammal;
-    //private String reptile;
     private String cityCounty;
     private String state;
     private String status;
