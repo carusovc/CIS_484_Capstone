@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="paymentsCatey.aspx.cs" Inherits="paymentsCatey" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="paymentsCatey.aspx.cs" Inherits="paymentsCatey" EnableEventValidation="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -147,17 +147,32 @@
    </div>
                              <asp:Label Text ="Current Invoice" runat ="server"></asp:Label>
                             <br />
-    <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" AllowSorting="True" EmptyDataText="There are no records to display." OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+    <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" AllowSorting="True" ShowFooter="True" onrowdatabound="GridView1_RowDataBound" EmptyDataText="There are no records to display." >
         <Columns>
-            <asp:CommandField ShowSelectButton="True" />
-            <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" SortExpression="PaymentAmount" />
+            <asp:TemplateField HeaderText ="Select" FooterText="Total:" >
+            <ItemTemplate>
+                <asp:CheckBox id="chkSelect" runat ="server" />
+            </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" SortExpression="PaymentAmount" DataFormatString="{0:c}" />
            <asp:BoundField DataField="CheckNumber" HeaderText="CheckNumber" SortExpression="CheckNumber" InsertVisible="True" />
             <asp:BoundField DataField="PaymentID" HeaderText="PaymentID" InsertVisible="False" ReadOnly="True" SortExpression="PaymentID" />
             <asp:BoundField DataField="OrgName" HeaderText="OrgName" SortExpression="OrgName" />
            
             <asp:BoundField DataField="PaymentType" HeaderText="PaymentType" SortExpression="PaymentType" />
             <asp:BoundField DataField="Invoice" HeaderText="Invoice" SortExpression="Invoice" />
+        
+             <asp:TemplateField HeaderText="Total" SortExpression="total">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                </EditItemTemplate>
+                <FooterTemplate>
+                    <asp:Label ID="lbltotal" runat="server" Text="Label"></asp:Label>
+                </FooterTemplate>
+               
+            </asp:TemplateField>
          </Columns>
+
       </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                 SelectCommand="SELECT [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice] FROM [PaymentRecord] inner join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE 
@@ -186,12 +201,13 @@
                 </SelectParameters>
             </asp:SqlDataSource>
                             <br />
+                            <br />
                             <asp:Label Text ="Cancelled Invoice" runat ="server"></asp:Label>
                             <br />
                             <asp:GridView ID="GridView2" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" AllowSorting="True" EmptyDataText="There are no records to display.">
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
-            <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" SortExpression="PaymentAmount" />
+            <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" SortExpression="PaymentAmount" DataFormatString="{0:c}" />
            <asp:BoundField DataField="CheckNumber" HeaderText="CheckNumber" SortExpression="CheckNumber" InsertVisible="True" />
             <asp:BoundField DataField="PaymentID" HeaderText="PaymentID" InsertVisible="False" ReadOnly="True" SortExpression="PaymentID" />
             <asp:BoundField DataField="OrgName" HeaderText="OrgName" SortExpression="OrgName" />
@@ -201,7 +217,8 @@
          </Columns>
                              </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                SelectCommand="SELECT [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice] FROM [PaymentRecord] inner join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE 
+                SelectCommand="SELECT [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice] FROM [PaymentRecord] inner join Organization on  
+                PaymentRecord.OrgID = Organization.OrgID WHERE 
                 (CASE { fn MONTH(paymentDate) } 
             when 1 then 'January'
             when 2 then 'February'
@@ -216,7 +233,7 @@
             when 11 then 'November'
             when 12 then 'December'
            END = @Month)  
-             AND (YEAR(paymentDate)=@Year)  AND (OrgName=@OrgName)  AND CancelledInvoice ='N'" ProviderName="System.Data.SqlClient">
+             AND (YEAR(paymentDate)=@Year)  AND (OrgName=@OrgName)" ProviderName="System.Data.SqlClient">
                 <SelectParameters>
                 
             <asp:ControlParameter ControlID="drpMonth" Name="Month" PropertyName="SelectedValue" Type="String" />
@@ -228,8 +245,11 @@
             </asp:SqlDataSource>
     </div>
 
+            </div></div>
 
-
-           <%--  <asp:Button ID="btnExport" runat="server" OnClick="btnExport_Click" Text="Button" />--%>
+            <%--<asp:Button ID="btnExport" runat="server" OnClick="btnExport2_Click" Text="Button" />--%>
+                <asp:Button ID="btnExportGrid" runat="server" Text="Export to Excel" OnClick="exportBtn_ClickAv" />
+                  <asp:Label ID="lbltotalAmount" Text="" runat ="server"></asp:Label>
+              
 </asp:Content>
 

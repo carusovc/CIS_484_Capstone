@@ -46,7 +46,7 @@ public partial class Payments : System.Web.UI.Page
         //DateTime paymentDate = Convert.ToDateTime(Int32.Parse(ddlMonth.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlDate.SelectedIndex.ToString()) + "/" + Int32.Parse(ddlYear.SelectedIndex.ToString()));
         DateTime paymentDate = Convert.ToDateTime((ddlMonth.SelectedItem.Value) + "/" + (ddlDate.SelectedItem.Value) + "/" + (ddlYear.SelectedItem.Value));
         string month = ddlMonth.SelectedValue.ToString();
-        float paymentAmount = float.Parse(txtAmount.Text.ToString());
+        decimal paymentAmount = Convert.ToDecimal(txtAmount.Text);
         string checkNum = txtCheckNum.Text.ToString();
         string paymentType = txtPaymentType.Text.ToString();
         int orgID = Int32.Parse(txtOrganization.Text.ToString());
@@ -68,7 +68,7 @@ public partial class Payments : System.Web.UI.Page
         insert.CommandText = "insert into dbo.PaymentRecord (PaymentAmount, paymentDate, CheckNumber, PaymentType, Invoice, CancelledInvoice, OrgID, LastUpdated, LastUpdatedBy) " +
             "values (@paymentAmount, @paymentDate, @CheckNumber, @PaymentType, @Invoice, @CancelledInvoice, @OrgID, @LastUpdated, @LastUpdatedBy)";
 
-        insert.Parameters.AddWithValue("@paymentAmount", newPayment.getPaymentAmount());
+        insert.Parameters.AddWithValue("@paymentAmount", paymentAmount);
         insert.Parameters.AddWithValue("@paymentDate", newPayment.getPaymentDate());
         insert.Parameters.AddWithValue("@CheckNumber", newPayment.getCheckNum());
         insert.Parameters.AddWithValue("@PaymentType", newPayment.getPaymentType());
@@ -78,10 +78,8 @@ public partial class Payments : System.Web.UI.Page
         insert.Parameters.AddWithValue("@LastUpdated", tempLastUpdated);
         insert.Parameters.AddWithValue("@LastUpdatedBy", tempLastUpdatedBy);
 
-
-
-
         insert.ExecuteNonQuery();
+        
 
     }
 

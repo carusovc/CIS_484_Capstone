@@ -16,7 +16,7 @@ public class Payment
     }
 
     //private int paymentID;
-    private float paymentAmount;
+    private decimal paymentAmount;
     private DateTime paymentDate;
     private String checkNum;
     private String paymentType;
@@ -24,7 +24,8 @@ public class Payment
     private char cancelledInvoice; // To Deal with V2 10/23/18 8:30 pm
     private int orgID; // To Deal with V2 10/23/18 8:30 pm
 
-    public Payment(float PaymentAmount, DateTime paymentDate, String checkNum, String paymentType, String invoice, char cancelledInvoice, int orgID)
+   
+    public Payment(decimal PaymentAmount, DateTime paymentDate, String checkNum, String paymentType, String invoice, char cancelledInvoice, int orgID)
     {
         // Call Setters
         setPaymentAmount(paymentAmount);
@@ -37,7 +38,7 @@ public class Payment
     }
 
     //Setters
-    public void setPaymentAmount(float paymentAmount)
+    public void setPaymentAmount(decimal paymentAmount)
     {
         this.paymentAmount = paymentAmount;
     }
@@ -74,9 +75,9 @@ public class Payment
     
     //Getters
 
-    public float getPaymentAmount()
+    public decimal getPaymentAmount()
     {
-        return this.paymentAmount;
+        return paymentAmount;
     }
 
     public DateTime getPaymentDate()
