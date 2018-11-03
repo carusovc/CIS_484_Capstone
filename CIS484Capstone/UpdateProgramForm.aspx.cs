@@ -21,6 +21,11 @@ public partial class UpdateProgramForm : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
 
+        txtTempEducators.Text = "";
+        txtTempGrades.Text = "";
+        txtTempBirds.Text = "";
+        txtTempMammals.Text = "";
+        txtTempReptiles.Text = "";
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
         if (!IsPostBack)
@@ -37,9 +42,11 @@ public partial class UpdateProgramForm : System.Web.UI.Page
                 string programNameRead = "Select * from ProgramType";
                 string organizationRead = "Select * from Organization";
 
+                
+                SqlCommand cmd = new SqlCommand(read, con);
                 SqlCommand cmd1 = new SqlCommand(programNameRead, con);
                 SqlCommand cmd2 = new SqlCommand(organizationRead, con);
-                SqlCommand cmd = new SqlCommand(read, con);
+
                 SqlDataReader myRead = cmd.ExecuteReader();
                 SqlDataReader myRead1 = cmd1.ExecuteReader();
                 SqlDataReader myRead2 = cmd2.ExecuteReader();
@@ -76,7 +83,8 @@ public partial class UpdateProgramForm : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
-
+        DateTime programDate = Convert.ToDateTime(txtProgramDate.Text);
+        String month = programDate.ToString("MMMM");
         update.CommandText = "update program set programTypeID = @programTypeID, orgID = @orgID, status = @status, programAddress = @programAddress, citycounty = @cityCounty, state = @state, onOff = @onOff, numberOfChildren = @numOfChildren," +
             "numberOfAdults = @numofAdults, paymentNeeded= @paymentNeeded, programDate = @programDate, programTime = @programTime, eventMonth = @month, extraComments = @comments, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where programID = @programID";
         update.Parameters.AddWithValue("@programTypeID", ddlProgramType.SelectedItem.Value);
@@ -92,13 +100,16 @@ public partial class UpdateProgramForm : System.Web.UI.Page
         update.Parameters.AddWithValue("@paymentNeeded", rboPayment.SelectedIndex);
         update.Parameters.AddWithValue("@programDate", txtProgramDate.Text);
         update.Parameters.AddWithValue("@programTime", txtProgramTime.Text);
-        update.Parameters.AddWithValue("@month", txtMonth.Text);
+        update.Parameters.AddWithValue("@month", month);
         update.Parameters.AddWithValue("@comments", txtComments.Text);
 
 
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
         update.ExecuteNonQuery();
+
+        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         SqlConnection con2 = new SqlConnection(cs);
@@ -134,9 +145,21 @@ public partial class UpdateProgramForm : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand programType = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand organization = new System.Data.SqlClient.SqlCommand();
+
+        System.Data.SqlClient.SqlCommand pullEducators = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullGrades = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullBird = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullReptile = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullMammal = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
         programType.Connection = sc;
         organization.Connection = sc;
+
+        pullEducators.Connection = sc;
+        pullGrades.Connection = sc;
+        pullBird.Connection = sc;
+        pullReptile.Connection = sc;
+        pullMammal.Connection = sc;
 
 
 
@@ -155,10 +178,20 @@ public partial class UpdateProgramForm : System.Web.UI.Page
         organization.CommandText = "Select Organization.OrgName from Organization inner join Program on Organization.OrgID = Program.OrgID where Program.ProgramID = @programID";
         organization.Parameters.AddWithValue("@programID", ddlProgramID.SelectedItem.Value);
 
+        pullEducators.CommandText = "Select ProgramEducators.EducatorID, Educators.EducatorFirstName from ProgramEducators inner join Educators on Educators.EducatorID = ProgramEducators.EducatorID where ProgramID = @ProgramID";
+        pullEducators.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
 
-        
+        pullGrades.CommandText = "Select Grade.GradeLevel from Grade inner join ProgramGrades on Grade.GradeID = ProgramGrades.GradeID where ProgramID = @ProgramID";
+        pullGrades.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
 
+        pullBird.CommandText = "Select Animal.AnimalName from Animal inner join ProgramAnimal on Animal.AnimalID = ProgramAnimal.AnimalID where Animal.AnimalType = 'bird' and ProgramID = @ProgramID";
+        pullBird.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
 
+        pullReptile.CommandText = "Select Animal.AnimalName from Animal inner join ProgramAnimal on Animal.AnimalID = ProgramAnimal.AnimalID where Animal.AnimalType = 'reptile' and ProgramID = @ProgramID";
+        pullReptile.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
+
+        pullMammal.CommandText = "Select Animal.AnimalName from Animal inner join ProgramAnimal on Animal.AnimalID = ProgramAnimal.AnimalID where Animal.AnimalType = 'mammal' and ProgramID = @ProgramID";
+        pullMammal.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
 
         try
         {
@@ -166,6 +199,11 @@ public partial class UpdateProgramForm : System.Web.UI.Page
             SqlDataReader sdr = insert.ExecuteReader();
             SqlDataReader sdr1 = programType.ExecuteReader();
             SqlDataReader sdr2 = organization.ExecuteReader();
+            SqlDataReader sdr3 = pullEducators.ExecuteReader();
+            SqlDataReader sdr4 = pullGrades.ExecuteReader();
+            SqlDataReader sdr5 = pullBird.ExecuteReader();
+            SqlDataReader sdr6 = pullReptile.ExecuteReader();
+            SqlDataReader sdr7 = pullMammal.ExecuteReader();
 
             while (sdr.Read())
             {
@@ -202,10 +240,10 @@ public partial class UpdateProgramForm : System.Web.UI.Page
                 //rboPayment.SelectedItem.Value = sdr[10].ToString();
                 txtProgramDate.Text = sdr[11].ToString();
                 txtProgramTime.Text = sdr[12].ToString();
-                txtMonth.Text = sdr[13].ToString();
+                //txtMonth.Text = sdr[13].ToString();
                 txtComments.Text = sdr[14].ToString();
-                lblLastUpdated.Text = sdr[15].ToString();
-                lblLastUpdatedBy.Text = sdr[16].ToString();
+                lblLastUpdated.Text = "Last Updated: " + sdr[15].ToString();
+                lblLastUpdatedBy.Text = "Last Updated By: " + sdr[16].ToString();
             }
 
 
@@ -219,7 +257,29 @@ public partial class UpdateProgramForm : System.Web.UI.Page
             {
                 ddlOrganization.SelectedItem.Text = sdr2[0].ToString();
             }
+            while (sdr3.Read())
+            {
+                txtTempEducators.Text += sdr3[1].ToString() + " ";
+            }
+            while (sdr4.Read())
+            {
+                txtTempGrades.Text += sdr4[0].ToString() + " ";
+            }
 
+            while (sdr5.Read())
+            {
+                txtTempBirds.Text += sdr5[0].ToString() + " ";
+            }
+
+            while (sdr6.Read())
+            {
+                txtTempReptiles.Text += sdr6[0].ToString() + " ";
+            }
+
+            while (sdr7.Read())
+            {
+                txtTempMammals.Text += sdr7[0].ToString()+ " ";
+            }
         }
         catch (Exception ex)
         {

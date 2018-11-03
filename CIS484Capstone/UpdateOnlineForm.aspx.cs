@@ -161,7 +161,13 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
         sc.Open();
 
         System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand updateGrade = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullEducatorID = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand updateEducator = new System.Data.SqlClient.SqlCommand();
         update.Connection = sc;
+        updateGrade.Connection = sc;
+        pullEducatorID.Connection = sc;
+        updateEducator.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
         DateTime programDate = Convert.ToDateTime(txtProgramDate.Text);
         String month = programDate.ToString("MMMM");
@@ -175,19 +181,49 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
         update.Parameters.AddWithValue("@numofAdults", txtNumOfAdults.Text);
         update.Parameters.AddWithValue("@city", txtCity.Text);
         update.Parameters.AddWithValue("@state", txtState.Text);
-
         update.Parameters.AddWithValue("@country", txtCountry.Text);
         update.Parameters.AddWithValue("@teacherName", ddlTeacher.SelectedItem.Text);
         update.Parameters.AddWithValue("@contactEmail", txtEmail.Text);
         update.Parameters.AddWithValue("@comments", txtComments.Text);
-
-
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
         update.ExecuteNonQuery();
 
-        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-        SqlConnection con2 = new SqlConnection(cs);
+        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+
+        //foreach (ListItem li in drpEducators.Items)
+        //{
+        //    if (li.Selected == true)
+        //    {
+        //        //pullEducatorID.Parameters.Clear();
+        //        updateEducator.Parameters.Clear();
+
+
+        //        //// Pulls Educator Name based on the selected educator
+        //        //// MAY NEED TO CHANGE IF WE COMPOSITE EDUCATORS
+        //        //pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE EducatorFirstName = @EducatorFN";
+        //        //pullEducatorID.Parameters.AddWithValue("@EducatorFN", li.Text);
+        //        //int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
+
+        //        //// Inserts programID and EducatorID into Assocaited table ProgramEducators
+        //        updateEducator.CommandText = "Update OnlineEducators set EducatorID = @educatorID where onlineProgramID = @onlineProgramID";
+        //        updateEducator.Parameters.AddWithValue("@onlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
+        //        updateEducator.Parameters.AddWithValue("@educatorID", AddGrade.SelectedItem.Value);
+        //        updateEducator.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
+        //        updateEducator.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers"); // LUB
+        //        updateEducator.ExecuteNonQuery();
+        //    }
+        //    else
+        //    {
+        //        continue;
+        //    }
+        //}
+        //updateGrade.CommandText = "update onlineProgramGrades set gradeID = @gradeID from onlineProgramGrades inner join Grade on onlineProgramGrades.gradeID = grade.gradeID where onlineProgramID = @onlineProgramID and grade.GradeLevel= @grade";
+        //updateGrade.Parameters.AddWithValue("@gradeID", txtTempGrade);
+
+        //System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        //SqlConnection con2 = new SqlConnection(cs);
 
         ddlOnlineProgramID.Items.Clear();
         //call read array
@@ -287,8 +323,8 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
                 txtComments.Text = sdr[11].ToString();
 
 
-                lblLastUpdated.Text = sdr[12].ToString();
-                lblLastUpdatedBy.Text = sdr[13].ToString();
+                lblLastUpdated.Text = "Last Updated: " + sdr[12].ToString();
+                lblLastUpdatedBy.Text = "Last Updated By: " + sdr[13].ToString();
             }
 
 

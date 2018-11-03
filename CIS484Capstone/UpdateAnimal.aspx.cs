@@ -77,8 +77,8 @@ public partial class UpdateAnimal : System.Web.UI.Page
             {
                 ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
                 txtAnimalName.Text = sdr[2].ToString();
-                lblLastUpdated.Text = sdr["LastUpdated"].ToString();
-                lblLastUpdatedBy.Text = sdr["LastUpdatedBy"].ToString();
+                lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
+                lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
         }
         catch (Exception ex)
@@ -107,12 +107,13 @@ public partial class UpdateAnimal : System.Web.UI.Page
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
         update.ExecuteNonQuery();
 
+        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
 
 
 
-
-            System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
             SqlConnection con2 = new SqlConnection(cs);
 
             ddlAnimal.Items.Clear();

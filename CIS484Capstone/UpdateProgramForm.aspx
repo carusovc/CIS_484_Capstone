@@ -52,11 +52,20 @@
 &nbsp;
                 Program Time:
          <asp:TextBox ID="txtProgramTime" runat="server"></asp:TextBox>
-&nbsp; Event Month:
-         <asp:TextBox ID="txtMonth" runat="server"></asp:TextBox>
+         &nbsp; Educators:
+         <asp:TextBox ID="txtTempEducators" runat="server"></asp:TextBox>
     </p>
      <p>
-         &nbsp;</p>
+         Birds:
+         <asp:TextBox ID="txtTempBirds" runat="server"></asp:TextBox>
+&nbsp; Reptiles:<asp:TextBox ID="txtTempReptiles" runat="server"></asp:TextBox>
+&nbsp;Mammals:
+         <asp:TextBox ID="txtTempMammals" runat="server"></asp:TextBox>
+    </p>
+     <p>
+         Grades:
+         <asp:TextBox ID="txtTempGrades" runat="server"></asp:TextBox>
+     </p>
      <p>
          Comments:
          <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
