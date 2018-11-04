@@ -37,14 +37,14 @@ public partial class UpdateOrganization : System.Web.UI.Page
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlDataReader myRead = cmd.ExecuteReader();
 
-                while (myRead.Read())
-                {
+            //    while (myRead.Read())
+            //    {
 
-                    ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
-                }
-                ddlOrganization.DataBind();
+            //        ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
+            //    }
+            //    ddlOrganization.DataBind();
 
-            }
+            //}
         }
 
 

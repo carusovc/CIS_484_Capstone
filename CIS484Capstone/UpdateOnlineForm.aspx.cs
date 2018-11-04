@@ -30,7 +30,7 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
         if (!IsPostBack)
         {
 
-            
+
             //call read array
             SqlConnection con = new SqlConnection(cs);
             con.Open();
@@ -150,7 +150,7 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
 
 
     }
-    
+
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
@@ -335,25 +335,23 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
 
             while (sdr2.Read())
             {
+                drpEducators.SelectionMode = ListSelectionMode.Multiple;
+                for (int i = 0; i < drpEducators.Items.Count; i++)
+                {
+                    string p = drpEducators.Items[i].ToString();
+                    if (p == sdr2[1].ToString())
+                    {
+                        drpEducators.Items[i].Selected = true;
+
+                    }
+                }
+
+                // int id = Convert.ToInt32(sdr2[0].ToString());
+                //drpEducators.SelectedIndex = id;
 
 
-                //if (sdr2.GetString(1) == drpEducators.SelectedItem.Text)
-                //{
-                //    drpEducators.SelectedItem.Text = sdr2[1].ToString();
-                //}
+                txtEducators.Text += sdr2.GetString(1) + " ";
 
-
-                //while(sdr2.GetString(0) == drpEducators.SelectedItem.Text)
-                //{
-                //    drpEducators.selec
-                //}
-
-               int id = Convert.ToInt32(sdr2[0].ToString());
-               drpEducators.SelectedIndex = id;
-                
-                
-               txtEducators.Text += sdr2.GetString(1) + " ";
-                
                 //int count = sdr2.GetInt32(0);
                 //for (int i =0; i<count;i++)
                 //{
@@ -380,7 +378,6 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
                 txtTempMammals.Text += sdr6.GetString(0) + " ";
             }
 
-
         }
         catch (Exception ex)
         {
@@ -389,5 +386,64 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
     }
 
 
+    protected void Delete_Click(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
 
+        System.Data.SqlClient.SqlCommand delete1 = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand delete2 = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand delete3 = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand delete4 = new System.Data.SqlClient.SqlCommand();
+
+        delete1.Connection = sc;
+        delete2.Connection = sc;
+        delete3.Connection = sc;
+        delete4.Connection = sc;
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+        delete1.CommandText = "Delete from OnlineEducators where OnlineProgramID = @onlineProgramID";
+        delete1.Parameters.AddWithValue("@onlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
+
+        delete2.CommandText = "Delete from OnlineAnimal where OnlineProgramID = @onlineProgramID";
+        delete2.Parameters.AddWithValue("@onlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
+
+        delete3.CommandText = "Delete from OnlineProgramGrades where OnlineProgramID = @onlineProgramID";
+        delete3.Parameters.AddWithValue("@onlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
+
+        delete4.CommandText = "Delete from OnlineProgram where OnlineProgramID = @onlineProgramID";
+        delete4.Parameters.AddWithValue("@onlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
+
+
+        delete1.ExecuteNonQuery();
+        delete2.ExecuteNonQuery();
+        delete3.ExecuteNonQuery();
+        delete4.ExecuteNonQuery();
+
+        ddlOnlineProgramID.Items.Clear();
+        //call read array
+        con.Open();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from OnlineProgram";
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            while (myRead.Read())
+            {
+
+                ddlOnlineProgramID.Items.Add(new ListItem(myRead["OnlineProgramID"].ToString(), myRead["OnlineProgramID"].ToString()));
+            }
+
+
+        }
+    }
 }

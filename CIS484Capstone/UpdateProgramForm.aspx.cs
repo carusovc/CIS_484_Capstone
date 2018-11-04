@@ -42,7 +42,7 @@ public partial class UpdateProgramForm : System.Web.UI.Page
                 string programNameRead = "Select * from ProgramType";
                 string organizationRead = "Select * from Organization";
 
-                
+
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlCommand cmd1 = new SqlCommand(programNameRead, con);
                 SqlCommand cmd2 = new SqlCommand(organizationRead, con);
@@ -54,7 +54,7 @@ public partial class UpdateProgramForm : System.Web.UI.Page
                 while (myRead.Read())
                 {
 
-                    ddlProgramID.Items.Add(new ListItem(myRead["ProgramID"].ToString(),myRead["ProgramID"].ToString()));
+                    ddlProgramID.Items.Add(new ListItem(myRead["ProgramID"].ToString(), myRead["ProgramID"].ToString()));
                 }
 
                 while (myRead1.Read())
@@ -79,7 +79,7 @@ public partial class UpdateProgramForm : System.Web.UI.Page
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
-        
+
         System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
@@ -222,7 +222,7 @@ public partial class UpdateProgramForm : System.Web.UI.Page
                 {
                     rboOnOff.SelectedIndex = 0;
                 }
-                else 
+                else
                 {
                     rboOnOff.SelectedIndex = 1;
                 }
@@ -278,12 +278,73 @@ public partial class UpdateProgramForm : System.Web.UI.Page
 
             while (sdr7.Read())
             {
-                txtTempMammals.Text += sdr7[0].ToString()+ " ";
+                txtTempMammals.Text += sdr7[0].ToString() + " ";
             }
         }
         catch (Exception ex)
         {
             throw ex;
+        }
+    }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand delete1 = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand delete2 = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand delete3 = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand delete4 = new System.Data.SqlClient.SqlCommand();
+
+        delete1.Connection = sc;
+        delete2.Connection = sc;
+        delete3.Connection = sc;
+        delete4.Connection = sc;
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+        delete1.CommandText = "Delete from ProgramEducators where ProgramID = @ProgramID";
+        delete1.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
+
+        delete2.CommandText = "Delete from ProgramAnimal where ProgramID = @ProgramID";
+        delete2.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
+
+        delete3.CommandText = "Delete from ProgramGrades where ProgramID = @ProgramID";
+        delete3.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
+
+        delete4.CommandText = "Delete from Program where ProgramID = @ProgramID";
+        delete4.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
+
+
+        delete1.ExecuteNonQuery();
+        delete2.ExecuteNonQuery();
+        delete3.ExecuteNonQuery();
+        delete4.ExecuteNonQuery();
+
+        ddlProgramID.Items.Clear();
+        //call read array
+        con.Open();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from Program";
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            while (myRead.Read())
+            {
+
+                ddlProgramID.Items.Add(new ListItem(myRead["ProgramID"].ToString(), myRead["ProgramID"].ToString()));
+            }
+
+
         }
     }
 }
