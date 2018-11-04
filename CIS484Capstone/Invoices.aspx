@@ -150,12 +150,16 @@
                             <br />
     <asp:GridView ID="GridView1" runat="server"  gridlines="None" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" AllowSorting="True" ShowFooter="True" onrowdatabound="GridView1_RowDataBound" EmptyDataText="There are no records to display." >
         <Columns>
-            <asp:TemplateField HeaderText ="Select" FooterText="Total:" >
+            <asp:TemplateField HeaderText ="Select" >
             <ItemTemplate>
                 <asp:CheckBox id="chkSelect" runat ="server" />
             </ItemTemplate>
                 <FooterStyle Font-Bold="True" HorizontalAlign="Right" />
             </asp:TemplateField>
+            <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month" ReadOnly="True" FooterText="Total:" >
+            <FooterStyle HorizontalAlign="Right" Font-Bold="True" />
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
             <asp:BoundField DataField="PaymentAmount" HeaderText="Payment Amount" SortExpression="PaymentAmount" DataFormatString="{0:c}" ReadOnly="True" >
             <FooterStyle HorizontalAlign="Center" />
             <ItemStyle HorizontalAlign="Center" />
@@ -181,7 +185,20 @@
 
       </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                SelectCommand="SELECT [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice],CancelledInvoice FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } 
+                SelectCommand="SELECT CASE { fn MONTH(PaymentRecord.paymentDate) } 
+            when 1 then 'January'
+            when 2 then 'February'
+            when 3 then 'March'
+            when 4 then 'April'
+            when 5 then 'May'
+            when 6 then 'June'
+            when 7 then 'July'
+            when 8 then 'August'
+            when 9 then 'September'
+            when 10 then 'October'
+            when 11 then 'November'
+            when 12 then 'December'
+           END as MonthName, [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice],CancelledInvoice FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } 
             when 1 then 'January'
             when 2 then 'February'
             when 3 then 'March'
@@ -211,12 +228,16 @@
                             <br />
                             <asp:GridView ID="GridView2" runat="server"  gridlines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" onrowdatabound="GridView2_RowDataBound" AllowSorting="True" EmptyDataText="There are no records to display.">
        <Columns>
-            <asp:TemplateField HeaderText ="Select" FooterText="Total:" >
+            <asp:TemplateField HeaderText ="Select" >
             <ItemTemplate>
                 <asp:CheckBox id="chkSelect" runat ="server" />
             </ItemTemplate>
                 <FooterStyle Font-Bold="True" HorizontalAlign="Right" />
             </asp:TemplateField>
+           <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month" ReadOnly="True" FooterText="Total:" >
+            <FooterStyle HorizontalAlign="Right" Font-Bold="True" />
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
             <asp:BoundField DataField="PaymentAmount" HeaderText="Payment Amount" SortExpression="PaymentAmount" DataFormatString="{0:c}" ReadOnly="True" >
             <FooterStyle HorizontalAlign="Center" />
             <ItemStyle HorizontalAlign="Center" />
@@ -241,7 +262,20 @@
          </Columns>
                              </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                SelectCommand="SELECT [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice] FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } 
+                SelectCommand="SELECT CASE { fn MONTH(PaymentRecord.paymentDate) } 
+            when 1 then 'January'
+            when 2 then 'February'
+            when 3 then 'March'
+            when 4 then 'April'
+            when 5 then 'May'
+            when 6 then 'June'
+            when 7 then 'July'
+            when 8 then 'August'
+            when 9 then 'September'
+            when 10 then 'October'
+            when 11 then 'November'
+            when 12 then 'December'
+           END as MonthName, [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice] FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } 
             when 1 then 'January'
             when 2 then 'February'
             when 3 then 'March'

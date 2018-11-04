@@ -88,12 +88,14 @@ public partial class YearlyInvoices : System.Web.UI.Page
             string filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
             Response.Clear();
             Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment;filename=" + invoiceyear + filename + ".xls");
+            Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + "\"");
             Response.Charset = "";
             Response.ContentType = "application/vnd.ms-excel";
             StringWriter sw = new StringWriter();
             HtmlTextWriter htW = new HtmlTextWriter(sw);
-           
+
+
+   
            
             gvExport.RenderControl(htW);
                         // string filename2 = /*drpOrg.SelectedValue.ToString() +*/ " Invoice - " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
