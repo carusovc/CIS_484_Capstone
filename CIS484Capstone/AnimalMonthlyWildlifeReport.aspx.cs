@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.IO;
 
 public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 {
@@ -91,4 +92,55 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
     {
         Response.Redirect("ReportChoice.aspx");
     }
+
+    private void ExportToExcel(GridView GridView1)
+    {
+
+            GridView1.AllowPaging = false;
+            ShowData();
+            String animalReport = "Animal Type Report ";
+            String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+            HttpResponse response = HttpContext.Current.Response;
+            response.Clear();
+            response.Buffer = true;
+            response.Charset = "";
+            response.ContentType = "application/vnd.xls";
+            response.AddHeader("content-disposition", "attachment; filename=\"" + animalReport + filename + "\"" + ".xls");
+
+            using (var sw = new StringWriter())
+            {
+                using (var htw = new HtmlTextWriter(sw))
+                {
+                    GridView1.RenderControl(htw);
+                    response.Write(sw.ToString());
+                    response.End();
+                }
+            }
+
+
+            String headerTable = @"<Table><tr><td>" + animalReport + " " + filename + "</td></tr><tr><td><td></tr></Table>";
+
+            Response.Write(headerTable);
+            ////Response.Output.Write(stringWriter.ToString());
+            Response.End();
+        //}
+        //catch (Exception ex)
+        //{
+        //    Response.Write("<script>alert('" + ex.Message + "')</script>");
+        //}
+    }
+
+    public override void VerifyRenderingInServerForm(Control control)
+    {
+
+    }
+
+    protected void btnToExcel_Click1(object sender, EventArgs e)
+    {
+        ExportToExcel(GridView1);
+  
+    }
+
+
+
 }
