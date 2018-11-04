@@ -56,11 +56,12 @@ public partial class AnimalPage : System.Web.UI.Page
 
         Animal newAnimal = new Animal(animalType, animalName);
 
-        insert.CommandText = "Insert into Animal (animalType, animalName, lastUpdated, lastUpdatedBy) values (@animalType, @animalName, @lastUpdated, @lastUpdatedBy)";
+        insert.CommandText = "Insert into Animal (animalType, animalName, lastUpdated, lastUpdatedBy, status) values (@animalType, @animalName, @lastUpdated, @lastUpdatedBy, @status)";
         insert.Parameters.AddWithValue("@animalType", newAnimal.getAnimalType());
         insert.Parameters.AddWithValue("@animalName", newAnimal.getAnimalName());
         insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
         insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+        insert.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
 
         insert.ExecuteNonQuery();
         lblLastUpdated.Text = "";

@@ -17,7 +17,12 @@
                 </asp:DropDownList>
                 &nbsp; Animal Name:
     <asp:TextBox ID="txtAnimalName" runat="server"></asp:TextBox>
-                &nbsp;&nbsp;<br />
+                &nbsp;&nbsp;Status:
+                <asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="true">
+                    <asp:ListItem>Active</asp:ListItem>
+                    <asp:ListItem>Inactive</asp:ListItem>
+                </asp:DropDownList>
+                <br />
     <br />
     <asp:Label ID="lblLastUpdated" runat="server" Text=""></asp:Label>
     &nbsp;<asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>

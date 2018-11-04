@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Configuration;
 
-public partial class NewAnimalForm : System.Web.UI.Page
+public partial class NewOnlineProgramType : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -16,7 +16,6 @@ public partial class NewAnimalForm : System.Web.UI.Page
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -24,30 +23,25 @@ public partial class NewAnimalForm : System.Web.UI.Page
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-        
+
 
         sc.Open();
         insert.Connection = sc;
 
-        String animalType = ddlAnimalType.SelectedItem.Text;
-        String animalName = txtAnimalName.Text;
+        String onlineProgram = txtOnlineProgram.Text;
+
+
         DateTime lastUpdated = DateTime.Today;
         String lastUpdatedBy = "WildTek";
 
 
-        Animal newAnimal = new Animal(animalType, animalName);
-
-        insert.CommandText = "Insert into Animal (animalType, animalName, lastUpdated, lastUpdatedBy, status) values (@animalType, @animalName, @lastUpdated, @lastUpdatedBy, @status)";
-        insert.Parameters.AddWithValue("@animalType", newAnimal.getAnimalType());
-        insert.Parameters.AddWithValue("@animalName", newAnimal.getAnimalName());
+        insert.CommandText = "insert into OnlineProgramType (onlineProgramTypeName, lastUpdated, lastUpdatedBy) values (@onlineProgram, @lastUpdated, @lastUpdatedBy)";
+        insert.Parameters.AddWithValue("@onlineProgram", onlineProgram);
         insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
         insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
-        insert.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
-
         insert.ExecuteNonQuery();
+
         lblLastUpdated.Text = "Last Updated: " + lastUpdated;
         lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
-
-        txtAnimalName.Text = "";
     }
 }

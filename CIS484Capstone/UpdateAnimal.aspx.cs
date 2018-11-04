@@ -41,6 +41,7 @@ public partial class UpdateAnimal : System.Web.UI.Page
                 {
 
                     ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+                
                 }
                 // ddlAnimal.DataBind();
 
@@ -49,6 +50,7 @@ public partial class UpdateAnimal : System.Web.UI.Page
     }
     protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
     {
+
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
@@ -64,7 +66,7 @@ public partial class UpdateAnimal : System.Web.UI.Page
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select AnimalID, AnimalType, AnimalName, LastUpdated, LastUpdatedBy from Animal where" +
+        insert.CommandText = "select AnimalID, AnimalType, AnimalName, LastUpdated, LastUpdatedBy, status from Animal where" +
                           " animalID = @animalID";
 
         insert.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
@@ -79,6 +81,7 @@ public partial class UpdateAnimal : System.Web.UI.Page
                 txtAnimalName.Text = sdr[2].ToString();
                 lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
+                ddlStatus.SelectedItem.Text = sdr[5].ToString();
             }
         }
         catch (Exception ex)
@@ -99,12 +102,13 @@ public partial class UpdateAnimal : System.Web.UI.Page
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
 
-        update.CommandText = "update animal set animalType = @animalType, animalName = @animalName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where animalID = @animalID";
+        update.CommandText = "update animal set animalType = @animalType, animalName = @animalName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, status = @status where animalID = @animalID";
         update.Parameters.AddWithValue("@animalType", ddlAnimalType.SelectedItem.Text);
         update.Parameters.AddWithValue("@animalName", txtAnimalName.Text);
         update.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
         update.ExecuteNonQuery();
 
         lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
