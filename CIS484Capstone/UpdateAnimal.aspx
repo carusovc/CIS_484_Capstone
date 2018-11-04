@@ -23,6 +23,8 @@
     &nbsp;<asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>
     </p>
     <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
+    &nbsp;
+        <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
     </p></p>
 </asp:Content>
 

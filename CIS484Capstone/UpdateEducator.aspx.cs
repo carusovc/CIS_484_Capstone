@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Configuration;
 using System.Data.SqlClient;
+using System.Configuration;
 using System.Data;
 
-public partial class UpdateAnimal : System.Web.UI.Page
+public partial class UpdateEducator : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -33,21 +33,23 @@ public partial class UpdateAnimal : System.Web.UI.Page
             if (con.State == System.Data.ConnectionState.Open)
             {
 
-                string read = "Select * from Animal";
+                string read = "Select * from Educators";
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlDataReader myRead = cmd.ExecuteReader();
 
                 while (myRead.Read())
                 {
 
-                    ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+                    ddlEducatorName.Items.Add(new ListItem(myRead["EducatorFirstName"].ToString(), myRead["EducatorID"].ToString()));
                 }
-                // ddlAnimal.DataBind();
+                
 
             }
         }
     }
-    protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
+
+
+    protected void ddlEducator_SelectedIndexChanged1(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -64,10 +66,9 @@ public partial class UpdateAnimal : System.Web.UI.Page
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select AnimalID, AnimalType, AnimalName, LastUpdated, LastUpdatedBy from Animal where" +
-                          " animalID = @animalID";
+        insert.CommandText = "select educatorFirstName, educatorLastName, lastUpdated, lastUpdatedBy from Educators where educatorID = @educatorID";
 
-        insert.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
+        insert.Parameters.AddWithValue("@educatorID", ddlEducatorName.SelectedItem.Value);
 
         try
         {
@@ -75,8 +76,8 @@ public partial class UpdateAnimal : System.Web.UI.Page
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
-                txtAnimalName.Text = sdr[2].ToString();
+                txtFirstName.Text = sdr[0].ToString();
+                txtLastName.Text = sdr[1].ToString();
                 lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
@@ -99,10 +100,10 @@ public partial class UpdateAnimal : System.Web.UI.Page
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
 
-        update.CommandText = "update animal set animalType = @animalType, animalName = @animalName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where animalID = @animalID";
-        update.Parameters.AddWithValue("@animalType", ddlAnimalType.SelectedItem.Text);
-        update.Parameters.AddWithValue("@animalName", txtAnimalName.Text);
-        update.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
+        update.CommandText = "update Educators set educatorFirstName = @firstName, educatorLastName = @lastName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where educatorID = @educatorID";
+        update.Parameters.AddWithValue("@firstName", txtFirstName.Text);
+        update.Parameters.AddWithValue("@lastName", txtLastName.Text);
+        update.Parameters.AddWithValue("@educatorID", ddlEducatorName.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
         update.ExecuteNonQuery();
@@ -114,33 +115,31 @@ public partial class UpdateAnimal : System.Web.UI.Page
 
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-            SqlConnection con2 = new SqlConnection(cs);
+        SqlConnection con2 = new SqlConnection(cs);
 
-            ddlAnimal.Items.Clear();
-            //call read array
-            con.Open();
-            if (con.State == System.Data.ConnectionState.Open)
+        ddlEducatorName.Items.Clear();
+        //call read array
+        con.Open();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from Educators";
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            while (myRead.Read())
             {
 
-                string read = "Select * from Animal";
-                SqlCommand cmd = new SqlCommand(read, con);
-                SqlDataReader myRead = cmd.ExecuteReader();
-
-                while (myRead.Read())
-                {
-
-                    ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
-                }
-                // ddlAnimal.DataBind();
-
+                ddlEducatorName.Items.Add(new ListItem(myRead["EducatorFirstName"].ToString(), myRead["EducatorID"].ToString()));
             }
+  
 
-        txtAnimalName.Text = "";
+        }
 
-        
+        txtFirstName.Text = "";
+        txtLastName.Text = "";
 
     }
-
 
     protected void btnDelete_Click(object sender, EventArgs e)
     {
@@ -159,29 +158,30 @@ public partial class UpdateAnimal : System.Web.UI.Page
 
         //call read array
         SqlConnection con = new SqlConnection(cs);
-        delete.CommandText = "Delete from Animal where AnimalID = @AnimalID";
-        delete.Parameters.AddWithValue("@AnimalID", ddlAnimal.SelectedItem.Value);
+        delete.CommandText = "Delete from Educators where EducatorID = @EducatorID";
+        delete.Parameters.AddWithValue("@EducatorID", ddlEducatorName.SelectedItem.Value);
 
         delete.ExecuteNonQuery();
 
-        ddlAnimal.Items.Clear();
+        ddlEducatorName.Items.Clear();
         //call read array
         con.Open();
         if (con.State == System.Data.ConnectionState.Open)
         {
 
-            string read = "Select * from Animal";
+            string read = "Select * from Educators";
             SqlCommand cmd = new SqlCommand(read, con);
             SqlDataReader myRead = cmd.ExecuteReader();
 
             while (myRead.Read())
             {
 
-                ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+                ddlEducatorName.Items.Add(new ListItem(myRead["EducatorFirstName"].ToString(), myRead["EducatorID"].ToString()));
             }
-            // ddlAnimal.DataBind();
+          
 
         }
-        txtAnimalName.Text = "";
+        txtFirstName.Text = "";
+        txtLastName.Text = "";
     }
 }
