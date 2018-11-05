@@ -3,20 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-  
-  <!DOCTYPE html>
-<html>
+   
+<meta charset="UTF-8">
 
-  <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-
-    <!-- Bootstrap core CSS-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/sb-admin.css" rel="stylesheet">
+         <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template-->
@@ -31,34 +23,23 @@
 
       <!-- Logo FOnt-->
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-    
-    
-    
-    
 
-  </head>
+	  <!-- Bootstrap v4 -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
+<link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
+<link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
+        
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
-  <body>
+                
+            <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
-       
-      <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
+      <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
 
-      <%--<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="~/carvet-square-down.svg">
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
         <i class="fas fa-bars"></i>
-      </button>--%>
-
-    <%--  <!-- Navbar Search -->
-      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>--%>
+      </button>
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
@@ -75,98 +56,79 @@
 
     </nav>
 
-    <div id="wrapper">
 
-      <!-- Sidebar -->
-           <ul class="sidebar navbar-nav">
-                <li class="nav-item active">
-                 <div class="dropdown"> 
-                      <i class="fas fa-fw fa-book-open"></i>
-                    <button class="dropbtn">Live Programs</button>
-                    <div class="dropdown-content">
-                        <a href="ProgramForm.aspx">View Live Programs</a>
-                        <a href="ProgramForm.aspx">Add Live Program</a>
-                        <a href="ProgramForm.aspx">Edit Live Programs</a>
-                    </div>
-                </div>
-                </li>   
-                <li class="nav-item">
-                 <div class="dropdown"> 
-                    <i class="fas fa-fw fa-wifi"></i>
-                    <button class="dropbtn">Online Programs</button>
-                    <div class="dropdown-content">
-                        <a href="OnlineForm.aspx">View Online Programs</a>
-                        <a href="OnlineForm.aspx">Add Online Program</a>
-                        <a href="OnlineForm.aspx">Edit Online Programs</a>
-                    </div>
-                </div>
-                </li>
+            <div id="wrapper">
 
-                  
-      
-        <%--  <a class="nav-link" href="ReportChoice.aspx">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span></a>--%>
-        
-    <li class="nav-item">
-          <div class="dropdown">
-            <i class="fas fa-fw fa-person"></i>
-           <button class="dropbtn">Animals</button>
-  <div class="dropdown-content">
-      <a href="#">Add New Animal</a>
-      <a href="#">Views Animal</a>
-      </div>
-              </div>
-        </li>    
-
-<li class="nav-item">
-     <div class="dropdown"> 
-     <i class="fas fa-fw fa-chart-area"></i>
-               
-  <button class="dropbtn">Organization</button>
-  <div class="dropdown-content">
-      <a href="#">Add New Organization</a>
-    
-  </div>
-</div>
-</li>
-
-
-            <li class="nav-item">
-          <div class="dropdown"> 
-              <i class="fas fa-fw fa-chart-area"></i>
-               
-  <button class="dropbtn">Reports</button>
-  <div class="dropdown-content">
-      <a href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-      <a href="MonthlyWildlifeReport.aspx">Monthly</a>
-      <a href="TabYearlyReports.aspx">Yearly</a>
-       <a href="TabGradeReport.aspx">Grade Level</a>
-       <a href="TabLiveReport.aspx">Live Program</a>
-       <a href="TabOnlineProgramReports.aspx">Online Program</a>
-  </div>
-</div>
-</li>
-
-                <li class="nav-item active">
-                 <div class="dropdown"> 
-                      <i class="fas fa-fw fa-dollar-sign"></i>
-                    <button class="dropbtn">Payment</button>
-                    <div class="dropdown-content">
-                        <a href="ProgramForm.aspx">View Payments</a>
-                        <a href="ProgramForm.aspx">Add New Payment</a>
-                        <a href="ProgramForm.aspx">Edit Payments</a>
-                    </div>
-                </div>
-                </li>    
-          <li class="nav-item">
-             <a class="nav-link" href="CreateUser.aspx">
-            <i class="fas fa-fw fa-person"></i>
-            <span>Create Educator Access</span></a>
+ <!-- Sidebar -->
+      <ul class="sidebar navbar-nav active">
+        <li class="nav-item">
+          <a class="nav-link" href="OnlineForm.aspx">
+            <i class="fas fa-fw fa-book-open"></i>
+            <span>Programs</span>
+          </a>
+        </li>
+      <li class="nav-item">
+          <a class="nav-link" href="AnimalPage.aspx">
+            <i class="fas fa-fw fa-book-open"></i>
+            <span>Animal</span>
+          </a>
+        </li>
+           <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Reports</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+            <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+            <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+            <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+            <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+            <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
+          </div>
+        </li>
+          <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Payment</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+              <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+            <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+            <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+          </div>
         </li>
 
+          <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Add New Program Content</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
+            <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+          </div>
+        </li>
 
-           <li class="nav-item">
+           <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Update Program Content</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
+          </div>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="createUser.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Create Outreach Coordinator Access</span></a>
+        </li>
+          <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
             <i class="fas fa-fw fa-door"></i>
             <span>Logout</span></a>
@@ -176,7 +138,11 @@
 
       <div id="content-wrapper">
 
-        <div class="container-fluid">
+          
+
+        <div class="container-fluid ">
+
+          
 
           
 
@@ -1122,11 +1088,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
-	 
 
-  </body>
-
-</html>
 
 </asp:Content>
 

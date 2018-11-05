@@ -3,9 +3,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-       <meta charset="UTF-8">
-<title>WildTek</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ 
+<meta charset="UTF-8">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/sb-admin.css" rel="stylesheet">
+         <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+      <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
 	  <!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
@@ -14,29 +31,15 @@
         
       <!-- Logo FOnt-->
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-    
-</head>
-        <body>
+
                 
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="Default.html">WildTek</a>
+      <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
         <i class="fas fa-bars"></i>
       </button>
-
-<%--      <!-- Navbar Search -->
-      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>--%>
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
@@ -54,37 +57,78 @@
     </nav>
 
 
-
-
             <div id="wrapper">
 
  <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="Default.aspx">
+          <a class="nav-link" href="OnlineForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
-            <span>Live Program Form</span>
+            <span>Programs</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="OnlineForm.aspx">
-            <i class="fas fa-fw fa-wifi"></i>
-            <span>Online Program Form</span></a>
+      <li class="nav-item">
+          <a class="nav-link" href="AnimalPage.aspx">
+            <i class="fas fa-fw fa-book-open"></i>
+            <span>Animal</span>
+          </a>
         </li>
-       
-        <li class="nav-item active">
-          <a class="nav-link" href="ReportChoice.aspx">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span></a>
+           <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Reports</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+            <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+            <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+            <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+            <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+            <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
+          </div>
         </li>
-      
-        
-        <li class="nav-item">
-          <a class="nav-link" href="Payment.aspx">
-            <i class="fas fa-fw fa-dollar-sign"></i>
-            <span>Payment</span></a>
+          <li class="nav-item dropdown no-arrow active">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Payment</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+              <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+            <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+            <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+          </div>
         </li>
-           <li class="nav-item">
+
+          <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Add New Program Content</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
+            <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+          </div>
+        </li>
+
+           <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Update Program Content</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
+          </div>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="createUser.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Create Outreach Coordinator Access</span></a>
+        </li>
+          <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
             <i class="fas fa-fw fa-door"></i>
             <span>Logout</span></a>
@@ -103,11 +147,10 @@
        <!-- Programs-->
        <div class="row">
 		<div class="col-md-12 ProgramTitle">
-			<h1 >Choice of Payment</h1>
+			<h1 >Invoices</h1>
 			
 		</div>
 	</div>
-
  <div class="row d-flex justify-content-center">
      <br />
 		<div class=" mx-auto ">
@@ -152,40 +195,12 @@
            END as MonthName FROM [PaymentRecord] Group by { fn MONTH(paymentDate) } order by { fn MONTH(paymentDate) }"></asp:SqlDataSource>
 
 
-
                 <asp:Label class="TextHeading" Text ="Choose a Year:" runat ="server"></asp:Label>
             <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
                         <asp:ListItem></asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                 SelectCommand="SELECT Distinct(YEAR(paymentDate)) AS YEAR FROM PaymentRecord"></asp:SqlDataSource>
-  <%--  <br />
-
-          
-   </div>
-                             <asp:Label Text ="Current Invoice" runat ="server"></asp:Label>
-                            <br />
-    <asp:GridView ID="GridView1" runat="server"  gridlines="None" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" AllowSorting="True" ShowFooter="True" onrowdatabound="GridView1_RowDataBound" EmptyDataText="There are no records to display." >
-        <Columns>
-            <asp:TemplateField HeaderText ="Select" >
-            <ItemTemplate>
-                <asp:CheckBox id="chkSelect" runat ="server" />
-            </ItemTemplate>
-                <FooterStyle Font-Bold="True" HorizontalAlign="Right" />
-            </asp:TemplateField>
-            <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month" ReadOnly="True" FooterText="Total:" >
-            <FooterStyle HorizontalAlign="Right" Font-Bold="True" />
-            <ItemStyle HorizontalAlign="Center" />
-            </asp:BoundField>
-            <asp:BoundField DataField="PaymentAmount" HeaderText="Payment Amount" SortExpression="PaymentAmount" DataFormatString="{0:c}" ReadOnly="True" >
-            <FooterStyle HorizontalAlign="Center" />
-            <ItemStyle HorizontalAlign="Center" />
-            </asp:BoundField>
-              <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" SortExpression="PaymentType" >
-            <ItemStyle HorizontalAlign="Center" />
-            </asp:BoundField>
-           <asp:BoundField DataField="CheckNumber" HeaderText="Check Number" SortExpression="CheckNumber" InsertVisible="True" >
-             <ItemStyle HorizontalAlign="Center" /> --%>
    
 
     </div>
@@ -243,22 +258,7 @@
 
       </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-          <%--      SelectCommand="SELECT CASE { fn MONTH(PaymentRecord.paymentDate) } 
-            when 1 then 'January'
-            when 2 then 'February'
-            when 3 then 'March'
-            when 4 then 'April'
-            when 5 then 'May'
-            when 6 then 'June'
-            when 7 then 'July'
-            when 8 then 'August'
-            when 9 then 'September'
-            when 10 then 'October'
-            when 11 then 'November'
-            when 12 then 'December'
-           END as MonthName, [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice],CancelledInvoice FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } --%>
                 SelectCommand="SELECT [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice],CancelledInvoice FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } 
-
             when 1 then 'January'
             when 2 then 'February'
             when 3 then 'March'
@@ -284,29 +284,6 @@
             </asp:SqlDataSource>
                             <br />
                             <br />
-     <%--                       <asp:Label Text ="Cancelled Invoice" runat ="server"></asp:Label>
-                            <br />
-                            <asp:GridView ID="GridView2" runat="server"  gridlines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" onrowdatabound="GridView2_RowDataBound" AllowSorting="True" EmptyDataText="There are no records to display.">
-       <Columns>
-            <asp:TemplateField HeaderText ="Select" >
-            <ItemTemplate>
-                <asp:CheckBox id="chkSelect" runat ="server" />
-            </ItemTemplate>
-                <FooterStyle Font-Bold="True" HorizontalAlign="Right" />
-            </asp:TemplateField>
-           <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month" ReadOnly="True" FooterText="Total:" >
-            <FooterStyle HorizontalAlign="Right" Font-Bold="True" />
-            <ItemStyle HorizontalAlign="Center" />
-            </asp:BoundField>
-            <asp:BoundField DataField="PaymentAmount" HeaderText="Payment Amount" SortExpression="PaymentAmount" DataFormatString="{0:c}" ReadOnly="True" >
-            <FooterStyle HorizontalAlign="Center" />
-            <ItemStyle HorizontalAlign="Center" />
-            </asp:BoundField>
-              <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" SortExpression="PaymentType" >
-            <ItemStyle HorizontalAlign="Center" />
-            </asp:BoundField>
-           <asp:BoundField DataField="CheckNumber" HeaderText="Check Number" SortExpression="CheckNumber" InsertVisible="True" >
-             <ItemStyle HorizontalAlign="Center" /> --%>
               </div>  
                                  <br />
               </div>
@@ -369,22 +346,7 @@
          </Columns>
                              </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-           <%--     SelectCommand="SELECT CASE { fn MONTH(PaymentRecord.paymentDate) } 
-            when 1 then 'January'
-            when 2 then 'February'
-            when 3 then 'March'
-            when 4 then 'April'
-            when 5 then 'May'
-            when 6 then 'June'
-            when 7 then 'July'
-            when 8 then 'August'
-            when 9 then 'September'
-            when 10 then 'October'
-            when 11 then 'November'
-            when 12 then 'December'
-           END as MonthName, [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice] FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } --%> 
-              
-             SelectCommand="SELECT [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice] FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } 
+                SelectCommand="SELECT [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice] FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } 
             when 1 then 'January'
             when 2 then 'February'
             when 3 then 'March'
@@ -408,7 +370,6 @@
       
                 </SelectParameters>
             </asp:SqlDataSource>
-
  </div>
        <br />
                              
@@ -423,19 +384,8 @@
 			     <asp:Button class="btn btn-primary btn-inside" ID="btnExportGrid2" runat="server" Text="Export Cancelled Invoices to Excel" OnClick="exportBtn2_ClickAv" />
             <br />
 		</div>
-    
-			
-			
-		
+ 	
 	</div>
-                            
 
-
-
-            <%--<asp:Button ID="btnExport" runat="server" OnClick="btnExport2_Click" Text="Button" />--%>
-                 <asp:Button ID="btnExportGrid" runat="server" Text="Export Invoices to Excel" OnClick="exportBtn_ClickAv" />
-            <asp:Button ID="btnExportGrid2" runat="server" Text="Export Cancelled Invoices to Excel" OnClick="exportBtn2_ClickAv" />
-                   
-                          </div></div>
+                          </div>
 </asp:Content>
-

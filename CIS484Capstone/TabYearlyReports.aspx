@@ -3,39 +3,43 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+ 
+<meta charset="UTF-8">
 
-    
-    <meta charset="UTF-8">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/sb-admin.css" rel="stylesheet">
+         <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+      <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+      <!-- Logo FOnt-->
+      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
 	  <!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
 <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
-
-    
+        
       <!-- Logo FOnt-->
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-    
-        <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
-       
-      <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
 
-      <%--<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="~/carvet-square-down.svg">
+                
+            <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+      <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
+
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
         <i class="fas fa-bars"></i>
-      </button>--%>
-
-    <%--  <!-- Navbar Search -->
-      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>--%>
+      </button>
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
@@ -52,36 +56,79 @@
 
     </nav>
 
-    <div id="wrapper">
 
-      <!-- Sidebar -->
+            <div id="wrapper">
+
+ <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="ProgramForm.aspx">
+          <a class="nav-link" href="OnlineForm.aspx">
             <i class="fas fa-fw fa-book-open"></i>
-            <span>Live Program Form</span>
+            <span>Programs</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="OnlineForm.aspx">
-            <i class="fas fa-fw fa-wifi"></i>
-            <span>Online Program Form</span></a>
+      <li class="nav-item">
+          <a class="nav-link" href="AnimalPage.aspx">
+            <i class="fas fa-fw fa-book-open"></i>
+            <span>Animal</span>
+          </a>
         </li>
-       
-        <li class="nav-item active">
-          <a class="nav-link" href="ReportChoice.aspx">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span></a>
+           <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Reports</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+            <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+            <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+            <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+            <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+            <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
+          </div>
         </li>
-      
-        
-        <li class="nav-item">
-          <a class="nav-link" href="Payment.aspx">
-            <i class="fas fa-fw fa-dollar-sign"></i>
-            <span>Payment</span></a>
+          <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Payment</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+              <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+            <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+            <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+          </div>
         </li>
 
-           <li class="nav-item">
+          <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Add New Program Content</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
+            <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+          </div>
+        </li>
+
+           <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Update Program Content</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
+          </div>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="createUser.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Create Outreach Coordinator Access</span></a>
+        </li>
+          <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
             <i class="fas fa-fw fa-door"></i>
             <span>Logout</span></a>
@@ -112,12 +159,6 @@
 
           </div>
           </div>
-
-        <!-- jQuery and Bootstrap links - do not delete! -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-<!-- end of do not delete -->
 
 </asp:Content>
 
