@@ -60,6 +60,7 @@ public partial class AnimalPage : System.Web.UI.Page
     protected void btnEditAnimal_Click(object sender, EventArgs e)
     {
         AnimalEditDiv.Visible = true;
+
         ViewAnimals.Visible = false;
 
 
@@ -212,7 +213,6 @@ public partial class AnimalPage : System.Web.UI.Page
 
 
     }
-
 
 
 }

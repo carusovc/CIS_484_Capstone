@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using SQL = System.Data;
 
 
 public partial class MonthlyWildlifeReport : System.Web.UI.Page
@@ -18,23 +23,12 @@ public partial class MonthlyWildlifeReport : System.Web.UI.Page
     {
         Response.Redirect("ReportChoice.aspx");
     }
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        //DataSet ds0 = new DataSet();
-        //ds0 = ;
-        //DataView dataview_ldata = dsldata.Tables[0].DefaultView;
-        //DataTable dt = dsldata.Tables[0];
-        //GridView1.DataSource = (DataSet)Session["data"];
-        //GridView1.DataBind();
-        ExportToExcel(gridPrograms);
-
-    }
     private void ExportToExcel(GridView GrdView)
     {
         try
         {
             Response.Clear();
-            Response.AddHeader("content-disposition", "attachment; filename=SQLDataTest.xls");
+            Response.AddHeader("content-disposition", "attachment; filename=FileName.xls");
             Response.Charset = "";
             // If you want the option to open the Excel file without saving than
             // comment out the line below
@@ -50,6 +44,40 @@ public partial class MonthlyWildlifeReport : System.Web.UI.Page
         {
             Response.Write("<script>alert('" + ex.Message + "')</script>");
         }
+    }
+
+    protected void Button1_Click1(object sender, EventArgs e)
+    {
+
+
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        DataSet ds;
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+
+
+
+        cmd = new SqlCommand("SELECT * FROM Program", sc);
+
+        sc.Open();
+
+        da = new SqlDataAdapter(cmd);
+        ds = new DataSet();
+
+        da.Fill(ds);
+
+        //string excelname = "Program_Report";
+        //string current = DateTime.Today.ToShortDateString();
+        string filename = "Program_Report" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString();
+
+        ds.WriteXml(@"C:\Users\labpatron\Desktop\" + filename + ".xls");
+        sc.Close();
     }
 
 

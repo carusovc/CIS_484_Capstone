@@ -394,6 +394,7 @@
     &nbsp;<asp:Label ID="Label4" runat="server" Text=""></asp:Label>
     </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -423,11 +424,12 @@
  <script src="js/sb-admin.min.js"></script>
 
 
+    <!-- Custom scripts for all pages-->
+ <script src="js/sb-admin.min.js"></script>
 
 
 
-                
-    <!-- jQuery and Bootstrap links - do not delete! -->
+
 
   
         </body>
@@ -438,4 +440,7 @@
         </div>
 
 </asp:Content>
+
+
+
 
