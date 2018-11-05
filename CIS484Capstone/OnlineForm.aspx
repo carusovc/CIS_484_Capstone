@@ -94,7 +94,7 @@
  <!-- Sidebar -->
       <ul class="sidebar navbar-nav active">
         <li class="nav-item">
-          <a class="nav-link" href="OnlineForm.aspx">
+          <a class="nav-link" href="Programs.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Programs</span>
           </a>
@@ -1821,7 +1821,7 @@ foreach (ListItem item in CBLGold.Items)
 
                                             <div class="modal-footer">
                                                 <%-- <button type="button" class="btn btn-primary LoginButton" data-toggle="modal" data-target="#OnlineProgramModal" data-dismiss="modal">Add</button>--%>
-                                                <asp:Button ID="btnSubmitForm" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary LoginButton" href="ProgramForm.aspx" Text="Add" aria-hidden="true" />
+                                                <asp:Button ID="btnSubmitForm" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary LoginButton" href="Programs.aspx" Text="Add" aria-hidden="true" />
                                                 <asp:Button runat="server" type="button" class="btn btn-secondary" data-dismiss="modal" Text="Close"></asp:Button>
                                             </div>
                                         </div>

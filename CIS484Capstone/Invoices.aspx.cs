@@ -76,8 +76,8 @@ public partial class Invoices : System.Web.UI.Page
             string filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
             Response.Clear();
             Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + "\"");
-
+            //Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + "\"");
+            Response.AddHeader("content-disposition", "attachment;filename=" + invoiceyear + filename + ".xls");
             Response.Charset = "";
             Response.ContentType = "application/vnd.ms-excel";
             StringWriter sw = new StringWriter();

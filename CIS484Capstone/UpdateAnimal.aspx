@@ -6,7 +6,7 @@
         <p>
 <%--        <h2>Update Animal</h2>--%>
     <p>Select Animal:
-        <asp:DropDownList ID="ddlAnimal" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="AnimalName" DataValueField="AnimalID"  OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
+        <asp:DropDownList ID="ddlAnimal" runat="server" AppendDataBoundItems="false" AutoPostBack="false" DataTextField="AnimalName" DataValueField="AnimalID"  OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
         </asp:DropDownList>
             <p>
        Animal Type:
@@ -18,7 +18,7 @@
                 &nbsp; Animal Name:
     <asp:TextBox ID="txtAnimalName" runat="server"></asp:TextBox>
                 &nbsp;&nbsp;Status:
-                <asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="true">
+                <asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="false">
                     <asp:ListItem>Active</asp:ListItem>
                     <asp:ListItem>Inactive</asp:ListItem>
                 </asp:DropDownList>

@@ -153,7 +153,7 @@
                <%-- <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>--%>
-                 <asp:Button ID="btnClose" runat="server" OnClick="btnClose_Click"  class ="close" href="OnlineForm.aspx" Text="X" aria-hidden="true"/>
+                 <asp:Button ID="btnClose" runat="server" OnClick="btnClose_Click"  class ="close" href="Programs.aspx" Text="X" aria-hidden="true"/>
             </div>
             <div class="modal-body p-4" id="resultAddProgram">
                
@@ -561,11 +561,11 @@
                 <div class="row">
     <div class="col-md-4"> 
         <%--<button class="btn btn-primary LoginButton" type="submit">Add</button>--%>
-                      <asp:Button ID="btnSubmitForm" runat="server" OnClick="btnSubmitForm_Click"  class ="btn btn-primary LoginButton" href="OnlineForm.aspx" Text="Add" aria-hidden="true"/>
+                      <asp:Button ID="btnSubmitForm" runat="server" OnClick="btnSubmitForm_Click"  class ="btn btn-primary LoginButton" href="Programs.aspx" Text="Add" aria-hidden="true"/>
    </div>
 </div>
 <%--                <button type="button" class="btn btn-secondary" >Close</button>--%>
-                  <asp:Button ID="btnClose2" runat="server" OnClick="btnClose_Click"  class ="btn btn-secondary" href="OnlineForm.aspx" Text="Close" aria-hidden="true"/>
+                  <asp:Button ID="btnClose2" runat="server" OnClick="btnClose_Click"  class ="btn btn-secondary" href="Programs.aspx" Text="Close" aria-hidden="true"/>
             </div>
        
     
@@ -824,7 +824,7 @@
                <%-- <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>--%>
-                <asp:Button ID="btnClose3" runat="server" OnClick="btnClose_Click"  class ="close" href="OnlineForm.aspx" aria-label="Close" Text="X" aria-hidden="true"/>
+                <asp:Button ID="btnClose3" runat="server" OnClick="btnClose_Click"  class ="close" href="Programs.aspx" aria-label="Close" Text="X" aria-hidden="true"/>
             
             </div>
             <div class="modal-body p-4" id="resultProgram">
@@ -953,8 +953,8 @@
         <%-- <button type="button" class="btn btn-primary LoginButton"  data-toggle="modal" data-target="#EditProgramModal">Edit</button>
                 <button type="button" class="btn btn-secondary" >Close</button>--%>
 
-                 <%--<asp:Button ID="btnEdit" runat="server" OnClick="btnClose_Click"  class="btn btn-primary LoginButton" data-toggle="modal" data-target="#EditProgramModal" href="OnlineForm.aspx" aria-label="Close" Text="Edit" aria-hidden="true"/>--%>
-                 <asp:Button ID="btnClose4" runat="server" OnClick="btnClose_Click"  class="btn btn-secondary"  href="OnlineForm.aspx" aria-label="Close" Text="Close" aria-hidden="true"/>
+                 <%--<asp:Button ID="btnEdit" runat="server" OnClick="btnClose_Click"  class="btn btn-primary LoginButton" data-toggle="modal" data-target="#EditProgramModal" href="Programs.aspx" aria-label="Close" Text="Edit" aria-hidden="true"/>--%>
+                 <asp:Button ID="btnClose4" runat="server" OnClick="btnClose_Click"  class="btn btn-secondary"  href="Programs.aspx" aria-label="Close" Text="Close" aria-hidden="true"/>
             
             </div>
 
@@ -984,13 +984,13 @@
             <%--<button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>--%>
-               <asp:Button ID="btnClose5" runat="server" OnClick="btnClose_Click"  class="close"  href="OnlineForm.aspx" aria-label="Close" Text="X" aria-hidden="true"/>
+               <asp:Button ID="btnClose5" runat="server" OnClick="btnClose_Click"  class="close"  href="Programs.aspx" aria-label="Close" Text="X" aria-hidden="true"/>
             
           </div>
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
            <%-- <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>--%>
-               <asp:Button ID="btnCancel" runat="server" OnClick="btnClose_Click"  class="btn btn-secondary"  href="OnlineForm.aspx" Text="Cancel"/>
+               <asp:Button ID="btnCancel" runat="server" OnClick="btnClose_Click"  class="btn btn-secondary"  href="Programs.aspx" Text="Cancel"/>
             
             <a class="btn btn-primary" href="Login-2.html">Logout</a>
           </div>

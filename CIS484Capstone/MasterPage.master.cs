@@ -32,21 +32,26 @@ public partial class MasterPage : System.Web.UI.MasterPage
             if (con.State == System.Data.ConnectionState.Open)
             {
 
-                string read = "Select distinct(OrgName) from Organization";
+                string read = "Select * from Organization";
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlDataReader myRead = cmd.ExecuteReader();
 
                 while (myRead.Read())
                 {
 
-                    ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString()/*, myRead["OrgID"].ToString()*/));
+                    ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
                 }
                 ddlOrganization.DataBind();
 
             }
         }
-    }
-    protected void ddlOrganization_SelectedIndexChanged1(object sender, EventArgs e)
+
+        
+            
+                
+               
+        }
+        protected void ddlOrganization_SelectedIndexChanged1(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -77,7 +82,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 txtOrgName.Text = sdr[1].ToString();
                 txtCity.Text = sdr[2].ToString();
                 txtCounty.Text = sdr[3].ToString();
-               // lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
+                //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
         }
@@ -110,6 +115,17 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
        // lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
        // lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+
+        string read = "Select * from Organization";
+        SqlCommand cmd = new SqlCommand(read, sc);
+        SqlDataReader myRead = cmd.ExecuteReader();
+
+        while (myRead.Read())
+        {
+
+            ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
+        }
+        ddlOrganization.DataBind();
 
     }
 
