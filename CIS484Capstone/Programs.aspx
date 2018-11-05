@@ -114,7 +114,84 @@
         <div id="wrapper">
 
             <!-- Sidebar -->
-            <ul class="sidebar navbar-nav">
+      <ul class="sidebar navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="OnlineForm.aspx">
+            <i class="fas fa-fw fa-book-open"></i>
+            <span>Programs</span>
+          </a>
+        </li>
+      <li class="nav-item active">
+          <a class="nav-link" href="AnimalPage.aspx">
+            <i class="fas fa-fw fa-book-open"></i>
+            <span>Animal</span>
+          </a>
+        </li>
+           <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Reports</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+            <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+            <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+            <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+            <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+            <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
+          </div>
+        </li>
+          <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Payment</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+              <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+            <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+            <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+          </div>
+        </li>
+
+          <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Add New Program Content</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
+            <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+          </div>
+        </li>
+
+           <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Update Program Content</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
+          </div>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="createUser.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Create Outreach Coordinator Access</span></a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Logout</span></a>
+        </li>
+
+      </ul>
+
+            <!-- Sidebar -->
+            <%--<ul class="sidebar navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="ProgramForm.aspx">
                         <i class="fas fa-fw fa-book-open"></i>
@@ -162,7 +239,9 @@
                 </li>
 
 
-            </ul>
+            </ul>--%>
+
+
 
             <div id="content-wrapper">
 
@@ -220,18 +299,26 @@
                                     });
                                 </script>
 
-
+<div style="width: 75%; padding-left: 25%;" >   
     <div class="container1 block">
   <ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#Program">Program</a></li>
-  <li><a data-toggle="tab" href="#OnlineProgram">OnlineProgram</a></li>
+  <li class="active">
+
+      <a data-toggle="tab" href="#Program">Program</a></li>
+  <li>
+      <a data-toggle="tab" href="#OnlineProgram">OnlineProgram</a></li>
 </ul>
+            </div>
+
+</div>
+
 
 <div class="tab-content">
   <div id="Program" class="tab-pane fade in active">
      <%--VERSION 1 Live--%>
-                                <div class="row mx-auto">
-                                <div class="block col-md-8 mx-auto d-flex justify-content-center">
+                                <div class="row mx-auto co">
+                                    <div class="block col-md-6 mx-auto d-flex justify-content-center">
+
                                     <asp:Repeater ID="rptProgramHLLive" runat="server" OnItemDataBound="OnItemDataBoundLive">
                                         <HeaderTemplate>
                                             <table class="Grid table table-borderless table-hover table-condensed WideTable" border="1">
@@ -1467,5 +1554,11 @@ foreach (ListItem item in CBLGold.Items)
                         <script src="js/sb-admin.min.js"></script>
                     </div>
     </body>
+
+    </div>
+
+    </div>
+
+    </div>
 
 </asp:Content>
