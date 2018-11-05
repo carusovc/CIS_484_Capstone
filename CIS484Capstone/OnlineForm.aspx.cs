@@ -14,9 +14,17 @@ public partial class OnlineForm : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        if (!this.IsPostBack)
+        {
+            createAccordianUsingRepeater();
+        }
+
+
+
+
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-       // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
@@ -542,7 +550,58 @@ public partial class OnlineForm : System.Web.UI.Page
         //    //    SetDaysInMonth(28);
         //    //}
     }
+
+
+    private static DataTable GetData(string query)
+    {
+        string constr = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.CommandText = query; //"SELECT Status, ProgramAddress, ProgramID, ProgramTypeID from Program"
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+                    sda.SelectCommand = cmd;
+                    using (DataSet ds = new DataSet())
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+    }
+
+    protected void OnItemDataBound(object sender, RepeaterItemEventArgs e)
+    {
+        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+        {
+            string programID = (e.Item.FindControl("hfProgramID") as HiddenField).Value;
+            Repeater rptOrders = e.Item.FindControl("rptProgramLL") as Repeater;
+            rptOrders.DataSource = GetData(string.Format("SELECT Top 1 Status, ProgramAddress From Program WHERE ProgramID = " + programID + "", programID));
+            rptOrders.DataBind();
+
+        }
+    }
+
+    public void createAccordianUsingRepeater()
+    {
+        //rptProgramHL.DataSource = GetData("SELECT OrgID, OrgName from Organization");
+        rptProgramHL.DataSource = GetData("SELECT ProgramID, ProgramType.ProgramName AS ProgramType from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID"); //inner join Organization on z.OrgID = Organization.OrgID
+
+        // "Select ProgramType.ProgramName from ProgramType inner join Program on ProgramType.ProgramTypeID = Program.ProgramTypeID where Program.ProgramID = @programID";
+        //"Select Organization.OrgName from Organization inner join Program on Organization.OrgID = Program.OrgID where Program.ProgramID = @programID";
+        rptProgramHL.DataBind();
+    }
+
+
+
 }
+
+
 
 
 
@@ -611,4 +670,3 @@ public partial class OnlineForm : System.Web.UI.Page
 //    }
 //}
 //}
-

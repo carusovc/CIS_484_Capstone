@@ -92,20 +92,11 @@
         <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
             <i class="fas fa-fw fa-book-open"></i>
-            <span>Live Program Form</span>
+            <span>Programs</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="OnlineForm.aspx">
-            <i class="fas fa-fw fa-wifi"></i>
-            <span>Online Program Form</span></a>
-        </li>
        
-        <li class="nav-item active">
-          <a class="nav-link" href="ReportChoice.aspx">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Reports</span></a>
-        </li>
+      
       
         
         <li class="nav-item">
@@ -114,6 +105,42 @@
             <span>Payment</span></a>
         </li>
            <li class="nav-item">
+          <a class="nav-link" href="#" data-target="#UpdateOrganizationModal" data-toggle="modal">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Update Org</span></a>
+        </li>
+
+           <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Reports</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="#">Animal</a>
+            <a class="dropdown-item" href="#">Monthly</a>
+            <a class="dropdown-item" href="#">Yearly</a>
+            <a class="dropdown-item" href="#">Live Program</a>
+            <a class="dropdown-item" href="#">Online Program</a>
+            <a class="dropdown-item" href="#">Grade</a>
+          </div>
+        </li>
+
+           <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Add Content</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add Program Type</a>
+            <a class="dropdown-item" href="#">Add Organization</a>
+            <a class="dropdown-item" href="#">Add Animal</a>
+            <a class="dropdown-item" href="#">Add Educator</a>
+          </div>
+        </li>
+
+
+
+          <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
             <i class="fas fa-fw fa-door"></i>
             <span>Logout</span></a>
@@ -264,46 +291,114 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-
-
-
-
+    <div class="modal-body">
         <div runat= server id="AnimalAddDiv">
-    <h2>Create New Animal</h2>
-    <p>&nbsp;</p>
-    <div>Animal Type:
-        <asp:DropDownList ID="DropDownList1" runat="server">
-            <asp:ListItem>Bird</asp:ListItem>
-            <asp:ListItem>Mammal</asp:ListItem>
-            <asp:ListItem>Reptile</asp:ListItem>
-        </asp:DropDownList>
-    &nbsp;&nbsp; 
+            <p>&nbsp;</p>
+            <div class="row">
+                <div class=" col-md-4 InternalAnimalForm"><h6>Animal Type</h6> </div>
+                <div class=" col-md-3 InternalAnimalForm">
+                    <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalType" runat="server">
+                        <asp:ListItem>Bird</asp:ListItem>
+                        <asp:ListItem>Mammal</asp:ListItem>
+                        <asp:ListItem>Reptile</asp:ListItem>
+                    </asp:DropDownList>&nbsp;&nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-4 InternalAnimalForm"><h6>Animal Name</h6> </div>
+                <div class=" col-md-3 InternalAnimalForm">
+                    <asp:TextBox  class="InternalAnimalForm" ID="txtAnimalName" runat="server"></asp:TextBox>
+                </div>
+            </div>
+            <div>
+            </div>
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>&nbsp;
+            <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
         </div>
-        <div>
-        Animal Name:
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        </div>
-   
-
-  
-    <div>
-        <asp:Button ID="Button3" runat="server" Text="Add" OnClick="btnAdd_Click" />
     </div>
-    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-    &nbsp;<asp:Label ID="Label2" runat="server" Text=""></asp:Label>
-
-
-  
-    </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-inside">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <div class="modal-footer">
+          <asp:Button ID="Button3" class="btn btn-primary btn-inside" runat="server" Text="Save changes" OnClick="btnAdd_Click" />
+            <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+                <!-- Edit Animal Modal - Megan-->
+
+<div class="modal" id="EditAnimalModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Animal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  <div class="modal-body">
+      <div runat= server id="AnimalEditDiv">
+          <p>&nbsp;</p>
+          <div class="row"> 
+            <div class=" col-md-4 InternalAnimalForm"><h6>Select Animal</h6> </div>
+                <div class=" col-md-3 InternalAnimalForm">
+                <asp:DropDownList ID="ddlAnimal" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="AnimalName" DataValueField="AnimalID"  OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
+                </asp:DropDownList>
+                </div>     
+               </div>
+            <div class="row"> 
+                <div class=" col-md-4 InternalAnimalForm"><h6>Animal Type</h6> </div>
+                    <div class=" col-md-3 InternalAnimalForm">
+                        <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalTypeEdit" runat="server">
+                            <asp:ListItem>Bird</asp:ListItem>
+                            <asp:ListItem>Mammal</asp:ListItem>
+                            <asp:ListItem>Reptile</asp:ListItem>
+                        </asp:DropDownList>&nbsp;&nbsp; 
+                    </div>
+            </div>
+              <div class="row"> 
+                <div class=" col-md-4 InternalAnimalForm"><h6>Animal Name</h6> </div>
+                    <div class=" col-md-3 InternalAnimalForm">
+                         <asp:TextBox ID="txtBoxAnimalName" runat="server"></asp:TextBox>
+                    </div>
+              </div>
+              <div class="row"> 
+                <div class=" col-md-4 InternalAnimalForm"><h6>Age</h6> </div>
+                    <div class=" col-md-3 InternalAnimalForm">
+                         <asp:TextBox ID="txtAge" runat="server"></asp:TextBox>
+                    </div>
+              </div>
+              <div class="row"> 
+                <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
+                    <div class=" col-md-3 InternalAnimalForm">
+                        <asp:DropDownList ID="ddlStatus" runat="server">
+            <asp:ListItem>Active</asp:ListItem>
+            <asp:ListItem>Inactive</asp:ListItem>
+        </asp:DropDownList>
+                    </div>
+              </div>
+              <asp:Label ID="lblLastUpdated" runat="server" Text=""></asp:Label>&nbsp;
+              <asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>
+              <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
+            <div class="modal-footer">
+          <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdate_Click" />
+       <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+       
+      <div></div>
+    <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+    &nbsp;<asp:Label ID="Label4" runat="server" Text=""></asp:Label>
+    </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
                   
 		
@@ -329,14 +424,11 @@
  <script src="js/sb-admin.min.js"></script>
 
 
+    <!-- Custom scripts for all pages-->
+ <script src="js/sb-admin.min.js"></script>
 
 
 
-                
-    <!-- jQuery and Bootstrap links - do not delete! -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 
   
@@ -344,6 +436,8 @@
 
 
 </html>
+
+        </div>
 
 </asp:Content>
 
