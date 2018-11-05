@@ -24,7 +24,7 @@ public partial class YearlyInvoices : System.Web.UI.Page
         {
 
 
-            PopulateData();
+           // PopulateData();
 
         }
     }
@@ -167,7 +167,7 @@ public partial class YearlyInvoices : System.Web.UI.Page
             gvExport.RenderControl(htW);
             // string filename2 = /*drpOrg.SelectedValue.ToString() +*/ " Invoice - " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
 
-            string headerTable = @"<Table><tr><td>" + invoiceyear + " " + filename + "</td></tr><tr><td></td></tr></Table>";
+            string headerTable = @"<Table>" + invoiceyear + " " + filename + "</td></tr><tr><td></td></tr></Table>";
 
             Response.Write(headerTable);
             Response.Output.Write(sw.ToString());

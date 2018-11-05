@@ -4,15 +4,22 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    
-<meta charset="UTF-8">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!DOCTYPE html>
 
+
+    <head>
+
+
+
+
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
 
-        
+        <title>WildTek Online</title>
+
         <!-- Bootstrap core CSS-->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -22,11 +29,16 @@
         <!-- Page level plugin CSS-->
         <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
-   <%--         <!-- Custom styles for this template-->
+        <%--    <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">--%>
 
         <!-- Logo FOnt-->
         <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" type="text/css" />
+
 
         <%--<script src ="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js"> </script>--%>
         <script type="text/javascript"> 
@@ -36,8 +48,11 @@
                 });
             });
         </script>
+        <!-- end of do not delete -->
 
+    </head>
 
+    <body>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/sunny/jquery-ui.css" />
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -60,16 +75,14 @@
             });
         </script>
 
-
-          <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+                  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
       <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
         <i class="fas fa-bars"></i>
       </button>
-
-      <!-- Navbar -->
+        <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
         
         <li class="nav-item dropdown no-arrow">
@@ -88,14 +101,14 @@
             <div id="wrapper">
 
  <!-- Sidebar -->
-      <ul class="sidebar navbar-nav active">
+      <ul class="sidebar navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="Programs.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Programs</span>
           </a>
         </li>
-      <li class="nav-item">
+      <li class="nav-item active">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Animal</span>
@@ -1466,5 +1479,6 @@ foreach (ListItem item in CBLGold.Items)
                         <!-- Custom scripts for all pages-->
                         <script src="js/sb-admin.min.js"></script>
                     </div>
+    </body>
 
 </asp:Content>
