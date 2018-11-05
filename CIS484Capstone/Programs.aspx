@@ -4,7 +4,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <!DOCTYPE html>
+    
+<meta charset="UTF-8">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="author" content="">
+   <%-- <!DOCTYPE html>
 
 
     <head>
@@ -18,8 +25,9 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>WildTek Online</title>
+        <title>WildTek Online</title> --%>
 
+        
         <!-- Bootstrap core CSS-->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -29,16 +37,11 @@
         <!-- Page level plugin CSS-->
         <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
-        <%--    <!-- Custom styles for this template-->
+   <%--         <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">--%>
 
         <!-- Logo FOnt-->
         <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" type="text/css" />
-
 
         <%--<script src ="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js"> </script>--%>
         <script type="text/javascript"> 
@@ -48,7 +51,6 @@
                 });
             });
         </script>
-        <!-- end of do not delete -->
 
     </head>
 
@@ -76,93 +78,108 @@
         </script>
 
 
-        <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
+          <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-            <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
+      <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
 
-            <%--<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="~/carvet-square-down.svg">
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
         <i class="fas fa-bars"></i>
-      </button>--%>
+      </button>
 
-            <%--  <!-- Navbar Search -->
-      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search"></i>
-            </button>
+      <!-- Navbar -->
+      <ul class="navbar-nav ml-auto ml-md-0">
+        
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle fa-fw"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
-        </div>
-      </form>--%>
+        </li>
+      </ul>
 
-            <!-- Navbar -->
-            <ul class="navbar-nav ml-auto ml-md-0">
-
-                <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-circle fa-fw"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-                    </div>
-                </li>
-            </ul>
-
-        </nav>
-
-        <div id="wrapper">
-
-            <!-- Sidebar -->
-            <ul class="sidebar navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="ProgramForm.aspx">
-                        <i class="fas fa-fw fa-book-open"></i>
-                        <span>Live Program Form</span>
-                    </a>
-                </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="OnlineForm.aspx">
-                        <i class="fas fa-fw fa-wifi"></i>
-                        <span>Online Program Form</span></a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reports
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Animal</a>
-                        <a class="dropdown-item" href="#">Month</a>
-                        <a class="dropdown-item" href="#">Year</a>
-                        <a class="dropdown-item" href="#">Live Program</a>
-                        <a class="dropdown-item" href="#">Online Program</a>
-                        <a class="dropdown-item" href="#">Grades</a>
-                    </div>
-                </li>
+    </nav>
 
 
+            <div id="wrapper">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="Payment.aspx">
-                        <i class="fas fa-fw fa-dollar-sign"></i>
-                        <span>Payment</span></a>
-                </li>
+ <!-- Sidebar -->
+      <ul class="sidebar navbar-nav active">
+        <li class="nav-item">
+          <a class="nav-link" href="Programs.aspx">
+            <i class="fas fa-fw fa-book-open"></i>
+            <span>Programs</span>
+          </a>
+        </li>
+      <li class="nav-item">
+          <a class="nav-link" href="AnimalPage.aspx">
+            <i class="fas fa-fw fa-book-open"></i>
+            <span>Animal</span>
+          </a>
+        </li>
+           <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Reports</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+            <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+            <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+            <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+            <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+            <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
+          </div>
+        </li>
+          <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Payment</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+              <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+            <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+            <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+          </div>
+        </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="CreateUser.aspx">
-                        <i class="fas fa-fw fa-person"></i>
-                        <span>Create Educator Access</span></a>
-                </li>
+          <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Add New Program Content</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
+            <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+          </div>
+        </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="Default.aspx">
-                        <i class="fas fa-fw fa-door"></i>
-                        <span>Logout</span></a>
-                </li>
+           <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Update Program Content</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" >
+            <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
+          </div>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="createUser.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Create Outreach Coordinator Access</span></a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="Default.aspx">
+            <i class="fas fa-fw fa-door"></i>
+            <span>Logout</span></a>
+        </li>
 
-
-            </ul>
+      </ul>
 
             <div id="content-wrapper">
 
@@ -174,7 +191,16 @@
 
                         </div>
                     </div>
+                    <div class="row">
+            <div class ="modifyOptions mx-auto">
+         
+                <div class="btn btn-primary btn-inside" data-target="#AddProgramModal" data-toggle="modal">Add Program</div>
+      <div class="btn btn-primary btn-inside" data-target="#EditProgramModal" data-toggle="modal">Edit Program</div>
+     <%--<asp:Button ID="Button3" runat="server" Text="View Animal" class="btn btn-primary btn-inside" OnClick="btnViewAnimal_Click"></asp:Button>--%>
 
+       </div>
+                </div>
+            <br />
                     <div>
 
 
@@ -1466,6 +1492,8 @@ foreach (ListItem item in CBLGold.Items)
                         <!-- Custom scripts for all pages-->
                         <script src="js/sb-admin.min.js"></script>
                     </div>
+
     </body>
+
 
 </asp:Content>

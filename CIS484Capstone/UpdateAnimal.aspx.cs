@@ -145,5 +145,37 @@ public partial class UpdateAnimal : System.Web.UI.Page
 
 
     }
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+        System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
+        delete.Connection = sc;
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+        delete.CommandText = "Delete from Animal where AnimalID = @AnimalID";
+        delete.Parameters.AddWithValue("@AnimalID", ddlAnimal.SelectedItem.Value);
+        delete.ExecuteNonQuery();
+        ddlAnimal.Items.Clear();
+        //call read array
+        con.Open();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+            string read = "Select * from Animal";
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+            while (myRead.Read())
+            {
+                ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+            }
+            // ddlAnimal.DataBind();
+        }
+        txtAnimalName.Text = "";
+    }
+}
 
 }
