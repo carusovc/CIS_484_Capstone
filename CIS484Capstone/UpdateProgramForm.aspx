@@ -7,6 +7,7 @@
         <h2>Update Program Form</h2>
     <p>Select Program ID:
         <asp:DropDownList ID="ddlProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged ="ddlProgramID_SelectedIndexChanged1">
+        <asp:ListItem Text="--Select Online Program ID--" Value="0" />
         </asp:DropDownList>
             <p>
        Program Type:
@@ -52,19 +53,34 @@
 &nbsp;
                 Program Time:
          <asp:TextBox ID="txtProgramTime" runat="server"></asp:TextBox>
-         &nbsp; Educators:
-         <asp:TextBox ID="txtTempEducators" runat="server"></asp:TextBox>
+         &nbsp; Educators: <asp:ListBox ID="drpEducators" runat="server" SelectionMode="Multiple"><asp:ListItem Text="--Select Educators--" Value="0" /></asp:ListBox>
+<%--         &nbsp; Educators:
+         <asp:TextBox ID="txtTempEducators" runat="server"></asp:TextBox>--%>
     </p>
      <p>
-         Birds:
-         <asp:TextBox ID="txtTempBirds" runat="server"></asp:TextBox>
-&nbsp; Reptiles:<asp:TextBox ID="txtTempReptiles" runat="server"></asp:TextBox>
-&nbsp;Mammals:
-         <asp:TextBox ID="txtTempMammals" runat="server"></asp:TextBox>
+             Birds:
+    <asp:ListBox ID="ddlBirds" runat="server" SelectionMode="Multiple">
+        <asp:ListItem Text="--Select Birds--" Value="0" />
+    </asp:ListBox>
+<%--         Birds:
+         <asp:TextBox ID="txtTempBirds" runat="server"></asp:TextBox>--%>
+         &nbsp;&nbsp; Reptiles:
+    <asp:ListBox ID="ddlReptiles" runat="server" SelectionMode="Multiple">
+        <asp:ListItem Text="--Select Reptiles--" Value="0" />
+    </asp:ListBox>
+<%--&nbsp; Reptiles:<asp:TextBox ID="txtTempReptiles" runat="server"></asp:TextBox>--%>
+             Mammals:
+    <asp:ListBox ID="lstMammals" runat="server" SelectionMode="Multiple">
+        <asp:ListItem Text="--Select Mammals--" Value="0" />
+    </asp:ListBox>
+<%--&nbsp;Mammals:
+         <asp:TextBox ID="txtTempMammals" runat="server"></asp:TextBox>--%>
     </p>
      <p>
-         Grades:
-         <asp:TextBox ID="txtTempGrades" runat="server"></asp:TextBox>
+             Grades:
+    <asp:ListBox ID="AddGrade" runat="server" SelectionMode="Multiple"><asp:ListItem Text="--Select Grades--" Value="0" /></asp:ListBox>
+<%--         Grades:
+         <asp:TextBox ID="txtTempGrades" runat="server"></asp:TextBox>--%>
      </p>
      <p>
          Comments:
