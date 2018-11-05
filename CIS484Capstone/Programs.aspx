@@ -11,6 +11,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="author" content="">
+   <%-- <!DOCTYPE html>
+
+
+    <head>
+
+
+
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>WildTek Online</title> --%>
 
         
         <!-- Bootstrap core CSS-->
@@ -37,7 +52,9 @@
             });
         </script>
 
+    </head>
 
+    <body>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/sunny/jquery-ui.css" />
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -1475,5 +1492,8 @@ foreach (ListItem item in CBLGold.Items)
                         <!-- Custom scripts for all pages-->
                         <script src="js/sb-admin.min.js"></script>
                     </div>
+
+    </body>
+
 
 </asp:Content>
