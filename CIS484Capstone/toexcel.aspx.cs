@@ -15,19 +15,6 @@ public partial class toexcel : System.Web.UI.Page
 
     }
 
-    
-
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        //DataSet ds0 = new DataSet();
-        //ds0 = ;
-        //DataView dataview_ldata = dsldata.Tables[0].DefaultView;
-        //DataTable dt = dsldata.Tables[0];
-       // GridView1.DataSource = (DataSet)Session["data"];
-        //GridView1.DataBind();
-        //ExportToExcel(gridPrograms);
-
-    }
 
     private void ExportToExcel(GridView GrdView)
     {

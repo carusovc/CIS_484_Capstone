@@ -1,38 +1,33 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="OnlineForm.aspx.cs" Inherits="OnlineForm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Programs.aspx.cs" Inherits="Programs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-        
-<meta charset="UTF-8">
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/sb-admin.css" rel="stylesheet">
-         <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <!-- Bootstrap core CSS-->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-      <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <!-- Page level plugin CSS-->
-    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+        <!-- Custom fonts for this template-->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
+        <!-- Page level plugin CSS-->
+        <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
-      <!-- Logo FOnt-->
-      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+        <%--    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">--%>
 
-	  <!-- Bootstrap v4 -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
-<link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
-<link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
-        
-      <!-- Logo FOnt-->
-      <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+        <!-- Logo FOnt-->
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
-                
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" type="text/css" />
+
+
+        <%--<script src ="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js"> </script>--%>
         <script type="text/javascript"> 
             $(function () {
                 $('#lstMammals').multiselect({
@@ -42,7 +37,7 @@
         </script>
         <!-- end of do not delete -->
 
-   
+
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/sunny/jquery-ui.css" />
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -65,114 +60,98 @@
             });
         </script>
 
-            <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
+        <nav class="navbar navbar-expand navbar-dark bg-dark static-top logo">
 
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
+            <a class="navbar-brand mr-1" href="Default.aspx">WildTek</a>
+
+            <%--<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="~/carvet-square-down.svg">
         <i class="fas fa-bars"></i>
-      </button>
+      </button>--%>
 
-      <!-- Navbar -->
-      <ul class="navbar-nav ml-auto ml-md-0">
-        
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <%--  <!-- Navbar Search -->
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button">
+              <i class="fas fa-search"></i>
+            </button>
           </div>
-        </li>
-      </ul>
+        </div>
+      </form>--%>
 
-    </nav>
+            <!-- Navbar -->
+            <ul class="navbar-nav ml-auto ml-md-0">
+
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle fa-fw"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                    </div>
+                </li>
+            </ul>
+
+        </nav>
+
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <ul class="sidebar navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="ProgramForm.aspx">
+                        <i class="fas fa-fw fa-book-open"></i>
+                        <span>Live Program Form</span>
+                    </a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="OnlineForm.aspx">
+                        <i class="fas fa-fw fa-wifi"></i>
+                        <span>Online Program Form</span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reports
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Animal</a>
+                        <a class="dropdown-item" href="#">Month</a>
+                        <a class="dropdown-item" href="#">Year</a>
+                        <a class="dropdown-item" href="#">Live Program</a>
+                        <a class="dropdown-item" href="#">Online Program</a>
+                        <a class="dropdown-item" href="#">Grades</a>
+                    </div>
+                </li>
 
 
-            <div id="wrapper">
 
- <!-- Sidebar -->
-      <ul class="sidebar navbar-nav active">
-        <li class="nav-item">
-          <a class="nav-link" href="OnlineForm.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
-            <span>Programs</span>
-          </a>
-        </li>
-      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
-            <span>Animal</span>
-          </a>
-        </li>
-           <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
-            <span>Reports</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-            <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-            <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-            <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-            <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-            <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-          </div>
-        </li>
-          <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
-            <span>Payment</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" >
-              <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-            <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-            <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
-          </div>
-        </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Payment.aspx">
+                        <i class="fas fa-fw fa-dollar-sign"></i>
+                        <span>Payment</span></a>
+                </li>
 
-          <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
-            <span>Add New Program Content</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
-            <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-          </div>
-        </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="CreateUser.aspx">
+                        <i class="fas fa-fw fa-person"></i>
+                        <span>Create Educator Access</span></a>
+                </li>
 
-           <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
-            <span>Update Program Content</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
-          </div>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="createUser.aspx">
-            <i class="fas fa-fw fa-door"></i>
-            <span>Create Outreach Coordinator Access</span></a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="Default.aspx">
-            <i class="fas fa-fw fa-door"></i>
-            <span>Logout</span></a>
-        </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Default.aspx">
+                        <i class="fas fa-fw fa-door"></i>
+                        <span>Logout</span></a>
+                </li>
 
-      </ul>
 
-      <div id="content-wrapper">
+            </ul>
 
-          
+            <div id="content-wrapper">
 
-        <div class="container-fluid ">
+                <div class="container-fluid ">
 
                     <div class="row">
                         <div class="col-md-12 ProgramTitle">
@@ -198,964 +177,379 @@
                         <br />
                         <div class="">
 
-                            <form>
 
 
-
-
-
-
-
-                                <%--<div>
-    
-         <asp:Button ID="Button1" runat="server" Text="Add Program" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
-     <asp:Button ID="Button2" runat="server" Text="Edit Program" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
-     <asp:Button ID="Button3" runat="server" Text="Update Program" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
-       </div> --%>
-
-                                <%-- <div class="row ProgramSearch">
-    <div class="col-lg-2 col-md-2 col-s-2 ml-auto">
-         <div id="search">         
-         <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
-         <asp:Button ID="Button4" runat="server" class="ProgramSearch" Text="Search"></asp:Button>
-             <br />
-     </div>
-    </div>
-    <div class="col-lg-2 col-md-2 col-s-2">
-        <br />
-    </div>
-    <br />
-</div>
-      
-        <div class="row ProgramSearch">
-            <br />
-            <div class="col-lg-8 col-md-12 col-s-12 mx-auto block ProgramSearch">
-                <br />
-<table class="table table-condensed table-borderless table-hover" style="border-collapse:collapse;"> --%>
-
-
-                                <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-                                <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-                                <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-                                <!------ Include the above in your HEAD tag ---------->
-
-
+                            
+  
 
                                 <script>
-                                    function doTheInsert() {
-                                        var newRow = document.getElementById('testtable').insertRow();
-                                        //newRow.innerHTML = "<td>New row text</td><td>New row 2nd cell</td>";
-                                        newRow.innerHTML = "<td class=\"ShortOrgTime\">11/5/18 3:00 pm</td> <td class=\"ShortOrgName\">James Madison University</td><td class=\"ShortDT\">Skype: Turtles</td><td class=\"ShortEd\">Raina, Alex</td>";
-                                        doInsert2();
-                                    }
-                                    function doInsert2() {
-                                        var newRow = document.getElementById('testtable').insertRow();
-                                        newRow.innerHTML = "<td colspan=\"6\" class=\"hiddenRow\"><div class=\"accordian-body collapse\" id=\"OnlineProgram1\">";
-                                        //"<div>"+
-                                        //                                 "<div class=\"text-center\">"+
-                                        //                                     "<div class=\"\">"+
-                                        //                                         "<br />"+
-                                        //                                         "<h5 class=\"\">Online Program Details</h5>"+
-                                        //                                     "</div>"+
-                                        //                                     "<div class=\" p-4\" id=\"resultOnlineProgram\">"+
-                                        //                                         "<div class=\"row \">"+
-                                        //                                             "<div class=\" col-md-3 ProgramInfoPop\">"+
-                                        //                                                 "<h4>Status:</h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineProgramStatus\">Completed</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<div class=\" col-md-3 ProgramInfoPop\">"+
-                                        //                                                 "<h4>Type </h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineType\">Skype: Oppossum</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<div class=\"col-md-3 ProgramInfoPop\">"+
-                                        //                                                 "<h4>Date:</h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineProgramDate\">10/14/18</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<div class=\"col-md-3 ProgramInfoPop\">"+
-                                        //                                                 "<h4>Start Time:</h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineProgramTime\">3:00 pm</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<!-- End  Description -->"+
-                                        //                                         "</div>"+
-                                        //                                         "<!-- End  row -->"+
-                                        //                                         "<div class=\"row\">"+
-                                        //                                            "<div class=\" col-md-4 ProgramInfoPop\">"+
-                                        //                                                 "<h4>Teacher Name </h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineTeacher\">Mrs. Johnson</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<div class=\" col-md-4 ProgramInfoPop\">"+
-                                        //                                                 "<h4>Grade </h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineGrade\">3rd</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<div class=\"col-md-4 ProgramInfoPop\">"+
-                                        //                                                 "<h4>Report Month</h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineProgramMonth\">October</h6>"+
-                                        //                                             "</div>"+
-                                        //                                         "</div>"+
-                                        //                                         "<div class=\"row \">"+
-                                        //                                             "<div class=\" col-md-3 ProgramInfoPop\">"+
-                                        //                                                 "<h4>Children </h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineChild\">25</h6>"+
-                                        //                                            "</div>"+
-                                        //                                             "<div class=\" col-md-3 ProgramInfoPop\">"+
-                                        //                                                 "<h4>People</h4>"+
-                                        //                                                "<h6 class=\"ProgramDescription\" id=\"OnlinePeople\">45</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<div class=\"col-md-3 ProgramInfoPop\">"+
-                                        //                                                 "<h4>Educators</h4>"+
-                                        //                                                 "<h6 class=\"OnlineEd\" id=\"OrgName\">Raina</h6>"+
-                                        //                                             "</div>"+
-                                        //                                            "<div class=\"col-md-3 ProgramInfoPop\">"+
-                                        //                                                 "<h4>Email</h4>"+
-                                        //                                                 "<h6 class=\"OnlineEmail\" id=\"OnlineEmail\">School@gmail.com</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<!-- End  Description -->"+
-                                        //                                         "</div>"+
-                                        //                                         "<!-- End  row -->"+
-                                        //                                         "<div class=\"row\">"+
-                                        //                                             "<div class=\"col-md-4 ProgramInfoPop\">"+
-                                        //                                                 "<h4>City/County:</h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineProgramcity\">Harrisonburg</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<div class=\"col-md-4 ProgramInfoPop\">"+
-                                        //                                                 "<h4>State/Province:</h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineProgramState\">Rockingham County</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<div class=\"col-md-4 ProgramInfoPop\">"+
-                                        //                                                "<h4>Country:</h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineProgramCountry\">Rockingham County</h6>"+
-                                        //                                             "</div>"+
-                                        //                                         "</div>"+
-                                        //                                         "<div class=\"row\">"+
-                                        //                                             "<div class=\"col-md-3 ProgramInfoPo\p">"+
-                                        //                                                 "<h4 class=\"Animal\">Birds:</h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineProgramBirds\">Buddy, Edie, Verlon</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<div class=\"col-md-3 ProgramInfoPo\p">"+
-                                        //                                                 "<h4 class=\"Animal\">Reptiles:</h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineProgramReptiles\">Severus</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<div class=\"col-md-3 ProgramInfoPop\">"+
-                                        //                                                 "<h4 class=\"Animal\">Mammals:</h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineProgramMammals\">Bo</h6>"+
-                                        //                                             "</div>"+
-                                        //                                             "<div class=\"col-md-3 ProgramInfoPop\">"+
-                                        //                                                 "<h4>Payment Complete?</h4>"+
-                                        //                                                 "<h6 class=\"ProgramDescription\" id=\"OnlineProgramPayment\">Paid</h6>"+
-                                        //                                             "</div>"+
-                                        //                                        "</div>"+
-                                        //                                         "<div class=\"row\">"+
-                                        //                                             "<div class=\"col-md-12 ProgramInfoPop\">"+
-                                        //                                                 "<div class=\"form-group\">"+
-                                        //                                                     "<h6>Comments</h6>"+
-                                        //                                                     "<pThis is where you would see comments about the program.</p>"+
-                                        //                                                 "</div>"+
-                                        //                                             "</div>"+
-                                        //                                         "</div>"+
-                                        //                                    "</div>"+
-                                        //                                 "</div>"+
-                                        //                             "</div></div ></td >";
-                                    }
+                                    $('body').on('click.collapse-next.data-api', '[data-toggle=collapse-next]', function (e) {
+                                        var $target = $(this).parent().next()
+                                        $target.data('collapse') ? $target.collapse('toggle') : $target.collapse()
+                                    });
                                 </script>
 
 
+    <div class="container1 block">
+  <ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#Program">Program</a></li>
+  <li><a data-toggle="tab" href="#OnlineProgram">OnlineProgram</a></li>
+</ul>
 
+<div class="tab-content">
+  <div id="Program" class="tab-pane fade in active">
+     <%--VERSION 1 Live--%>
+                                <div class="row mx-auto">
+                                <div class="block col-md-8 mx-auto d-flex justify-content-center">
+                                    <asp:Repeater ID="rptProgramHLLive" runat="server" OnItemDataBound="OnItemDataBoundLive">
+                                        <HeaderTemplate>
+                                            <table class="Grid table table-borderless table-hover table-condensed WideTable" border="1">
+                                                <tr >
+                                                    <th  class="col-md-1"scope="col">&nbsp
+                                                    </th>
+                                                   
+                                                    <th  class="col-md-4" scope="col">Program Date
+                                                    </th>
+                                                    <th class="col-md-4" scope="col">Program Type
+                                                    </th>
+                                                     <th class="col-md-4" scope="col">Organization
+                                                    </th>
 
-                                <%--<button type="button" > 
-	<div class="table-responsive .d-none">
-    <table class="table table-borderless table-hover ProgramBioShort">
-        <thead  >
-            <tr>
-                <th >Date</th>
-                 <th>Organization Name</th>
-                 <th>Program Type</th>
-                  <th>Educator(s)</th>
-              
-               
-            </tr>
-        </thead>
-      <tbody>
-          
-           <tr class="accordion">
-               
-               <td class="ShortOrgTime">11/9/18 3:00 pm</td>
-                <td class="ShortOrgName">James Madison University</td>
-                <td class="ShortDT">Skype: Owls</td>
-            <td class="ShortEd">Raina, Alex</td>
-            </tr>
-          <div>
-              <div class="panel">
-  
-    <div class="text-center">
-            <div class="">
-                <br />
-                <h5 class=""> Online Program Details</h5>
-               
-            </div>
-            <div class="modal-body p-4" id="resultOnlineProgram">
-                    
-                  
-	<div class="row ">           
-	    <div class=" col-md-3 ProgramInfoPop">
-	     <h4> Status:</h4> <h6 class="ProgramDescription" id="OnlineProgramStatus"> Completed</h6>
-	    
-	</div> 
-	
-	
-     <div class=" col-md-3 ProgramInfoPop">
-	    <h4>Type </h4> 
-    <h6 class="ProgramDescription" id="OnlineType"> Skype: Oppossum</h6>
-	    
-	</div>
-	     
-                     <div class="col-md-3 ProgramInfoPop">
-     <h4> Date:</h4> <h6 class="ProgramDescription" id="OnlineProgramDate"> 10/14/18</h6></div>
-     
-     
-    <div class="col-md-3 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="OnlineProgramTime"> 3:00 pm</h6></div>
-	
-	<!-- End  Description --> 
-	</div><!-- End  row --> 
-         
-                <div class="row">
-   
-   
-   
-    <div class=" col-md-4 ProgramInfoPop">
-	    <h4>Teacher Name </h4> 
-    <h6 class="ProgramDescription" id="OnlineTeacher"> Mrs. Johnson</h6>
-	
-	</div>
-                    <div class=" col-md-4 ProgramInfoPop">
-	    <h4> Grade </h4> 
-    <h6 class="ProgramDescription" id="OnlineGrade"> 3rd</h6>
-	    
-	    
-	    
-	</div>
-                     <div class="col-md-4 ProgramInfoPop"> 
-    <h4> Report Month</h4>
-	<h6 class="ProgramDescription" id="OnlineProgramMonth"> October</h6> 
-   </div>
-</div>
-         <div class="row ">           
-	    
-	
-	     
-	<div class=" col-md-3 ProgramInfoPop">
-	    <h4> Children </h4> 
-    <h6 class="ProgramDescription" id="OnlineChild"> 25</h6>
-	    
-	    
-	    
-	</div>
-	
-	<div class=" col-md-3 ProgramInfoPop">
-	    <h4> People</h4> 
-    <h6 class="ProgramDescription" id="OnlinePeople"> 45</h6>
-	    
-	    
-	    
-	</div>
-	
-	 <div class="col-md-3 ProgramInfoPop"><h4> Educators</h4> <h6 class="OnlineEd" id="OrgName"> Raina</h6></div>
-	  
- <div class="col-md-3 ProgramInfoPop"><h4> Email</h4> <h6 class="OnlineEmail" id="OnlineEmail"> School@gmail.com</h6></div>
-	
-	<!-- End  Description --> 
-	</div><!-- End  row --> 
-          
-        
-     
-	  
-	<div class="row">
-	<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> <h6 class="ProgramDescription" id="OnlineProgramcity"> Harrisonburg</h6>
-    </div>
-    
-    <div class="col-md-4 ProgramInfoPop"><h4> State/Province:</h4> <h6 class="ProgramDescription" id="OnlineProgramState"> Rockingham County</h6></div>
-	
-	<div class="col-md-4 ProgramInfoPop"><h4> Country:</h4> <h6 class="ProgramDescription" id="OnlineProgramCountry"> Rockingham County</h6></div>
-        
-</div>	
-    
-    
- 
-  
- 
- 
- 
- 
- 
- 
- <div class="row">
- 
-  
- 
-  
-       <div class="col-md-3 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
-     <h6 class="ProgramDescription" id="OnlineProgramBirds"> Buddy, Edie, Verlon</h6>
-</div>
-  
- 
- 
- 
-	  
-  
-       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
-     <h6 class="ProgramDescription" id="OnlineProgramReptiles"> Severus</h6>
-  
-</div>
-	     
-	     
-	     
-  
-       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
-     <h6 class="ProgramDescription" id="OnlineProgramMammals"> Bo</h6>
- 
-</div>
-     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
-    <h6 class="ProgramDescription" id="OnlineProgramPayment"> Paid</h6>
-    
-</div>
- </div>
- 
- 
-    
- 
-  
-  
-  
-  <div class="row">
-  <div class="col-md-12 ProgramInfoPop"><div class="form-group">
-  <h6 > Comments</h6>
-  <p>This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program.</p>
-</div></div>
-</div>
-  
-  
-            
-        </div>
-    </div>
-</div>
-           </div>
-           <tr class="accordion">
-               
-               <td class="ShortOrgTime">11/9/18 3:00 pm</td>
-                <td class="ShortOrgName">James Madison University</td>
-                <td class="ShortDT">Skype: Owls</td>
-            <td class="ShortEd">Raina, Alex</td>
-            </tr>
-           <tr class="accordion">
-               
-               <td class="ShortOrgTime">11/9/18 3:00 pm</td>
-                <td class="ShortOrgName">James Madison University</td>
-                <td class="ShortDT">Skype: Owls</td>
-            <td class="ShortEd">Raina, Alex</td>
-            </tr>
-        </tbody>
-    </table>
-</div></button>
-<div class="panel">
-  
-    <div class="text-center">
-            <div class="">
-                <br />
-                <h5 class=""> Online Program Details</h5>
-               
-            </div>
-            <div class="modal-body p-4" id="resultOnlineProgram">
-                    
-                  
-	<div class="row ">           
-	    <div class=" col-md-3 ProgramInfoPop">
-	     <h4> Status:</h4> <h6 class="ProgramDescription" id="OnlineProgramStatus"> Completed</h6>
-	    
-	</div> 
-	
-	
-     <div class=" col-md-3 ProgramInfoPop">
-	    <h4>Type </h4> 
-    <h6 class="ProgramDescription" id="OnlineType"> Skype: Oppossum</h6>
-	    
-	</div>
-	     
-                     <div class="col-md-3 ProgramInfoPop">
-     <h4> Date:</h4> <h6 class="ProgramDescription" id="OnlineProgramDate"> 10/14/18</h6></div>
-     
-     
-    <div class="col-md-3 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="OnlineProgramTime"> 3:00 pm</h6></div>
-	
-	<!-- End  Description --> 
-	</div><!-- End  row --> 
-         
-                <div class="row">
-   
-   
-   
-    <div class=" col-md-4 ProgramInfoPop">
-	    <h4>Teacher Name </h4> 
-    <h6 class="ProgramDescription" id="OnlineTeacher"> Mrs. Johnson</h6>
-	
-	</div>
-                    <div class=" col-md-4 ProgramInfoPop">
-	    <h4> Grade </h4> 
-    <h6 class="ProgramDescription" id="OnlineGrade"> 3rd</h6>
-	    
-	    
-	    
-	</div>
-                     <div class="col-md-4 ProgramInfoPop"> 
-    <h4> Report Month</h4>
-	<h6 class="ProgramDescription" id="OnlineProgramMonth"> October</h6> 
-   </div>
-</div>
-         <div class="row ">           
-	    
-	
-	     
-	<div class=" col-md-3 ProgramInfoPop">
-	    <h4> Children </h4> 
-    <h6 class="ProgramDescription" id="OnlineChild"> 25</h6>
-	    
-	    
-	    
-	</div>
-	
-	<div class=" col-md-3 ProgramInfoPop">
-	    <h4> People</h4> 
-    <h6 class="ProgramDescription" id="OnlinePeople"> 45</h6>
-	    
-	    
-	    
-	</div>
-	
-	 <div class="col-md-3 ProgramInfoPop"><h4> Educators</h4> <h6 class="OnlineEd" id="OrgName"> Raina</h6></div>
-	  
- <div class="col-md-3 ProgramInfoPop"><h4> Email</h4> <h6 class="OnlineEmail" id="OnlineEmail"> School@gmail.com</h6></div>
-	
-	<!-- End  Description --> 
-	</div><!-- End  row --> 
-          
-        
-     
-	  
-	<div class="row">
-	<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> <h6 class="ProgramDescription" id="OnlineProgramcity"> Harrisonburg</h6>
-    </div>
-    
-    <div class="col-md-4 ProgramInfoPop"><h4> State/Province:</h4> <h6 class="ProgramDescription" id="OnlineProgramState"> Rockingham County</h6></div>
-	
-	<div class="col-md-4 ProgramInfoPop"><h4> Country:</h4> <h6 class="ProgramDescription" id="OnlineProgramCountry"> Rockingham County</h6></div>
-        
-</div>	
-    
-    
- 
-  
- 
- 
- 
- 
- 
- 
- <div class="row">
- 
-  
- 
-  
-       <div class="col-md-3 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
-     <h6 class="ProgramDescription" id="OnlineProgramBirds"> Buddy, Edie, Verlon</h6>
-</div>
-  
- 
- 
- 
-	  
-  
-       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
-     <h6 class="ProgramDescription" id="OnlineProgramReptiles"> Severus</h6>
-  
-</div>
-	     
-	     
-	     
-  
-       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
-     <h6 class="ProgramDescription" id="OnlineProgramMammals"> Bo</h6>
- 
-</div>
-     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
-    <h6 class="ProgramDescription" id="OnlineProgramPayment"> Paid</h6>
-    
-</div>
- </div>
- 
- 
-    
- 
-  
-  
-  
-  <div class="row">
-  <div class="col-md-12 ProgramInfoPop"><div class="form-group">
-  <h6 > Comments</h6>
-  <p>This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program.</p>
-</div></div>
-</div>
-  
-  
-            
-        </div>
-    </div>
-</div>--%>
-
-
-                                <%--<div class="row">
-        <div class="col-md-6 mx-auto">
-<button type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    
-	<div class="table-responsive">
-    <table class="table table-borderless  table-hover ProgramBioShort">
-        <thead>
-            <tr>
-               <th>Date</th>
-                <th>Organization Name</th>
-                <th>Program Type</th>
-                <th>Educator(s)</th>
-              
-               
-            </tr>
-        </thead>
-      <tbody>
-            <tr>
-               
-               <td class="ShortOrgTime">11/5/18 3:00 pm</td>
-                <td class="ShortOrgName">James Madison University</td>
-                <td class="ShortDT">Skype: Turtles</td>
-            <td class="ShortEd">Raina, Alex</td>
-            </tr>
-           
-        </tbody>
-    </table>
-</div></button>
-            </div>
-    <div class="col-md-6 mx-auto">
-<div class="panel collapse multi-collapse collapsed" id="collapseExample">
-  
-    <div class="">
-            <div class="">
-                <br />
-                <h5 class=""> Online Program Details</h5>
-               
-            </div>
-            <div class="modal-body p-4" id="resultOnlineProgram">
-                    
-                  
-	<div class="row ">           
-	    <div class=" col-md-3 ProgramInfoPop">
-	     <h4> Status:</h4> <h6 class="ProgramDescription" id="OnlineProgramStatus"> Completed</h6>
-	    
-	</div> 
-	
-	
-     <div class=" col-md-3 ProgramInfoPop">
-	    <h4>Type </h4> 
-    <h6 class="ProgramDescription" id="OnlineType"> Skype: Oppossum</h6>
-	    
-	</div>
-	     
-                     <div class="col-md-3 ProgramInfoPop">
-     <h4> Date:</h4> <h6 class="ProgramDescription" id="OnlineProgramDate"> 10/14/18</h6></div>
-     
-     
-    <div class="col-md-3 ProgramInfoPop"> <h4> Start Time:</h4> <h6 class="ProgramDescription" id="OnlineProgramTime"> 3:00 pm</h6></div>
-	
-	<!-- End  Description --> 
-	</div><!-- End  row --> 
-         
-                <div class="row">
-   
-   
-   
-    <div class=" col-md-3 ProgramInfoPop">
-	    <h4>Teacher Name </h4> 
-    <h6 class="ProgramDescription" id="OnlineTeacher"> Mrs. Johnson</h6>
-	
-	</div>
-                    <div class=" col-md-3 ProgramInfoPop">
-	    <h4> Grade </h4> 
-    <h6 class="ProgramDescription" id="OnlineGrade"> 3rd</h6>
-	    
-	    
-	    
-	</div>
-                     <div class="col-md-3 ProgramInfoPop"> 
-    <h4> Report Month</h4>
-	<h6 class="ProgramDescription" id="OnlineProgramMonth"> October</h6> 
-   </div>
-</div>
-         <div class="row ">           
-	    
-	
-	     
-	<div class=" col-md-3 ProgramInfoPop">
-	    <h4> Children </h4> 
-    <h6 class="ProgramDescription" id="OnlineChild"> 25</h6>
-	    
-	    
-	    
-	</div>
-	
-	<div class=" col-md-3 ProgramInfoPop">
-	    <h4> People</h4> 
-    <h6 class="ProgramDescription" id="OnlinePeople"> 45</h6>
-	    
-	    
-	    
-	</div>
-	
-	 <div class="col-md-3 ProgramInfoPop"><h4> Educators</h4> <h6 class="OnlineEd" id="OrgName"> Raina</h6></div>
-	  
- <div class="col-md-3 ProgramInfoPop"><h4> Email</h4> <h6 class="OnlineEmail" id="OnlineEmail"> School@gmail.com</h6></div>
-	
-	<!-- End  Description --> 
-	</div><!-- End  row --> 
-          
-        
-     
-	  
-	<div class="row">
-	<div class="col-md-3 ProgramInfoPop"><h4> City/County:</h4> <h6 class="ProgramDescription" id="OnlineProgramcity"> Harrisonburg</h6>
-    </div>
-    
-    <div class="col-md-3 ProgramInfoPop"><h4> State/Province:</h4> <h6 class="ProgramDescription" id="OnlineProgramState"> Rockingham County</h6></div>
-	
-	<div class="col-md-3 ProgramInfoPop"><h4> Country:</h4> <h6 class="ProgramDescription" id="OnlineProgramCountry"> Rockingham County</h6></div>
-        
-</div>	
-    
-    
- 
-  
- 
- 
- 
- 
- 
- 
- <div class="row">
- 
-  
- 
-  
-       <div class="col-md-3 ProgramInfoPop"><h4 class="Animal"> Birds:</h4>
-     <h6 class="ProgramDescription" id="OnlineProgramBirds"> Buddy, Edie, Verlon</h6>
-</div>
-  
- 
- 
- 
-	  
-  
-       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Reptiles:</h4>
-     <h6 class="ProgramDescription" id="OnlineProgramReptiles"> Severus</h6>
-  
-</div>
-	     
-	     
-	     
-  
-       <div class="col-md-3 ProgramInfoPop"> <h4 class="Animal"> Mammals:</h4> 
-     <h6 class="ProgramDescription" id="OnlineProgramMammals"> Bo</h6>
- 
-</div>
-     <div class="col-md-3 ProgramInfoPop"><h4>Payment Complete?</h4> 
-    <h6 class="ProgramDescription" id="OnlineProgramPayment"> Paid</h6>
-    
-</div>
- </div>
- 
- 
-    
- 
-  
-  
-  
-  <div class="row">
-  <div class="col-md-12 ProgramInfoPop"><div class="form-group">
-  <h6 > Comments</h6>
-  <p>This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program. This is where you would see comments about the program.</p>
-</div></div>
-</div>
-  
-  
-            
-        </div>
-    </div>
-</div>
-             </div>
-        </div>--%>
-
-
-
-
-
-                                <script>
-                                    var acc = document.getElementsByClassName("accordion");
-                                    var i;
-                                    for (i = 0; i < acc.length; i++) {
-                                        acc[i].addEventListener("click", function () {
-                                            this.classList.toggle("active");
-                                            var panel = this.nextElementSibling;
-                                            if (panel.style.display === "block") {
-                                                panel.style.display = "none";
-                                            } else {
-                                                panel.style.display = "block";
-                                            }
-                                        });
-                                    }
-                                </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <!-- Programs-->
-
-                                <%--<div class="col-md-12">
-        <br>
-	</div>--%>
-
-                                <%--<div class="container1">
-      
-      <div class="row text-center text-lg-center">
-        <div id="Program1" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/owl.png" alt="">
-            <br> <h6 class="ProgramCaption">Skype Program: Owls</h6>
-          
-        </div>
-        <div id="Program2" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/camera.png" alt="">
-            <br> <h6 class="ProgramCaption">Cam in the Classroom</h6>
-          
-        </div>
-        <div id="Program3" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/snake.png" alt="">
-            <br> <h6 class="ProgramCaption">Skype Program: Snakes</h6>
-          
-        </div>
-        <div id="Program4" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/book.png" alt="">
-            <br> <h6 class="ProgramCaption">Book Club</h6>
-          
-        </div>
-        <div id="Program5" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/turtle.png" alt="">
-            <br> <h6 class="ProgramCaption">Skype Program: Turtles</h6>
-          
-        </div>
-        <div id="Program6" data-toggle="modal" data-target="#OnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/camera.png" alt="">
-            <br> <h6 class="ProgramCaption">Hospital Cam</h6>
-          
-        </div>
-	  
-        <div id="AddProgram" data-toggle="modal" data-target="#AddOnlineProgramModal"  class="col-lg-3 col-md-4 col-xs-4">
-          
-            <img class="img-fluid img-thumbnail  InfoBox" src="images/icons/Add.png" alt="">
-            <br> <h6 class="ProgramCaption">Add Program</h6>
-          
-        </div>
-        
-        <div class="row">
-        	
-        	<br><br>
-   
-        </div>
-        
-      </div>
-    </div>-
-                                    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
-<link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/start/jquery-ui.css"
-    rel="stylesheet" type="text/css" />
-<script type="text/javascript">
-    $(function () {
-        $("#dvAccordian").accordion();
-    });
-</script>
-<div id="dvAccordian" style = "width:400px">
-    <asp:Repeater ID="rptAccordian" runat="server">
-        <ItemTemplate>
-            <h3>
-                <%# Eval("Title") %></h3>
-            <div>
-                <p>
-                    <%# Eval("Content") %>
-                </p>
-            </div>
-        </ItemTemplate>
-    </asp:Repeater>
-</div> -->
-                                    
-                                    
-                                <%--                                VERSION 2--%>
-                                <div class="tab-content">
-                                    <div id="accordion" class="container1 block tab-pane active">
-                                        <table class="table condensed table-borderless table-hover" style="border-collapse: collapse" id="tblProgram">
-                                            <thead>
-                                                <tr data-toggle="collapse" data-target="#ProgramLL" class="accordion-toggle">
-                                                    <th scope="col">&nbsp;</th>
-                                                    <th scope="col" style="width: 150px">Date</th>
-                                                    <th scope="col" style="width: 150px">Organization Name</th>
-                                                    <th scope="col" style="width: 150px">Program Type</th>
-                                                    <th scope="col" style="width: 150px">Educator(s)</th>
                                                 </tr>
-                                            </thead>
-
-
-                                            <asp:Repeater ID="rptProgramHL" runat="server" OnItemDataBound="OnItemDataBound">
-                                                <ItemTemplate>
-                                                    <tr data-toggle="collapse" data-target="#ProgramLL" class="accordion-toggle">
-
-                                                        <div>
-                                                            <asp:Panel ID="pnlProgramLL" runat="server" Style="display: none">
-                                                                <asp:Repeater ID="rptProgramLL" runat="server">
-
-                                                                    <ItemTemplate>
-                                                                        <td colspan="6" class="hiddenRow">
-                                                                            <div class="accordion-body collapse" id="ProgramLL">
-                                                                                <headertemplate>
-                                                                         
-
-                                                                        </headertemplate>
-                                                                                <itemtemplate>
-                                                                                   <table class="ChildGrid" border="1">
-                                                                                <th scope="col" style="width: 150px">Status
-                                                                                </th>
-                                                                                <th scope="col" style="width: 150px">Program Address
-                                                                                </th>
-                                                                                <tr>
-
-                                                                                </tr>
-                                                                                <td>
-                                                                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("Status") %>' />
-                                                                                </td>
-                                                                                <td>
-                                                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("ProgramAddress") %>' />
-                                                                                </td>
-                                                                            </table>
-
-                                                                                </itemtemplate>
-                                                                            </div>
-                                                                        </td>
-                                                                    </ItemTemplate>
-                                                                </asp:Repeater>
-                                                            </asp:Panel>
-                                                            <asp:HiddenField ID="hfProgramID" runat="server" Value='<%# Eval("ProgramID") %>' />
-                                                        </td>
-                                                    <td>
-                                                        <asp:Label ID="lblProgramID" runat="server" Text='<%# Eval("ProgramID") %>' />
-                                                    </td>
-                                                        <td>
-                                                            <asp:Label ID="lblProgramTypeID" runat="server" Text='<%# Eval("ProgramType") %>' />
-                                                        </td>
-                                                    </tr>
-
-                                                    </div>
-                                </div>
-                            </td>
-                                                    </tr>
-                                                </ItemTemplate>
-                                            </asp:Repeater>
-                                        </table>
-                                    </div>
-                                </div>
-
-
-                                <%--VERSION 1--%>
-
-                                <%--<asp:Repeater ID="rptProgramHL" runat="server" OnItemDataBound="OnItemDataBound">
-                                    <HeaderTemplate>
-                                        <table class="Grid" border="1">
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
                                             <tr>
-                                                <th scope="col">&nbsp;
-                                                </th>
-                                                <th scope="col" style="width: 150px">Program ID
-                                                </th>
-                                                <th scope="col" style="width: 150px">Program Type
-                                                </th>
-                                            </tr>
-                                    </HeaderTemplate>
-                                    <ItemTemplate>
-                                        <tr>
-                                            <td>
-                                                <img alt="" style="cursor: pointer" src="images/plus.png" />
-                                                <asp:Panel ID="pnlProgram" runat="server" Style="display: none">
-                                                    <asp:Repeater ID="rptProgramLL" runat="server">
-                                                        <HeaderTemplate>
-                                                            <table class="ChildGrid" border="1">
-                                                                <tr>
-                                                                    <th scope="col" style="width: 150px">Order Id
-                                                                    </th>
-                                                                    <th scope="col" style="width: 150px">Date
-                                                                    </th>
+                                                <td>
+
+                                                    <img alt="" style="cursor: pointer; padding-left: -50%;" src="images/plus.png" />
+                                                    <asp:Panel ID="pnlProgramLive" runat="server" Style="display: none">
+                                                        <asp:Repeater ID="rptProgramLLLive" runat="server">
+
+                                                            <HeaderTemplate>
+
+                                                                <table class="ChildGrid col-md-12" border="0">
+
+                                                                    <tr>
+                                                                         <th  class="col-md-4" scope="col" <%--style="width: 250px"--%>>Status
+                                                                        </th>
+                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Number of Children
+                                                                        </th>
+                                                                        <th  class="col-md-4" scope="col" <%--style="width: 250px"--%>>Number of Adults
+                                                                        </th>
+                                                                       
+                                                                    </tr>
+                                                            </HeaderTemplate>
+                                                            <ItemTemplate>
+                                                              <td class="col-md-3">
+                                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Status") %>' />
+                                                                </td>
+                                                                <td class="col-md-3">
+                                                                    <asp:Label ID="lblNumOfChildren" runat="server" Text='<%# Eval("NumberOfChildren") %>' />
+                                                                </td>
+                                                                <td class="col-md-3">
+                                                                    <asp:Label ID="lblNumOfAdults" runat="server" Text='<%# Eval("NumberOfAdults") %>' />
+                                                                </td>
+                                                                 
                                                                 </tr>
-                                                        </HeaderTemplate>
-                                                        <ItemTemplate>
-                                                            <tr>
-                                                                <td>
-                                                                    <asp:Label ID="lblOrderId" runat="server" Text='<%# Eval("Status") %>' />
+                                                            </ItemTemplate>
+
+
+
+                                                            <FooterTemplate>
+                                                                </table>
+                                                            </FooterTemplate>
+
+                                                        </asp:Repeater>      
+                                                         <asp:Repeater ID="rptProgramLL2Live" runat="server">
+
+                                                            <HeaderTemplate>
+
+                                                                <table class="ChildGrid col-md-12" border="0">
+
+                                                                    <tr>
+                                                                        
+                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Street Addess
+                                                                        </th>
+                                                                          <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>City County
+                                                                        </th>
+                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>State
+                                                                        </th>
+                                                                        
+                                                                    </tr>
+                                                            </HeaderTemplate>
+                                                            <ItemTemplate>
+                                                              <td class="col-md-4" >
+                                                                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("ProgramAddress") %>' />
                                                                 </td>
-                                                                <td>
-                                                                    <asp:Label ID="lblOrderDate" runat="server" Text='<%# Eval("ProgramAddress") %>' />
+                                                                <td class="col-md-4" >
+                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("City") %>' />
                                                                 </td>
-                                                            </tr>
-                                                        </ItemTemplate>
-                                                        <FooterTemplate>
-                                                            </table>
-                                                        </FooterTemplate>
-                                                    </asp:Repeater>
-                                                </asp:Panel>
-                                                <asp:HiddenField ID="hfCustomerId" runat="server" Value='<%# Eval("ProgramID") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="lblContactName" runat="server" Text='<%# Eval("ProgramID") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="lblCity" runat="server" Text='<%# Eval("ProgramType") %>' />
-                                            </td>
-                                        </tr>
-                                    </ItemTemplate>
-                                    <FooterTemplate>
-                                        </table>
-                                    </FooterTemplate>
-                                </asp:Repeater>--%>
+                                                                <td class="col-md-4" >
+                                                                    <asp:Label ID="lblState" runat="server" Text='<%# Eval("State") %>' />
+                                                                </td>
+                                                                  
+                                                                </tr>
+                                                            </ItemTemplate>
+
+
+
+                                                            <FooterTemplate>
+                                                                </table>
+                                                            </FooterTemplate>
+
+                                                        </asp:Repeater>
+                                                         <asp:Repeater ID="rptProgramLL3Live" runat="server">
+
+                                                            <HeaderTemplate>
+
+                                                                <table class="ChildGrid col-md-12" border="0">
+
+                                                                    <tr>
+                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>On/Off Site
+                                                                        </th>
+                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Payment Satus
+                                                                        </th>
+                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Comments
+                                                                        </th>
+                                                                     
+                                                                    </tr>
+                                                            </HeaderTemplate>
+                                                            <ItemTemplate>
+                                                              <td class="col-md-4" >
+                                                                    <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("OnOff") %>' />
+                                                                </td>
+                                                                <td class="col-md-4" >
+                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("PaymentNeeded") %>' />
+                                                                </td>
+                                                                <td class="col-md-8" >
+                                                                    <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
+                                                                </td>
+
+                                                                 
+                                                                </tr>
+                                                            </ItemTemplate>
+
+
+
+                                                            <FooterTemplate>
+                                                                </table>
+                                                            </FooterTemplate>
+
+                                                        </asp:Repeater>
+                                                    </asp:Panel>
+                                                      <asp:HiddenField ID="hfProgramIDLive" runat="server" Value='<%# Eval("ProgramID") %>' />
+                                                     <td>
+                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("ProgramDate") %>' />
+                                                  
+                                                </td
+                                                </td> 
+                                                <td>
+                                                    <asp:Label ID="lblProgramDate" runat="server" Text='<%# Eval("ProgramType") %>' />
+                                                   
+                                                </td
+                                                    </td> 
+                                                <td>
+                                                    <asp:Label ID="Label4" runat="server" Text='<%# Eval("Organization") %>' />
+                                                  
+                                                </td
+                                                    <td>
+                                                    </td>
+                                                
+                                              
+                                            </tr>
+                                        </ItemTemplate>
+                                        <FooterTemplate>
+                                            </table>
+                                        </FooterTemplate>
+                                    </asp:Repeater>
+                                </div>
+                            </div>
+
+
+
+  </div>
+  <div id="OnlineProgram" class="tab-pane fade">
+ <%--VERSION 1 Online--%>
+                                <div class="row mx-auto">
+                                <div class="block col-md-8 mx-auto d-flex justify-content-center">
+                                    <asp:Repeater ID="rptProgramHLOnline" runat="server" OnItemDataBound="OnItemDataBoundOnline">
+                                        <HeaderTemplate>
+                                            <table class="Grid table table-borderless table-hover table-condensed WideTable" border="1">
+                                                <tr >
+                                                    <th  class="col-md-1"scope="col">&nbsp
+                                                    </th>
+                                                    
+                                                    <th  class="col-md-5" scope="col" <%--style="width: 150px--%>">Program Date
+                                                    
+                                                    <th class="col-md-5" scope="col" <%--style="width: 150px--%>">Program Type
+                                                    </th>
+                                                </tr>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <tr>
+                                                <td>
+
+                                                    <img alt="" style="cursor: pointer; padding-left: -50%;" src="images/plus.png" />
+                                                    <asp:Panel ID="pnlProgramOnline" runat="server" Style="display: none">
+                                                        <asp:Repeater ID="rptProgramLLOnline" runat="server">
+
+                                                            <HeaderTemplate>
+
+                                                                <table class="ChildGrid col-md-12" border="0">
+
+                                                                    <tr>
+                                                                        
+                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Number of Children
+                                                                        </th>
+                                                                        <th  class="col-md-4" scope="col" <%--style="width: 250px"--%>>Number of Adults
+                                                                        </th>
+                                                                        <th  class="col-md-4" scope="col" <%--style="width: 250px"--%>>Educator Name
+                                                                        </th>
+                                                                    </tr>
+                                                            </HeaderTemplate>
+                                                            <ItemTemplate>
+                                                              
+                                                                <td class="col-md-4">
+                                                                    <asp:Label ID="lblNumOfChildren" runat="server" Text='<%# Eval("NumberOfKids") %>' />
+                                                                </td>
+                                                                <td class="col-md-4">
+                                                                    <asp:Label ID="lblNumOfAdults" runat="server" Text='<%# Eval("NumberOfPeople") %>' />
+                                                                </td>
+                                                                  <td class="col-md-4">
+                                                                    <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("TeacherName") %>' />
+                                                                </td>
+                                                                </tr>
+                                                            </ItemTemplate>
+
+
+
+                                                            <FooterTemplate>
+                                                                </table>
+                                                            </FooterTemplate>
+
+                                                        </asp:Repeater>      
+                                                         <asp:Repeater ID="rptProgramLL2Online" runat="server">
+
+                                                            <HeaderTemplate>
+
+                                                                <table class="ChildGrid col-md-12" border="0">
+
+                                                                    <tr>
+                                                                        
+                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>City
+                                                                        </th>
+                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>State
+                                                                        </th>
+                                                                        <th  class="col-md-4" scope="col" <%--style="width: 250px"--%>>Country
+                                                                        </th>
+                                                                    </tr>
+                                                            </HeaderTemplate>
+                                                            <ItemTemplate>
+                                                              
+                                                                <td class="col-md-4" >
+                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("City") %>' />
+                                                                </td>
+                                                                <td class="col-md-4" >
+                                                                    <asp:Label ID="lblState" runat="server" Text='<%# Eval("State") %>' />
+                                                                </td>
+                                                                  <td class="col-md-4" >
+                                                                    <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("Country") %>' />
+                                                                </td>
+                                                                </tr>
+                                                            </ItemTemplate>
+
+
+
+                                                            <FooterTemplate>
+                                                                </table>
+                                                            </FooterTemplate>
+
+                                                        </asp:Repeater>
+                                                         <asp:Repeater ID="rptProgramLL3Online" runat="server">
+
+                                                            <HeaderTemplate>
+
+                                                                <table class="ChildGrid col-md-12" border="0">
+
+                                                                    <tr>
+                                                                        
+                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Contact Email
+                                                                        </th>
+                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Comments
+                                                                        </th>
+                                                                     
+                                                                    </tr>
+                                                            </HeaderTemplate>
+                                                            <ItemTemplate>
+                                                              
+                                                                <td class="col-md-4" >
+                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("ContactEmail") %>' />
+                                                                </td>
+                                                                <td class="col-md-8" >
+                                                                    <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
+                                                                </td>
+
+                                                                 
+                                                                </tr>
+                                                            </ItemTemplate>
+
+
+
+                                                            <FooterTemplate>
+                                                                </table>
+                                                            </FooterTemplate>
+
+                                                        </asp:Repeater>
+                                                    </asp:Panel>
+                                                    <asp:HiddenField ID="hfProgramIDOnline" runat="server" Value='<%# Eval("OnlineProgramID") %>' />
+                                                     <td>
+                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("ProgramDate") %>' />
+                                                    <%--to be program date--%>
+                                                </td
+                                                </td> 
+                                                <td>
+                                                    <asp:Label ID="lblProgramDate" runat="server" Text='<%# Eval("ProgramType") %>' />
+                                                    <%--to be program date--%>
+                                                </td
+                                                    <td>
+                                                    </td>
+                                              
+                                            </tr>
+                                        </ItemTemplate>
+                                        <FooterTemplate>
+                                            </table>
+                                        </FooterTemplate>
+                                    </asp:Repeater>
+                                </div>
+
+</div>      
+
+  </div>
+
+</div>
+        </div>
+
+
+
+
+
+                              
+
+                               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1163,21 +557,20 @@
                                 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
                                 <script type="text/javascript">
                                     $("body").on("click", "[src*=plus]", function () {
-                                        $(this).closest("tr").after("<tr><td></td><td colspan = '999'>" + $(this).next().html() + "</td></tr>")
+                                        $(this).closest("tr").after("<tr><td></td><td colspan = '999'>" + $(this).next().html() + "</td></tr>");
                                         $(this).attr("src", "images/minus.png");
                                     });
                                     $("body").on("click", "[src*=minus]", function () {
                                         $(this).attr("src", "images/plus.png");
                                         $(this).closest("tr").next().remove();
                                     });
-                                    // SHOW BUTTON:
-                                    $("#collapse_show").click(function (e) {
-                                        $(".panel-collapse").collapse("show");
-                                    });
-                                    // HIDE BUTTON:
-                                    $("#collapse_hide").click(function (e) {
-                                        $(".panel-collapse").collapse("hide");
-                                    });
+                                </script>
+
+
+                                <script>
+                                    function myFunction() {
+                                        document.getElementById("pnlProgram").after("<tr><td></td><td colspan = '999'>" + $(this).next().html() + "</td></tr>");
+                                    }
                                 </script>
 
 
@@ -1848,64 +1241,64 @@ foreach (ListItem item in CBLGold.Items)
             <div class="modal-body p-4" id="resultOnlineProgram">
                     
                   
-	<div class="row ">           
+				<div class="row ">           
 	    <div class=" col-md-4 ProgramInfoPop">
 	     <h4> Status:</h4> <h6 class="ProgramDescription" id="OnlineProgramStatus"> Completed</h6>
 	    
-	</div> 
-	
-	
+			</div> 
+			
+			
      <div class=" col-md-4 ProgramInfoPop">
 	    <h4>Type </h4> 
     <h6 class="ProgramDescription" id="OnlineType"> Cam in the Classroom</h6>
 	    
-	</div>
+			</div>
 	     
-	
-	
-	<!-- End  Description --> 
+			
+			
+			<!-- End  Description --> 
 	</div><!-- End  row --> 
          
          <div class="row ">           
 	    
-	<div class=" col-md-4 ProgramInfoPop">
+			<div class=" col-md-4 ProgramInfoPop">
 	    <h4>Teacher Name </h4> 
     <h6 class="ProgramDescription" id="OnlineTeacher"> Mrs. Johnson</h6>
 	
-	</div>
+			</div>
 	     
-	<div class=" col-md-4 ProgramInfoPop">
+			<div class=" col-md-4 ProgramInfoPop">
 	    <h4> Children </h4> 
     <h6 class="ProgramDescription" id="OnlineChild"> 25</h6>
 	    
 	    
 	    
-	</div>
-	
-	<div class=" col-md-4 ProgramInfoPop">
+			</div>
+			
+			<div class=" col-md-4 ProgramInfoPop">
 	    <h4> People</h4> 
     <h6 class="ProgramDescription" id="OnlinePeople"> 45</h6>
 	    
 	    
 	    
-	</div>
+			</div>
+			
 	
-	
-	
-	<!-- End  Description --> 
+			
+			<!-- End  Description --> 
 	</div><!-- End  row --> 
           
         
           <div class="row">
-	  <div class=" col-md-4 ProgramInfoPop">
+			  <div class=" col-md-4 ProgramInfoPop">
 	    <h4> Grade </h4> 
     <h6 class="ProgramDescription" id="OnlineGrade"> 3rd</h6>
 	    
 	    
 	    
-	</div>
+			</div>
     <div class="col-md-4 ProgramInfoPop"><h4> Educators</h4> <h6 class="OnlineEd" id="OrgName"> Raina</h6></div>
-	  
+			  
  <div class="col-md-4 ProgramInfoPop"><h4> Email</h4> <h6 class="OnlineEmail" id="OnlineEmail"> School@gmail.com</h6></div>
    
     
@@ -1913,13 +1306,13 @@ foreach (ListItem item in CBLGold.Items)
 </div>
 	  
 	<div class="row">
-	<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> <h6 class="ProgramDescription" id="OnlineProgramcity"> Harrisonburg</h6>
+		<div class="col-md-4 ProgramInfoPop"><h4> City/County:</h4> <h6 class="ProgramDescription" id="OnlineProgramcity"> Harrisonburg</h6>
     </div>
     
     <div class="col-md-4 ProgramInfoPop"><h4> State/Province:</h4> <h6 class="ProgramDescription" id="OnlineProgramState"> Rockingham County</h6></div>
-	
-	<div class="col-md-4 ProgramInfoPop"><h4> Country:</h4> <h6 class="ProgramDescription" id="OnlineProgramCountry"> Rockingham County</h6></div>
-</div>	
+		
+		<div class="col-md-4 ProgramInfoPop"><h4> Country:</h4> <h6 class="ProgramDescription" id="OnlineProgramCountry"> Rockingham County</h6></div>
+</div>		
     
     
  
@@ -2042,6 +1435,6 @@ foreach (ListItem item in CBLGold.Items)
                         <!-- Custom scripts for all pages-->
                         <script src="js/sb-admin.min.js"></script>
                     </div>
-    </body>
+    
 
 </asp:Content>

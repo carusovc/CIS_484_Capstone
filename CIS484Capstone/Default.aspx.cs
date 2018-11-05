@@ -54,7 +54,7 @@ public partial class userLogin : System.Web.UI.Page
                         Session["USER_ID"] = txtUsername.Text;
                     }
                     else
-                        lblStatus.Text = "Password is wrong.";
+                        lblStatus.Text = "Incorrect Username or Password. Please Try again.";
                 }
             }
             else // if the username doesn't exist, it will show failure
