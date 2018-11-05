@@ -107,16 +107,32 @@
 			
 		</div>
 	</div>
- 
-            <asp:Button ID="btnAddPayment" runat="server" OnClick="btnAddPaymentForm" Text="Add Payment" />
-                        <div class="row WildTable">
-                             <asp:Label ID="lblResponse" runat="server" Text=""/>
-        <div class="col-md-12 mx-auto d-flex justify-content-center">
+
+ <div class="row d-flex justify-content-center">
+     <br />
+		<div class=" mx-auto ">
+            <br />
+			<asp:Button class="btn btn-primary btn-inside" ID="Button1" runat="server" OnClick="btnAddPaymentForm" Text="Add Payment" />
+            
+		
+            <br />
+		</div>
+    
+			
+			
+		
+	</div>
+          
+            
+       <div class="row"> 
+         <div class="col-12"> <br /></div> 
+           <div class="col-md-6 mx-auto d-flex justify-content-center"> <asp:Label ID="lblResponse" runat="server" Text=""/>
+        
             <%--<asp:DropDownList ID="drpOrg" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3" DataTextField="OrgName" DataValueField="OrgName"></asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT DISTINCT(Organization.OrgName) from Organization inner join PaymentRecord on Organization.OrgID = PaymentRecord.OrgID ">
             </asp:SqlDataSource>--%>
-
-             <asp:Label Text ="Choose a Month:" runat ="server"></asp:Label>
+<br />
+             <asp:Label class="TextHeading" Text ="Choose a Month:" runat ="server"></asp:Label>
                         <asp:DropDownList ID="drpMonth" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="MonthName" DataValueField="MonthName">
                         <asp:ListItem></asp:ListItem>
                         </asp:DropDownList>
@@ -134,15 +150,16 @@
             when 11 then 'November'
             when 12 then 'December'
            END as MonthName FROM [PaymentRecord] Group by { fn MONTH(paymentDate) } order by { fn MONTH(paymentDate) }"></asp:SqlDataSource>
-    
 
-              <asp:Label Text ="Choose a Year:" runat ="server"></asp:Label>
+
+
+                <asp:Label class="TextHeading" Text ="Choose a Year:" runat ="server"></asp:Label>
             <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
                         <asp:ListItem></asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                 SelectCommand="SELECT Distinct(YEAR(paymentDate)) AS YEAR FROM PaymentRecord"></asp:SqlDataSource>
-    <br />
+  <%--  <br />
 
           
    </div>
@@ -168,7 +185,48 @@
             <ItemStyle HorizontalAlign="Center" />
             </asp:BoundField>
            <asp:BoundField DataField="CheckNumber" HeaderText="Check Number" SortExpression="CheckNumber" InsertVisible="True" >
-             <ItemStyle HorizontalAlign="Center" />
+             <ItemStyle HorizontalAlign="Center" /> --%>
+   
+
+    </div>
+           
+       </div>
+                       
+                            
+
+            
+
+          
+   </div>
+
+          
+      
+
+
+          <br />
+
+                             <div class=" col-md-7 blockInvoice  mx-auto ">
+
+                                <div> <h2 class="text-center"> Current Invoices</h2>  <br /></div>
+<div class="col-md-12 mx-auto d-flex justify-content-center InvoiceGrid">
+                            <br />
+    <asp:GridView ID="GridView1" runat="server"    gridlines="None" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" AllowSorting="True" ShowFooter="True" onrowdatabound="GridView1_RowDataBound" EmptyDataText="There are no records to display." >
+        <Columns>
+            <asp:TemplateField  HeaderText ="Select" FooterText="Total:"  > 
+            <ItemTemplate>
+                <asp:CheckBox id="chkSelect" runat ="server"  Width="110px"/>
+            </ItemTemplate>
+                <FooterStyle Font-Bold="True" HorizontalAlign="Right" />
+            </asp:TemplateField>
+            <asp:BoundField DataField="PaymentAmount"  HeaderText="Payment Amount" SortExpression="PaymentAmount" DataFormatString="{0:c}" ReadOnly="True" >
+            <FooterStyle HorizontalAlign="Center" Width="150px"/>
+            <ItemStyle HorizontalAlign="Center" Width="150px"/>
+            </asp:BoundField>
+              <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" SortExpression="PaymentType" >
+            <ItemStyle HorizontalAlign="Center" Width="150px"/>
+            </asp:BoundField>
+           <asp:BoundField DataField="CheckNumber" HeaderText="Check Number" SortExpression="CheckNumber" InsertVisible="True" >
+             <ItemStyle HorizontalAlign="Center" Width="150px"/>
             </asp:BoundField>
            
             <asp:BoundField DataField="PaymentID" HeaderText="Payment ID" InsertVisible="False" ReadOnly="True" SortExpression="PaymentID" Visible="False" />
@@ -185,7 +243,7 @@
 
       </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                SelectCommand="SELECT CASE { fn MONTH(PaymentRecord.paymentDate) } 
+          <%--      SelectCommand="SELECT CASE { fn MONTH(PaymentRecord.paymentDate) } 
             when 1 then 'January'
             when 2 then 'February'
             when 3 then 'March'
@@ -198,7 +256,9 @@
             when 10 then 'October'
             when 11 then 'November'
             when 12 then 'December'
-           END as MonthName, [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice],CancelledInvoice FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } 
+           END as MonthName, [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice],CancelledInvoice FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } --%>
+                SelectCommand="SELECT [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice],CancelledInvoice FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } 
+
             when 1 then 'January'
             when 2 then 'February'
             when 3 then 'March'
@@ -224,7 +284,7 @@
             </asp:SqlDataSource>
                             <br />
                             <br />
-                            <asp:Label Text ="Cancelled Invoice" runat ="server"></asp:Label>
+     <%--                       <asp:Label Text ="Cancelled Invoice" runat ="server"></asp:Label>
                             <br />
                             <asp:GridView ID="GridView2" runat="server"  gridlines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" onrowdatabound="GridView2_RowDataBound" AllowSorting="True" EmptyDataText="There are no records to display.">
        <Columns>
@@ -246,7 +306,54 @@
             <ItemStyle HorizontalAlign="Center" />
             </asp:BoundField>
            <asp:BoundField DataField="CheckNumber" HeaderText="Check Number" SortExpression="CheckNumber" InsertVisible="True" >
-             <ItemStyle HorizontalAlign="Center" />
+             <ItemStyle HorizontalAlign="Center" /> --%>
+              </div>  
+                                 <br />
+              </div>
+
+
+                  
+          <div class="row d-flex justify-content-center">
+     <br />
+		<div class=" mx-auto ">
+            <br />
+			
+            
+			<asp:Button class="btn btn-primary btn-inside" ID="btnExportGrid" runat="server" Text="Export Invoices to Excel" OnClick="exportBtn_ClickAv" />
+               
+			
+            <br />
+		</div>
+    
+			
+			
+		
+	</div>
+          <br />
+
+          <div class=" col-md-7 blockInvoice  mx-auto ">
+
+                                <div> <h2 class="text-center"> Cancelled Invoices</h2>  <br /></div>
+
+                        <div class="col-md-12 mx-auto d-flex justify-content-center">
+                            <br />
+                            <asp:GridView ID="GridView2" runat="server"  gridlines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" onrowdatabound="GridView2_RowDataBound" AllowSorting="True" EmptyDataText="There are no records to display.">
+       <Columns>
+            <asp:TemplateField HeaderText ="Select" FooterText="Total:" >
+            <ItemTemplate>
+                <asp:CheckBox id="chkSelect" runat ="server" Width="110px"/>
+            </ItemTemplate>
+                <FooterStyle Font-Bold="True" HorizontalAlign="Right" />
+            </asp:TemplateField>
+            <asp:BoundField DataField="PaymentAmount" HeaderText="Payment Amount" SortExpression="PaymentAmount" DataFormatString="{0:c}" ReadOnly="True" >
+            <FooterStyle HorizontalAlign="Center" Width="150px"/>
+            <ItemStyle HorizontalAlign="Center" Width="150px"/>
+            </asp:BoundField>
+              <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" SortExpression="PaymentType" >
+            <ItemStyle HorizontalAlign="Center" Width="150px"/>
+            </asp:BoundField>
+           <asp:BoundField DataField="CheckNumber" HeaderText="Check Number" SortExpression="CheckNumber" InsertVisible="True" >
+             <ItemStyle HorizontalAlign="Center" Width="150px"/>
             </asp:BoundField>
            
             <asp:BoundField DataField="PaymentID" HeaderText="Payment ID" InsertVisible="False" ReadOnly="True" SortExpression="PaymentID" Visible="False" />
@@ -262,7 +369,7 @@
          </Columns>
                              </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                SelectCommand="SELECT CASE { fn MONTH(PaymentRecord.paymentDate) } 
+           <%--     SelectCommand="SELECT CASE { fn MONTH(PaymentRecord.paymentDate) } 
             when 1 then 'January'
             when 2 then 'February'
             when 3 then 'March'
@@ -275,7 +382,9 @@
             when 10 then 'October'
             when 11 then 'November'
             when 12 then 'December'
-           END as MonthName, [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice] FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } 
+           END as MonthName, [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice] FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } --%> 
+              
+             SelectCommand="SELECT [PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice] FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (CASE { fn MONTH(paymentDate) } 
             when 1 then 'January'
             when 2 then 'February'
             when 3 then 'March'
@@ -299,7 +408,27 @@
       
                 </SelectParameters>
             </asp:SqlDataSource>
- 
+
+ </div>
+       <br />
+                             
+              </div>
+
+          <div class="row d-flex justify-content-center">
+     <br />
+		<div class=" mx-auto ">
+            <br />
+			
+               
+			     <asp:Button class="btn btn-primary btn-inside" ID="btnExportGrid2" runat="server" Text="Export Cancelled Invoices to Excel" OnClick="exportBtn2_ClickAv" />
+            <br />
+		</div>
+    
+			
+			
+		
+	</div>
+                            
 
 
 

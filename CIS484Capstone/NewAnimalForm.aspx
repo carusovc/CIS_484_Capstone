@@ -17,6 +17,12 @@
     &nbsp;&nbsp; Animal Name:
         <asp:TextBox ID="txtAnimalName" runat="server"></asp:TextBox>
 
+    &nbsp; Status:
+        <asp:DropDownList ID="ddlStatus" runat="server">
+            <asp:ListItem>Active</asp:ListItem>
+            <asp:ListItem>Inactive</asp:ListItem>
+        </asp:DropDownList>
+
     </p>
     <p>
         <asp:Label ID="lblLastUpdated" runat="server" Text=""></asp:Label>
@@ -35,4 +41,3 @@
 
         </div>
 </asp:Content>
-

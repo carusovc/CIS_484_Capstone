@@ -22,13 +22,14 @@ public partial class Invoices : System.Web.UI.Page
         if (!IsPostBack)
         {
             //PopulateData();
-           
+
         }
     }
     private void PopulateData()
     {
        // GridView1.DataBind();
        
+
     }
     public override void VerifyRenderingInServerForm(Control control)
     {
@@ -47,7 +48,8 @@ public partial class Invoices : System.Web.UI.Page
             if (cb != null && cb.Checked)
             {
                 isSelected = true;
-                break;
+
+                //break;
             }
             else
             {
@@ -75,6 +77,7 @@ public partial class Invoices : System.Web.UI.Page
             Response.Clear();
             Response.Buffer = true;
             Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + "\"");
+
             Response.Charset = "";
             Response.ContentType = "application/vnd.ms-excel";
             StringWriter sw = new StringWriter();
@@ -92,6 +95,7 @@ public partial class Invoices : System.Web.UI.Page
 
 
         }
+
     }
     protected void exportBtn2_ClickAv(object sender, EventArgs e)
     {
@@ -105,7 +109,8 @@ public partial class Invoices : System.Web.UI.Page
             if (cb != null && cb.Checked)
             {
                 isSelected = true;
-                break;
+
+                //break;
             }
             else
             {
@@ -128,11 +133,12 @@ public partial class Invoices : System.Web.UI.Page
                     gvExport.Rows[i.RowIndex].Visible = true;
                 }
             }
-            string invoiceyear = drpMonth.SelectedValue.ToString() +  ", " +drpYear.SelectedValue.ToString() + " Cancelled Invoices ";
+
+            string invoiceyear = drpMonth.SelectedValue.ToString() + ", " + drpYear.SelectedValue.ToString() + " Cancelled Invoices ";
             string filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
             Response.Clear();
             Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + "\"");
+            Response.AddHeader("content-disposition", "attachment;filename=" + invoiceyear + filename + ".xls");
             Response.Charset = "";
             Response.ContentType = "application/vnd.ms-excel";
             StringWriter sw = new StringWriter();
@@ -172,6 +178,7 @@ public partial class Invoices : System.Web.UI.Page
 
 
 
+
     }
     protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
     {
@@ -184,6 +191,7 @@ public partial class Invoices : System.Web.UI.Page
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency
             e.Row.Cells[2].Text = String.Format("{0:c}", TotalCancelled);
+
 
 
 
