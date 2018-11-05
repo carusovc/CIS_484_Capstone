@@ -21,11 +21,11 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
 
-        txtEducators.Text = "";
-        txtTempGrade.Text = "";
-        txtTempBird.Text = "";
-        txtTempMammals.Text = "";
-        txtTempReptiles.Text = "";
+        //txtEducators.Text = "";
+        //txtTempGrade.Text = "";
+        //txtTempBird.Text = "";
+        //txtTempMammals.Text = "";
+        //txtTempReptiles.Text = "";
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
         if (!IsPostBack)
         {
@@ -168,6 +168,11 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand deleteEducator = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand deleteGrade = new System.Data.SqlClient.SqlCommand();
 
+        System.Data.SqlClient.SqlCommand pullAnimalID = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand updateOnlineAnimal = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand deleteOnlineAnimal = new System.Data.SqlClient.SqlCommand();
+
+
 
 
         update.Connection = sc;
@@ -177,6 +182,14 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
         updateEducator.Connection = sc;
         deleteEducator.Connection = sc;
         deleteGrade.Connection = sc;
+        pullAnimalID.Connection = sc;
+        updateOnlineAnimal.Connection = sc;
+        deleteOnlineAnimal.Connection = sc;
+
+        deleteEducator.Parameters.Clear();
+        deleteGrade.Parameters.Clear();
+        deleteOnlineAnimal.Parameters.Clear();
+
         SqlConnection con = new SqlConnection(cs);
         DateTime programDate = Convert.ToDateTime(txtProgramDate.Text);
         String month = programDate.ToString("MMMM");
@@ -210,6 +223,11 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
         deleteGrade.CommandText = "Delete from OnlineProgramGrades where OnlineProgramID = @onlineProgramID";
         deleteGrade.Parameters.AddWithValue("@onlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
         deleteGrade.ExecuteNonQuery();
+
+        // Delete animals from associated tables
+        deleteOnlineAnimal.CommandText = "Delete from OnlineAnimal where OnlineProgramID = @onlineProgramID";
+        deleteOnlineAnimal.Parameters.AddWithValue("@onlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
+        deleteOnlineAnimal.ExecuteNonQuery();
 
         // Add updated educators to associated table
         foreach (ListItem li in drpEducators.Items)
@@ -264,6 +282,96 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
                 continue;
             }
         }
+
+
+        //Pull animalID
+        //Insert into onlineAnimal table (selected birds)
+        foreach (ListItem li in ddlBirds.Items)
+        {
+            if (li.Selected == true)
+            {
+                pullAnimalID.Parameters.Clear();
+                updateOnlineAnimal.Parameters.Clear();
+                pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
+                pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
+
+                int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+
+                // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
+                updateOnlineAnimal.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
+                updateOnlineAnimal.Parameters.AddWithValue("@onlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
+                updateOnlineAnimal.Parameters.AddWithValue("@animalID", tempAnimalID);
+                updateOnlineAnimal.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
+                updateOnlineAnimal.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers"); // LUB
+                updateOnlineAnimal.ExecuteNonQuery();
+            }
+            else
+            {
+                continue;
+            }
+
+        }
+
+        //Pull animalID
+        //Insert into onlineAnimal table (selected mammals)
+        foreach (ListItem li in lstMammals.Items)
+        {
+            if (li.Selected == true)
+            {
+                pullAnimalID.Parameters.Clear();
+                updateOnlineAnimal.Parameters.Clear();
+                pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
+                pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
+
+                int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+
+                // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
+                updateOnlineAnimal.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
+                updateOnlineAnimal.Parameters.AddWithValue("@onlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
+                updateOnlineAnimal.Parameters.AddWithValue("@animalID", tempAnimalID);
+                updateOnlineAnimal.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
+                updateOnlineAnimal.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers"); // LUB
+                updateOnlineAnimal.ExecuteNonQuery();
+            }
+            else
+            {
+                continue;
+            }
+
+        }
+
+        //Pull animalID
+        //Insert into onlineAnimal table (selected reptiles)
+        foreach (ListItem li in ddlReptiles.Items)
+        {
+            if (li.Selected == true)
+            {
+                pullAnimalID.Parameters.Clear();
+                updateOnlineAnimal.Parameters.Clear();
+                pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
+                pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
+
+                int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+
+                // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
+                updateOnlineAnimal.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
+                updateOnlineAnimal.Parameters.AddWithValue("@onlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
+                updateOnlineAnimal.Parameters.AddWithValue("@animalID", tempAnimalID);
+                updateOnlineAnimal.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
+                updateOnlineAnimal.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers"); // LUB
+                updateOnlineAnimal.ExecuteNonQuery();
+            }
+            else
+            {
+                continue;
+            }
+
+        }
+
+
+
+
+
 
 
         ddlOnlineProgramID.Items.Clear();
