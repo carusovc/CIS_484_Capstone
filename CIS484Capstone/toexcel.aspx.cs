@@ -15,7 +15,7 @@ public partial class toexcel : System.Web.UI.Page
 
     }
 
-    
+
 
 
     private void ExportToExcel(GridView GrdView)
@@ -57,9 +57,9 @@ public partial class toexcel : System.Web.UI.Page
         sc.ConnectionString = cs;
 
 
-      
+
         cmd = new SqlCommand("SELECT * FROM Program", sc);
-      
+
         sc.Open();
 
         da = new SqlDataAdapter(cmd);
@@ -71,9 +71,9 @@ public partial class toexcel : System.Web.UI.Page
         //string current = DateTime.Today.ToShortDateString();
         string filename = "Program_Report" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString();
 
-        ds.WriteXml(@"C:\Users\labpatron\Desktop\"+ filename + ".xls");
+        ds.WriteXml(@"C:\Users\labpatron\Desktop\" + filename + ".xls");
+
         sc.Close();
     }
-
 
 }

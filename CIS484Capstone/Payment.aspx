@@ -154,12 +154,12 @@
 
   </div>
               </div>
-        <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" class="btn btn-primary  btn-login btn-block" />
-        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary  btn-login btn-block" Text="Submit" />
-            <br />
+        <br />
             <br />
         </div>
-
+           <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" class="btn btn-primary  btn-login btn-block" />
+        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary  btn-login btn-block" Text="Submit" />
+         
         </div>
 
 </div>

@@ -7,12 +7,15 @@
         <h2>Update Program Form</h2>
     <p>Select Program ID:
         <asp:DropDownList ID="ddlProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged ="ddlProgramID_SelectedIndexChanged1">
+        <asp:ListItem Text="--Select Online Program ID--" Value="0" />
         </asp:DropDownList>
             <p>
        Program Type:
-                <asp:TextBox ID="txtProgramType" runat="server"></asp:TextBox>
-                &nbsp;&nbsp; Organization:
-    <asp:TextBox ID="txtOrganization" runat="server"></asp:TextBox>
+                &nbsp;<asp:DropDownList ID="ddlProgramType" runat="server">
+                </asp:DropDownList>
+                &nbsp; Organization:
+                <asp:DropDownList ID="ddlOrganization" runat="server">
+                </asp:DropDownList>
                 &nbsp; Status:
 &nbsp;<asp:TextBox ID="txtStatus" runat="server"></asp:TextBox>
     </p>
@@ -50,11 +53,35 @@
 &nbsp;
                 Program Time:
          <asp:TextBox ID="txtProgramTime" runat="server"></asp:TextBox>
-&nbsp; Event Month:
-         <asp:TextBox ID="txtMonth" runat="server"></asp:TextBox>
+         &nbsp; Educators: <asp:ListBox ID="drpEducators" runat="server" SelectionMode="Multiple"><asp:ListItem Text="--Select Educators--" Value="0" /></asp:ListBox>
+<%--         &nbsp; Educators:
+         <asp:TextBox ID="txtTempEducators" runat="server"></asp:TextBox>--%>
     </p>
      <p>
-         &nbsp;</p>
+             Birds:
+    <asp:ListBox ID="ddlBirds" runat="server" SelectionMode="Multiple">
+        <asp:ListItem Text="--Select Birds--" Value="0" />
+    </asp:ListBox>
+<%--         Birds:
+         <asp:TextBox ID="txtTempBirds" runat="server"></asp:TextBox>--%>
+         &nbsp;&nbsp; Reptiles:
+    <asp:ListBox ID="ddlReptiles" runat="server" SelectionMode="Multiple">
+        <asp:ListItem Text="--Select Reptiles--" Value="0" />
+    </asp:ListBox>
+<%--&nbsp; Reptiles:<asp:TextBox ID="txtTempReptiles" runat="server"></asp:TextBox>--%>
+             Mammals:
+    <asp:ListBox ID="lstMammals" runat="server" SelectionMode="Multiple">
+        <asp:ListItem Text="--Select Mammals--" Value="0" />
+    </asp:ListBox>
+<%--&nbsp;Mammals:
+         <asp:TextBox ID="txtTempMammals" runat="server"></asp:TextBox>--%>
+    </p>
+     <p>
+             Grades:
+    <asp:ListBox ID="AddGrade" runat="server" SelectionMode="Multiple"><asp:ListItem Text="--Select Grades--" Value="0" /></asp:ListBox>
+<%--         Grades:
+         <asp:TextBox ID="txtTempGrades" runat="server"></asp:TextBox>--%>
+     </p>
      <p>
          Comments:
          <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
@@ -64,6 +91,8 @@
     &nbsp;<asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>
     </p>
     <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
+    &nbsp;
+     <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
     </p></p>
 </asp:Content>
 

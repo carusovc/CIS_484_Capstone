@@ -37,14 +37,14 @@ public partial class UpdateOrganization : System.Web.UI.Page
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlDataReader myRead = cmd.ExecuteReader();
 
-                while (myRead.Read())
-                {
+            //    while (myRead.Read())
+            //    {
 
-                    ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
-                }
-                ddlOrganization.DataBind();
+            //        ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
+            //    }
+            //    ddlOrganization.DataBind();
 
-            }
+            //}
         }
 
 
@@ -100,8 +100,8 @@ public partial class UpdateOrganization : System.Web.UI.Page
                 txtOrgName.Text = sdr[1].ToString();
                 txtCity.Text = sdr[2].ToString();
                 txtCounty.Text = sdr[3].ToString();
-                lblLastUpdated.Text = sdr["LastUpdated"].ToString();
-                lblLastUpdatedBy.Text = sdr["LastUpdatedBy"].ToString();
+                lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
+                lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
         }
         catch (Exception ex)
@@ -130,6 +130,9 @@ public partial class UpdateOrganization : System.Web.UI.Page
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
         update.ExecuteNonQuery();
+
+        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
         //string read = "Select * from Organization";
         //SqlCommand cmd = new SqlCommand(read, sc);
