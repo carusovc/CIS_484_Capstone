@@ -125,6 +125,7 @@
    </div>
           <asp:Label Text ="Current Invoice" runat ="server"></asp:Label>
                             <br />
+
     <asp:GridView ID="GridView1" runat="server"  gridlines="None" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" AllowSorting="True" ShowFooter="True" onrowdatabound="GridView1_RowDataBound" EmptyDataText="There are no records to display." >
         <Columns>
             <asp:TemplateField HeaderText ="Select" >
@@ -175,7 +176,8 @@
             when 10 then 'October'
             when 11 then 'November'
             when 12 then 'December'
-           END MonthName,[PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice],CancelledInvoice FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (YEAR(paymentDate)=@Year) AND CancelledInvoice ='N'  ORDER BY MONTH(PaymentRecord.paymentDate)" 
+           END as MonthName,[PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice],CancelledInvoice FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (YEAR(paymentDate)=@Year) AND CancelledInvoice ='N'  ORDER BY MONTH(PaymentRecord.paymentDate)" 
+
                ProviderName="System.Data.SqlClient">
                 <SelectParameters>
                 
@@ -263,3 +265,4 @@
                  
               
 </asp:Content>
+

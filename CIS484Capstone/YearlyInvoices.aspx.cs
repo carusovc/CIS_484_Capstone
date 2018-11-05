@@ -23,14 +23,16 @@ public partial class YearlyInvoices : System.Web.UI.Page
         if (!IsPostBack)
         {
 
+
             PopulateData();
 
         }
     }
     private void PopulateData()
     {
-        //  GridView2.DataBind();
-        //  GridView1.DataBind();
+    //  GridView2.DataBind();
+      //  GridView1.DataBind();
+
 
     }
     public override void VerifyRenderingInServerForm(Control control)
@@ -67,6 +69,7 @@ public partial class YearlyInvoices : System.Web.UI.Page
         {
             GridView gvExport = GridView1;
 
+
             // this below line for not export checkbox to excel file
             gvExport.Columns[0].Visible = false;
 
@@ -88,15 +91,20 @@ public partial class YearlyInvoices : System.Web.UI.Page
             string filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
             Response.Clear();
             Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment;filename=" + invoiceyear + filename + ".xls");
+            Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + "\"");
+
+            //Response.AddHeader("content-disposition", "attachment;filename=" + invoiceyear + filename + ".xls");
             Response.Charset = "";
             Response.ContentType = "application/vnd.ms-excel";
             StringWriter sw = new StringWriter();
             HtmlTextWriter htW = new HtmlTextWriter(sw);
 
 
+   
+           
             gvExport.RenderControl(htW);
-            // string filename2 = /*drpOrg.SelectedValue.ToString() +*/ " Invoice - " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+                        // string filename2 = /*drpOrg.SelectedValue.ToString() +*/ " Invoice - " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+
 
             string headerTable = @"<Table><tr><td>" + invoiceyear + " " + filename + "</td></tr><tr><td></td></tr></Table>";
 
@@ -116,6 +124,7 @@ public partial class YearlyInvoices : System.Web.UI.Page
         foreach (GridViewRow i in GridView2.Rows)
         {
             CheckBox cb = (CheckBox)i.FindControl("chkSelect");
+
 
             if (cb != null && cb.Checked)
             {
@@ -169,6 +178,7 @@ public partial class YearlyInvoices : System.Web.UI.Page
 
     }
     protected void btnAddPaymentForm(object sender, EventArgs e)
+
     {
 
     }
@@ -205,3 +215,4 @@ public partial class YearlyInvoices : System.Web.UI.Page
 
     }
 }
+

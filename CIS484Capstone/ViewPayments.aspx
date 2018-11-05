@@ -4,7 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <meta charset="UTF-8">
-<title>WildTek</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 	  <!-- Bootstrap v4 -->
@@ -14,10 +13,7 @@
         
       <!-- Logo FOnt-->
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-    
-</head>
-        <body>
-                
+
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
       <a class="navbar-brand mr-1" href="index.html">WildTek</a>
@@ -109,7 +105,7 @@
 	</div>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="PaymentID" DataSourceID="SqlDataSource1">
         <Columns>
-            <asp:BoundField DataField="PaymentID" HeaderText="PaymentID" InsertVisible="False" ReadOnly="True" SortExpression="PaymentID" />
+            <asp:BoundField DataField="PaymentID" HeaderText="PaymentID" InsertVisible="False" ReadOnly="True" SortExpression="PaymentID" Visible="False" />
             <asp:BoundField DataField="paymentDate" HeaderText="paymentDate" SortExpression="paymentDate" />
             <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" SortExpression="PaymentAmount" />
             <asp:BoundField DataField="CheckNumber" HeaderText="CheckNumber" SortExpression="CheckNumber" />

@@ -4,10 +4,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <!DOCTYPE html>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <head>
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
 
 
@@ -95,6 +102,7 @@
           </div>
         </div>
       </form>--%>
+
 
             <!-- Navbar -->
             <ul class="navbar-nav ml-auto ml-md-0">
@@ -754,8 +762,7 @@
 	
      <div class=" col-md-3 ProgramInfoPop">
 	    <h4>Type </h4> 
-    <h6 class="ProgramDescription" id="OnlineType"> Skype: Oppossum</h6>
-	    
+    <h6 class="ProgramDescription" id="OnlineType"> Skype: Oppossum</h6>	    
 	</div>
 	     
                      <div class="col-md-3 ProgramInfoPop">
@@ -890,8 +897,20 @@
              </div>
         </div>--%>
 
+            <li class="nav-item">
+                <a class="nav-link" href="CreateUser.aspx">
+                    <i class="fas fa-fw fa-person"></i>
+                    <span>Create Educator Access</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="Default.aspx">
+                    <i class="fas fa-fw fa-door"></i>
+                    <span>Logout</span></a>
+            </li>
 
 
+        </ul>
 
 
                                 <script>
@@ -910,30 +929,93 @@
                                     }
                                 </script>
 
+                <div class="row">
+                    <div class="col-md-12 ProgramTitle">
+                        <h1>Program Listings</h1>
+
+                    </div>
+                </div>
+
+                <div>
+
+
+                    <div class="row ProgramSearch">
+                        <div class="col-md-2 ml-auto">
+                            <div id="search">
+                                <asp:TextBox ID="txtSearchMaster" class="rounded" runat="server"></asp:TextBox>
+                                <asp:Button ID="btnSearch" class="rounded" runat="server" Text="Search"></asp:Button>
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="">
+
+                        <form>
+
+
+
+
+                            <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+                            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+                            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+                            <!------ Include the above in your HEAD tag ---------->
+
+
+
+                            <script>
+                                function doTheInsert() {
+                                    var newRow = document.getElementById('testtable').insertRow();
+                                    //newRow.innerHTML = "<td>New row text</td><td>New row 2nd cell</td>";
+                                    newRow.innerHTML = "<td class=\"ShortOrgTime\">11/5/18 3:00 pm</td> <td class=\"ShortOrgName\">James Madison University</td><td class=\"ShortDT\">Skype: Turtles</td><td class=\"ShortEd\">Raina, Alex</td>";
+                                    doInsert2();
+                                }
+                                function doInsert2() {
+                                    var newRow = document.getElementById('testtable').insertRow();
+                                    newRow.innerHTML = "<td colspan=\"6\" class=\"hiddenRow\"><div class=\"accordian-body collapse\" id=\"OnlineProgram1\">";
+
+                                }
+                            </script>
 
 
 
 
 
+                            <script>
+                                var acc = document.getElementsByClassName("accordion");
+                                var i;
+                                for (i = 0; i < acc.length; i++) {
+                                    acc[i].addEventListener("click", function () {
+                                        this.classList.toggle("active");
+                                        var panel = this.nextElementSibling;
+                                        if (panel.style.display === "block") {
+                                            panel.style.display = "none";
+                                        } else {
+                                            panel.style.display = "block";
+                                        }
+                                    });
+                                }
+                            </script>
 
 
 
+                            <%--                                VERSION 2--%>
+                            <div class="tab-content">
+                                <div id="accordion" class="container1 block tab-pane active">
+                                    <table class="table condensed table-borderless table-hover" style="border-collapse: collapse" id="tblProgram">
+                                        <thead>
+                                            <tr data-toggle="collapse" data-target="#ProgramLL" class="accordion-toggle">
+                                                <th scope="col">&nbsp;</th>
+                                                <th scope="col" style="width: 150px">Date</th>
+                                                <th scope="col" style="width: 150px">Organization Name</th>
+                                                <th scope="col" style="width: 150px">Program Type</th>
+                                                <th scope="col" style="width: 150px">Educator(s)</th>
+                                            </tr>
+                                        </thead>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <!-- Programs-->
 
                                 <%--<div class="col-md-12">
         <br>
@@ -1174,6 +1256,22 @@
                                     });
                                 </script>
 
+                                                                                </itemtemplate>
+                                                                        </div>
+                                                                    </td>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
+                                                        </asp:Panel>
+                                                        <asp:HiddenField ID="hfProgramID" runat="server" Value='<%# Eval("ProgramID") %>' />
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label ID="lblProgramID" runat="server" Text='<%# Eval("ProgramID") %>' />
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label ID="lblProgramTypeID" runat="server" Text='<%# Eval("ProgramType") %>' />
+                                                    </td>
+                                                </tr>
+
 
 
 
@@ -1201,6 +1299,7 @@
                                                             <asp:ListItem Text="Not Started" Value="2" />
                                                         </asp:DropDownList>
                                                     </div>
+
 
 
 
@@ -1274,14 +1373,21 @@ foreach (ListItem item in CBLGold.Items)
 
                                                         <asp:TextBox CssClass="form-control" ID="txtNumOfKids" runat="server" placeholder="Add # of Children"></asp:TextBox>
 
+                                                    <%--<input type="text" class="form-control" id="AddOnlineTeacher" placeholder="Add Teacher">--%>
+                                                    <asp:TextBox CssClass="form-control" ID="AddOnlineTeacher" runat="server" placeholder="Add Teacher"></asp:TextBox>
+                                                </div>
 
+                                                <div class=" col-md-4 ProgramInfoPop">
+                                                    <h4>Children </h4>
 
-                                                    </div>
+                                     </div>
 
                                                     <div class=" col-md-4 ProgramInfoPop">
                                                         <h4>People </h4>
                                                         <asp:TextBox CssClass="form-control" ID="txtNumOfPeople" runat="server" placeholder="Add # of People"></asp:TextBox>
 
+
+                                                </div>
 
 
                                                     </div>
@@ -1372,6 +1478,9 @@ foreach (ListItem item in CBLGold.Items)
                                                 </div>
 
 
+                                                    <asp:ListBox CssClass="form-control" ID="drpEducators" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+                                                        <asp:ListItem Text="--Select Educators--" Value="0" />
+
 
                                                 <div class=" col-md-4 ProgramInfoPop">
                                                     <h4>Email </h4>
@@ -1383,6 +1492,8 @@ foreach (ListItem item in CBLGold.Items)
                                                 </div>
 
 
+
+                                                <asp:TextBox CssClass="form-control" ID="AddOnlineEmail" runat="server" placeholder="Add Email"></asp:TextBox>
 
 
 
@@ -1659,6 +1770,12 @@ foreach (ListItem item in CBLGold.Items)
                                                 </div>
 
 
+                                            <div class="row">
+                                                <div class="col-md-4 ProgramInfoPop">
+                                                    <h4>City/County:</h4>
+                                                    <%--  <input type="city" class="form-control" id="AddOnlineProgramcity" placeholder="Add City/County">--%>
+                                                    <asp:TextBox CssClass="form-control" ID="AddOnlineProgramcity" runat="server" placeholder="Add City/County"></asp:TextBox>
+
 
 
                                                 <div class="row">
@@ -1687,10 +1804,17 @@ foreach (ListItem item in CBLGold.Items)
 
 
 
+
                                                 <div class="row">
 
+                                                <div class="col-md-4 ProgramInfoPop">
+                                                    <h4>Date:</h4>
 
+                                                    <asp:TextBox CssClass="form-control" ID="txtDate" runat="server" placeholder="Add Date"></asp:TextBox>
 
+                                                </div>
+
+                                                <div class="col-md-4 ProgramInfoPop">
 
 
                                                     <div class="col-lg-4 ProgramInfoPop">
@@ -1738,10 +1862,18 @@ foreach (ListItem item in CBLGold.Items)
 
                                                     </div>
 
+                                            <div class="row">
+
+                                                <div class="col-lg-4 ProgramInfoPop">
+                                                    <h4 class="Animal">Birds:</h4>
 
 
+                                                    <asp:ListBox ID="ddlBirds" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder="Select Birds">
+                                                        <asp:ListItem Text="--Select Birds--" Value="0" />
 
+                                                    </asp:ListBox>
 
+                                                </div>
 
 
                                                     <div class="col-lg-4 ProgramInfoPop">
@@ -1771,7 +1903,12 @@ foreach (ListItem item in CBLGold.Items)
 
                                                     </div>
 
+                                                    <asp:ListBox CssClass="form-control" ID="ddlReptiles" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+                                                        <asp:ListItem Text="--Select Reptiles--" Value="0" />
 
+                                                    </asp:ListBox>
+
+                                                </div>
 
 
                                                     <div class="col-lg-4 ProgramInfoPop">
@@ -1821,6 +1958,7 @@ foreach (ListItem item in CBLGold.Items)
                                         </div>
                                     </div>
                                 </div>
+
 
 
 
@@ -1989,6 +2127,7 @@ foreach (ListItem item in CBLGold.Items)
     </div>
     </div>
 
+
       <!-- /.content-wrapper -->
  </div>
    
@@ -2028,6 +2167,7 @@ foreach (ListItem item in CBLGold.Items)
 
                         <!-- Core plugin JavaScript-->
                         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
 
                         <!-- Page level plugin JavaScript-->
                         <script src="vendor/chart.js/Chart.min.js"></script>

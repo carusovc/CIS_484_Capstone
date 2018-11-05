@@ -27,7 +27,8 @@ public partial class Invoices : System.Web.UI.Page
     }
     private void PopulateData()
     {
-        // GridView1.DataBind();
+       // GridView1.DataBind();
+       
 
     }
     public override void VerifyRenderingInServerForm(Control control)
@@ -47,6 +48,7 @@ public partial class Invoices : System.Web.UI.Page
             if (cb != null && cb.Checked)
             {
                 isSelected = true;
+
                 //break;
             }
             else
@@ -70,11 +72,12 @@ public partial class Invoices : System.Web.UI.Page
                     gvExport.Rows[i.RowIndex].Visible = true;
                 }
             }
-            string invoiceyear = drpMonth.SelectedValue.ToString() + ", " + drpYear.SelectedValue.ToString() + "Invoices ";
+            string invoiceyear = drpMonth.SelectedValue.ToString() + ", " + drpYear.SelectedValue.ToString() + " Invoices ";
             string filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
             Response.Clear();
             Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment;filename=" + invoiceyear + filename + ".xls");
+            Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + "\"");
+
             Response.Charset = "";
             Response.ContentType = "application/vnd.ms-excel";
             StringWriter sw = new StringWriter();
@@ -90,8 +93,8 @@ public partial class Invoices : System.Web.UI.Page
             Response.Output.Write(sw.ToString());
             Response.End();
 
-        }
 
+        }
 
     }
     protected void exportBtn2_ClickAv(object sender, EventArgs e)
@@ -106,6 +109,7 @@ public partial class Invoices : System.Web.UI.Page
             if (cb != null && cb.Checked)
             {
                 isSelected = true;
+
                 //break;
             }
             else
@@ -129,6 +133,7 @@ public partial class Invoices : System.Web.UI.Page
                     gvExport.Rows[i.RowIndex].Visible = true;
                 }
             }
+
             string invoiceyear = drpMonth.SelectedValue.ToString() + ", " + drpYear.SelectedValue.ToString() + " Cancelled Invoices ";
             string filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
             Response.Clear();
@@ -168,7 +173,8 @@ public partial class Invoices : System.Web.UI.Page
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency
-            e.Row.Cells[1].Text = String.Format("{0:c}", TotalNotCancelled);
+            e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
+
 
 
 
@@ -184,7 +190,8 @@ public partial class Invoices : System.Web.UI.Page
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency
-            e.Row.Cells[1].Text = String.Format("{0:c}", TotalCancelled);
+            e.Row.Cells[2].Text = String.Format("{0:c}", TotalCancelled);
+
 
 
 
