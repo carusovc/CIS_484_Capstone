@@ -174,7 +174,16 @@
 
                         </div>
                     </div>
+                    <div class="row">
+            <div class ="modifyOptions mx-auto">
+         
+                <div class="btn btn-primary btn-inside" data-target="#AddProgramModal" data-toggle="modal">Add Program</div>
+      <div class="btn btn-primary btn-inside" data-target="#EditProgramModal" data-toggle="modal">Edit Program</div>
+     <%--<asp:Button ID="Button3" runat="server" Text="View Animal" class="btn btn-primary btn-inside" OnClick="btnViewAnimal_Click"></asp:Button>--%>
 
+       </div>
+                </div>
+            <br />
                     <div>
 
 
