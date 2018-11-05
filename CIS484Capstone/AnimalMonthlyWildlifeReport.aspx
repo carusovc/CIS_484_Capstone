@@ -169,6 +169,7 @@
         <div class="col-md-12 mx-auto d-flex justify-content-center">
     <br />
      <br />
+
     <asp:GridView ID="GridView1" class="table table-borderless table-condensed table-hover" runat="server"  AutoGenerateColumns="False">
         <Columns>
 
@@ -180,6 +181,7 @@
             <asp:BoundField DataField="TotalParticipants" HeaderText="Total Participants" ReadOnly="True" SortExpression="TotalParticipants" />
         </Columns>
     </asp:GridView>
+
              </div>
         </div>
     <br />
@@ -204,6 +206,7 @@
 
   <div class="row WildTable">
         <div class="col-md-12 mx-auto d-flex justify-content-center">
+            <asp:Button ID="btnToExcel" runat="server" OnClick="btnToExcel_Click1" Text="Export to Excel"  class="btn btn-primary btn-inside" />
             <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
             <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-inside " OnClick="btnBack_Click"></asp:Button>
         </div>

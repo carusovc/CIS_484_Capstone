@@ -581,7 +581,9 @@ public partial class OnlineForm : System.Web.UI.Page
         {
             string programID = (e.Item.FindControl("hfProgramID") as HiddenField).Value;
             Repeater rptOrders = e.Item.FindControl("rptProgramLL") as Repeater;
-            rptOrders.DataSource = GetData(string.Format("SELECT Top 1 Status, ProgramAddress From Program WHERE ProgramID = " + programID + "", programID));
+            //rptOrders.DataSource = GetData(string.Format("SELECT Top 1 Status, ProgramAddress From Program WHERE ProgramID = " + programID + "", programID));
+            rptOrders.DataSource = GetData(string.Format("SELECT Status, ProgramAddress From Program WHERE ProgramID = " + programID + "", programID));
+
             rptOrders.DataBind();
 
         }

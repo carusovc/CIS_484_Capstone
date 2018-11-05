@@ -831,3 +831,24 @@ a.TabStyle {
 }
 
 
+
+
+.tab-pane {
+    padding-left: 5px !important;
+}
+
+.ProgramSearch {
+    margin-bottom: 5px !important;
+}
+
+.extraPersonTemplate {
+    display: none;
+}
+
+.TableHeading {
+    color: black;
+}
+
+a.TabStyle {
+    color: black;
+}
