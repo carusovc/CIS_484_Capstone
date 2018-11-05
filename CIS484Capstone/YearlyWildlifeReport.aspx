@@ -244,9 +244,9 @@
         <div class="col-md-12 mx-auto d-flex justify-content-center">
 
    <br />
-                 <asp:Button ID="Button1" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
-              
-                 <asp:Button ID="Button2" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
+            <asp:Button ID="Button3" runat="server" Text="Export To Excel" class="btn btn-primary btn-inside" OnClick="btnToExcel_Click1"></asp:Button>
+            <asp:Button ID="Button1" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
+            <asp:Button ID="Button2" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
                 <br />
                
                 <br />  
