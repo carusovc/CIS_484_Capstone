@@ -13,8 +13,8 @@ body html {
 
 
 body {
-    background-image: url(../Images/FlyingBirdsBG.jpg);
-    background-color: #c3dbf5; /* Used if the image is unavailable */
+    /*background-image: url(../Images/FlyingBirdsBG.jpg);*/
+    background-color: rgba(52, 58, 64, 0.5); /* Used if the image is unavailable */
     height: auto; /* You must set a specified height */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -23,8 +23,8 @@ body {
 }
 
     body.login {
-        background-image: url(../Images/FlyingBirdsBG.jpg);
-        background-color: #c3dbf5; /* Used if the image is unavailable */
+        /*background-image: url(../Images/FlyingBirdsBG.jpg);*/
+        background-color: rgba(52, 58, 64, 0.5); /* Used if the image is unavailable */
         height: auto; /* You must set a specified height */
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
@@ -609,8 +609,27 @@ a.WildTable {
     background-color: white;
     border-radius: 15px;
     border: none;
+    width: 100%;
 }
+/*animal page*/
 
+.grid-mammal{
+    width:32%;
+    background-color:white;
+    float:left;
+}
+.grid-reptile {
+    width: 32%;
+    background-color: white;
+    float: left;
+    margin-left:2%;
+}
+.grid-bird {
+    width: 32%;
+    background-color: white;
+    margin-left: 1%;
+    float: right;
+}
 /* Dropdown Button */
 .dropbtn {
     /*background-color: #4CAF50;
@@ -743,9 +762,9 @@ a.WildTable {
 }
 
 
-.tab-pane {
+/*.tab-pane {
     padding-left: 5px !important;
-}
+}*/
 
 .ProgramSearch {
     margin-bottom: 5px !important;
