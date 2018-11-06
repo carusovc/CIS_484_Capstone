@@ -34,15 +34,35 @@ body, html {
 
 .container {
     background: #fff;
-    border-radius: 10px;
+   
     box-shadow: 0px !important;
 }
 
 
 .block {
-    background: white;
-    border-radius: 10px;
+    background: #e0d7c3;
+   
 }
+
+.block2 {
+    background: #e0d7c3;
+   
+}
+
+.block3 {
+    background: #c6b998;
+  
+    padding: 15px;
+   width:auto;
+}
+
+.TabDiv{padding-right: 10%;}
+
+
+   
+   
+}
+
 
 .blockInvoice {
     background: white;
@@ -126,7 +146,7 @@ body, html {
     }
 
 .btn-inside {
-    background: #FFA203;
+    background: #919b90;
     color: #fff;
     font-weight: 600;
     border: 0px;

@@ -14,7 +14,7 @@ body html {
 
 body {
     /*background-image: url(../Images/FlyingBirdsBG.jpg);*/
-    background-color: rgba(52, 58, 64, 0.5); /* Used if the image is unavailable */
+    background-color: #919b90;
     height: auto; /* You must set a specified height */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -530,7 +530,7 @@ sampleModal
 }
 
 .LoginButton:hover {
-    background: #d55c1d;
+    background: #919b90;
     color: #fff;
     border: none;
 }
@@ -761,10 +761,12 @@ a.WildTable {
     margin-bottom: -1px;
 }
 
-
-/*.tab-pane {
-    padding-left: 5px !important;
-}*/
+a.nav a.nav-tabs a.block4 {
+    color: black !important;
+}
+.nav-tabs {
+   background-color: #e0d7c3
+}
 
 .ProgramSearch {
     margin-bottom: 5px !important;
@@ -889,3 +891,6 @@ a.TabStyle {
 a.TabStyle {
     color: black;
 }
+
+.blockbg{background-color: #938060}
+
