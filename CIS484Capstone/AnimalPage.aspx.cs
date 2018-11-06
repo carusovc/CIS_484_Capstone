@@ -11,7 +11,7 @@ public partial class AnimalPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#EditAnimalModal').modal('show');});</script>", false);
 
         AnimalAddDiv.Visible = true;
@@ -32,6 +32,7 @@ public partial class AnimalPage : System.Web.UI.Page
 
         if (!IsPostBack)
         {
+           
             //call read array
             SqlConnection conAnimal = new SqlConnection(cs);
             conAnimal.Open();
@@ -55,6 +56,7 @@ public partial class AnimalPage : System.Web.UI.Page
     {
         AnimalAddDiv.Visible = true;
         ViewAnimals.Visible = true;
+        
 
     }
     protected void btnEditAnimal_Click(object sender, EventArgs e)
@@ -119,6 +121,9 @@ public partial class AnimalPage : System.Web.UI.Page
         lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
 
         txtAnimalName.Text = "";
+        gridAnimalMammal.DataBind();
+        gridReptile.DataBind();
+        gridBird.DataBind();
     }
 
     protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
@@ -207,12 +212,50 @@ public partial class AnimalPage : System.Web.UI.Page
             // ddlAnimal.DataBind();
 
         }
+        gridAnimalMammal.DataBind();
+        gridReptile.DataBind();
+        gridBird.DataBind();
 
 
 
 
 
     }
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+        System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
+        delete.Connection = sc;
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+        delete.CommandText = "Delete from Animal where AnimalID = @AnimalID";
+        delete.Parameters.AddWithValue("@AnimalID", ddlAnimal.SelectedItem.Value);
+        delete.ExecuteNonQuery();
+        ddlAnimal.Items.Clear();
+        //call read array
+        con.Open();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+            string read = "Select * from Animal";
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+            while (myRead.Read())
+            {
+                ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+            }
+            // ddlAnimal.DataBind();
+        }
+        txtAnimalName.Text = "";
+        gridAnimalMammal.DataBind();
+        gridReptile.DataBind();
+        gridBird.DataBind();
 
-
+    }
 }
+
+
