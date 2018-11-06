@@ -145,42 +145,28 @@
 
           
 
-       <!-- Programs-->
-       <div class="row">
-		<div class="col-md-12 ProgramTitle">
-			<h1 >Animals Listing</h1>
-			
-		</div>
-	</div>
-            <div class="row">
-            <div class ="modifyOptions mx-auto">
-         
-               
-     <%--<asp:Button ID="Button3" runat="server" Text="View Animal" class="btn btn-primary btn-inside" OnClick="btnViewAnimal_Click"></asp:Button>--%>
+       
 
-       </div>
-                </div>
-            <br />
+
+
+
+      <section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
+    
+
+<div class="container1">
+      <div class="card  mx-auto mt-5">
+        <div class="card-header NewUserTitle text-center">Animal Listing</div>
+        <div class="card-body">
           
-            <div class="col-lg-8 col-md-12 col-s-12 mx-auto container-fluid ">
-                <%--this div block3 is used to determine the tan part, block is found in login.css--%>
-   <div class="block3 mx-auto">
-
-
-       <%--this div holdthe buttons and internal--%>
-                <div class="container1 block5">
-
-
-        <br />
-        <div class="mx-auto d-flex justify-content-center">
+       <div class="mx-auto d-flex justify-content-center">
             
     <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Animal</div>
       <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal">Edit Animal</div>
             
             </div>
-        <br /> 
+       
                    <%-- this div  is the internal div--%>
-        <div class="block2">
+        <div class="block3">
                  <ul class="nav nav-tabs block4" role="tablist">
                       <li class="nav-item">
       <a class="nav-link active TabStyle" data-toggle="tab" href="#AllTab" style="color:black;">All</a>
@@ -198,41 +184,59 @@
   </ul>
 
                  <div class="tab-content">
-                      <div id="AllTab" class="container1 block4 tab-pane active">
-     <p> Hello</p>
+                      <div id="AllTab" class="container1 block3 tab-pane  WildTable active">
+<div class="InternalTab">
+     <p>  Hello</p>
           <br />
      <br /><br /><br />
               </div>
+</div>
+    
                          
-    <div id="MammalTab" class="container1 block tab-pane WildTable">
-           <p> There</p>
-            <br />
+    <div id="MammalTab" class="container1 block3 tab-pane WildTable">
+          <div class="InternalTab">
+     <p> There</p>
+          <br />
      <br /><br /><br />
-     </div>
-    <div id="ReptileTab" class="container1 block tab-pane fade WildTable">
-         <p> My</p> 
-        <br />
+              </div>
+</div>
+   
+    <div id="ReptileTab" class="container1 block3 tab-pane fade WildTable">
+      <div class="InternalTab">
+     <p> My</p>
+          <br />
      <br /><br /><br />
-          </div>
-    <div id="BirdTab" class="container1 block tab-pane fade WildTable">
-         <p> Friend</p>
-        <br />
+              </div>
+</div>
+          
+    <div id="BirdTab" class="container1 block3 tab-pane fade WildTable">
+       <div class="InternalTab">
+     <p> Friend</p>
+          <br />
      <br /><br /><br />
+
+              </div>
+</div>
         
     </div>
                  </div>
      
-                   <div runat="server" id="ViewAnimals">
+                   <div runat="server" id="Div1">
                    </div>
                </div>
-               </div>
-            </div>
+          
+          <div class="text-center">
+            <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
+            <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
        
-
-
-
-
-               
+</section>         
 
 
 

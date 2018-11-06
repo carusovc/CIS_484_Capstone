@@ -50,10 +50,15 @@ body, html {
 }
 
 .block3 {
-    background: #c6b998;
-  
-    padding: 15px;
-   width:auto;
+    background: whitesmoke;
+    width: auto;
+    border-radius: 5px;
+}
+
+.block4 {
+    background: white;
+    width: auto;
+   
 }
 
 .TabDiv{padding-right: 10%;}
@@ -135,7 +140,7 @@ body, html {
     }
 
 .btn-login {
-    background: #DE6262;
+    background: #d55c1d;
     color: #fff;
     font-weight: 600;
     border: 0px;
@@ -146,12 +151,13 @@ body, html {
     }
 
 .btn-inside {
-    background: #919b90;
+    background: #d55c1d;
     color: #fff;
     font-weight: 600;
     border: 0px;
     margin-left: 5px !important;
     margin-right: 5px !important;
+    margin-bottom: 5px !important;
 }
 
 .btn-login:hover {
@@ -198,6 +204,6 @@ body, html {
 }
 
 .NewUserTitle {
-    font-size: 150%;
+    font-size: 200%;
     color: #d55c1d;
 }
