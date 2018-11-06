@@ -77,6 +77,7 @@
             });
         </script>
 
+                  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
           <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -87,6 +88,7 @@
       </button>
 
       <!-- Navbar -->
+
       <ul class="navbar-nav ml-auto ml-md-0">
         
         <li class="nav-item dropdown no-arrow">
@@ -105,14 +107,18 @@
             <div id="wrapper">
 
  <!-- Sidebar -->
+
       <ul class="sidebar navbar-nav active">
         <li class="nav-item">
           <a class="nav-link" href="Programs.aspx">
+
             <i class="fas fa-fw fa-book-open"></i>
             <span>Programs</span>
           </a>
         </li>
+
       <li class="nav-item">
+
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Animal</span>
@@ -180,7 +186,6 @@
         </li>
 
       </ul>
-
             <div id="content-wrapper">
 
                 <div class="container-fluid ">
@@ -246,18 +251,26 @@
                                     });
                                 </script>
 
-
+<div style="width: 75%; padding-left: 25%;" >   
     <div class="container1 block">
   <ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#Program">Program</a></li>
-  <li><a data-toggle="tab" href="#OnlineProgram">OnlineProgram</a></li>
+  <li class="active">
+
+      <a data-toggle="tab" href="#Program">Program</a></li>
+  <li>
+      <a data-toggle="tab" href="#OnlineProgram">OnlineProgram</a></li>
 </ul>
+            </div>
+
+</div>
+
 
 <div class="tab-content">
   <div id="Program" class="tab-pane fade in active">
      <%--VERSION 1 Live--%>
-                                <div class="row mx-auto">
-                                <div class="block col-md-8 mx-auto d-flex justify-content-center">
+                                <div class="row mx-auto co">
+                                    <div class="block col-md-6 mx-auto d-flex justify-content-center">
+
                                     <asp:Repeater ID="rptProgramHLLive" runat="server" OnItemDataBound="OnItemDataBoundLive">
                                         <HeaderTemplate>
                                             <table class="Grid table table-borderless table-hover table-condensed WideTable" border="1">
@@ -1494,6 +1507,12 @@ foreach (ListItem item in CBLGold.Items)
                     </div>
 
     </body>
+    </div>
+
+    </div>
+
+    </div>
+
 
 
 </asp:Content>

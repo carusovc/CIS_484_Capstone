@@ -17,7 +17,7 @@ public partial class YearlyWildlifeReport : System.Web.UI.Page
         if (!IsPostBack)
         {
 
-            PopulateData();
+           // PopulateData();
 
         }
     }
@@ -63,8 +63,7 @@ public partial class YearlyWildlifeReport : System.Web.UI.Page
         Response.Write(headerTable1);
 
         gridPrograms.RenderControl(htW);
-        //    Response.Write(blankline);
-        //Response.Write(headerTable2);
+
         gridOnlinePrograms.RenderControl(htW2);
 
             Response.Output.Write(sw.ToString());
