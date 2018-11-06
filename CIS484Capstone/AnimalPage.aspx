@@ -192,7 +192,7 @@
         
      </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
-                    SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [AnimalName]">
+                    SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = @AnimalType) and Status = 'active' ORDER BY [AnimalName]">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Mammal" Name="AnimalType" Type="String" />
                     </SelectParameters>
@@ -208,7 +208,7 @@
                     </Columns>
                 </asp:GridView>
 
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalName], [AnimalType] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [AnimalName]">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalName], [AnimalType] FROM [Animal] WHERE ([AnimalType] = @AnimalType) and status = 'active' ORDER BY [AnimalName]">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Reptile" Name="AnimalType" Type="String" />
                     </SelectParameters>
@@ -225,7 +225,7 @@
                       </Columns>
                  </asp:GridView>
 
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [AnimalName]">
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = @AnimalType) and status = 'active' ORDER BY [AnimalName]">
                         <SelectParameters>
                             <asp:Parameter DefaultValue="Bird" Name="AnimalType" Type="String" />
                         </SelectParameters>
@@ -269,6 +269,16 @@
                 </div>
             </div>
             <div>
+            </div>
+             <div class="row">
+                <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
+                <div class=" col-md-3 InternalAnimalForm">
+                    <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalStatus" runat="server">
+                        <asp:ListItem>Active</asp:ListItem>
+                        <asp:ListItem>Inactive</asp:ListItem>
+                        
+                    </asp:DropDownList>&nbsp;&nbsp;
+                </div>
             </div>
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>&nbsp;
             <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
@@ -323,12 +333,7 @@
                          <asp:TextBox ID="txtBoxAnimalName" runat="server"></asp:TextBox>
                     </div>
               </div>
-              <div class="row"> 
-                <div class=" col-md-4 InternalAnimalForm"><h6>Age</h6> </div>
-                    <div class=" col-md-3 InternalAnimalForm">
-                         <asp:TextBox ID="txtAge" runat="server"></asp:TextBox>
-                    </div>
-              </div>
+
               <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
@@ -343,7 +348,7 @@
               <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
             <div class="modal-footer">
           <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdate_Click" />
-                <asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />
+                <%--<asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />--%>
        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
