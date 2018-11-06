@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MonthlyWildlifeReport.aspx.cs" Inherits="MonthlyWildlifeReport" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MonthlyWildlifeReport.aspx.cs" Inherits="MonthlyWildlifeReport" EnableEventValidation="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -62,7 +62,7 @@
  <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="OnlineForm.aspx">
+          <a class="nav-link" href="Programs.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Programs</span>
           </a>
@@ -198,7 +198,7 @@
     <br />
      <br />
    
-<asp:GridView ID="gridPrograms" runat="server" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowSorting="True">
+<asp:GridView ID="gridLivePrograms" runat="server" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowSorting="True">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" ReadOnly="True" />          
             <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="TotalOnSitePrograms" SortExpression="TotalOnSitePrograms" ReadOnly="True" />
@@ -255,12 +255,11 @@
 			
 		</div>
 	</div>
-             <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click1" />
             <div class="col-md-12 mx-auto d-flex justify-content-center">
     <br />
      <br />
    
-<asp:GridView runat="server" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
+<asp:GridView runat="server" id= "gridOnlineAnimalsTotals" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
          <Columns>
              <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" ReadOnly="True" />
              <asp:BoundField DataField="TotalOnlinePrograms" HeaderText="TotalOnlinePrograms" SortExpression="TotalOnlinePrograms" ReadOnly="True" />
@@ -313,7 +312,8 @@
 
             <div class="row WildTable">
         <div class="col-md-12 mx-auto d-flex justify-content-center">
-
+            <asp:Button ID="btnMonthToExcel" runat="server" OnClick="btnMonthsToExcel_Click" Text="Export Monthly Program Report to Excel"  class="btn btn-primary btn-inside" />
+           
     <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
                 
                  <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>

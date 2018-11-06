@@ -48,7 +48,7 @@ public partial class userLogin : System.Web.UI.Page
                         btnLogin.Enabled = false;
                         txtUsername.Enabled = false;
                         txtPassword.Enabled = false;
-                        Response.Redirect("ProgramForm.aspx", false);
+                        Response.Redirect("Programs.aspx", false);
 
 
                         Session["USER_ID"] = txtUsername.Text;
@@ -92,6 +92,6 @@ public partial class userLogin : System.Web.UI.Page
 
     protected void btnForm_Click(object sender, EventArgs e)
     {
-        Response.Redirect("FormChoice.aspx");
+        Response.Redirect("NoLogOnlineForm.aspx");
     }
 }
