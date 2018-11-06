@@ -225,50 +225,19 @@
                       </Columns>
                  </asp:GridView>
 
-
-
-
                     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [AnimalName]">
                         <SelectParameters>
                             <asp:Parameter DefaultValue="Bird" Name="AnimalType" Type="String" />
                         </SelectParameters>
                  </asp:SqlDataSource>
-        
     </div>
-    
-  </div>
-
-
-
-
-
-                 <div runat="server" id="ViewAnimals">
-   
-      
-
-                 
-
-
-                 
-
-
-
-
-                    </div>
-</div>
-                </div>
-                </div>
-              </div>
-
-
-   
-        
-
-
-   
-
-
-
+                 </div>
+                   <div runat="server" id="ViewAnimals">
+                   </div>
+               </div>
+            </div>
+         </div>
+      </div>
 
     
 <div class="modal" id="AddAnimalModal" tabindex="-1" role="dialog">
