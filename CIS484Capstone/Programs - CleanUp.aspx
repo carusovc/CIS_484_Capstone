@@ -768,7 +768,7 @@
                                  <textarea name="Comments" id="Comments" rows="5" cols="100"></textarea>
 
                                 <p></p>
-                                <input type="button" class="btn" id="btnEndstep14" value="Submit" />
+                                <asp:Button ID="btnEndstep14" runat="server" Text="Submit" />
                             </div>
 
                             <%--Modal Step 2.1 - Online Part 1--%>
