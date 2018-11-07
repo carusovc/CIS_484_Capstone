@@ -207,3 +207,10 @@ body, html {
     font-size: 200%;
     color: #d55c1d;
 }
+
+.ReportTitle {
+    font-size: 120%;
+    color: #919b90;
+    display: block;
+    font-weight: 600;
+}

@@ -37,49 +37,49 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
             //insert.CommandText = "select * from dbo.Animal where animalType = 'bird'";
 
-            ShowData();
+           // ShowData();
 
         }
 
 
     }
 
-    protected void ShowData()
-    {
+    //protected void ShowData()
+    //{
 
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-
-
-        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        sc.ConnectionString = cs;
-        sc.Open();
+    //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+    //    //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
 
 
-        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-        insert.Connection = sc;
-        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+    //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+    //    sc.ConnectionString = cs;
+    //    sc.Open();
 
 
-        DataTable dt = new DataTable();
-        //con = new SqlConnection(sc);
-        //con.Open();
-        SqlCommand cmd = new SqlCommand("SELECT  Animal.AnimalName, SUM(CASE WHEN Program.onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN Program.onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, SUM(Program.NumberOfChildren) AS NumberOfChildren, SUM(Program.NumberOfAdults) AS NumberOfAdults, SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants FROM Animal, Program, ProgramAnimal WHERE(Animal.AnimalType = @AnimalType) AND Animal.AnimalID = ProgramAnimal.AnimalID AND ProgramAnimal.ProgramID = Program.ProgramID GROUP BY Animal.AnimalName, Animal.AnimalType ORDER BY Animal.AnimalName", sc);
-        cmd.Parameters.AddWithValue("@AnimalType", drpAnimalType.Text.ToString());
-        SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-        adapt.Fill(dt);
-        if (dt.Rows.Count > 0)
-        {
-            AnimalLiveGrid.DataSource = dt;
-            AnimalLiveGrid.DataBind();
-        }
-        sc.Close();
-    }
+    //    System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+    //    insert.Connection = sc;
+    //    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+
+    //    DataTable dt = new DataTable();
+    //    //con = new SqlConnection(sc);
+    //    //con.Open();
+    //    SqlCommand cmd = new SqlCommand("SELECT  Animal.AnimalName, SUM(CASE WHEN Program.onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN Program.onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, SUM(Program.NumberOfChildren) AS NumberOfChildren, SUM(Program.NumberOfAdults) AS NumberOfAdults, SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants FROM Animal, Program, ProgramAnimal WHERE(Animal.AnimalType = @AnimalType) AND Animal.AnimalID = ProgramAnimal.AnimalID AND ProgramAnimal.ProgramID = Program.ProgramID GROUP BY Animal.AnimalName, Animal.AnimalType ORDER BY Animal.AnimalName", sc);
+    //    cmd.Parameters.AddWithValue("@AnimalType", drpAnimalType.Text.ToString());
+    //    SqlDataAdapter adapt = new SqlDataAdapter(cmd);
+    //    adapt.Fill(dt);
+    //    if (dt.Rows.Count > 0)
+    //    {
+    //        AnimalLiveGrid.DataSource = dt;
+    //        AnimalLiveGrid.DataBind();
+    //    }
+    //    sc.Close();
+    //}
 
 
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        ShowData();
+       // ShowData();
 
     }
 
@@ -97,7 +97,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
     {
 
             GridView1.AllowPaging = false;
-            ShowData();
+           // ShowData();
             String animalReport = "Animal Type: " + drpAnimalType.SelectedValue.ToString() + " Report ";
             String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
             HttpResponse response = HttpContext.Current.Response;
