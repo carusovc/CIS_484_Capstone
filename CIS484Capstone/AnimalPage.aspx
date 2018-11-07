@@ -141,7 +141,8 @@
         <div class="container-fluid ">
 
           
-<section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
+<section class="login-block  col-md-6 col-md-8 col-s-5 mx-auto ">
+            <%--<section class="card card-register mx-auto mt-5">--%>
     <div class="container1">
       <div class="card  mx-auto mt-5">
         <div class="card-header NewUserTitle text-center">Animal Listing</div>

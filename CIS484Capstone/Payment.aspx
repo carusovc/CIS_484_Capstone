@@ -141,18 +141,17 @@
 
 
         <div id="content-wrapper">
-            <div class="container-fluid block text-center">
+            <div class="container-fluid">
                 <div class="container1">
                     <div class="card card-register mx-auto mt-5">
-                        <div class="card-header NewPaymentTitle">Add New Payment</div>
+                        <div class="card-header NewUserTitle">Add New Payment</div>
                         <div class="card-body">
                             <div class="form-group">
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="form-label-group">
-                                            <label for="Month" style="text-align: left;">MONTH:</label>
-                                            <br />
-                                            <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged" style="text-align: left;">
+                               <div class="form-group row">
+                                <div class="col-3">
+                                <asp:Label ID="lblMonth" runat="server" Text="MONTH"></asp:Label> </div>
+                                <div class="col-6">
+                                <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged" Style="text-align: left;" class="form-control">
                                                 <asp:ListItem>Month</asp:ListItem>
                                                 <asp:ListItem>January</asp:ListItem>
                                                 <asp:ListItem>February</asp:ListItem>
@@ -167,129 +166,102 @@
                                                 <asp:ListItem>November</asp:ListItem>
                                                 <asp:ListItem>December</asp:ListItem>
                                             </asp:DropDownList>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-
-                                        <div class="form-label-group">
-
-                                            <label for="Date" style="text-align: left;">DATE:</label>
-                                            <br />
-                                            <asp:DropDownList ID="ddlDate" runat="server" AutoPostBack="True" style="text-align: left;">
-
-                                                <asp:ListItem Value="Day"></asp:ListItem>
-                                            </asp:DropDownList>
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="form-label-group">
-
-                                    <label for="Year">YEAR:</label>
-                                    <br />
-                                    <asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged">
-                                     <asp:ListItem Value="Year"></asp:ListItem>
-                                    </asp:DropDownList>
-                                    <br />
-                                    <br />
-                                    
                                 </div>
-                            </div>
-                            
+                                <p></p>
 
-                        <label for="Amount" style="float: left;">Amount:</label> <br /><br />
-                        <asp:TextBox ID="txtAmount" runat="server" class="form-control" style="float: left;"></asp:TextBox><br /><br />
-                        <label for="CheckNumber" style="float: left;">Check Number:</label><br /><br />
-                        <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" style="float: left;"></asp:TextBox><br /><br />
-                        <label for="Other" style="float: left;">Or Payment Type:</label><br /><br />
-                        <asp:TextBox ID="txtPaymentType" runat="server" class="form-control" style="float: left;"></asp:TextBox><br /><br />
-                        <br />
-                        <label for="org" style="float: left;">Organization:</label><br /><br />
-                        <asp:TextBox ID="txtOrganization" runat="server" class="form-control" style="float: left;"></asp:TextBox><br /><br />
-                        <label for="Invoice" style="float: left;">Invoice:</label><br /><br />
-                        <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" style="float: left;"></asp:TextBox><br /><br />
-                        <label for="cancelled" style="float: left;">Cancelled Y/N</label>  
-                        <asp:TextBox ID="txtCancelledChar" runat="server" MaxLength="1" Width="23px" style="float: left;"></asp:TextBox><br /><br />
+                                <div class="form-group row">
+                                <div class="col-3">
+                                <asp:Label ID="lblDate" runat="server" Text="DATE"></asp:Label></div>
+                                <div class="col-6">
+                                <asp:DropDownList ID="ddlDate" runat="server" AutoPostBack="True" Style="text-align: left;" class="form-control">
 
-                            
-                            <br />
-                            <asp:Label ID="lblStatus" runat="server"></asp:Label>
-                            <br />
+                                            <asp:ListItem Value="Day"></asp:ListItem>
+                                        </asp:DropDownList>
+                                </div>
+                                </div>
+                                <p></p>
 
-                            <div class="text-center">
+                                <div class="form-group row">
+                                <div class="col-3">
+                                <asp:Label ID="lblYear" runat="server" Text="YEAR" ></asp:Label></div>
+                                <div class="col-6">
+                                <asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged" class="form-control">
+                                <asp:ListItem Value="Year"></asp:ListItem>
+                                </asp:DropDownList>
+                                </div>
+                                </div>
+                                <p></p>
+
+                                <div class="form-group row">
+                                <div class="col-3">
+                                <asp:Label ID="lblAmount" runat="server" Text="AMOUNT" ></asp:Label> </div>
+                                <div class="col-6">
+                                <asp:TextBox ID="txtAmount" runat="server" class="form-control" placeholder ="Enter Amount"></asp:TextBox>
+                                </div>
+                                    </div>
+                                <p></p>
+
+                                <div class="form-group row">
+                                <div class="col-3">
+                                <asp:Label ID="lblCheckNumber" runat="server" Text="CHECK NUMBER" ></asp:Label></div>
+                                <div class="col-6">
+                                <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" placeholder ="Enter Check Number"></asp:TextBox>
+                                </div>
+                                </div>
+                                <p></p>
+
+                                <div class="form-group row">
+                                <div class="col-3">
+                                <asp:Label ID="lblPmtType" runat="server" Text=" OR PAYMENT TYPE" ></asp:Label></div>
+                                <div class="col-6">
+                                <asp:TextBox ID="txtPaymentType" runat="server" class="form-control" placeholder ="Enter Payment Type"></asp:TextBox>
+                                </div>
+                                </div>
+                                <p></p>
 
 
-                                <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" class="btn btn-primary  btn-login btn-block" />
-                                <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary  btn-login btn-block" Text="Submit" />
+                                <div class="form-group row">
+                                <div class="col-3">
+                                <asp:Label ID="lblOrg" runat="server" Text="ORGANIZATION" ></asp:Label></div>
+                                <div class="col-6">
+                                <asp:TextBox ID="txtOrganization" runat="server" class="form-control" placeholder ="Enter Organization ID"></asp:TextBox>
+                                </div>
+                                </div>
+                                <p></p>
 
-                            </div>
+                                <div class="form-group row">
+                                <div class="col-3">
+                                <asp:Label ID="lblInvoice" runat="server" Text="INVOICE NUMBER" ></asp:Label></div>
+                                <div class="col-6">
+                                <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder ="Enter Invoice Number"></asp:TextBox>
+                                </div>
+                                </div>
+                                <p></p>
+
+                                <div class="form-group row">
+                                <div class="col-3">
+                                <asp:Label ID="lblCancelled" runat="server" Text="CANCELLED (Y/N)" ></asp:Label></div>
+                                <div class="col-6">
+                                <asp:TextBox ID="txtCancelledChar" runat="server" MaxLength="1" Width="70px" class="form-control" placeholder ="(Y/N)"></asp:TextBox>
+                                </div>
+                                </div>
                         </div>
+                        </div>
+                        <div class="mx-auto d-flex justify-content-center">
+                            <asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" class="btn btn-primary btn-inside" />
+                            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary btn-inside" Text="Submit" />
+                        </div>
+                        <p></p>
+                       
                     </div>
                 </div>
-
-
-
-
-
-                <div class="row">
-                    
-                    <br />
-                    <div class="form-group">
-                        <%--<label for="Month">Month:</label>
-    <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
-        <asp:ListItem>Month</asp:ListItem>
-        <asp:ListItem>January</asp:ListItem>
-        <asp:ListItem>February</asp:ListItem>
-        <asp:ListItem>March</asp:ListItem>
-        <asp:ListItem>April</asp:ListItem>
-        <asp:ListItem>May</asp:ListItem>
-        <asp:ListItem>June</asp:ListItem>
-        <asp:ListItem>July</asp:ListItem>
-        <asp:ListItem>August</asp:ListItem>
-        <asp:ListItem>September</asp:ListItem>
-        <asp:ListItem>October</asp:ListItem>
-        <asp:ListItem>November</asp:ListItem>
-        <asp:ListItem>December</asp:ListItem>
-    </asp:DropDownList>--%>
-                        <%--<label for="Date">Date:</label>
-    <asp:DropDownList ID="ddlDate" runat="server" AutoPostBack="True">
-        <asp:ListItem Value="Day"></asp:ListItem>--%>
-                        <%--</asp:DropDownList>--%>
-                        <%--<label for="Year">Year:</label>
-                        <asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged">
-                            <asp:ListItem Value="Year"></asp:ListItem>
-                        </asp:DropDownList>
-                        <br />
-                        <br />--%>
-                        <%--<label for="Amount">Amount:</label>
-                        <asp:TextBox ID="txtAmount" runat="server"></asp:TextBox>
-                        <label for="CheckNumber">Check Number:</label>
-                        <asp:TextBox ID="txtCheckNum" runat="server"></asp:TextBox>
-                        <label for="Other">Or Payment Type:</label>
-                        <asp:TextBox ID="txtPaymentType" runat="server"></asp:TextBox>
-                        <br />
-                        <label for="org">Organization:</label>
-                        <asp:TextBox ID="txtOrganization" runat="server"></asp:TextBox>
-                        <label for="Invoice">Invoice:</label>
-                        <asp:TextBox ID="txtInvoiceNum" runat="server"></asp:TextBox>
-                        <label for="cancelled">Cancelled Y/N</label>
-                        <asp:TextBox ID="txtCancelledChar" runat="server" MaxLength="1" Width="23px"></asp:TextBox>--%>
-
-                    </div>
-                </div>
-
-
-                <br />
-                <br />
             </div>
-            
+
+           
 
         </div>
-
     </div>
-
-
+    </div>
 </asp:Content>
 
