@@ -5,6 +5,8 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
  
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
 <meta charset="UTF-8">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
@@ -297,13 +299,19 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <Triggers> 
+     <asp:AsyncPostBackTrigger ControlID="ddlAnimal" EventName="SelectedIndexChanged" /> 
+   </Triggers> 
+<ContentTemplate>
   <div class="modal-body">
       <div runat= server id="AnimalEditDiv">
           <p>&nbsp;</p>
           <div class="row"> 
             <div class=" col-md-4 InternalAnimalForm"><h6>Select Animal</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
-                <asp:DropDownList ID="ddlAnimal" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="AnimalName" DataValueField="AnimalID"  OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
+                <asp:DropDownList ID="ddlAnimal" runat="server" AppendDataBoundItems="false" AutoPostBack="true" ViewStateMode="Enabled" EnableViewState="true" DataTextField="AnimalName" DataValueField="AnimalID" OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
+                <asp:ListItem>--Select Animal--</asp:ListItem>
                 </asp:DropDownList>
                 </div>     
                </div>
@@ -311,6 +319,7 @@
                 <div class=" col-md-4 InternalAnimalForm"><h6>Animal Type</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
                         <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalTypeEdit" runat="server">
+                            <asp:ListItem>Animal Type</asp:ListItem>
                             <asp:ListItem>Bird</asp:ListItem>
                             <asp:ListItem>Mammal</asp:ListItem>
                             <asp:ListItem>Reptile</asp:ListItem>
@@ -320,19 +329,20 @@
               <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Animal Name</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
-                         <asp:TextBox ID="txtBoxAnimalName" runat="server"></asp:TextBox>
+                         <asp:TextBox ID="txtBoxAnimalName" placeholder="Animal Name" runat="server"></asp:TextBox>
                     </div>
               </div>
               <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Age</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
-                         <asp:TextBox ID="txtAge" runat="server"></asp:TextBox>
+                         <asp:TextBox ID="txtAge" placeholder="Animal Age" runat="server"></asp:TextBox>
                     </div>
               </div>
               <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
                         <asp:DropDownList ID="ddlStatus" runat="server">
+                            <asp:ListItem>--Status--</asp:ListItem>
             <asp:ListItem>Active</asp:ListItem>
             <asp:ListItem>Inactive</asp:ListItem>
         </asp:DropDownList>
@@ -353,6 +363,8 @@
     &nbsp;<asp:Label ID="Label4" runat="server" Text=""></asp:Label>
     </div>
       </div>
+                    </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
   </div>
 </div>

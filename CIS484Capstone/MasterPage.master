@@ -36,7 +36,8 @@
         </asp:ContentPlaceHolder>
 
 
-
+<%--            <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>--%>
 
 
         <div class="modal" id="UpdateOrganization" tabindex="-1" role="dialog">
@@ -48,6 +49,11 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <Triggers> 
+     <asp:AsyncPostBackTrigger ControlID="ddlOrganization" EventName="SelectedIndexChanged" /> 
+   </Triggers> 
+<ContentTemplate>
                     <div class="modal-body">
                         <div runat="server" id="OrganizationupdateDiv">
                             <p>&nbsp;</p>
@@ -103,6 +109,8 @@
                             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>&nbsp;
             <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
                         </div>
+        </ContentTemplate>
+        </asp:UpdatePanel>
                     </div>
                     <div class="modal-footer">
 

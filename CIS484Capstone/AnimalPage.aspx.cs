@@ -128,7 +128,7 @@ public partial class AnimalPage : System.Web.UI.Page
 
     protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
     {
-       // UpdatePanel1.Update();
+
         AnimalEditDiv.Visible = true;
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -138,7 +138,7 @@ public partial class AnimalPage : System.Web.UI.Page
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
-
+        insert.Parameters.Clear();
 
         //ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#EditAnimalModal').modal('show');});</script>", true);
 
@@ -157,7 +157,8 @@ public partial class AnimalPage : System.Web.UI.Page
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
+                //ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
+                ddlAnimalTypeEdit.SelectedItem.Text = sdr[1].ToString();
                 txtBoxAnimalName.Text = sdr[2].ToString();
                 //lblLastUpdated.Text = sdr["LastUpdated"].ToString();
                 //lblLastUpdatedBy.Text = sdr["LastUpdatedBy"].ToString();
@@ -168,6 +169,8 @@ public partial class AnimalPage : System.Web.UI.Page
         {
             throw ex;
         }
+
+        //UpdatePanel2.Update();
     }
 
     protected void btnUpdate_Click(object sender, EventArgs e)
