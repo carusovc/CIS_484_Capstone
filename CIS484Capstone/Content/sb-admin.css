@@ -480,6 +480,10 @@ body.sidebar-toggled footer.sticky-footer {
 
 sampleModal
 /* Program Info*/
+.ChildGrid {
+    grid-row-gap: 5000px;
+}
+
 .user-row {
     margin-bottom: 14px;
 }
