@@ -32,12 +32,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
+                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
 
 
-<%--            <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>--%>
+
 
 
         <div class="modal" id="UpdateOrganization" tabindex="-1" role="dialog">
@@ -63,6 +64,7 @@
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
                                     <asp:DropDownList ID="ddlOrganization" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
+                                    <asp:ListItem>--Select Organization--</asp:ListItem>
                                     </asp:DropDownList>
                                     &nbsp;&nbsp;
                                 </div>
@@ -134,6 +136,11 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+        <Triggers> 
+            <asp:AsyncPostBackTrigger ControlID="ddlOrganization" EventName="SelectedIndexChanged" /> 
+        </Triggers> 
+            <ContentTemplate>
                     <div class="modal-body">
                         <div runat="server" id="AnimalAddDiv">
                             <p>&nbsp;</p>
@@ -151,6 +158,8 @@
             <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
                         </div>
                     </div>
+             </ContentTemplate>
+        </asp:UpdatePanel>
                     <div class="modal-footer">
 
                         <asp:Button ID="btnAddProgram" class="btn btn-primary btn-inside" runat="server" Text="Add" OnClick="btnAddProgramType_Click" />
@@ -345,6 +354,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+        <Triggers> 
+     <asp:AsyncPostBackTrigger ControlID="ddlAnimal" EventName="SelectedIndexChanged" /> 
+   </Triggers> 
+<ContentTemplate>
   <div class="modal-body">
       <div runat= server id="AnimalEditDiv">
           <p>&nbsp;</p>
@@ -352,6 +366,7 @@
             <div class=" col-md-4 InternalAnimalForm"><h6>Select Animal</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
                 <asp:DropDownList ID="ddlAnimal" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="AnimalName" DataValueField="AnimalID"  OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
+                <asp:ListItem>--Select Animal--</asp:ListItem>
                 </asp:DropDownList>
                 </div>     
                </div>
@@ -401,6 +416,8 @@
     &nbsp;<asp:Label ID="Label8" runat="server" Text=""></asp:Label>--%>
     </div>
       </div>
+     </ContentTemplate>
+     </asp:UpdatePanel>
     </div>
   </div>
 </div>
@@ -416,6 +433,11 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+        <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+            <Triggers> 
+                <asp:AsyncPostBackTrigger ControlID="ddlEducatorName" EventName="SelectedIndexChanged" /> 
+            </Triggers> 
+                    <ContentTemplate>
                     <div class="modal-body">
                         <div runat="server" id="EducatorEditDiv">
                             <p>&nbsp;</p>
@@ -424,7 +446,9 @@
                                     <h6>Select Educator Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
-                                    <asp:DropDownList ID="ddlEducatorName" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="EducatorFirstName" DataValueField="EducatorID"  OnSelectedIndexChanged ="ddlEducator_SelectedIndexChanged1"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlEducatorName" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="EducatorFirstName" DataValueField="EducatorID"  OnSelectedIndexChanged ="ddlEducator_SelectedIndexChanged1">
+                                        <asp:ListItem>--Select Educator--</asp:ListItem>
+                                    </asp:DropDownList>
                                     &nbsp;&nbsp;
                                 </div>
                             </div>
@@ -458,6 +482,8 @@
                             <asp:Label ID="Label6" runat="server" Text=""></asp:Label>--%>
                         </div>
                     </div>
+                    </ContentTemplate>
+                    </asp:UpdatePanel>
                     <div class="modal-footer">
 
                         <asp:Button ID="btnDeleteEducator" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDeleteEducator_Click" />
