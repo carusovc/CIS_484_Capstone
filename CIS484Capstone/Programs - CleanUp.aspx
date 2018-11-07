@@ -426,7 +426,6 @@
                                                     <th class="col-md-5" scope="col">Program Date</th>
 
                                                     <th class="col-md-5" scope="col">Program Type</th>
-                                                    <%--style="width: 150px--%>"
                                                 </tr>
                                         </HeaderTemplate>
                                         <ItemTemplate>
