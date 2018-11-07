@@ -151,33 +151,26 @@
       <div class="card card-register mx-auto mt-5">
         <div class="card-header NewUserTitle">Add Outreach Coordinator</div>
         <div class="card-body">
-          
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
-                  <div class="form-label-group">
-                      
+                  <div class="form-label-group">  
                       <label for="firstName">FIRST NAME</label>
                       <br />
                       <asp:TextBox ID="txtFirstName" runat="server" class="form-control" placeholder="First name" required="required"></asp:TextBox>
-                    
                   </div>
                 </div>
                 <div class="col-md-6">
-
-                  <div class="form-label-group">
-                     
+                  <div class="form-label-group">                    
                       <label for="lastName">LAST NAME</label>
                       <br />
-                      <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server"></asp:TextBox>
-                    
+                      <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server"></asp:TextBox>               
                   </div>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                
                 <label for="inputEmail">USERNAME</label>
                   <br />
                 <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox>
@@ -187,7 +180,6 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    
                     <label for="inputPassword">PASSWORD</label>
                       <br />
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" placeholder="Password" required="required"></asp:TextBox>
@@ -201,14 +193,12 @@
                   </div>
                 </div>--%>
               </div>
-            </div>
-            
+            </div>   
             <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>
             <asp:Button ID="btnSubmit" class="btn btn-primary btn-login btn-block" href="ProgramForm.aspx" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
             <br />
             <asp:Label ID="lblStatus" runat="server"></asp:Label>
             <br />
-          
           <div class="text-center">
             <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
             <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
@@ -223,4 +213,5 @@
 </section>
 
 
+    </div>
 </asp:Content>
