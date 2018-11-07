@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 
+
 public partial class AnimalPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -282,7 +283,7 @@ public partial class AnimalPage : System.Web.UI.Page
         string searchAnimal = txtSearch.Text;
 
         DataTable dt = new DataTable();
-        SqlDataAdapter adapt = new SqlDataAdapter("Select AnimalType, AnimalName, Status from Animal where UPPER(AnimalName) like UPPER('" + searchAnimal + "%')", con);
+        SqlDataAdapter adapt = new SqlDataAdapter("Select AnimalType, AnimalName, Status from Animal where UPPER(AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(AnimalType) like UPPER('"+ searchAnimal+"%') or UPPER(status) like UPPER('"+ searchAnimal+"%')", con);
 
         adapt.Fill(dt);
         
