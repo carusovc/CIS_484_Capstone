@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 
 public partial class AnimalPage : System.Web.UI.Page
 {
@@ -259,6 +260,35 @@ public partial class AnimalPage : System.Web.UI.Page
     //    gridBird.DataBind();
 
     //}
+
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        gridSearch.DataBind();
+        //gridAnimalMammal.Visible = false;
+        //gridBird.Visible = false;
+        //gridReptile.Visible = false;
+        gridSearch.Visible = true;
+
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+        search.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+        string searchAnimal = txtSearch.Text;
+
+        DataTable dt = new DataTable();
+        SqlDataAdapter adapt = new SqlDataAdapter("Select AnimalType, AnimalName, Status from Animal where UPPER(AnimalName) like UPPER('" + searchAnimal + "%')", con);
+
+        adapt.Fill(dt);
+        
+        gridSearch.DataSource = dt;
+        gridSearch.DataBind();
+    }
 }
 
 

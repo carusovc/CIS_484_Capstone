@@ -162,6 +162,13 @@
        </div>
                 </div>
             <br />
+            <div class="row">
+               
+                <div class=" col-md-3 InternalAnimalForm">
+                    <asp:TextBox  class="InternalAnimalForm" ID="txtSearch" runat="server"></asp:TextBox>
+                    <asp:Button ID ="btnSearch" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
+                </div>
+            </div>
             <div class="col-lg-4 col-md-12 col-s-12 mx-auto">
     <div class="container1 block">
    
@@ -176,6 +183,9 @@
                      <li class="nav-item">
       <a class="nav-link TabStyle" data-toggle="tab" href="#BirdTab">Birds</a>
     </li>
+<%--      <li class="nav-item">
+      <a class="nav-link TabStyle" data-toggle="tab" href="#ResultsTab">Results</a>
+    </li>--%>
     
   </ul>
 
@@ -232,6 +242,7 @@
                  </asp:SqlDataSource>
     </div>
                  </div>
+
                    <div runat="server" id="ViewAnimals">
                    </div>
                </div>
@@ -239,7 +250,13 @@
          </div>
       </div>
 
-    
+                      <asp:GridView ID="gridSearch"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" AllowSorting="True">
+                      <Columns>
+                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
+                          <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+                          <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                      </Columns>
+                 </asp:GridView>
 <div class="modal" id="AddAnimalModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
