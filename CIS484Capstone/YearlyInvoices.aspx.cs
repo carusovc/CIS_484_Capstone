@@ -19,6 +19,7 @@ public partial class YearlyInvoices : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        lblResponse.Text = "";
         //GridView1.DataBind();
         if (!IsPostBack)
         {

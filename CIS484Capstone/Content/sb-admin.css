@@ -875,9 +875,6 @@ a.TabStyle {
 
 
 
-
-
-
 .tab-pane {
     padding-left: 5px !important;
 }
@@ -921,3 +918,7 @@ a.TabStyle {
         color: #fff;
     }
 
+    .error{
+        font-size:75%;
+        color:red;
+    }
