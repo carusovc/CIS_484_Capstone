@@ -9,6 +9,8 @@ using System.Data.SqlClient;
 using System.Data;
 
 
+
+
 public partial class Programs : System.Web.UI.Page
 {
 
@@ -744,4 +746,81 @@ public partial class Programs : System.Web.UI.Page
     }
 
 
+
+    protected void btnProgramExcel_Click(object sender, EventArgs e)
+    {
+        //string fileNameBase = "Programs";
+        //String fileName = fileNameBase;
+        //string ext = ".xlsx";
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+
+        ////SqlCommand query;
+        ////query = new SqlCommand("SELECT * FROM Program", sc);
+        //string query = "SELECT * FROM Program";
+
+        //SqlConnection conn = new SqlConnection(cs);
+        //conn.Open();
+        //SqlCommand cmd = new SqlCommand(query, conn);
+        //SqlDataReader dr = cmd.ExecuteReader();
+
+        //using (System.IO.StreamWriter fs = new System.IO.StreamWriter(fileName))
+        //{
+        //    // Loop through the fields and add headers
+        //    for (int i = 0; i < dr.FieldCount; i++)
+        //    {
+        //        string name = dr.GetName(i);
+        //        if (name.Contains(","))
+        //            name = "\"" + name + "\"";
+
+        //        fs.Write(name + ",");
+        //    }
+        //    fs.WriteLine();
+
+        //    // Loop through the rows and output the data
+        //    while (dr.Read())
+        //    {
+        //        for (int i = 0; i < dr.FieldCount; i++)
+        //        {
+        //            string value = dr[i].ToString();
+        //            if (value.Contains(","))
+        //                value = "\"" + value + "\"";
+
+        //            fs.Write(value + ",");
+        //        }
+        //        fs.WriteLine();
+        //    }
+
+        //    fs.Close();
+        //}
+
+
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        DataSet ds;
+
+        //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        ////sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+
+
+
+
+        cmd = new SqlCommand("SELECT * FROM Program", sc);
+
+        sc.Open();
+
+        da = new SqlDataAdapter(cmd);
+        ds = new DataSet();
+
+        da.Fill(ds);
+
+        string excelname = "Program_Report";
+        string current = DateTime.Today.ToShortDateString();
+
+        ds.WriteXml(@"C:\Users\labpatron\Desktop\" + excelname + ".xls");
+        sc.Close();
+    }
 }
