@@ -45,7 +45,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 ddlOrganization.DataBind();
 
 
-                 
+
                 ////call read array
                 //SqlConnection conAnimal = new SqlConnection(cs);
                 //conAnimal.Open();
@@ -61,7 +61,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 //    }
                 //    // ddlAnimal.DataBind();
                 //}
-
+                con.Close();
             }
             con.Close();
             //call read array

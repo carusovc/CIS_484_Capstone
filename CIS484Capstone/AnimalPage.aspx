@@ -39,7 +39,7 @@
                 
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
+      <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
         <i class="fas fa-bars"></i>
@@ -61,7 +61,7 @@
     </nav>
 
 
-            <div id="wrapper">
+<div id="wrapper">
 
  <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
@@ -141,54 +141,101 @@
       </ul>
 
       <div id="content-wrapper">
-
-          
-
         <div class="container-fluid ">
 
           
-
-       <!-- Programs-->
-       <div class="row">
-		<div class="col-md-12 ProgramTitle">
-			<h1 >Animals Listing</h1>
-			
-		</div>
-	</div>
-            <div class="row">
-            <div class ="modifyOptions mx-auto">
-         
+<section class="login-block  col-md-6 col-md-8 col-s-5 mx-auto ">
+            <%--<section class="card card-register mx-auto mt-5">--%>
+    <div class="container1">
+      <div class="card  mx-auto mt-5">
+        <div class="card-header NewUserTitle text-center">Animal Listing</div>
+        <div class="card-body">
+            <div class="mx-auto d-flex justify-content-center">
                 <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Animal</div>
-      <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal">Edit Animal</div>
-     <%--<asp:Button ID="Button3" runat="server" Text="View Animal" class="btn btn-primary btn-inside" OnClick="btnViewAnimal_Click"></asp:Button>--%>
-
-       </div>
-                </div>
-            <br />
-            <div class="col-lg-4 col-md-12 col-s-12 mx-auto">
-    <div class="container1 block">
-   
-
-                 <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active TabStyle" data-toggle="tab" href="#MammalTab">Mammals</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link TabStyle" data-toggle="tab" href="#ReptileTab">Reptiles</a>
-    </li>
-                     <li class="nav-item">
-      <a class="nav-link TabStyle" data-toggle="tab" href="#BirdTab">Birds</a>
-    </li>
-    
-  </ul>
-
-                 <div class="tab-content">
-    <div id="MammalTab" class="container1 block tab-pane active WildTable">
-          
-        
-    <asp:GridView ID="gridAnimalMammal"  class="table table-borderless table-condensed table-hover  "  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2" AllowSorting="True" >
+                <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal">Edit Animal</div>
+            </div>
+            <%-- this div  is the internal div--%>
+            <ul class="nav nav-tabs block4" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active TabStyle" data-toggle="tab" href="#AnimalsAllTab" style="color:black;">All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsMammalTab" style="color:black;">Mammals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsReptileTab" style="color:black;">Reptiles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsBirdTab" style="color:black;">Birds</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="AnimalsAllTab" class="container1 block3 tab-pane  WildTable active">
+                    <div class="InternalAnimalTab">
+                        <%--<p>  Hello</p>
+                        <br />
+                        <br /><br /><br />--%>
+                        <div class ="grid-mammal text-center">
+                            <p>
+                                <asp:Label Text ="Mammal" runat ="server"></asp:Label>
+                            </p>
+    <asp:GridView ID="GridView1"  class="table table-borderless table-condensed table-hover "  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4" AllowSorting="True" >
         <Columns>
-            <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
+            <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False"/>
+            <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+            
+        </Columns>
+        
+     </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
+                    SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = 'Mammal') ORDER BY [AnimalName]">
+                </asp:SqlDataSource>
+     </div>
+  
+       <div class ="grid-reptile text-center">
+           <p>
+              <asp:Label Text ="Reptile" runat ="server"></asp:Label>
+           </p>
+                <asp:GridView ID="GridView2"  class="table table-borderless table-condensed table-hover " runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" AllowSorting="True">
+                    <Columns>
+                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False" />
+                        <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+                      
+                    </Columns>
+                </asp:GridView>
+
+                <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalName], [AnimalType] FROM [Animal] WHERE ([AnimalType] = 'Reptile') ORDER BY [AnimalName]">
+                </asp:SqlDataSource>
+        
+ 
+   </div>
+     
+        <div class ="grid-bird text-center">
+            <p>
+            <asp:Label Text ="Bird" runat ="server"></asp:Label>
+                </p>
+                  <asp:GridView ID="GridView3"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" AllowSorting="True">
+                      <Columns>
+                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False"/>
+                          <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+                      </Columns>
+                 </asp:GridView>
+
+                    <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = 'Bird') ORDER BY [AnimalName]">
+                 </asp:SqlDataSource>
+        </div>
+                    </div>
+                </div>
+
+
+                <div id="AnimalsMammalTab" class="container1 block3 tab-pane WildTable">
+                    <div class="InternalAnimalTab">
+                        <%--<p> There</p>
+                        <br />
+                        <br /><br /><br />--%>
+                        <asp:GridView ID="gridAnimalMammal"  class="table table-borderless table-condensed table-hover  "  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2" AllowSorting="True" >
+        <Columns>
+            <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False" />
             <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
             
         </Columns>
@@ -200,12 +247,199 @@
                         <asp:Parameter DefaultValue="Mammal" Name="AnimalType" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
+
+                    </div>
+                </div>
+
+
+
+
+                <div id="AnimalsReptileTab" class="container1 block3 tab-pane fade WildTable">
+                    <div class="InternalAnimalTab">
+                        <%--<p> My</p>
+                        <br />
+                        <br /><br /><br />--%>
+                        <asp:GridView ID="gridReptile"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True">
+                    <Columns>
+                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False" />
+                        <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+                      
+                    </Columns>
+                </asp:GridView>
+
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalName], [AnimalType] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [AnimalName]">
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="Reptile" Name="AnimalType" Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+                    </div>
+                </div>
+
+
+
+
+                <div id="AnimalsBirdTab" class="container1 block3 tab-pane fade WildTable">
+                    <div class="InternalAnimalTab">
+                        <%--<p> Friend</p>
+                        <br />
+                        <br /><br /><br />--%>
+                        <asp:GridView ID="gridBird"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
+                      <Columns>
+                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False" />
+                          <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+                      </Columns>
+                 </asp:GridView>
+
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [AnimalName]">
+                        <SelectParameters>
+                            <asp:Parameter DefaultValue="Bird" Name="AnimalType" Type="String" />
+                        </SelectParameters>
+                 </asp:SqlDataSource>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+          <div runat="server" id="Div1">
+          </div>
       </div>
-    <div id="ReptileTab" class="container1 block tab-pane fade WildTable">
+        <div class="text-center">
+            <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
+            <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
+          </div>
+        </div>
+      </div>
+    </div>
+       
+</section>         
+
+
+
+
+
+
+
+
+       <!-- Programs-->
+       <%--<div class="row">
+		<div class="col-md-12 ProgramTitle">
+			<h1 >Animals Listing</h1>
+			
+		</div>
+	</div>
+            <div class="row">
+            <div class ="modifyOptions mx-auto">
+         
+                <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Animal</div>
+      <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal">Edit Animal</div>
+     <asp:Button ID="Button3" runat="server" Text="View Animal" class="btn btn-primary btn-inside" OnClick="btnViewAnimal_Click"></asp:Button>
+
+       </div>
+                </div>
+            <br />
+            <div class="col-lg-4 col-md-12 col-s-12 mx-auto">
+    <div class="container1 block">
+   
+
+                 <ul class="nav nav-tabs" role="tablist">
+                      <li class="nav-item">
+      <a class="nav-link active TabStyle" data-toggle="tab" href="#AllTab">All</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link TabStyle" data-toggle="tab" href="#MammalTab">Mammals</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link TabStyle" data-toggle="tab" href="#ReptileTab">Reptiles</a>
+    </li>
+                     <li class="nav-item">
+      <a class="nav-link TabStyle" data-toggle="tab" href="#BirdTab">Birds</a>
+    </li>
+    
+  </ul>
+
+                 <div class="tab-content">
+                      <div id="AllTab" class="container1 block tab-pane active">--%>
+     
+          
+         <%--<div class ="grid-mammal text-center">
+             <p>
+                <asp:Label Text ="Mammal" runat ="server"></asp:Label>
+                 </p>
+    <asp:GridView ID="GridView1"  class="table table-borderless table-condensed table-hover "  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2" AllowSorting="True" >
+        <Columns>
+            <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False"/>
+            <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+            
+        </Columns>
+        
+     </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
+                    SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = 'Mammal) ORDER BY [AnimalName]">
+                </asp:SqlDataSource>
+     </div>
+  
+       <div class ="grid-reptile text-center">
+           <p>
+              <asp:Label Text ="Reptile" runat ="server"></asp:Label>
+           </p>
+                <asp:GridView ID="GridView2"  class="table table-borderless table-condensed table-hover " runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True">
+                    <Columns>
+                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False" />
+                        <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+                      
+                    </Columns>
+                </asp:GridView>
+
+                <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalName], [AnimalType] FROM [Animal] WHERE ([AnimalType] = 'Reptile') ORDER BY [AnimalName]">
+                </asp:SqlDataSource>
+        
+ 
+   </div>
+     
+        <div class ="grid-bird text-center">
+            <p>
+            <asp:Label Text ="Bird" runat ="server"></asp:Label>
+                </p>
+                  <asp:GridView ID="GridView3"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
+                      <Columns>
+                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False"/>
+                          <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+                      </Columns>
+                 </asp:GridView>
+
+                    <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = 'Bird') ORDER BY [AnimalName]">
+                 </asp:SqlDataSource>
+        </div>--%>
+
+
+
+      </div>
+                         
+    <%--<div id="MammalTab" class="container1 block tab-pane WildTable">
+          
+        
+    <asp:GridView ID="gridAnimalMammal"  class="table table-borderless table-condensed table-hover  "  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2" AllowSorting="True" >
+        <Columns>
+            <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False" />
+            <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+            
+        </Columns>
+        
+     </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
+                    SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [AnimalName]">
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="Mammal" Name="AnimalType" Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+      </div>--%>
+
+    <%--<div id="ReptileTab" class="container1 block tab-pane fade WildTable">
      
                 <asp:GridView ID="gridReptile"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True">
                     <Columns>
-                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
+                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False" />
                         <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
                       
                     </Columns>
@@ -217,13 +451,15 @@
                     </SelectParameters>
                 </asp:SqlDataSource>
         
-    </div>
-    <div id="BirdTab" class="container1 block tab-pane fade WildTable">
+    </div>--%>
+
+
+    <%--<div id="BirdTab" class="container1 block tab-pane fade WildTable">
      
         
                   <asp:GridView ID="gridBird"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
                       <Columns>
-                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
+                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False" />
                           <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
                       </Columns>
                  </asp:GridView>
@@ -233,7 +469,10 @@
                             <asp:Parameter DefaultValue="Bird" Name="AnimalType" Type="String" />
                         </SelectParameters>
                  </asp:SqlDataSource>
-    </div>
+    </div>--%>
+
+
+
                  </div>
                    <div runat="server" id="ViewAnimals">
                    </div>
@@ -259,6 +498,7 @@
                 <div class=" col-md-4 InternalAnimalForm"><h6>Animal Type</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
                     <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalType" runat="server">
+                        <asp:ListItem>All</asp:ListItem>
                         <asp:ListItem>Bird</asp:ListItem>
                         <asp:ListItem>Mammal</asp:ListItem>
                         <asp:ListItem>Reptile</asp:ListItem>
@@ -321,6 +561,7 @@
                     <div class=" col-md-3 InternalAnimalForm">
                         <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalTypeEdit" runat="server">
                             <asp:ListItem>Animal Type</asp:ListItem>
+                            <%-- <asp:ListItem>All</asp:ListItem> --%>
                             <asp:ListItem>Bird</asp:ListItem>
                             <asp:ListItem>Mammal</asp:ListItem>
                             <asp:ListItem>Reptile</asp:ListItem>
@@ -339,6 +580,7 @@
                          <asp:TextBox ID="txtAge" placeholder="Animal Age" runat="server"></asp:TextBox>
                     </div>
               </div>
+
               <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
@@ -354,7 +596,7 @@
               <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
             <div class="modal-footer">
           <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdate_Click" />
-                <asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />
+                <asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Disable" OnClick="btnDelete_Click" />
        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>

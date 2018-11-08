@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AnimalMonthlyWildlifeReport.aspx.cs" Inherits="AnimalMonthlyWildlifeReport" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
  
 <meta charset="UTF-8">
 
@@ -35,7 +36,7 @@
                 
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
+      <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
         <i class="fas fa-bars"></i>
@@ -67,13 +68,13 @@
             <span>Programs</span>
           </a>
         </li>
-      <li class="nav-item">
+      <li class="nav-item active">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Animal</span>
           </a>
         </li>
-           <li class="nav-item dropdown no-arrow active">
+           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
             <i class="fas fa-envelope fa-fw"></i>
             <span>Reports</span>
@@ -144,88 +145,101 @@
 
           
 
-       <!-- Title-->
-       <div class="row">
-		<div class="col-md-12 ProgramTitle">
-			<h1 >Reports Based on Animal Type</h1>
-		</div>
-	</div>
-       <div class="col-md-12">
-        <br>
-	   </div>
-       <div class="container1 ">
-    <div class="row WildTable">
-    <div class="col-md-12 mx-auto d-flex justify-content-center">
-   
-    <asp:DropDownList ID="drpAnimalType" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
- </asp:DropDownList>
+       
 
-             </div>
+
+
+<section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
+    <div class="container1">
+      <div class="card  mx-auto mt-5">
+        <div class="card-header NewUserTitle text-center">Animal Listing</div>
+        <div class="card-body">
+            <div class="mx-auto d-flex justify-content-center">
+                <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Animal</div>
+                <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal">Edit Animal</div>
+            </div>
+            <%-- this div  is the internal div--%>
+            <ul class="nav nav-tabs block4" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active TabStyle" data-toggle="tab" href="#AllTab" style="color:black;">All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#MammalTab" style="color:black;">Mammals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#ReptileTab" style="color:black;">Reptiles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#BirdTab" style="color:black;">Birds</a>
+
+                </li>
+
+            </ul>
+            <div class="tab-content">
+                <div id="AllTab" class="container1 block3 tab-pane  WildTable active">
+                    <div class="InternalTab">
+                        <p>  Hello</p>
+                        <br />
+                        <br /><br /><br />
+                    </div>
+                </div>
+                <div id="MammalTab" class="container1 block3 tab-pane WildTable">
+                    <div class="InternalTab">
+                        <p> There</p>
+                        <br />
+                        <br /><br /><br />
+                    </div>
+                </div>
+                <div id="ReptileTab" class="container1 block3 tab-pane fade WildTable">
+                    <div class="InternalTab">
+                        <p> My</p>
+                        <br />
+                        <br /><br /><br />
+                    </div>
+                </div>
+                <div id="BirdTab" class="container1 block3 tab-pane fade WildTable">
+                    <div class="InternalTab">
+                        <p> Friend</p>
+                        <br />
+                        <br /><br /><br />
+                    </div>
+                </div>
+            </div>
         </div>
-
-
-
-                <div class="row WildTable">
-        <div class="col-md-12 mx-auto d-flex justify-content-center">
-    <br />
-     <br />
-
-    <asp:GridView ID="AnimalLiveGrid" class="table table-borderless table-condensed table-hover" runat="server"  AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
-        <Columns>
-
-            <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
-            <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="Total OnSite Programs" ReadOnly="True" SortExpression="TotalOnSitePrograms" />
-            <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="Total OffSite Programs" ReadOnly="True" SortExpression="TotalOffSitePrograms" />
-            <asp:BoundField DataField="NumberOfChildren" HeaderText="Number Of Children" SortExpression="NumberOfChildren" />
-            <asp:BoundField DataField="NumberOfAdults" HeaderText="Number Of Adults" SortExpression="NumberOfAdults" />
-            <asp:BoundField DataField="TotalParticipants" HeaderText="Total Participants" ReadOnly="True" SortExpression="TotalParticipants" />
-        </Columns>
-    </asp:GridView>
-
-             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand=" SELECT  Animal.AnimalName, COUNT(Distinct OnlineProgram.OnlineProgramID) as TotalOnlinePrograms, SUM(OnlineProgram.NumberOfKids) AS NumberOfChildren,
- SUM(NumberOfPeople + OnlineProgram.NumberOfKids) AS TotalParticipants 
- FROM Animal, OnlineProgram, OnlineAnimal WHERE(Animal.AnimalType = @animalType) AND Animal.AnimalID = OnlineAnimal.AnimalID AND OnlineAnimal.OnlineProgramID = OnlineProgram.OnlineProgramID 
- GROUP BY Animal.AnimalName, Animal.AnimalType ORDER BY Animal.AnimalName">
-            <SelectParameters>
-                <asp:ControlParameter ControlID="drpAnimalType" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
-            </SelectParameters>
-            </asp:SqlDataSource>
-             </div>
+          <div runat="server" id="Div1">
+          </div>
+      </div>
+        <div class="text-center">
+            <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
+            <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
+          </div>
         </div>
-    <br />
-    <div class="row WildTable">
-        <div class="col-md-12 mx-auto d-flex justify-content-center">
-         <asp:GridView runat="server" id="totalAnimalCount" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" >
-            <Columns>
-             <asp:BoundField DataField="TotalPrograms" HeaderText="Total Programs" ReadOnly="True" SortExpression="TotalPrograms" />
-             <asp:BoundField DataField="TotalParticipants" HeaderText="Total Participants" ReadOnly="True" SortExpression="TotalParticipants" />
-            </Columns>
-        </asp:GridView>
-        
-        <asp:SqlDataSource ID="SqlDataSource3" runat="server"  ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT COUNT(ProgramAnimal.ProgramID) AS TotalPrograms, SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants FROM Animal LEFT OUTER JOIN ProgramAnimal ON Animal.AnimalID = ProgramAnimal.AnimalID LEFT OUTER JOIN Program ON ProgramAnimal.ProgramID = Program.ProgramID WHERE (Animal.AnimalType = @AnimalType) ">
-            <SelectParameters>
-                <asp:ControlParameter ControlID="drpAnimalType" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
-            </SelectParameters>
-        </asp:SqlDataSource>
+      </div>
+    </div>
+       
+</section>         
+
+
+
+
+<!-- Bootstrap core JavaScript-->
+   <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+  
+
+    <!-- Custom scripts for all pages-->
+ <script src="js/sb-admin.min.js"></script>
+
+
+
+
         </div>
-   </div>
-
-<br />
-
-  <div class="row WildTable">
-        <div class="col-md-12 mx-auto d-flex justify-content-center">
-            <asp:Button ID="btnToExcel" runat="server" OnClick="btnToExcel_Click1" Text="Export to Excel"  class="btn btn-primary btn-inside" />
-            <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
-            <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-inside " OnClick="btnBack_Click"></asp:Button>
-        </div>
-  </div>
-                  
-                <br />
-                <br />
-
-</div>
-</div>
-</div>
-</div>
 
 </asp:Content>
+
