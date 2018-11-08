@@ -284,15 +284,15 @@ public partial class AnimalPage : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
         search.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
-        string searchAnimal = txtSearch.Text;
+        //string searchAnimal = txtSearch.Text;
 
-        DataTable dt = new DataTable();
-        SqlDataAdapter adapt = new SqlDataAdapter("Select AnimalType, AnimalName, Status from Animal where UPPER(AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(AnimalType) like UPPER('"+ searchAnimal+"%') or UPPER(status) like UPPER('"+ searchAnimal+"%')", con);
+        //DataTable dt = new DataTable();
+        //SqlDataAdapter adapt = new SqlDataAdapter("Select AnimalType, AnimalName, Status from Animal where UPPER(AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(AnimalType) like UPPER('"+ searchAnimal+"%') or UPPER(status) like UPPER('"+ searchAnimal+"%')", con);
 
-        adapt.Fill(dt);
-        
-        gridSearch.DataSource = dt;
-        gridSearch.DataBind();
+        //adapt.Fill(dt);
+        //
+        //gridSearch.DataSource = dt;
+       // gridSearch.DataBind();
     }
 }
 
