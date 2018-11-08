@@ -14,7 +14,7 @@ body html {
 
 body {
     /*background-image: url(../Images/FlyingBirdsBG.jpg);*/
-    background-color: #919b90;
+    background-color: #455379;
     height: auto; /* You must set a specified height */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -918,3 +918,4 @@ a.TabStyle {
         border-radius: 0;
         color: #fff;
     }
+
