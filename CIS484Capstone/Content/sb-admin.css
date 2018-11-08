@@ -14,7 +14,7 @@ body html {
 
 body {
     /*background-image: url(../Images/FlyingBirdsBG.jpg);*/
-    background-color: #919b90;
+    background-color: #455379;
     height: auto; /* You must set a specified height */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -474,6 +474,11 @@ body.sidebar-toggled footer.sticky-footer {
 
 sampleModal
 /* Program Info*/
+.ChildGrid {
+    grid-row-gap: 5000px;
+    background-color: white !important:
+}
+
 .user-row {
     margin-bottom: 14px;
 }
@@ -534,162 +539,198 @@ sampleModal
     padding-left: 5%;
 }
 
-.modal-full {
-    min-width: 100%;
-    margin: 0;
-    padding-left: 25%;
-    padding-right: 15%;
-    padding-top: 10%;
-    padding-bottom: 20%;
-}
-
-
-
-    .modal-full .modal-content {
-        min-height: 80vh;
-        background-color: whitesmoke;
+@media (min-width: 300px) {
+    .modal-full {
+        min-width: 100%;
+        margin: 0;
+        padding-left: 23%;
+        padding-right: .5%;
+        padding-top: 100px !important;
+        padding-bottom: 20%;
     }
-
-.Animal {
-    text-decoration: underline;
 }
 
-.FormDropdown {
-    margin-top: 33%
-}
-
-.ProgramInfoPop {
-    padding-top: 15px;
-}
-
-.ProgramDescription {
-    font-size: .83em;
-}
-
-.AddButton {
-    align-content: center;
-}
-
-
-
-.ProgramCaption {
-    padding-top: 5px;
-    color: white;
-}
-
-.InfoBox {
-    height: 200px;
-    width: 200px;
-}
-
-@media (min-width: 1300px) {
-    .ProgramBox {
+@media (min-width: 600px) {
+    .modal-full {
+        min-width: 100% !important;
+        margin: 0;
         padding-left: 25%;
+        padding-right: 10%;
+        padding-top: 100px;
+        padding-bottom: 20%;
+    }
+}
+
+@media (min-width: 800px) {
+    .modal-full {
+        min-width: 100% !important;
+        margin: 0;
+        padding-left: 25%;
+        padding-right: 10%;
+        padding-top: 100px;
+        padding-bottom: 20%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .modal-full {
+        min-width: 100% !important;
+        margin: 0;
+        padding-left: 35%;
         padding-right: 25%;
+        padding-top: 100px;
+        padding-bottom: 20%;
     }
 }
 
-.WildTable {
-    margin: 10px !important;
-    color: black !important;
-}
-
-a.WildTable {
-    margin: 10px !important;
-    color: black !important;
-}
-
-.table {
-    background-color: white;
-    border-radius: 15px;
-    border: none;
-    width: 100%;
-}
-/*animal page*/
-
-.grid-mammal{
-    width:32%;
-    background-color:white;
-    float:left;
-}
-.grid-reptile {
-    width: 32%;
-    background-color: white;
-    float: left;
-    margin-left:2%;
-}
-.grid-bird {
-    width: 32%;
-    background-color: white;
-    margin-left: 1%;
-    float: right;
-}
-/* Dropdown Button */
-.dropbtn {
-    /*background-color: #4CAF50;
-    color: white;*/
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    /*background-color: #212529;*/
-    background-color: #34383a !important;
-    color: rgba(255, 255, 255, 0.5);
-    width: 100%;
-}
-
-
-
-.dropdown-menu {
-    background-color: #34383a;
-    padding-left: 8px;
-    color: white !important;
-    border: none;
-}
-
-.dropdown-item {
-    color: #818282 !important;
-}
-
-.navilnk{color: whitesmoke !important;}
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: inherit;
-    /*display: inline-block;*/
-    width: 100%;
-    margin-top: 0px !important;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #34383a !important;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    width: 100%;
-}
-
-    /* Links inside the dropdown */
-    .dropdown-content a {
-        color: black;
-        text-decoration: none;
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
-
-        /* Change color of dropdown links on hover */
-        .dropdown-content a:hover {
-            
-            width: auto;
+        .modal-full .modal-content {
+            min-height: 80vh;
+            background-color: whitesmoke;
         }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-    width: auto;
-    .accordion
+    .Animal {
+        text-decoration: underline;
+    }
+
+    .FormDropdown {
+        margin-top: 33%
+    }
+
+    .ProgramInfoPop {
+        padding-top: 15px;
+    }
+
+    .ProgramDescription {
+        font-size: .83em;
+    }
+
+    .AddButton {
+        align-content: center;
+    }
+
+
+
+    .ProgramCaption {
+        padding-top: 5px;
+        color: white;
+    }
+
+    .InfoBox {
+        height: 200px;
+        width: 200px;
+    }
+
+    @media (min-width: 1300px) {
+        .ProgramBox {
+            padding-left: 25%;
+            padding-right: 25%;
+        }
+    }
+
+    .WildTable {
+        margin: 10px !important;
+        color: black !important;
+    }
+
+    a.WildTable {
+        margin: 10px !important;
+        color: black !important;
+    }
+
+    .table {
+        background-color: white;
+        border-radius: 15px;
+        border: none;
+        width: 100%;
+    }
+    /*animal page*/
+
+    .grid-mammal {
+        width: 32%;
+        background-color: white;
+        float: left;
+    }
+
+    .grid-reptile {
+        width: 32%;
+        background-color: white;
+        float: left;
+        margin-left: 2%;
+    }
+
+    .grid-bird {
+        width: 32%;
+        background-color: white;
+        margin-left: 1%;
+        float: right;
+    }
+    /* Dropdown Button */
+    .dropbtn {
+        /*background-color: #4CAF50;
+    color: white;*/
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        /*background-color: #212529;*/
+        background-color: #34383a !important;
+        color: rgba(255, 255, 255, 0.5);
+        width: 100%;
+    }
+
+
+
+    .dropdown-menu {
+        background-color: #34383a;
+        padding-left: 8px;
+        color: white !important;
+        border: none;
+    }
+
+    .dropdown-item {
+        color: #818282 !important;
+    }
+
+    .navilnk {
+        color: whitesmoke !important;
+    }
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: inherit;
+        /*display: inline-block;*/
+        width: 100%;
+        margin-top: 0px !important;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #34383a !important;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        width: 100%;
+    }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {
+                width: auto;
+            }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+        width: auto;
+        .accordion
 
 {
     background-color: #e0d7c3 !important;
@@ -916,3 +957,36 @@ a.TabStyle {
         border-radius: 0;
         color: #fff;
     }
+
+
+modal-title {
+    color: #d55c1d !important;
+}
+
+.modal-dialog {
+    width: 360px;
+    height: 600px !important;
+}
+
+
+.modal.modal-wide .modal-dialog {
+    width: 90%;
+}
+
+.modal-wide .modal-body {
+    overflow-y: auto;
+}
+
+/* irrelevant styling */
+body {
+    text-align: center;
+}
+
+    body p {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+
+#tallModal .modal-body p {
+    margin-bottom: 900px
+}
