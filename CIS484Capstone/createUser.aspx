@@ -61,19 +61,33 @@
 
  <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="Programs.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+          <%--<a class="nav-link" href="Programs.aspx">--%>
+            <%--<i class="fas fa-fw fa-book-open"></i>--%>
             <span>Programs</span>
           </a>
+            <div class="dropdown-menu dropdown-menu-right" >
+                <a class="dropdown-item" href="Programs.aspx">View Programs</a>
+            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
+          </div>
         </li>
-      <li class="nav-item">
+<%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
-            <span>Animal</span>
+            <i class="fas fa-fw fa-book-open"></i>--%>
+          <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Animals</span>
           </a>
+            <div class="dropdown-menu dropdown-menu-right" >
+                <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+          </div>
         </li>
-           <li class="nav-item dropdown no-arrow">
+           <li class="nav-item dropdown no-arrow ">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
             <i class="fas fa-envelope fa-fw"></i>
             <span>Reports</span>
@@ -102,24 +116,21 @@
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
             <i class="fas fa-envelope fa-fw"></i>
-            <span>Add New Program Content</span>
+            <span>Organizations</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
             <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+              <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
           </div>
         </li>
 
            <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
             <i class="fas fa-envelope fa-fw"></i>
-            <span>Update Program Content</span>
+            <span>Educators</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
             <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
           </div>
         </li>
@@ -151,37 +162,41 @@
       <div class="card card-register mx-auto mt-5">
         <div class="card-header NewUserTitle">Add Outreach Coordinator</div>
         <div class="card-body">
-          
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
-                  <div class="form-label-group">
-                      
+                  <div class="form-label-group">  
                       <label for="firstName">FIRST NAME</label>
                       <br />
                       <asp:TextBox ID="txtFirstName" runat="server" class="form-control" placeholder="First name" required="required"></asp:TextBox>
-                    
                   </div>
                 </div>
                 <div class="col-md-6">
-
-                  <div class="form-label-group">
-                     
+                  <div class="form-label-group">                    
                       <label for="lastName">LAST NAME</label>
                       <br />
-                      <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server"></asp:TextBox>
-                    
+                      <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server"></asp:TextBox>               
                   </div>
                 </div>
               </div>
             </div>
          
+           <%-- <div class="form-group">
+              <div class="form-label-group"> --%>
+                
+                
+             <%--   <label for="inputEmail">USERNAME</label>
+                  <br />
+                <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox> --%>
+              <%-- </div>
+            </div> --%>
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
                         <label for="inputEmail">USERNAME</label>
                     
+                   <%--  <label for="inputPassword">PASSWORD</label> --%>
                       <br />
                  
                                     <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox>
@@ -197,12 +212,7 @@
                    
                       
                 </div>
-                <%--<div class="col-md-6">
-                  <div class="form-label-group">
-                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
-                    <label for="confirmPassword">Confirm password</label>
-                  </div>
-                </div>--%>
+
               </div>
             </div>
             
@@ -210,6 +220,8 @@
             <div class="row">
                 <div class="col-md-4 mx-auto">
                     <br />
+          <%--  </div>   
+            <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/> --%>
             <asp:Button ID="btnSubmit" class="btn btn-primary btn-login btn-block" href="ProgramForm.aspx" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
                 </div>
             </div>
@@ -218,6 +230,8 @@
             <asp:Label ID="lblStatus" runat="server"></asp:Label>
             
           
+
+          <%--  <br /> --%>
           <div class="text-center">
             <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
             <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
@@ -232,5 +246,7 @@
 </section>
 
 
-</asp:Content>
+    </div>
+    </div>
 
+</asp:Content>
