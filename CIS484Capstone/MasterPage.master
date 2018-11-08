@@ -199,7 +199,7 @@
                                     <h6>City:</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="textOrgCity" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="textOrgCity" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
@@ -207,7 +207,7 @@
                                     <h6>County:</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="textOrgCounty" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="textOrgCounty" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             
@@ -306,7 +306,7 @@
                                     <h6>Last Name:</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
-                                    <asp:TextBox ID="txtEducatorLastName" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtEducatorLastName" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
@@ -314,7 +314,7 @@
                                     <h6>Contact Email:</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
-                                    <asp:TextBox ID="txtEducatorEmail" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtEducatorEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
@@ -322,7 +322,7 @@
                                     <h6>Phone Number:</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
-                                    <asp:TextBox ID="txtEducatorPhone" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtEducatorPhone" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             

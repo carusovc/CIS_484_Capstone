@@ -921,3 +921,6 @@ a.TabStyle {
         color: #fff;
     }
 
+    .Error{font-size: 75%;
+           color: red !important;
+    }

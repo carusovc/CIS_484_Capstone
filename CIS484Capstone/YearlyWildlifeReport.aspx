@@ -182,7 +182,7 @@
     <br />
      <br />
    
-<asp:GridView ID="gridPrograms"  class="table table-borderless table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" HorizontalAlign="Center">
+<asp:GridView ID="gridPrograms"  class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" HorizontalAlign="Center">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month Name" ReadOnly="True" >
             <HeaderStyle HorizontalAlign="Left" />
@@ -263,7 +263,7 @@
      <br />
    
  
-    <asp:GridView ID="gridOnlinePrograms"  class="table table-borderless table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center">
+    <asp:GridView ID="gridOnlinePrograms"  class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" >
             <HeaderStyle HorizontalAlign="Left" />

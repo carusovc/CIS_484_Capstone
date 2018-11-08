@@ -77,7 +77,7 @@ public partial class Invoices : System.Web.UI.Page
             Response.Clear();
             Response.Buffer = true;
             //Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + "\"");
-            Response.AddHeader("content-disposition", "attachment;filename=" + invoiceyear + filename + ".xls");
+            Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + ".xls");
             Response.Charset = "";
             Response.ContentType = "application/vnd.ms-excel";
             StringWriter sw = new StringWriter();
@@ -138,7 +138,7 @@ public partial class Invoices : System.Web.UI.Page
             string filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
             Response.Clear();
             Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment;filename=" + invoiceyear + filename + ".xls");
+            Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + ".xls");
             Response.Charset = "";
             Response.ContentType = "application/vnd.ms-excel";
             StringWriter sw = new StringWriter();
@@ -148,7 +148,7 @@ public partial class Invoices : System.Web.UI.Page
             gvExport.RenderControl(htW);
             // string filename2 = /*drpOrg.SelectedValue.ToString() +*/ " Invoice - " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
 
-            string headerTable = @"<Table><tr><td>" + invoiceyear + " " + filename + "</td></tr><tr><td></td></tr></Table>";
+            string headerTable = @"<Table>" + invoiceyear + " " + filename + "</td></tr><tr><td></td></tr></Table>";
 
             Response.Write(headerTable);
             Response.Output.Write(sw.ToString());
@@ -173,7 +173,7 @@ public partial class Invoices : System.Web.UI.Page
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency
-            e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
+            e.Row.Cells[1].Text = String.Format("{0:c}", TotalNotCancelled);
 
 
 
@@ -190,7 +190,7 @@ public partial class Invoices : System.Web.UI.Page
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency
-            e.Row.Cells[2].Text = String.Format("{0:c}", TotalCancelled);
+            e.Row.Cells[1].Text = String.Format("{0:c}", TotalCancelled);
 
 
 
