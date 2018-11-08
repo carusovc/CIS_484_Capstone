@@ -170,7 +170,7 @@
     <br />
      <br />
 
-    <asp:GridView ID="AnimalLiveGrid" class="table table-borderless table-condensed table-hover" runat="server"  AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+    <asp:GridView ID="AnimalLiveGrid" class="table table-borderless table-condensed table-hover" runat="server"  AutoGenerateColumns="False" >
         <Columns>
 
             <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
