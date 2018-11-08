@@ -97,7 +97,7 @@ body, html {
 }
 
 .login-block {
-    padding-top: 5% !important;
+    /*padding-top: 2%;*/
 }
 
 .logo {
@@ -206,4 +206,11 @@ body, html {
 .NewUserTitle {
     font-size: 200%;
     color: #d55c1d;
+}
+
+.ReportTitle {
+    font-size: 120%;
+    color: #919b90;
+    display: block;
+    font-weight: 600;
 }

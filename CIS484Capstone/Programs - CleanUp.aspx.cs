@@ -9,6 +9,8 @@ using System.Data.SqlClient;
 using System.Data;
 
 
+
+
 public partial class Programs : System.Web.UI.Page
 {
 
@@ -59,6 +61,54 @@ public partial class Programs : System.Web.UI.Page
         //        }
 
         //    }
+        
+        // Populate the live programs dropdown list
+        if (ddlProgram.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+
+                string read = "Select * from ProgramType order by ProgramName";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
+
+                while (myRead.Read())
+                {
+
+                    ddlProgram.Items.Add(new ListItem(myRead["ProgramName"].ToString(), myRead["ProgramTypeID"].ToString()));
+                }
+
+            }
+
+
+        }
+
+        // Populate the online programs dropdown list
+        if (ddlProgramType.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+
+                string read = "Select * from OnlineProgramType order by OnlineProgramTypeName";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
+
+                while (myRead.Read())
+                {
+
+                    ddlProgramType.Items.Add(new ListItem(myRead["OnlineProgramTypeName"].ToString(), myRead["OnlineProgramTypeID"].ToString()));
+                }
+
+            }
+
+
+        }
 
 
         //}
@@ -86,318 +136,362 @@ public partial class Programs : System.Web.UI.Page
 
         //}
 
-    //    if (drpEducators.Items.Count < 2)
-    //    {
-    //        //call read array
-    //        SqlConnection con = new SqlConnection(cs);
-    //        con.Open();
-    //        if (con.State == System.Data.ConnectionState.Open)
-    //        {
+        if (drpEducators.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
 
-    //            string read = "Select * from Educators order by EducatorFirstName";
-    //            SqlCommand cmd = new SqlCommand(read, con);
-    //            SqlDataReader myRead = cmd.ExecuteReader();
+                string read = "Select * from Educators order by EducatorFirstName";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
 
-    //            while (myRead.Read())
-    //            {
+                while (myRead.Read())
+                {
 
-    //                drpEducators.Items.Add(new ListItem(myRead["EducatorFirstName"].ToString() + " " + myRead["EducatorLastName"].ToString(), myRead["EducatorID"].ToString()));
-    //            }
+                    drpEducators.Items.Add(new ListItem(myRead["EducatorFirstName"].ToString() + " " + myRead["EducatorLastName"].ToString(), myRead["EducatorID"].ToString()));
+                }
 
-    //        }
-    //    }
+            }
+        }
 
-    //    if (ddlBirds.Items.Count < 2)
-    //    {
-    //        //call read array
-    //        SqlConnection con = new SqlConnection(cs);
-    //        con.Open();
-    //        if (con.State == System.Data.ConnectionState.Open)
-    //        {
+        // Add grades for live programs
+        if (AddGrade.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
 
-    //            string read = "Select * from Animal where AnimalType = 'Bird' order by AnimalName";
-    //            SqlCommand cmd = new SqlCommand(read, con);
-    //            SqlDataReader myRead = cmd.ExecuteReader();
+                string read = "Select * from Grade";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
 
-    //            while (myRead.Read())
-    //            {
+                while (myRead.Read())
+                {
 
-    //                ddlBirds.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
-    //            }
+                    AddGrade.Items.Add(new ListItem(myRead["GradeLevel"].ToString(), myRead["GradeID"].ToString()));
+                }
 
-    //        }
-    //    }
+            }
+        }
 
-    //    if (ddlReptiles.Items.Count < 2)
-    //    {
-    //        //call read array
-    //        SqlConnection con = new SqlConnection(cs);
-    //        con.Open();
-    //        if (con.State == System.Data.ConnectionState.Open)
-    //        {
+        // Add grades for online programs
+        if (OnlineGrades.Items.Count < 2)
+        {
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
 
-    //            string read = "Select * from Animal where AnimalType = 'Reptile' order by AnimalName";
-    //            SqlCommand cmd = new SqlCommand(read, con);
-    //            SqlDataReader myRead = cmd.ExecuteReader();
+                string read = "Select * from Grade";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
 
-    //            while (myRead.Read())
-    //            {
+                while (myRead.Read())
+                {
 
-    //                ddlReptiles.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
-    //            }
+                    OnlineGrades.Items.Add(new ListItem(myRead["GradeLevel"].ToString(), myRead["GradeID"].ToString()));
+                }
 
-    //        }
-    //    }
+            }
+        }
 
-    //    if (lstMammals.Items.Count < 2)
-    //    {
-    //        //call read array
-    //        SqlConnection con = new SqlConnection(cs);
-    //        con.Open();
-    //        if (con.State == System.Data.ConnectionState.Open)
-    //        {
+        //    if (ddlBirds.Items.Count < 2)
+        //    {
+        //        //call read array
+        //        SqlConnection con = new SqlConnection(cs);
+        //        con.Open();
+        //        if (con.State == System.Data.ConnectionState.Open)
+        //        {
 
-    //            string read = "Select * from Animal where AnimalType = 'Mammal' order by AnimalName";
-    //            SqlCommand cmd = new SqlCommand(read, con);
-    //            SqlDataReader myRead = cmd.ExecuteReader();
+        //            string read = "Select * from Animal where AnimalType = 'Bird' order by AnimalName";
+        //            SqlCommand cmd = new SqlCommand(read, con);
+        //            SqlDataReader myRead = cmd.ExecuteReader();
 
-    //            while (myRead.Read())
-    //            {
+        //            while (myRead.Read())
+        //            {
 
-    //                lstMammals.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
-    //            }
+        //                ddlBirds.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+        //            }
 
-    //        }
-    //    }
+        //        }
+        //    }
 
+        //    if (ddlReptiles.Items.Count < 2)
+        //    {
+        //        //call read array
+        //        SqlConnection con = new SqlConnection(cs);
+        //        con.Open();
+        //        if (con.State == System.Data.ConnectionState.Open)
+        //        {
 
-    //    // Populate Year from 1990 through 2020
-    //    for (int i = 2020; i >= 1990; i--)
-    //    {
-    //        // ddlYear.Items.Add(new ListItem(i.ToString()));
-    //    }
-    //}
+        //            string read = "Select * from Animal where AnimalType = 'Reptile' order by AnimalName";
+        //            SqlCommand cmd = new SqlCommand(read, con);
+        //            SqlDataReader myRead = cmd.ExecuteReader();
 
+        //            while (myRead.Read())
+        //            {
 
-    //protected void btnAdd_Click(object sender, EventArgs e)
-    //{
-    //    for (int i = 0; i < 5; i++)
-    //    {
-    //        ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "document", "function()", true);
+        //                ddlReptiles.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+        //            }
 
-    //    }
+        //        }
+        //    }
 
-    //}
+        //    if (lstMammals.Items.Count < 2)
+        //    {
+        //        //call read array
+        //        SqlConnection con = new SqlConnection(cs);
+        //        con.Open();
+        //        if (con.State == System.Data.ConnectionState.Open)
+        //        {
 
-    //protected void btnSubmit_Click1(object sender, EventArgs e)
-    //{
-    //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        //            string read = "Select * from Animal where AnimalType = 'Mammal' order by AnimalName";
+        //            SqlCommand cmd = new SqlCommand(read, con);
+        //            SqlDataReader myRead = cmd.ExecuteReader();
 
-    //    //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-    //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-    //    sc.ConnectionString = cs;
+        //            while (myRead.Read())
+        //            {
 
-    //    sc.Open();
-    //    System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-    //    System.Data.SqlClient.SqlCommand pullOnlineProgramID = new System.Data.SqlClient.SqlCommand();
-    //    System.Data.SqlClient.SqlCommand pullAnimalID = new System.Data.SqlClient.SqlCommand();
-    //    System.Data.SqlClient.SqlCommand onlineAnimalInsert = new System.Data.SqlClient.SqlCommand();
-    //    System.Data.SqlClient.SqlCommand pullEducatorID = new System.Data.SqlClient.SqlCommand();
-    //    System.Data.SqlClient.SqlCommand onlineEducatorsInsert = new System.Data.SqlClient.SqlCommand();
-    //    System.Data.SqlClient.SqlCommand pullGradeID = new System.Data.SqlClient.SqlCommand();
-    //    System.Data.SqlClient.SqlCommand onlineProgramGradesInsert = new System.Data.SqlClient.SqlCommand();
+        //                lstMammals.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+        //            }
 
-    //    insert.Connection = sc;
-
-    //    pullOnlineProgramID.Connection = sc;
-    //    pullAnimalID.Connection = sc;
-    //    onlineAnimalInsert.Connection = sc;
-
-    //    pullEducatorID.Connection = sc;
-    //    onlineEducatorsInsert.Connection = sc;
-
-    //    pullGradeID.Connection = sc;
-    //    onlineProgramGradesInsert.Connection = sc;
-
-    //    //Online Program ;
-    //    DateTime prgmDateTime = Convert.ToDateTime(txtDate.Text);
-    //    string month = prgmDateTime.ToString("MMMM");
-    //    TimeSpan programTime = TimeSpan.Parse(txtTime.Text);
-    //    int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
-    //    String type = Convert.ToString(ddlProgramType.SelectedItem);
-    //    int numOfKids = Int32.Parse(txtNumOfKids.Text.ToString());
-    //    int numOfPeople = Int32.Parse(txtNumOfPeople.Text.ToString());
-    //    string city = AddOnlineProgramcity.Text.ToString();
-    //    string stateTerritory = ddlState.SelectedValue.ToString();
-    //    string country = ddlCountry.SelectedValue.ToString();
-    //    string teacherName = AddOnlineTeacher.Text.ToString();
-    //    string contactEmail = AddOnlineEmail.Text.ToString();
-    //    string extraComments = AddOnlineComment.Text.ToString();
-
-    //    //Temporary LastUpdated and LastUpdatedBy
-    //    DateTime tempLastUpdated = DateTime.Today;
-    //    String tempLastUpdatedBy = "TempWildTekDevs";
-
-    //    // OnlineProgram table inserts
-    //    OnlineProgram newOnlineProgram = new OnlineProgram(prgmDateTime, month, onlineProgramTypeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments);
-
-    //    insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments, lastUpdated, lastUpdatedBy) " +
-    //        "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments, @lastUpdated, @lastUpdatedBy)";
-
-    //    insert.Parameters.AddWithValue("@programDate", newOnlineProgram.getDate());
-    //    insert.Parameters.AddWithValue("@month", newOnlineProgram.getMonth());
-    //    insert.Parameters.AddWithValue("@typeID", newOnlineProgram.getType());
-    //    insert.Parameters.AddWithValue("@numOfKids", newOnlineProgram.getKidsInClass());
-    //    insert.Parameters.AddWithValue("@numOfPeople", newOnlineProgram.getNumOfPeople());
-    //    insert.Parameters.AddWithValue("@city", newOnlineProgram.getCity());
-    //    insert.Parameters.AddWithValue("@state", newOnlineProgram.getstateTerritory());
-    //    insert.Parameters.AddWithValue("@country", newOnlineProgram.getCountry());
-    //    insert.Parameters.AddWithValue("@teacherName", newOnlineProgram.getTeacher());
-    //    insert.Parameters.AddWithValue("@contactEmail", newOnlineProgram.getEmail());
-    //    insert.Parameters.AddWithValue("@extraComments", newOnlineProgram.getComments());
-    //    insert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated);
-    //    insert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy);
-
-    //    insert.ExecuteNonQuery();
-
-    //    //Pull onlineProgramID
-    //    pullOnlineProgramID.CommandText = "Select MAX(onlineProgramID) from OnlineProgram";
-    //    int tempOnlineProgramID = (int)pullOnlineProgramID.ExecuteScalar();
+        //        }
+        //    }
 
 
-    //    // Pulls Educator Name based on the selected educator
-    //    foreach (ListItem li in drpEducators.Items)
-    //    {
-    //        if (li.Selected == true)
-    //        {
-    //            pullEducatorID.Parameters.Clear();
-    //            onlineEducatorsInsert.Parameters.Clear();
+        //    // Populate Year from 1990 through 2020
+        //    for (int i = 2020; i >= 1990; i--)
+        //    {
+        //        // ddlYear.Items.Add(new ListItem(i.ToString()));
+        //    }
+        //}
 
 
-    //            //// Pulls Educator Name based on the selected educator
-    //            //// MAY NEED TO CHANGE IF WE COMPOSITE EDUCATORS
-    //            pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE EducatorFirstName = @EducatorFN";
-    //            pullEducatorID.Parameters.AddWithValue("@EducatorFN", li.Text);
-    //            int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
+        //protected void btnAdd_Click(object sender, EventArgs e)
+        //{
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "document", "function()", true);
 
-    //            //// Inserts programID and EducatorID into Assocaited table ProgramEducators
-    //            onlineEducatorsInsert.CommandText = "Insert into OnlineEducators (OnlineProgramID, EducatorID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @educatorID, @lastUpdated, @lastUpdatedBy)";
-    //            onlineEducatorsInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
-    //            onlineEducatorsInsert.Parameters.AddWithValue("@educatorID", tempEducatorID);
-    //            onlineEducatorsInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
-    //            onlineEducatorsInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
-    //            onlineEducatorsInsert.ExecuteNonQuery();
-    //        }
-    //        else
-    //        {
-    //            continue;
-    //        }
-    //    }
+        //    }
 
-    //    //Pull animalID
-    //    //Insert into onlineAnimal table
-    //    foreach (ListItem li in ddlBirds.Items)
-    //    {
-    //        if (li.Selected == true)
-    //        {
-    //            pullAnimalID.Parameters.Clear();
-    //            onlineAnimalInsert.Parameters.Clear();
-    //            pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
-    //            pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
+        //}
 
-    //            int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+        //protected void btnSubmit_Click1(object sender, EventArgs e)
+        //{
+        //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-    //            // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
-    //            onlineAnimalInsert.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
-    //            onlineAnimalInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
-    //            onlineAnimalInsert.Parameters.AddWithValue("@animalID", tempAnimalID);
-    //            onlineAnimalInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
-    //            onlineAnimalInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
-    //            onlineAnimalInsert.ExecuteNonQuery();
-    //        }
-    //        else
-    //        {
-    //            continue;
-    //        }
+        //    //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        //    sc.ConnectionString = cs;
 
-    //    }
+        //    sc.Open();
+        //    System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        //    System.Data.SqlClient.SqlCommand pullOnlineProgramID = new System.Data.SqlClient.SqlCommand();
+        //    System.Data.SqlClient.SqlCommand pullAnimalID = new System.Data.SqlClient.SqlCommand();
+        //    System.Data.SqlClient.SqlCommand onlineAnimalInsert = new System.Data.SqlClient.SqlCommand();
+        //    System.Data.SqlClient.SqlCommand pullEducatorID = new System.Data.SqlClient.SqlCommand();
+        //    System.Data.SqlClient.SqlCommand onlineEducatorsInsert = new System.Data.SqlClient.SqlCommand();
+        //    System.Data.SqlClient.SqlCommand pullGradeID = new System.Data.SqlClient.SqlCommand();
+        //    System.Data.SqlClient.SqlCommand onlineProgramGradesInsert = new System.Data.SqlClient.SqlCommand();
 
-    //    foreach (ListItem li in lstMammals.Items)
-    //    {
-    //        if (li.Selected == true)
-    //        {
-    //            pullAnimalID.Parameters.Clear();
-    //            onlineAnimalInsert.Parameters.Clear();
-    //            pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
-    //            pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
+        //    insert.Connection = sc;
 
-    //            int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+        //    pullOnlineProgramID.Connection = sc;
+        //    pullAnimalID.Connection = sc;
+        //    onlineAnimalInsert.Connection = sc;
 
-    //            // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
-    //            onlineAnimalInsert.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
-    //            onlineAnimalInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
-    //            onlineAnimalInsert.Parameters.AddWithValue("@animalID", tempAnimalID);
-    //            onlineAnimalInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
-    //            onlineAnimalInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
-    //            onlineAnimalInsert.ExecuteNonQuery();
-    //        }
-    //        else
-    //        {
-    //            continue;
-    //        }
+        //    pullEducatorID.Connection = sc;
+        //    onlineEducatorsInsert.Connection = sc;
 
-    //    }
+        //    pullGradeID.Connection = sc;
+        //    onlineProgramGradesInsert.Connection = sc;
 
-    //    foreach (ListItem li in ddlReptiles.Items)
-    //    {
-    //        if (li.Selected == true)
-    //        {
-    //            pullAnimalID.Parameters.Clear();
-    //            onlineAnimalInsert.Parameters.Clear();
-    //            pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
-    //            pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
+        //    //Online Program ;
+        //    DateTime prgmDateTime = Convert.ToDateTime(txtDate.Text);
+        //    string month = prgmDateTime.ToString("MMMM");
+        //    TimeSpan programTime = TimeSpan.Parse(txtTime.Text);
+        //    int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
+        //    String type = Convert.ToString(ddlProgramType.SelectedItem);
+        //    int numOfKids = Int32.Parse(txtNumOfKids.Text.ToString());
+        //    int numOfPeople = Int32.Parse(txtNumOfPeople.Text.ToString());
+        //    string city = AddOnlineProgramcity.Text.ToString();
+        //    string stateTerritory = ddlState.SelectedValue.ToString();
+        //    string country = ddlCountry.SelectedValue.ToString();
+        //    string teacherName = AddOnlineTeacher.Text.ToString();
+        //    string contactEmail = AddOnlineEmail.Text.ToString();
+        //    string extraComments = AddOnlineComment.Text.ToString();
 
-    //            int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+        //    //Temporary LastUpdated and LastUpdatedBy
+        //    DateTime tempLastUpdated = DateTime.Today;
+        //    String tempLastUpdatedBy = "TempWildTekDevs";
 
-    //            // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
-    //            onlineAnimalInsert.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
-    //            onlineAnimalInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
-    //            onlineAnimalInsert.Parameters.AddWithValue("@animalID", tempAnimalID);
-    //            onlineAnimalInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
-    //            onlineAnimalInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
-    //            onlineAnimalInsert.ExecuteNonQuery();
-    //        }
-    //        else
-    //        {
-    //            continue;
-    //        }
+        //    // OnlineProgram table inserts
+        //    OnlineProgram newOnlineProgram = new OnlineProgram(prgmDateTime, month, onlineProgramTypeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments);
 
-    //    }
+        //    insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments, lastUpdated, lastUpdatedBy) " +
+        //        "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments, @lastUpdated, @lastUpdatedBy)";
 
-    //    //Insert into onlineProgramGrades table
-    //    foreach (ListItem li in AddGrade.Items)
-    //    {
-    //        if (li.Selected == true)
-    //        {
-    //            pullGradeID.Parameters.Clear();
-    //            onlineProgramGradesInsert.Parameters.Clear();
-    //            pullGradeID.CommandText = "SELECT GradeID From Grade WHERE GradeLevel = @GradeLevel";
-    //            pullGradeID.Parameters.AddWithValue("@GradeLevel", li.Text);
-    //            int tempGradeID = (int)pullGradeID.ExecuteScalar();
+        //    insert.Parameters.AddWithValue("@programDate", newOnlineProgram.getDate());
+        //    insert.Parameters.AddWithValue("@month", newOnlineProgram.getMonth());
+        //    insert.Parameters.AddWithValue("@typeID", newOnlineProgram.getType());
+        //    insert.Parameters.AddWithValue("@numOfKids", newOnlineProgram.getKidsInClass());
+        //    insert.Parameters.AddWithValue("@numOfPeople", newOnlineProgram.getNumOfPeople());
+        //    insert.Parameters.AddWithValue("@city", newOnlineProgram.getCity());
+        //    insert.Parameters.AddWithValue("@state", newOnlineProgram.getstateTerritory());
+        //    insert.Parameters.AddWithValue("@country", newOnlineProgram.getCountry());
+        //    insert.Parameters.AddWithValue("@teacherName", newOnlineProgram.getTeacher());
+        //    insert.Parameters.AddWithValue("@contactEmail", newOnlineProgram.getEmail());
+        //    insert.Parameters.AddWithValue("@extraComments", newOnlineProgram.getComments());
+        //    insert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated);
+        //    insert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy);
 
-    //            //// Insert ProgramID and GradeID into Assocaited table ProgrameID
-    //            onlineProgramGradesInsert.CommandText = "Insert into OnlineProgramGrades (OnlineProgramID, GradeID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @gradeID, @lastUpdated, @lastUpdatedBy)";
-    //            onlineProgramGradesInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
-    //            onlineProgramGradesInsert.Parameters.AddWithValue("@gradeID", tempGradeID);
-    //            onlineProgramGradesInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
-    //            onlineProgramGradesInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
-    //            onlineProgramGradesInsert.ExecuteNonQuery();
-    //        }
-    //        else
-    //        {
-    //            continue;
-    //        }
-    //    }
+        //    insert.ExecuteNonQuery();
+
+        //    //Pull onlineProgramID
+        //    pullOnlineProgramID.CommandText = "Select MAX(onlineProgramID) from OnlineProgram";
+        //    int tempOnlineProgramID = (int)pullOnlineProgramID.ExecuteScalar();
+
+
+        //    // Pulls Educator Name based on the selected educator
+        //    foreach (ListItem li in drpEducators.Items)
+        //    {
+        //        if (li.Selected == true)
+        //        {
+        //            pullEducatorID.Parameters.Clear();
+        //            onlineEducatorsInsert.Parameters.Clear();
+
+
+        //            //// Pulls Educator Name based on the selected educator
+        //            //// MAY NEED TO CHANGE IF WE COMPOSITE EDUCATORS
+        //            pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE EducatorFirstName = @EducatorFN";
+        //            pullEducatorID.Parameters.AddWithValue("@EducatorFN", li.Text);
+        //            int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
+
+        //            //// Inserts programID and EducatorID into Assocaited table ProgramEducators
+        //            onlineEducatorsInsert.CommandText = "Insert into OnlineEducators (OnlineProgramID, EducatorID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @educatorID, @lastUpdated, @lastUpdatedBy)";
+        //            onlineEducatorsInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
+        //            onlineEducatorsInsert.Parameters.AddWithValue("@educatorID", tempEducatorID);
+        //            onlineEducatorsInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+        //            onlineEducatorsInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+        //            onlineEducatorsInsert.ExecuteNonQuery();
+        //        }
+        //        else
+        //        {
+        //            continue;
+        //        }
+        //    }
+
+        //    //Pull animalID
+        //    //Insert into onlineAnimal table
+        //    foreach (ListItem li in ddlBirds.Items)
+        //    {
+        //        if (li.Selected == true)
+        //        {
+        //            pullAnimalID.Parameters.Clear();
+        //            onlineAnimalInsert.Parameters.Clear();
+        //            pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
+        //            pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
+
+        //            int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+
+        //            // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
+        //            onlineAnimalInsert.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
+        //            onlineAnimalInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
+        //            onlineAnimalInsert.Parameters.AddWithValue("@animalID", tempAnimalID);
+        //            onlineAnimalInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+        //            onlineAnimalInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+        //            onlineAnimalInsert.ExecuteNonQuery();
+        //        }
+        //        else
+        //        {
+        //            continue;
+        //        }
+
+        //    }
+
+        //    foreach (ListItem li in lstMammals.Items)
+        //    {
+        //        if (li.Selected == true)
+        //        {
+        //            pullAnimalID.Parameters.Clear();
+        //            onlineAnimalInsert.Parameters.Clear();
+        //            pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
+        //            pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
+
+        //            int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+
+        //            // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
+        //            onlineAnimalInsert.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
+        //            onlineAnimalInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
+        //            onlineAnimalInsert.Parameters.AddWithValue("@animalID", tempAnimalID);
+        //            onlineAnimalInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+        //            onlineAnimalInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+        //            onlineAnimalInsert.ExecuteNonQuery();
+        //        }
+        //        else
+        //        {
+        //            continue;
+        //        }
+
+        //    }
+
+        //    foreach (ListItem li in ddlReptiles.Items)
+        //    {
+        //        if (li.Selected == true)
+        //        {
+        //            pullAnimalID.Parameters.Clear();
+        //            onlineAnimalInsert.Parameters.Clear();
+        //            pullAnimalID.CommandText = "SELECT AnimalID From Animal WHERE AnimalName = @AnimalName";
+        //            pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
+
+        //            int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
+
+        //            // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
+        //            onlineAnimalInsert.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
+        //            onlineAnimalInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
+        //            onlineAnimalInsert.Parameters.AddWithValue("@animalID", tempAnimalID);
+        //            onlineAnimalInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+        //            onlineAnimalInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+        //            onlineAnimalInsert.ExecuteNonQuery();
+        //        }
+        //        else
+        //        {
+        //            continue;
+        //        }
+
+        //    }
+
+        //    //Insert into onlineProgramGrades table
+        //    foreach (ListItem li in AddGrade.Items)
+        //    {
+        //        if (li.Selected == true)
+        //        {
+        //            pullGradeID.Parameters.Clear();
+        //            onlineProgramGradesInsert.Parameters.Clear();
+        //            pullGradeID.CommandText = "SELECT GradeID From Grade WHERE GradeLevel = @GradeLevel";
+        //            pullGradeID.Parameters.AddWithValue("@GradeLevel", li.Text);
+        //            int tempGradeID = (int)pullGradeID.ExecuteScalar();
+
+        //            //// Insert ProgramID and GradeID into Assocaited table ProgrameID
+        //            onlineProgramGradesInsert.CommandText = "Insert into OnlineProgramGrades (OnlineProgramID, GradeID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @gradeID, @lastUpdated, @lastUpdatedBy)";
+        //            onlineProgramGradesInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
+        //            onlineProgramGradesInsert.Parameters.AddWithValue("@gradeID", tempGradeID);
+        //            onlineProgramGradesInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+        //            onlineProgramGradesInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+        //            onlineProgramGradesInsert.ExecuteNonQuery();
+        //        }
+        //        else
+        //        {
+        //            continue;
+        //        }
+        //    }
 
         //Pull animalID
         //  pullAnimalID.CommandText = "Select AnimalID from Animal where AnimalName = @animalName";
@@ -652,4 +746,81 @@ public partial class Programs : System.Web.UI.Page
     }
 
 
+
+    protected void btnProgramExcel_Click(object sender, EventArgs e)
+    {
+        //string fileNameBase = "Programs";
+        //String fileName = fileNameBase;
+        //string ext = ".xlsx";
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+
+        ////SqlCommand query;
+        ////query = new SqlCommand("SELECT * FROM Program", sc);
+        //string query = "SELECT * FROM Program";
+
+        //SqlConnection conn = new SqlConnection(cs);
+        //conn.Open();
+        //SqlCommand cmd = new SqlCommand(query, conn);
+        //SqlDataReader dr = cmd.ExecuteReader();
+
+        //using (System.IO.StreamWriter fs = new System.IO.StreamWriter(fileName))
+        //{
+        //    // Loop through the fields and add headers
+        //    for (int i = 0; i < dr.FieldCount; i++)
+        //    {
+        //        string name = dr.GetName(i);
+        //        if (name.Contains(","))
+        //            name = "\"" + name + "\"";
+
+        //        fs.Write(name + ",");
+        //    }
+        //    fs.WriteLine();
+
+        //    // Loop through the rows and output the data
+        //    while (dr.Read())
+        //    {
+        //        for (int i = 0; i < dr.FieldCount; i++)
+        //        {
+        //            string value = dr[i].ToString();
+        //            if (value.Contains(","))
+        //                value = "\"" + value + "\"";
+
+        //            fs.Write(value + ",");
+        //        }
+        //        fs.WriteLine();
+        //    }
+
+        //    fs.Close();
+        //}
+
+
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        DataSet ds;
+
+        //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        ////sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+
+
+
+
+        cmd = new SqlCommand("SELECT * FROM Program", sc);
+
+        sc.Open();
+
+        da = new SqlDataAdapter(cmd);
+        ds = new DataSet();
+
+        da.Fill(ds);
+
+        string excelname = "Program_Report";
+        string current = DateTime.Today.ToShortDateString();
+
+        ds.WriteXml(@"C:\Users\labpatron\Desktop\" + excelname + ".xls");
+        sc.Close();
+    }
 }

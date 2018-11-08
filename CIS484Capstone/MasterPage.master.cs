@@ -26,6 +26,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
 
 
+
             //call read array
             SqlConnection con = new SqlConnection(cs);
             con.Open();
@@ -62,6 +63,45 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 //}
                 con.Close();
             }
+            con.Close();
+            //call read array
+            SqlConnection conAnimal = new SqlConnection(cs);
+            conAnimal.Open();
+            if (conAnimal.State == System.Data.ConnectionState.Open)
+            {
+                string read = "Select * from Animal";
+                SqlCommand cmd = new SqlCommand(read, conAnimal);
+                SqlDataReader myRead = cmd.ExecuteReader();
+
+                while (myRead.Read())
+                {
+                    ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+                }
+                // ddlAnimal.DataBind();
+            }
+
+
+
+            //call read array
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+
+                string read = "Select * from Educators";
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
+
+                while (myRead.Read())
+                {
+                    ddlEducatorName.Items.Add(new ListItem(myRead["EducatorFirstName"].ToString() + " " + myRead["EducatorLastName"].ToString(), myRead["EducatorID"].ToString()));
+                }
+
+
+            }
+
+            txtEducatorFirst.Text = "";
+            txtEducatorLastName.Text = "";
+            con.Close();
         }
 
         
@@ -369,7 +409,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
+                ddlAnimalTypeEdit.SelectedItem.Text = sdr[1].ToString();
+                //ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
                 txtBoxAnimalName.Text = sdr[2].ToString();
                 //lblLastUpdated.Text = sdr["LastUpdated"].ToString();
                 //lblLastUpdatedBy.Text = sdr["LastUpdatedBy"].ToString();
@@ -459,8 +500,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
             while (myRead.Read())
             {
-
-                ddlEducatorName.Items.Add(new ListItem(myRead["EducatorFirstName"].ToString(), myRead["EducatorID"].ToString()));
+                ddlEducatorName.Items.Add(new ListItem(myRead["EducatorFirstName"].ToString() + " " + myRead["EducatorLastName"].ToString(), myRead["EducatorID"].ToString()));
             }
 
 
