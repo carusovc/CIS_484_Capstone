@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
+
 
 public partial class AnimalPage : System.Web.UI.Page
 {
@@ -64,7 +66,7 @@ public partial class AnimalPage : System.Web.UI.Page
         AnimalEditDiv.Visible = true;
 
         ViewAnimals.Visible = false;
-
+        ddlAnimal.DataBind();
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -114,7 +116,7 @@ public partial class AnimalPage : System.Web.UI.Page
         insert.Parameters.AddWithValue("@animalName", newAnimal.getAnimalName());
         insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
         insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
-        insert.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
+        insert.Parameters.AddWithValue("@status", ddlAnimalStatus.SelectedItem.Text);
 
         insert.ExecuteNonQuery();
         lblLastUpdated.Text = "Last Updated: " + lastUpdated;
@@ -124,6 +126,7 @@ public partial class AnimalPage : System.Web.UI.Page
         gridAnimalMammal.DataBind();
         gridReptile.DataBind();
         gridBird.DataBind();
+        ddlAnimal.DataBind();
     }
 
     protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
@@ -146,7 +149,7 @@ public partial class AnimalPage : System.Web.UI.Page
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select AnimalID, AnimalType, AnimalName, LastUpdated, LastUpdatedBy from Animal where" +
+        insert.CommandText = "select AnimalID, AnimalType, AnimalName, LastUpdated, LastUpdatedBy, status from Animal where" +
                           " animalID = @animalID";
 
         insert.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
@@ -160,6 +163,7 @@ public partial class AnimalPage : System.Web.UI.Page
                 //ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
                 ddlAnimalTypeEdit.SelectedItem.Text = sdr[1].ToString();
                 txtBoxAnimalName.Text = sdr[2].ToString();
+                ddlStatus.SelectedItem.Text = sdr[5].ToString();
                 //lblLastUpdated.Text = sdr["LastUpdated"].ToString();
                 //lblLastUpdatedBy.Text = sdr["LastUpdatedBy"].ToString();
 
@@ -185,12 +189,13 @@ public partial class AnimalPage : System.Web.UI.Page
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
 
-        update.CommandText = "update animal set animalType = @animalType, animalName = @animalName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where animalID = @animalID";
+        update.CommandText = "update animal set animalType = @animalType, animalName = @animalName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, status = @status where animalID = @animalID";
         update.Parameters.AddWithValue("@animalType", ddlAnimalTypeEdit.SelectedItem.Text);
         update.Parameters.AddWithValue("@animalName", txtBoxAnimalName.Text);
         update.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
         update.ExecuteNonQuery();
 
 
@@ -225,40 +230,69 @@ public partial class AnimalPage : System.Web.UI.Page
 
 
     }
-    protected void btnDelete_Click(object sender, EventArgs e)
+    //protected void btnDelete_Click(object sender, EventArgs e)
+    //{
+    //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+    //    // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+    //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+    //    sc.ConnectionString = cs;
+    //    sc.Open();
+    //    System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
+    //    delete.Connection = sc;
+    //    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+    //    //call read array
+    //    SqlConnection con = new SqlConnection(cs);
+    //    delete.CommandText = "Delete from Animal where AnimalID = @AnimalID";
+    //    delete.Parameters.AddWithValue("@AnimalID", ddlAnimal.SelectedItem.Value);
+    //    delete.ExecuteNonQuery();
+    //    ddlAnimal.Items.Clear();
+    //    //call read array
+    //    con.Open();
+    //    if (con.State == System.Data.ConnectionState.Open)
+    //    {
+    //        string read = "Select * from Animal";
+    //        SqlCommand cmd = new SqlCommand(read, con);
+    //        SqlDataReader myRead = cmd.ExecuteReader();
+    //        while (myRead.Read())
+    //        {
+    //            ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+    //        }
+    //        // ddlAnimal.DataBind();
+    //    }
+    //    txtAnimalName.Text = "";
+    //    gridAnimalMammal.DataBind();
+    //    gridReptile.DataBind();
+    //    gridBird.DataBind();
+
+    //}
+
+    protected void btnSearch_Click(object sender, EventArgs e)
     {
+        gridSearch.DataBind();
+        //gridAnimalMammal.Visible = false;
+        //gridBird.Visible = false;
+        //gridReptile.Visible = false;
+        gridSearch.Visible = true;
+
+
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
-        System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
-        delete.Connection = sc;
-        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
-        //call read array
-        SqlConnection con = new SqlConnection(cs);
-        delete.CommandText = "Delete from Animal where AnimalID = @AnimalID";
-        delete.Parameters.AddWithValue("@AnimalID", ddlAnimal.SelectedItem.Value);
-        delete.ExecuteNonQuery();
-        ddlAnimal.Items.Clear();
-        //call read array
-        con.Open();
-        if (con.State == System.Data.ConnectionState.Open)
-        {
-            string read = "Select * from Animal";
-            SqlCommand cmd = new SqlCommand(read, con);
-            SqlDataReader myRead = cmd.ExecuteReader();
-            while (myRead.Read())
-            {
-                ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
-            }
-            // ddlAnimal.DataBind();
-        }
-        txtAnimalName.Text = "";
-        gridAnimalMammal.DataBind();
-        gridReptile.DataBind();
-        gridBird.DataBind();
 
+        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+        search.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+        string searchAnimal = txtSearch.Text;
+
+        DataTable dt = new DataTable();
+        SqlDataAdapter adapt = new SqlDataAdapter("Select AnimalType, AnimalName, Status from Animal where UPPER(AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(AnimalType) like UPPER('"+ searchAnimal+"%') or UPPER(status) like UPPER('"+ searchAnimal+"%')", con);
+
+        adapt.Fill(dt);
+        
+        gridSearch.DataSource = dt;
+        gridSearch.DataBind();
     }
 }
 

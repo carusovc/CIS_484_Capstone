@@ -34,6 +34,16 @@ public partial class MasterPage : System.Web.UI.MasterPage
             {
 
                 string read = "Select * from Organization";
+                string read1 = "Select * from Educators";
+                SqlCommand cmd1 = new SqlCommand(read1, con);
+                SqlDataReader myRead1 = cmd1.ExecuteReader();
+
+                while (myRead1.Read())
+                {
+
+                    ddlEducatorName.Items.Add(new ListItem(myRead1["EducatorFirstName"].ToString(), myRead1["EducatorID"].ToString()));
+                }
+
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlDataReader myRead = cmd.ExecuteReader();
 
@@ -42,8 +52,21 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
                     ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
                 }
-                ddlOrganization.DataBind();
 
+                string read2 = "Select * from Animal";
+                SqlCommand cmd2 = new SqlCommand(read2, con);
+                SqlDataReader myRead2 = cmd2.ExecuteReader();
+
+                while (myRead2.Read())
+                {
+
+                    ddlAnimal.Items.Add(new ListItem(myRead2["AnimalName"].ToString(), myRead2["AnimalID"].ToString()));
+                }
+                ddlOrganization.DataBind();
+                ddlEducatorName.DataBind();
+                ddlAnimal.DataBind();
+                ddlOrganization.DataBind();
+                
 
 
                 ////call read array
@@ -232,7 +255,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         sc.Open();
         insert.Connection = sc;
 
-        String orgName = txtOrgName.Text;
+        String orgName = textOrgName.Text;
         String city = textOrgCity.Text;
         String county = textOrgCounty.Text;
         DateTime lastUpdated = DateTime.Today;
@@ -249,6 +272,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         //lblLastUpdated.Text = "Last Updated: " + lastUpdated;
         //lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
+        ddlOrganization.DataBind();
     }
 
     protected void btnAddAnimal_Click(object sender, EventArgs e)
@@ -288,6 +312,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             //gridAnimalMammal.DataBind();
             //gridReptile.DataBind();
             //gridBird.DataBind();
+
         }
 
 
@@ -327,6 +352,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtEducatorLastName.Text = "";
         txtEducatorEmail.Text = "";
         txtEducatorPhone.Text = "";
+        ddlEducatorName.DataBind();
     }
 
 
@@ -342,12 +368,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
 
-        update.CommandText = "update animal set animalType = @animalType, animalName = @animalName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where animalID = @animalID";
+        update.CommandText = "update animal set animalType = @animalType, animalName = @animalName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, status = @status where animalID = @animalID";
         update.Parameters.AddWithValue("@animalType", ddlAnimalTypeEdit.SelectedItem.Text);
         update.Parameters.AddWithValue("@animalName", txtBoxAnimalName.Text);
         update.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@status", ddlAnimalStatus.SelectedItem.Text);
         update.ExecuteNonQuery();
 
 
@@ -398,7 +425,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select AnimalID, AnimalType, AnimalName, LastUpdated, LastUpdatedBy from Animal where" +
+        insert.CommandText = "select AnimalID, AnimalType, AnimalName, LastUpdated, LastUpdatedBy, status from Animal where" +
                           " animalID = @animalID";
 
         insert.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
@@ -412,6 +439,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 ddlAnimalTypeEdit.SelectedItem.Text = sdr[1].ToString();
                 //ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
                 txtBoxAnimalName.Text = sdr[2].ToString();
+                ddlAnimalStatus.Text = sdr[5].ToString();
                 //lblLastUpdated.Text = sdr["LastUpdated"].ToString();
                 //lblLastUpdatedBy.Text = sdr["LastUpdatedBy"].ToString();
 
@@ -423,41 +451,41 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
     }
 
-    protected void btnDelete_Click(object sender, EventArgs e)
-    {
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        sc.ConnectionString = cs;
-        sc.Open();
-        System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
-        delete.Connection = sc;
-        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
-        //call read array
-        SqlConnection con = new SqlConnection(cs);
-        delete.CommandText = "Delete from Animal where AnimalID = @AnimalID";
-        delete.Parameters.AddWithValue("@AnimalID", ddlAnimal.SelectedItem.Value);
-        delete.ExecuteNonQuery();
-        ddlAnimal.Items.Clear();
-        //call read array
-        con.Open();
-        if (con.State == System.Data.ConnectionState.Open)
-        {
-            string read = "Select * from Animal";
-            SqlCommand cmd = new SqlCommand(read, con);
-            SqlDataReader myRead = cmd.ExecuteReader();
-            while (myRead.Read())
-            {
-                ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
-            }
-            // ddlAnimal.DataBind();
-        }
-        txtAnimalName.Text = "";
-        //gridAnimalMammal.DataBind();
-        //gridReptile.DataBind();
-        //gridBird.DataBind();
+    //protected void btnDelete_Click(object sender, EventArgs e)
+    //{
+    //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+    //    // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+    //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+    //    sc.ConnectionString = cs;
+    //    sc.Open();
+    //    System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
+    //    delete.Connection = sc;
+    //    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+    //    //call read array
+    //    SqlConnection con = new SqlConnection(cs);
+    //    delete.CommandText = "Delete from Animal where AnimalID = @AnimalID";
+    //    delete.Parameters.AddWithValue("@AnimalID", ddlAnimal.SelectedItem.Value);
+    //    delete.ExecuteNonQuery();
+    //    ddlAnimal.Items.Clear();
+    //    //call read array
+    //    con.Open();
+    //    if (con.State == System.Data.ConnectionState.Open)
+    //    {
+    //        string read = "Select * from Animal";
+    //        SqlCommand cmd = new SqlCommand(read, con);
+    //        SqlDataReader myRead = cmd.ExecuteReader();
+    //        while (myRead.Read())
+    //        {
+    //            ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
+    //        }
+    //        // ddlAnimal.DataBind();
+    //    }
+    //    txtAnimalName.Text = "";
+    //    //gridAnimalMammal.DataBind();
+    //    //gridReptile.DataBind();
+    //    //gridBird.DataBind();
 
-    }
+    //}
 
     protected void btnUpdateEducator_Click(object sender, EventArgs e)
     {
@@ -508,6 +536,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         txtEducatorFirst.Text = "";
         txtEducatorLastName.Text = "";
+        ddlEducatorName.DataBind();
 
     }
 
@@ -553,6 +582,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         txtEducatorFirst.Text = "";
         txtEducatorLast.Text = "";
+        ddlEducatorName.DataBind();
     }
 
     protected void ddlEducator_SelectedIndexChanged1(object sender, EventArgs e)

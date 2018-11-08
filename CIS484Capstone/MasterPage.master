@@ -255,12 +255,7 @@
                     <asp:TextBox  class="InternalAnimalForm" ID="txtAnimalName" runat="server"></asp:TextBox>
                 </div>
             </div>
-            <div class="row"> 
-                <div class=" col-md-4 InternalAnimalForm"><h6>Age</h6> </div>
-                    <div class=" col-md-3 InternalAnimalForm">
-                         <asp:TextBox ID="txtAge" runat="server"></asp:TextBox>
-                    </div>
-              </div>
+
               <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
@@ -277,7 +272,7 @@
         </div>
     </div>
         <div class="modal-footer">
-          <asp:Button ID="btnAddAnimal" class="btn btn-primary btn-inside" runat="server" Text="Add Animmal" OnClick="btnAddAnimal_Click" />
+          <asp:Button ID="btnAddAnimal" class="btn btn-primary btn-inside" runat="server" Text="Add Animal" OnClick="btnAddAnimal_Click" />
             <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
@@ -389,12 +384,7 @@
                          <asp:TextBox ID="txtBoxAnimalName" runat="server"></asp:TextBox>
                     </div>
               </div>
-              <div class="row"> 
-                <div class=" col-md-4 InternalAnimalForm"><h6>Age</h6> </div>
-                    <div class=" col-md-3 InternalAnimalForm">
-                         <asp:TextBox ID="txtBoxAnimalAge" runat="server"></asp:TextBox>
-                    </div>
-              </div>
+
               <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
@@ -408,8 +398,8 @@
               <asp:Label ID="lblAnimalLastUpdatedBy" runat="server" Text=""></asp:Label>
               <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
             <div class="modal-footer">
-          <asp:Button ID="btnUpdateAnimal" class="btn btn-primary btn-inside" runat="server" Text="Update Anmial" OnClick="btnUpdateAnimal_Click" />
-                <asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />
+          <asp:Button ID="btnUpdateAnimal" class="btn btn-primary btn-inside" runat="server" Text="Update Animal" OnClick="btnUpdateAnimal_Click" />
+                <%--<asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />--%>
        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
