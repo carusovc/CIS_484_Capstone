@@ -30,6 +30,14 @@
 
     <link href="~/Images/logo.png" rel="shortcut icon" type="image/x-icon" />
 
+
+    <script>
+$(".modal-wide").on("show.bs.modal", function() {
+  var height = $(window).height() - 200;
+  $(this).find(".modal-body").css("max-height", height);
+});
+    </script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
