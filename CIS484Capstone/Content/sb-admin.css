@@ -13,8 +13,8 @@ body html {
 
 
 body {
-    background-image: url(../Images/FlyingBirdsBG.jpg);
-    background-color: #c3dbf5; /* Used if the image is unavailable */
+    /*background-image: url(../Images/FlyingBirdsBG.jpg);*/
+    background-color: #919b90;
     height: auto; /* You must set a specified height */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -23,8 +23,8 @@ body {
 }
 
     body.login {
-        background-image: url(../Images/FlyingBirdsBG.jpg);
-        background-color: #c3dbf5; /* Used if the image is unavailable */
+        /*background-image: url(../Images/FlyingBirdsBG.jpg);*/
+        background-color: rgba(52, 58, 64, 0.5); /* Used if the image is unavailable */
         height: auto; /* You must set a specified height */
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
@@ -345,7 +345,7 @@ body.fixed-nav #content-wrapper {
         top: 0;
         left: 0;
         display: block;
-        width: 100%;
+        width: 14%;
         margin-bottom: 0;
         /* Override default `<label>` margin */
         line-height: 1.5;
@@ -431,11 +431,6 @@ body.sidebar-toggled footer.sticky-footer {
 
 
 
-
-
-
-
-
 /* Programs Page*/
 .ProgramTitle h1 {
     text-align: center;
@@ -446,7 +441,7 @@ body.sidebar-toggled footer.sticky-footer {
 
 .ProgramTitle h4 {
     text-align: center;
-    color: white;
+    /*color: white;*/ 
     font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
     margin-top: 10px;
 }
@@ -459,9 +454,26 @@ body.sidebar-toggled footer.sticky-footer {
     justify-content: center;
     font-size: 90%;
 }
+.hideMe {
+    display: none;
+}
 
+.modal-backdrop {
+    z-index: -1;
+    margin-top: 200%;
+
+
+}
+
+.modal-content {
+    margin-top: 200px;
+}
+
+
+
+
+sampleModal
 /* Program Info*/
-
 .user-row {
     margin-bottom: 14px;
 }
@@ -512,7 +524,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .LoginButton:hover {
-    background: #d55c1d;
+    background: #919b90;
     color: #fff;
     border: none;
 }
@@ -591,8 +603,27 @@ a.WildTable {
     background-color: white;
     border-radius: 15px;
     border: none;
+    width: 100%;
 }
+/*animal page*/
 
+.grid-mammal{
+    width:32%;
+    background-color:white;
+    float:left;
+}
+.grid-reptile {
+    width: 32%;
+    background-color: white;
+    float: left;
+    margin-left:2%;
+}
+.grid-bird {
+    width: 32%;
+    background-color: white;
+    margin-left: 1%;
+    float: right;
+}
 /* Dropdown Button */
 .dropbtn {
     /*background-color: #4CAF50;
@@ -724,9 +755,11 @@ a.WildTable {
     margin-bottom: -1px;
 }
 
-
-.tab-pane {
-    padding-left: 5px !important;
+a.nav a.nav-tabs a.block4 {
+    color: black !important;
+}
+.nav-tabs {
+   background-color: #e0d7c3
 }
 
 .ProgramSearch {
@@ -831,6 +864,14 @@ a.TabStyle {
 }
 
 
+.reporttitle {
+    color: black;
+}
+
+
+
+
+
 
 
 .tab-pane {
@@ -852,3 +893,26 @@ a.TabStyle {
 a.TabStyle {
     color: black;
 }
+
+.blockbg{background-color: #938060}
+
+.nav-tabs {
+    background-color: #161616;
+}
+
+.tab-content {
+    background-color: #303136;
+    color: #fff;
+    padding: 5px
+}
+
+.nav-tabs > li > a {
+    border: medium none;
+}
+
+    .nav-tabs > li > a:hover {
+        background-color: #303136 !important;
+        border: medium none;
+        border-radius: 0;
+        color: #fff;
+    }

@@ -205,12 +205,7 @@
                     <asp:Label ID="lblReminder" runat="server" Text="Password must include: 1 Number, 1 Special Character, 1 Capital letter, and at least 8 characters long."></asp:Label>
                   </div>
                 </div>
-                <%--<div class="col-md-6">
-                  <div class="form-label-group">
-                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
-                    <label for="confirmPassword">Confirm password</label>
-                  </div>
-                </div>--%>
+
               </div>
             </div>
             
@@ -234,4 +229,6 @@
 </section>
 
 
+    </div>
+    </div>
 </asp:Content>

@@ -25,11 +25,7 @@ public partial class YearlyWildlifeReport : System.Web.UI.Page
     {
         Response.Redirect("TabYearlyReports.aspx");
     }
-    protected void btnBack_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ReportChoice.aspx");
-    }
-   
+       
      private void PopulateData()
     {
        
