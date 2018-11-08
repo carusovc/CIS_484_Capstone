@@ -182,9 +182,11 @@
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <label for="inputEmail">USERNAME</label>
+                
+                
+             <%--   <label for="inputEmail">USERNAME</label>
                   <br />
-                <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox> --%>
               </div>
             </div>
             <div class="form-group">
@@ -194,7 +196,17 @@
                     <label for="inputPassword">PASSWORD</label>
                       <br />
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" placeholder="Password" required="required"></asp:TextBox>
-                    <asp:Label ID="lblReminder" runat="server" Text="Password must include: 1 Number, 1 Special Character, 1 Capital letter, and at least 8 characters long."></asp:Label>
+                           
+                </div></div>
+                    <div class="col-md-12">
+                    <p runat="server"> Password must include: <br> 1 Number, 1 Special Character, 1 Capital letter, and at least 8 characters long. </p></div>
+                           
+                    <div class="col-md-6">
+                  <div class="form-label-group">
+                    <label for="inputEmail">USERNAME</label>
+                  <br />
+                <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox>
+                    
                   </div>
                 </div>
 
