@@ -568,9 +568,9 @@
                             </div>
 
                         </div>
-
                     </div>
                 </div>
+                <asp:Button ID="btnProgramExcel" runat="server" Text="Export to Excel" OnClick="btnProgramExcel_Click" />
 
 
 
@@ -676,12 +676,15 @@
                                 <h4>Live Program Basics</h4>
 
                                  <label id="TypeLabel" for="Type">Program Type:</label>:
-                                <select name="Program Type" id="Type">
+<%--                                <select name="Program Type" id="Type">
                                     <option value=""></option>
                                     <option value="T1">Birds n Stuff</option>
                                     <option value="T2">Later SQL Import</option>
 
-                                </select>
+                                </select>--%>
+                                <asp:DropDownList CssClass="form-control" ID="ddlProgram" runat="server" class="dropdown-menu radioButtonList">
+                                       <asp:ListItem Text="--Select Program--" Value="0" />
+                                </asp:DropDownList>
                                 <p></p>
 
                                  <label id="OrganizationLabel" for="Organization">Organization:</label>:
@@ -748,11 +751,16 @@
                             <div id="step13" class="hideMe">
                                 <span>Attendance Information</span>
                                 <p></p>
+                                <label id="AddGradeLabel" for="AddGrade">Grades</label>
+                                <asp:ListBox CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
+                                    <asp:ListItem Text="--Select Grades--" Value="0" />
+                                </asp:ListBox>
+                                <p></p>
                                 <label id="NumOfChildrenLabel" for="NumOfChildren">Number Of Children</label>
                                 <input type="number" id="NumOfChildren"/>
                                 <p></p>
 
-                                 <label id="NumOfAdultsLabel" for="NumOfAdults">Number Of Alduts</label>
+                                 <label id="NumOfAdultsLabel" for="NumOfAdults">Number Of Adults</label>
                                 <input type="number" id="NumOfAdults"/>
                                 <p></p>
                                
@@ -776,15 +784,21 @@
                                 <span>Online Program Basics</span>
                                 <p></p>
                                  <label id="OnlineTypeLabel" for="Type">Online Program Type:</label>:
-                                <select name="Program Type" id="OnlineType">
+                                <%--<select name="Program Type" id="OnlineType">
                                     <option value=""></option>
                                     <option value="T1">Birds n Stuff</option>
-                                    <option value="T2">Later SQL Import</option>
+                                    <option value="T2">Later SQL Import</option>--%>
+                                <asp:DropDownList CssClass="form-control" ID="ddlProgramType" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+                                    <asp:ListItem Text="--Select Program Type--" Value="0" />
+                                </asp:DropDownList>
 
-                                </select>
+                                <%--</select>--%>
                                 <p></p>
                                 <label id="EducatorLabel" for="Educator">Educator:</label>
-                                <input type="text" id="Educator"/>
+<%--                                <input type="text" id="Educator"/>--%>
+                                <asp:ListBox CssClass="form-control" ID="drpEducators" runat="server" SelectionMode="Multiple">
+                                     <asp:ListItem Text="--Select Educators--" Value="0" />
+                                </asp:ListBox>
                                 <p></p>
                                  <label id="ContactEmailLabel" for="ContactEmail">Contact Email:</label>
                                 <input type="email" id="ContactEmail"/>
@@ -820,11 +834,16 @@
                             <div id="step23" class="hideMe">
                                 <span>Attendance Information</span>
                                 <p></p>
+                                <label id="OnlineGradesLabel" for="OnlineGrades">Add Grades:</label>
+                                <asp:ListBox CssClass="form-control" ID="OnlineGrades" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
+                                    <asp:ListItem Text="--Select Grades--" Value="0" />
+                                </asp:ListBox>
+                                <p></p>
                                 <label id="OnlineNumOfChildrenLabel" for="OnlineNumOfChildren">Number Of Children:</label>
                                 <input type="number" id="OnlineNumOfChildren"/>
                                 <p></p>
 
-                                 <label id="OnlineNumOfAdultsLabel" for="OnlineNumOfAdults">Number Of Alduts:</label>
+                                 <label id="OnlineNumOfAdultsLabel" for="OnlineNumOfAdults">Number Of Adults:</label>
                                 <input type="number" id="OnlineNumOfAdults"/>
                                 <p></p>
                                
