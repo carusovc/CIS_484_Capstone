@@ -41,6 +41,7 @@ public partial class AnimalPage : System.Web.UI.Page
             if (conAnimal.State == System.Data.ConnectionState.Open)
             {
                 string read = "Select * from Animal";
+                
                 SqlCommand cmd = new SqlCommand(read, conAnimal);
                 SqlDataReader myRead = cmd.ExecuteReader();
 
@@ -127,6 +128,7 @@ public partial class AnimalPage : System.Web.UI.Page
         gridReptile.DataBind();
         gridBird.DataBind();
         ddlAnimal.DataBind();
+        GridView1.DataBind();
     }
 
     protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
@@ -160,10 +162,18 @@ public partial class AnimalPage : System.Web.UI.Page
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                //ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
-                ddlAnimalTypeEdit.SelectedItem.Text = sdr[1].ToString();
                 txtBoxAnimalName.Text = sdr[2].ToString();
                 ddlStatus.SelectedItem.Text = sdr[5].ToString();
+                ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
+                //for (int i = 0; i < ddlAnimalTypeEdit.Items.Count; i++)
+                //{
+                //    if (ddlAnimalTypeEdit.Items[i].Text == sdr[1].ToString())
+                //    {
+                //        ddlAnimalTypeEdit.Items[i].Selected = true;
+                //    }
+                //}
+                //ddlAnimalTypeEdit.Sele = sdr[1].ToString();
+
                 //lblLastUpdated.Text = sdr["LastUpdated"].ToString();
                 //lblLastUpdatedBy.Text = sdr["LastUpdatedBy"].ToString();
 
@@ -223,7 +233,9 @@ public partial class AnimalPage : System.Web.UI.Page
         gridAnimalMammal.DataBind();
         gridReptile.DataBind();
         gridBird.DataBind();
-
+        GridView1.DataBind();
+        GridView2.DataBind();
+        GridView3.DataBind();
         txtBoxAnimalName.Text = "";
 
 
