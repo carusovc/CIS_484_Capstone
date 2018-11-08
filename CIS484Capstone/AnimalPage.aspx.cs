@@ -216,6 +216,7 @@ public partial class AnimalPage : System.Web.UI.Page
         gridReptile.DataBind();
         gridBird.DataBind();
 
+        txtBoxAnimalName.Text = "";
 
 
 
