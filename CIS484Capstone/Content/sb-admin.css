@@ -345,7 +345,7 @@ body.fixed-nav #content-wrapper {
         top: 0;
         left: 0;
         display: block;
-        width: 100%;
+        width: 14%;
         margin-bottom: 0;
         /* Override default `<label>` margin */
         line-height: 1.5;
@@ -431,12 +431,6 @@ body.sidebar-toggled footer.sticky-footer {
 
 
 
-
-
-
-
-
-
 /* Programs Page*/
 .ProgramTitle h1 {
     text-align: center;
@@ -447,7 +441,7 @@ body.sidebar-toggled footer.sticky-footer {
 
 .ProgramTitle h4 {
     text-align: center;
-    color: white;
+    /*color: white;*/ 
     font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
     margin-top: 10px;
 }
@@ -872,6 +866,14 @@ a.TabStyle {
 .TextHeading {margin-left: 2px;
 
 }
+
+
+.reporttitle {
+    color: black;
+}
+
+
+
 
 
 

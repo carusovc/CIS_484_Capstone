@@ -62,19 +62,33 @@
 
  <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="Programs.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+          <%--<a class="nav-link" href="Programs.aspx">--%>
+            <%--<i class="fas fa-fw fa-book-open"></i>--%>
             <span>Programs</span>
           </a>
+            <div class="dropdown-menu dropdown-menu-right" >
+                <a class="dropdown-item" href="Programs.aspx">View Programs</a>
+            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
+          </div>
         </li>
-      <li class="nav-item active">
+<%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
-            <span>Animal</span>
+            <i class="fas fa-fw fa-book-open"></i>--%>
+          <li class="nav-item dropdown no-arrow active">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Animals</span>
           </a>
+            <div class="dropdown-menu dropdown-menu-right" >
+                <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+          </div>
         </li>
-           <li class="nav-item dropdown no-arrow">
+           <li class="nav-item dropdown no-arrow ">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
             <i class="fas fa-envelope fa-fw"></i>
             <span>Reports</span>
@@ -103,24 +117,21 @@
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
             <i class="fas fa-envelope fa-fw"></i>
-            <span>Add New Program Content</span>
+            <span>Organizations</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
             <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+              <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
           </div>
         </li>
 
            <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
             <i class="fas fa-envelope fa-fw"></i>
-            <span>Update Program Content</span>
+            <span>Educators</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
             <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
           </div>
         </li>
@@ -162,6 +173,13 @@
        </div>
                 </div>
             <br />
+            <div class="row">
+               
+                <div class=" col-md-3 InternalAnimalForm">
+                    <asp:TextBox  class="InternalAnimalForm" ID="txtSearch" runat="server"></asp:TextBox>
+                    <asp:Button ID ="btnSearch" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
+                </div>
+            </div>
             <div class="col-lg-4 col-md-12 col-s-12 mx-auto">
     <div class="container1 block">
    
@@ -179,6 +197,9 @@
                      <li class="nav-item">
       <a class="nav-link TabStyle" data-toggle="tab" href="#BirdTab">Birds</a>
     </li>
+<%--      <li class="nav-item">
+      <a class="nav-link TabStyle" data-toggle="tab" href="#ResultsTab">Results</a>
+    </li>--%>
     
   </ul>
 
@@ -249,7 +270,7 @@
         
      </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
-                    SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [AnimalName]">
+                    SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = @AnimalType) and Status = 'active' ORDER BY [AnimalName]">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Mammal" Name="AnimalType" Type="String" />
                     </SelectParameters>
@@ -265,7 +286,7 @@
                     </Columns>
                 </asp:GridView>
 
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalName], [AnimalType] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [AnimalName]">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalName], [AnimalType] FROM [Animal] WHERE ([AnimalType] = @AnimalType) and status = 'active' ORDER BY [AnimalName]">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Reptile" Name="AnimalType" Type="String" />
                     </SelectParameters>
@@ -282,13 +303,14 @@
                       </Columns>
                  </asp:GridView>
 
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [AnimalName]">
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = @AnimalType) and status = 'active' ORDER BY [AnimalName]">
                         <SelectParameters>
                             <asp:Parameter DefaultValue="Bird" Name="AnimalType" Type="String" />
                         </SelectParameters>
                  </asp:SqlDataSource>
     </div>
                  </div>
+
                    <div runat="server" id="ViewAnimals">
                    </div>
                </div>
@@ -296,7 +318,13 @@
          </div>
       </div>
 
-    
+                      <asp:GridView ID="gridSearch"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" AllowSorting="True">
+                      <Columns>
+                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
+                          <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+                          <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                      </Columns>
+                 </asp:GridView>
 <div class="modal" id="AddAnimalModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -327,6 +355,16 @@
                 </div>
             </div>
             <div>
+            </div>
+             <div class="row">
+                <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
+                <div class=" col-md-3 InternalAnimalForm">
+                    <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalStatus" runat="server">
+                        <asp:ListItem>Active</asp:ListItem>
+                        <asp:ListItem>Inactive</asp:ListItem>
+                        
+                    </asp:DropDownList>&nbsp;&nbsp;
+                </div>
             </div>
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>&nbsp;
             <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
@@ -382,7 +420,7 @@
                          <asp:TextBox ID="txtBoxAnimalName" runat="server"></asp:TextBox>
                     </div>
               </div>
-             
+
               <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
@@ -397,7 +435,8 @@
               <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
             <div class="modal-footer">
           <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdate_Click" />
-                <asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Disable" OnClick="btnDelete_Click" />
+                <%--<asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />--%>
+
        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>

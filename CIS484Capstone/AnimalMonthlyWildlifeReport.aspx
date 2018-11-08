@@ -61,17 +61,31 @@
 
  <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="Programs.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+          <%--<a class="nav-link" href="Programs.aspx">--%>
+            <%--<i class="fas fa-fw fa-book-open"></i>--%>
             <span>Programs</span>
           </a>
+            <div class="dropdown-menu dropdown-menu-right" >
+                <a class="dropdown-item" href="Programs.aspx">View Programs</a>
+            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
+          </div>
         </li>
-      <li class="nav-item">
+<%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>
-            <span>Animal</span>
+            <i class="fas fa-fw fa-book-open"></i>--%>
+          <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+            <i class="fas fa-envelope fa-fw"></i>
+            <span>Animals</span>
           </a>
+            <div class="dropdown-menu dropdown-menu-right" >
+                <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+          </div>
         </li>
            <li class="nav-item dropdown no-arrow active">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
@@ -102,24 +116,21 @@
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
             <i class="fas fa-envelope fa-fw"></i>
-            <span>Add New Program Content</span>
+            <span>Organizations</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
             <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+              <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
           </div>
         </li>
 
            <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
             <i class="fas fa-envelope fa-fw"></i>
-            <span>Update Program Content</span>
+            <span>Educators</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
             <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
           </div>
         </li>
@@ -170,7 +181,7 @@
     <br />
      <br />
 
-    <asp:GridView ID="AnimalLiveGrid" class="table table-borderless table-condensed table-hover" runat="server"  AutoGenerateColumns="False">
+    <asp:GridView ID="AnimalLiveGrid" class="table table-borderless table-condensed table-hover" runat="server"  AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
         <Columns>
 
             <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
@@ -182,6 +193,14 @@
         </Columns>
     </asp:GridView>
 
+             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand=" SELECT  Animal.AnimalName, COUNT(Distinct OnlineProgram.OnlineProgramID) as TotalOnlinePrograms, SUM(OnlineProgram.NumberOfKids) AS NumberOfChildren,
+ SUM(NumberOfPeople + OnlineProgram.NumberOfKids) AS TotalParticipants 
+ FROM Animal, OnlineProgram, OnlineAnimal WHERE(Animal.AnimalType = @animalType) AND Animal.AnimalID = OnlineAnimal.AnimalID AND OnlineAnimal.OnlineProgramID = OnlineProgram.OnlineProgramID 
+ GROUP BY Animal.AnimalName, Animal.AnimalType ORDER BY Animal.AnimalName">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="drpAnimalType" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
+            </SelectParameters>
+            </asp:SqlDataSource>
              </div>
         </div>
     <br />
