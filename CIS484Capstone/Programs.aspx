@@ -299,6 +299,7 @@
                                     <div class="tab-content">
                                         <div id="AllTab" class="tab-pane show active">
                                             <div class="block justify-content-center table-responsive">
+
                                                 <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
                                                     <HeaderTemplate>
                                                         <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
@@ -973,6 +974,24 @@
 
 
     <div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
+       <%--     <div class="modal-dialog  modal-full "  role="document">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Update Online Program </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <Triggers> 
+            <asp:AsyncPostBackTrigger ControlID="ddlOrganization" EventName="SelectedIndexChanged" /> 
+        </Triggers> 
+            <ContentTemplate>
+                    <div class="modal-body">
+       
+   <div class="row">
+       <div class="col-md-12 col-lg-6 --%>
+
         <div class="modal-dialog  modal-full " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
