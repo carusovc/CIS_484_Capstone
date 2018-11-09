@@ -254,7 +254,7 @@
                                                 <asp:ListItem>November</asp:ListItem>
                                                 <asp:ListItem>December</asp:ListItem>
                                             </asp:DropDownList>
-                        
+                                    <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server" ControlToValidate="ddlMonth" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
                                 
                                    </div>
                                  <div class="col-sm-12 col-md-6">
@@ -264,6 +264,8 @@
 
                                             <asp:ListItem Value="Day"></asp:ListItem>
                                         </asp:DropDownList>
+                        <asp:RequiredFieldValidator id="RequiredFieldValidator2" runat="server" ControlToValidate="ddlDate" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
+
                                 </div>
                                    </div>
                                 <p></p>
@@ -278,6 +280,7 @@
                                 <asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged" class="form-control">
                                 <asp:ListItem Value="Year"></asp:ListItem>
                                 </asp:DropDownList>
+                                    <asp:RequiredFieldValidator id="RequiredFieldValidator3" runat="server" ControlToValidate="ddlYear" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
 
 
                                 </div>
@@ -285,6 +288,10 @@
                                 <h6>Amount</h6>
                               
                                 <asp:TextBox ID="txtAmount" runat="server" class="form-control" placeholder ="Enter Amount"></asp:TextBox>
+                                     <asp:CompareValidator ID="AmountValidator" runat="server" ControlToValidate="txtAmount" Type="Integer"
+                                        Operator="DataTypeCheck" ErrorMessage="Value must be a money" />
+                                <asp:RequiredFieldValidator id="RequiredFieldValidator4" runat="server" ControlToValidate="txtAmount" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
+
                                 </div>
                                 </div>
                                 <p></p>
@@ -294,15 +301,26 @@
 
                                 <div class="form-group row">
                                <div class="col-sm-12 col-md-6">
-                                <h6> Check Number</h6>
-                            
-                                <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" placeholder ="Enter Check Number"></asp:TextBox>
+                                <h6> Payment Type</h6>
+                               <asp:DropDownList ID="ddlPaymentType" runat="server"  class="form-control" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged">
+                                    <asp:ListItem>--Payment Type--</asp:ListItem>
+                                    <asp:ListItem>Check</asp:ListItem>
+                                    <asp:ListItem>Credit</asp:ListItem>
+                                    <asp:ListItem>Debit</asp:ListItem>
+                               </asp:DropDownList>
+                             <%--   <asp:TextBox ID="txtPaymentType" runat="server" class="form-control" placeholder ="Enter Payment Type"></asp:TextBox>--%>
                                 </div>
+                           <%--   <asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server" ControlToValidate="ddlPaymentType" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
 
                                  <div class="col-sm-12 col-md-6">
-                               <h6>Or Payment Type</h6>
+                               <h6>Check Number</h6>
+                             
                                
-                                <asp:TextBox ID="txtPaymentType" runat="server" class="form-control" placeholder ="Enter Payment Type"></asp:TextBox>
+                                <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" ReadOnly="true" placeholder ="Enter Check Number"></asp:TextBox>
+                                     <asp:CompareValidator ID="CheckNumberValidator" runat="server" ControlToValidate="txtCheckNum" Type="Integer"
+                                        Operator="DataTypeCheck" ErrorMessage="Value must be a number." />
+                                <asp:RequiredFieldValidator id="RequiredFieldValidator6" runat="server" ControlToValidate="txtCheckNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
+
                                 </div>
                                 </div>
                                 <p></p>
@@ -314,12 +332,19 @@
                             <div class="col-sm-12 col-md-6">
                                <h6>Organization</h6>
                              
-                                <asp:TextBox ID="txtOrganization" runat="server" class="form-control" placeholder ="Enter Organization ID"></asp:TextBox>
+                                <%--<asp:TextBox ID="txtOrganization" runat="server" class="form-control" placeholder ="Enter Organization ID"></asp:TextBox>--%>
+                                    <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" >
+                                   
+                                        <asp:ListItem>--Select Organization--</asp:ListItem> </asp:DropDownList>
+                                  <asp:RequiredFieldValidator id="RequiredFieldValidator8" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
+
                                 </div>
                                    <div class="col-sm-12 col-md-6">
                                     <h6>Invoice Number</h6>
                                 
                                 <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder ="Enter Invoice Number"></asp:TextBox>
+                                <asp:RequiredFieldValidator id="RequiredFieldValidator7" runat="server" ControlToValidate="txtInvoiceNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
+
                                 </div>
                                 </div>
                                 <p></p>
@@ -333,7 +358,8 @@
                                 <h6>Cancelled (Y/N)</h6>
                                
                                 <asp:TextBox ID="txtCancelledChar" runat="server" MaxLength="1" Width="70px" class="form-control" placeholder ="(Y/N)"></asp:TextBox>
-                                
+                                <asp:RequiredFieldValidator id="RequiredFieldValidator9" runat="server" ControlToValidate="txtCancelledChar" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
+
                                 </div>
                         </div>
                         </div>

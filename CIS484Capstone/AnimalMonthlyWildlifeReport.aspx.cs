@@ -18,7 +18,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-
+        SearchDiv.Visible = false;
         if (!IsPostBack)
         {
 
@@ -89,10 +89,8 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
     }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        gridSearch.DataBind();
-        gridOnlinePrograms.Visible = false;
-        AnimalLiveGrid.Visible = false;
-        gridSearch.Visible = true;
+        SearchDiv.Visible = true;
+        gridSearch.DataBind();        
 
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
@@ -107,7 +105,8 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         string searchAnimal = txtSearch.Text;
 
         DataTable dt = new DataTable();
-        SqlDataAdapter adapt = new SqlDataAdapter("Select AnimalType, AnimalName, Status from Animal where UPPER(AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(AnimalType) like UPPER('" + searchAnimal + "%') or UPPER(status) like UPPER('" + searchAnimal + "%')", con);
+
+        SqlDataAdapter adapt = new SqlDataAdapter("Select a.AnimalType, a.AnimalName, (Count(p.AnimalID) + COUNT(o.AnimalID)) as TotalPrograms from Animal a full join ProgramAnimal p on a.AnimalID = p.AnimalID full join OnlineAnimal o on a.animalID = o.animalID where UPPER(a.AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(a.AnimalType) like UPPER('" + searchAnimal + "%') group by a.animalName, a.animalType", con);
 
         adapt.Fill(dt);
 
