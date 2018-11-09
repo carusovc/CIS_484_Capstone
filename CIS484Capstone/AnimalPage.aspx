@@ -160,9 +160,52 @@
                 </div>
             </div>
             <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
+
     <div class="container1 block">
+     <div runat="server" id="AnimalSearchDiv">
+               
+        <div runat="server" id="ViewAnimals">
+
+                      </div>
+                   
+    <div class="block3">
+  
+                 <div class="tab-content">
+                 
+<div class="InternalTab">
+    <div class="col-md-12 ProgramTitle">
+             <br />
+			  <div class="ReportTitle text-center">Search Results</div>
+			
+		</div>
+	</div>
+                         <br />
+
+              <div class="col-md-12 mx-auto d-flex justify-content-center">
+    <br />
+     <br />
    
+<asp:GridView ID="gridSearch"  class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False">
+                      <Columns>
+                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
+                          <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+                          <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                      </Columns>
+                 </asp:GridView>
+
+          <br />
+     <br /><br /><br />
+              </div>
+    </div>
+                 </div>
+          <p></p>
+
+
+    </div>
+         <p></p>
+
             <%-- this div  is the internal div--%>
+       
             <ul class="nav nav-tabs block4" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active TabStyle" data-toggle="tab" href="#AnimalsAllTab" style="color:black;">All</a>
@@ -316,13 +359,14 @@
           <div runat="server" id="Div1">
           </div>
       </div>
+        </div>
         <div class="text-center">
             <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
             <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
           </div>
         </div>
       </div>
-    </div>
+ 
        
 </section>         
 
@@ -331,18 +375,23 @@
 
 
                  </div>
+                  
 
-                   <div runat="server" id="ViewAnimals">
-                   </div>
-      
 
-                      <asp:GridView ID="gridSearch"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" AllowSorting="True">
-                      <Columns>
-                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
-                          <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
-                          <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
-                      </Columns>
-                 </asp:GridView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="modal fade" id="AddAnimalModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -506,5 +555,6 @@
 
         </div>
 
+    </div>
 </asp:Content>
 

@@ -18,6 +18,8 @@ public partial class AnimalPage : System.Web.UI.Page
 
         AnimalAddDiv.Visible = true;
         AnimalEditDiv.Visible = true;
+        AnimalSearchDiv.Visible = false;
+     
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -280,11 +282,13 @@ public partial class AnimalPage : System.Web.UI.Page
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
+        AnimalSearchDiv.Visible = true;
         gridSearch.DataBind();
-        gridAnimalMammal.Visible = false;
-        gridBird.Visible = false;
-        gridReptile.Visible = false;
-        gridSearch.Visible = true;
+        //gridAnimalMammal.Visible = false;
+        //gridBird.Visible = false;
+        //gridReptile.Visible = false;
+        //gridSearch.Visible = true;
+  
 
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();

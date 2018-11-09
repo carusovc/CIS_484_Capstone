@@ -1042,3 +1042,19 @@ body {
 
 .PasswordReq{font-size: 65% !important;}
 
+body {
+    -webkit-backface-visibility: none; /*fix chrome bug*/
+}
+
+.section {
+    -webkit-transform: scale(1);
+    -webkit-transition: all linear 0.5s 0;
+}
+
+.modal-wide .section {
+    -webkit-filter: blur(3px);
+    -ms-filter: blur(3px);
+    -o-filter: blur(3px);
+    filter: blur(3px);
+    -webkit-transform: scale(0.8);
+}

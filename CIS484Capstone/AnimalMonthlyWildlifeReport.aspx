@@ -31,11 +31,26 @@
         
       <!-- Logo FOnt-->
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-
+    
+                
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
       <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
- 
+
+
+     <%-- <!-- Navbar -->
+      <ul class="navbar-nav ml-auto ml-md-0">
+        
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle fa-fw"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          </div>
+        </li>
+      </ul>
+         --%>
     </nav>
 
 
@@ -45,6 +60,8 @@
       <ul class="sidebar navbar-nav">
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
+          <%--<a class="nav-link" href="Programs.aspx">--%>
+            <%--<i class="fas fa-fw fa-book-open"></i>--%>
             <span>Programs</span>
           </a>
             <div class="dropdown-menu dropdown-menu-right" >
@@ -53,7 +70,8 @@
           </div>
         </li>
 <%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">--%>
+          <a class="nav-link" href="AnimalPage.aspx">
+            <i class="fas fa-fw fa-book-open"></i>--%>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
             <span>Animals</span>
@@ -95,11 +113,11 @@
             <span>Organizations</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-              <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
+            <a class="dropdown-item js-modal" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+              <a class="dropdown-item js-modal" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
           </div>
         </li>
-
+           
            <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
             <span>Educators</span>
@@ -120,8 +138,12 @@
 
       </ul>
 
+      
 
-      <div id="content-wrapper">
+<body class="blur">
+
+
+      <div id="content-wrapper" class="section">
 
                  <section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
     
@@ -134,18 +156,12 @@
        <div class="mx-auto d-flex justify-content-center">
   
 
-
-   
+<asp:DropDownList ID="drpAnimalType" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
+ </asp:DropDownList>
+    <br />
     <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct YEAR(ProgramDate) AS YEAR FROM Program Order By YEAR(ProgramDate)"></asp:SqlDataSource>
 
             </div>
-           
-            
-            <div class="mx-auto d-flex justify-content-center">
-               <asp:DropDownList ID="drpAnimalType" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
- </asp:DropDownList></div>
-                </div>
-            
             <div class="row">
                
                 <div class=" col-md-4 ml-auto InternalAnimalForm">
@@ -154,8 +170,47 @@
                 </div>
                
             </div>
-           <br />
+
+            <br />
              <%-- this div  is the internal div--%>
+            <div id="SearchDiv" runat="server">
+        <div class="block3">
+  
+                 <div class="tab-content">
+                 
+<div class="InternalTab">
+    <div class="col-md-12 ProgramTitle">
+             <br />
+			  <div class="ReportTitle text-center">Search Results</div>
+			
+		</div>
+	</div>
+                         <br />
+
+              <div class="col-md-12 mx-auto d-flex justify-content-center">
+    <br />
+     <br />
+   
+  <asp:GridView runat="server" id="gridSearch" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" >
+            <Columns>
+               <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" >
+                   <ItemStyle HorizontalAlign="Left" />
+            </asp:BoundField>
+            <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" ReadOnly="True" SortExpression="AnimalType" />
+                <asp:BoundField DataField="TotalPrograms" HeaderText="Total Programs" ReadOnly="True" SortExpression="TotalPrograms">
+                               <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
+            </Columns>
+        </asp:GridView>
+          
+         
+                       <br /><br /><br />
+                  </div>
+                      </div>
+             </div>
+            <p></p>
+                </div>
+                         <%-- this div  is the internal div--%>
         <div class="block3">
   
                  <div class="tab-content">
@@ -173,7 +228,7 @@
     <br />
      <br />
    
-  <asp:GridView runat="server" id="totalAnimalCount" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" >
+  <asp:GridView runat="server" id="GridView1" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" >
             <Columns>
                <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" >
                    <ItemStyle HorizontalAlign="Left" />
@@ -184,20 +239,18 @@
             </asp:BoundField>
             </Columns>
         </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
             SelectCommand="Select distinct a.AnimalID, a.AnimalName, a.AnimalType, (COUNT(p.AnimalID) + COUNT(o.AnimalID)) AS TotalPrograms From Animal a full join ProgramAnimal p ON a.AnimalID = p.AnimalID 
             full join OnlineAnimal o ON a.AnimalID = o.AnimalID GROUP BY a.AnimalID, a.AnimalName, a.AnimalType order by AnimalType, AnimalName">
             <SelectParameters>
                 <asp:ControlParameter ControlID="drpAnimalType" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
-
-          <br />
-     <br /><br /><br />
-              </div>
-    </div>
-            </div>
-                 </div>
+                       <br /><br /><br />
+                  </div>
+                      </div>
+             </div>
+            <p></p>
                    <%-- this div  is the internal div--%>
         <div class="block3">
   
@@ -297,47 +350,33 @@
               </div>
     </div>
                  </div>
-    <p></p>
-                 <%-- this div  is the internal div--%>
-        <div class="block3">
-  
-                 <div class="tab-content">
-                 
-<div class="InternalTab">
-    <div class="col-md-12 ProgramTitle">
-             <br />
-			  <div class="ReportTitle text-center">Search Results</div>
-			
-		</div>
-	</div>
-                         <br />
-
-              <div class="col-md-12 mx-auto d-flex justify-content-center">
-    <br />
-     <br />
-   
-<asp:GridView ID="gridSearch"  class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False">
-                      <Columns>
-                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
-                          <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
-                          <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
-                      </Columns>
-                 </asp:GridView>
-
+     
           <br />
      <br /><br /><br />
-              </div>
-    </div>
-                 </div>
-          <p></p>
+     <%--          </div>
 
+   </div>
+                 </div>
+
+
+     
+                   
+         </div>--%>
+              <asp:GridView runat="server" id="totalAnimalCount" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" >
+            <Columns>
+               <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+            <asp:BoundField DataField="TotalOnlinePrograms" HeaderText="Total OnlinePrograms" ReadOnly="True" SortExpression="TotalOnlinePrograms" />
+                  <asp:BoundField DataField="TotalPrograms" HeaderText="Total Programs" ReadOnly="True" SortExpression="TotalPrograms" />
+            </Columns>
+        </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
           <div class="mx-auto d-flex justify-content-center">
 
                           <asp:Button ID="btnToExcel" runat="server" OnClick="btnToExcel_Click1" Text="Export to Excel"  class="btn btn-primary btn-inside" />
             <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
             <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-inside " OnClick="btnBack_Click"></asp:Button>
                       </div>
-          <br />
+
               </div>
 
       </div>
@@ -352,6 +391,8 @@
 </div>
 
 
-
-   
+    </div>
+   </body>
 </asp:Content>
+
+
