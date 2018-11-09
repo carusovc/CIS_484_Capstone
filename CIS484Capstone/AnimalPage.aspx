@@ -613,12 +613,12 @@
             <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Animal Type</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
-                        <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalTypeEdit" runat="server">
-                            <asp:ListItem>Animal Type</asp:ListItem>
+                        <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalTypeEdit" runat="server" AutoPostBack="True">
+                            <asp:ListItem Text="--Animal Type--" Value=""></asp:ListItem>
                             <%-- <asp:ListItem>All</asp:ListItem> --%>
-                            <asp:ListItem>Bird</asp:ListItem>
-                            <asp:ListItem>Mammal</asp:ListItem>
-                            <asp:ListItem>Reptile</asp:ListItem>
+                            <asp:ListItem Text="Bird" Value="0"></asp:ListItem>
+                            <asp:ListItem Text="Mammal" Value="1"></asp:ListItem>
+                            <asp:ListItem Text="Reptile" Value="2"></asp:ListItem>
                         </asp:DropDownList>&nbsp;&nbsp; 
                     </div>
             </div>
