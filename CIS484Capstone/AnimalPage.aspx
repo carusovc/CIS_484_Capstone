@@ -187,9 +187,9 @@
                         <br />
                         <br /><br /><br />--%>
                         <div class ="grid-mammal text-center">
-                            <p>
-                                <asp:Label Text ="Mammal" runat ="server"></asp:Label>
-                            </p>
+                     <br />
+                                <h4> Mammal</h4>
+                           
     <asp:GridView ID="GridView1"  class="table table-borderless table-condensed table-hover "  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4" AllowSorting="True" >
         <Columns>
             <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False"/>
@@ -204,9 +204,9 @@
      </div>
   
        <div class ="grid-reptile text-center">
-           <p>
-              <asp:Label Text ="Reptile" runat ="server"></asp:Label>
-           </p>
+            <br />
+             <h4> Reptile</h4>
+         
                 <asp:GridView ID="GridView2"  class="table table-borderless table-condensed table-hover " runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" AllowSorting="True">
                     <Columns>
                           <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False" />
@@ -222,9 +222,8 @@
    </div>
      
         <div class ="grid-bird text-center">
-            <p>
-            <asp:Label Text ="Bird" runat ="server"></asp:Label>
-                </p>
+            <br />
+         <h4> Birds</h4>
                   <asp:GridView ID="GridView3"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" AllowSorting="True">
                       <Columns>
                           <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False"/>
@@ -239,7 +238,7 @@
                 </div>
 
 
-                <div id="AnimalsMammalTab" class="container1 block3 tab-pane WildTable">
+                <div id="AnimalsMammalTab" class="container1 block3 tab-pane text-center WildTable">
                     <div class="InternalAnimalTab">
                         <%--<p> There</p>
                         <br />
@@ -265,7 +264,7 @@
 
 
 
-                <div id="AnimalsReptileTab" class="container1 block3 tab-pane fade WildTable">
+                <div id="AnimalsReptileTab" class="container1 block3 tab-pane fade text-center WildTable">
                     <div class="InternalAnimalTab">
                         <%--<p> My</p>
                         <br />
@@ -289,7 +288,7 @@
 
 
 
-                <div id="AnimalsBirdTab" class="container1 block3 tab-pane fade WildTable">
+                <div id="AnimalsBirdTab" class="container1 block3 tab-pane text-center fade WildTable">
                     <div class="InternalAnimalTab">
                         <%--<p> Friend</p>
                         <br />

@@ -152,7 +152,7 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
     }
 
 
-    protected void btnUpdate_Click(object sender, EventArgs e)
+    protected void btnUpdate2_Click(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -590,7 +590,7 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
     }
 
 
-    protected void Delete_Click(object sender, EventArgs e)
+    protected void Delete_Click2(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";

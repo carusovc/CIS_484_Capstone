@@ -44,12 +44,13 @@
         <br/>
     
         
-            <asp:Button ID="btnLogin" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
+            <asp:Button ID="btnLogin" class="btn btn-primary  btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
              <%--This needs to be removed --%>
-            <a href="createUser"> Create User</a>
+          
             <br/>
-            <h2 class="text-center logo mx-auto">OR</h2>
-            <asp:Button ID="createForm" class="btn btn-primary mx-auto btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
+           
+            <asp:Button ID="createForm" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
+              <a class="mx-auto" href="createUser"> Create User</a>
         </div>
         <br />
         </div>	  

@@ -166,15 +166,14 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">  
-                      <label for="firstName">FIRST NAME</label>
-                      <br />
+                      <h6 >FIRST NAME</h6>
                       <asp:TextBox ID="txtFirstName" runat="server" class="form-control" placeholder="First name" required="required"></asp:TextBox>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">                    
-                      <label for="lastName">LAST NAME</label>
-                      <br />
+                      <h6 ">LAST NAME</h6>
+                     
                       <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server"></asp:TextBox>               
                   </div>
                 </div>
@@ -194,19 +193,18 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                        <label for="inputEmail">USERNAME</label>
+                        <h6>USERNAME</h6>
                     
                    <%--  <label for="inputPassword">PASSWORD</label> --%>
-                      <br />
-                 
+                     
                                     <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox>
                 </div></div>
                    
                            
                     <div class="col-md-6">
                   <div class="form-label-group">
-                <label for="inputPassword">PASSWORD</label>
-                  <br />
+                <h6>PASSWORD</h6>
+               
           <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" placeholder="Password" required="required"></asp:TextBox>
                       <br?/> <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>
                    

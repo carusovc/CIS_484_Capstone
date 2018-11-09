@@ -198,7 +198,7 @@
                                 <div class="mx-auto d-flex justify-content-center">
 
                                     <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Program</div>
-                                     <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Edit Program</div>
+                                     <div class="btn btn-primary btn-inside" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live Program</div>
                                     <div class="btn btn-primary btn-inside" data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online Program</div>
 
                                 </div>
@@ -580,11 +580,11 @@
         </section> 
     </div>
             
-    <div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
+    <div class="modal" id="UpdateLiveProgram" tabindex="-1" role="dialog">
             <div class="modal-dialog  modal-full "  role="document">
                 <div class="modal-content ">
                     <div class="modal-header">
-                        <h5 class="modal-title">Update Online Program Type</h5>
+                        <h5 class="modal-title">Update Live Program</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -602,7 +602,7 @@
             <p>Select Program ID: <br />
         <asp:DropDownList ID="ddlProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged ="ddlProgramID_SelectedIndexChanged1">
        
-            <asp:ListItem Text="--Select Online Program ID--" Value="0" />
+            <asp:ListItem Text="--Select Program ID--" Value="0" />
         </asp:DropDownList>
        </div>
          <div class="col-md-12 col-lg-6 
@@ -833,7 +833,198 @@
             </div>
         </div>
 
+    <div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
+            <div class="modal-dialog  modal-full "  role="document">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Update Online Program </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <Triggers> 
+            <asp:AsyncPostBackTrigger ControlID="ddlOrganization" EventName="SelectedIndexChanged" /> 
+        </Triggers> 
+            <ContentTemplate>
+                    <div class="modal-body">
+       
+   <div class="row">
+       <div class="col-md-12 col-lg-6 
+           col-sm-12">
+             Online Program ID: <br />
+           <asp:DropDownList ID="ddlOnlineProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OnlineProgramID" DataValueField="OnlineProgramID" OnSelectedIndexChanged ="ddlOnlineProgramID_SelectedIndexChanged1">
+        <asp:ListItem Text="--Select Online Program ID--" Value="0" />
+                       </asp:DropDownList>
+       </div>
+         <div class="col-md-12 col-lg-6 
+           col-sm-12">
+              <p>
+     Program Date: <br />
+    <asp:TextBox ID="txtProgramDate" runat="server"></asp:TextBox>
+       </div>
 
+      
+
+   </div>
+   <div class="row">
+         <div class="col-md-12 col-lg-4 
+           col-sm-12">
+             Online Program Type: <br />
+    <asp:DropDownList ID="ddlProgramType" runat="server">
+    </asp:DropDownList>
+       </div>
+       <br />
+       <div class="col-md-12 col-lg-4 
+           col-sm-12">
+            Number of Kids: <br />
+    <asp:TextBox ID="txtNumOfKids" runat="server"></asp:TextBox>
+               
+               
+       </div>
+      
+       <div class="col-md-12 col-lg-4 
+           col-sm-12">
+            Number of Adults: <br />
+    <asp:TextBox ID="txtNumOfAdults" runat="server"></asp:TextBox>
+               
+               
+       </div>
+
+   </div>
+        <br />   
+    <div class="row">
+         <div class="col-md-12 col-lg-4 
+           col-sm-12">
+              City: <br />
+    <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
+               
+       </div>
+       <br />
+       <div class="col-md-12 col-lg-4
+           col-sm-12">
+           State: <br />
+    <asp:TextBox ID="txtState" runat="server"></asp:TextBox>
+               
+               
+       </div>
+
+         <div class="col-md-12 col-lg-4 
+           col-sm-12">
+         Country: <br />
+    <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
+               
+               
+       </div>
+      <br />
+   </div>
+           <br />
+    
+      <div class="row">
+         <div class="col-md-12 col-lg-4 
+           col-sm-12">
+              Teacher: <br />
+    <asp:DropDownList ID="ddlTeacher" runat="server">
+    </asp:DropDownList>
+               
+       </div>
+       <br />
+       <div class="col-md-12 col-lg-4
+           col-sm-12">
+           Grades: <br />
+    <asp:ListBox ID="AddGrade" runat="server" SelectionMode="Multiple"><asp:ListItem Text="--Select Grades--" Value="0" /></asp:ListBox>
+               
+               
+       </div>
+
+         <div class="col-md-12 col-lg-4 
+           col-sm-12">
+        Educators: <asp:ListBox ID="drpEducators" runat="server" SelectionMode="Multiple"><asp:ListItem Text="--Select Educators--" Value="0" /></asp:ListBox>
+
+               
+               
+       </div>
+      
+   </div>
+
+<br />
+             
+
+           <div class="row">
+       <div class="col-md-12 col-lg-4 
+           col-sm-12">
+ 
+             Birds:
+    <asp:ListBox ID="ddlBirds" runat="server" SelectionMode="Multiple">
+        <asp:ListItem Text="--Select Birds--" Value="0" />
+    </asp:ListBox>
+
+         
+       <br />
+       <div class="col-md-12 col-lg-4
+           col-sm-12">
+      Reptiles:
+    <asp:ListBox ID="ddlReptiles" runat="server" SelectionMode="Multiple">
+        <asp:ListItem Text="--Select Reptiles--" Value="0" />
+    </asp:ListBox>
+               
+       </div>
+
+        <div class="col-md-12 col-lg-4 
+           col-sm-12">
+             Mammals: <br />
+    <asp:ListBox ID="lstMammals" runat="server" SelectionMode="Multiple">
+        <asp:ListItem Text="--Select Mammals--" Value="0" />
+    </asp:ListBox>
+            
+               
+       </div>
+      
+   </div>
+
+                          <br />
+                                           <div class="row">
+       <div class="col-md-12 col-lg-3 
+           col-sm-12">
+  Contact Email: <br />
+    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+
+         
+       <br />
+       <div class="col-md-12 col-lg-9
+           col-sm-12">
+         Comments: <br />
+         <asp:TextBox ID="TextBotxtComments" runat="server"></asp:TextBox>
+               
+       </div>
+
+     
+      
+   </div>
+
+
+        
+       
+    <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
+    &nbsp;<asp:Label ID="Label6" runat="server" Text=""></asp:Label>
+   
+      </div>
+             </ContentTemplate>
+        </asp:UpdatePanel>
+                    <div class="modal-footer">
+
+                        
+   
+     
+                        
+                        
+                        <button type="button" ID="Button1" class="btn  btn-inside" runat="server" Text="Update" OnClick="btnUpdate_Click">Update</button>
+                         <button type="button"  ID="Button2" runat="server"  class="btn  btn-inside" Text="Delete" OnClick="btnDelete_Click" >Delete</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
             <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

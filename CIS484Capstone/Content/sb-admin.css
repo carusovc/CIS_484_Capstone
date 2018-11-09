@@ -20,8 +20,11 @@ body {
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
     background-attachment: fixed;
+    
+    /*font-family: 'Open Sans', sans-serif;*/
 }
 
+    
     body.login {
         /*background-image: url(../Images/FlyingBirdsBG.jpg);*/
         background-color: rgba(52, 58, 64, 0.5); /* Used if the image is unavailable */
