@@ -140,7 +140,7 @@ body, html {
     }
 
 .btn-login {
-    background: #d55c1d;
+    background: #e2561d !important;
     color: #fff;
     font-weight: 600;
     border: 0px;
@@ -151,10 +151,11 @@ body, html {
     }
 
 .btn-inside {
-    background: #d55c1d !important;
+    background: #e2561d !important;
     color: #fff;
-    font-weight: 600;
-    border: 0px #d55c1d;
+    border: 0px;
+    font-weight: 200 !important;
+    border: 0px #e2561d;
     margin-left: 5px !important;
     margin-right: 5px !important;
     margin-bottom: 5px !important;
@@ -206,7 +207,7 @@ body, html {
 
 .NewUserTitle {
     font-size: 200%;
-    color: #d55c1d;
+    color: #e2561d!important;
 }
 
 .ReportTitle {
