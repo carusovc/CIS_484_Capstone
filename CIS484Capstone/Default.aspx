@@ -15,51 +15,109 @@
 <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
 
 
-<section class="login-block">
-<div class="container">
-	<div class="row">
-		<div class="col-md-4 login-sec">
-		    <h2 class="text-center logo">WildTek Login</h2>
-		    
+
+
+    <section class="login-block">
+    
+
+<div class="container1">
+      <div class="card card-register mx-auto mt-5 " style="width: 24rem;">
+        <div class="card-header NewUserTitle">Wildlife Center Login</div>
+        <div class="card-body">
+        
+        <div class="row mx-auto ">
+            <div class="col-md-12  ">
             <div class="form-group">
             <h6>Username</h6>
                 <asp:TextBox ID="txtUsername" class="input-md textinput form-control" placeholder="Username" style="margin-bottom: 10px" type="text" runat="server"></asp:TextBox>
              </div>
 
-        <div class="form-group">
+     <%--<div class="form-group">
             <h6>Password</h6>
             <asp:TextBox ID="txtPassword" class="input-md textinput textInput form-control" name="password1" placeholder="Password" style="margin-bottom: 10px" runat="server" TextMode="Password"></asp:TextBox>
         
   
        <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/> </div>
-                   <br />
+                   <br />--%>
+                 </div>
+            </div>
+           <div class="row mx-auto  ">
+            <div class="col-md-12  ">
+                  <div class="form-group">
+                <label for="txtPassword" class="text-uppercase" runat="server">Password</label>
+            <asp:TextBox ID="txtPassword" class="input-md textinput textInput form-control" name="password1" placeholder="Password" style="margin-bottom: 10px" runat="server" TextMode="Password"></asp:TextBox>
+       <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>
+       </div>
+               </div>
+                </div>
+           
+
+ <div class="row mx-auto  ">
+            <div class="col-md-12  ">
+            <div class="form-group">
+           <asp:Button ID="btnLogin" class="btn btn-primary  btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
+             </div>
+                 </div>
+     
+            <div class="col-md-12 ">
+                  <div class="form-group">
+                <asp:Button ID="createForm" class="btn btn-primary  btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
+            
+        
+               </div>
+                </div>
+            </div>
+          </div>
+
+   
+     
         <asp:Label ID="lblStatus" ForeColor="red" runat="server"></asp:Label>
-                 
+          <div class="row">   
         <div class="form-check">
             <%--<label class="form-check-label">
             <input type="checkbox" class="form-check-input">
                 <small>Remember Me</small>
-            </label>--%> <br>
+            </label>--%> 
 
-        <br/>
-    
+     
         
-            <asp:Button ID="btnLogin" class="btn btn-primary  btn-login btn-block" runat="server" OnClick="btnLogin_Click" Text="Login" />
-             <%--This needs to be removed --%>
+            <%--This needs to be removed --%>
           
-            <br/>
            
-            <asp:Button ID="createForm" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
-        <%--      <a class="mx-auto" href="createUser"> Create User</a>--%>
-        </div>
-        <br />
-        </div>	  
-		 <%--This is the image on the login screen --%>
-		<div class="col-md-8 banner-sec">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
             </div>
-	    </div>
+            </div>
+              </div>    
+        
+        </div>	 
+        
+		 <%--This is the image on the login screen --%>
+		<%--<div class="col-md-8 banner-sec">
+           <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="/Images/BackgroundLogin/bird.jpg);" alt="First slide">
     </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="/Images/BackgroundLogin/eagle.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="/Images/BackgroundLogin/sunset.jpg" alt="Third slide">
+    </div>
+  </div>
+</div>
+	    </div>--%>
+        </div>
+      </div>
+    </div>
+
+
+
+       
+</section>
+
+
+
 
 </div>	
 </section>

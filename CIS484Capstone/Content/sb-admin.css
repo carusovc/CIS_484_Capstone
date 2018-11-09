@@ -13,10 +13,10 @@ body html {
 
 
 body {
-    /*background-image: url(../Images/FlyingBirdsBG.jpg);*/
+    background-image: url(../Images/BackgroundLogin/sunset.jpg);
     background-color: #455379;
     height: auto; /* You must set a specified height */
-    background-position: center; /* Center the image */
+    background-position: top; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
     background-attachment: fixed;
@@ -1040,21 +1040,3 @@ body {
         color:red;
     }
 
-.PasswordReq{font-size: 65% !important;}
-
-body {
-    -webkit-backface-visibility: none; /*fix chrome bug*/
-}
-
-.section {
-    -webkit-transform: scale(1);
-    -webkit-transition: all linear 0.5s 0;
-}
-
-.modal-wide .section {
-    -webkit-filter: blur(3px);
-    -ms-filter: blur(3px);
-    -o-filter: blur(3px);
-    filter: blur(3px);
-    -webkit-transform: scale(0.8);
-}
