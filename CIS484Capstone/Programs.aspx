@@ -295,7 +295,7 @@
                                     <div class="tab-content">
                                         <div id="AllTab" class="tab-pane show active">
                                             <div class="block justify-content-center table-responsive">
-                                                <%-- <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
+                                                 <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
                                                     <HeaderTemplate>
                                                         <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
                                                             <tr class="alert alert-primary">
@@ -340,7 +340,7 @@
                                                     <FooterTemplate>
                                                         </table>
                                                     </FooterTemplate>
-                                                </asp:Repeater>--%>
+                                                </asp:Repeater>
                                             </div>
                                         </div>
 
@@ -968,7 +968,7 @@
     </div>
 
 
-    <%--<div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
+    <div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
             <div class="modal-dialog  modal-full "  role="document">
                 <div class="modal-content ">
                     <div class="modal-header">
@@ -1166,7 +1166,7 @@
                 </div>
             </div>
 
-        </div>--%>
+        </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
