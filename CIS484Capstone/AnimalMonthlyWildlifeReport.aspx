@@ -269,7 +269,8 @@
     <br />
      <br />
    
- <asp:GridView ID="AnimalLiveGrid" class="table table-bordered table-condensed table-hover" runat="server"  AutoGenerateColumns="False" >
+ <asp:GridView ID="AnimalLiveGrid" class="table table-bordered table-condensed table-hover" runat="server"  AutoGenerateColumns="False"    OnRowDataBound="GridView1_RowDataBound" 
+     EmptyDataText="There are no records to display." >
         <Columns>
 
             <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" >
@@ -318,7 +319,8 @@
     <br />
      <br />
    
- <asp:GridView runat="server" id="gridOnlinePrograms" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" >
+ <asp:GridView runat="server" id="gridOnlinePrograms" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
+        OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display.">
             <Columns>
              <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" >
                   <ItemStyle HorizontalAlign="Left" />
@@ -349,10 +351,10 @@
      <br /><br /><br />
               </div>
     </div>
+    </div>
                  </div>
-     
-          <br />
-     <br /><br /><br />
+               <br /><br /><br />
+
      <%--          </div>
 
    </div>
@@ -362,7 +364,8 @@
      
                    
          </div>--%>
-              <asp:GridView runat="server" id="totalAnimalCount" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" >
+              <asp:GridView runat="server" id="totalAnimalCount" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2"   OnRowDataBound="GridView1_RowDataBound" 
+                  EmptyDataText="There are no records to display." >
             <Columns>
                <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
             <asp:BoundField DataField="TotalOnlinePrograms" HeaderText="Total OnlinePrograms" ReadOnly="True" SortExpression="TotalOnlinePrograms" />

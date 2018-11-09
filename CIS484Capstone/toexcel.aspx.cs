@@ -61,7 +61,7 @@ public partial class toexcel : System.Web.UI.Page
         sc.Open();
 
         da = new SqlDataAdapter(cmd);
-        ds = new DataSet();
+         ds = new DataSet();
 
         da.Fill(ds);
 

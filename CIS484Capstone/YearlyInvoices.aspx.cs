@@ -111,6 +111,8 @@ public partial class YearlyInvoices : System.Web.UI.Page
 
             Response.Write(headerTable);
             Response.Output.Write(sw.ToString());
+
+
             Response.End();
 
         }

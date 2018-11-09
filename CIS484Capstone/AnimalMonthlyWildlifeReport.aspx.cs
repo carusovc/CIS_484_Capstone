@@ -114,7 +114,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         gridSearch.DataBind();
     }
 
-    private void ExportToExcel(GridView GridView1)
+    private void ExportToExcel()
     {
 
             GridView1.AllowPaging = false;
@@ -123,14 +123,16 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
             String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
             HttpResponse response = HttpContext.Current.Response;
 
+        StringWriter sw3 = new StringWriter();
+        HtmlTextWriter htW3 = new HtmlTextWriter(sw3);
+
         StringWriter sw = new StringWriter();
             HtmlTextWriter htW = new HtmlTextWriter(sw);
 
         StringWriter sw2 = new StringWriter();
         HtmlTextWriter htW2 = new HtmlTextWriter(sw2);
 
-        //StringWriter sw3 = new StringWriter();
-        //HtmlTextWriter htW3 = new HtmlTextWriter(sw3);
+     
         response.Clear();
             response.Buffer = true;
             response.Charset = "";
@@ -147,10 +149,15 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         string headerTable = @"<Table>" + animalReport + " " + filename + "<tr><td></td></tr></Table>";
         string headerTable1 = @"<Table>" + drpAnimalType.SelectedValue.ToString() + " Totals Based on Live Programs <tr><td></td></tr></Table>";
         string headerTable2 = @"<Table>" + drpAnimalType.SelectedValue.ToString()  + " Totals Based on Online Programs <tr><td></td></tr></Table>";
-        string headerTable3 = @"<Table> Totals Based on " + drpAnimalType.SelectedValue.ToString()+ "<tr><td></td></tr></Table>";
+        string headerTable3 = @"<Table> Count of " + drpAnimalType.SelectedValue.ToString()+ " Total Program Involvement <tr><td></td></tr></Table>";
 
         string blankline = @"<Table><tr><td></td></tr></Table>";
         Response.Write(headerTable);
+        Response.Write(headerTable3);
+        GridView1.RenderControl(htW3);
+        Response.Output.Write(sw3.ToString());
+        Response.Write(blankline);
+       
         Response.Write(headerTable1);
              AnimalLiveGrid.RenderControl(htW);
             Response.Output.Write(sw.ToString());
@@ -161,9 +168,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         Response.Output.Write(sw2.ToString());
         Response.Write(blankline);
 
-        Response.Write(headerTable3);
-        //totalAnimalCount.RenderControl(htW3);
-        //Response.Output.Write(sw3.ToString());
+        
         Response.End();
 
 
@@ -181,7 +186,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
     protected void btnToExcel_Click1(object sender, EventArgs e)
     {
-        ExportToExcel(AnimalLiveGrid);
+        ExportToExcel();
   
     }
 
