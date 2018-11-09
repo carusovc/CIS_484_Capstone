@@ -135,7 +135,6 @@ public partial class AnimalPage : System.Web.UI.Page
 
     protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
     {
-
         AnimalEditDiv.Visible = true;
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -158,28 +157,86 @@ public partial class AnimalPage : System.Web.UI.Page
 
         insert.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
 
+        System.Data.SqlClient.SqlCommand add = new System.Data.SqlClient.SqlCommand();
+        add.Connection = sc;
+        add.Parameters.Clear();
+
+        add.CommandText = "select AnimalType from Animal where animalID = @animalID";
+        add.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
+        //ddlAnimalTypeEdit.SelectionMode = ListSelectionMode.Multiple;
+        ddlAnimalTypeEdit.ClearSelection();
+        ddlStatus.ClearSelection();
+
         try
         {
             con.Open();
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                txtBoxAnimalName.Text = sdr[2].ToString();
-                ddlStatus.SelectedItem.Text = sdr[5].ToString();
-                ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
-                //for (int i = 0; i < ddlAnimalTypeEdit.Items.Count; i++)
+                //ddlAnimalTypeEdit.SelectedItem.Text = sdr[1].ToString();
+                for (int i = 0; i < ddlAnimalTypeEdit.Items.Count; i++)
+                {
+
+                    if (ddlAnimalTypeEdit.Items[i].ToString() == sdr[1].ToString())
+                    {
+                        ddlAnimalTypeEdit.Items[i].Selected = true;
+                    }
+                }
+
+                //if (sdr[1].ToString() == "Bird")
                 //{
-                //    if (ddlAnimalTypeEdit.Items[i].Text == sdr[1].ToString())
-                //    {
-                //        ddlAnimalTypeEdit.Items[i].Selected = true;
-                //    }
+                //    string bird = "Bird";
+                //    ddlAnimalTypeEdit.Items.FindByText(bird).Selected = true;
                 //}
+                //else if (sdr[1].ToString() == "Mammal")
+                //{
+                //    string mammal = "Mammal";
+                //    ddlAnimalTypeEdit.Items.FindByText(mammal).Selected = true;
+                //}
+                //else if (sdr[1].ToString() == "Reptile")
+                //{
+                //    string reptile = "Reptile";
+                //    ddlAnimalTypeEdit.Items.FindByText(reptile).Selected = true;
+                //}
+                //else
+                //{
+                //    string animalSelection = "--Animal Type--";
+                //    ddlAnimalTypeEdit.Items.FindByText(animalSelection).Selected = true;
+                //}
+
+                txtBoxAnimalName.Text = sdr[2].ToString();
+                //ddlStatus.SelectedItem.Text = sdr[5].ToString();
+
+                for (int i = 0; i<ddlStatus.Items.Count; i++)
+                {
+                    if(ddlStatus.Items[i].ToString() == sdr[5].ToString())
+                    {
+                        ddlStatus.Items[i].Selected = true;
+                    }
+                }
                 //ddlAnimalTypeEdit.Sele = sdr[1].ToString();
 
                 //lblLastUpdated.Text = sdr["LastUpdated"].ToString();
                 //lblLastUpdatedBy.Text = sdr["LastUpdatedBy"].ToString();
 
             }
+            SqlDataReader sdr1 = add.ExecuteReader();
+            //while (sdr1.Read())
+            //{
+            //    for (int i = 0; i < ddlAnimalTypeEdit.Items.Count; i++)
+            //    {
+                    
+            //        if (ddlAnimalTypeEdit.Items[i].ToString() == sdr1.GetString(0))
+            //        {
+            //            ddlAnimalTypeEdit.Items[i].Selected = true;
+            //            break;
+            //        }
+            //        else
+            //        {
+            //            continue;
+            //        }
+            //    }
+            //}
         }
         catch (Exception ex)
         {
