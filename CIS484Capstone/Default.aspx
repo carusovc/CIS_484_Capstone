@@ -22,17 +22,17 @@
 		    <h2 class="text-center logo">WildTek Login</h2>
 		    
             <div class="form-group">
-            <label for="txtUsername" class="text-uppercase" runat="server">Username</label>
+            <h6>Username</h6>
                 <asp:TextBox ID="txtUsername" class="input-md textinput form-control" placeholder="Username" style="margin-bottom: 10px" type="text" runat="server"></asp:TextBox>
              </div>
 
         <div class="form-group">
-            <label for="txtPassword" class="text-uppercase" runat="server">Password</label>
+            <h6>Password</h6>
             <asp:TextBox ID="txtPassword" class="input-md textinput textInput form-control" name="password1" placeholder="Password" style="margin-bottom: 10px" runat="server" TextMode="Password"></asp:TextBox>
-        </div>
+        
   
-        <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>
-        <br />
+       <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/> </div>
+                   <br />
         <asp:Label ID="lblStatus" ForeColor="red" runat="server"></asp:Label>
                  
         <div class="form-check">
@@ -50,7 +50,7 @@
             <br/>
            
             <asp:Button ID="createForm" class="btn btn-primary btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />
-              <a class="mx-auto" href="createUser"> Create User</a>
+        <%--      <a class="mx-auto" href="createUser"> Create User</a>--%>
         </div>
         <br />
         </div>	  
