@@ -997,3 +997,6 @@ body {
         color:red;
     }
 
+    .hidden{visibility:hidden!important;}
+
+    .HiddenImg{width:200% !important;}
