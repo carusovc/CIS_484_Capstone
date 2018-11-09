@@ -630,7 +630,7 @@
     </section> 
     </div>
             
-    <div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
+    <%--<div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
         <div class="modal-dialog  modal-full " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
@@ -890,7 +890,7 @@
                 <div class="modal-footer">
 
 
-
+     
 
 
 
@@ -901,7 +901,7 @@
             </div>
         </div>
     </div>
-
+           --%>
     <div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
             <div class="modal-dialog  modal-full "  role="document">
                 <div class="modal-content ">

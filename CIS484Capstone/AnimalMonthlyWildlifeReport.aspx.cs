@@ -13,14 +13,6 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 {
     public string selectedAnimal;
 
-
-    //public string conString = "Data Source=localhost;Initial Catalog=WildTek;Integrated Security=True";
-
-    //SqlConnection con;
-
-
-
-
     System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
 
     protected void Page_Load(object sender, EventArgs e)
@@ -29,7 +21,6 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-
 
             drpAnimalType.Items.Add("Bird");
             drpAnimalType.Items.Add("Mammal");
@@ -95,6 +86,33 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
     protected void btnBack_Click(object sender, EventArgs e)
     {
         Response.Redirect("ReportChoice.aspx");
+    }
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        gridSearch.DataBind();
+        gridOnlinePrograms.Visible = false;
+        AnimalLiveGrid.Visible = false;
+        gridSearch.Visible = true;
+
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+        search.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+        string searchAnimal = txtSearch.Text;
+
+        DataTable dt = new DataTable();
+        SqlDataAdapter adapt = new SqlDataAdapter("Select AnimalType, AnimalName, Status from Animal where UPPER(AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(AnimalType) like UPPER('" + searchAnimal + "%') or UPPER(status) like UPPER('" + searchAnimal + "%')", con);
+
+        adapt.Fill(dt);
+
+        gridSearch.DataSource = dt;
+        gridSearch.DataBind();
     }
 
     private void ExportToExcel(GridView GridView1)
