@@ -64,7 +64,11 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         DataTable dt = new DataTable();
         //con = new SqlConnection(sc);
         //con.Open();
-        SqlCommand cmd = new SqlCommand("SELECT  Animal.AnimalName, SUM(CASE WHEN Program.onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN Program.onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, SUM(Program.NumberOfChildren) AS NumberOfChildren, SUM(Program.NumberOfAdults) AS NumberOfAdults, SUM(Program.NumberOfChildren + Program.NumberOfAdults) AS TotalParticipants FROM Animal, Program, ProgramAnimal WHERE(Animal.AnimalType = @AnimalType) AND Animal.AnimalID = ProgramAnimal.AnimalID AND ProgramAnimal.ProgramID = Program.ProgramID GROUP BY Animal.AnimalName, Animal.AnimalType ORDER BY Animal.AnimalName", sc);
+        SqlCommand cmd = new SqlCommand("SELECT  Animal.AnimalName, SUM(CASE WHEN Program.onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, " +
+            "SUM(CASE WHEN Program.onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, Count(ProgramAnimal.ProgramID) AS TotalLivePrograms, SUM(Program.NumberOfChildren) AS NumberOfChildren, " +
+            "SUM(Program.NumberOfAdults) AS NumberOfAdults FROM Animal, " +
+            "Program, ProgramAnimal WHERE(Animal.AnimalType = @AnimalType) AND Animal.AnimalID = ProgramAnimal.AnimalID AND ProgramAnimal.ProgramID = Program.ProgramID " +
+            "GROUP BY Animal.AnimalName, Animal.AnimalType ORDER BY Animal.AnimalName", sc);
         cmd.Parameters.AddWithValue("@AnimalType", drpAnimalType.Text.ToString());
         SqlDataAdapter adapt = new SqlDataAdapter(cmd);
         adapt.Fill(dt);
@@ -108,8 +112,8 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         StringWriter sw2 = new StringWriter();
         HtmlTextWriter htW2 = new HtmlTextWriter(sw2);
 
-        StringWriter sw3 = new StringWriter();
-        HtmlTextWriter htW3 = new HtmlTextWriter(sw3);
+        //StringWriter sw3 = new StringWriter();
+        //HtmlTextWriter htW3 = new HtmlTextWriter(sw3);
         response.Clear();
             response.Buffer = true;
             response.Charset = "";
@@ -136,13 +140,13 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         Response.Write(blankline);
 
         Response.Write(headerTable2);
-        // gridOnlinePrograms.RenderControl(htW2);      //fix this to the live animal sql
-        //Response.Output.Write(sw2.ToString());
+        gridOnlinePrograms.RenderControl(htW2);      
+        Response.Output.Write(sw2.ToString());
         Response.Write(blankline);
 
         Response.Write(headerTable3);
-        totalAnimalCount.RenderControl(htW3);
-        Response.Output.Write(sw3.ToString());
+        //totalAnimalCount.RenderControl(htW3);
+        //Response.Output.Write(sw3.ToString());
         Response.End();
 
 

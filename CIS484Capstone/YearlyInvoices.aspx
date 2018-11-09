@@ -33,37 +33,20 @@
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
                 
-            <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+              <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
-
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <!-- Navbar -->
-      <ul class="navbar-nav ml-auto ml-md-0">
-        
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
-      </ul>
-
+      <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
+    
     </nav>
 
 
-            <div id="wrapper">
+         <div id="wrapper">
 
  <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+
           <%--<a class="nav-link" href="Programs.aspx">--%>
             <%--<i class="fas fa-fw fa-book-open"></i>--%>
             <span>Programs</span>
@@ -78,7 +61,7 @@
             <i class="fas fa-fw fa-book-open"></i>--%>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+
             <span>Animals</span>
           </a>
             <div class="dropdown-menu dropdown-menu-right" >
@@ -89,7 +72,7 @@
         </li>
            <li class="nav-item dropdown no-arrow ">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+
             <span>Reports</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -103,7 +86,7 @@
         </li>
           <li class="nav-item dropdown no-arrow active">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+
             <span>Payment</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -115,7 +98,7 @@
 
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+
             <span>Organizations</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -126,7 +109,7 @@
 
            <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+
             <span>Educators</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -136,55 +119,55 @@
         </li>
           <li class="nav-item">
           <a class="nav-link" href="createUser.aspx">
-            <i class="fas fa-fw fa-door"></i>
+
             <span>Create Outreach Coordinator Access</span></a>
         </li>
           <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
-            <i class="fas fa-fw fa-door"></i>
+
             <span>Logout</span></a>
         </li>
 
       </ul>
+       <div id="content-wrapper">
 
-      <div id="content-wrapper">
+                 <section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
+    
 
-          
+<div class="container1">
+      <div class="card  mx-auto mt-5">
+        <div class="card-header NewUserTitle text-center">Invoices Based on Year</div>
+        <div class="card-body text-center">
+           <asp:Label ID="lblResponse" class="NewUserTitle text-center" runat ="server"></asp:Label>
+       <div class="mx-auto d-flex justify-content-center">
 
-        <div class="container-fluid ">
-
-          
-
-
-          
-
-       <!-- Programs-->
-       <div class="row">
-		<div class="col-md-12 ProgramTitle">
-			<h1 >Choice of Payment</h1>
-			
-		</div>
-	</div>
- 
-            <asp:Button ID="btnAddPayment" runat="server" OnClick="btnAddPaymentForm" Text="Add Payment" />
-                        <div class="row WildTable">
-                             <asp:Label ID="lblResponse" runat="server" Text=""/>
-        <div class="col-md-12 mx-auto d-flex justify-content-center">
-
-             <asp:Label Text ="Choose a Year:" runat ="server"></asp:Label>
-            <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
+ <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
                         <asp:ListItem></asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                 SelectCommand="SELECT Distinct(YEAR(paymentDate)) AS YEAR FROM PaymentRecord"></asp:SqlDataSource>
+            
+       </div>
+            <br />
+                   <%-- this div  is the internal div--%>
+        <div class="block3">
+  
+                 <div class="tab-content">
+                 
+<div class="InternalTab">
+    <div class="col-md-12 ProgramTitle">
+             <br />
+			  <div class="ReportTitle text-center">Current Invoices</div>
+			
+		</div>
+	
+                         <br />
+<div class="row table-responsive mx-auto d-flex  justify-content-center">
+              <div class="col-md-10 ">
     <br />
-
-          
-   </div>
-          <asp:Label Text ="Current Invoice" runat ="server"></asp:Label>
-                            <br />
-
-    <asp:GridView ID="GridView1" runat="server"  gridlines="None" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" AllowSorting="True" ShowFooter="True" onrowdatabound="GridView1_RowDataBound" EmptyDataText="There are no records to display." >
+     <br />
+   
+<asp:GridView ID="GridView1" runat="server"  class="table table-bordered table-condensed table-hover" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" onrowdatabound="GridView1_RowDataBound" EmptyDataText="There are no records to display." >
         <Columns>
             <asp:TemplateField HeaderText ="Select" >
             <ItemTemplate>
@@ -238,20 +221,43 @@
 
                ProviderName="System.Data.SqlClient">
                 <SelectParameters>
-                
-           
+
              <asp:ControlParameter ControlID="drpYear" Name="Year" PropertyName="SelectedValue" Type="String" />
-                 <%--   <asp:ControlParameter ControlID="drpOrg" Name="OrgName" PropertyName="SelectedValue"  Type="String" />--%>
 
-      
                 </SelectParameters>
-            </asp:SqlDataSource>                  
-                            </div>
-                                <asp:Button ID="btnExportGrid" runat="server" Text="Export Invoices to Excel" OnClick="exportBtn_ClickAv" />
+            </asp:SqlDataSource>     
+                  </div>
+                
+     </div>
+    <div class="mx-auto d-flex justify-content-center">
+           <asp:Button ID="Button1" runat="server" Text="Export Invoices to Excel" class="btn btn-primary btn-inside" OnClick="exportBtn_ClickAv" />
+     
+              </div>
 
-                            <asp:Label Text ="Cancelled Invoice" runat ="server"></asp:Label>
-                            <br />
-                            <asp:GridView ID="GridView2" runat="server"  gridlines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" onrowdatabound="GridView2_RowDataBound" AllowSorting="True" EmptyDataText="There are no records to display.">
+                     <br />
+    </div>
+                 </div>
+          <p></p>
+            </div>
+              <%-- this div  is the internal div--%>
+        <div class="block3">
+  
+                 <div class="tab-content">
+                 
+<div class="InternalTab">
+    <div class="col-md-12 ProgramTitle">
+             <br />
+			  <div class="ReportTitle text-center">Cancelled Invoices</div>
+			
+		</div>
+	</div>
+                         <br />
+
+              <div class="col-md-12 mx-auto d-flex justify-content-center">
+    <br />
+     <br />
+   
+<asp:GridView ID="GridView2" runat="server"  class="table table-bordered table-condensed table-hover" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" onrowdatabound="GridView2_RowDataBound" AllowSorting="True" EmptyDataText="There are no records to display.">
        <Columns>
             <asp:TemplateField HeaderText ="Select"  >
             <ItemTemplate>
@@ -310,17 +316,32 @@
 
       
                 </SelectParameters>
-            </asp:SqlDataSource>
+            </asp:SqlDataSource> 
+                  </div>
+                  <div class="mx-auto d-flex justify-content-center">
 
+              <asp:Button ID="btnExportGrid2" runat="server" class="btn btn-primary btn-inside" Text="Export Cancelled Invoices to Excel" OnClick="exportBtn2_ClickAv" />
 
-            </div></div>
-
-            <%--<asp:Button ID="btnExport" runat="server" OnClick="btnExport2_Click" Text="Button" />--%>
-            
-            <asp:Button ID="btnExportGrid2" runat="server" Text="Export Cancelled Invoices to Excel" OnClick="exportBtn2_ClickAv" />
-                </div>
-         
-                 
               
+              </div>
+                     <br />
+    </div>
+             <p></p>
+                 </div>
+         
+
+                   
+         </div>
+          </div>
+          <p></p>
+        
+      </div>
+    </div>
+
+
+
+       
+</section>         
+
 </asp:Content>
 

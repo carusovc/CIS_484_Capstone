@@ -60,7 +60,7 @@
       <ul class="sidebar navbar-nav">
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+            
           <%--<a class="nav-link" href="Programs.aspx">--%>
             <%--<i class="fas fa-fw fa-book-open"></i>--%>
             <span>Programs</span>
@@ -75,7 +75,7 @@
             <i class="fas fa-fw fa-book-open"></i>--%>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+       
             <span>Animals</span>
           </a>
             <div class="dropdown-menu dropdown-menu-right" >
@@ -86,7 +86,7 @@
         </li>
            <li class="nav-item dropdown no-arrow active">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+   
             <span>Reports</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -100,7 +100,7 @@
         </li>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+        
             <span>Payment</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -112,7 +112,7 @@
 
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+          
             <span>Organizations</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -123,7 +123,7 @@
 
            <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+
             <span>Educators</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -133,12 +133,12 @@
         </li>
           <li class="nav-item">
           <a class="nav-link" href="createUser.aspx">
-            <i class="fas fa-fw fa-door"></i>
+    
             <span>Create Outreach Coordinator Access</span></a>
         </li>
           <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
-            <i class="fas fa-fw fa-door"></i>
+
             <span>Logout</span></a>
         </li>
 
@@ -182,7 +182,7 @@
     <br />
      <br />
    
-<asp:GridView ID="gridPrograms"  class="table table-borderless table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" HorizontalAlign="Center">
+<asp:GridView ID="gridPrograms"  class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" HorizontalAlign="Center">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month Name" ReadOnly="True" >
             <HeaderStyle HorizontalAlign="Left" />
@@ -263,7 +263,7 @@
      <br />
    
  
-    <asp:GridView ID="gridOnlinePrograms"  class="table table-borderless table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center">
+    <asp:GridView ID="gridOnlinePrograms"  class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" >
             <HeaderStyle HorizontalAlign="Left" />
@@ -340,7 +340,6 @@
 
 </div>
 
-    </div>
-    </div>
+
 </asp:Content>
 

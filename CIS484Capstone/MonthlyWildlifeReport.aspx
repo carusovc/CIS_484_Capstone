@@ -63,7 +63,7 @@
       <ul class="sidebar navbar-nav">
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+            
           <%--<a class="nav-link" href="Programs.aspx">--%>
             <%--<i class="fas fa-fw fa-book-open"></i>--%>
             <span>Programs</span>
@@ -78,7 +78,7 @@
             <i class="fas fa-fw fa-book-open"></i>--%>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+           
             <span>Animals</span>
           </a>
             <div class="dropdown-menu dropdown-menu-right" >
@@ -89,7 +89,7 @@
         </li>
            <li class="nav-item dropdown no-arrow active">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+     
             <span>Reports</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -103,7 +103,7 @@
         </li>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+        
             <span>Payment</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -115,7 +115,7 @@
 
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+     
             <span>Organizations</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -126,7 +126,7 @@
 
            <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+           
             <span>Educators</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -136,37 +136,30 @@
         </li>
           <li class="nav-item">
           <a class="nav-link" href="createUser.aspx">
-            <i class="fas fa-fw fa-door"></i>
+          
             <span>Create Outreach Coordinator Access</span></a>
         </li>
           <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
-            <i class="fas fa-fw fa-door"></i>
+          
             <span>Logout</span></a>
         </li>
 
       </ul>
+          <div id="content-wrapper">
 
-      <div id="content-wrapper">
-
-          
-
-        <div class="container-fluid ">
-
-          
-
-       <!-- Programs-->
-       <div class="row">
-		<div class="col-md-12 ProgramTitle">
-			<h1>Reports Based on Month</h1>
-			
-		</div>
-	</div>
-     
-            <div class="row WildTable">
-        <div class="col-md-12 mx-auto d-flex justify-content-center">
+                 <section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
     
-                        <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="MonthName" DataValueField="MonthName">
+
+<div class="container1">
+      <div class="card  mx-auto mt-5">
+        <div class="card-header NewUserTitle text-center">Reports Based on Month</div>
+        <div class="card-body">
+          
+       <div class="mx-auto d-flex justify-content-center">
+  
+
+      <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="MonthName" DataValueField="MonthName">
                         <asp:ListItem></asp:ListItem>
                         </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="		SELECT CASE { fn MONTH(Program.ProgramDate) } 
@@ -190,35 +183,57 @@
                         <asp:ListItem></asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct(YEAR(ProgramDate)) AS YEAR FROM Program"></asp:SqlDataSource>
+    
     <br />
+    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct YEAR(ProgramDate) AS YEAR FROM Program Order By YEAR(ProgramDate)"></asp:SqlDataSource>
 
-             </div>
-        </div>
-
-   
-<div class="row">
-		<div class="col-md-12 ProgramTitle">
-			 <h4 class="ProgramTitle">Monthly Totals Based on Live Programs</h4>
+            </div>
+            <br />
+                   <%-- this div  is the internal div--%>
+        <div class="block3">
+  
+                 <div class="tab-content">
+                 
+<div class="InternalTab">
+    <div class="col-md-12 ProgramTitle">
+             <br />
+			  <div class="ReportTitle text-center">Monthly Totals Based on Live Programs</div>
 			
 		</div>
 	</div>
-  
+                         <br />
 
-
-             <div class="col-md-12 mx-auto d-flex justify-content-center">
+              <div class="col-md-12 mx-auto d-flex justify-content-center">
     <br />
      <br />
    
-<asp:GridView ID="gridLivePrograms" runat="server" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" AllowSorting="True">
+<asp:GridView ID="gridLivePrograms" runat="server" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2"  NullDisplayText="There are no records to display.">
         <Columns>
-            <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" ReadOnly="True" />          
-            <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="TotalOnSitePrograms" SortExpression="TotalOnSitePrograms" ReadOnly="True" />
-            <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="TotalOffSitePrograms" SortExpression="TotalOffSitePrograms" ReadOnly="True" />
-            <asp:BoundField DataField="TotalLivePrograms" HeaderText="TotalLivePrograms" SortExpression="TotalLivePrograms" ReadOnly="True" />
-            <asp:BoundField DataField="NumberOfChildren" HeaderText="NumberOfChildren" SortExpression="NumberOfChildren" ReadOnly="True" />
-            <asp:BoundField DataField="NumberOfAdults" HeaderText="NumberOfAdults" SortExpression="NumberOfAdults" ReadOnly="True" />
-            <asp:BoundField DataField="TotalParticipants" HeaderText="TotalParticipants" SortExpression="TotalParticipants" ReadOnly="True" />
-        </Columns>
+            <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month Name" ReadOnly="True" >
+                 <HeaderStyle HorizontalAlign="Left" />
+            <ItemStyle HorizontalAlign="Left" />
+            </asp:BoundField>
+            <asp:BoundField DataField="TotalOnSitePrograms" HeaderText="Total OnSite Programs" SortExpression="TotalOnSitePrograms" ReadOnly="True" >
+                 <HeaderStyle HorizontalAlign="Center" />
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
+            <asp:BoundField DataField="TotalOffSitePrograms" HeaderText="Total OffSite Programs" SortExpression="TotalOffSitePrograms" ReadOnly="True" >
+                 <HeaderStyle HorizontalAlign="Center" />
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
+            <asp:BoundField DataField="TotalLivePrograms" HeaderText="Total Live Programs" SortExpression="TotalLivePrograms" ReadOnly="True" >
+                 <HeaderStyle HorizontalAlign="Center" />
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
+            <asp:BoundField DataField="NumberOfChildren" HeaderText="Number Of Children" SortExpression="NumberOfChildren" ReadOnly="True" >
+                 <HeaderStyle HorizontalAlign="Center" />
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
+            <asp:BoundField DataField="NumberOfAdults" HeaderText="Number Of Adults" SortExpression="NumberOfAdults" ReadOnly="True" >
+                 <HeaderStyle HorizontalAlign="Center" />
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
+                  </Columns>
      </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(Program.ProgramDate) } 
             when 1 then 'January'
@@ -256,26 +271,48 @@
 
         </SelectParameters>
      </asp:SqlDataSource>
-    <br />
-         
-             </div>
-
-            <div class="row">
-		<div class="col-md-12 ProgramTitle">
-			<h4>Monthly Totals Based on Online Programs</h4>
+          <br />
+     <br /><br /><br />
+              </div>
+    </div>
+                 </div>
+          <p></p>
+     <%-- this div  is the internal div--%>
+        <div class="block3">
+  
+                 <div class="tab-content">
+                 
+<div class="InternalTab">
+    <div class="col-md-12 ProgramTitle">
+        <br />
+			<div class="ReportTitle text-center">Monthly Totals Based on Online Programs</div>
 			
 		</div>
 	</div>
-            <div class="col-md-12 mx-auto d-flex justify-content-center">
+                     <br />
+              <div class="col-md-12 mx-auto d-flex justify-content-center">
     <br />
      <br />
    
-<asp:GridView runat="server" id= "gridOnlineAnimalsTotals" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
-         <Columns>
-             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" ReadOnly="True" />
-             <asp:BoundField DataField="TotalOnlinePrograms" HeaderText="TotalOnlinePrograms" SortExpression="TotalOnlinePrograms" ReadOnly="True" />
-             <asp:BoundField DataField="NumberOfKids" HeaderText="NumberOfKids" SortExpression="NumberOfKids" ReadOnly="True" />
-             <asp:BoundField DataField="NumberOfPeople" HeaderText="NumberOfPeople" SortExpression="NumberOfPeople" ReadOnly="True" />
+ 
+    <asp:GridView runat="server" id= "gridOnlineAnimalsTotals" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" NullDisplayText="There are no records to display.">
+        <Columns>
+             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month Name" ReadOnly="True" >
+                 <HeaderStyle HorizontalAlign="Left" />
+            <ItemStyle HorizontalAlign="Left" />
+            </asp:BoundField>
+             <asp:BoundField DataField="TotalOnlinePrograms" HeaderText="Total Online Programs" SortExpression="TotalOnlinePrograms" ReadOnly="True" >
+                  <HeaderStyle HorizontalAlign="Center" />
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
+             <asp:BoundField DataField="NumberOfKids" HeaderText="Number Of Kids" SortExpression="NumberOfKids" ReadOnly="True" >
+                  <HeaderStyle HorizontalAlign="Center" />
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
+             <asp:BoundField DataField="NumberOfPeople" HeaderText="Number Of People" SortExpression="NumberOfPeople" ReadOnly="True" >
+                  <HeaderStyle HorizontalAlign="Center" />
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
          </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(OnlineProgram.ProgramDate) } 
@@ -313,28 +350,36 @@
           
         </SelectParameters>
     </asp:SqlDataSource>
+          <br />
+     <br /><br /><br />
+              </div>
 
-    <br />
-         
-             </div>
-
-           <br />
+    </div>
+                 </div>
 
 
-            <div class="row WildTable">
-        <div class="col-md-12 mx-auto d-flex justify-content-center">
-            <asp:Button ID="btnMonthToExcel" runat="server" OnClick="btnMonthsToExcel_Click" Text="Export Monthly Program Report to Excel"  class="btn btn-primary btn-inside" />
+     
+                   
+         </div>
+          <div class="mx-auto d-flex justify-content-center">
+<asp:Button ID="btnMonthToExcel" runat="server" OnClick="btnMonthsToExcel_Click" Text="Export to Excel"  class="btn btn-primary btn-inside" />
            
     <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
-                
-                 <asp:Button ID="btnBack" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
-             </div>
+            
+              </div>
         </div>
-                <br />               
-                <br />
+      </div>
+    </div>
+
+
+
+       
+</section>         
+
 
 </div>
-</div>
-</div> 
+
+
+
 
 </asp:Content>

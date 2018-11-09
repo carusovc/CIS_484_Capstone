@@ -63,7 +63,7 @@
       <ul class="sidebar navbar-nav">
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+          
           <%--<a class="nav-link" href="Programs.aspx">--%>
             <%--<i class="fas fa-fw fa-book-open"></i>--%>
             <span>Programs</span>
@@ -78,7 +78,7 @@
             <i class="fas fa-fw fa-book-open"></i>--%>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+     
             <span>Animals</span>
           </a>
             <div class="dropdown-menu dropdown-menu-right" >
@@ -89,7 +89,7 @@
         </li>
            <li class="nav-item dropdown no-arrow ">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+          
             <span>Reports</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -103,7 +103,7 @@
         </li>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+          
             <span>Payment</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -115,7 +115,7 @@
 
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+        
             <span>Organizations</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -126,7 +126,7 @@
 
            <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            <i class="fas fa-envelope fa-fw"></i>
+
             <span>Educators</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -136,12 +136,12 @@
         </li>
           <li class="nav-item active">
           <a class="nav-link" href="createUser.aspx">
-            <i class="fas fa-fw fa-door"></i>
+          
             <span>Create Outreach Coordinator Access</span></a>
         </li>
           <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
-            <i class="fas fa-fw fa-door"></i>
+          
             <span>Logout</span></a>
         </li>
 
@@ -166,15 +166,14 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">  
-                      <label for="firstName">FIRST NAME</label>
-                      <br />
+                      <h6 >FIRST NAME</h6>
                       <asp:TextBox ID="txtFirstName" runat="server" class="form-control" placeholder="First name" required="required"></asp:TextBox>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">                    
-                      <label for="lastName">LAST NAME</label>
-                      <br />
+                      <h6 ">LAST NAME</h6>
+                     
                       <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server"></asp:TextBox>               
                   </div>
                 </div>
@@ -194,19 +193,18 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                        <label for="inputEmail">USERNAME</label>
+                        <h6>USERNAME</h6>
                     
                    <%--  <label for="inputPassword">PASSWORD</label> --%>
-                      <br />
-                 
+                     
                                     <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox>
                 </div></div>
                    
                            
                     <div class="col-md-6">
                   <div class="form-label-group">
-                <label for="inputPassword">PASSWORD</label>
-                  <br />
+                <h6>PASSWORD</h6>
+               
           <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" placeholder="Password" required="required"></asp:TextBox>
                       <br?/> <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>
                    
