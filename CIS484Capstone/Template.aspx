@@ -284,8 +284,7 @@
                 </div>
             </div>
         </div>
-          <div runat="server" id="Div2">
-          </div>
+
       </div>
         <div class="text-center">
             <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>

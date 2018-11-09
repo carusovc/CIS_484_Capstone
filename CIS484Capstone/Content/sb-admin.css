@@ -915,9 +915,6 @@ a.TabStyle {
 
 
 
-
-
-
 .tab-pane {
     padding-left: 5px !important;
 }
@@ -962,6 +959,7 @@ a.TabStyle {
     }
 
 
+
 modal-title {
     color: #d55c1d !important;
 }
@@ -993,3 +991,9 @@ body {
 #tallModal .modal-body p {
     margin-bottom: 900px
 }
+
+    .error{
+        font-size:75%;
+        color:red;
+    }
+

@@ -32,14 +32,10 @@
     <!-- Logo FOnt-->
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
-
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
         <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
 
-        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle">
-            <i class="fas fa-bars"></i>
-        </button>
 
         <!-- Navbar -->
         <ul class="navbar-nav ml-auto ml-md-0">

@@ -98,9 +98,11 @@ $(".modal-wide").on("show.bs.modal", function() {
 
                                     <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>&nbsp&nbsp
 
-                                </div>
-                            </div>
 
+                                </div>
+                              
+                            </div>
+                        
                             <div class="row">
                                 <div class=" col-md-4 InternalAnimalForm">
                                     <h6>County</h6>
