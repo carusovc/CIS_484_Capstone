@@ -130,7 +130,13 @@
             <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
             <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
           </div>
+                <li class="nav-item">
+          <a class="nav-link" href="Location.aspx">
+            
+            <span>Location</span></a>
         </li>
+           
+           </li>
           <li class="nav-item">
           <a class="nav-link" href="createUser.aspx">
     

@@ -1,11 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="TabAnimalReports.aspx.cs" Inherits="Tableau2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Location.aspx.cs" Inherits="Location" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<meta charset="UTF-8">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
- 
+     
 <meta charset="UTF-8">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
@@ -65,9 +63,25 @@
       <ul class="sidebar navbar-nav">
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-           
-          <%--<a class="nav-link" href="Programs.aspx">--%>
-            <%--<i class="fas fa-fw fa-book-open"></i>--%>
+            
+          <%--      <li class="nav-item">
+          <a class="nav-link" href="AnimalPage.aspx">
+            <i class="fas fa-fw fa-book-open"></i>--%>            <%--   <section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
+    
+
+<div class="container1">
+      <div class="card  mx-auto mt-5">
+        <div class="card-header NewUserTitle text-center">Animal Listing</div>
+        <div class="card-body">
+          
+       <div class="mx-auto d-flex justify-content-center">
+            
+    <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Animal</div>
+      <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal">Edit Animal</div>
+            
+            </div>
+       
+                   <%-- this div  is the internal div--%>
             <span>Programs</span>
           </a>
             <div class="dropdown-menu dropdown-menu-right" >
@@ -75,12 +89,10 @@
             <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
           </div>
         </li>
-<%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>--%>
-          <li class="nav-item dropdown no-arrow">
+            <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
+          <li class="nav-item dropdown no-arrow active">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-        
+            
             <span>Animals</span>
           </a>
             <div class="dropdown-menu dropdown-menu-right" >
@@ -89,7 +101,7 @@
             <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
           </div>
         </li>
-           <li class="nav-item dropdown no-arrow active">
+           <li class="nav-item dropdown no-arrow ">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
            
             <span>Reports</span>
@@ -105,7 +117,7 @@
         </li>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-          
+         
             <span>Payment</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -117,7 +129,7 @@
 
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-          
+        
             <span>Organizations</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -137,7 +149,7 @@
           </div>
         </li>
 
-                  <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="Location.aspx">
             
             <span>Location</span></a>
@@ -145,12 +157,12 @@
 
           <li class="nav-item">
           <a class="nav-link" href="createUser.aspx">
-           
+            
             <span>Create Outreach Coordinator Access</span></a>
         </li>
           <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
-           
+            
             <span>Logout</span></a>
         </li>
 
@@ -164,27 +176,143 @@
 
           
 
+       
 
-            <div class="row">
-        <div class="col-md-12 mx-auto d-flex justify-content-center">
-     <div class='tableauPlaceholder' id='viz1540499675172' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ta&#47;Tableau_Animal&#47;AnimalReport&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Tableau_Animal&#47;AnimalReport' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ta&#47;Tableau_Animal&#47;AnimalReport&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1540499675172');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-            </div>
+
+
+
+   <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
+        <div class="block3">
+                 
+
+                 <div class="tab-content">
+                      <div id="AllTab" class="container1 block3 tab-pane  WildTable active">
+<div class="InternalTab">
+     <p>  <style type="text/css">
+#mapContainer {
+    height: 739px;
+    width: 1650px;
+    border:10px solid #eaeaea;
+}
+</style>
+
+<script src="http://maps.google.com/maps/api/js?sensor=false">
+</script>
+
+<script type="text/javascript">
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var coords = new google.maps.LatLng(latitude, longitude);
+        var mapOptions = {
+            zoom: 15,
+            center: coords,
+            mapTypeControl: true,
+            navigationControlOptions: {
+                style: google.maps.NavigationControlStyle.SMALL
+            },
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(
+                document.getElementById("mapContainer"), mapOptions
+                );
+            var marker = new google.maps.Marker({
+                    position: coords,
+                    map: map,
+                    title: "Your current location!"
+            });
+ 
+        });
+    }else {
+        alert("Geolocation API is not supported in your browser.");
+    }
+</script>
+
+         <div class="card-header NewUserTitle text-center">Location Services<br />
+             <asp:Button ID="btnTrack" runat="server" Font-Size="Small" Height="33px" Text="Start Tracking????" Width="127px" />
+     </div>
+
+<div id="mapContainer" visible ="false"></div>
+         </p>
           <br />
-                    
-                <br />
-            </div>
+     <br /><br /><br />
+              </div>
+</div>
+    
+                         
+    <div id="MammalTab" class="container1 block3 tab-pane WildTable">
+          <div class="InternalTab">
+     <p> There</p>
+          <br />
+     <br /><br /><br />
+              </div>
+</div>
    
+    <div id="ReptileTab" class="container1 block3 tab-pane fade WildTable">
+      <div class="InternalTab">
+     <p> My</p>
+          <br />
+     <br /><br /><br />
+              </div>
+</div>
+          
+    <div id="BirdTab" class="container1 block3 tab-pane fade WildTable">
+       <div class="InternalTab">
+     <p> Friend</p>
+          <br />
+     <br /><br /><br />
 
-          <div class="row WildTable">
-        <div class="col-md-12 mx-auto d-flex justify-content-center">
+              </div>
+</div>
+        
+    </div>
+                 </div>
+     
+                   <div runat="server" id="Div">
+                   </div>
+               </div>
+          
+          <div class="text-center">
 
-    <asp:Button ID="Button1" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
-             </div>
+<section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
+    <div class="container1">
+        <div class="text-center">
+            <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
+            <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
+          </div>
         </div>
-
-           </div>
-   </div>
+      </div>
     </div>
 
+       
+</section>         
+
+
+
+
+<!-- Bootstrap core JavaScript-->
+   <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+  
+
+    <!-- Custom scripts for all pages-->
+ <script src="js/sb-admin.min.js"></script>
+
+
+
+
+        </div>
+
+
+
+    </div>
+    </div>
 </asp:Content>
 
