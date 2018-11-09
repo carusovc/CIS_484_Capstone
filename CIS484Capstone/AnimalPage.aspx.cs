@@ -18,6 +18,8 @@ public partial class AnimalPage : System.Web.UI.Page
 
         AnimalAddDiv.Visible = true;
         AnimalEditDiv.Visible = true;
+        AnimalSearchDiv.Visible = false;
+     
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -337,11 +339,13 @@ public partial class AnimalPage : System.Web.UI.Page
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
+        AnimalSearchDiv.Visible = true;
         gridSearch.DataBind();
         //gridAnimalMammal.Visible = false;
         //gridBird.Visible = false;
         //gridReptile.Visible = false;
-        gridSearch.Visible = true;
+        //gridSearch.Visible = true;
+  
 
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
@@ -353,15 +357,15 @@ public partial class AnimalPage : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
         search.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
-        //string searchAnimal = txtSearch.Text;
+        string searchAnimal = txtSearch.Text;
 
-        //DataTable dt = new DataTable();
-        //SqlDataAdapter adapt = new SqlDataAdapter("Select AnimalType, AnimalName, Status from Animal where UPPER(AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(AnimalType) like UPPER('"+ searchAnimal+"%') or UPPER(status) like UPPER('"+ searchAnimal+"%')", con);
+        DataTable dt = new DataTable();
+        SqlDataAdapter adapt = new SqlDataAdapter("Select AnimalType, AnimalName, Status from Animal where UPPER(AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(AnimalType) like UPPER('" + searchAnimal + "%') or UPPER(status) like UPPER('" + searchAnimal + "%')", con);
 
-        //adapt.Fill(dt);
-        //
-        //gridSearch.DataSource = dt;
-       // gridSearch.DataBind();
+        adapt.Fill(dt);
+
+        gridSearch.DataSource = dt;
+        gridSearch.DataBind();
     }
 }
 
