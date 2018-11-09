@@ -53,7 +53,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
 
-        <div class="modal" id="UpdateOrganization" tabindex="-1" role="dialog">
+        <div class="modal fade" id="UpdateOrganization" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -75,7 +75,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                     <h6>Select Organization</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
-                                    <asp:DropDownList ID="ddlOrganization" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
+                                    <asp:DropDownList ID="ddlOrganization" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
                                     <asp:ListItem>--Select Organization--</asp:ListItem>
                                     </asp:DropDownList>&nbsp&nbsp
                                     &nbsp;&nbsp;
@@ -141,14 +141,14 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
 
-        <div class="modal" id="AddProgram" tabindex="-1" role="dialog">
+        <div class="modal fade" id="AddProgram" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Add New Program Type</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                        </button>
+                        </button>&nbsp&nbsp
                     </div>
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
         <Triggers> 
@@ -185,7 +185,7 @@ $(".modal-wide").on("show.bs.modal", function() {
         </div>
 
 
-         <div class="modal" id="AddOrganization" tabindex="-1" role="dialog">
+         <div class="modal fade" id="AddOrganization" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -207,7 +207,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
                             <div class="row">
                                 <div class=" col-md-4 InternalOrganizationForm">
-                                    <h6>City:</h6>
+                                    <h6>City</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="textOrgCity" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -215,7 +215,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
                             <div class="row">
                                 <div class=" col-md-4 InternalOrganizationForm">
-                                    <h6>County:</h6>
+                                    <h6>County</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="textOrgCounty" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -238,7 +238,7 @@ $(".modal-wide").on("show.bs.modal", function() {
         </div>
 
 
-<div class="modal" id="AddAnimal" tabindex="-1" role="dialog">
+<div class="modal fade" id="AddAnimal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -253,7 +253,8 @@ $(".modal-wide").on("show.bs.modal", function() {
             <div class="row">
                 <div class=" col-md-4 InternalAnimalForm"><h6>Animal Type</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
-                    <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalType" runat="server">
+
+                    <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" ID="ddlAnimalType" runat="server">
                         <asp:ListItem>Bird</asp:ListItem>
                         <asp:ListItem>Mammal</asp:ListItem>
                         <asp:ListItem>Reptile</asp:ListItem>
@@ -263,14 +264,17 @@ $(".modal-wide").on("show.bs.modal", function() {
             <div class="row">
                 <div class=" col-md-4 InternalAnimalForm"><h6>Animal Name</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
-                    <asp:TextBox  class="InternalAnimalForm" ID="txtAnimalName" runat="server"></asp:TextBox>
+
+                    <asp:TextBox  class="InternalAnimalForm " ID="txtAnimalName" runat="server"></asp:TextBox>&nbsp&nbsp
                 </div>
             </div>
 
               <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
+
                     <div class=" col-md-3 InternalAnimalForm">
-                        <asp:DropDownList ID="ddlStatus" runat="server">
+
+                        <asp:DropDownList ID="ddlStatus" class="btn btn-secondary btn-sm dropdown-toggle" runat="server">
             <asp:ListItem>Active</asp:ListItem>
             <asp:ListItem>Inactive</asp:ListItem>
         </asp:DropDownList>
@@ -292,7 +296,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 </div>
 
 
-        <div class="modal" id="AddEducator" tabindex="-1" role="dialog">
+        <div class="modal fade" id="AddEducator" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -314,7 +318,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
                             <div class="row">
                                 <div class=" col-md-4 InternalEducatorForm">
-                                    <h6>Last Name:</h6>
+                                    <h6>Last Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
                                     <asp:TextBox ID="txtEducatorLastName" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -322,7 +326,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
                             <div class="row">
                                 <div class=" col-md-4 InternalEducatorForm">
-                                    <h6>Contact Email:</h6>
+                                    <h6>Contact Email</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
                                     <asp:TextBox ID="txtEducatorEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -330,7 +334,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
                             <div class="row">
                                 <div class=" col-md-4 InternalEducatorForm">
-                                    <h6>Phone Number:</h6>
+                                    <h6>Phone Number</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
                                     <asp:TextBox ID="txtEducatorPhone" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -354,7 +358,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
 
-<div class="modal" id="UpdateAnimal" tabindex="-1" role="dialog">
+<div class="modal fade" id="UpdateAnimal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -374,15 +378,17 @@ $(".modal-wide").on("show.bs.modal", function() {
           <div class="row"> 
             <div class=" col-md-4 InternalAnimalForm"><h6>Select Animal</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
-                <asp:DropDownList ID="ddlAnimal" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="AnimalName" DataValueField="AnimalID"  OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
+                <asp:DropDownList ID="ddlAnimal" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="AnimalName" DataValueField="AnimalID"  OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
                 <asp:ListItem>--Select Animal--</asp:ListItem>
-                </asp:DropDownList>
+
+                </asp:DropDownList>&nbsp&nbsp
                 </div>     
                </div>
             <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Animal Type</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
-                        <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalTypeEdit" runat="server">
+
+                        <asp:DropDownList class="InternalAnimalForm" cssclass="btn btn-secondary btn-sm dropdown-toggle" ID="ddlAnimalTypeEdit" runat="server">
                             <asp:ListItem>Bird</asp:ListItem>
                             <asp:ListItem>Mammal</asp:ListItem>
                             <asp:ListItem>Reptile</asp:ListItem>
@@ -392,14 +398,16 @@ $(".modal-wide").on("show.bs.modal", function() {
               <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Animal Name</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
-                         <asp:TextBox ID="txtBoxAnimalName" runat="server"></asp:TextBox>
+
+                         <asp:TextBox ID="txtBoxAnimalName" runat="server"></asp:TextBox>&nbsp&nbsp
                     </div>
               </div>
 
               <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
-                        <asp:DropDownList ID="ddlAnimalStatus" runat="server">
+
+                        <asp:DropDownList ID="ddlAnimalStatus" class="btn btn-secondary btn-sm dropdown-toggle" runat="server">
             <asp:ListItem>Active</asp:ListItem>
             <asp:ListItem>Inactive</asp:ListItem>
         </asp:DropDownList>
@@ -428,7 +436,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
 
-        <div class="modal" id="UpdateEducator" tabindex="-1" role="dialog">
+        <div class="modal fade" id="UpdateEducator" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -447,10 +455,11 @@ $(".modal-wide").on("show.bs.modal", function() {
                             <p>&nbsp;</p>
                             <div class="row">
                                 <div class=" col-md-4 InternalAnimalForm">
-                                    <h6>Select Educator Name</h6>
+                                    <h6>Select Educator</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
-                                    <asp:DropDownList ID="ddlEducatorName" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="EducatorFirstName" DataValueField="EducatorID"  OnSelectedIndexChanged ="ddlEducator_SelectedIndexChanged1">
+
+                                    <asp:DropDownList ID="ddlEducatorName" class="btn btn-secondary btn-sm dropdown-toggle" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="EducatorFirstName" DataValueField="EducatorID"  OnSelectedIndexChanged ="ddlEducator_SelectedIndexChanged1">
                                         <asp:ListItem>--Select Educator--</asp:ListItem>
                                     </asp:DropDownList>
                                     &nbsp;&nbsp;
@@ -458,7 +467,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
                             <div class="row">
                                 <div class=" col-md-4 InternalAnimalForm">
-                                    <h6>First Name: </h6>
+                                    <h6>First Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
                                     <asp:TextBox ID="txtEducatorFirst" runat="server"></asp:TextBox>&nbsp&nbsp
@@ -467,7 +476,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
                             <div class="row">
                                 <div class=" col-md-4 InternalAnimalForm">
-                                    <h6>Last Name: </h6>
+                                    <h6>Last Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
 

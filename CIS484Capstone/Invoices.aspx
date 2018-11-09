@@ -37,19 +37,6 @@
         <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
 
 
-        <!-- Navbar -->
-        <ul class="navbar-nav ml-auto ml-md-0">
-
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user-circle fa-fw"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-                </div>
-            </li>
-        </ul>
-
     </nav>
 
 
@@ -143,50 +130,21 @@
         </li>
 
       </ul>
+       <div id="content-wrapper">
 
-      <div id="content-wrapper">
-
-          
-
-        <div class="container-fluid ">
-
-          
-
-       <!-- Programs-->
-       <div class="row">
-		<div class="col-md-12 ProgramTitle">
-			<h1 >Invoices</h1>
-			
-		</div>
-	</div>
- <div class="row d-flex justify-content-center">
-     <br />
-		<div class=" mx-auto ">
-            <br />
-			<asp:Button class="btn btn-primary btn-inside" ID="Button1" runat="server" OnClick="btnAddPaymentForm" Text="Add Payment" />
-            
-		
-            <br />
-		</div>
+                 <section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
     
-			
-			
-		
-	</div>
-          
-            
-       <div class="row"> 
-         <div class="col-12"> <br /></div> 
-           <div class="col-md-6 mx-auto d-flex justify-content-center"> <asp:Label ID="lblResponse" runat="server" Text=""/>
-        
-            <%--<asp:DropDownList ID="drpOrg" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3" DataTextField="OrgName" DataValueField="OrgName"></asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT DISTINCT(Organization.OrgName) from Organization inner join PaymentRecord on Organization.OrgID = PaymentRecord.OrgID ">
-            </asp:SqlDataSource>--%>
-<br />
-             <asp:Label class="TextHeading" Text ="Choose a Month:" runat ="server"></asp:Label>
+
+<div class="container1">
+      <div class="card  mx-auto mt-5">
+        <div class="card-header NewUserTitle text-center">Invoices</div>
+        <div class="card-body text-center">
+           <asp:Label ID="lblResponse" class="NewUserTitle text-center" runat ="server"></asp:Label>
+       <div class="mx-auto d-flex justify-content-center">
+
                         <asp:DropDownList ID="drpMonth" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="MonthName" DataValueField="MonthName">
                         <asp:ListItem></asp:ListItem>
-                        </asp:DropDownList>
+                        </asp:DropDownList>&nbsp&nbsp&nbsp&nbsp
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(paymentDate) } 
             when 1 then 'January'
             when 2 then 'February'
@@ -207,27 +165,27 @@
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                                     SelectCommand="SELECT Distinct(YEAR(paymentDate)) AS YEAR FROM PaymentRecord"></asp:SqlDataSource>
-
-                            </div>
-                            <br />
-                            <%-- this div  is the internal div--%>
-                            <div class="block3">
-
-                                <div class="tab-content">
-
-                                    <div class="InternalTab">
-                                        <div class="col-md-12 ProgramTitle">
-                                            <br />
-                                            <div class="ReportTitle text-center">Current Invoices</div>
-
-                                        </div>
-                                    </div>
-                                    <br />
-
-                                    <div class="col-md-12 mx-auto d-flex justify-content-center">
-                                        <br />
-                                        <br />
-
+             
+       </div>
+            <br />
+                   <%-- this div  is the internal div--%>
+        <div class="block3">
+  
+                 <div class="tab-content">
+                 
+<div class="InternalTab">
+    <div class="col-md-12 ProgramTitle">
+             <br />
+			  <div class="ReportTitle text-center">Current Invoices</div>
+			
+		</div>
+	
+                         <br />
+<div class="row table-responsive mx-auto d-flex  justify-content-center">
+              <div class="col-md-10 ">
+    <br />
+     <br />
+   
                                         <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" AllowSorting="False" ShowFooter="True" OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
                                             <Columns>
                                                 <asp:TemplateField HeaderText="Select" FooterText="Total:">
@@ -283,41 +241,37 @@
                                                 <%--   <asp:ControlParameter ControlID="drpOrg" Name="OrgName" PropertyName="SelectedValue"  Type="String" />--%>
                                             </SelectParameters>
                                         </asp:SqlDataSource>
-                               
-                                        </div>
-                                    <div class="row d-flex justify-content-center">
-                                        <br />
-                                        <div class=" mx-auto ">
-                                            <br />
+                                                           </div>
+                
+     </div>
+    <div class="mx-auto d-flex justify-content-center">
                                             <asp:Button class="btn btn-primary btn-inside" ID="btnExportGrid" runat="server" Text="Export Current Invoices to Excel" OnClick="exportBtn_ClickAv" />
-                                        </div>
-                                    </div>
-                           <br />
-              
+     
+              </div>
+
+                     <br />
     </div>
                  </div>
           <p></p>
+            </div>
+              <%-- this div  is the internal div--%>
+        <div class="block3">
+  
+                 <div class="tab-content">
+                 
+<div class="InternalTab">
+    <div class="col-md-12 ProgramTitle">
+             <br />
+			  <div class="ReportTitle text-center">Cancelled Invoices</div>
+			
+		</div>
+	</div>
+                         <br />
 
-
-                        <%-- this div  is the internal div--%>
-                        <div class="block3">
-
-                            <div class="tab-content">
-
-                                <div class="InternalTab">
-                                    <div class="col-md-12 ProgramTitle">
-                                        <br />
-                                        <div class="ReportTitle text-center">Cancelled Invoices</div>
-
-                                    </div>
-                                </div>
-                                <br />
-
-                                <div class="col-md-12 mx-auto d-flex justify-content-center">
-                                    <br />
-                                    <br />
-
-
+              <div class="col-md-12 mx-auto d-flex justify-content-center">
+    <br />
+     <br />
+   
                                     <asp:GridView ID="GridView2" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" OnRowDataBound="GridView2_RowDataBound" AllowSorting="False" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
                                         <Columns>
                                             <asp:TemplateField HeaderText="Select" FooterText="Total:">
@@ -372,44 +326,30 @@
                                             <%-- <asp:ControlParameter ControlID="drpOrg" Name="OrgName" PropertyName="SelectedValue"  Type="String" />--%>
                                         </SelectParameters>
                                     </asp:SqlDataSource>
-                                </div>
+                  </div>
+                  <div class="mx-auto d-flex justify-content-center">
 
-
-
-
-                                <div class="row d-flex justify-content-center">
-                                    <br />
-                                    <div class=" mx-auto ">
-                                        <br />
                                         <asp:Button class="btn btn-primary btn-inside" ID="btnExportGrid2" runat="server" Text="Export Cancelled Invoices to Excel" OnClick="exportBtn2_ClickAv" />
-                                        <br />
-                                        <br />
-                                    </div>
-                                </div>
-          <br />
+                          
+              
               </div>
-
+                     <br />
     </div>
-                
+             <p></p>
+                 </div>
+         
 
-
-     
-          </div>         
+                   
          </div>
+          </div>
+          <p></p>
+        
+      </div>
+    </div>
 
-</div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+
+
+       
+</section>         
+
 </asp:Content>

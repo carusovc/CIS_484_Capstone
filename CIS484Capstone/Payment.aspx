@@ -35,12 +35,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-        <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
-
-        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-
+        <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
         <!-- Navbar -->
         <ul class="navbar-nav ml-auto ml-md-0">
 
@@ -74,8 +69,7 @@
           </div>
         </li>
 <%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>--%>
+          <a class="nav-link" href="AnimalPage.aspx">--%>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
            
@@ -154,9 +148,9 @@
      
  
     
-          <div class="row">
-		<div class="col-md-12 ProgramTitle">
+         
 			
+
 
   <%--  <div id="wrapper">
 
@@ -197,8 +191,8 @@
                     <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
                     <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
                     <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>--%>
-                </div>
-            </li>
+                
+          
 
 <%--            <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -227,7 +221,7 @@
 
 
 
-        </ul>--%>
+        
 
 
 
@@ -235,14 +229,15 @@
 
         <div >
             <div class="container-fluid">
-                <div class="container1">
-                    <div class="card card-register mx-auto mt-5">
+                
+    <div class="container1">
+      <div class="card card-register mx-auto mt-5">
                         <div class="card-header NewUserTitle">Add New Payment</div>
                         <div class="card-body">
                             <div class="form-group">
                                <div class="form-group row">
                             <div class="col-sm-12 col-md-6">
-                                <asp:Label ID="lblMonth" runat="server" Text="Month"></asp:Label>
+                               <h6>Month</h6>
                                
                                 <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged" Style="text-align: left;" class="form-control">
                                                 <asp:ListItem>Month</asp:ListItem>
@@ -263,7 +258,7 @@
                                 
                                    </div>
                                  <div class="col-sm-12 col-md-6">
-                                <asp:Label ID="lblDate" runat="server" Text="Date"></asp:Label>
+                                <h6>Date</h6>
                                
                                 <asp:DropDownList ID="ddlDate" runat="server" AutoPostBack="True" Style="text-align: left;" class="form-control">
 
@@ -278,7 +273,7 @@
 
                                 <div class="form-group row">
                               <div class="col-sm-12 col-md-6">
-                                <asp:Label ID="lblYear" runat="server" Text="Year" ></asp:Label>
+                                <h6>Year</h6>
                                 
                                 <asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged" class="form-control">
                                 <asp:ListItem Value="Year"></asp:ListItem>
@@ -287,7 +282,7 @@
 
                                 </div>
                                  <div class="col-sm-12 col-md-6">
-                                <asp:Label ID="lblAmount" runat="server" Text="Amount" ></asp:Label>
+                                <h6>Amount</h6>
                               
                                 <asp:TextBox ID="txtAmount" runat="server" class="form-control" placeholder ="Enter Amount"></asp:TextBox>
                                 </div>
@@ -299,13 +294,13 @@
 
                                 <div class="form-group row">
                                <div class="col-sm-12 col-md-6">
-                                <asp:Label ID="lblCheckNumber" runat="server" Text="Check Number" ></asp:Label>
+                                <h6> Check Number</h6>
                             
                                 <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" placeholder ="Enter Check Number"></asp:TextBox>
                                 </div>
 
                                  <div class="col-sm-12 col-md-6">
-                                <asp:Label ID="lblPmtType" runat="server" Text=" Or Payment Type" ></asp:Label>
+                               <h6>Or Payment Type</h6>
                                
                                 <asp:TextBox ID="txtPaymentType" runat="server" class="form-control" placeholder ="Enter Payment Type"></asp:TextBox>
                                 </div>
@@ -317,12 +312,12 @@
 
                                 <div class="form-group row">
                             <div class="col-sm-12 col-md-6">
-                                <asp:Label ID="lblOrg" runat="server" Text="Organization" ></asp:Label>
+                               <h6>Organization</h6>
                              
                                 <asp:TextBox ID="txtOrganization" runat="server" class="form-control" placeholder ="Enter Organization ID"></asp:TextBox>
                                 </div>
                                    <div class="col-sm-12 col-md-6">
-                                    <asp:Label ID="lblInvoice" runat="server" Text="Invoice Number" ></asp:Label>
+                                    <h6>Invoice Number</h6>
                                 
                                 <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder ="Enter Invoice Number"></asp:TextBox>
                                 </div>
@@ -335,7 +330,7 @@
 
                                 <div class="form-group row">
                                 <div class="col-sm-12 col-md-6">
-                                <asp:Label ID="lblCancelled" runat="server" Text="Cancelled (Y/N)" ></asp:Label>
+                                <h6>Cancelled (Y/N)</h6>
                                
                                 <asp:TextBox ID="txtCancelledChar" runat="server" MaxLength="1" Width="70px" class="form-control" placeholder ="(Y/N)"></asp:TextBox>
                                 
@@ -354,14 +349,9 @@
                    </div>
                 </div>
             </div>
-               </div>
+           
             </div>
         </div>
-               </div>
-
-        </div>
-
-               </div>
-     
+         
 </asp:Content>
 

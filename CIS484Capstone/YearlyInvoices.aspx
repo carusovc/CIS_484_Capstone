@@ -141,7 +141,7 @@
            <asp:Label ID="lblResponse" class="NewUserTitle text-center" runat ="server"></asp:Label>
        <div class="mx-auto d-flex justify-content-center">
 
- <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
+ <asp:DropDownList ID="drpYear" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
                         <asp:ListItem></asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
@@ -161,11 +161,11 @@
 			
 		</div>
 	
-                         <br />
+                      
 <div class="row table-responsive mx-auto d-flex  justify-content-center">
               <div class="col-md-10 ">
     <br />
-     <br />
+    
    
 <asp:GridView ID="GridView1" runat="server"  class="table table-bordered table-condensed table-hover" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" onrowdatabound="GridView1_RowDataBound" EmptyDataText="There are no records to display." >
         <Columns>
@@ -257,7 +257,7 @@
     <br />
      <br />
    
-<asp:GridView ID="GridView2" runat="server"  class="table table-bordered table-condensed table-hover" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" onrowdatabound="GridView2_RowDataBound" AllowSorting="True" EmptyDataText="There are no records to display.">
+<asp:GridView ID="GridView2" runat="server"  class="table table-bordered table-condensed table-hover" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" onrowdatabound="GridView2_RowDataBound" EmptyDataText="There are no records to display.">
        <Columns>
             <asp:TemplateField HeaderText ="Select"  >
             <ItemTemplate>
