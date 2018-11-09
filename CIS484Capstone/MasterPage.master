@@ -30,6 +30,15 @@
 
     <link href="~/Images/logo.png" rel="shortcut icon" type="image/x-icon" />
 
+
+
+    <script>
+$(".modal-wide").on("show.bs.modal", function() {
+  var height = $(window).height() - 200;
+  $(this).find(".modal-body").css("max-height", height);
+});
+    </script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -68,7 +77,7 @@
                                 <div class=" col-md-3 InternalAnimalForm">
                                     <asp:DropDownList ID="ddlOrganization" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
                                     <asp:ListItem>--Select Organization--</asp:ListItem>
-                                    </asp:DropDownList>
+                                    </asp:DropDownList>&nbsp&nbsp
                                     &nbsp;&nbsp;
                                 </div>
                             </div>
@@ -77,7 +86,7 @@
                                     <h6>Organization Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
-                                    <asp:TextBox ID="txtOrgName" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtOrgName" runat="server"></asp:TextBox>&nbsp&nbsp
                                 </div>
                             </div>
 
@@ -87,7 +96,7 @@
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
 
-                                    <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>&nbsp&nbsp
 
                                 </div>
                             </div>
@@ -97,7 +106,7 @@
                                     <h6>County</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
-                                    <asp:TextBox ID="txtCounty" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtCounty" runat="server"></asp:TextBox>&nbsp&nbsp
                                 </div>
                             </div>
 
@@ -199,7 +208,7 @@
                                     <h6>City:</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="textOrgCity" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="textOrgCity" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
@@ -207,7 +216,7 @@
                                     <h6>County:</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="textOrgCounty" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="textOrgCounty" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             
@@ -306,7 +315,7 @@
                                     <h6>Last Name:</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
-                                    <asp:TextBox ID="txtEducatorLastName" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtEducatorLastName" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
@@ -314,7 +323,7 @@
                                     <h6>Contact Email:</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
-                                    <asp:TextBox ID="txtEducatorEmail" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtEducatorEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
@@ -322,7 +331,7 @@
                                     <h6>Phone Number:</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
-                                    <asp:TextBox ID="txtEducatorPhone" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtEducatorPhone" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             
@@ -450,7 +459,7 @@
                                     <h6>First Name: </h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
-                                    <asp:TextBox ID="txtEducatorFirst" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtEducatorFirst" runat="server"></asp:TextBox>&nbsp&nbsp
                                 </div>
                             </div>
 
@@ -460,7 +469,7 @@
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
 
-                                    <asp:TextBox ID="txtEducatorLast" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtEducatorLast" runat="server"></asp:TextBox>&nbsp&nbsp
 
                                 </div>
                             </div>
