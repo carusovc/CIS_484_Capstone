@@ -257,7 +257,7 @@
     <br />
      <br />
    
-<asp:GridView ID="GridView2" runat="server"  class="table table-bordered table-condensed table-hover" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" onrowdatabound="GridView2_RowDataBound" AllowSorting="True" EmptyDataText="There are no records to display.">
+<asp:GridView ID="GridView2" runat="server"  class="table table-bordered table-condensed table-hover" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" onrowdatabound="GridView2_RowDataBound" EmptyDataText="There are no records to display.">
        <Columns>
             <asp:TemplateField HeaderText ="Select"  >
             <ItemTemplate>

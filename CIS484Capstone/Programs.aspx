@@ -117,6 +117,66 @@
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
+            <%--   Cs-Design View Version 
+            <span>Animals</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Reports</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Payment</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Organizations</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Educators</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="createUser.aspx"> --%>
+
+
                     <span>Animals</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -235,7 +295,7 @@
                                     <div class="tab-content">
                                         <div id="AllTab" class="tab-pane show active">
                                             <div class="block justify-content-center table-responsive">
-                                                <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
+                                                <%-- <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
                                                     <HeaderTemplate>
                                                         <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
                                                             <tr class="alert alert-primary">
@@ -280,7 +340,7 @@
                                                     <FooterTemplate>
                                                         </table>
                                                     </FooterTemplate>
-                                                </asp:Repeater>
+                                                </asp:Repeater>--%>
                                             </div>
                                         </div>
 
@@ -635,11 +695,11 @@
     </section> 
     </div>
             
-    <div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
+    <div class="modal" id="UpdateLiveProgram" tabindex="-1" role="dialog">
         <div class="modal-dialog  modal-full " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
-                    <h5 class="modal-title">Update Online Program Type</h5>
+                    <h5 class="modal-title">Update Live Program</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -907,6 +967,7 @@
         </div>
     </div>
 
+
     <%--<div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
             <div class="modal-dialog  modal-full "  role="document">
                 <div class="modal-content ">
@@ -926,178 +987,185 @@
    <div class="row">
        <div class="col-md-12 col-lg-6 
            col-sm-12">
-             Online Program ID: <br />
-           <asp:DropDownList ID="ddlOnlineProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OnlineProgramID" DataValueField="OnlineProgramID" OnSelectedIndexChanged ="ddlOnlineProgramID_SelectedIndexChanged1">
-        <asp:ListItem Text="--Select Online Program ID--" Value="0" />
-                       </asp:DropDownList>
-       </div>
-         <div class="col-md-12 col-lg-6 
+                                    Online Program ID:
+                                    <br />
+                                    <asp:DropDownList ID="ddlOnlineProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OnlineProgramID" DataValueField="OnlineProgramID" OnSelectedIndexChanged="ddlOnlineProgramID_SelectedIndexChanged1">
+                                        <asp:ListItem Text="--Select Online Program ID--" Value="0" />
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="col-md-12 col-lg-6 
            col-sm-12">
-              <p>
-     Program Date: <br />
-    <asp:TextBox ID="txtProgramDate" runat="server"></asp:TextBox>
-       </div>
+                                    <p>
+                                        Program Date:
+                                        <br />
+                                        <asp:TextBox ID="txtProgramDate2" runat="server"></asp:TextBox>
+                                </div>
 
-      
 
-   </div>
-   <div class="row">
-         <div class="col-md-12 col-lg-4 
-           col-sm-12">
-             Online Program Type: <br />
-    <asp:DropDownList ID="ddlProgramType" runat="server">
-    </asp:DropDownList>
-       </div>
-       <br />
-       <div class="col-md-12 col-lg-4 
-           col-sm-12">
-            Number of Kids: <br />
-    <asp:TextBox ID="txtNumOfKids" runat="server"></asp:TextBox>
-               
-               
-       </div>
-      
-       <div class="col-md-12 col-lg-4 
-           col-sm-12">
-            Number of Adults: <br />
-    <asp:TextBox ID="txtNumOfAdults" runat="server"></asp:TextBox>
-               
-               
-       </div>
 
-   </div>
-        <br />   
-    <div class="row">
-         <div class="col-md-12 col-lg-4 
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-4 
            col-sm-12">
-              City: <br />
-    <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
-               
-       </div>
-       <br />
-       <div class="col-md-12 col-lg-4
+                                    Online Program Type:
+                                    <br />
+                                    <asp:DropDownList ID="ddlProgramType2" runat="server">
+                                    </asp:DropDownList>
+                                </div>
+                                <br />
+                                <div class="col-md-12 col-lg-4 
            col-sm-12">
-           State: <br />
-    <asp:TextBox ID="txtState" runat="server"></asp:TextBox>
-               
-               
-       </div>
+                                    Number of Kids:
+                                    <br />
+                                    <asp:TextBox ID="txtNumOfKids" runat="server"></asp:TextBox>
 
-         <div class="col-md-12 col-lg-4 
-           col-sm-12">
-         Country: <br />
-    <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
-               
-               
-       </div>
-      <br />
-   </div>
-           <br />
-    
-      <div class="row">
-         <div class="col-md-12 col-lg-4 
-           col-sm-12">
-              Teacher: <br />
-    <asp:DropDownList ID="ddlTeacher" runat="server">
-    </asp:DropDownList>
-               
-       </div>
-       <br />
-       <div class="col-md-12 col-lg-4
-           col-sm-12">
-           Grades: <br />
-    <asp:ListBox ID="AddGrade" runat="server" SelectionMode="Multiple"><asp:ListItem Text="--Select Grades--" Value="0" /></asp:ListBox>
-               
-               
-       </div>
 
-         <div class="col-md-12 col-lg-4 
+                                </div>
+
+                                <div class="col-md-12 col-lg-4 
            col-sm-12">
-        Educators: <asp:ListBox ID="drpEducators" runat="server" SelectionMode="Multiple"><asp:ListItem Text="--Select Educators--" Value="0" /></asp:ListBox>
+                                    Number of Adults:
+                                    <br />
+                                    <asp:TextBox ID="txtNumOfAdults2" runat="server"></asp:TextBox>
 
-               
-               
-       </div>
-      
-   </div>
 
-<br />
-             
+                                </div>
 
-           <div class="row">
-       <div class="col-md-12 col-lg-4 
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12 col-lg-4 
            col-sm-12">
- 
-             Birds:
-    <asp:ListBox ID="ddlBirds" runat="server" SelectionMode="Multiple">
+                                    City:
+                                    <br />
+                                    <asp:TextBox ID="txtCity2" runat="server"></asp:TextBox>
+
+                                </div>
+                                <br />
+                                <div class="col-md-12 col-lg-4
+           col-sm-12">
+                                    State:
+                                    <br />
+                                    <asp:TextBox ID="txtState2" runat="server"></asp:TextBox>
+
+
+                                </div>
+
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Country:
+                                    <br />
+                                    <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
+
+
+                                </div>
+                                <br />
+                            </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Teacher:
+                                    <br />
+                                    <asp:DropDownList ID="ddlTeacher" runat="server">
+                                    </asp:DropDownList>
+
+                                </div>
+                                <br />
+                                <div class="col-md-12 col-lg-4
+           col-sm-12">
+                                    Grades:
+                                    <br />
+                                    <asp:ListBox ID="AddGrade2" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Grades--" Value="0" />
+                                    </asp:ListBox>
+
+
+                                </div>
+
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Educators:
+                                    <asp:ListBox ID="drpEducators2" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Educators--" Value="0" />
+                                    </asp:ListBox>
+
+
+
+                                </div>
+
+                            </div>
+
+                            <br />
+
+
+                            <div class="row">
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Birds:
+    <asp:ListBox ID="ddlBirds2" runat="server" SelectionMode="Multiple">
         <asp:ListItem Text="--Select Birds--" Value="0" />
     </asp:ListBox>
 
-         
-       <br />
-       <div class="col-md-12 col-lg-4
+
+                                    <br />
+                                    <div class="col-md-12 col-lg-4
            col-sm-12">
-      Reptiles:
-    <asp:ListBox ID="ddlReptiles" runat="server" SelectionMode="Multiple">
+                                        Reptiles:
+    <asp:ListBox ID="ddlReptiles2" runat="server" SelectionMode="Multiple">
         <asp:ListItem Text="--Select Reptiles--" Value="0" />
     </asp:ListBox>
-               
-       </div>
 
-        <div class="col-md-12 col-lg-4 
+                                    </div>
+
+                                    <div class="col-md-12 col-lg-4 
            col-sm-12">
-             Mammals: <br />
-    <asp:ListBox ID="lstMammals" runat="server" SelectionMode="Multiple">
-        <asp:ListItem Text="--Select Mammals--" Value="0" />
-    </asp:ListBox>
-            
-               
-       </div>
-      
-   </div>
+                                        Mammals:
+                                        <br />
+                                        <asp:ListBox ID="lstMammals2" runat="server" SelectionMode="Multiple">
+                                            <asp:ListItem Text="--Select Mammals--" Value="0" />
+                                        </asp:ListBox>
 
-                          <br />
-                                           <div class="row">
-       <div class="col-md-12 col-lg-3 
+
+                                    </div>
+
+                                </div>
+
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-3 
            col-sm-12">
-  Contact Email: <br />
-    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                                        Contact Email:
+                                        <br />
+                                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
 
-         
-       <br />
-       <div class="col-md-12 col-lg-9
+
+                                        <br />
+                                        <div class="col-md-12 col-lg-9
            col-sm-12">
-         Comments: <br />
-         <asp:TextBox ID="TextBotxtComments" runat="server"></asp:TextBox>
-               
-       </div>
+                                            Comments:
+                                            <br />
+                                            <asp:TextBox ID="TextBoxComments" runat="server"></asp:TextBox>
 
-     
-      
-   </div>
+                                        </div>
 
+                                    </div>
 
-        
-       
-    <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
-    &nbsp;<asp:Label ID="Label6" runat="server" Text=""></asp:Label>
-   
-      </div>
-             </ContentTemplate>
-        </asp:UpdatePanel>
-                    <div class="modal-footer">
+                                    <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
+                                    &nbsp;<asp:Label ID="Label6" runat="server" Text=""></asp:Label>
 
-                        
-   
-     
-                        
-                        
-                        <button type="button" ID="Button1" class="btn  btn-inside" runat="server" Text="Update" OnClick="btnUpdate_Click">Update</button>
-                         <button type="button"  ID="Button2" runat="server"  class="btn  btn-inside" Text="Delete" OnClick="btnDelete_Click" >Delete</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
+                                </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <div class="modal-footer">
+                    
+                    <button type="button" id="btnUpdate2" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate2_Click">Update</button>
+                    <button type="button" id="btnDelete2" runat="server" class="btn  btn-inside" text="Delete" onclick="btnDelete2_Click">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
+
         </div>--%>
 
     <!-- Bootstrap core JavaScript-->
@@ -1117,6 +1185,7 @@
 
 
 
+    </div>
     </div>
 </asp:Content>
 

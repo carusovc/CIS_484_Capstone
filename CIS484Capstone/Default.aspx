@@ -28,9 +28,17 @@
         <div class="row mx-auto ">
             <div class="col-md-12  ">
             <div class="form-group">
-            <label for="txtUsername" class="text-uppercase" runat="server">Username</label>
+            <h6>Username</h6>
                 <asp:TextBox ID="txtUsername" class="input-md textinput form-control" placeholder="Username" style="margin-bottom: 10px" type="text" runat="server"></asp:TextBox>
              </div>
+
+     <%--<div class="form-group">
+            <h6>Password</h6>
+            <asp:TextBox ID="txtPassword" class="input-md textinput textInput form-control" name="password1" placeholder="Password" style="margin-bottom: 10px" runat="server" TextMode="Password"></asp:TextBox>
+        
+  
+       <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/> </div>
+                   <br />--%>
                  </div>
             </div>
            <div class="row mx-auto  ">
@@ -76,6 +84,7 @@
             <%--This needs to be removed --%>
           
            
+
             </div>
             </div>
               </div>    
