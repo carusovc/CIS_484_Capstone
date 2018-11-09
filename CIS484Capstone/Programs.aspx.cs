@@ -21,6 +21,7 @@ public partial class Programs : System.Web.UI.Page
         {
             createAccordianUsingRepeaterLive();
             createAccordianUsingRepeaterOnline();
+            createAccordianUsingRepeaterAll();
         }
 
 
@@ -188,7 +189,7 @@ public partial class Programs : System.Web.UI.Page
         }
     }
 
-
+ 
 
     protected void OnItemDataBoundLive(object sender, RepeaterItemEventArgs e)
     {
@@ -256,6 +257,26 @@ public partial class Programs : System.Web.UI.Page
 
         rptProgramHLOnline.DataSource = GetData("SELECT OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID;"); //inner join Organization on z.OrgID = Organization.OrgID
         rptProgramHLOnline.DataBind();
+    }
+
+    //GO FOR ALL
+
+    protected void OnItemDataBoundAll(object sender, RepeaterItemEventArgs e)
+    {
+        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+        {
+            string AllProgramID = (e.Item.FindControl("hfAllProgsID") as HiddenField).Value;
+
+
+
+        }
+    }
+
+    public void createAccordianUsingRepeaterAll()
+    {
+        rptProgramHLLive.DataSource = GetData("SELECT AllProgramID, ProgramCategory, ProgramDate, ProgramType from AllPrograms;"); //inner join Organization on z.OrgID = Organization.OrgID
+        rptProgramHLLive.DataBind();
+
     }
 
     protected void btnUpdate_Click(object sender, EventArgs e)
