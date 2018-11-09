@@ -154,8 +154,7 @@
      
  
     
-          <div class="row">
-		<div class="col-md-12 ProgramTitle">
+         
 			
 
   <%--  <div id="wrapper">
@@ -197,8 +196,8 @@
                     <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
                     <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
                     <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>--%>
-                </div>
-            </li>
+                
+          
 
 <%--            <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -227,7 +226,7 @@
 
 
 
-        </ul>--%>
+        
 
 
 
@@ -235,8 +234,9 @@
 
         <div >
             <div class="container-fluid">
-                <div class="container1">
-                    <div class="card card-register mx-auto mt-5">
+                
+    <div class="container1">
+      <div class="card card-register mx-auto mt-5">
                         <div class="card-header NewUserTitle">Add New Payment</div>
                         <div class="card-body">
                             <div class="form-group">
@@ -354,14 +354,9 @@
                    </div>
                 </div>
             </div>
-               </div>
+           
             </div>
         </div>
-               </div>
-
-        </div>
-
-               </div>
-     
+         
 </asp:Content>
 

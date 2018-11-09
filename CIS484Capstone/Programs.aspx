@@ -210,7 +210,7 @@
 
                                     <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Program</div>
 
-                                    <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Edit Program</div>
+                                   
 
                                     <div class="btn btn-primary btn-inside" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live Program</div>
 
