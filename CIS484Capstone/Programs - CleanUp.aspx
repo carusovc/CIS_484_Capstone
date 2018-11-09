@@ -631,7 +631,7 @@
             </div>
 
 
-            <<div id="sampleModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myTitle" aria-hidden="true" style="z-index: 2000">
+            <div id="sampleModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myTitle" aria-hidden="true" style="z-index: 2000">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -645,82 +645,180 @@
                         <div class="modal-body">
 
                             <%-- Modal Step 1 - Selector--%>
+                  
                             <div id="SelectProgramType">
                                 <span></span>
                                 <h3>Enter your program basics</h3>
 
-                                Type of Program:
-                                <select name="LiveOnline" id="LiveOnline">
+                    <div class="form-group">
+                      <div class="form-group row">
+                                <div class ="col-3"><label id= lblProgramType for="ProgramType">Type of Program:</label></div>
+                                <div class ="col-6"> <select name="LiveOnline" id="LiveOnline" class="form-control">
                                     <option value=""></option>
                                     <option value="Live">Live Program</option>
                                     <option value="Online">Online Program</option>
 
-                                </select>
+                                </select></div>
+                    </div>
                                 <p></p>
-                                <label id="ProgramDateLabel" for="ProgramDate">Program Date:</label>:
-                                <input type="date" id="ProgramDate"/>
-                                <p></p>
-                                 <label id="ProgramTimeLabel" for="ProgramTime">Program Time:</label>:
-                                <input type="time" id="ProgramTime" />
-                                <p></p>
+                        <div class="form-group row">
+                            <div class ="col-3">
+                                <label id="ProgramDateLabel" for="ProgramDate">Program Date:</label> </div>
+                            <div class ="col-6">
+                                <input type="date" id="ProgramDate" class="form-control"/></div>
+                        </div>
+                                <%--<p></p>--%>
+                        <div class="form-group row">
+                            <div class ="col-3">
+                                <label id="ProgramTimeLabel" for="ProgramTime">Program Time:</label> </div>
+                            <div class ="col-6">
+                                <input type="time" id="ProgramTime" class="form-control"/></div>
+                        </div>
+                                <%--<p></p>--%>
 
                                 <%--<button id="btnEndSelectProgramType">NEXT STEP</button>--%>
                                 <input type="button" class="btn" id="btnEndSelectProgramType" value="Next" />
-                            </div>
+                          
+                        </div>
+                                </div>
 
 
                             <%-- Modal Step 1.1 - Live Part 1--%>
                             <div id="step11" class="hideMe">
                                 <span></span>
+
                                 <h4>Live Program Basics</h4>
 
-                                 <label id="TypeLabel" for="Type">Program Type:</label>:
-<%--                                <select name="Program Type" id="Type">
+                            <div class="form-group">
+                      
+                                <div class="form-group row">
+                                <div class ="col-5">
+                                <label id="TypeLabel" for="Type">Program Type:</label> </div>
+                                <%--                                <select name="Program Type" id="Type">
                                     <option value=""></option>
                                     <option value="T1">Birds n Stuff</option>
                                     <option value="T2">Later SQL Import</option>
 
                                 </select>--%>
+                                <div class ="col-7">
                                 <asp:DropDownList CssClass="form-control" ID="ddlProgram" runat="server" class="dropdown-menu radioButtonList">
-                                       <asp:ListItem Text="--Select Program--" Value="0" />
-                                </asp:DropDownList>
+                                    <asp:ListItem Text="--Select Program--" Value="0" />
+                                </asp:DropDownList> </div>
+                             </div>
                                 <p></p>
 
-                                 <label id="OrganizationLabel" for="Organization">Organization:</label>:
-                                 <select name="Organization">
+                                <div class="form-group row">
+                                <div class ="col-5">
+                                <label id="OrganizationLabel" for="Organization">Organization:</label> </div>
+                                <div class ="col-7">
+                                    <select name="Organization" class="form-control">
                                      <option value=""></option>
                                      <option value="T1">James Madison</option>
                                      <option value="T2">Later SQL Import</option>
 
-                                 </select>
-                                <p></p>
+                                 </select> </div> </div>
 
-                                 <label id="StatusLabel" for="Status">Program Status:</label>
-                                <select name="Program Status" id="Status">
+
+
+                                <div class="form-group row">
+                                <div class ="col-5">
+                                <label id="StatusLabel" for="Status">Program Status:</label> </div>
+                                <div class ="col-7">
+                                    <select name="Program Status" id="Status" class="form-control">
                                     <option value=""></option>
                                     <option value="T1">Not Complete</option>
                                     <option value="T2">Complete</option>
 
-                                </select>
-                                <p></p>
-
-                                <label id="PaymentLabel" for="Payment">Payment Status:</label>
-                                <select name="Payment Status" id="Payment">
+                                </select> </div></div>
+                                
+                                <div class="form-group row">
+                                <div class ="col-5">
+                                <label id="PaymentLabel" for="Payment">Payment Status:</label> </div>
+                                <div class ="col-7">
+                                <select name="Payment Status" id="Payment" class="form-control">
                                     <option value=""></option>
                                     <option value="T1">Payment Complete</option>
                                     <option value="T2">Payment Not Complete</option>
 
-                                </select>
+                                </select></div></div>
+
+                                <%--<input type="button" class="btn" id="btnEndstep11" value="Next" />--%>
+
+
+
+
+                                <%--add live part 2 to part 1 page --%>
+                                <%--<span>Location Information</span>--%>
+
+                                <div class="form-group row">
+                                <div class ="col-5">
+                                <label id="lblOnOff" for="OnOff">Was the program on or off Wildlife Center Campus?</label> </div>
+                                <div class ="col-7">
+                                <select name="OnOff" id="OnOff" onchange="scheduleA.call(this, event)" class="form-control">
+
+                                    <option value=""></option>
+                                    <option value="On">On</option>
+                                    <option value="Off">Off</option>
+                                </select></div> </div>
+
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="AddressLabel" for="Address">Program Address</label></div>
+                                <div class ="col-7">
+                                    <input type="text" id="Address" class="form-control"/> </div>
+                                    </div>
+                                
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="CityCountyLabel" for="CityCounty">City County</label></div>
+                                        <div class ="col-7">
+                                <input type="text" id="CityCounty" class="form-control"/> </div></div>
+
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="StateLabel" for="State">State</label></div>
+                                    <div class ="col-7">
+                                <input type="text" id="State" class="form-control"/></div></div>
+                                
+
+                                <%--<input type="button" class="btn" id="btnEndstep12" value="Next Step" />--%>
+
+                                <%--add live part 3 to part 1 page --%>
+                                <p></p>
+                                <label id="AddGradeLabel" for="AddGrade">Grades</label>
+                                <asp:ListBox class="form-control" ID="AddGrade" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
+                                    <asp:ListItem Text="--Select Grades--" Value="0" />
+                                </asp:ListBox>
+                                <p></p>
+                                <label id="NumOfChildrenLabel" for="NumOfChildren">Number Of Children</label>
+                                <input type="number" id="NumOfChildren" class="form-control"/>
                                 <p></p>
 
-                                <input type="button" class="btn" id="btnEndstep11" value="Next" />
+                                <label id="NumOfAdultsLabel" for="NumOfAdults">Number Of Adults</label>
+                                <input type="number" id="NumOfAdults" class="form-control"/>
+                                <p></p>
+
+                                <%--<input type="button" class="btn" id="btnEndstep13" value="Next Step" />--%>
+
+
+
+                                <%--add live part 4 to part 1 page --%>
+                                <label id="CommentsLabel" for="Comments">Additional Comments</label>
+                                <textarea name="Comments" id="Comments" rows="5" cols="100" class="form-control"></textarea>
+
+                                <p></p>
+                                <asp:Button ID="btnEndstep14" runat="server" Text="Submit" />
 
                             </div>
+
+                                
+                            </div>
+
 
 
                             <%-- Modal Step 1.2 - Live Part 2--%>
                             <div id="step12" class="hideMe">
-                                <span>Location Information</span>
+                                <%--<span>Location Information</span>
 
                                 Was the program on or off Wildlife Center Campus?
                                 <select name="OnOff" Id="OnOff" onchange="scheduleA.call(this, event)">
@@ -741,14 +839,13 @@
                                 <input type="text" id="State"/>
                                 <p></p>
 
-                                <input type="button" class="btn" id="btnEndstep12" value="Next Step" />
-
+                                <input type="button" class="btn" id="btnEndstep12" value="Next Step" />--%>
                             </div>
 
 
                             <%--  Modal Step 1.3 - Live Part 3--%>
                             <div id="step13" class="hideMe">
-                                <span>Attendance Information</span>
+                                <%--<span>Attendance Information</span>
                                 <p></p>
                                 <label id="AddGradeLabel" for="AddGrade">Grades</label>
                                 <asp:ListBox CssClass="form-control" ID="AddGrade" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
@@ -763,75 +860,163 @@
                                 <input type="number" id="NumOfAdults"/>
                                 <p></p>
                                
-                                <input type="button" class="btn" id="btnEndstep13" value="Next Step" />
-
+                                <input type="button" class="btn" id="btnEndstep13" value="Next Step" />--%>
                             </div>
 
                             <%--Modal Step 1.4 - Live Part 4/Final--%>
                             <div id="step14" class="hideMe">
-                                <span>Other Comments</span>
+                                <%--<span>Other Comments</span>
 
                                 <label id="CommentsLabel" for="Comments">Additional Comments</label>
                                  <textarea name="Comments" id="Comments" rows="5" cols="100"></textarea>
 
                                 <p></p>
-                                <asp:Button ID="btnEndstep14" runat="server" Text="Submit" />
+                                <asp:Button ID="btnEndstep14" runat="server" Text="Submit" />--%>
                             </div>
+
+
+
+
+
 
                             <%--Modal Step 2.1 - Online Part 1--%>
                             <div id="step21" class="hideMe">
                                 <span>Online Program Basics</span>
                                 <p></p>
-                                 <label id="OnlineTypeLabel" for="Type">Online Program Type:</label>:
+                            <div class="form-group">
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="OnlineTypeLabel" for="Type">Online Program Type:</label> </div>
                                 <%--<select name="Program Type" id="OnlineType">
                                     <option value=""></option>
                                     <option value="T1">Birds n Stuff</option>
                                     <option value="T2">Later SQL Import</option>--%>
+                                    <div class ="col-7">
                                 <asp:DropDownList CssClass="form-control" ID="ddlProgramType" runat="server" SelectionMode="Multiple" class="dropdown-menu">
                                     <asp:ListItem Text="--Select Program Type--" Value="0" />
-                                </asp:DropDownList>
+                                </asp:DropDownList> </div></div>
 
                                 <%--</select>--%>
-                                <p></p>
-                                <label id="EducatorLabel" for="Educator">Educator:</label>
-<%--                                <input type="text" id="Educator"/>--%>
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="EducatorLabel" for="Educator">Educator:</label></div>
+                                <%--                                <input type="text" id="Educator"/>--%>
+                                <div class ="col-7">
                                 <asp:ListBox CssClass="form-control" ID="drpEducators" runat="server" SelectionMode="Multiple">
-                                     <asp:ListItem Text="--Select Educators--" Value="0" />
+                                    <asp:ListItem Text="--Select Educators--" Value="0" />
+                                </asp:ListBox> </div></div>
+                               
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="ContactEmailLabel" for="ContactEmail">Contact Email:</label></div>
+                                        <div class ="col-7">
+                                <input type="email" id="ContactEmail" class="form-control"/>
+                                </div></div>
+
+
+                                <%--<input type="button" class="btn" id="btnEndstep21" value="Next" />--%>
+
+
+                                <%--Add Online part 2 to online part 1--%>
+                                <%--<span>Online Program Location</span>--%>
+
+                                
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="OnlineCityCountyLabel" for="OnlineCityCounty">City or County</label></div>
+                                <div class ="col-7">
+                                    <input type="text" id="OnlineCityCounty" class="form-control"/></div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="OnlineStateLabel" for="OnlineState">State</label></div>
+                                    <div class ="col-7">
+                                <input type="text" id="OnlineState" class="form-control"/></div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="CountryLabel" for="Country">Country</label></div>
+                                    <div class ="col-7">
+                                <input type="text" id="Country" class="form-control"/></div>
+                                </div>
+
+                                <%--<input type="button" class="btn" id="btnEndstep22" value="Next" />--%>
+
+
+
+                                <%--Add Online part 3 to online part 1--%>
+                                <%--<span>Attendance Information</span>--%>
+                                
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="OnlineGradesLabel" for="OnlineGrades">Add Grades:</label></div>
+                                <div class ="col-7">
+                                    <asp:ListBox CssClass="form-control" ID="OnlineGrades" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
+                                    <asp:ListItem Text="--Select Grades--" Value="0" />
                                 </asp:ListBox>
-                                <p></p>
-                                 <label id="ContactEmailLabel" for="ContactEmail">Contact Email:</label>
-                                <input type="email" id="ContactEmail"/>
-                                <p></p>
+                                </div> </div>
+
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="OnlineNumOfChildrenLabel" for="OnlineNumOfChildren">Number Of Children:</label></div>
+                                <div class ="col-7">
+                                    <input type="number" id="OnlineNumOfChildren" class="form-control"/></div>
+                               </div>
+
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="OnlineNumOfAdultsLabel" for="OnlineNumOfAdults">Number Of Adults:</label></div>
+                                <div class ="col-7">
+                                    <input type="number" id="OnlineNumOfAdults" class="form-control" /></div>
+                                </div>
+
+                                <%--<input type="button" class="btn" id="btnEndstep23" value="Next" />--%>
 
 
-                                <input type="button" class="btn" id="btnEndstep21" value="Next" />
 
+                                <%--Add Online part 4 to online part 1--%>
+                                <%--<span>Other Comments</span>--%>
+
+                                <div class="form-group row">
+                                    <div class ="col-5">
+                                <label id="OnlineCommentsLabel" for="OnlineComments">Additional Comments</label></div>
+                                    <div class ="col-7">
+                                <textarea name="Comments" id="OnlineComments" rows="5" cols="100" class="form-control"></textarea></div>
+                                </div>
+
+
+                               
+                                <input type="button" class="btn" id="btnEndstep24" value="Submit" />
+
+                            </div>
                             </div>
 
 
                             <%-- Modal Step 2.2 - Online Part 2--%>
                             <div id="step22" class="hideMe">
-                                <span>Online Program Location</span>
+                                <%--<span>Online Program Location</span>
 
                                 <p></p>
 
                                 <label id="OnlineCityCountyLabel" for="OnlineCityCounty">City or County</label>
-                                <input type="text" id="OnlineCityCounty"/>
+                                <input type="text" id="OnlineCityCounty" />
                                 <p></p>
                                 <label id="OnlineStateLabel" for="OnlineState">State</label>
-                                <input type="text" id="OnlineState"/>
+                                <input type="text" id="OnlineState" />
                                 <p></p>
                                 <label id="CountryLabel" for="Country">Country</label>
-                                <input type="text" id="Country"/>
+                                <input type="text" id="Country" />
                                 <p></p>
 
-                                <input type="button" class="btn" id="btnEndstep22" value="Next" />
+                                <input type="button" class="btn" id="btnEndstep22" value="Next" />--%>
 
                             </div>
 
-                           <%--  Modal Step 2.3 - Live Part 3--%>
+                            <%--  Modal Step 2.3 - Live Part 3--%>
                             <div id="step23" class="hideMe">
-                                <span>Attendance Information</span>
+                                <%--<span>Attendance Information</span>
                                 <p></p>
                                 <label id="OnlineGradesLabel" for="OnlineGrades">Add Grades:</label>
                                 <asp:ListBox CssClass="form-control" ID="OnlineGrades" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
@@ -839,26 +1024,26 @@
                                 </asp:ListBox>
                                 <p></p>
                                 <label id="OnlineNumOfChildrenLabel" for="OnlineNumOfChildren">Number Of Children:</label>
-                                <input type="number" id="OnlineNumOfChildren"/>
+                                <input type="number" id="OnlineNumOfChildren" />
                                 <p></p>
 
-                                 <label id="OnlineNumOfAdultsLabel" for="OnlineNumOfAdults">Number Of Adults:</label>
-                                <input type="number" id="OnlineNumOfAdults"/>
+                                <label id="OnlineNumOfAdultsLabel" for="OnlineNumOfAdults">Number Of Adults:</label>
+                                <input type="number" id="OnlineNumOfAdults" />
                                 <p></p>
-                               
-                                <input type="button" class="btn" id="btnEndstep23" value="Next" />
+
+                                <input type="button" class="btn" id="btnEndstep23" value="Next" />--%>
 
                             </div>
 
                             <%--Modal Step 2.4 - Live Part 4/Final--%>
                             <div id="step24" class="hideMe">
-                                <span>Other Comments</span>
+                                <%--<span>Other Comments</span>
 
                                 <label id="OnlineCommentsLabel" for="OnlineComments">Additional Comments</label>
-                                 <textarea name="Comments" id="OnlineComments" rows="5" cols="100"></textarea>
+                                <textarea name="Comments" id="OnlineComments" rows="5" cols="100"></textarea>
 
                                 <p></p>
-                                <input type="button" class="btn" id="btnEndstep24" value="Submit" />
+                                <input type="button" class="btn" id="btnEndstep24" value="Submit" />--%>
                             </div>
                         </div>
                         <div class="modal-footer"></div>
@@ -884,7 +1069,7 @@
                 });
 
                 //Logic for Live Programs 1.1 through 1.4
-               
+
                 $("#btnEndstep11").click(function () {
                     $("#step11").addClass('hideMe');
                     $("#step12").removeClass('hideMe');
@@ -920,12 +1105,12 @@
                     $("#step13").removeClass('hideMe');
                 });
 
-                 $("#btnEndstep13").click(function () {
+                $("#btnEndstep13").click(function () {
                     $("#step13").addClass('hideMe');
                     $("#step14").removeClass('hideMe');
                 });
 
-                  $("#btnEndstep14").click(function () {
+                $("#btnEndstep14").click(function () {
                     // Whatever your final validation and form submission requires
                     $("#sampleModal").modal("hide");
                 });
@@ -938,12 +1123,12 @@
                     $("#step22").removeClass('hideMe');
                 });
 
-                 $("#btnEndstep22").click(function () {
+                $("#btnEndstep22").click(function () {
                     $("#step22").addClass('hideMe');
                     $("#step23").removeClass('hideMe');
                 });
 
-                 $("#btnEndstep23").click(function () {
+                $("#btnEndstep23").click(function () {
                     $("#step23").addClass('hideMe');
                     $("#step24").removeClass('hideMe');
                 });
@@ -954,7 +1139,7 @@
                 });
 
 
-                
+
 
 
 
@@ -970,7 +1155,7 @@
     </body>
 
 
-    </div>
+    
 </asp:Content>
 
 
