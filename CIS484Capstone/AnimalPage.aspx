@@ -159,7 +159,9 @@
             <%--<section class="card card-register mx-auto mt-5">--%>
     <div class="container1">
       <div class="card  mx-auto mt-5">
-        <div class="card-header NewUserTitle text-center">Animal Listing</div>
+        <div class="card-header NewUserTitle text-center">
+           
+            Animal Listing</div>
         <div class="card-body">
             <div class="mx-auto d-flex justify-content-center">
                 <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Animal</div>
@@ -172,7 +174,10 @@
                 <div class=" col-md-4 ml-auto InternalAnimalForm">
                     <asp:TextBox  class="InternalAnimalForm" ID="txtSearch" runat="server"></asp:TextBox>
                     <asp:Button ID ="btnSearch" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
+                    &nbsp;&nbsp;&nbsp;
+                    
                 </div>
+            
             </div>
             <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
     <div class="container1 block">
@@ -566,6 +571,17 @@
                         
                     </asp:DropDownList>&nbsp;&nbsp;
                 </div>
+                     
+            </div>
+            <div class ="row">
+                <div class =" col-md-4 InternalAnimalForm">
+                    Upload Picture: <asp:FileUpload ID="FileUpload1" runat="server" />
+                    </div>
+            </div>
+            <div class ="row">
+                <div class =" col-md-4 InternalAnimalForm">
+                    <asp:Image ID="animalImage" runat="server" />
+                    </div>
             </div>
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>&nbsp;
             <asp:Label ID="Label2" runat="server" Text=""></asp:Label>

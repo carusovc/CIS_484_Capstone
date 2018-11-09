@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,14 +14,6 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 {
     public string selectedAnimal;
 
-
-    //public string conString = "Data Source=localhost;Initial Catalog=WildTek;Integrated Security=True";
-
-    //SqlConnection con;
-
-
-
-
     System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
 
     protected void Page_Load(object sender, EventArgs e)
@@ -30,14 +23,13 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         if (!IsPostBack)
         {
 
-
             drpAnimalType.Items.Add("Bird");
             drpAnimalType.Items.Add("Mammal");
             drpAnimalType.Items.Add("Reptile");
 
             insert.CommandText = "select * from dbo.Animal where animalType = 'bird'";
 
-           ShowData();
+            ShowData();
 
         }
 
@@ -96,18 +88,46 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
     {
         Response.Redirect("ReportChoice.aspx");
     }
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        gridSearch.DataBind();
+        gridOnlinePrograms.Visible = false;
+        AnimalLiveGrid.Visible = false;
+        gridSearch.Visible = true;
+
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+        search.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+        string searchAnimal = txtSearch.Text;
+
+        DataTable dt = new DataTable();
+
+        SqlDataAdapter adapt = new SqlDataAdapter("Select a.AnimalType, a.AnimalName, (Count(p.AnimalID) + COUNT(o.AnimalID)) as TotalPrograms from Animal a full join ProgramAnimal p on a.AnimalID = p.AnimalID full join OnlineAnimal o on a.animalID = o.animalID where UPPER(a.AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(a.AnimalType) like UPPER('" + searchAnimal + "%') group by a.animalName, a.animalType", con);
+
+        adapt.Fill(dt);
+
+        gridSearch.DataSource = dt;
+        gridSearch.DataBind();
+    }
 
     private void ExportToExcel(GridView GridView1)
     {
 
-            GridView1.AllowPaging = false;
-           ShowData();
-            String animalReport = "Animal Type: " + drpAnimalType.SelectedValue.ToString() + " Report ";
-            String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
-            HttpResponse response = HttpContext.Current.Response;
+        GridView1.AllowPaging = false;
+        ShowData();
+        String animalReport = "Animal Type: " + drpAnimalType.SelectedValue.ToString() + " Report ";
+        String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+        HttpResponse response = HttpContext.Current.Response;
 
         StringWriter sw = new StringWriter();
-            HtmlTextWriter htW = new HtmlTextWriter(sw);
+        HtmlTextWriter htW = new HtmlTextWriter(sw);
 
         StringWriter sw2 = new StringWriter();
         HtmlTextWriter htW2 = new HtmlTextWriter(sw2);
@@ -115,32 +135,32 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         //StringWriter sw3 = new StringWriter();
         //HtmlTextWriter htW3 = new HtmlTextWriter(sw3);
         response.Clear();
-            response.Buffer = true;
-            response.Charset = "";
-            response.ContentType = "application/vnd.xls";
-            response.AddHeader("content-disposition", "attachment; filename=\"" + animalReport + filename + "\"" + ".xls");
+        response.Buffer = true;
+        response.Charset = "";
+        response.ContentType = "application/vnd.xls";
+        response.AddHeader("content-disposition", "attachment; filename=\"" + animalReport + filename + "\"" + ".xls");
 
 
 
 
-       // AnimalLiveGrid.RenderControl(htW);
+        // AnimalLiveGrid.RenderControl(htW);
         //AnimalLiveGrid.RenderControl(htW2);
         //AnimalLiveGrid.RenderControl(htW3);
 
         string headerTable = @"<Table>" + animalReport + " " + filename + "<tr><td></td></tr></Table>";
         string headerTable1 = @"<Table>" + drpAnimalType.SelectedValue.ToString() + " Totals Based on Live Programs <tr><td></td></tr></Table>";
-        string headerTable2 = @"<Table>" + drpAnimalType.SelectedValue.ToString()  + " Totals Based on Online Programs <tr><td></td></tr></Table>";
-        string headerTable3 = @"<Table> Totals Based on " + drpAnimalType.SelectedValue.ToString()+ "<tr><td></td></tr></Table>";
+        string headerTable2 = @"<Table>" + drpAnimalType.SelectedValue.ToString() + " Totals Based on Online Programs <tr><td></td></tr></Table>";
+        string headerTable3 = @"<Table> Totals Based on " + drpAnimalType.SelectedValue.ToString() + "<tr><td></td></tr></Table>";
 
         string blankline = @"<Table><tr><td></td></tr></Table>";
         Response.Write(headerTable);
         Response.Write(headerTable1);
-             AnimalLiveGrid.RenderControl(htW);
-            Response.Output.Write(sw.ToString());
+        AnimalLiveGrid.RenderControl(htW);
+        Response.Output.Write(sw.ToString());
         Response.Write(blankline);
 
         Response.Write(headerTable2);
-        gridOnlinePrograms.RenderControl(htW2);      
+        gridOnlinePrograms.RenderControl(htW2);
         Response.Output.Write(sw2.ToString());
         Response.Write(blankline);
 
@@ -165,7 +185,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
     protected void btnToExcel_Click1(object sender, EventArgs e)
     {
         ExportToExcel(AnimalLiveGrid);
-  
+
     }
 
 
