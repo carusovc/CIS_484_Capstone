@@ -46,7 +46,7 @@
       <ul class="sidebar navbar-nav">
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-          
+
           <%--<a class="nav-link" href="Programs.aspx">--%>
             <%--<i class="fas fa-fw fa-book-open"></i>--%>
             <span>Programs</span>
@@ -61,7 +61,7 @@
             <i class="fas fa-fw fa-book-open"></i>--%>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-          
+
             <span>Animals</span>
           </a>
             <div class="dropdown-menu dropdown-menu-right" >
@@ -86,7 +86,7 @@
         </li>
           <li class="nav-item dropdown no-arrow active">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-           
+
             <span>Payment</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -343,31 +343,5 @@
        
 </section>         
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              
 </asp:Content>
 

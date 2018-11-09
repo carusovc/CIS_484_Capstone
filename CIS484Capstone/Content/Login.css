@@ -97,7 +97,7 @@ body, html {
 }
 
 .login-block {
-    /*padding-top: 2%;*/
+    padding-top: 30px !important;
 }
 
 .logo {
@@ -151,15 +151,16 @@ body, html {
     }
 
 .btn-inside {
-    background: #d55c1d;
+    background: #d55c1d !important;
     color: #fff;
     font-weight: 600;
-    border: 0px;
+    border: 0px #d55c1d;
     margin-left: 5px !important;
     margin-right: 5px !important;
     margin-bottom: 5px !important;
 }
 
+.btn-secondary {margin-bottom: 5px;}
 .btn-login:hover {
     background: #DE8372;
 }
