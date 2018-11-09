@@ -281,6 +281,7 @@
             
             <asp:BoundField DataField="NumberOfPeople" HeaderText="Number Of People" SortExpression="NumberOfPeople" >
             
+
             <HeaderStyle HorizontalAlign="Center" />
             <ItemStyle HorizontalAlign="Center" />
             </asp:BoundField>
@@ -339,7 +340,6 @@
 
 </div>
 
-    </div>
-    </div>
+
 </asp:Content>
 

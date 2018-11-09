@@ -14,7 +14,7 @@ body html {
 
 body {
     /*background-image: url(../Images/FlyingBirdsBG.jpg);*/
-    background-color: #919b90;
+    background-color: #455379;
     height: auto; /* You must set a specified height */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -474,6 +474,10 @@ body.sidebar-toggled footer.sticky-footer {
 
 sampleModal
 /* Program Info*/
+.ChildGrid {
+    grid-row-gap: 5000px;
+}
+
 .user-row {
     margin-bottom: 14px;
 }
@@ -871,9 +875,6 @@ a.TabStyle {
 
 
 
-
-
-
 .tab-pane {
     padding-left: 5px !important;
 }
@@ -915,4 +916,9 @@ a.TabStyle {
         border: medium none;
         border-radius: 0;
         color: #fff;
+    }
+
+    .error{
+        font-size:75%;
+        color:red;
     }

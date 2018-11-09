@@ -150,7 +150,7 @@
 
 
 
-      <section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
+   <%--   <section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
     
 
 <div class="container1">
@@ -225,15 +225,74 @@
                    </div>
                </div>
           
-          <div class="text-center">
+          <div class="text-center"> --%>
+
+<section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
+    <div class="container1">
+      <div class="card  mx-auto mt-5">
+        <div class="card-header NewUserTitle text-center">Animal Listing</div>
+        <div class="card-body">
+            <div class="mx-auto d-flex justify-content-center">
+                <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Animal</div>
+                <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal">Edit Animal</div>
+            </div>
+            <%-- this div  is the internal div--%>
+            <ul class="nav nav-tabs block4" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active TabStyle" data-toggle="tab" href="#AllTab" style="color:black;">All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#MammalTab" style="color:black;">Mammals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#ReptileTab" style="color:black;">Reptiles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#BirdTab" style="color:black;">Birds</a>
+
+                </li>
+
+            </ul>
+            <div class="tab-content">
+                <div id="AllTab" class="container1 block3 tab-pane  WildTable active">
+                    <div class="InternalTab">
+                        <p>  Hello</p>
+                        <br />
+                        <br /><br /><br />
+                    </div>
+                </div>
+                <div id="MammalTab" class="container1 block3 tab-pane WildTable">
+                    <div class="InternalTab">
+                        <p> There</p>
+                        <br />
+                        <br /><br /><br />
+                    </div>
+                </div>
+                <div id="ReptileTab" class="container1 block3 tab-pane fade WildTable">
+                    <div class="InternalTab">
+                        <p> My</p>
+                        <br />
+                        <br /><br /><br />
+                    </div>
+                </div>
+                <div id="BirdTab" class="container1 block3 tab-pane fade WildTable">
+                    <div class="InternalTab">
+                        <p> Friend</p>
+                        <br />
+                        <br /><br /><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+      </div>
+        <div class="text-center">
             <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
             <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
           </div>
         </div>
       </div>
     </div>
-
-
 
        
 </section>         
