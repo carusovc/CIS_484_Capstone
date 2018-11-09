@@ -307,7 +307,7 @@ public partial class Programs : System.Web.UI.Page
         }
     }
 
- 
+
 
     protected void OnItemDataBoundLive(object sender, RepeaterItemEventArgs e)
     {
@@ -379,11 +379,36 @@ public partial class Programs : System.Web.UI.Page
 
     //GO FOR ALL
 
+
+    protected void OnItemDataBoundAll(object sender, RepeaterItemEventArgs e)
+    {
+        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+        {
+            string ProgramID = (e.Item.FindControl("hfProgramIDAll") as HiddenField).Value;
+           
+
+
+    //    }
+    //}
+
+
+    public void createAccordianUsingRepeaterAll()
+    {
+
+     
+
+        rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramDate Desc;");
+        rptProgramHLAll.DataBind();
+
+
+    //}
+
+
     //protected void OnItemDataBoundAll(object sender, RepeaterItemEventArgs e)
     //{
     //    if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
     //    {
-    //        string AllProgramID = (e.Item.FindControl("hfAllProgsID") as HiddenField).Value;
+    //        string AllProgramID = (e.Item.FindControl("hfAllProgramsID") as HiddenField).Value;
 
 
 
@@ -397,8 +422,6 @@ public partial class Programs : System.Web.UI.Page
 
     //}
 
-
-    //Live Program Update
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();

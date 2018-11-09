@@ -76,4 +76,7 @@
     <asp:Button ID="btnUpdate2" runat="server" Text="Update" OnClick="btnUpdate2_Click" />
 &nbsp;
     <asp:Button ID="Delete" runat="server" OnClick="Delete_Click2" Text="Delete" />
+    <%-- <asp:Button ID="btnUpdate" runat="server" Text="Update"/>
+&nbsp;
+    <asp:Button ID="btnDelete" runat="server" Text="Delete" /> --%>
 </asp:Content>

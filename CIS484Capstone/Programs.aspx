@@ -117,6 +117,66 @@
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
+            <%--   Cs-Design View Version 
+            <span>Animals</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Reports</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Payment</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Organizations</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Educators</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="createUser.aspx"> --%>
+
+
                     <span>Animals</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -210,7 +270,7 @@
 
                                     <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Program</div>
 
-                                    <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Edit Program</div>
+                                   
 
                                     <div class="btn btn-primary btn-inside" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live Program</div>
 
@@ -231,18 +291,16 @@
                                             <a class="nav-link TabStyle" data-toggle="tab" href="#OnlineTab" style="color: black;">Online Programs</a>
                                     </ul>
 
+                                    <%-- Version 1 All --%>
                                     <div class="tab-content">
-                                        <div id="AllTab" class="tab-pane fade in">
-
-                                            <%--VERSION 1 Live--%>
+                                        <div id="AllTab" class="tab-pane show active">
                                             <div class="block justify-content-center table-responsive">
                                                 <%-- <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
                                                     <HeaderTemplate>
                                                         <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
                                                             <tr class="alert alert-primary">
-                                                                <th scope="col">&nbsp
-                                                                </th>
-
+                                                                <th scope="col"></th>
+                                                                 <th scope="col"></th>
                                                                 <th scope="col">Program Category
                                                                 </th>
                                                                 <th scope="col">Program Date
@@ -254,8 +312,14 @@
                                                     </HeaderTemplate>
                                                     <ItemTemplate>
                                                         <tr>
+                                                            <asp:HiddenField ID="hfProgramIDAll" runat="server" Value='<%# Eval("AllProgramID") %>' />
                                                             <td>
-                                                                <asp:HiddenField ID="hfAllProgsID" runat="server" Value='<%# Eval("AllProgramID") %>' />
+                                                                <img  alt="" style="cursor: pointer; " src="#" />
+
+                                                            </td>
+                                                               <td>
+                                                                <img  alt="" style="cursor: pointer; " src="#" />
+
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="Label2" runat="server" Text='<%# Eval("ProgramCategory") %>' />
@@ -266,10 +330,11 @@
 
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("ProgramType") %>' />
+                                                                <asp:Label ID="lblOrganization" runat="server" Text='<%# Eval("ProgramType") %>' />
 
                                                             </td>
                                                             <td></td>
+
                                                         </tr>
                                                     </ItemTemplate>
                                                     <FooterTemplate>
@@ -308,14 +373,14 @@
 
                                                                         <HeaderTemplate>
 
-                                                                            <table class="ChildGrid table table-borderless table-condensed WideTable  col-md-12" border="0" table-layout: fixed>
+                                                                            <table class="ChildGrid table table-striped table-borderless table-condensed WideTable  col-md-12" border="0" table-layout: fixed>
 
                                                                                 <tr class="row">
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Status
+                                                                                    <th class="col-md-4" scope="col">Status
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Number of Children
+                                                                                    <th class="col-md-4" scope="col">Number of Children
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Number of Adults
+                                                                                    <th class="col-md-4" scope="col">Number of Adults
                                                                                     </th>
 
                                                                                 </tr>
@@ -346,15 +411,15 @@
 
                                                                         <HeaderTemplate>
 
-                                                                            <table class="ChildGrid table table-borderless table-condensed WideTable" border="0" table-layout: fixed>
+                                                                            <table class="ChildGrid table table-striped table-borderless table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                 <tr class="row">
 
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Street Addess
+                                                                                    <th class="col-md-4" scope="col">Street Addess
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>City County
+                                                                                    <th class="col-md-4" scope="col">City County
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>State
+                                                                                    <th class="col-md-4" scope="col">State
                                                                                     </th>
 
                                                                                 </tr>
@@ -385,14 +450,14 @@
 
                                                                         <HeaderTemplate>
 
-                                                                            <table class="ChildGrid table table-borderless table-condensed WideTable" border="0" table-layout: fixed>
+                                                                            <table class="ChildGrid table  table-striped table-borderless table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                 <tr class="row">
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>On/Off Site
+                                                                                    <th class="col-md-4" scope="col">On/Off Site
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Payment Satus
+                                                                                    <th class="col-md-4" scope="col">Payment Satus
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Comments
+                                                                                    <th class="col-md-4" scope="col">Comments
                                                                                     </th>
 
                                                                                 </tr>
@@ -472,7 +537,7 @@
 
                                                                         <HeaderTemplate>
 
-                                                                            <table class="ChildGrid table table-condensed WideTable " border="0" table-layout: fixed>
+                                                                            <table class="ChildGrid table table-striped table-condensed WideTable " border="0" table-layout: fixed>
 
                                                                                 <tr class="row">
 
@@ -510,7 +575,7 @@
 
                                                                         <HeaderTemplate>
 
-                                                                            <table class="ChildGrid table table-condensed WideTable" border="0" table-layout: fixed>
+                                                                            <table class="ChildGrid table table-striped table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                 <tr class="row">
 
@@ -548,7 +613,7 @@
 
                                                                         <HeaderTemplate>
 
-                                                                            <table class="ChildGrid table table-condensed WideTable" border="0" table-layout: fixed>
+                                                                            <table class="ChildGrid table table-striped table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                 <tr class="row">
                                                                                     <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Contact Email
@@ -903,25 +968,24 @@
     </div>
 
 
-
-    <div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
-        <div class="modal-dialog  modal-full " role="document">
-            <div class="modal-content ">
-                <div class="modal-header">
-                    <h5 class="modal-title">Update Online Program </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="ddlOrganization" EventName="SelectedIndexChanged" />
-                    </Triggers>
-                    <ContentTemplate>
-                        <div class="modal-body">
-
-                            <div class="row">
-                                <div class="col-md-12 col-lg-6 
+    <%--<div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
+            <div class="modal-dialog  modal-full "  role="document">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Update Online Program </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <Triggers> 
+            <asp:AsyncPostBackTrigger ControlID="ddlOrganization" EventName="SelectedIndexChanged" /> 
+        </Triggers> 
+            <ContentTemplate>
+                    <div class="modal-body">
+       
+   <div class="row">
+       <div class="col-md-12 col-lg-6 
            col-sm-12">
                                     Online Program ID:
                                     <br />
@@ -1101,8 +1165,8 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
-        </div>
-    </div>
+
+        </div>--%>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
