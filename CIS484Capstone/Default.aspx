@@ -23,10 +23,10 @@
 <div class="container1">
       <div class="card card-register mx-auto mt-5 " style="width: 24rem;">
         <div class="card-header NewUserTitle">Wildlife Center Login</div>
-        <div class="card-body">
+        <div class="card-body ">
         
-        <div class="row mx-auto ">
-            <div class="col-md-12  ">
+        <div class="row mx-auto">
+            <div class="col-md-12   ">
             <div class="form-group">
             <h6>Username</h6>
                 <asp:TextBox ID="txtUsername" class="input-md textinput form-control" placeholder="Username" style="margin-bottom: 10px" type="text" runat="server"></asp:TextBox>
@@ -44,7 +44,7 @@
            <div class="row mx-auto  ">
             <div class="col-md-12  ">
                   <div class="form-group">
-                <label for="txtPassword" class="text-uppercase" runat="server">Password</label>
+             <h6>Password</h6>
             <asp:TextBox ID="txtPassword" class="input-md textinput textInput form-control" name="password1" placeholder="Password" style="margin-bottom: 10px" runat="server" TextMode="Password"></asp:TextBox>
        <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>
        </div>

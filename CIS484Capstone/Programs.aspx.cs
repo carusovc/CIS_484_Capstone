@@ -21,7 +21,7 @@ public partial class Programs : System.Web.UI.Page
         {
             createAccordianUsingRepeaterLive();
             createAccordianUsingRepeaterOnline();
-            //createAccordianUsingRepeaterAll();
+            createAccordianUsingRepeaterAll();
         }
 
 
@@ -385,42 +385,21 @@ public partial class Programs : System.Web.UI.Page
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
         {
             string ProgramID = (e.Item.FindControl("hfProgramIDAll") as HiddenField).Value;
-           
 
 
-    //    }
-    //}
+
+        }
+    }
 
 
     public void createAccordianUsingRepeaterAll()
     {
 
-     
-
         rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramDate Desc;");
         rptProgramHLAll.DataBind();
+    }
 
 
-    //}
-
-
-    //protected void OnItemDataBoundAll(object sender, RepeaterItemEventArgs e)
-    //{
-    //    if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-    //    {
-    //        string AllProgramID = (e.Item.FindControl("hfAllProgramsID") as HiddenField).Value;
-
-
-
-    //    }
-    //}
-
-    //public void createAccordianUsingRepeaterAll()
-    //{
-    //    rptProgramHLLive.DataSource = GetData("SELECT AllProgramID, ProgramCategory, ProgramDate, ProgramType from AllPrograms;"); //inner join Organization on z.OrgID = Organization.OrgID
-    //    rptProgramHLLive.DataBind();
-
-    //}
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
@@ -1508,3 +1487,6 @@ public partial class Programs : System.Web.UI.Page
     }
 
 }
+
+
+

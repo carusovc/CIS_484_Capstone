@@ -126,7 +126,7 @@
                  <section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
     
 
-<div class="container1">
+<div class="container1 supreme-container">
       <div class="card  mx-auto mt-5">
         <div class="card-header NewUserTitle text-center">Reports Based on Animal</div>
         <div class="card-body">
