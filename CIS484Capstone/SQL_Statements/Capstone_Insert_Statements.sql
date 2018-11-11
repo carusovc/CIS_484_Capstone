@@ -28,32 +28,32 @@ Insert into [dbo].[Educators](EducatorFirstName, EducatorLastName, LastUpdated, 
 Insert into [dbo].[Educators](EducatorFirstName, EducatorLastName, LastUpdated, LastUpdatedBy) VALUES ('Lydia', ' ', GETDATE(), 'WildTekDevelopers');
 Insert into [dbo].[Educators](EducatorFirstName, EducatorLastName, LastUpdated, LastUpdatedBy) VALUES ('Doug', ' ', GETDATE(), 'WildTekDevelopers');
 
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Alex', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Gus', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Quinn', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Athena', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal]([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Buddy', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Buttercup', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Edie', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Grayson', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Jaz', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Maggie', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Rosalie', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Ruby', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Verlon', GETDATE(), 'WildTekDevelopers');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Alex', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Gus', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Quinn', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Athena', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal]([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Buddy', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Buttercup', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Edie', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Grayson', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Jaz', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Maggie', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Rosalie', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Ruby', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Bird', 'Verlon', GETDATE(), 'WildTekDevelopers','Active');
 
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Mammal','Bo', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Mammal','Posie', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Mammal','Willow', GETDATE(), 'WildTekDevelopers');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Mammal','Bo', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Mammal','Posie', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Mammal','Willow', GETDATE(), 'WildTekDevelopers','Active');
 
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Greenbean', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Wilson', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Malcom', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Oscar', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Albus', GETDATE(), 'WildTekDevelopers')
-INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Severus', GETDATE(), 'WildTekDevelopers');
-INSERT INTO [dbo].[Animal]([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Clifford', GETDATE(), 'WildTekDevelopers');
-
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Greenbean', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Wilson', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Malcom', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Oscar', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Albus', GETDATE(), 'WildTekDevelopers','Active')
+INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Severus', GETDATE(), 'WildTekDevelopers','Active');
+INSERT INTO [dbo].[Animal]([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Clifford', GETDATE(), 'WildTekDevelopers','Active');
+                   
 Insert into [dbo].[Organization](OrgName,City,County, LastUpdated, LastUpdatedBy) VALUES ('Library One','Blacksburg','Montgomery', GETDATE(), 'WildTekDevelopers');
 Insert into [dbo].[Organization](OrgName,City,County, LastUpdated, LastUpdatedBy) VALUES ('Library Two','Harrisonburg','Rockingham', GETDATE(), 'WildTekDevelopers');
 Insert into [dbo].[Organization](OrgName,City,County, LastUpdated, LastUpdatedBy) VALUES ('School One','Fishersville','Augusta', GETDATE(), 'WildTekDevelopers');
@@ -338,3 +338,12 @@ INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdat
 INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (20,4,GETDATE(),'WildTekDevelopers');
 INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (21,9,GETDATE(),'WildTekDevelopers');
 INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (22,16,GETDATE(),'WildTekDevelopers');
+                                                                       
+INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],[CancelledInvoice],[OrgID],[LastUpdated],[LastUpdatedBy])
+VALUES (500, '2018-01-01', null, 'Credit', 'GA1001', 'N', 2, GETDATE(), 'WildTekDevelopers');
+
+INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],[CancelledInvoice],[OrgID],[LastUpdated],[LastUpdatedBy])
+VALUES (655, '2018-03-01', null, 'Debit', 'GA1002', 'N', 8, GETDATE(), 'WildTekDevelopers');
+
+INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],[CancelledInvoice],[OrgID],[LastUpdated],[LastUpdatedBy])
+VALUES (1000, '2018-05-01', null, 'Debit', 'GA1003', 'N', 4, GETDATE(), 'WildTekDevelopers');
