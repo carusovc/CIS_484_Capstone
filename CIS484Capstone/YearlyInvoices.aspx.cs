@@ -60,7 +60,8 @@ public partial class YearlyInvoices : System.Web.UI.Page
             }
             else
             {
-                lblResponse.Text = "Please select invoices you would like to export.";
+                string script = "alert('Please select invoices you would like to export.');";
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(Button1, this.GetType(), "Test", script, true);
             }
 
         }
@@ -137,7 +138,8 @@ public partial class YearlyInvoices : System.Web.UI.Page
             }
             else
             {
-                lblResponse.Text = "Please select invoices you would like to export.";
+                string script = "alert('Please select invoices you would like to export.');";
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(btnExportGrid2, this.GetType(), "Test", script, true);
             }
         }
 

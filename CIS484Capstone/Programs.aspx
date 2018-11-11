@@ -405,7 +405,7 @@
 
                                                                                     <th class="col-md-4" scope="col">Street Addess
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col">City County
+                                                                                    <th class="col-md-4" scope="col">City, County
                                                                                     </th>
                                                                                     <th class="col-md-4" scope="col">State
                                                                                     </th>
@@ -453,10 +453,10 @@
                                                                         <ItemTemplate>
                                                                             <tr class="row">
                                                                                 <td class="col-md-4">
-                                                                                    <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("OnOff") %>' />
+                                                                                    <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("OnOffSite") %>' />
                                                                                 </td>
                                                                                 <td class="col-md-4">
-                                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("PaymentNeeded") %>' />
+                                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("Paid?") %>' />
                                                                                 </td>
                                                                                 <td class="col-md-4">
                                                                                     <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />

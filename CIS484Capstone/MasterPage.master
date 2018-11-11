@@ -57,7 +57,7 @@ $(".modal-wide").on("show.bs.modal", function() {
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header ">
-                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Update Organization</h5>
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Organization</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -97,10 +97,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" col-md-3 InternalAnimalForm">
 
                                     <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>&nbsp&nbsp
-
-
                                 </div>
-                              
                             </div>
                         
                             <div class="row">
@@ -112,7 +109,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
 
-
+                            
 
                             <div>
                                 <div class="row">
@@ -131,8 +128,8 @@ $(".modal-wide").on("show.bs.modal", function() {
                     <div class="modal-footer">
 
   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdateOrganization_Click" />
-                        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
+                        <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Edit" OnClick="btnUpdateOrganization_Click" />
+                        
                       
                     </div>
                 </div>
@@ -363,7 +360,7 @@ $(".modal-wide").on("show.bs.modal", function() {
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Update Animal</h5>
+        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Animal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -419,7 +416,7 @@ $(".modal-wide").on("show.bs.modal", function() {
               <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <asp:Button ID="btnUpdateAnimal" class="btn btn-primary btn-inside" runat="server" Text="Update Animal" OnClick="btnUpdateAnimal_Click" />
+          <asp:Button ID="btnUpdateAnimal" class="btn btn-primary btn-inside" runat="server" Text="Edit Animal" OnClick="btnUpdateAnimal_Click" />
                 <%--<asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />--%>
        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
        
@@ -442,7 +439,7 @@ $(".modal-wide").on("show.bs.modal", function() {
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Update Educator</h5>
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Educator</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -502,7 +499,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                     <div class="modal-footer">
  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <asp:Button ID="btnDeleteEducator" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDeleteEducator_Click" />
-                        <asp:Button ID="btnUpdateEducator" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdateEducator_Click" />
+                        <asp:Button ID="btnUpdateEducator" class="btn btn-primary btn-inside" runat="server" Text="Edit" OnClick="btnUpdateEducator_Click" />
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                        
                     </div>

@@ -53,7 +53,8 @@ public partial class Invoices : System.Web.UI.Page
             }
             else
             {
-                lblResponse.Text = "Please select invoices you would like to export.";
+                string script = "alert('Please select invoices you would like to export.');";
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(btnExportGrid, this.GetType(), "Test", script, true);
             }
         }
 
@@ -114,7 +115,8 @@ public partial class Invoices : System.Web.UI.Page
             }
             else
             {
-                lblResponse.Text = "Please select invoices you would like to export.";
+                string script = "alert('Please select invoices you would like to export.');";
+                System.Web.UI.ScriptManager.RegisterClientScriptBlock(btnExportGrid2, this.GetType(), "Test", script, true);
             }
         }
 

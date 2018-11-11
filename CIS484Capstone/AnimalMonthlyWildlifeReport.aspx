@@ -37,22 +37,7 @@
 
       <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
 
-
-     <%-- <!-- Navbar -->
-      <ul class="navbar-nav ml-auto ml-md-0">
-        
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
-      </ul>
-         --%>
     </nav>
-
 
             <div id="wrapper">
 
@@ -140,7 +125,7 @@
 
       
 
-<body class="blur">
+<body>
 
 
       <div id="content-wrapper" class="section">
@@ -269,7 +254,7 @@
     <br />
      <br />
    
- <asp:GridView ID="AnimalLiveGrid" class="table table-bordered table-condensed table-hover" runat="server"  AutoGenerateColumns="False"    OnRowDataBound="GridView1_RowDataBound" 
+ <asp:GridView ID="AnimalLiveGrid" class="table table-bordered table-condensed table-hover" runat="server"  AutoGenerateColumns="False"    
      EmptyDataText="There are no records to display." >
         <Columns>
 
@@ -320,7 +305,7 @@
      <br />
    
  <asp:GridView runat="server" id="gridOnlinePrograms" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
-        OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display.">
+        EmptyDataText="There are no records to display.">
             <Columns>
              <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" >
                   <ItemStyle HorizontalAlign="Left" />
@@ -355,24 +340,7 @@
                  </div>
                <br /><br /><br />
 
-     <%--          </div>
-
-   </div>
-                 </div>
-
-
-     
-                   
-         </div>--%>
-              <asp:GridView runat="server" id="totalAnimalCount" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2"   OnRowDataBound="GridView1_RowDataBound" 
-                  EmptyDataText="There are no records to display." >
-            <Columns>
-               <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
-            <asp:BoundField DataField="TotalOnlinePrograms" HeaderText="Total OnlinePrograms" ReadOnly="True" SortExpression="TotalOnlinePrograms" />
-                  <asp:BoundField DataField="TotalPrograms" HeaderText="Total Programs" ReadOnly="True" SortExpression="TotalPrograms" />
-            </Columns>
-        </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
+           
           <div class="mx-auto d-flex justify-content-center">
 
                           <asp:Button ID="btnToExcel" runat="server" OnClick="btnToExcel_Click1" Text="Export to Excel"  class="btn btn-primary btn-inside" />
