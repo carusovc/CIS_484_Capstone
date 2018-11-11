@@ -48,23 +48,102 @@ public partial class Programs : System.Web.UI.Page
             {
                 //Live Program
                 string read = "Select * from Program";
-                string programNameRead = "Select * from ProgramType";
+                string programNameRead = "Select * from ProgramType order by ProgramName";
                 string organizationRead = "Select * from Organization";
+                string educatorReadStatement = "Select * from Educators order by EducatorFirstName";
 
 
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlCommand cmd1 = new SqlCommand(programNameRead, con);
                 SqlCommand cmd2 = new SqlCommand(organizationRead, con);
+                SqlCommand cmdLive3 = new SqlCommand(educatorReadStatement, con);
 
                 SqlDataReader myRead = cmd.ExecuteReader();
                 SqlDataReader myRead1 = cmd1.ExecuteReader();
                 SqlDataReader myRead2 = cmd2.ExecuteReader();
+                SqlDataReader myReadLive3 = cmdLive3.ExecuteReader();
+
+                if (ddlProgram.Items.Count < 2)
+                {
+                   while (myRead1.Read())
+                   {
+                     ddlProgram.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
+                   }
+                }
+                if (dropDownOrganization.Items.Count < 2)
+                {
+                    while (myRead2.Read())
+                    {
+                        dropDownOrganization.Items.Add(new ListItem(myRead2["OrgName"].ToString(), myRead2["OrgID"].ToString()));
+                    }
+                }
+
+                if (lstSelectEducatorsLive.Items.Count < 2)
+                {
+                        while (myReadLive3.Read())
+                        {
+                            lstSelectEducatorsLive.Items.Add(new ListItem(myReadLive3["EducatorFirstName"].ToString() + " " + myReadLive3["EducatorLastName"].ToString(), myReadLive3["EducatorID"].ToString()));
+                        }
+                }
+
+                if (lstSelectBirdsLive.Items.Count < 2)
+                {
+                        string readStatement = "Select * from Animal where AnimalType = 'Bird' order by AnimalName";
+                        SqlCommand cmdLive = new SqlCommand(readStatement, con);
+                        SqlDataReader myReadLive = cmdLive.ExecuteReader();
+
+                        while (myReadLive.Read())
+                        {
+
+                        lstSelectBirdsLive.Items.Add(new ListItem(myReadLive["AnimalName"].ToString(), myReadLive["AnimalID"].ToString()));
+                        }
+                }
+
+                if (lstSelectReptilesLive.Items.Count < 2)
+                {
+                    string readStatement = "Select * from Animal where AnimalType = 'Reptile' order by AnimalName";
+                    SqlCommand cmdLive = new SqlCommand(readStatement, con);
+                    SqlDataReader myReadLive = cmdLive.ExecuteReader();
+
+                    while (myReadLive.Read())
+                    {
+                        lstSelectReptilesLive.Items.Add(new ListItem(myReadLive["AnimalName"].ToString(), myReadLive["AnimalID"].ToString()));
+                    }
+                }
+
+                if (lstSelectMammalsLive.Items.Count < 2)
+                {
+                    string readStatement = "Select * from Animal where AnimalType = 'Mammal' order by AnimalName";
+                    SqlCommand cmdLive = new SqlCommand(readStatement, con);
+                    SqlDataReader myReadLive = cmdLive.ExecuteReader();
+
+                    while (myReadLive.Read())
+                    {
+                        lstSelectMammalsLive.Items.Add(new ListItem(myReadLive["AnimalName"].ToString(), myReadLive["AnimalID"].ToString()));
+                    }
+                }
+
+                if (lstGrades.Items.Count < 2)
+                {
+                        string readStatement = "Select * from Grade";
+                        SqlCommand cmdLive = new SqlCommand(readStatement, con);
+                        SqlDataReader myReadLive = cmdLive.ExecuteReader();
+
+                        while (myReadLive.Read())
+                        {
+
+                        lstGrades.Items.Add(new ListItem(myReadLive["GradeLevel"].ToString(), myReadLive["GradeID"].ToString()));
+                        }
+
+                }
+
+
 
 
                 //Online Program
                 string readOnline = "Select * from OnlineProgram";
                 string onlineProgramRead = "Select * from OnlineProgramType";
-                string educatorsRead = "Select * from Educators";
+                string educatorsRead = "Select * from Educators order by EducatorFirstName";
 
                 SqlCommand cmdOnline = new SqlCommand(readOnline, con);
                 SqlCommand cmdOnline1 = new SqlCommand(onlineProgramRead, con);
@@ -77,24 +156,24 @@ public partial class Programs : System.Web.UI.Page
 
 
                 //Online Program
-                while (myReadOnline.Read())
-                {
+                //while (myReadOnline.Read())
+                //{
 
-                    ddlOnlineProgramID.Items.Add(new ListItem(myReadOnline["OnlineProgramID"].ToString(), myReadOnline["OnlineProgramID"].ToString()));
-                }
+                //    lstOnlineProgramType.Items.Add(new ListItem(myReadOnline["OnlineProgramID"].ToString(), myReadOnline["OnlineProgramID"].ToString()));
+                //}
 
                 while (myReadOnline1.Read())
                 {
-                    ddlProgramType2.Items.Add(new ListItem(myReadOnline1["OnlineProgramTypeName"].ToString(), myReadOnline1["OnlineProgramTypeID"].ToString()));
+                    lstOnlineProgramType.Items.Add(new ListItem(myReadOnline1["OnlineProgramTypeName"].ToString(), myReadOnline1["OnlineProgramTypeID"].ToString()));
                 }
 
-                while (myReadOnline2.Read())
-                {
-                    ddlTeacher.Items.Add(new ListItem(myReadOnline2["EducatorFirstName"].ToString(), myReadOnline2["EducatorID"].ToString()));
-                }
+                //while (myReadOnline2.Read())
+                //{
+                //    lstOnlineEducators.Items.Add(new ListItem(myReadOnline2["EducatorFirstName"].ToString() + " " + myReadOnline2["EducatorLastName"].ToString(), myReadOnline2["EducatorID"].ToString()));
+                //}
                 ddlOnlineProgramID.DataBind();
 
-                if (AddGrade2.Items.Count < 2)
+                if (OnlineGrades.Items.Count < 2)
                 {
 
                     string gradeOnlineRead = "Select * from Grade";
@@ -104,12 +183,12 @@ public partial class Programs : System.Web.UI.Page
                     while (myOnlineRead3.Read())
                     {
 
-                        AddGrade2.Items.Add(new ListItem(myOnlineRead3["GradeLevel"].ToString(), myOnlineRead3["GradeID"].ToString()));
+                        OnlineGrades.Items.Add(new ListItem(myOnlineRead3["GradeLevel"].ToString(), myOnlineRead3["GradeID"].ToString()));
                     }
 
                 }
 
-                if (drpEducators2.Items.Count < 2)
+                if (lstOnlineEducators.Items.Count < 2)
                 {
 
                     string educatorRead = "Select * from Educators order by EducatorFirstName";
@@ -119,13 +198,13 @@ public partial class Programs : System.Web.UI.Page
                     while (myRead4.Read())
                     {
 
-                        drpEducators2.Items.Add(new ListItem(myRead4["EducatorFirstName"].ToString() + " " + myRead4["EducatorLastName"].ToString(), myRead4["EducatorID"].ToString()));
+                        lstOnlineEducators.Items.Add(new ListItem(myRead4["EducatorFirstName"].ToString() + " " + myRead4["EducatorLastName"].ToString(), myRead4["EducatorID"].ToString()));
                     }
 
 
                 }
 
-                if (ddlBirds2.Items.Count < 2)
+                if (lstBirdOnline.Items.Count < 2)
                 {
 
                     string birdRead = "Select * from Animal where AnimalType = 'Bird' order by AnimalName";
@@ -135,13 +214,13 @@ public partial class Programs : System.Web.UI.Page
                     while (myRead5.Read())
                     {
 
-                        ddlBirds2.Items.Add(new ListItem(myRead5["AnimalName"].ToString(), myRead5["AnimalID"].ToString()));
+                        lstBirdOnline.Items.Add(new ListItem(myRead5["AnimalName"].ToString(), myRead5["AnimalID"].ToString()));
                     }
 
 
                 }
 
-                if (ddlReptiles2.Items.Count < 2)
+                if (lstReptilesOnline.Items.Count < 2)
                 {
 
                     string reptileRead = "Select * from Animal where AnimalType = 'Reptile' order by AnimalName";
@@ -151,13 +230,13 @@ public partial class Programs : System.Web.UI.Page
                     while (myRead6.Read())
                     {
 
-                        ddlReptiles2.Items.Add(new ListItem(myRead6["AnimalName"].ToString(), myRead6["AnimalID"].ToString()));
+                        lstReptilesOnline.Items.Add(new ListItem(myRead6["AnimalName"].ToString(), myRead6["AnimalID"].ToString()));
                     }
 
 
                 }
 
-                if (lstMammals2.Items.Count < 2)
+                if (lstMammalsOnline.Items.Count < 2)
                 {
 
                     string mammalRead = "Select * from Animal where AnimalType = 'Mammal' order by AnimalName";
@@ -167,7 +246,7 @@ public partial class Programs : System.Web.UI.Page
                     while (myRead7.Read())
                     {
 
-                        lstMammals2.Items.Add(new ListItem(myRead7["AnimalName"].ToString(), myRead7["AnimalID"].ToString()));
+                        lstMammalsOnline.Items.Add(new ListItem(myRead7["AnimalName"].ToString(), myRead7["AnimalID"].ToString()));
                     }
 
 
@@ -177,102 +256,102 @@ public partial class Programs : System.Web.UI.Page
 
 
 
-                //Live Program
-                while (myRead.Read())
-                {
+                ////Live Program
+                //while (myRead.Read())
+                //{
 
-                    ddlProgramID.Items.Add(new ListItem(myRead["ProgramID"].ToString(), myRead["ProgramID"].ToString()));
-                }
+                //    ddlProgramID.Items.Add(new ListItem(myRead["ProgramID"].ToString(), myRead["ProgramID"].ToString()));
+                //}
 
-                while (myRead1.Read())
-                {
-                    ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
-                }
+                //while (myRead1.Read())
+                //{
+                //    ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
+                //}
 
-                while (myRead2.Read())
-                {
-                    ddlOrganization.Items.Add(new ListItem(myRead2["OrgName"].ToString(), myRead2["OrgID"].ToString()));
-                }
-                ddlProgramID.DataBind();
+                //while (myRead2.Read())
+                //{
+                //    ddlOrganization.Items.Add(new ListItem(myRead2["OrgName"].ToString(), myRead2["OrgID"].ToString()));
+                //}
+                //ddlProgramID.DataBind();
 
-                if (AddGrade.Items.Count < 2)
-                {
+                //if (AddGrade.Items.Count < 2)
+                //{
 
-                    string gradeRead = "Select * from Grade";
-                    SqlCommand cmd3 = new SqlCommand(gradeRead, con);
-                    SqlDataReader myRead3 = cmd3.ExecuteReader();
+                //    string gradeRead = "Select * from Grade";
+                //    SqlCommand cmd3 = new SqlCommand(gradeRead, con);
+                //    SqlDataReader myRead3 = cmd3.ExecuteReader();
 
-                    while (myRead3.Read())
-                    {
+                //    while (myRead3.Read())
+                //    {
 
-                        AddGrade.Items.Add(new ListItem(myRead3["GradeLevel"].ToString(), myRead3["GradeID"].ToString()));
-                    }
+                //        AddGrade.Items.Add(new ListItem(myRead3["GradeLevel"].ToString(), myRead3["GradeID"].ToString()));
+                //    }
 
-                }
+                //}
 
-                if (drpEducators.Items.Count < 2)
-                {
+                //if (drpEducators.Items.Count < 2)
+                //{
 
-                    string educatorRead = "Select * from Educators order by EducatorFirstName";
-                    SqlCommand cmd4 = new SqlCommand(educatorRead, con);
-                    SqlDataReader myRead4 = cmd4.ExecuteReader();
+                //    string educatorRead = "Select * from Educators order by EducatorFirstName";
+                //    SqlCommand cmd4 = new SqlCommand(educatorRead, con);
+                //    SqlDataReader myRead4 = cmd4.ExecuteReader();
 
-                    while (myRead4.Read())
-                    {
+                //    while (myRead4.Read())
+                //    {
 
-                        drpEducators.Items.Add(new ListItem(myRead4["EducatorFirstName"].ToString() + " " + myRead4["EducatorLastName"].ToString(), myRead4["EducatorID"].ToString()));
-                    }
-
-
-                }
-
-                if (ddlBirds.Items.Count < 2)
-                {
-
-                    string birdRead = "Select * from Animal where AnimalType = 'Bird' order by AnimalName";
-                    SqlCommand cmd5 = new SqlCommand(birdRead, con);
-                    SqlDataReader myRead5 = cmd5.ExecuteReader();
-
-                    while (myRead5.Read())
-                    {
-
-                        ddlBirds.Items.Add(new ListItem(myRead5["AnimalName"].ToString(), myRead5["AnimalID"].ToString()));
-                    }
+                //        drpEducators.Items.Add(new ListItem(myRead4["EducatorFirstName"].ToString() + " " + myRead4["EducatorLastName"].ToString(), myRead4["EducatorID"].ToString()));
+                //    }
 
 
-                }
+                //}
 
-                if (ddlReptiles.Items.Count < 2)
-                {
+                //if (ddlBirds.Items.Count < 2)
+                //{
 
-                    string reptileRead = "Select * from Animal where AnimalType = 'Reptile' order by AnimalName";
-                    SqlCommand cmd6 = new SqlCommand(reptileRead, con);
-                    SqlDataReader myRead6 = cmd6.ExecuteReader();
+                //    string birdRead = "Select * from Animal where AnimalType = 'Bird' order by AnimalName";
+                //    SqlCommand cmd5 = new SqlCommand(birdRead, con);
+                //    SqlDataReader myRead5 = cmd5.ExecuteReader();
 
-                    while (myRead6.Read())
-                    {
+                //    while (myRead5.Read())
+                //    {
 
-                        ddlReptiles.Items.Add(new ListItem(myRead6["AnimalName"].ToString(), myRead6["AnimalID"].ToString()));
-                    }
-
-
-                }
-
-                if (lstMammals.Items.Count < 2)
-                {
-
-                    string mammalRead = "Select * from Animal where AnimalType = 'Mammal' order by AnimalName";
-                    SqlCommand cmd7 = new SqlCommand(mammalRead, con);
-                    SqlDataReader myRead7 = cmd7.ExecuteReader();
-
-                    while (myRead7.Read())
-                    {
-
-                        lstMammals.Items.Add(new ListItem(myRead7["AnimalName"].ToString(), myRead7["AnimalID"].ToString()));
-                    }
+                //        ddlBirds.Items.Add(new ListItem(myRead5["AnimalName"].ToString(), myRead5["AnimalID"].ToString()));
+                //    }
 
 
-                }
+                //}
+
+                //if (ddlReptiles.Items.Count < 2)
+                //{
+
+                //    string reptileRead = "Select * from Animal where AnimalType = 'Reptile' order by AnimalName";
+                //    SqlCommand cmd6 = new SqlCommand(reptileRead, con);
+                //    SqlDataReader myRead6 = cmd6.ExecuteReader();
+
+                //    while (myRead6.Read())
+                //    {
+
+                //        ddlReptiles.Items.Add(new ListItem(myRead6["AnimalName"].ToString(), myRead6["AnimalID"].ToString()));
+                //    }
+
+
+                //}
+
+                //if (lstMammals.Items.Count < 2)
+                //{
+
+                //    string mammalRead = "Select * from Animal where AnimalType = 'Mammal' order by AnimalName";
+                //    SqlCommand cmd7 = new SqlCommand(mammalRead, con);
+                //    SqlDataReader myRead7 = cmd7.ExecuteReader();
+
+                //    while (myRead7.Read())
+                //    {
+
+                //        lstMammals.Items.Add(new ListItem(myRead7["AnimalName"].ToString(), myRead7["AnimalID"].ToString()));
+                //    }
+
+
+                //}
 
             }
         }
@@ -507,7 +586,9 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@status", txtStatus.Text);
         update.Parameters.AddWithValue("@programAddress", txtAddress.Text);
         update.Parameters.AddWithValue("@cityCounty", txtCity.Text + ", " + txtCounty.Text);
-        update.Parameters.AddWithValue("@state", ddlState1.Text);
+
+        update.Parameters.AddWithValue("@state", ddlState1.SelectedValue);
+
         update.Parameters.AddWithValue("@onOff", rboOnOff.SelectedIndex);
         update.Parameters.AddWithValue("@numOfChildren", txtNumOfChildren.Text);
         update.Parameters.AddWithValue("@numofAdults", txtNumOfAdults.Text);
@@ -711,6 +792,7 @@ public partial class Programs : System.Web.UI.Page
     //Live Program ID
     protected void ddlProgramID_SelectedIndexChanged1(object sender, EventArgs e)
     {
+        ddlState.ClearSelection();
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
@@ -743,7 +825,7 @@ public partial class Programs : System.Web.UI.Page
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, PaymentNeeded, ProgramDate, ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
+        insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, PaymentNeeded, convert(varchar, ProgramDate,101) as ProgramDate, ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
                           " ProgramID = @ProgramID";
         insert.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
 
@@ -782,6 +864,7 @@ public partial class Programs : System.Web.UI.Page
 
             while (sdr.Read())
             {
+
                 String cityCounty = sdr[5].ToString();
                 String[] words = cityCounty.Split(',');
                 String city = words[0];
@@ -792,7 +875,17 @@ public partial class Programs : System.Web.UI.Page
                 txtAddress.Text = sdr[4].ToString();
                 txtCity.Text = city;
                 txtCounty.Text = county;
-                ddlState1.Text = sdr[6].ToString();
+
+                //txtState.Text = sdr[6].ToString();
+                for (int i = 0; i < ddlState1.Items.Count; i++)
+                {
+
+                    if (ddlState1.Items[i].ToString() == sdr[6].ToString())
+                    {
+                        ddlState1.Items[i].Selected = true;
+                    }
+                }
+
                 if (sdr[7].ToString() == "1")
                 {
                     rboOnOff.SelectedIndex = 0;
@@ -1021,7 +1114,7 @@ public partial class Programs : System.Web.UI.Page
         pullReptile.Parameters.Clear();
 
 
-        insert.CommandText = "select OnlineProgramID, ProgramDate, Month, OnlineProgramTypeID, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments, LastUpdated, LastUpdatedBy from OnlineProgram where OnlineProgramID = @OnlineProgramID";
+        insert.CommandText = "select OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, Month, OnlineProgramTypeID, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments, LastUpdated, LastUpdatedBy from OnlineProgram where OnlineProgramID = @OnlineProgramID";
         insert.Parameters.AddWithValue("@OnlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
 
         onlineProgramType.CommandText = "Select OnlineProgramType.OnlineProgramTypeName from OnlineProgramType inner join OnlineProgram on OnlineProgramType.OnlineProgramTypeID = OnlineProgram.OnlineProgramTypeID where OnlineProgram.OnlineProgramID = @programID";
