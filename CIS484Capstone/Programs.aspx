@@ -724,7 +724,7 @@
                                         <br />
                                         <asp:DropDownList ID="ddlProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
 
-                                            <asp:ListItem Text="--Select Online Program ID--" Value="0" />
+                                            <asp:ListItem Text="--Select Program ID--" Value="0" />
                                         </asp:DropDownList>
                                 </div>
                                 <div class="col-md-12 col-lg-6 
@@ -795,7 +795,60 @@
            col-sm-12">
                                     State:
                                     <br />
-                                    <asp:TextBox ID="txtState" runat="server"></asp:TextBox>
+                                            
+        <asp:DropDownList ID="ddlState" runat="server" class="form-control" placeholder="Add State/Province">
+        <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
+        <asp:ListItem Value="AL"></asp:ListItem>
+        <asp:ListItem Value="AK"></asp:ListItem>
+        <asp:ListItem Value="AZ"></asp:ListItem>
+        <asp:ListItem Value="AR"></asp:ListItem>
+        <asp:ListItem Value="CA"></asp:ListItem>
+        <asp:ListItem Value="CO"></asp:ListItem>
+        <asp:ListItem Value="CT"></asp:ListItem>
+        <asp:ListItem Value="DE"></asp:ListItem>
+        <asp:ListItem Value="FL"></asp:ListItem>
+        <asp:ListItem Value="GA"></asp:ListItem>
+        <asp:ListItem Value="HI"></asp:ListItem>
+        <asp:ListItem Value="ID"></asp:ListItem>
+        <asp:ListItem Value="IL"></asp:ListItem>
+        <asp:ListItem Value="IN"></asp:ListItem>
+        <asp:ListItem Value="IA"></asp:ListItem>
+        <asp:ListItem Value="KS"></asp:ListItem>       
+        <asp:ListItem Value="KY"></asp:ListItem>
+        <asp:ListItem Value="LA"></asp:ListItem>
+        <asp:ListItem Value="ME"></asp:ListItem>
+        <asp:ListItem Value="MD"></asp:ListItem>
+        <asp:ListItem Value="MA"></asp:ListItem>
+        <asp:ListItem Value="MI"></asp:ListItem>
+        <asp:ListItem Value="MN"></asp:ListItem>
+        <asp:ListItem Value="MS"></asp:ListItem>
+        <asp:ListItem Value="MO"></asp:ListItem>
+        <asp:ListItem Value="MT"></asp:ListItem>
+        <asp:ListItem Value="NE"></asp:ListItem>
+        <asp:ListItem Value="NV"></asp:ListItem>
+        <asp:ListItem Value="NH"></asp:ListItem>
+        <asp:ListItem Value="NJ"></asp:ListItem>
+        <asp:ListItem Value="NM"></asp:ListItem>
+        <asp:ListItem Value="NY"></asp:ListItem>
+        <asp:ListItem Value="NC"></asp:ListItem>
+        <asp:ListItem Value="ND"></asp:ListItem>
+        <asp:ListItem Value="OH"></asp:ListItem>
+        <asp:ListItem Value="OK"></asp:ListItem>
+        <asp:ListItem Value="OR"></asp:ListItem>
+        <asp:ListItem Value="PA"></asp:ListItem>
+        <asp:ListItem Value="RI"></asp:ListItem>
+        <asp:ListItem Value="SC"></asp:ListItem>
+        <asp:ListItem Value="SD"></asp:ListItem>
+        <asp:ListItem Value="TN"></asp:ListItem>
+        <asp:ListItem Value="TX"></asp:ListItem>
+        <asp:ListItem Value="UT"></asp:ListItem>
+        <asp:ListItem Value="VT"></asp:ListItem>
+        <asp:ListItem Value="VA"></asp:ListItem>
+        <asp:ListItem Value="WA"></asp:ListItem>
+        <asp:ListItem Value="WV"></asp:ListItem>
+        <asp:ListItem Value="WI"></asp:ListItem>
+        <asp:ListItem Value="WY"></asp:ListItem>
+    </asp:DropDownList>
 
                                 </div>
                                 <br />
@@ -1212,6 +1265,7 @@
     </div>
     </div>
 
+    <%--Adding new program modal--%>
     <div id="addProgramModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myTitle" aria-hidden="true" style="z-index: 2000">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -1293,12 +1347,9 @@
                                     <label id="OrganizationLabel" for="Organization">Organization:</label>
                                 </div>
                                 <div class="col-7">
-                                    <select name="Organization" class="form-control">
-                                        <option value=""></option>
-                                        <option value="T1">James Madison</option>
-                                        <option value="T2">Later SQL Import</option>
-
-                                    </select>
+                                    <asp:DropDownList CssClass="form-control" ID="dropDownOrganization" runat="server" class="dropdown-menu radioButtonList">
+                                        <asp:ListItem Text="--Select Organization--" Value="0" />
+                                    </asp:DropDownList>
                                 </div>
                             </div>
 
@@ -1427,7 +1478,7 @@
 
                             <p></p>
                             <label id="AddGradeLabel" for="AddGrade">Grades</label>
-                            <asp:ListBox class="form-control" ID="ListBox1" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
+                            <asp:ListBox class="form-control" ID="lstGrades" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
                                 <asp:ListItem Text="--Select Grades--" Value="0" />
                             </asp:ListBox>
                             <p></p>
@@ -1465,7 +1516,7 @@
                                 </div>
 
                                 <div class="col-7">
-                                    <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+                                    <asp:DropDownList CssClass="form-control" ID="lstOnlineProgramType" runat="server" SelectionMode="Multiple" class="dropdown-menu">
                                         <asp:ListItem Text="--Select Program Type--" Value="0" />
                                     </asp:DropDownList>
                                 </div>
@@ -1476,7 +1527,7 @@
                                     <label id="EducatorLabel" for="Educator">Educator:</label>
                                 </div>
                                 <div class="col-7">
-                                    <asp:ListBox CssClass="form-control" ID="ListBox2" runat="server" SelectionMode="Multiple">
+                                    <asp:ListBox CssClass="form-control" ID="lstOnlineEducators" runat="server" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Educators--" Value="0" />
                                     </asp:ListBox>
                                 </div>
@@ -1487,7 +1538,7 @@
                                     <label id="SelectBirdsOnline" for="SelectBirdsOnline">Select Birds:</label>
                                 </div>
                                 <div class="col-7">
-                                    <asp:ListBox ID="ListBox3" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder="Select Birds">
+                                    <asp:ListBox ID="lstBirdOnline" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder="Select Birds">
                                         <asp:ListItem Text="--Select Birds--" Value="0" />
 
                                     </asp:ListBox>
@@ -1502,7 +1553,7 @@
                                     <label id="SelectReptilesOnline" for="SelectReptilesOnline">Select Reptiles:</label>
                                 </div>
                                 <div class="col-7">
-                                    <asp:ListBox CssClass="form-control" ID="ListBox4" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+                                    <asp:ListBox CssClass="form-control" ID="lstReptilesOnline" runat="server" SelectionMode="Multiple" class="dropdown-menu">
                                         <asp:ListItem Text="--Select Reptiles--" Value="0" />
                                     </asp:ListBox>
                                 </div>
@@ -1514,7 +1565,7 @@
                                     <label id="SelectMammalsOnline" for="SelectMammalOnline">Select Mammals:</label>
                                 </div>
                                 <div class="col-7">
-                                    <asp:ListBox ID="ListBox5" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+                                    <asp:ListBox ID="lstMammalsOnline" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
                                         <asp:ListItem Text="--Select Mammals--" Value="0" />
                                     </asp:ListBox>
                                 </div>
@@ -1707,6 +1758,7 @@
 
     </script>
 
+    </div>
 </asp:Content>
 
 
