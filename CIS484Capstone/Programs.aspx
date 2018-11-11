@@ -73,7 +73,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-        <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
+        <a class="navbar-brand mr-1 logo" href="Programs.aspx">WildTek</a>
 
     </nav>
 
@@ -443,7 +443,7 @@
                                                                                 <tr class="row">
                                                                                     <th class="col-md-4" scope="col">On/Off Site
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col">Payment Satus
+                                                                                    <th class="col-md-4" scope="col">Payment Status
                                                                                     </th>
                                                                                     <th class="col-md-4" scope="col">Comments
                                                                                     </th>
