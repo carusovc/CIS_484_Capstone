@@ -42,7 +42,7 @@ public partial class AnimalPage : System.Web.UI.Page
             conAnimal.Open();
             if (conAnimal.State == System.Data.ConnectionState.Open)
             {
-                string read = "Select * from Animal";
+                string read = "Select * from Animal Order By AnimalName";
                 
                 SqlCommand cmd = new SqlCommand(read, conAnimal);
                 SqlDataReader myRead = cmd.ExecuteReader();
@@ -277,7 +277,7 @@ public partial class AnimalPage : System.Web.UI.Page
         if (con.State == System.Data.ConnectionState.Open)
         {
 
-            string read = "Select * from Animal";
+            string read = "Select * from Animal Order by AnimalName";
             SqlCommand cmd = new SqlCommand(read, con);
             SqlDataReader myRead = cmd.ExecuteReader();
 

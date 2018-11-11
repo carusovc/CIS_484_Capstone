@@ -269,7 +269,7 @@
     <br />
      <br />
    
- <asp:GridView ID="AnimalLiveGrid" class="table table-bordered table-condensed table-hover" runat="server"  AutoGenerateColumns="False"    OnRowDataBound="GridView1_RowDataBound" 
+ <asp:GridView ID="AnimalLiveGrid" class="table table-bordered table-condensed table-hover" runat="server"  AutoGenerateColumns="False"     
      EmptyDataText="There are no records to display." >
         <Columns>
 
@@ -320,7 +320,7 @@
      <br />
    
  <asp:GridView runat="server" id="gridOnlinePrograms" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
-        OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display.">
+        EmptyDataText="There are no records to display.">
             <Columns>
              <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" >
                   <ItemStyle HorizontalAlign="Left" />
@@ -364,7 +364,7 @@
      
                    
          </div>--%>
-              <asp:GridView runat="server" id="totalAnimalCount" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2"   OnRowDataBound="GridView1_RowDataBound" 
+              <asp:GridView runat="server" id="totalAnimalCount" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2"    
                   EmptyDataText="There are no records to display." >
             <Columns>
                <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />

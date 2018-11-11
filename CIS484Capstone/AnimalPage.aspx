@@ -327,7 +327,7 @@
                             </div>
                      
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                 <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;""> Status</h4>
+                                 <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"">Status</h4>
                             </div>
                         </div> 
                         <asp:GridView ID="gridReptile"  class="table table-borderless table-condensed  table-striped " runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" >
