@@ -246,6 +246,7 @@
                       <Columns>
                           <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False"/>
                           <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+                          
                       </Columns>
                  </asp:GridView>
 
@@ -261,17 +262,23 @@
                         <%--<p> There</p>
                         <br />
                         <br /><br /><br />--%>
-                        <asp:GridView ID="gridAnimalMammal"  class="table table-borderless table-condensed table-hover  "  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2" AllowSorting="True" >
+                        <asp:GridView ID="gridAnimalMammal"  class="table table-borderless table-condensed table-hover  "  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2" AllowSorting="True" OnRowDataBound ="gridMammal_RowDataBound" >
         <Columns>
             <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False" />
             <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
             <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                                      <asp:TemplateField HeaderText="Animal Image">
+                              <ItemTemplate>
+                                  <img src = '<%# Eval("AnimalImage") %>' id="imageControl" runat="server" />
+
+                              </ItemTemplate>
+                          </asp:TemplateField>
             
         </Columns>
         
      </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
-                    SelectCommand="SELECT [AnimalType], [AnimalName], [Status] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [Status], [AnimalName]">
+                    SelectCommand="SELECT [AnimalType], [AnimalName], [Status], [AnimalImage] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [Status], [AnimalName]">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Mammal" Name="AnimalType" Type="String" />
                     </SelectParameters>
@@ -288,16 +295,22 @@
                         <%--<p> My</p>
                         <br />
                         <br /><br /><br />--%>
-                        <asp:GridView ID="gridReptile"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True">
+                        <asp:GridView ID="gridReptile"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True"  OnRowDataBound ="gridReptile_RowDataBound">
                     <Columns>
                           <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False" />
                         <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
                         <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                          <asp:TemplateField HeaderText="Animal Image">
+                              <ItemTemplate>
+                                  <img src = '<%# Eval("AnimalImage") %>' id="imageControl" runat="server" />
+
+                              </ItemTemplate>
+                          </asp:TemplateField>
                       
                     </Columns>
                 </asp:GridView>
 
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalName], [AnimalType], [Status] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [Status], [AnimalName]">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalName], [AnimalType], [Status], [AnimalImage] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [Status], [AnimalName]">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Reptile" Name="AnimalType" Type="String" />
                     </SelectParameters>
@@ -313,15 +326,21 @@
                         <%--<p> Friend</p>
                         <br />
                         <br /><br /><br />--%>
-                        <asp:GridView ID="gridBird"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True">
+                        <asp:GridView ID="gridBird"  class="table table-borderless table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True" OnRowDataBound ="gridBird_RowDataBound">
                       <Columns>
                           <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False" />
                           <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
                           <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                          <asp:TemplateField HeaderText="Animal Image">
+                              <ItemTemplate>
+                                  <img src = '<%# Eval("AnimalImage") %>' id="imageControl" runat="server" />
+
+                              </ItemTemplate>
+                          </asp:TemplateField>
                       </Columns>
                  </asp:GridView>
 
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalType], [AnimalName], [Status] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [Status], [AnimalName]">
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalType], [AnimalName], [Status], [AnimalImage] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [Status], [AnimalName]">
                         <SelectParameters>
                             <asp:Parameter DefaultValue="Bird" Name="AnimalType" Type="String" />
                         </SelectParameters>
@@ -661,6 +680,11 @@
         </asp:DropDownList>
                     </div>
               </div>
+                   <div class ="row">
+                <div class =" col-md-4 InternalAnimalForm">
+                    Upload Picture: <asp:FileUpload ID="FileUpload2" runat="server" />
+                    </div>
+            </div>
               <asp:Label ID="lblLastUpdated" runat="server" Text=""></asp:Label>&nbsp;
               <asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>
               <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
