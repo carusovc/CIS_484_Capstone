@@ -319,8 +319,7 @@
                                 <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" ReadOnly="true" placeholder ="Enter Check Number"></asp:TextBox>
                                      <asp:CompareValidator ID="CheckNumberValidator" runat="server" ControlToValidate="txtCheckNum" Type="Integer"
                                         Operator="DataTypeCheck" ErrorMessage="Value must be a number." />
-                                <asp:RequiredFieldValidator id="RequiredFieldValidator6" runat="server" ControlToValidate="txtCheckNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
-
+                               
                                 </div>
                                 </div>
                                 <p></p>

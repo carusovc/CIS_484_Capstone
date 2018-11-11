@@ -128,7 +128,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                     <div class="modal-footer">
 
   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Edit" OnClick="btnUpdateOrganization_Click" />
+                        <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save" OnClick="btnUpdateOrganization_Click" />
                         
                       
                     </div>
@@ -416,7 +416,7 @@ $(".modal-wide").on("show.bs.modal", function() {
               <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <asp:Button ID="btnUpdateAnimal" class="btn btn-primary btn-inside" runat="server" Text="Edit Animal" OnClick="btnUpdateAnimal_Click" />
+          <asp:Button ID="btnUpdateAnimal" class="btn btn-primary btn-inside" runat="server" Text="Save" OnClick="btnUpdateAnimal_Click" />
                 <%--<asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />--%>
        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
        
@@ -499,7 +499,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                     <div class="modal-footer">
  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <asp:Button ID="btnDeleteEducator" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDeleteEducator_Click" />
-                        <asp:Button ID="btnUpdateEducator" class="btn btn-primary btn-inside" runat="server" Text="Edit" OnClick="btnUpdateEducator_Click" />
+                        <asp:Button ID="btnUpdateEducator" class="btn btn-primary btn-inside" runat="server" Text="Save" OnClick="btnUpdateEducator_Click" />
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                        
                     </div>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Programs.aspx.cs" Inherits="Programs" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ProgramsVolunteer.aspx.cs" Inherits="Programs" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -73,14 +73,14 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-        <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
+        <a class="navbar-brand mr-1 logo" href="Default.aspx">< Back to Login</a>
 
     </nav>
 
 
     <div id="wrapper">
 
-        <!-- Sidebar -->
+        <!-- Sidebar 
         <ul class="sidebar navbar-nav">
             <li class="nav-item dropdown no-arrow active">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -227,7 +227,7 @@
             </li>
 
         </ul>
-
+-->
         <div id="content-wrapper">
 
 
@@ -254,13 +254,7 @@
                                           <div class="btn  btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Program</div>
                                     </div>
                                   
-                                      <div  class=" col-lg-4 mx-auto d-flex justify-content-center  col-md-6 col-sm-6 ">
-                                           <div class="btn btn-primary  btn-inside" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live Program</div>
-                                    </div>
-                                  
-                                      <div  class=" col-lg-4 mx-auto d-flex justify-content-center col-sm-6 ">
-                                          <div class="btn btn-primary  btn-inside" data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online Program</div>
-                                    </div>
+                                 
                          </div>
 
                                 </div>
@@ -788,60 +782,7 @@
            col-sm-12">
                                     State:
                                     <br />
-                                    <asp:DropDownList ID="ddlState1" runat="server" class="form-control" placeholder="Add State/Province">
-        <asp:ListItem>State</asp:ListItem>
-        <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
-        <asp:ListItem Value="AL"></asp:ListItem>
-        <asp:ListItem Value="AK"></asp:ListItem>
-        <asp:ListItem Value="AZ"></asp:ListItem>
-        <asp:ListItem Value="AR"></asp:ListItem>
-        <asp:ListItem Value="CA"></asp:ListItem>
-        <asp:ListItem Value="CO"></asp:ListItem>
-        <asp:ListItem Value="CT"></asp:ListItem>
-        <asp:ListItem Value="DE"></asp:ListItem>
-        <asp:ListItem Value="FL"></asp:ListItem>
-        <asp:ListItem Value="GA"></asp:ListItem>
-        <asp:ListItem Value="HI"></asp:ListItem>
-        <asp:ListItem Value="ID"></asp:ListItem>
-        <asp:ListItem Value="IL"></asp:ListItem>
-        <asp:ListItem Value="IN"></asp:ListItem>
-        <asp:ListItem Value="IA"></asp:ListItem>
-        <asp:ListItem Value="KS"></asp:ListItem>       
-        <asp:ListItem Value="KY"></asp:ListItem>
-        <asp:ListItem Value="LA"></asp:ListItem>
-        <asp:ListItem Value="ME"></asp:ListItem>
-        <asp:ListItem Value="MD"></asp:ListItem>
-        <asp:ListItem Value="MA"></asp:ListItem>
-        <asp:ListItem Value="MI"></asp:ListItem>
-        <asp:ListItem Value="MN"></asp:ListItem>
-        <asp:ListItem Value="MS"></asp:ListItem>
-        <asp:ListItem Value="MO"></asp:ListItem>
-        <asp:ListItem Value="MT"></asp:ListItem>
-        <asp:ListItem Value="NE"></asp:ListItem>
-        <asp:ListItem Value="NV"></asp:ListItem>
-        <asp:ListItem Value="NH"></asp:ListItem>
-        <asp:ListItem Value="NJ"></asp:ListItem>
-        <asp:ListItem Value="NM"></asp:ListItem>
-        <asp:ListItem Value="NY"></asp:ListItem>
-        <asp:ListItem Value="NC"></asp:ListItem>
-        <asp:ListItem Value="ND"></asp:ListItem>
-        <asp:ListItem Value="OH"></asp:ListItem>
-        <asp:ListItem Value="OK"></asp:ListItem>
-        <asp:ListItem Value="OR"></asp:ListItem>
-        <asp:ListItem Value="PA"></asp:ListItem>
-        <asp:ListItem Value="RI"></asp:ListItem>
-        <asp:ListItem Value="SC"></asp:ListItem>
-        <asp:ListItem Value="SD"></asp:ListItem>
-        <asp:ListItem Value="TN"></asp:ListItem>
-        <asp:ListItem Value="TX"></asp:ListItem>
-        <asp:ListItem Value="UT"></asp:ListItem>
-        <asp:ListItem Value="VT"></asp:ListItem>
-        <asp:ListItem Value="VA"></asp:ListItem>
-        <asp:ListItem Value="WA"></asp:ListItem>
-        <asp:ListItem Value="WV"></asp:ListItem>
-        <asp:ListItem Value="WI"></asp:ListItem>
-        <asp:ListItem Value="WY"></asp:ListItem>
-    </asp:DropDownList>
+                                    <asp:TextBox ID="txtState" runat="server"></asp:TextBox>
 
                                 </div>
                                 <br />
@@ -1115,60 +1056,7 @@
            col-sm-12">
                                     State:
                                     <br />
-                                    <asp:DropDownList ID="ddlState2" runat="server" class="form-control" placeholder="Add State/Province">
-        <asp:ListItem>State</asp:ListItem>
-        <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
-        <asp:ListItem Value="AL"></asp:ListItem>
-        <asp:ListItem Value="AK"></asp:ListItem>
-        <asp:ListItem Value="AZ"></asp:ListItem>
-        <asp:ListItem Value="AR"></asp:ListItem>
-        <asp:ListItem Value="CA"></asp:ListItem>
-        <asp:ListItem Value="CO"></asp:ListItem>
-        <asp:ListItem Value="CT"></asp:ListItem>
-        <asp:ListItem Value="DE"></asp:ListItem>
-        <asp:ListItem Value="FL"></asp:ListItem>
-        <asp:ListItem Value="GA"></asp:ListItem>
-        <asp:ListItem Value="HI"></asp:ListItem>
-        <asp:ListItem Value="ID"></asp:ListItem>
-        <asp:ListItem Value="IL"></asp:ListItem>
-        <asp:ListItem Value="IN"></asp:ListItem>
-        <asp:ListItem Value="IA"></asp:ListItem>
-        <asp:ListItem Value="KS"></asp:ListItem>       
-        <asp:ListItem Value="KY"></asp:ListItem>
-        <asp:ListItem Value="LA"></asp:ListItem>
-        <asp:ListItem Value="ME"></asp:ListItem>
-        <asp:ListItem Value="MD"></asp:ListItem>
-        <asp:ListItem Value="MA"></asp:ListItem>
-        <asp:ListItem Value="MI"></asp:ListItem>
-        <asp:ListItem Value="MN"></asp:ListItem>
-        <asp:ListItem Value="MS"></asp:ListItem>
-        <asp:ListItem Value="MO"></asp:ListItem>
-        <asp:ListItem Value="MT"></asp:ListItem>
-        <asp:ListItem Value="NE"></asp:ListItem>
-        <asp:ListItem Value="NV"></asp:ListItem>
-        <asp:ListItem Value="NH"></asp:ListItem>
-        <asp:ListItem Value="NJ"></asp:ListItem>
-        <asp:ListItem Value="NM"></asp:ListItem>
-        <asp:ListItem Value="NY"></asp:ListItem>
-        <asp:ListItem Value="NC"></asp:ListItem>
-        <asp:ListItem Value="ND"></asp:ListItem>
-        <asp:ListItem Value="OH"></asp:ListItem>
-        <asp:ListItem Value="OK"></asp:ListItem>
-        <asp:ListItem Value="OR"></asp:ListItem>
-        <asp:ListItem Value="PA"></asp:ListItem>
-        <asp:ListItem Value="RI"></asp:ListItem>
-        <asp:ListItem Value="SC"></asp:ListItem>
-        <asp:ListItem Value="SD"></asp:ListItem>
-        <asp:ListItem Value="TN"></asp:ListItem>
-        <asp:ListItem Value="TX"></asp:ListItem>
-        <asp:ListItem Value="UT"></asp:ListItem>
-        <asp:ListItem Value="VT"></asp:ListItem>
-        <asp:ListItem Value="VA"></asp:ListItem>
-        <asp:ListItem Value="WA"></asp:ListItem>
-        <asp:ListItem Value="WV"></asp:ListItem>
-        <asp:ListItem Value="WI"></asp:ListItem>
-        <asp:ListItem Value="WY"></asp:ListItem>
-    </asp:DropDownList>
+                                    <asp:TextBox ID="txtState2" runat="server"></asp:TextBox>
 
 
                                 </div>
@@ -1283,7 +1171,7 @@
                 </asp:UpdatePanel>
                 <div class="modal-footer">
 
-                    <button type="button" id="btnUpdate2" class="btn  btn-inside" runat="server" text="Edit" onclick="btnUpdate2_Click">Save</button>
+                    <button type="button" id="btnUpdate2" class="btn  btn-inside" runat="server" text="Upgrade" onclick="btnUpdate2_Click">Save</button>
                     <button type="button" id="btnDelete2" runat="server" class="btn  btn-inside" text="Delete" onclick="btnDelete2_Click">Delete</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>

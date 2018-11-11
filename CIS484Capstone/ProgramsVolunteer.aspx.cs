@@ -507,7 +507,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@status", txtStatus.Text);
         update.Parameters.AddWithValue("@programAddress", txtAddress.Text);
         update.Parameters.AddWithValue("@cityCounty", txtCity.Text + ", " + txtCounty.Text);
-        update.Parameters.AddWithValue("@state", ddlState1.Text);
+        update.Parameters.AddWithValue("@state", txtState.Text);
         update.Parameters.AddWithValue("@onOff", rboOnOff.SelectedIndex);
         update.Parameters.AddWithValue("@numOfChildren", txtNumOfChildren.Text);
         update.Parameters.AddWithValue("@numofAdults", txtNumOfAdults.Text);
@@ -792,7 +792,7 @@ public partial class Programs : System.Web.UI.Page
                 txtAddress.Text = sdr[4].ToString();
                 txtCity.Text = city;
                 txtCounty.Text = county;
-                ddlState1.Text = sdr[6].ToString();
+                txtState.Text = sdr[6].ToString();
                 if (sdr[7].ToString() == "1")
                 {
                     rboOnOff.SelectedIndex = 0;
@@ -1063,7 +1063,7 @@ public partial class Programs : System.Web.UI.Page
                 txtNumOfKids.Text = sdr[4].ToString();
                 txtNumOfAdults2.Text = sdr[5].ToString();
                 txtCity2.Text = sdr[6].ToString();
-                ddlState2.Text = sdr[7].ToString();
+                txtState2.Text = sdr[7].ToString();
                 txtCountry.Text = sdr[8].ToString();
                 ddlTeacher.SelectedItem.Text = sdr[9].ToString();
                 txtEmail.Text = sdr[10].ToString();
@@ -1295,7 +1295,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@numOfKids", txtNumOfKids.Text);
         update.Parameters.AddWithValue("@numofAdults", txtNumOfAdults2.Text);
         update.Parameters.AddWithValue("@city", txtCity2.Text);
-        update.Parameters.AddWithValue("@state", ddlState2.Text);
+        update.Parameters.AddWithValue("@state", txtState2.Text);
         update.Parameters.AddWithValue("@country", txtCountry.Text);
         update.Parameters.AddWithValue("@teacherName", ddlTeacher.SelectedItem.Text);
         update.Parameters.AddWithValue("@contactEmail", txtEmail.Text);
