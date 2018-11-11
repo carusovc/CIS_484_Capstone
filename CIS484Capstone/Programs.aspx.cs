@@ -470,8 +470,8 @@ public partial class Programs : System.Web.UI.Page
 
     }
 
-    protected void btnExportOnline_Click(object sender, EventArgs e)
-    {
+    //protected void btnExportOnline_Click(object sender, EventArgs e)
+    //{
         //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         //// sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         //String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
@@ -482,82 +482,80 @@ public partial class Programs : System.Web.UI.Page
         //insert.Connection = sc;
         //rptProgramLLOnline.AllowPaging = false;
         // ShowData();
-        String animalReport = "Online Programs Report ";
-        String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
-        SqlDataAdapter da = new SqlDataAdapter("select ProgramDate, ProgramType, Organization,StreetAddress,City, State, Country, Status, NumberOfChildren, NumberOfAdults, EducatorName, Email, Comments from OnlineProgram", sc);
-        HttpResponse response = HttpContext.Current.Response;
+       // String animalReport = "Online Programs Report ";
+       // String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+       // SqlDataAdapter da = new SqlDataAdapter("select ProgramDate, ProgramType, Organization,StreetAddress,City, State, Country, Status, NumberOfChildren, NumberOfAdults, EducatorName, Email, Comments from OnlineProgram", sc);
+       // HttpResponse response = HttpContext.Current.Response;
 
-        StringWriter sw = new StringWriter();
-        HtmlTextWriter htW = new HtmlTextWriter(sw);
-
-
-
-        //StringWriter sw3 = new StringWriter();
-        //HtmlTextWriter htW3 = new HtmlTextWriter(sw3);
-        //data = new SqlDataAdapter(cs);
-        DataSet ds = new DataSet();
-
-        da.Fill(ds);
-        Response.Clear();
-        response.Buffer = true;
-        response.Charset = "";
-        response.ContentType = "application/vnd.xls";
-        response.AddHeader("content-disposition", "attachment; filename=\"" + animalReport + filename + "\"" + ".xls");
+       // StringWriter sw = new StringWriter();
+       // HtmlTextWriter htW = new HtmlTextWriter(sw);
 
 
-        string headerTable = @"<Table>" + animalReport + " " + filename + "<tr><td></td></tr></Table>";
-        string headerTable1 = @"<Table> Live Programs <tr><td></td></tr></Table>";
-       // string headerTable2 = @"<Table>Totals Based on Online Programs <tr><td></td></tr></Table>";
-       // string headerTable3 = @"<Table> Totals Based on <tr><td></td></tr></Table>";
 
-        string blankline = @"<Table><tr><td></td></tr></Table>";
-        Response.Write(headerTable);
-         Response.Write(headerTable1);
-        rptProgramHLOnline.RenderControl(htW);
-        Response.Output.Write(sw.ToString());
-        Response.Write(blankline);
+       // //StringWriter sw3 = new StringWriter();
+       // //HtmlTextWriter htW3 = new HtmlTextWriter(sw3);
+       // //data = new SqlDataAdapter(cs);
+       // DataSet ds = new DataSet();
 
-        Response.End();
+       // da.Fill(ds);
+       // Response.Clear();
+       // response.Buffer = true;
+       // response.Charset = "";
+       // response.ContentType = "application/vnd.xls";
+       // response.AddHeader("content-disposition", "attachment; filename=\"" + animalReport + filename + "\"" + ".xls");
+
+
+       // string headerTable = @"<Table>" + animalReport + " " + filename + "<tr><td></td></tr></Table>";
+       // string headerTable1 = @"<Table> Live Programs <tr><td></td></tr></Table>";
+       //// string headerTable2 = @"<Table>Totals Based on Online Programs <tr><td></td></tr></Table>";
+       //// string headerTable3 = @"<Table> Totals Based on <tr><td></td></tr></Table>";
+
+       // string blankline = @"<Table><tr><td></td></tr></Table>";
+       // Response.Write(headerTable);
+       //  Response.Write(headerTable1);
+       // rptProgramHLOnline.RenderControl(htW);
+       // Response.Output.Write(sw.ToString());
+       // Response.Write(blankline);
+
+       // Response.End();
 
         //sc.Close();
 
 
         
 
-        SqlConnection cnn;
-        string connectionstring = null;
-        string sql = null;
+        //SqlConnection cnn;
+        //string connectionstring = null;
+        //string sql = null;
 
-        Response.Clear();
-        Response.AddHeader("content-disposition", "attachment; filename=\"" + animalReport + filename + "\"" + ".xls");
+        //Response.Clear();
+        //Response.AddHeader("content-disposition", "attachment; filename=\"" + animalReport + filename + "\"" + ".xls");
 
-        Response.ContentType = "application/vnd.ms-xls";
+        //Response.ContentType = "application/vnd.ms-xls";
 
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        sc.ConnectionString = cs;
-        sc.Open();
-        sql = "SELECT * FROM Program";
-        SqlDataAdapter dscmd = new SqlDataAdapter(sql, cs);
-        DataSet ds = new DataSet();
-        dscmd.Fill(ds);
+        //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        //// sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        //String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        //sc.ConnectionString = cs;
+        //sc.Open();
+        //sql = "SELECT * FROM Program";
+        //SqlDataAdapter dscmd = new SqlDataAdapter(sql, cs);
+        //DataSet ds = new DataSet();
+        //dscmd.Fill(ds);
 
-        Repeater Repeater1 = new Repeater();
-        Repeater1.DataSource = ds;
-        Repeater1.HeaderTemplate = new MyTemplate(ListItemType.Header, null);
-        Repeater1.ItemTemplate = new MyTemplate(ListItemType.Item, ds);
-        Repeater1.FooterTemplate = new MyTemplate(ListItemType.Footer, null);
-        Repeater1.DataBind();
+        //Repeater Repeater1 = new Repeater();
+        //Repeater1.DataSource = ds;
+        //Repeater1.HeaderTemplate = new MyTemplate(ListItemType.Header, null);
+        //Repeater1.ItemTemplate = new MyTemplate(ListItemType.Item, ds);
+        //Repeater1.FooterTemplate = new MyTemplate(ListItemType.Footer, null);
+        //Repeater1.DataBind();
 
-        System.IO.StringWriter stringWrite = new System.IO.StringWriter();
-        System.Web.UI.HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
-        Repeater1.RenderControl(htmlWrite);
-        Response.Write(stringWrite.ToString());
-        Response.End();
-        sc.Close();
-
-
+        //System.IO.StringWriter stringWrite = new System.IO.StringWriter();
+        //System.Web.UI.HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
+        //Repeater1.RenderControl(htmlWrite);
+        //Response.Write(stringWrite.ToString());
+        //Response.End();
+        //sc.Close();
 
 
 
@@ -591,7 +589,9 @@ public partial class Programs : System.Web.UI.Page
 
 
 
-    }
+
+
+    //}
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {

@@ -249,20 +249,22 @@
                             <div class="card-header NewUserTitle text-center">Programs</div>
                             <div class="card-body">
                                <div class="mx-auto">
-                                <div class="row">
-                                    <div  class=" col-lg-4 mx-auto d-flex justify-content-center   col-md-6 col-sm-6 ">
-                                          <div class="btn  btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Program</div>
+                                <div class="row mx-auto d-flex justify-content-center">
+                                  
+                                    <div  class=" col-lg-3    col-md-4 col-sm-6 ">
+                                          <div class="btn  btn-primary btn-inside btn-block"  data-target="#AddAnimalModal" data-toggle="modal">Add Program Form</div>
                                     </div>
                                   
-                                      <div  class=" col-lg-4 mx-auto d-flex justify-content-center  col-md-6 col-sm-6 ">
-                                           <div class="btn btn-primary  btn-inside" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live Program</div>
+                                      <div  class=" col-lg-3    col-md-4 col-sm-6  ">
+                                           <div class="btn btn-primary  btn-inside btn-block"  data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live</div>
                                     </div>
                                   
-                                      <div  class=" col-lg-4 mx-auto d-flex justify-content-center col-sm-6 ">
-                                          <div class="btn btn-primary  btn-inside" data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online Program</div>
+                                      <div  class=" col-lg-3   col-md-4  col-sm-6  ">
+                                          <div class="btn btn-primary  btn-inside btn-block"  data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online</div>
                                     </div>
+                                  
                          </div>
-
+<br />
                                 </div>
                                     
                                 <%-- this div  is the internal div--%>
@@ -286,7 +288,7 @@
                                                 <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
                                                     <HeaderTemplate>
                                                         <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
-                                                            <tr class="alert alert-primary">
+                                                            <tr class="alert "style="background-color: #AB9993 !important; color: white !important;">
                                                                 <th scope="col"></th>
                                                                 <th scope="col"></th>
                                                                <th style="font-weight: 600; font-size: 110%; " scope="col">Program Category
@@ -339,7 +341,7 @@
                                                 <asp:Repeater ID="rptProgramHLLive" runat="server" OnItemDataBound="OnItemDataBoundLive">
                                                     <HeaderTemplate>
                                                         <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
-                                                            <tr class="alert alert-primary">
+                                                            <tr class="alert "style="background-color: #AB9993 !important; color: white !important;">
                                                                 <th scope="col">&nbsp
                                                                 </th>
 
@@ -496,11 +498,15 @@
                                                         </table>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
-                                               
-                                                        <div class="mx-auto d-flex justify-content-center">
-                                                        <asp:Button ID="btnExport" runat="server" Text="Export to Excel" class="btn btn-primary btn-inside" OnClick="btnExportLive_Click"></asp:Button>
-
+                                                <div class="row">                                            
+                                                    <%--OnClick="btnExportLive_Click"--%>
+                                                        <div class="mx-auto d-flex justify-content-center  col-lg-3    col-md-4 col-sm-6 ">
+                                                        <asp:Button ID="btnExport" runat="server" Text="Export to Excel" class="btn btn-primary btn-inside btn-block" > </asp:Button>
+                                                            
+                                                                </div>  
+                                                    
                                                         </div>
+                                             
                                             </div>
                                         </div>
 
@@ -508,11 +514,11 @@
 
                                         <div id="OnlineTab" class="tab-pane fade in ">
                                             <%--For the Online--%>
-                                            <div class="block justify-content-center col-md-18">
+                                            <div class="block justify-content-center table-responsive">
                                                 <asp:Repeater ID="rptProgramHLOnline" runat="server" OnItemDataBound="OnItemDataBoundOnline">
                                                     <HeaderTemplate>
                                                         <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
-                                                            <tr class="alert alert-primary">
+                                                            <tr class="alert "style="background-color: #AB9993 !important; color: white !important;">
                                                                 <th scope="col"></th>
 
                                                                <th style="font-weight: 600; font-size: 110%; " scope="col">Program Date</th>
@@ -656,10 +662,14 @@
                                                         </table>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
-                                                 <div class="mx-auto d-flex justify-content-center">
-                                                        <asp:Button ID="Button1" runat="server" Text="Export to Excel" class="btn btn-primary btn-inside" OnClick="btnExportOnline_Click"></asp:Button>
+                                                <%--OnClick="btnExportOnline_Click"--%>
+                                                <div class="row">
+                                                 <div class="mx-auto d-flex justify-content-center  col-lg-3    col-md-4 col-sm-6 ">
+                                                        <asp:Button ID="Button1" runat="server" Text="Export to Excel" class="btn btn-primary btn-inside btn-block"></asp:Button>
 
                                                         </div>
+                                            </div>
+
                                             </div>
                                         </div>
 
@@ -697,7 +707,7 @@
         <div class="modal-dialog  modal-full " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
-                    <h5 class="modal-title">Update Live Program</h5>
+                    <h5 class="modal-title">Edit Live Program</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -956,10 +966,11 @@
 
 
 
-
-                    <button type="button" id="btnUpdate" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate_Click">Update</button>
-                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" text="Delete" onclick="btnDelete_Click">Delete</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside"  data-dismiss="modal" text="Delete" onclick="btnDelete_Click">Delete</button>
+                    <button type="button" id="btnUpdate" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate_Click">Edit</button>
+                    
+                  
                 </div>
             </div>
         </div>
@@ -988,7 +999,7 @@
         <div class="modal-dialog  modal-full " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
-                    <h5 class="modal-title">Update Online Program </h5>
+                    <h5 class="modal-title">Edit Online Program </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1176,10 +1187,11 @@
                     </ContentTemplate>
                 </asp:UpdatePanel>
                 <div class="modal-footer">
-
-                    <button type="button" id="btnUpdate2" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate2_Click">Update</button>
-                    <button type="button" id="btnDelete2" runat="server" class="btn  btn-inside" text="Delete" onclick="btnDelete2_Click">Delete</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="btnDelete2" runat="server" class="btn  btn-inside" text="Delete"  data-dismiss="modal" onclick="btnDelete2_Click">Delete</button>
+                    <button type="button" id="btnUpdate2" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate2_Click">Edit</button>
+                   
+                  
                 </div>
             </div>
 
