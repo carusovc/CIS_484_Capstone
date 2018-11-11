@@ -86,7 +86,7 @@
             <div class="dropdown-menu dropdown-menu-right" >
                 <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
             <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
           </div>
         </li>
            <li class="nav-item dropdown no-arrow active">
@@ -122,7 +122,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
             <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-              <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
+              <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
           </div>
         </li>
 
@@ -133,7 +133,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
             <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
           </div>
         </li>
           <li class="nav-item">

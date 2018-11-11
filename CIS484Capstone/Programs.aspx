@@ -165,7 +165,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
             <li class="nav-item dropdown no-arrow ">
@@ -201,7 +201,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
 
@@ -212,7 +212,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -697,7 +697,7 @@
         <div class="modal-dialog  modal-full " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
-                    <h5 class="modal-title">Update Live Program</h5>
+                    <h5 class="modal-title">Edit Live Program</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -957,7 +957,7 @@
 
 
 
-                    <button type="button" id="btnUpdate" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate_Click">Update</button>
+                    <button type="button" id="btnUpdate" class="btn  btn-inside" runat="server" text="Edit" onclick="btnUpdate_Click">Edit</button>
                     <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" text="Delete" onclick="btnDelete_Click">Delete</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
@@ -988,7 +988,7 @@
         <div class="modal-dialog  modal-full " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
-                    <h5 class="modal-title">Update Online Program </h5>
+                    <h5 class="modal-title">Edit Online Program </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1177,7 +1177,7 @@
                 </asp:UpdatePanel>
                 <div class="modal-footer">
 
-                    <button type="button" id="btnUpdate2" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate2_Click">Update</button>
+                    <button type="button" id="btnUpdate2" class="btn  btn-inside" runat="server" text="Edit" onclick="btnUpdate2_Click">Edit</button>
                     <button type="button" id="btnDelete2" runat="server" class="btn  btn-inside" text="Delete" onclick="btnDelete2_Click">Delete</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>

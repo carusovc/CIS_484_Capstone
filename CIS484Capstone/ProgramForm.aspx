@@ -115,12 +115,12 @@
            <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
             <i class="fas fa-envelope fa-fw"></i>
-            <span>Update Program Content</span>
+            <span>Edit Program Content</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
           </div>
         </li>
           <li class="nav-item">
