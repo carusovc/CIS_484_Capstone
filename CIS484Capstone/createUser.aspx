@@ -35,11 +35,8 @@
                 
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
+      <a class="navbar-brand mr-1 logo" href="Programs.aspx">WildTek</a>
 
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
-        <i class="fas fa-bars"></i>
-      </button>
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
@@ -65,8 +62,7 @@
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
           
           <%--<a class="nav-link" href="Programs.aspx">--%>
-            <%--<i class="fas fa-fw fa-book-open"></i>--%>
-            <span>Programs</span>
+                      <span>Programs</span>
           </a>
             <div class="dropdown-menu dropdown-menu-right" >
                 <a class="dropdown-item" href="Programs.aspx">View Programs</a>
@@ -160,40 +156,31 @@
 
 <div class="container1">
       <div class="card card-register mx-auto mt-5">
-        <div class="card-header NewUserTitle">Add Outreach Coordinator</div>
+        <div class="card-header NewUserTitle text-center">Add Outreach Coordinator</div>
         <div class="card-body">
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">  
-                      <h6 >FIRST NAME</h6>
+                      <h6 >First Name</h6>
                       <asp:TextBox ID="txtFirstName" runat="server" class="form-control" placeholder="First name" required="required"></asp:TextBox>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">                    
-                      <h6 ">LAST NAME</h6>
+                      <h6>Last Name</h6>
                      
                       <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server"></asp:TextBox>               
                   </div>
                 </div>
               </div>
             </div>
-         
-           <%-- <div class="form-group">
-              <div class="form-label-group"> --%>
-                
-                
-             <%--   <label for="inputEmail">USERNAME</label>
-                  <br />
-                <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox> --%>
-              <%-- </div>
-            </div> --%>
+
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                        <h6>USERNAME</h6>
+                        <h6>Username</h6>
                     
                    <%--  <label for="inputPassword">PASSWORD</label> --%>
                      
@@ -203,18 +190,18 @@
                            
                     <div class="col-md-6">
                   <div class="form-label-group">
-                <h6>PASSWORD</h6>
+                <h6>Password</h6>
                
           <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" placeholder="Password" required="required"></asp:TextBox>
                       <br?/> <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>
                    
                       
                 </div>
-
+                          <p runat="server" class=" PasswordReq" style="font-size: 75%;"> Password must include: <br> 1 Number, 1 Special Character <br> 1 Capital Letter, Minimum 8 Characters  </p>
               </div>
             </div>
             
-                 <p runat="server"> Password must include: <br> 1 Number, 1 Special character, 1 Capital letter, At least 8 characters  </p></div>
+                </div>
             <div class="row">
                 <div class="col-md-4 mx-auto">
                     <br />
@@ -231,8 +218,7 @@
 
           <%--  <br /> --%>
           <div class="text-center">
-            <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
-            <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
+
           </div>
         </div>
       </div>

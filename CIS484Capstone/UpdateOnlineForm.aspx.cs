@@ -26,6 +26,8 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
         //txtTempBird.Text = "";
         //txtTempMammals.Text = "";
         //txtTempReptiles.Text = "";
+
+
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
         if (!IsPostBack)
         {
@@ -47,6 +49,10 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
                 SqlDataReader myRead = cmd.ExecuteReader();
                 SqlDataReader myRead1 = cmd1.ExecuteReader();
                 SqlDataReader myRead2 = cmd2.ExecuteReader();
+
+
+
+
 
                 while (myRead.Read())
                 {
@@ -394,6 +400,8 @@ public partial class UpdateOnlineForm : System.Web.UI.Page
         }
     }
 
+
+    //MEG ADDED TO PROGRAMS.ASPX
     protected void ddlOnlineProgramID_SelectedIndexChanged1(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();

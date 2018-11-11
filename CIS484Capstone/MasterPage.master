@@ -30,7 +30,7 @@
 
     <link href="~/Images/logo.png" rel="shortcut icon" type="image/x-icon" />
 
-
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 
     <script>
 $(".modal-wide").on("show.bs.modal", function() {
@@ -53,11 +53,11 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
 
-        <div class="modal" id="UpdateOrganization" tabindex="-1" role="dialog">
+        <div class="modal fade" id="UpdateOrganization" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Update Organization</h5>
+                    <div class="modal-header ">
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Organization</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -71,18 +71,18 @@ $(".modal-wide").on("show.bs.modal", function() {
                         <div runat="server" id="OrganizationupdateDiv">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class=" col-md-4 InternalAnimalForm">
+                                <div class=" col-md-4 text-right InternalAnimalForm">
                                     <h6>Select Organization</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
-                                    <asp:DropDownList ID="ddlOrganization" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
+                                    <asp:DropDownList ID="ddlOrganization" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
                                     <asp:ListItem>--Select Organization--</asp:ListItem>
                                     </asp:DropDownList>&nbsp&nbsp
                                     &nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 InternalAnimalForm">
+                                <div class=" col-md-4 text-right InternalAnimalForm">
                                     <h6>Organization Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
@@ -91,20 +91,17 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
 
                             <div class="row">
-                                <div class=" col-md-4 InternalAnimalForm">
+                                <div class=" col-md-4 text-right InternalAnimalForm">
                                     <h6>City</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
 
                                     <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>&nbsp&nbsp
-
-
                                 </div>
-                              
                             </div>
                         
                             <div class="row">
-                                <div class=" col-md-4 InternalAnimalForm">
+                                <div class=" col-md-4 text-right InternalAnimalForm">
                                     <h6>County</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
@@ -112,7 +109,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
 
-
+                            
 
                             <div>
                                 <div class="row">
@@ -130,10 +127,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                     </div>
                     <div class="modal-footer">
 
-
-                        <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdateOrganization_Click" />
-                        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Edit" OnClick="btnUpdateOrganization_Click" />
+                        
+                      
                     </div>
                 </div>
             </div>
@@ -141,14 +138,14 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
 
-        <div class="modal" id="AddProgram" tabindex="-1" role="dialog">
+        <div class="modal fade" id="AddProgram" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add New Program Type</h5>
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add New Program Type</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                        </button>
+                        </button>&nbsp&nbsp
                     </div>
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
         <Triggers> 
@@ -185,11 +182,11 @@ $(".modal-wide").on("show.bs.modal", function() {
         </div>
 
 
-         <div class="modal" id="AddOrganization" tabindex="-1" role="dialog">
+         <div class="modal fade" id="AddOrganization" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add New Organization</h5>
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add New Organization</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -198,7 +195,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                         <div runat="server" id="OrgAddDiv">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class=" col-md-4 InternalOrganizationForm">
+                                <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Organization Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
@@ -206,16 +203,16 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 InternalOrganizationForm">
-                                    <h6>City:</h6>
+                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                                    <h6>City</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="textOrgCity" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 InternalOrganizationForm">
-                                    <h6>County:</h6>
+                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                                    <h6>County</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="textOrgCounty" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -228,21 +225,21 @@ $(".modal-wide").on("show.bs.modal", function() {
                         </div>
                     </div>
                     <div class="modal-footer">
-
+ <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <asp:Button ID="btnAddOrg" class="btn btn-primary btn-inside" runat="server" Text="Add" OnClick="btnAddOrg_Click" />
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                       
                     </div>
                 </div>
             </div>
         </div>
 
 
-<div class="modal" id="AddAnimal" tabindex="-1" role="dialog">
+<div class="modal fade" id="AddAnimal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Add Animal</h5>
+        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add Animal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -251,9 +248,10 @@ $(".modal-wide").on("show.bs.modal", function() {
         <div runat= server id="Div1">
             <p>&nbsp;</p>
             <div class="row">
-                <div class=" col-md-4 InternalAnimalForm"><h6>Animal Type</h6> </div>
+                <div class=" col-md-4 text-right InternalAnimalForm"><h6>Animal Type</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
-                    <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalType" runat="server">
+
+                    <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" ID="ddlAnimalType" runat="server">
                         <asp:ListItem>Bird</asp:ListItem>
                         <asp:ListItem>Mammal</asp:ListItem>
                         <asp:ListItem>Reptile</asp:ListItem>
@@ -261,16 +259,19 @@ $(".modal-wide").on("show.bs.modal", function() {
                 </div>
             </div>
             <div class="row">
-                <div class=" col-md-4 InternalAnimalForm"><h6>Animal Name</h6> </div>
+                <div class=" col-md-4 text-right InternalAnimalForm"><h6>Animal Name</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
-                    <asp:TextBox  class="InternalAnimalForm" ID="txtAnimalName" runat="server"></asp:TextBox>
+
+                    <asp:TextBox  class="InternalAnimalForm " ID="txtAnimalName" runat="server"></asp:TextBox>&nbsp&nbsp
                 </div>
             </div>
 
               <div class="row"> 
-                <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
+                <div class=" col-md-4 text-right InternalAnimalForm"><h6>Status</h6> </div>
+
                     <div class=" col-md-3 InternalAnimalForm">
-                        <asp:DropDownList ID="ddlStatus" runat="server">
+
+                        <asp:DropDownList ID="ddlStatus" class="btn btn-secondary btn-sm dropdown-toggle" runat="server">
             <asp:ListItem>Active</asp:ListItem>
             <asp:ListItem>Inactive</asp:ListItem>
         </asp:DropDownList>
@@ -282,21 +283,22 @@ $(".modal-wide").on("show.bs.modal", function() {
             <asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>
         </div>
     </div>
-        <div class="modal-footer">
+        <div class="modal-footer"> 
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <asp:Button ID="btnAddAnimal" class="btn btn-primary btn-inside" runat="server" Text="Add Animal" OnClick="btnAddAnimal_Click" />
             <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            
       </div>
     </div>
   </div>
 </div>
 
 
-        <div class="modal" id="AddEducator" tabindex="-1" role="dialog">
+        <div class="modal fade" id="AddEducator" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add New Educator</h5>
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add New Educator</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -305,7 +307,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                         <div runat="server" id="EducatorAddDiv">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class=" col-md-4 InternalEducatorForm">
+                                <div class=" col-md-4 text-right InternalEducatorForm">
                                     <h6>First Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
@@ -313,29 +315,29 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 InternalEducatorForm">
-                                    <h6>Last Name:</h6>
+                                <div class=" col-md-4 text-right InternalEducatorForm">
+                                    <h6>Last Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
                                     <asp:TextBox ID="txtEducatorLastName" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class=" col-md-4 InternalEducatorForm">
-                                    <h6>Contact Email:</h6>
+                        <%--    <div class="row">
+                                <div class=" col-md-4 text-right InternalEducatorForm">
+                                    <h6>Contact Email</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
                                     <asp:TextBox ID="txtEducatorEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 InternalEducatorForm">
-                                    <h6>Phone Number:</h6>
+                                <div class=" col-md-4 text-right InternalEducatorForm">
+                                    <h6>Phone Number</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
                                     <asp:TextBox ID="txtEducatorPhone" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
-                            </div>
+                            </div>--%>
                             
                             <div>
                             </div>
@@ -343,10 +345,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                         </div>
                     </div>
                     <div class="modal-footer">
-
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <asp:Button ID="btnAddEducator" class="btn btn-primary btn-inside" runat="server" Text="Add" OnClick="btnAddEducator_Click" />
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      
                     </div>
                 </div>
             </div>
@@ -354,11 +356,11 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
 
-<div class="modal" id="UpdateAnimal" tabindex="-1" role="dialog">
+<div class="modal fade" id="UpdateAnimal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Update Animal</h5>
+        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Animal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -372,17 +374,19 @@ $(".modal-wide").on("show.bs.modal", function() {
       <div runat= server id="AnimalEditDiv">
           <p>&nbsp;</p>
           <div class="row"> 
-            <div class=" col-md-4 InternalAnimalForm"><h6>Select Animal</h6> </div>
+            <div class=" col-md-4 text-right InternalAnimalForm"><h6>Select Animal</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
-                <asp:DropDownList ID="ddlAnimal" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="AnimalName" DataValueField="AnimalID"  OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
+                <asp:DropDownList ID="ddlAnimal" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="AnimalName" DataValueField="AnimalID"  OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
                 <asp:ListItem>--Select Animal--</asp:ListItem>
-                </asp:DropDownList>
+
+                </asp:DropDownList>&nbsp&nbsp
                 </div>     
                </div>
             <div class="row"> 
-                <div class=" col-md-4 InternalAnimalForm"><h6>Animal Type</h6> </div>
+                <div class=" col-md-4 text-right InternalAnimalForm"><h6>Animal Type</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
-                        <asp:DropDownList class="InternalAnimalForm" ID="ddlAnimalTypeEdit" runat="server">
+
+                        <asp:DropDownList class="InternalAnimalForm" cssclass="btn btn-secondary btn-sm dropdown-toggle" ID="ddlAnimalTypeEdit" runat="server">
                             <asp:ListItem>Bird</asp:ListItem>
                             <asp:ListItem>Mammal</asp:ListItem>
                             <asp:ListItem>Reptile</asp:ListItem>
@@ -390,16 +394,18 @@ $(".modal-wide").on("show.bs.modal", function() {
                     </div>
             </div>
               <div class="row"> 
-                <div class=" col-md-4 InternalAnimalForm"><h6>Animal Name</h6> </div>
+                <div class=" col-md-4 text-right InternalAnimalForm"><h6>Animal Name</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
-                         <asp:TextBox ID="txtBoxAnimalName" runat="server"></asp:TextBox>
+
+                         <asp:TextBox ID="txtBoxAnimalName" runat="server"></asp:TextBox>&nbsp&nbsp
                     </div>
               </div>
 
               <div class="row"> 
-                <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
+                <div class=" col-md-4 text-right InternalAnimalForm"><h6>Status</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
-                        <asp:DropDownList ID="ddlAnimalStatus" runat="server">
+
+                        <asp:DropDownList ID="ddlAnimalStatus" class="btn btn-secondary btn-sm dropdown-toggle" runat="server">
             <asp:ListItem>Active</asp:ListItem>
             <asp:ListItem>Inactive</asp:ListItem>
         </asp:DropDownList>
@@ -409,10 +415,11 @@ $(".modal-wide").on("show.bs.modal", function() {
               <asp:Label ID="lblAnimalLastUpdatedBy" runat="server" Text=""></asp:Label>
               <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
             <div class="modal-footer">
-          <asp:Button ID="btnUpdateAnimal" class="btn btn-primary btn-inside" runat="server" Text="Update Animal" OnClick="btnUpdateAnimal_Click" />
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <asp:Button ID="btnUpdateAnimal" class="btn btn-primary btn-inside" runat="server" Text="Edit Animal" OnClick="btnUpdateAnimal_Click" />
                 <%--<asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />--%>
        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
       </div>
        
       <div></div>
@@ -428,11 +435,11 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
 
-        <div class="modal" id="UpdateEducator" tabindex="-1" role="dialog">
+        <div class="modal fade" id="UpdateEducator" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Update Educator</h5>
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Educator</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -446,19 +453,20 @@ $(".modal-wide").on("show.bs.modal", function() {
                         <div runat="server" id="EducatorEditDiv">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class=" col-md-4 InternalAnimalForm">
-                                    <h6>Select Educator Name</h6>
+                                <div class=" text-right col-md-4 InternalAnimalForm">
+                                    <h6>Select Educator</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
-                                    <asp:DropDownList ID="ddlEducatorName" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="EducatorFirstName" DataValueField="EducatorID"  OnSelectedIndexChanged ="ddlEducator_SelectedIndexChanged1">
+
+                                    <asp:DropDownList ID="ddlEducatorName" class="btn btn-secondary btn-sm dropdown-toggle" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="EducatorFirstName" DataValueField="EducatorID"  OnSelectedIndexChanged ="ddlEducator_SelectedIndexChanged1">
                                         <asp:ListItem>--Select Educator--</asp:ListItem>
                                     </asp:DropDownList>
                                     &nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 InternalAnimalForm">
-                                    <h6>First Name: </h6>
+                                <div class=" text-right col-md-4 InternalAnimalForm">
+                                    <h6>First Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
                                     <asp:TextBox ID="txtEducatorFirst" runat="server"></asp:TextBox>&nbsp&nbsp
@@ -466,8 +474,8 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
 
                             <div class="row">
-                                <div class=" col-md-4 InternalAnimalForm">
-                                    <h6>Last Name: </h6>
+                                <div class=" text-right col-md-4 InternalAnimalForm">
+                                    <h6>Last Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
 
@@ -489,11 +497,11 @@ $(".modal-wide").on("show.bs.modal", function() {
                     </ContentTemplate>
                     </asp:UpdatePanel>
                     <div class="modal-footer">
-
+ <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <asp:Button ID="btnDeleteEducator" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDeleteEducator_Click" />
-                        <asp:Button ID="btnUpdateEducator" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdateEducator_Click" />
+                        <asp:Button ID="btnUpdateEducator" class="btn btn-primary btn-inside" runat="server" Text="Edit" OnClick="btnUpdateEducator_Click" />
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                       
                     </div>
                 </div>
             </div>
