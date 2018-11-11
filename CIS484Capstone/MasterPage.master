@@ -322,7 +322,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                     <asp:TextBox ID="txtEducatorLastName" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
-                            <div class="row">
+                        <%--    <div class="row">
                                 <div class=" col-md-4 text-right InternalEducatorForm">
                                     <h6>Contact Email</h6>
                                 </div>
@@ -337,7 +337,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" col-md-3 InternalEducatorForm">
                                     <asp:TextBox ID="txtEducatorPhone" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
-                            </div>
+                            </div>--%>
                             
                             <div>
                             </div>
