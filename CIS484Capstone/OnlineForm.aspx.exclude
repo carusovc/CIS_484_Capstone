@@ -1658,7 +1658,7 @@ foreach (ListItem item in CBLGold.Items)
                                                             <asp:ListItem Value="Ukraine"></asp:ListItem>
                                                             <asp:ListItem Value="United Arab Emirates"></asp:ListItem>
                                                             <asp:ListItem Value="United Kingdom"></asp:ListItem>
-                                                            <asp:ListItem Value="United States of America"></asp:ListItem>
+                                                            <asp:ListItem Value="United States"></asp:ListItem>
                                                             <asp:ListItem Value="Uruguay"></asp:ListItem>
                                                             <asp:ListItem Value="Uzbekistan"></asp:ListItem>
                                                             <asp:ListItem Value="Vanuatu"></asp:ListItem>
