@@ -7,12 +7,13 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using System.IO;
 
 
 public partial class Programs : System.Web.UI.Page
 {
 
-    int index;
+    int index = 1;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,16 +22,12 @@ public partial class Programs : System.Web.UI.Page
         {
             createAccordianUsingRepeaterLive();
             createAccordianUsingRepeaterOnline();
-            createAccordianUsingRepeaterAll();
+            createAccordianUsingRepeaterAll(0);
         }
 
 
-        index = 1;
-
-
-
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
@@ -325,7 +322,7 @@ public partial class Programs : System.Web.UI.Page
             rptProgramLL2Live.DataSource = GetData(string.Format("SELECT ProgramID, ProgramAddress, CityCounty AS City, State From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptProgramLL2Live.DataBind();
 
-            rptProgramLL3Live.DataSource = GetData(string.Format("SELECT OnOff, ProgramID, PaymentNeeded, ExtraComments AS Comments From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
+            rptProgramLL3Live.DataSource = GetData(string.Format("SELECT Case when OnOff = 1 then 'On' else 'Off' end as 'OnOffSite', ProgramID, Case when PaymentNeeded = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments AS Comments From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptProgramLL3Live.DataBind();
 
 
@@ -392,13 +389,97 @@ public partial class Programs : System.Web.UI.Page
     }
 
 
-    public void createAccordianUsingRepeaterAll()
+    public void createAccordianUsingRepeaterAll(int orderType)
     {
+          // 0 = Default, Program Cateogry
+          // 1 = Date
+         // 2 = Program Type
 
-        rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramDate Desc;");
-        rptProgramHLAll.DataBind();
+        switch (orderType)
+        {
+           
+            case 0:
+                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramCategory;");
+                rptProgramHLAll.DataBind();
+                break;
+            case 1:
+                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramCategory;");
+                rptProgramHLAll.DataBind();
+                break;
+            case 2:
+                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramType;");
+                rptProgramHLAll.DataBind();
+                break;
+            
+
+        }
+
+
+
     }
 
+    protected void btnExportLive_Click(object sender, EventArgs e)
+    {
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        String animalReport = "Live Programs Listing";
+        String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+        string onlineName = animalReport + filename;
+
+        SqlCommand cmd = new SqlCommand("Select pt.ProgramName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, CONVERT(VARCHAR(15), ProgramTime, 108) as ProgramTime, o.OrgName, ProgramAddress,CityCounty, State, Status, NumberOfChildren, NumberOfAdults," +
+            "Case when OnOff = 1 then 'On' else 'Off' end as 'On or Off Site', Case when PaymentNeeded = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments FROM Program p inner join ProgramType pt on  p.programtypeid = pt.programtypeid inner join Organization o on p.orgid = o.orgid", sc);
+
+        sc.Open();
+
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+
+        ds.WriteXml(@"C:\Users\labpatron\Desktop\" + animalReport + ".xls");
+
+        sc.Close();
+        string script = "alert('File Successfully Exported to Desktop');";
+        System.Web.UI.ScriptManager.RegisterClientScriptBlock(Button1, this.GetType(), "Test", script, true);
+
+    }
+    public override void VerifyRenderingInServerForm(Control control)
+    {
+
+    }
+
+
+    protected void btnExportOnline_Click(object sender, EventArgs e)
+    {
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        String animalReport = "Online Programs Listing";
+        String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+        string onlineName = animalReport + filename;
+
+        // string query = "SELECT ProgramDate, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments FROM OnlineProgram";
+
+
+
+        SqlCommand cmd = new SqlCommand("Select OnlineProgramTypeName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, NumberOfKids, NumberOfPeople, " +
+            "City, State, Country, TeacherName  as Educator, ContactEmail, ExtraComments FROM OnlineProgram op inner join OnlineProgramType opt on  op.onlineprogramtypeid = opt.onlineprogramtypeid", sc);
+
+        sc.Open();
+
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+
+        ds.WriteXml(@"C:\Users\labpatron\Desktop\" + animalReport + ".xls");
+
+
+        sc.Close();
+        string script = "alert('File Successfully Exported to Desktop');";
+        System.Web.UI.ScriptManager.RegisterClientScriptBlock(Button1, this.GetType(), "Test", script, true);
+    }
 
 
     protected void btnUpdate_Click(object sender, EventArgs e)
@@ -687,7 +768,7 @@ public partial class Programs : System.Web.UI.Page
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, PaymentNeeded, ProgramDate, ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
+        insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, PaymentNeeded, convert(varchar, ProgramDate,101) as ProgramDate, , CONVERT(VARCHAR(15), ProgramTime, 108) as ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
                           " ProgramID = @ProgramID";
         insert.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
 
@@ -965,7 +1046,7 @@ public partial class Programs : System.Web.UI.Page
         pullReptile.Parameters.Clear();
 
 
-        insert.CommandText = "select OnlineProgramID, ProgramDate, Month, OnlineProgramTypeID, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments, LastUpdated, LastUpdatedBy from OnlineProgram where OnlineProgramID = @OnlineProgramID";
+        insert.CommandText = "select OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, Month, OnlineProgramTypeID, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments, LastUpdated, LastUpdatedBy from OnlineProgram where OnlineProgramID = @OnlineProgramID";
         insert.Parameters.AddWithValue("@OnlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
 
         onlineProgramType.CommandText = "Select OnlineProgramType.OnlineProgramTypeName from OnlineProgramType inner join OnlineProgram on OnlineProgramType.OnlineProgramTypeID = OnlineProgram.OnlineProgramTypeID where OnlineProgram.OnlineProgramID = @programID";
@@ -1484,6 +1565,16 @@ public partial class Programs : System.Web.UI.Page
 
 
         }
+    }
+
+    // All Program Tab Order By
+
+    protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int OrderSelect = ddlOrderBy.SelectedIndex;
+        createAccordianUsingRepeaterAll(OrderSelect);
+
+
     }
 
 }

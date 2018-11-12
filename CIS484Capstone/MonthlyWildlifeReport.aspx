@@ -35,25 +35,7 @@
                 
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
-
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <!-- Navbar -->
-      <ul class="navbar-nav ml-auto ml-md-0">
-        
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
-      </ul>
-
+      <a class="navbar-brand mr-1 logo" href="Programs.aspx">WildTek</a>
     </nav>
 
 
@@ -134,6 +116,13 @@
             <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
           </div>
         </li>
+
+                  <li class="nav-item">
+          <a class="nav-link" href="Location.aspx">
+            
+            <span>Location</span></a>
+        </li>
+
           <li class="nav-item">
           <a class="nav-link" href="createUser.aspx">
           
@@ -159,9 +148,9 @@
        <div class="mx-auto d-flex justify-content-center">
   
 
-      <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True"  class="btn btn-secondary btn-sm dropdown-toggle" DataSourceID="SqlDataSource1" DataTextField="MonthName" DataValueField="MonthName">
+      <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True"  class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFBC7C !important; color: #732700 !important;" DataSourceID="SqlDataSource1" DataTextField="MonthName" DataValueField="MonthName">
                         <asp:ListItem></asp:ListItem>
-                        </asp:DropDownList>
+                        </asp:DropDownList>&nbsp&nbsp&nbsp&nbsp
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="		SELECT CASE { fn MONTH(Program.ProgramDate) } 
             when 1 then 'January'
             when 2 then 'February'
@@ -179,7 +168,7 @@
     
          
              
-            <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True"  class="btn btn-secondary btn-sm dropdown-toggle" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
+            <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True"  class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFBC7C !important; color: #732700 !important;" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
                         <asp:ListItem></asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct(YEAR(ProgramDate)) AS YEAR FROM Program"></asp:SqlDataSource>
@@ -207,7 +196,9 @@
     <br />
      <br />
    
-<asp:GridView ID="gridLivePrograms" runat="server" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2"  NullDisplayText="There are no records to display.">
+<asp:GridView ID="gridLivePrograms" HeaderStyle-Backcolor="#FFBC7C"
+    HeaderStyle-Forecolor="#732700" runat="server" class="table table-bordered table-condensed table-hover" 
+    AutoGenerateColumns="False" DataSourceID="SqlDataSource2" EmptyDataText="There are no records to display.">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month Name" ReadOnly="True" >
                  <HeaderStyle HorizontalAlign="Left" />
@@ -295,7 +286,9 @@
      <br />
    
  
-    <asp:GridView runat="server" id= "gridOnlineAnimalsTotals" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" NullDisplayText="There are no records to display.">
+    <asp:GridView runat="server" HeaderStyle-Backcolor="#FFBC7C"
+    HeaderStyle-Forecolor="#732700" id= "gridOnlineAnimalsTotals" class="table table-bordered table-condensed table-hover" 
+        AutoGenerateColumns="False" DataSourceID="SqlDataSource3" EmptyDataText="There are no records to display.">
         <Columns>
              <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month Name" ReadOnly="True" >
                  <HeaderStyle HorizontalAlign="Left" />
@@ -351,7 +344,7 @@
         </SelectParameters>
     </asp:SqlDataSource>
           <br />
-     <br /><br /><br />
+    
               </div>
 
     </div>
@@ -367,6 +360,7 @@
     <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
             
               </div>
+          <br />
         </div>
       </div>
     </div>
