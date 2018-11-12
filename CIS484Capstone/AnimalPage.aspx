@@ -39,7 +39,7 @@
                 
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
+      <a class="navbar-brand mr-1 logo" href="Programs.aspx">WildTek</a>
 
 
 
@@ -389,8 +389,7 @@
       </div>
         </div>
         <div class="text-center">
-            <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
-            <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
+
           </div>
         </div>
       </div>

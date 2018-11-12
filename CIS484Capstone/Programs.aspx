@@ -73,7 +73,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-        <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
+        <a class="navbar-brand mr-1 logo" href="Programs.aspx">WildTek</a>
 
     </nav>
 
@@ -407,7 +407,7 @@
 
                                                                                     <th class="col-md-4" scope="col">Street Addess
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col">City County
+                                                                                    <th class="col-md-4" scope="col">City, County
                                                                                     </th>
                                                                                     <th class="col-md-4" scope="col">State
                                                                                     </th>
@@ -445,7 +445,7 @@
                                                                                 <tr class="row">
                                                                                     <th class="col-md-4" scope="col">On/Off Site
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col">Payment Satus
+                                                                                    <th class="col-md-4" scope="col">Payment Status
                                                                                     </th>
                                                                                     <th class="col-md-4" scope="col">Comments
                                                                                     </th>
@@ -455,10 +455,10 @@
                                                                         <ItemTemplate>
                                                                             <tr class="row">
                                                                                 <td class="col-md-4">
-                                                                                    <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("OnOff") %>' />
+                                                                                    <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("OnOffSite") %>' />
                                                                                 </td>
                                                                                 <td class="col-md-4">
-                                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("PaymentNeeded") %>' />
+                                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("Paid?") %>' />
                                                                                 </td>
                                                                                 <td class="col-md-4">
                                                                                     <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
@@ -691,9 +691,7 @@
             </div>
 
             <div class="text-center">
-                <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
-                <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
-            </div>
+             </div>
         </div>
     </div>
 

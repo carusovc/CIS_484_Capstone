@@ -35,24 +35,9 @@
                 
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
+      <a class="navbar-brand mr-1 logo" href="Programs.aspx">WildTek</a>
 
-
-     <%-- <!-- Navbar -->
-      <ul class="navbar-nav ml-auto ml-md-0">
-        
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
-      </ul>
-         --%>
     </nav>
-
 
             <div id="wrapper">
 
@@ -140,7 +125,7 @@
 
       
 
-<body class="blur">
+<body>
 
 
       <div id="content-wrapper" class="section">
@@ -269,7 +254,9 @@
     <br />
      <br />
    
+
  <asp:GridView ID="AnimalLiveGrid" class="table table-bordered table-condensed table-hover" runat="server"  AutoGenerateColumns="False"     
+
      EmptyDataText="There are no records to display." >
         <Columns>
 
@@ -354,7 +341,6 @@
     </div>
                  </div>
                <br /><br /><br />
-
      <%--          </div>
 
    </div>
@@ -373,6 +359,7 @@
             </Columns>
         </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
+
           <div class="mx-auto d-flex justify-content-center">
 
                           <asp:Button ID="btnToExcel" runat="server" OnClick="btnToExcel_Click1" Text="Export to Excel"  class="btn btn-primary btn-inside" />

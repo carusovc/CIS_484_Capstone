@@ -26,7 +26,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
             drpAnimalType.Items.Add("Mammal");
             drpAnimalType.Items.Add("Reptile");
 
-            insert.CommandText = "select * from dbo.Animal where animalType = 'bird'";
+           // insert.CommandText = "select * from dbo.Animal where animalType = 'bird'";
 
            ShowData();
 
@@ -83,10 +83,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
     {
         Response.Redirect("TabAnimalReports.aspx");
     }
-    protected void btnBack_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ReportChoice.aspx");
-    }
+
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         SearchDiv.Visible = true;

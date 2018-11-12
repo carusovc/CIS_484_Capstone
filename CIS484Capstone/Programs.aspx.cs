@@ -13,7 +13,7 @@ using System.IO;
 public partial class Programs : System.Web.UI.Page
 {
 
-    int index;
+    int index = 1;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -26,12 +26,8 @@ public partial class Programs : System.Web.UI.Page
         }
 
 
-        index = 1;
-
-
-
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+      
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
@@ -326,7 +322,7 @@ public partial class Programs : System.Web.UI.Page
             rptProgramLL2Live.DataSource = GetData(string.Format("SELECT ProgramID, ProgramAddress, CityCounty AS City, State From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptProgramLL2Live.DataBind();
 
-            rptProgramLL3Live.DataSource = GetData(string.Format("SELECT OnOff, ProgramID, PaymentNeeded, ExtraComments AS Comments From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
+            rptProgramLL3Live.DataSource = GetData(string.Format("SELECT Case when OnOff = 1 then 'On' else 'Off' end as 'OnOffSite', ProgramID, Case when PaymentNeeded = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments AS Comments From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptProgramLL3Live.DataBind();
 
 
@@ -402,196 +398,67 @@ public partial class Programs : System.Web.UI.Page
 
     protected void btnExportLive_Click(object sender, EventArgs e)
     {
+
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
+        String animalReport = "Live Programs Listing";
+        String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+        string onlineName = animalReport + filename;
+
+        SqlCommand cmd = new SqlCommand("Select pt.ProgramName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, CONVERT(VARCHAR(15), ProgramTime, 108) as ProgramTime, o.OrgName, ProgramAddress,CityCounty, State, Status, NumberOfChildren, NumberOfAdults," +
+            "Case when OnOff = 1 then 'On' else 'Off' end as 'On or Off Site', Case when PaymentNeeded = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments FROM Program p inner join ProgramType pt on  p.programtypeid = pt.programtypeid inner join Organization o on p.orgid = o.orgid", sc);
+
         sc.Open();
 
-        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-        insert.Connection = sc;
-        // rptProgramHLLive.AllowPaging = false;
-        // ShowData();
-        String animalReport = "Live Program Report ";
-        String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
-        SqlDataAdapter da = new SqlDataAdapter("select ProgramDate, ProgramType, Organization,StreetAddress,City,County, State, Status, NumberOfChildren, NumberOfAdults, Onoff, Payment, Comments from Program", sc);
-        HttpResponse response = HttpContext.Current.Response;
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
 
-        StringWriter sw = new StringWriter();
-        HtmlTextWriter htW = new HtmlTextWriter(sw);
+        ds.WriteXml(@"C:\Users\labpatron\Desktop\" + animalReport + ".xls");
 
-      
-        //StringWriter sw3 = new StringWriter();
-        //HtmlTextWriter htW3 = new HtmlTextWriter(sw3);
-        response.Clear();
-        response.Buffer = true;
-        response.Charset = "";
-        response.ContentType = "application/vnd.xls";
-        response.AddHeader("content-disposition", "attachment; filename=\"" + animalReport + filename + "\"" + ".xls");
-
-
-
-
-        // AnimalLiveGrid.RenderControl(htW);
-        //AnimalLiveGrid.RenderControl(htW2);
-        //AnimalLiveGrid.RenderControl(htW3);
-
-        string headerTable = @"<Table>" + animalReport + " " + filename + "<tr><td></td></tr></Table>";
-        string headerTable1 = @"<Table> Totals Based on Live Programs <tr><td></td></tr></Table>";
-     //   string headerTable2 = @"<Table> Totals Based on Online Programs <tr><td></td></tr></Table>";
-        string headerTable3 = @"<Table> Totals Based on <tr><td></td></tr></Table>";
-
-        string blankline = @"<Table><tr><td></td></tr></Table>";
-        Response.Write(headerTable);
-        Response.Write(headerTable1);
-        rptProgramHLLive.RenderControl(htW);
-        Response.Output.Write(sw.ToString());
-        Response.Write(blankline);
-
-        //Response.Write(headerTable2);
-        //rptProgramHLLive.RenderControl(htW2);
-        //Response.Output.Write(sw2.ToString());
-        //Response.Write(blankline);
-
-        Response.Write(headerTable3);
-        //totalAnimalCount.RenderControl(htW3);
-        //Response.Output.Write(sw3.ToString());
-        Response.End();
         sc.Close();
+        string script = "alert('File Successfully Exported to Desktop');";
+        System.Web.UI.ScriptManager.RegisterClientScriptBlock(Button1, this.GetType(), "Test", script, true);
 
-        //}
-        //catch (Exception ex)
-        //{
-        //    Response.Write("<script>alert('" + ex.Message + "')</script>");
-        //}
     }
     public override void VerifyRenderingInServerForm(Control control)
     {
 
     }
 
-    //protected void btnExportOnline_Click(object sender, EventArgs e)
-    //{
-        //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        //// sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-        //String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        //sc.ConnectionString = cs;
-        //sc.Open();
 
-        //System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-        //insert.Connection = sc;
-        //rptProgramLLOnline.AllowPaging = false;
-        // ShowData();
-       // String animalReport = "Online Programs Report ";
-       // String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
-       // SqlDataAdapter da = new SqlDataAdapter("select ProgramDate, ProgramType, Organization,StreetAddress,City, State, Country, Status, NumberOfChildren, NumberOfAdults, EducatorName, Email, Comments from OnlineProgram", sc);
-       // HttpResponse response = HttpContext.Current.Response;
+    protected void btnExportOnline_Click(object sender, EventArgs e)
+    {
 
-       // StringWriter sw = new StringWriter();
-       // HtmlTextWriter htW = new HtmlTextWriter(sw);
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        String animalReport = "Online Programs Listing";
+        String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+        string onlineName = animalReport + filename;
 
 
-
-       // //StringWriter sw3 = new StringWriter();
-       // //HtmlTextWriter htW3 = new HtmlTextWriter(sw3);
-       // //data = new SqlDataAdapter(cs);
-       // DataSet ds = new DataSet();
-
-       // da.Fill(ds);
-       // Response.Clear();
-       // response.Buffer = true;
-       // response.Charset = "";
-       // response.ContentType = "application/vnd.xls";
-       // response.AddHeader("content-disposition", "attachment; filename=\"" + animalReport + filename + "\"" + ".xls");
+       // string query = "SELECT ProgramDate, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments FROM OnlineProgram";
 
 
-       // string headerTable = @"<Table>" + animalReport + " " + filename + "<tr><td></td></tr></Table>";
-       // string headerTable1 = @"<Table> Live Programs <tr><td></td></tr></Table>";
-       //// string headerTable2 = @"<Table>Totals Based on Online Programs <tr><td></td></tr></Table>";
-       //// string headerTable3 = @"<Table> Totals Based on <tr><td></td></tr></Table>";
+      SqlCommand cmd = new SqlCommand("Select OnlineProgramTypeName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, NumberOfKids, NumberOfPeople, " +
+          "City, State, Country, TeacherName  as Educator, ContactEmail, ExtraComments FROM OnlineProgram op inner join OnlineProgramType opt on  op.onlineprogramtypeid = opt.onlineprogramtypeid", sc);
+       
+        sc.Open();
 
-       // string blankline = @"<Table><tr><td></td></tr></Table>";
-       // Response.Write(headerTable);
-       //  Response.Write(headerTable1);
-       // rptProgramHLOnline.RenderControl(htW);
-       // Response.Output.Write(sw.ToString());
-       // Response.Write(blankline);
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
 
-       // Response.End();
-
-        //sc.Close();
+        ds.WriteXml(@"C:\Users\labpatron\Desktop\" + animalReport  + ".xls");
 
 
-        
+        sc.Close();
+        string script = "alert('File Successfully Exported to Desktop');";
+        System.Web.UI.ScriptManager.RegisterClientScriptBlock(Button1, this.GetType(), "Test", script, true);
+    }
 
-        //SqlConnection cnn;
-        //string connectionstring = null;
-        //string sql = null;
-
-        //Response.Clear();
-        //Response.AddHeader("content-disposition", "attachment; filename=\"" + animalReport + filename + "\"" + ".xls");
-
-        //Response.ContentType = "application/vnd.ms-xls";
-
-        //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        //// sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-        //String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        //sc.ConnectionString = cs;
-        //sc.Open();
-        //sql = "SELECT * FROM Program";
-        //SqlDataAdapter dscmd = new SqlDataAdapter(sql, cs);
-        //DataSet ds = new DataSet();
-        //dscmd.Fill(ds);
-
-        //Repeater Repeater1 = new Repeater();
-        //Repeater1.DataSource = ds;
-        //Repeater1.HeaderTemplate = new MyTemplate(ListItemType.Header, null);
-        //Repeater1.ItemTemplate = new MyTemplate(ListItemType.Item, ds);
-        //Repeater1.FooterTemplate = new MyTemplate(ListItemType.Footer, null);
-        //Repeater1.DataBind();
-
-        //System.IO.StringWriter stringWrite = new System.IO.StringWriter();
-        //System.Web.UI.HtmlTextWriter htmlWrite = new HtmlTextWriter(stringWrite);
-        //Repeater1.RenderControl(htmlWrite);
-        //Response.Write(stringWrite.ToString());
-        //Response.End();
-        //sc.Close();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //}
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
@@ -879,7 +746,7 @@ public partial class Programs : System.Web.UI.Page
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, PaymentNeeded, ProgramDate, ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
+        insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, PaymentNeeded, convert(varchar, ProgramDate,101) as ProgramDate, , CONVERT(VARCHAR(15), ProgramTime, 108) as ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
                           " ProgramID = @ProgramID";
         insert.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
 
@@ -1157,7 +1024,7 @@ public partial class Programs : System.Web.UI.Page
         pullReptile.Parameters.Clear();
 
 
-        insert.CommandText = "select OnlineProgramID, ProgramDate, Month, OnlineProgramTypeID, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments, LastUpdated, LastUpdatedBy from OnlineProgram where OnlineProgramID = @OnlineProgramID";
+        insert.CommandText = "select OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, Month, OnlineProgramTypeID, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments, LastUpdated, LastUpdatedBy from OnlineProgram where OnlineProgramID = @OnlineProgramID";
         insert.Parameters.AddWithValue("@OnlineProgramID", ddlOnlineProgramID.SelectedItem.Value);
 
         onlineProgramType.CommandText = "Select OnlineProgramType.OnlineProgramTypeName from OnlineProgramType inner join OnlineProgram on OnlineProgramType.OnlineProgramTypeID = OnlineProgram.OnlineProgramTypeID where OnlineProgram.OnlineProgramID = @programID";

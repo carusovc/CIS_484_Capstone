@@ -350,8 +350,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         txtEducatorFirstName.Text = "";
         txtEducatorLastName.Text = "";
-        txtEducatorEmail.Text = "";
-        txtEducatorPhone.Text = "";
+        //txtEducatorEmail.Text = "";
+        //txtEducatorPhone.Text = "";
         ddlEducatorName.DataBind();
     }
 
