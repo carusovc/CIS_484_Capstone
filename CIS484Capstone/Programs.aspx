@@ -98,92 +98,152 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
-        <li class="nav-item dropdown no-arrow active">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            
-          <%--<a class="nav-link" href="Programs.aspx">--%>
-          
-            <span>Programs</span>
-          </a>
-            <div class="dropdown-menu dropdown-menu-right" >
-                <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
-          </div>
-        </li>
-<%--      <li class="nav-item">
+        <ul class="sidebar navbar-nav">
+            <li class="nav-item dropdown no-arrow active">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <%--<a class="nav-link" href="Programs.aspx">--%>
+
+                    <span>Programs</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Programs.aspx">View Programs</a>
+                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                </div>
+            </li>
+            <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-          <li class="nav-item dropdown no-arrow ">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-           
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <%--   Cs-Design View Version 
             <span>Animals</span>
-          </a>
-            <div class="dropdown-menu dropdown-menu-right" >
-                <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
-            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
-          </div>
-        </li>
-           <li class="nav-item dropdown no-arrow ">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            
-            <span>Reports</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-            <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-            <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-            <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-            <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-            <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-          </div>
-        </li>
-          <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-           
-            <span>Payment</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" >
-              <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-            <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-            <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
-          </div>
-        </li>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-          <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-         
-            <span>Organizations</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-              <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
-          </div>
-        </li>
+                    <span>Reports</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-           <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-           
-            <span>Educators</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
-          </div>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="createUser.aspx">
-            
-            <span>Create Outreach Coordinator Access</span></a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="Default.aspx">
-            
-            <span>Logout</span></a>
-        </li>
+                    <span>Payment</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+                </div>
+            </li>
 
-      </ul>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Organizations</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Educators</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="createUser.aspx"> --%>
+
+
+                    <span>Animals</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Reports</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Payment</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Organizations</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Educators</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="createUser.aspx">
+
+                    <span>Create Outreach Coordinator Access</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Default.aspx">
+
+                    <span>Logout</span></a>
+            </li>
+
+        </ul>
 
         <div id="content-wrapper">
 
@@ -205,16 +265,20 @@
                         <div class="card  mx-auto mt-5">
                             <div class="card-header NewUserTitle text-center">Programs</div>
                             <div class="card-body">
+                                <div class="mx-auto">
+                                    <div class="row">
+                                        <div class=" col-lg-4 mx-auto d-flex justify-content-center   col-md-6 col-sm-6 ">
+                                            <div class="btn  btn-primary btn-inside" data-target="#addProgramModal" data-toggle="modal">Add Program</div>
+                                        </div>
 
-                                <div class="mx-auto d-flex justify-content-center">
+                                        <div class=" col-lg-4 mx-auto d-flex justify-content-center  col-md-6 col-sm-6 ">
+                                            <div class="btn btn-primary  btn-inside" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live Program</div>
+                                        </div>
 
-                                    <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Program</div>
-
-                                    <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Edit Program</div>
-
-                                     <div class="btn btn-primary btn-inside" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live Program</div>
-
-                                    <div class="btn btn-primary btn-inside" data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online Program</div>
+                                        <div class=" col-lg-4 mx-auto d-flex justify-content-center col-sm-6 ">
+                                            <div class="btn btn-primary  btn-inside" data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online Program</div>
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -231,31 +295,36 @@
                                             <a class="nav-link TabStyle" data-toggle="tab" href="#OnlineTab" style="color: black;">Online Programs</a>
                                     </ul>
 
+                                    <%-- Version 1 All --%>
                                     <div class="tab-content">
-                                        <div id="AllTab" class="tab-pane fade in">
-
-                                            <%--VERSION 1 Live--%>
+                                        <div id="AllTab" class="tab-pane show active">
                                             <div class="block justify-content-center table-responsive">
+
                                                 <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
                                                     <HeaderTemplate>
                                                         <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
                                                             <tr class="alert alert-primary">
-                                                                <th scope="col">&nbsp
+                                                                <th scope="col"></th>
+                                                                <th scope="col"></th>
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Category
                                                                 </th>
-
-                                                                <th scope="col">Program Category
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Date
                                                                 </th>
-                                                                <th scope="col">Program Date
-                                                                </th>
-                                                                <th scope="col">Program Type
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Type
                                                                 </th>
 
                                                             </tr>
                                                     </HeaderTemplate>
                                                     <ItemTemplate>
                                                         <tr>
+                                                            <asp:HiddenField ID="hfProgramIDAll" runat="server" Value='<%# Eval("AllProgramID") %>' />
                                                             <td>
-                                                                <asp:HiddenField ID="hfAllProgsID" runat="server" Value='<%# Eval("AllProgramID") %>' />
+                                                                <img alt="" style="cursor: pointer;" src="#" />
+
+                                                            </td>
+                                                            <td>
+                                                                <img alt="" style="cursor: pointer;" src="#" />
+
                                                             </td>
                                                             <td>
                                                                 <asp:Label ID="Label2" runat="server" Text='<%# Eval("ProgramCategory") %>' />
@@ -266,10 +335,11 @@
 
                                                             </td>
                                                             <td>
-                                                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("ProgramType") %>' />
+                                                                <asp:Label ID="lblOrganization" runat="server" Text='<%# Eval("ProgramType") %>' />
 
                                                             </td>
                                                             <td></td>
+
                                                         </tr>
                                                     </ItemTemplate>
                                                     <FooterTemplate>
@@ -290,11 +360,11 @@
                                                                 <th scope="col">&nbsp
                                                                 </th>
 
-                                                                <th scope="col">Program Date
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Date
                                                                 </th>
-                                                                <th scope="col">Program Type
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Type
                                                                 </th>
-                                                                <th scope="col">Organization
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Organization
                                                                 </th>
 
                                                             </tr>
@@ -308,14 +378,14 @@
 
                                                                         <HeaderTemplate>
 
-                                                                            <table class="ChildGrid table table-borderless table-condensed WideTable  col-md-12" border="0" table-layout: fixed>
+                                                                            <table class="ChildGrid table table-striped table-borderless table-condensed WideTable  col-md-12" border="0" table-layout: fixed>
 
                                                                                 <tr class="row">
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Status
+                                                                                    <th class="col-md-4" scope="col">Status
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Number of Children
+                                                                                    <th class="col-md-4" scope="col">Number of Children
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Number of Adults
+                                                                                    <th class="col-md-4" scope="col">Number of Adults
                                                                                     </th>
 
                                                                                 </tr>
@@ -346,15 +416,15 @@
 
                                                                         <HeaderTemplate>
 
-                                                                            <table class="ChildGrid table table-borderless table-condensed WideTable" border="0" table-layout: fixed>
+                                                                            <table class="ChildGrid table table-striped table-borderless table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                 <tr class="row">
 
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Street Addess
+                                                                                    <th class="col-md-4" scope="col">Street Addess
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>City County
+                                                                                    <th class="col-md-4" scope="col">City County
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>State
+                                                                                    <th class="col-md-4" scope="col">State
                                                                                     </th>
 
                                                                                 </tr>
@@ -385,14 +455,14 @@
 
                                                                         <HeaderTemplate>
 
-                                                                            <table class="ChildGrid table table-borderless table-condensed WideTable" border="0" table-layout: fixed>
+                                                                            <table class="ChildGrid table  table-striped table-borderless table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                 <tr class="row">
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>On/Off Site
+                                                                                    <th class="col-md-4" scope="col">On/Off Site
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Payment Satus
+                                                                                    <th class="col-md-4" scope="col">Payment Satus
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Comments
+                                                                                    <th class="col-md-4" scope="col">Comments
                                                                                     </th>
 
                                                                                 </tr>
@@ -400,10 +470,10 @@
                                                                         <ItemTemplate>
                                                                             <tr class="row">
                                                                                 <td class="col-md-4">
-                                                                                    <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("OnOff") %>' />
+                                                                                    <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("OnOffSite") %>' />
                                                                                 </td>
                                                                                 <td class="col-md-4">
-                                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("PaymentNeeded") %>' />
+                                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("Paid?") %>' />
                                                                                 </td>
                                                                                 <td class="col-md-4">
                                                                                     <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
@@ -421,12 +491,12 @@
 
                                                                     </asp:Repeater>
                                                                 </asp:Panel>
-                                                                </td>
-                                                                <asp:HiddenField ID="hfProgramIDLive" runat="server" Value='<%# Eval("ProgramID") %>' />
-                                                                <td>
-                                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("ProgramDate") %>' />
+                                                            </td>
+                                                            <asp:HiddenField ID="hfProgramIDLive" runat="server" Value='<%# Eval("ProgramID") %>' />
+                                                            <td>
+                                                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("ProgramDate") %>' />
 
-                                                                </td>
+                                                            </td>
                                                             <td>
                                                                 <asp:Label ID="lblProgramDate" runat="server" Text='<%# Eval("ProgramType") %>' />
 
@@ -443,6 +513,13 @@
                                                         </table>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
+                                                <div class="row">
+                                                    <%-- Onclick export live --%>
+                                                    <div class="mx-auto d-flex justify-content-center col-lg-3 col-md-4 col-sm-6">
+                                                        <asp:Button type="button" id="btnExportLive" class="btn btn-primary  btn-inside btn-block" runat="server" text="Export to Excel" onclick="btnExportLive_Click"></asp:Button>
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -457,14 +534,14 @@
                                                             <tr class="alert alert-primary">
                                                                 <th scope="col"></th>
 
-                                                                <th scope="col">Program Date</th>
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Date</th>
 
-                                                                <th scope="col">Program Type</th>
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Type</th>
                                                             </tr>
                                                     </HeaderTemplate>
                                                     <ItemTemplate>
                                                         <tr>
-                                                         <td>
+                                                            <td>
 
                                                                 <img alt="" style="cursor: pointer; padding-left: -50%;" src="images/plus.png" />
                                                                 <asp:Panel ID="pnlProgramOnline" runat="server" Style="display: none">
@@ -472,7 +549,7 @@
 
                                                                         <HeaderTemplate>
 
-                                                                            <table class="ChildGrid table table-condensed WideTable " border="0" table-layout: fixed>
+                                                                            <table class="ChildGrid table table-striped table-condensed WideTable " border="0" table-layout: fixed>
 
                                                                                 <tr class="row">
 
@@ -500,9 +577,9 @@
                                                                         </ItemTemplate>
 
 
-                                                                       
+
                                                                         <FooterTemplate>
-                                                                             </table>
+                                                                            </table>
                                                                         </FooterTemplate>
 
                                                                     </asp:Repeater>
@@ -510,7 +587,7 @@
 
                                                                         <HeaderTemplate>
 
-                                                                            <table class="ChildGrid table table-condensed WideTable" border="0" table-layout: fixed>
+                                                                            <table class="ChildGrid table table-striped table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                 <tr class="row">
 
@@ -548,7 +625,7 @@
 
                                                                         <HeaderTemplate>
 
-                                                                            <table class="ChildGrid table table-condensed WideTable" border="0" table-layout: fixed>
+                                                                            <table class="ChildGrid table table-striped table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                 <tr class="row">
                                                                                     <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Contact Email
@@ -579,12 +656,12 @@
 
                                                                     </asp:Repeater>
                                                                 </asp:Panel>
-                                                             </td>
-                                                                <asp:HiddenField ID="hfProgramIDOnline" runat="server" Value='<%# Eval("OnlineProgramID") %>' />
-                                                                <td>
-                                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("ProgramDate") %>' />
-                                                                    <%--to be program date--%>
-                                                                </td>
+                                                            </td>
+                                                            <asp:HiddenField ID="hfProgramIDOnline" runat="server" Value='<%# Eval("OnlineProgramID") %>' />
+                                                            <td>
+                                                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("ProgramDate") %>' />
+                                                                <%--to be program date--%>
+                                                            </td>
                                                             <td>
                                                                 <asp:Label ID="lblProgramDate" runat="server" Text='<%# Eval("ProgramType") %>' />
                                                                 <%--to be program date--%>
@@ -597,7 +674,16 @@
                                                         </table>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
+                                                <div class="row">
+                                                    <%-- Onclick export live --%>
+                                                    <div class="mx-auto d-flex justify-content-center col-lg-3 col-md-4 col-sm-6">
+                                                        <asp:Button type="button" id="btnExportOnline" class="btn btn-primary  btn-inside btn-block" runat="server" text="Export to Excel" onclick="btnExportLive_Click"></asp:Button>
+
+
+                                                    </div>
+                                                </div>
                                             </div>
+
                                         </div>
 
 
@@ -630,11 +716,11 @@
     </section> 
     </div>
             
-    <div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
+    <div class="modal" id="UpdateLiveProgram" tabindex="-1" role="dialog">
         <div class="modal-dialog  modal-full " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
-                    <h5 class="modal-title">Update Online Program Type</h5>
+                    <h5 class="modal-title">Update Live Program</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -902,8 +988,9 @@
         </div>
     </div>
 
+
     <div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
-            <div class="modal-dialog  modal-full "  role="document">
+        <%--     <div class="modal-dialog  modal-full "  role="document">
                 <div class="modal-content ">
                     <div class="modal-header">
                         <h5 class="modal-title">Update Online Program </h5>
@@ -919,199 +1006,723 @@
                     <div class="modal-body">
        
    <div class="row">
-       <div class="col-md-12 col-lg-6 
-           col-sm-12">
-             Online Program ID: <br />
-           <asp:DropDownList ID="ddlOnlineProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OnlineProgramID" DataValueField="OnlineProgramID" OnSelectedIndexChanged ="ddlOnlineProgramID_SelectedIndexChanged1">
-        <asp:ListItem Text="--Select Online Program ID--" Value="0" />
-                       </asp:DropDownList>
-       </div>
-         <div class="col-md-12 col-lg-6 
-           col-sm-12">
-              <p>
-     Program Date: <br />
-    <asp:TextBox ID="txtProgramDate" runat="server"></asp:TextBox>
-       </div>
+       <div class="col-md-12 col-lg-6 --%>
 
-      
+        <div class="modal-dialog  modal-full " role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Online Program </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="ddlOrganization" EventName="SelectedIndexChanged" />
+                    </Triggers>
+                    <ContentTemplate>
+                        <div class="modal-body">
 
-   </div>
-   <div class="row">
-         <div class="col-md-12 col-lg-4 
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6 
            col-sm-12">
-             Online Program Type: <br />
-    <asp:DropDownList ID="ddlProgramType" runat="server">
-    </asp:DropDownList>
-       </div>
-       <br />
-       <div class="col-md-12 col-lg-4 
+                                    Online Program ID:
+                                    <br />
+                                    <asp:DropDownList ID="ddlOnlineProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OnlineProgramID" DataValueField="OnlineProgramID" OnSelectedIndexChanged="ddlOnlineProgramID_SelectedIndexChanged1">
+                                        <asp:ListItem Text="--Select Online Program ID--" Value="0" />
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="col-md-12 col-lg-6 
            col-sm-12">
-            Number of Kids: <br />
-    <asp:TextBox ID="txtNumOfKids" runat="server"></asp:TextBox>
-               
-               
-       </div>
-      
-       <div class="col-md-12 col-lg-4 
-           col-sm-12">
-            Number of Adults: <br />
-    <asp:TextBox ID="txtNumOfAdults" runat="server"></asp:TextBox>
-               
-               
-       </div>
-
-   </div>
-        <br />   
-    <div class="row">
-         <div class="col-md-12 col-lg-4 
-           col-sm-12">
-              City: <br />
-    <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
-               
-       </div>
-       <br />
-       <div class="col-md-12 col-lg-4
-           col-sm-12">
-           State: <br />
-    <asp:TextBox ID="txtState" runat="server"></asp:TextBox>
-               
-               
-       </div>
-
-         <div class="col-md-12 col-lg-4 
-           col-sm-12">
-         Country: <br />
-    <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
-               
-               
-       </div>
-      <br />
-   </div>
-           <br />
-    
-      <div class="row">
-         <div class="col-md-12 col-lg-4 
-           col-sm-12">
-              Teacher: <br />
-    <asp:DropDownList ID="ddlTeacher" runat="server">
-    </asp:DropDownList>
-               
-       </div>
-       <br />
-       <div class="col-md-12 col-lg-4
-           col-sm-12">
-           Grades: <br />
-    <asp:ListBox ID="AddGrade" runat="server" SelectionMode="Multiple"><asp:ListItem Text="--Select Grades--" Value="0" /></asp:ListBox>
-               
-               
-       </div>
-
-         <div class="col-md-12 col-lg-4 
-           col-sm-12">
-        Educators: <asp:ListBox ID="drpEducators" runat="server" SelectionMode="Multiple"><asp:ListItem Text="--Select Educators--" Value="0" /></asp:ListBox>
-
-               
-               
-       </div>
-      
-   </div>
-
-<br />
-             
-
-           <div class="row">
-       <div class="col-md-12 col-lg-4 
-           col-sm-12">
- 
-             Birds:
-    <asp:ListBox ID="ddlBirds" runat="server" SelectionMode="Multiple">
-        <asp:ListItem Text="--Select Birds--" Value="0" />
-    </asp:ListBox>
-
-         
-       <br />
-       <div class="col-md-12 col-lg-4
-           col-sm-12">
-      Reptiles:
-    <asp:ListBox ID="ddlReptiles" runat="server" SelectionMode="Multiple">
-        <asp:ListItem Text="--Select Reptiles--" Value="0" />
-    </asp:ListBox>
-               
-       </div>
-
-        <div class="col-md-12 col-lg-4 
-           col-sm-12">
-             Mammals: <br />
-    <asp:ListBox ID="lstMammals" runat="server" SelectionMode="Multiple">
-        <asp:ListItem Text="--Select Mammals--" Value="0" />
-    </asp:ListBox>
-            
-               
-       </div>
-      
-   </div>
-
-                          <br />
-                                           <div class="row">
-       <div class="col-md-12 col-lg-3 
-           col-sm-12">
-  Contact Email: <br />
-    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-
-         
-       <br />
-       <div class="col-md-12 col-lg-9
-           col-sm-12">
-         Comments: <br />
-         <asp:TextBox ID="TextBotxtComments" runat="server"></asp:TextBox>
-               
-       </div>
-
-     
-      
-   </div>
+                                    <p>
+                                        Program Date:
+                                        <br />
+                                        <asp:TextBox ID="txtProgramDate2" runat="server"></asp:TextBox>
+                                </div>
 
 
-        
-       
-    <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
-    &nbsp;<asp:Label ID="Label6" runat="server" Text=""></asp:Label>
-   
-      </div>
-             </ContentTemplate>
-        </asp:UpdatePanel>
-                    <div class="modal-footer">
 
-                        
-   
-     
-                        
-                        
-                        <button type="button" ID="Button1" class="btn  btn-inside" runat="server" Text="Update" OnClick="btnUpdate_Click">Update</button>
-                         <button type="button"  ID="Button2" runat="server"  class="btn  btn-inside" Text="Delete" OnClick="btnDelete_Click" >Delete</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Online Program Type:
+                                    <br />
+                                    <asp:DropDownList ID="ddlProgramType2" runat="server">
+                                    </asp:DropDownList>
+                                </div>
+                                <br />
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Number of Kids:
+                                    <br />
+                                    <asp:TextBox ID="txtNumOfKids" runat="server"></asp:TextBox>
+
+
+                                </div>
+
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Number of Adults:
+                                    <br />
+                                    <asp:TextBox ID="txtNumOfAdults2" runat="server"></asp:TextBox>
+
+
+                                </div>
+
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    City:
+                                    <br />
+                                    <asp:TextBox ID="txtCity2" runat="server"></asp:TextBox>
+
+                                </div>
+                                <br />
+                                <div class="col-md-12 col-lg-4
+           col-sm-12">
+                                    State:
+                                    <br />
+                                    <asp:TextBox ID="txtState2" runat="server"></asp:TextBox>
+
+
+                                </div>
+
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Country:
+                                    <br />
+                                    <asp:TextBox ID="txtCountry" runat="server"></asp:TextBox>
+
+
+                                </div>
+                                <br />
+                            </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="col-md-12 col-lg-4  col-sm-12">
+                                    Teacher:
+                                    <br />
+                                    <asp:DropDownList ID="ddlTeacher" runat="server">
+                                    </asp:DropDownList>
+
+                                </div>
+                                <br />
+                                <div class="col-md-12 col-lg-4  col-sm-12">
+                                    Grades:
+                                    <br />
+                                    <asp:ListBox ID="AddGrade2" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Grades--" Value="0" />
+                                    </asp:ListBox>
+
+
+                                </div>
+
+                                <div class="col-md-12 col-lg-4  col-sm-12">
+                                    Educators:
+                                    <asp:ListBox ID="drpEducators2" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Educators--" Value="0" />
+                                    </asp:ListBox>
+
+
+
+                                </div>
+
+                            </div>
+
+                            <br />
+
+                            <div class="row">
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Birds:
+                                    <br />
+                                    <asp:ListBox ID="ddlBirds2" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Birds--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+
+
+                                <br />
+                                <div class="col-md-12 col-lg-4
+           col-sm-12">
+                                    Reptiles:
+                                    <br />
+                                    <asp:ListBox ID="ddlReptiles2" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Reptiles--" Value="0" />
+                                    </asp:ListBox>
+
+                                </div>
+
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Mammals:
+                                    <br />
+                                    <asp:ListBox ID="lstMammals2" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Mammals--" Value="0" />
+                                    </asp:ListBox>
+
+
+                                </div>
+
+                            </div>
+
+
+
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12 col-lg-3 
+           col-sm-12">
+                                    Contact Email:
+                                        <br />
+                                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+
+                                </div>
+                                <br />
+                                <div class="col-md-12 col-lg-9
+           col-sm-12">
+                                    Comments:
+                                            <br />
+                                    <asp:TextBox ID="TextBoxComments" runat="server"></asp:TextBox>
+
+                                </div>
+
+
+
+                                <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
+                                &nbsp;<asp:Label ID="Label6" runat="server" Text=""></asp:Label>
+
+                            </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <div class="modal-footer">
+
+                    <button type="button" id="btnUpdate2" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate2_Click">Update</button>
+                    <button type="button" id="btnDelete2" runat="server" class="btn  btn-inside" text="Delete" onclick="btnDelete2_Click">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
+
         </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Page level plugin JavaScript-->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="vendor/chart.js/Chart.min.js"></script>
 
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin.min.js"></script>
 
 
 
 
     </div>
+    </div>
+
+    <div id="addProgramModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myTitle" aria-hidden="true" style="z-index: 2000">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="visible-xs">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myTitle">Add Program</h4>
+
+                </div>
+                <div class="modal-body">
+
+                    <%-- Modal Step 1 - Selector--%>
+                    <div id="SelectProgramType">
+                        <span></span>
+                        <h3>Enter your program basics</h3>
+
+                        <div class="form-group">
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label id="lblProgramType" for="ProgramType">Type of Program:</label>
+                                </div>
+                                <div class="col-6">
+                                    <select name="LiveOnline" id="LiveOnline" class="form-control">
+                                        <option value=""></option>
+                                        <option value="Live">Live Program</option>
+                                        <option value="Online">Online Program</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <p></p>
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label id="ProgramDateLabel" for="ProgramDate">Program Date:</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="date" id="ProgramDate" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-3">
+                                    <label id="ProgramTimeLabel" for="ProgramTime">Program Time:</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="time" id="ProgramTime" class="form-control" />
+                                </div>
+                            </div>
+
+                            <input type="button" class="btn" id="btnEndSelectProgramType" value="Next" />
+
+                        </div>
+                    </div>
+
+
+                    <%-- Modal Step 1.1 - Live Modal Form--%>
+                    <div id="step11" class="hideMe">
+                        <span></span>
+
+                        <h4>Live Program Basics</h4>
+
+                        <div class="form-group">
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="TypeLabel" for="Type">Program Type:</label>
+                                </div>
+
+                                <div class="col-7">
+                                    <asp:DropDownList CssClass="form-control" ID="ddlProgram" runat="server" class="dropdown-menu radioButtonList">
+                                        <asp:ListItem Text="--Select Program--" Value="0" />
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                            <p></p>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="OrganizationLabel" for="Organization">Organization:</label>
+                                </div>
+                                <div class="col-7">
+                                    <select name="Organization" class="form-control">
+                                        <option value=""></option>
+                                        <option value="T1">James Madison</option>
+                                        <option value="T2">Later SQL Import</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="EducatorLabelive" for="Educator">Educator:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox CssClass="form-control" ID="lstSelectEducatorsLive" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Educators--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="SelectBirdsLive" for="SelectBirdsLive">Select Birds:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox ID="lstSelectBirdsLive" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder="Select Birds">
+                                        <asp:ListItem Text="--Select Birds--" Value="0" />
+
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="SelectReptilesLive" for="SelectReptilesLive">Select Reptiles:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox CssClass="form-control" ID="lstSelectReptilesLive" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+                                        <asp:ListItem Text="--Select Reptiles--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="SelectMammalsLive" for="SelectMammalLive">Select Mammals:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox ID="lstSelectMammalsLive" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+                                        <asp:ListItem Text="--Select Mammals--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="StatusLabel" for="Status">Program Status:</label>
+                                </div>
+                                <div class="col-7">
+                                    <select name="Program Status" id="Status" class="form-control">
+                                        <option value=""></option>
+                                        <option value="T1">Not Complete</option>
+                                        <option value="T2">Complete</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="PaymentLabel" for="Payment">Payment Status:</label>
+                                </div>
+                                <div class="col-7">
+                                    <select name="Payment Status" id="Payment" class="form-control">
+                                        <option value=""></option>
+                                        <option value="T1">Payment Complete</option>
+                                        <option value="T2">Payment Not Complete</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="lblOnOff" for="OnOff">Was the program on or off Wildlife Center Campus?</label>
+                                </div>
+                                <div class="col-7">
+                                    <select name="OnOff" id="OnOff" onchange="scheduleA.call(this, event)" class="form-control">
+
+                                        <option value=""></option>
+                                        <option value="On">On</option>
+                                        <option value="Off">Off</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="AddressLabel" for="Address">Program Address</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="text" id="Address" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="CityCountyLabel" for="CityCounty">City County</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="text" id="CityCounty" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="StateLabel" for="State">State</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="text" id="State" class="form-control" />
+                                </div>
+                            </div>
+
+
+                            <p></p>
+                            <label id="AddGradeLabel" for="AddGrade">Grades</label>
+                            <asp:ListBox class="form-control" ID="ListBox1" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
+                                <asp:ListItem Text="--Select Grades--" Value="0" />
+                            </asp:ListBox>
+                            <p></p>
+                            <label id="NumOfChildrenLabel" for="NumOfChildren">Number Of Children</label>
+                            <input type="number" id="NumOfChildren" class="form-control" />
+                            <p></p>
+
+                            <label id="NumOfAdultsLabel" for="NumOfAdults">Number Of Adults</label>
+                            <input type="number" id="NumOfAdults" class="form-control" />
+                            <p></p>
+
+
+                            <label id="CommentsLabel" for="Comments">Additional Comments</label>
+                            <textarea name="Comments" id="Comments" rows="5" cols="100" class="form-control"></textarea>
+
+                            <p></p>
+                            <input type="button" class="btn" id="btnBackLive" value="Back" />
+                            <input type="button" class="btn" id="btnEndstep14" value="Submit" />
+
+
+                        </div>
+
+                    </div>
+
+
+                    <%--Modal Step 2.1 - Online Modal Form --%>
+                    <div id="step21" class="hideMe">
+                        <span>Online Program Basics</span>
+                        <p></p>
+                        <div class="form-group">
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="OnlineTypeLabel" for="Type">Online Program Type:</label>
+                                </div>
+
+                                <div class="col-7">
+                                    <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+                                        <asp:ListItem Text="--Select Program Type--" Value="0" />
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="EducatorLabel" for="Educator">Educator:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox CssClass="form-control" ID="ListBox2" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Educators--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="SelectBirdsOnline" for="SelectBirdsOnline">Select Birds:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox ID="ListBox3" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder="Select Birds">
+                                        <asp:ListItem Text="--Select Birds--" Value="0" />
+
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="SelectReptilesOnline" for="SelectReptilesOnline">Select Reptiles:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox CssClass="form-control" ID="ListBox4" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+                                        <asp:ListItem Text="--Select Reptiles--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="SelectMammalsOnline" for="SelectMammalOnline">Select Mammals:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox ID="ListBox5" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
+                                        <asp:ListItem Text="--Select Mammals--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="ContactEmailLabel" for="ContactEmail">Contact Email:</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="email" id="ContactEmail" class="form-control" />
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="OnlineCityCountyLabel" for="OnlineCityCounty">City or County</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="text" id="OnlineCityCounty" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="OnlineStateLabel" for="OnlineState">State</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="text" id="OnlineState" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="CountryLabel" for="Country">Country</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="text" id="Country" class="form-control" />
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="OnlineGradesLabel" for="OnlineGrades">Add Grades:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox CssClass="form-control" ID="OnlineGrades" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Grades--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="OnlineNumOfChildrenLabel" for="OnlineNumOfChildren">Number Of Children:</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="number" id="OnlineNumOfChildren" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="OnlineNumOfAdultsLabel" for="OnlineNumOfAdults">Number Of Adults:</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="number" id="OnlineNumOfAdults" class="form-control" />
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="OnlineCommentsLabel" for="OnlineComments">Additional Comments</label>
+                                </div>
+                                <div class="col-7">
+                                    <textarea name="Comments" id="OnlineComments" rows="5" cols="100" class="form-control"></textarea>
+                                </div>
+                            </div>
+
+
+                            <input type="button" class="btn" id="btnBackOnline" value="Back" />
+                            <input type="button" class="btn" id="btnEndstep24" value="Submit" />
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        //Selector for the first modal slide
+        $("#btnEndSelectProgramType").click(function () {
+
+
+            var x = document.getElementById("LiveOnline").value;
+            if (x == "Live") {
+                $("#SelectProgramType").addClass('hideMe');
+                $("#step11").removeClass('hideMe');
+            } else if (x == "Online") {
+                $("#SelectProgramType").addClass('hideMe');
+                $("#step21").removeClass('hideMe');
+            }
+        });
+
+
+        //Selector for the first modal slide
+        $("#btnBackOnline").click(function () {
+            $("#step21").addClass('hideMe');
+            $("#SelectProgramType").removeClass('hideMe');
+        });
+
+        $("#btnBackLive").click(function () {
+            $("#step11").addClass('hideMe');
+            $("#SelectProgramType").removeClass('hideMe');
+        });
+
+
+        $("#btnEndstep14").click(function () {
+            // Whatever your final validation and form submission requires
+            $("#sampleModal").modal("hide");
+            window.location.reload();
+        });
+
+        // FINISH LIVE PROGRAM MODAL PATH
+
+
+        $("#btnEndstep24").click(function () {
+            // Whatever your final validation and form submission requires
+            $("#sampleModal").modal("hide");
+            window.location.reload();
+        });
+
+
+
+
+
+
+
+        // If statement for on or off and locaton
+
+        function scheduleA(event) {
+            var x = document.getElementById("OnOff").value;
+            if (x == "On") {
+                $("#Address").addClass('hideMe');
+                $("#AddressLabel").addClass('hideMe');
+                $("#CityCounty").addClass('hideMe');
+                $("#CityCountyLabel").addClass('hideMe');
+                $("#State").addClass('hideMe');
+                $("#StateLabel").addClass('hideMe');
+
+
+            } else if (x == "Off") {
+                $("#Address").removeClass('hideMe');
+                $("#AddressLabel").removeClass('hideMe');
+                $("#CityCounty").removeClass('hideMe');
+                $("#CityCountyLabel").removeClass('hideMe');
+                $("#State").removeClass('hideMe');
+                $("#StateLabel").removeClass('hideMe');
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
 </asp:Content>
+
 
