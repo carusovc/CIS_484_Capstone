@@ -510,6 +510,7 @@
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <Triggers> 
      <asp:AsyncPostBackTrigger ControlID="ddlAnimal" EventName="SelectedIndexChanged" /> 
+     <asp:AsyncPostBackTrigger ControlID="btnUpdate" EventName="Click" /> 
    </Triggers> 
 <ContentTemplate>
   <div class="modal-body">
@@ -559,20 +560,21 @@
         </asp:DropDownList>
                     </div>
               </div>
-                   <div class ="row">
+<%--                   <div class ="row">
                 <div class =" col-md-4 InternalAnimalForm">
                     Upload Picture: <asp:FileUpload ID="FileUpload2" runat="server" />
                     </div>
-            </div>
+            </div>--%>
               <asp:Label ID="lblLastUpdated" runat="server" Text=""></asp:Label>&nbsp;
               <asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>
-              <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
+<%--              <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate1_Click" />--%>
             <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdate_Click" />
+<%--                <button type="button" class="btn btn-primary btn-inside" OnClick="btnUpdate1_Click">Update</button>--%>
+                  <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdate1_Click" Enabled="true"></asp:Button>
                 <%--<asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />--%>
 
-       <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
+<%--        <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
       
       </div>
        
@@ -586,6 +588,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 

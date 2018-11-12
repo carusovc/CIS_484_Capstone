@@ -768,7 +768,7 @@ public partial class Programs : System.Web.UI.Page
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, PaymentNeeded, convert(varchar, ProgramDate,101) as ProgramDate, , CONVERT(VARCHAR(15), ProgramTime, 108) as ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
+        insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, PaymentNeeded, convert(varchar, ProgramDate,101) as ProgramDate, CONVERT(VARCHAR(15), ProgramTime, 108) as ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
                           " ProgramID = @ProgramID";
         insert.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
 
