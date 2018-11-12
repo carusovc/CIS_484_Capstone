@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using System.Drawing;
+using System.IO;
+
 
 
 public partial class AnimalPage : System.Web.UI.Page
@@ -101,10 +104,11 @@ public partial class AnimalPage : System.Web.UI.Page
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-
+        System.Data.SqlClient.SqlCommand retrieveImage = new System.Data.SqlClient.SqlCommand();
 
         sc.Open();
         insert.Connection = sc;
+        retrieveImage.Connection = sc;
 
         String animalType = ddlAnimalType.SelectedItem.Text;
         String animalName = txtAnimalName.Text;
@@ -113,17 +117,43 @@ public partial class AnimalPage : System.Web.UI.Page
 
 
         Animal newAnimal = new Animal(animalType, animalName);
+        string filename = Path.GetFileName(FileUpload2.PostedFile.FileName);
+        using (Stream fs = FileUpload2.PostedFile.InputStream)
+        {
+            using (BinaryReader br = new BinaryReader(fs))
+            {
+                byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
-        insert.CommandText = "Insert into Animal (animalType, animalName, lastUpdated, lastUpdatedBy, status) values (@animalType, @animalName, @lastUpdated, @lastUpdatedBy, @status)";
-        insert.Parameters.AddWithValue("@animalType", newAnimal.getAnimalType());
-        insert.Parameters.AddWithValue("@animalName", newAnimal.getAnimalName());
-        insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
-        insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
-        insert.Parameters.AddWithValue("@status", ddlAnimalStatus.SelectedItem.Text);
+                insert.CommandText = "Insert into Animal (animalType, animalName, lastUpdated, lastUpdatedBy, status, AnimalImage) values (@animalType, @animalName, @lastUpdated, @lastUpdatedBy, @status, @animalImage)";
+                insert.Parameters.AddWithValue("@animalType", newAnimal.getAnimalType());
+                insert.Parameters.AddWithValue("@animalName", newAnimal.getAnimalName());
+                insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
+                insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+                insert.Parameters.AddWithValue("@status", ddlAnimalStatus.SelectedItem.Text);
+                insert.Parameters.AddWithValue("@animalImage", bytes);
 
-        insert.ExecuteNonQuery();
+                insert.ExecuteNonQuery();
+
+            }
+        }
+
         lblLastUpdated.Text = "Last Updated: " + lastUpdated;
         lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
+
+
+        //retrieveImage.CommandText = "Select AnimalImage from Animal where animalID = 24";
+        //retrieveImage.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
+
+        //byte[] image = (byte[])retrieveImage.ExecuteScalar();
+        //System.Drawing.Image newImage = ByteArrayToImage(image);
+      
+
+        
+        
+        //animalImage.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(image);
+
+
+
 
         txtAnimalName.Text = "";
         gridAnimalMammal.DataBind();
@@ -133,6 +163,13 @@ public partial class AnimalPage : System.Web.UI.Page
         GridView1.DataBind();
     }
 
+    public System.Drawing.Image ByteArrayToImage(byte[] byteArrayIn)
+    {
+        using (var ms = new MemoryStream(byteArrayIn))
+        {
+            return System.Drawing.Image.FromStream(ms);
+        }
+    }
     protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
     {
         AnimalEditDiv.Visible = true;
@@ -173,6 +210,22 @@ public partial class AnimalPage : System.Web.UI.Page
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
+
+                txtBoxAnimalName.Text = sdr[2].ToString();
+                ddlStatus.SelectedItem.Text = sdr[5].ToString();
+                ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
+               
+                //string filename = Path.GetFileName(FileUpload2.PostedFile.FileName);
+                //using (Stream fs = FileUpload2.PostedFile.InputStream)
+                //{
+                //    using (BinaryReader br = new BinaryReader(fs))
+                //    {
+                //        byte[] bytes = br.ReadBytes((Int32)fs.Length);
+
+                //    }
+                //}
+                //for (int i = 0; i < ddlAnimalTypeEdit.Items.Count; i++)
+
                 //ddlAnimalTypeEdit.SelectedItem.Text = sdr[1].ToString();
                 for (int i = 0; i < ddlAnimalTypeEdit.Items.Count; i++)
                 {
@@ -184,6 +237,7 @@ public partial class AnimalPage : System.Web.UI.Page
                 }
 
                 //if (sdr[1].ToString() == "Bird")
+
                 //{
                 //    string bird = "Bird";
                 //    ddlAnimalTypeEdit.Items.FindByText(bird).Selected = true;
@@ -255,17 +309,28 @@ public partial class AnimalPage : System.Web.UI.Page
         sc.Open();
 
         System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand updateImage = new System.Data.SqlClient.SqlCommand();
         update.Connection = sc;
+        updateImage.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
+        //string filename = Path.GetFileName(FileUpload2.PostedFile.FileName);
+        //using (Stream fs = FileUpload2.PostedFile.InputStream)
+        //{
+        //    using (BinaryReader br = new BinaryReader(fs))
+        //    {
+                //byte[] bytes = br.ReadBytes((Int32)fs.Length);
+                update.CommandText = "update animal set animalType = @animalType, animalName = @animalName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, status = @status where animalID = @animalID";
+                update.Parameters.AddWithValue("@animalType", ddlAnimalTypeEdit.SelectedItem.Text);
+                update.Parameters.AddWithValue("@animalName", txtBoxAnimalName.Text);
+                update.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
+                update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
+                update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+                update.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
+                //update.Parameters.AddWithValue("@animalImage", bytes);
+                update.ExecuteNonQuery();
+            //}
+        //}
 
-        update.CommandText = "update animal set animalType = @animalType, animalName = @animalName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, status = @status where animalID = @animalID";
-        update.Parameters.AddWithValue("@animalType", ddlAnimalTypeEdit.SelectedItem.Text);
-        update.Parameters.AddWithValue("@animalName", txtBoxAnimalName.Text);
-        update.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
-        update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
-        update.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
-        update.ExecuteNonQuery();
 
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
@@ -300,6 +365,49 @@ public partial class AnimalPage : System.Web.UI.Page
 
 
 
+    }
+
+    protected void gridBird_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+       
+        if(e.Row.RowType ==DataControlRowType.DataRow)
+        {
+            System.Web.UI.HtmlControls.HtmlImage imageControl = (System.Web.UI.HtmlControls.HtmlImage)e.Row.FindControl("imageControl");
+            if (((DataRowView)e.Row.DataItem)["AnimalImage"] != DBNull.Value)
+            {
+                imageControl.Src = "data:image/png;base64," + Convert.ToBase64String((byte[])(((DataRowView)e.Row.DataItem))["AnimalImage"]);
+                imageControl.Width = 100;
+                
+            }
+        }
+    }
+
+    protected void gridMammal_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            System.Web.UI.HtmlControls.HtmlImage imageControl = (System.Web.UI.HtmlControls.HtmlImage)e.Row.FindControl("imageControl");
+            if (((DataRowView)e.Row.DataItem)["AnimalImage"] != DBNull.Value)
+            {
+                imageControl.Src = "data:image/png;base64," + Convert.ToBase64String((byte[])(((DataRowView)e.Row.DataItem))["AnimalImage"]);
+                imageControl.Width = 100;
+            }
+        }
+    }
+
+    protected void gridReptile_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            System.Web.UI.HtmlControls.HtmlImage imageControl = (System.Web.UI.HtmlControls.HtmlImage)e.Row.FindControl("imageControl");
+            if (((DataRowView)e.Row.DataItem)["AnimalImage"] != DBNull.Value)
+            {
+                imageControl.Src = "data:image/png;base64," + Convert.ToBase64String((byte[])(((DataRowView)e.Row.DataItem))["AnimalImage"]);
+                imageControl.Width = 100;
+            }
+        }
     }
     //protected void btnDelete_Click(object sender, EventArgs e)
     //{
