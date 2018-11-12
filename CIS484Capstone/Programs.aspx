@@ -420,7 +420,7 @@
 
 
                     <div class="container1">
-                        <div class="card  mx-auto mt-5">
+                        <div class="card  mx-auto mt-3">
                             <div class="card-header NewUserTitle text-center">Programs</div>
                             <div class="card-body">
                                 <div class="mx-auto">

@@ -139,7 +139,7 @@
     
 
 <div class="container1 supreme-container">
-      <div class="card  mx-auto mt-5">
+      <div class="card  mx-auto mt-3">
         <div class="card-header NewUserTitle text-center">Reports Based on Animal</div>
         <div class="card-body">
           
