@@ -43,10 +43,6 @@ public partial class toexcel : System.Web.UI.Page
     {
 
 
-        SqlCommand cmd;
-        SqlDataAdapter da;
-        DataSet ds;
-
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
 
@@ -56,12 +52,12 @@ public partial class toexcel : System.Web.UI.Page
 
 
       
-        cmd = new SqlCommand("SELECT * FROM Program", sc);
+        SqlCommand cmd = new SqlCommand("SELECT * FROM Program", sc);
       
         sc.Open();
 
-        da = new SqlDataAdapter(cmd);
-        ds = new DataSet();
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+         DataSet ds = new DataSet();
 
         da.Fill(ds);
 
