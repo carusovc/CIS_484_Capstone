@@ -66,8 +66,10 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         adapt.Fill(dt);
         if (dt.Rows.Count > 0)
         {
-            AnimalLiveGrid.DataSource = dt;
-            AnimalLiveGrid.DataBind();
+           // AnimalLiveGrid.DataSource = dt;
+           // AnimalLiveGrid.DataBind();
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
         }
         sc.Close();
     }
@@ -111,34 +113,34 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         gridSearch.DataSource = dt;
         gridSearch.DataBind();
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        gridSearch.DataBind();
-        gridOnlinePrograms.Visible = false;
-        AnimalLiveGrid.Visible = false;
-        gridSearch.Visible = true;
+    //protected void btnSearch_Click(object sender, EventArgs e)
+    //{
+    //    gridSearch.DataBind();
+    //    gridOnlinePrograms.Visible = false;
+    //    AnimalLiveGrid.Visible = false;
+    //    gridSearch.Visible = true;
 
 
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        sc.ConnectionString = cs;
-        sc.Open();
+    //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+    //    // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+    //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+    //    sc.ConnectionString = cs;
+    //    sc.Open();
 
-        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
-        search.Connection = sc;
-        SqlConnection con = new SqlConnection(cs);
-        string searchAnimal = txtSearch.Text;
+    //    System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+    //    search.Connection = sc;
+    //    SqlConnection con = new SqlConnection(cs);
+    //    string searchAnimal = txtSearch.Text;
 
-        DataTable dt = new DataTable();
+    //    DataTable dt = new DataTable();
 
-        SqlDataAdapter adapt = new SqlDataAdapter("Select a.AnimalType, a.AnimalName, (Count(p.AnimalID) + COUNT(o.AnimalID)) as TotalPrograms from Animal a full join ProgramAnimal p on a.AnimalID = p.AnimalID full join OnlineAnimal o on a.animalID = o.animalID where UPPER(a.AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(a.AnimalType) like UPPER('" + searchAnimal + "%') group by a.animalName, a.animalType", con);
+    //    SqlDataAdapter adapt = new SqlDataAdapter("Select a.AnimalType, a.AnimalName, (Count(p.AnimalID) + COUNT(o.AnimalID)) as TotalPrograms from Animal a full join ProgramAnimal p on a.AnimalID = p.AnimalID full join OnlineAnimal o on a.animalID = o.animalID where UPPER(a.AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(a.AnimalType) like UPPER('" + searchAnimal + "%') group by a.animalName, a.animalType", con);
 
-        adapt.Fill(dt);
+    //    adapt.Fill(dt);
 
-        gridSearch.DataSource = dt;
-        gridSearch.DataBind();
-    }
+    //    gridSearch.DataSource = dt;
+    //    gridSearch.DataBind();
+    //}
 
     private void ExportToExcel()
     {
@@ -186,7 +188,8 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         Response.Write(blankline);
        
         Response.Write(headerTable1);
-        AnimalLiveGrid.RenderControl(htW);
+       // AnimalLiveGrid.RenderControl(htW);
+        GridView1.RenderControl(htW);
         Response.Output.Write(sw.ToString());
         Response.Write(blankline);
 
