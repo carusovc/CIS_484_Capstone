@@ -118,6 +118,13 @@
             <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
           </div>
         </li>
+
+                  <li class="nav-item">
+          <a class="nav-link" href="Location.aspx">
+            
+            <span>Location</span></a>
+        </li>
+
           <li class="nav-item">
           <a class="nav-link" href="createUser.aspx">
         
@@ -142,7 +149,7 @@
            <asp:Label ID="lblResponse" class="NewUserTitle text-center" runat ="server"></asp:Label>
        <div class="mx-auto d-flex justify-content-center">
 
-                        <asp:DropDownList ID="drpMonth" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="MonthName" DataValueField="MonthName">
+                        <asp:DropDownList ID="drpMonth" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFBC7C !important; color: #732700 !important;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="MonthName" DataValueField="MonthName">
                         <asp:ListItem></asp:ListItem>
                         </asp:DropDownList>&nbsp&nbsp&nbsp&nbsp
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(paymentDate) } 
@@ -160,7 +167,7 @@
             when 12 then 'December'
            END as MonthName FROM [PaymentRecord] Group by { fn MONTH(paymentDate) } order by { fn MONTH(paymentDate) }"></asp:SqlDataSource>    
 
-                                <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
+                                <asp:DropDownList ID="drpYear" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFBC7C !important; color: #732700 !important;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
                                     <asp:ListItem></asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
@@ -186,7 +193,8 @@
     <br />
      <br />
    
-                                        <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" AllowSorting="False" ShowFooter="True" 
+                                        <asp:GridView ID="GridView1"  HeaderStyle-Backcolor="#FFBC7C"
+    HeaderStyle-Forecolor="#732700" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" AllowSorting="False" ShowFooter="True" 
                                             OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
                                             <Columns>
                                                 <asp:TemplateField HeaderText="Select" FooterText="Total:">
@@ -268,12 +276,13 @@
 		</div>
 	</div>
                          <br />
-
-              <div class="col-md-12 mx-auto d-flex justify-content-center">
+                     <div class="row table-responsive mx-auto d-flex  justify-content-center">
+              <div class="col-md-10 ">
     <br />
      <br />
    
-                                    <asp:GridView ID="GridView2" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" OnRowDataBound="GridView2_RowDataBound" AllowSorting="False" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
+                                    <asp:GridView  HeaderStyle-Backcolor="#FFBC7C"
+    HeaderStyle-Forecolor="#732700" ID="GridView2" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" OnRowDataBound="GridView2_RowDataBound" AllowSorting="False" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
                                         <Columns>
                                             <asp:TemplateField HeaderText="Select" FooterText="Total:">
                                                 <ItemTemplate>
@@ -333,7 +342,7 @@
                                         <asp:Button class="btn btn-primary btn-inside" ID="btnExportGrid2" runat="server" Text="Export Cancelled Invoices to Excel" OnClick="exportBtn2_ClickAv" />
                           
               
-              </div>
+              </div></div>
                      <br />
     </div>
              <p></p>

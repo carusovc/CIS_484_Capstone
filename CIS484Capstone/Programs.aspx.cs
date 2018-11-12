@@ -449,6 +449,7 @@ public partial class Programs : System.Web.UI.Page
 
     }
 
+
     protected void btnExportOnline_Click(object sender, EventArgs e)
     {
 
@@ -462,6 +463,7 @@ public partial class Programs : System.Web.UI.Page
         // string query = "SELECT ProgramDate, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments FROM OnlineProgram";
 
 
+
         SqlCommand cmd = new SqlCommand("Select OnlineProgramTypeName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, NumberOfKids, NumberOfPeople, " +
             "City, State, Country, TeacherName  as Educator, ContactEmail, ExtraComments FROM OnlineProgram op inner join OnlineProgramType opt on  op.onlineprogramtypeid = opt.onlineprogramtypeid", sc);
 
@@ -472,6 +474,7 @@ public partial class Programs : System.Web.UI.Page
         da.Fill(ds);
 
         ds.WriteXml(@"C:\Users\labpatron\Desktop\" + animalReport + ".xls");
+
 
         sc.Close();
         string script = "alert('File Successfully Exported to Desktop');";
