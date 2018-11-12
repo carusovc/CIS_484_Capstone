@@ -36,7 +36,7 @@
                 
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
+      <a class="navbar-brand mr-1 logo" href="Programs.aspx">WildTek</a>
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
@@ -130,7 +130,13 @@
             <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
             <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
           </div>
+                <li class="nav-item">
+          <a class="nav-link" href="Location.aspx">
+            
+            <span>Location</span></a>
         </li>
+           
+           </li>
           <li class="nav-item">
           <a class="nav-link" href="createUser.aspx">
     
@@ -156,7 +162,7 @@
        <div class="mx-auto d-flex justify-content-center">
   
 
-    <asp:DropDownList ID="drpYear" runat="server" AutoPostBack="True"  class="btn btn-secondary btn-sm dropdown-toggle" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
+    <asp:DropDownList ID="drpYear" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFBC7C !important; color: #732700 !important;" runat="server" AutoPostBack="True"   DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
         <asp:ListItem></asp:ListItem>
     </asp:DropDownList>
     <br />
@@ -182,7 +188,8 @@
     <br />
      <br />
    
-<asp:GridView ID="gridPrograms"  class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" HorizontalAlign="Center">
+<asp:GridView ID="gridPrograms"  HeaderStyle-Backcolor="#FFBC7C"
+    HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" HorizontalAlign="Center">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month Name" ReadOnly="True" >
             <HeaderStyle HorizontalAlign="Left" />
@@ -263,7 +270,8 @@
      <br />
    
  
-    <asp:GridView ID="gridOnlinePrograms"  class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center">
+    <asp:GridView ID="gridOnlinePrograms" HeaderStyle-Backcolor="#FFBC7C"
+    HeaderStyle-Forecolor="#732700"  class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" >
             <HeaderStyle HorizontalAlign="Left" />

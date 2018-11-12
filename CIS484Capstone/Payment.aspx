@@ -35,7 +35,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-        <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
+        <a class="navbar-brand mr-1 logo" href="Programs.aspx">WildTek</a>
         <!-- Navbar -->
         <ul class="navbar-nav ml-auto ml-md-0">
 
@@ -128,6 +128,12 @@
             <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
           </div>
         </li>
+                  <li class="nav-item">
+          <a class="nav-link" href="Location.aspx">
+            
+            <span>Location</span></a>
+        </li>
+
           <li class="nav-item">
           <a class="nav-link" href="createUser.aspx">
            

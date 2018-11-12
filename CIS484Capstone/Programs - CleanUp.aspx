@@ -66,7 +66,7 @@
 
         <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-            <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
+            <a class="navbar-brand mr-1 logo" href="Programs.aspx">WildTek</a>
 
             <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle">
                 <i class="fas fa-bars"></i>
@@ -157,6 +157,13 @@
                         <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                     </div>
                 </li>
+
+                        <li class="nav-item">
+          <a class="nav-link" href="Location.aspx">
+            
+            <span>Location</span></a>
+        </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="createUser.aspx">
                         <i class="fas fa-fw fa-door"></i>

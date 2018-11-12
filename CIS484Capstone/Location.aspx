@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="TabYearlyReports.aspx.cs" Inherits="Tableau3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Location.aspx.cs" Inherits="Location" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- 
+     
 <meta charset="UTF-8">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
@@ -35,7 +35,7 @@
                 
             <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1 logo" href="Default.html">WildTek</a>
+      <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" >
         <i class="fas fa-bars"></i>
@@ -63,9 +63,25 @@
       <ul class="sidebar navbar-nav">
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-     
-          <%--<a class="nav-link" href="Programs.aspx">--%>
-            <%--<i class="fas fa-fw fa-book-open"></i>--%>
+            
+          <%--      <li class="nav-item">
+          <a class="nav-link" href="AnimalPage.aspx">
+            <i class="fas fa-fw fa-book-open"></i>--%>            <%--   <section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
+    
+
+<div class="container1">
+      <div class="card  mx-auto mt-5">
+        <div class="card-header NewUserTitle text-center">Animal Listing</div>
+        <div class="card-body">
+          
+       <div class="mx-auto d-flex justify-content-center">
+            
+    <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Animal</div>
+      <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal">Edit Animal</div>
+            
+            </div>
+       
+                   <%-- this div  is the internal div--%>
             <span>Programs</span>
           </a>
             <div class="dropdown-menu dropdown-menu-right" >
@@ -73,23 +89,21 @@
             <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
           </div>
         </li>
-<%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>--%>
-          <li class="nav-item dropdown no-arrow">
+            <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
+          <li class="nav-item dropdown no-arrow active">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-
+            
             <span>Animals</span>
           </a>
             <div class="dropdown-menu dropdown-menu-right" >
                 <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
             <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
           </div>
         </li>
-           <li class="nav-item dropdown no-arrow active">
+           <li class="nav-item dropdown no-arrow ">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-        
+           
             <span>Reports</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -103,7 +117,7 @@
         </li>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-      
+         
             <span>Payment</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
@@ -115,33 +129,40 @@
 
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-      
+        
             <span>Organizations</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
             <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-              <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+              <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
           </div>
         </li>
 
            <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-  
+       
             <span>Educators</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" >
             <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
           </div>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="Location.aspx">
+            
+            <span>Location</span></a>
+        </li>
+
           <li class="nav-item">
           <a class="nav-link" href="createUser.aspx">
-
+            
             <span>Create Outreach Coordinator Access</span></a>
         </li>
           <li class="nav-item">
           <a class="nav-link" href="Default.aspx">
-       
+            
             <span>Logout</span></a>
         </li>
 
@@ -149,27 +170,149 @@
 
       <div id="content-wrapper">
 
-        <div class="container-fluid text-center">
-            
+          
 
-    <br />
-                  <div class="col-md-12 ProgramTitle">
-			<h1 >This site is under construction.</h1>
-			
-		</div>
-            <div class="row WildTable">
-        <div class="col-md-12 mx-auto d-flex justify-content-center">
+        <div class="container-fluid ">
 
-    <asp:Button ID="Button1" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
-             </div>
-        </div>
+          
+
+       
+
+
+
+
+   <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
+        <div class="block3">
                  
-                <br />
-               
-                <br />
 
-          </div>
-          </div>
+                 <div class="tab-content">
+                      <div id="AllTab" class="container1 block3 tab-pane  WildTable active">
+<div class="InternalTab">
+     <p>  <style type="text/css">
+#mapContainer {
+    height: 739px;
+    width: 1650px;
+    border:10px solid #eaeaea;
+}
+</style>
 
+<script src="http://maps.google.com/maps/api/js?sensor=false">
+</script>
+
+<script type="text/javascript">
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var coords = new google.maps.LatLng(latitude, longitude);
+        var mapOptions = {
+            zoom: 15,
+            center: coords,
+            mapTypeControl: true,
+            navigationControlOptions: {
+                style: google.maps.NavigationControlStyle.SMALL
+            },
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(
+                document.getElementById("mapContainer"), mapOptions
+                );
+            var marker = new google.maps.Marker({
+                    position: coords,
+                    map: map,
+                    title: "Your current location!"
+            });
+ 
+        });
+    }else {
+        alert("Geolocation API is not supported in your browser.");
+    }
+</script>
+
+         <div class="card-header NewUserTitle text-center">Location Services<br />
+             <asp:Button ID="btnTrack" runat="server" Font-Size="Small" Height="33px" Text="Start Tracking????" Width="127px" />
+     </div>
+
+<div id="mapContainer" visible ="false"></div>
+         </p>
+          <br />
+     <br /><br /><br />
+              </div>
+</div>
+    
+                         
+    <div id="MammalTab" class="container1 block3 tab-pane WildTable">
+          <div class="InternalTab">
+     <p> There</p>
+          <br />
+     <br /><br /><br />
+              </div>
+</div>
+   
+    <div id="ReptileTab" class="container1 block3 tab-pane fade WildTable">
+      <div class="InternalTab">
+     <p> My</p>
+          <br />
+     <br /><br /><br />
+              </div>
+</div>
+          
+    <div id="BirdTab" class="container1 block3 tab-pane fade WildTable">
+       <div class="InternalTab">
+     <p> Friend</p>
+          <br />
+     <br /><br /><br />
+
+              </div>
+</div>
+        
+    </div>
+                 </div>
+     
+                   <div runat="server" id="Div">
+                   </div>
+               </div>
+          
+          <div class="text-center">
+
+<section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
+    <div class="container1">
+        <div class="text-center">
+            <%--<a class="d-block small mt-3" href="Default.aspx">Login Page</a>--%>
+            <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
+          </div>
+        </div>
+      </div>
+    </div>
+
+       
+</section>         
+
+
+
+
+<!-- Bootstrap core JavaScript-->
+   <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+  
+
+    <!-- Custom scripts for all pages-->
+ <script src="js/sb-admin.min.js"></script>
+
+
+
+
+        </div>
+
+
+
+    </div>
+    </div>
 </asp:Content>
 

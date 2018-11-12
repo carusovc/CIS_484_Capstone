@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Programs.aspx.cs" Inherits="Programs" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Programs.aspx.cs" Inherits="Programs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -74,6 +74,23 @@
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
         <a class="navbar-brand mr-1 logo" href="Default.aspx">WildTek</a>
+
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navbar -->
+        <ul class="navbar-nav ml-auto ml-md-0">
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-circle fa-fw"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                </div>
+            </li>
+        </ul>
 
     </nav>
 
@@ -405,7 +422,7 @@
 
                                                                                     <th class="col-md-4" scope="col">Street Addess
                                                                                     </th>
-                                                                                    <th class="col-md-4" scope="col">City, County
+                                                                                    <th class="col-md-4" scope="col">City County
                                                                                     </th>
                                                                                     <th class="col-md-4" scope="col">State
                                                                                     </th>
@@ -492,22 +509,24 @@
 
                                                         </tr>
                                                     </ItemTemplate>
-                                                     <FooterTemplate>
+                                                    <FooterTemplate>
                                                         </table>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
-                                               
-                                                        <div class="mx-auto d-flex justify-content-center">
-                                                        <asp:Button ID="btnExport" runat="server" Text="Export to Excel" class="btn btn-primary btn-inside" OnClick="btnExportLive_Click"></asp:Button>
+                                                <div class="row">
+                                                    <%-- Onclick export live --%>
+                                                    <div class="mx-auto d-flex justify-content-center col-lg-3 col-md-4 col-sm-6">
+                                                        <asp:Button type="button" id="btnExportLive" class="btn btn-primary  btn-inside btn-block" runat="server" text="Export to Excel" onclick="btnExportLive_Click"></asp:Button>
 
-                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
 
 
                                         <div id="OnlineTab" class="tab-pane fade in ">
-                                            <%--For the Online--%>
+                                            <%--VERSION 1 Online--%>
                                             <div class="block justify-content-center col-md-18">
                                                 <asp:Repeater ID="rptProgramHLOnline" runat="server" OnItemDataBound="OnItemDataBoundOnline">
                                                     <HeaderTemplate>
@@ -652,15 +671,19 @@
                                                         </tr>
                                                     </ItemTemplate>
                                                     <FooterTemplate>
-                                                       
                                                         </table>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
-                                                 <div class="mx-auto d-flex justify-content-center">
-                                                        <asp:Button ID="Button1" runat="server" Text="Export to Excel" class="btn btn-primary btn-inside" OnClick="btnExportOnline_Click"></asp:Button>
+                                                <div class="row">
+                                                    <%-- Onclick export live --%>
+                                                    <div class="mx-auto d-flex justify-content-center col-lg-3 col-md-4 col-sm-6">
+                                                        <asp:Button type="button" id="btnExportOnline" class="btn btn-primary  btn-inside btn-block" runat="server" text="Export to Excel" onclick="btnExportLive_Click"></asp:Button>
 
-                                                        </div>
+
+                                                    </div>
+                                                </div>
                                             </div>
+
                                         </div>
 
 
@@ -1618,7 +1641,6 @@
 
                         </div>
 
-
                     </div>
 
 
@@ -1650,7 +1672,7 @@
                                 </div>
                             </div>
 
-                             <div class="form-group row">
+                            <div class="form-group row">
                                 <div class="col-5">
                                     <label id="SelectBirdsOnline" for="SelectBirdsOnline">Select Birds:</label>
                                 </div>
@@ -2037,6 +2059,7 @@
 <%--                            <input type="button" class="btn" id="btnEndstep24" value="Submit" />--%>
                             <asp:Button ID="btnSubmitOnline" runat="server" Text="Submit" OnClick="btnSubmitOnline_Click"/>
                         </div>
+
                     </div>
 
 
