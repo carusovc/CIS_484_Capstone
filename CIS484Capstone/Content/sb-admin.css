@@ -918,7 +918,7 @@ a.TabStyle {
 
 
 .reporttitle {
-    color: black;
+    color: black !important;
 }
 
 
@@ -1062,3 +1062,13 @@ Regular {
 .modal-title{font-size: 125% !important; color: #d55c1d !important;
 }
 
+.btn .btn-sm .btn-secondary {
+    background: #E78963 !important;
+    color: white !important;
+}
+
+.alert 
+.alertColor{
+    background-color: #FF9859 !important;
+    color: #963300 !important;
+}
