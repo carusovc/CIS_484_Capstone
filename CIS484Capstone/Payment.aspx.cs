@@ -33,6 +33,7 @@ public partial class Payments : System.Web.UI.Page
         
         SqlCommand cmd = new SqlCommand(read, sc);
         SqlDataReader myRead = cmd.ExecuteReader();
+    
 
         while (myRead.Read())
         {
@@ -101,22 +102,21 @@ public partial class Payments : System.Web.UI.Page
     }
 
     
-    protected void btnPopulate_Click(object sender, EventArgs e)
-    {
-        ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
-        selectMonthDays();
-        ddlDate.SelectedValue = DateTime.Now.Day.ToString();
-        ddlYear.SelectedValue = DateTime.Now.Year.ToString();
-        txtAmount.Text = "300";
-        txtCheckNum.Text = "1234";
-        ddlPaymentType.SelectedValue = "Check";
-        ddlOrganization.SelectedValue = "5";
-        txtInvoiceNum.Text = "AW18-001";
-        txtCancelledChar.Text = "N";
+    //protected void btnPopulate_Click(object sender, EventArgs e)
+    //{
+    //    ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
+    //    selectMonthDays();
+    //    ddlDate.SelectedValue = DateTime.Now.Day.ToString();
+    //    ddlYear.SelectedValue = DateTime.Now.Year.ToString();
+    //    txtAmount.Text = "300";
+    //    txtCheckNum.Text = "1234";
+    //    ddlPaymentType.SelectedValue = "Check";
+    //    ddlOrganization.SelectedValue = "5";
+    //    txtInvoiceNum.Text = "AW18-001";
+    //    txtCancelledChar.Text = "N";
 
 
-
-    }
+    //}
     protected void ddlPaymentType_SelectedIndexChanged(object sender, EventArgs e)
     {
         int selectedPaymentType = ddlPaymentType.SelectedIndex;
@@ -161,15 +161,15 @@ public partial class Payments : System.Web.UI.Page
         }
         else if (selectedMonth == 2)
         {
-            ddlDate.Items.Clear();
-            if (Int32.Parse(ddlYear.SelectedItem.Value) % 4 == 0)
-            {
+            //ddlDate.Items.Clear();
+            //if (Int32.Parse(ddlYear.SelectedItem.Value) % 4 == 0)
+            //{
                 SetDaysInMonth(29);
-            }
-            else
-            {
-                SetDaysInMonth(28);
-            }
+            //}
+            //else
+            //{
+              //  SetDaysInMonth(28);
+            //}
         }
     }
 
