@@ -32,109 +32,201 @@
       <!-- Logo FOnt-->
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
-                
-            <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+                   
+         
 
-      <a class="navbar-brand mr-1 logo" href="Programs.aspx">WildTek</a>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand logo" href="Programs.aspx">Wildtek</a>
 
+  <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
+      <li class="nav-item dropdown no-arrow active">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-            <div id="wrapper">
+                    <%--<a class="nav-link" href="Programs.aspx">--%>
 
- <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-            
-          <%--<a class="nav-link" href="Programs.aspx">--%>
-            <%--<i class="fas fa-fw fa-book-open"></i>--%>
-            <span>Programs</span>
-          </a>
-            <div class="dropdown-menu dropdown-menu-right" >
-                <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-            <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal" >Add New Program Type</a>
-          </div>
-        </li>
-<%--      <li class="nav-item">
+                    <span>Programs</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Programs.aspx">View Programs</a>
+                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                </div>
+            </li>
+            <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-          <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-           
-            <span>Animals</span>
-          </a>
-            <div class="dropdown-menu dropdown-menu-right" >
-                <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
-            <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
-          </div>
-        </li>
-           <li class="nav-item dropdown no-arrow active">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-     
-            <span>Reports</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-            <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-            <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-            <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-            <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-            <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-          </div>
-        </li>
-          <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-        
-            <span>Payment</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" >
-              <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-            <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-            <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
-          </div>
-        </li>
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-          <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-     
-            <span>Organizations</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-              <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
-          </div>
-        </li>
 
-           <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" >
-           
-            <span>Educators</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" >
-            <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-            <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
-          </div>
-        </li>
 
-                  <li class="nav-item">
-          <a class="nav-link" href="Location.aspx">
-            
-            <span>Location</span></a>
-        </li>
+                    <span>Animals</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-          <li class="nav-item">
-          <a class="nav-link" href="createUser.aspx">
-          
-            <span>Create Outreach Coordinator Access</span></a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="Default.aspx">
-          
-            <span>Logout</span></a>
-        </li>
+                    <span>Reports</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-      </ul>
+                    <span>Payment</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Organizations</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Educators</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                </div>
+            </li>
+            <li class="nav-item " style="display: inline-block;
+  white-space: nowrap;">
+                <a class="nav-link" href="createUser.aspx">
+
+                    <span>Create Outreach Coordinator Access</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Default.aspx">
+
+                    <span>Logout</span></a>
+            </li>
+
+    </ul>
+   
+  </div>
+</nav>
+
+    
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+
+        <ul class="sidebar navbar-nav d-none d-md-block">
+            <li class="nav-item dropdown no-arrow active">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <%--<a class="nav-link" href="Programs.aspx">--%>
+
+                    <span>Programs</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Programs.aspx">View Programs</a>
+                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                </div>
+            </li>
+            <%--      <li class="nav-item">
+          <a class="nav-link" href="AnimalPage.aspx">
+            <i class="fas fa-fw fa-book-open"></i>--%>
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                     <span>Animals</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Reports</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Payment</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Organizations</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Educators</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="createUser.aspx">
+
+                    <span>Create Outreach Coordinator Access</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Default.aspx">
+
+                    <span>Logout</span></a>
+            </li>
+
+        </ul>
           <div id="content-wrapper">
 
                  <section class="login-block  col-lg-8 col-md-10 col-s-12 mx-auto ">
