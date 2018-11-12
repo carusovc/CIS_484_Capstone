@@ -255,27 +255,37 @@
                         <div class="card  mx-auto mt-5">
                             <div class="card-header NewUserTitle text-center">Programs</div>
                             <div class="card-body">
-                               <div class="mx-auto">
-                                <div class="row mx-auto d-flex justify-content-center">
-                                  
-                                    <div  class=" col-lg-3    col-md-4 col-sm-6 ">
-                                          <div class="btn  btn-primary btn-inside btn-block"  data-target="#AddAnimalModal" data-toggle="modal">Add Program Form</div>
+                                <div class="mx-auto">
+                                    <div class="row">
+                                        <div class=" col-lg-4 mx-auto d-flex justify-content-center   col-md-6 col-sm-6 ">
+                                            <div class="btn  btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Program</div>
+                                        </div>
+
+                                        <div class=" col-lg-4 mx-auto d-flex justify-content-center  col-md-6 col-sm-6 ">
+                                            <div class="btn btn-primary  btn-inside" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live Program</div>
+                                        </div>
+
+                                        <div class=" col-lg-4 mx-auto d-flex justify-content-center col-sm-6 ">
+                                            <div class="btn btn-primary  btn-inside" data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online Program</div>
+                                        </div>
                                     </div>
-                                  
-                                      <div  class=" col-lg-3    col-md-4 col-sm-6  ">
-                                           <div class="btn btn-primary  btn-inside btn-block"  data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live</div>
-                                    </div>
-                                  
-                                      <div  class=" col-lg-3   col-md-4  col-sm-6  ">
-                                          <div class="btn btn-primary  btn-inside btn-block"  data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online</div>
-                                    </div>
-                                  
-                         </div>
-<br />
+
+
                                 </div>
-                                    
+
+                                <div class="col-md-3 ml-auto">
+                                    <asp:DropDownList ID="ddlOrderBy" runat="server" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+                                        <asp:ListItem Text="Order By" />
+                                        <asp:ListItem Text="Program Date" />
+                                        <asp:ListItem Text="Program Type A-Z" />
+                                    </asp:DropDownList>
+                                    &nbsp;&nbsp;&nbsp;
+
+                                </div>
+
                                 <%-- this div  is the internal div--%>
                                 <div class="block3">
+
                                     <ul class="nav nav-tabs block4" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link active TabStyle" data-toggle="tab" href="#AllTab" style="color: black;">All Programs</a>
@@ -285,24 +295,34 @@
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link TabStyle" data-toggle="tab" href="#OnlineTab" style="color: black;">Online Programs</a>
+                                        </li>
+                                        <li></li>
                                     </ul>
+
 
                                     <%-- Version 1 All --%>
                                     <div class="tab-content">
                                         <div id="AllTab" class="tab-pane show active">
                                             <div class="block justify-content-center table-responsive">
 
+
                                                 <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
                                                     <HeaderTemplate>
                                                         <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
+
+
+
+
+
+
                                                             <tr class="alert "style="background-color: #AB9993 !important; color: white !important;">
                                                                 <th scope="col"></th>
                                                                 <th scope="col"></th>
-                                                               <th style="font-weight: 600; font-size: 110%; " scope="col">Program Category
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Category
                                                                 </th>
-                                                                <th style="font-weight: 600; font-size: 110%; " scope="col">Program Date
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Date
                                                                 </th>
-                                                               <th style="font-weight: 600; font-size: 110%; " scope="col">Program Type
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Type
                                                                 </th>
 
                                                             </tr>
@@ -352,11 +372,11 @@
                                                                 <th scope="col">&nbsp
                                                                 </th>
 
-                                                                <th style="font-weight: 600; font-size: 110%; " scope="col">Program Date
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Date
                                                                 </th>
-                                                               <th style="font-weight: 600; font-size: 110%; " scope="col">Program Type
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Type
                                                                 </th>
-                                                               <th style="font-weight: 600; font-size: 110%; " scope="col">Organization
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Organization
                                                                 </th>
 
                                                             </tr>
@@ -501,10 +521,15 @@
 
                                                         </tr>
                                                     </ItemTemplate>
-                                                     <FooterTemplate>
+                                                    <FooterTemplate>
                                                         </table>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
+
+                                               <%-- <div class="mx-auto d-flex justify-content-center">
+                                                    <asp:Button ID="btnExport" runat="server" Text="Export to Excel" class="btn btn-primary btn-inside" OnClick="btnExportLive_Click"></asp:Button>
+
+                                                </div> --%>
                                                 <div class="row">                                            
                                                     <%--OnClick="btnExportLive_Click"--%>
                                                         <div class="mx-auto d-flex justify-content-center  col-lg-3    col-md-4 col-sm-6 ">
@@ -528,9 +553,9 @@
                                                             <tr class="alert "style="background-color: #AB9993 !important; color: white !important;">
                                                                 <th scope="col"></th>
 
-                                                               <th style="font-weight: 600; font-size: 110%; " scope="col">Program Date</th>
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Date</th>
 
-                                                                <th style="font-weight: 600; font-size: 110%; " scope="col">Program Type</th>
+                                                                <th style="font-weight: 600; font-size: 110%;" scope="col">Program Type</th>
                                                             </tr>
                                                     </HeaderTemplate>
                                                     <ItemTemplate>
@@ -665,16 +690,17 @@
                                                         </tr>
                                                     </ItemTemplate>
                                                     <FooterTemplate>
-                                                       
                                                         </table>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
+                                         <%--       <div class="mx-auto d-flex justify-content-center">
+                                                    <asp:Button ID="Button1" runat="server" Text="Export to Excel" class="btn btn-primary btn-inside" OnClick="btnExportOnline_Click"></asp:Button> --%>
                                                 <%--OnClick="btnExportOnline_Click"--%>
                                                 <div class="row">
                                                  <div class="mx-auto d-flex justify-content-center  col-lg-3    col-md-4 col-sm-6 ">
                                                         <asp:Button ID="Button1" runat="server" Text="Export to Excel" class="btn btn-primary btn-inside btn-block"></asp:Button>
 
-                                                        </div>
+                                                </div>
                                             </div>
 
                                             </div>
@@ -698,7 +724,7 @@
             </div>
 
             <div class="text-center">
-             </div>
+            </div>
         </div>
     </div>
 
@@ -983,7 +1009,7 @@
 
 
     <div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
-       <%--     <div class="modal-dialog  modal-full "  role="document">
+        <%--     <div class="modal-dialog  modal-full "  role="document">
                 <div class="modal-content ">
                     <div class="modal-header">
                         <h5 class="modal-title">Update Online Program </h5>
@@ -1163,32 +1189,32 @@
 
                             </div>
 
-                            
 
-                                <br />
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-3 
+
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12 col-lg-3 
            col-sm-12">
-                                        Contact Email:
+                                    Contact Email:
                                         <br />
-                                        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-
-                                        </div>
-                                        <br />
-                                        <div class="col-md-12 col-lg-9
-           col-sm-12">
-                                            Comments:
-                                            <br />
-                                            <asp:TextBox ID="TextBoxComments" runat="server"></asp:TextBox>
-
-                                        </div>
-
-                                    
-
-                                    <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
-                                    &nbsp;<asp:Label ID="Label6" runat="server" Text=""></asp:Label>
+                                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
 
                                 </div>
+                                <br />
+                                <div class="col-md-12 col-lg-9
+           col-sm-12">
+                                    Comments:
+                                            <br />
+                                    <asp:TextBox ID="TextBoxComments" runat="server"></asp:TextBox>
+
+                                </div>
+
+
+
+                                <asp:Label ID="Label5" runat="server" Text=""></asp:Label>
+                                &nbsp;<asp:Label ID="Label6" runat="server" Text=""></asp:Label>
+
+                            </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
                 <div class="modal-footer">
@@ -1219,6 +1245,7 @@
 
 
 
+    </div>
     </div>
     </div>
 </asp:Content>

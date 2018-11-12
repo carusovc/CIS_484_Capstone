@@ -22,12 +22,12 @@ public partial class Programs : System.Web.UI.Page
         {
             createAccordianUsingRepeaterLive();
             createAccordianUsingRepeaterOnline();
-            createAccordianUsingRepeaterAll();
+            createAccordianUsingRepeaterAll(0);
         }
 
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-      
+
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
@@ -389,11 +389,33 @@ public partial class Programs : System.Web.UI.Page
     }
 
 
-    public void createAccordianUsingRepeaterAll()
+    public void createAccordianUsingRepeaterAll(int orderType)
     {
+          // 0 = Default, Program Cateogry
+          // 1 = Date
+         // 2 = Program Type
 
-        rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramDate Desc;");
-        rptProgramHLAll.DataBind();
+        switch (orderType)
+        {
+           
+            case 0:
+                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramCategory;");
+                rptProgramHLAll.DataBind();
+                break;
+            case 1:
+                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramCategory;");
+                rptProgramHLAll.DataBind();
+                break;
+            case 2:
+                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramType;");
+                rptProgramHLAll.DataBind();
+                break;
+            
+
+        }
+
+
+
     }
 
     protected void btnExportLive_Click(object sender, EventArgs e)
@@ -438,20 +460,20 @@ public partial class Programs : System.Web.UI.Page
         String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
         string onlineName = animalReport + filename;
 
+        // string query = "SELECT ProgramDate, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments FROM OnlineProgram";
 
-       // string query = "SELECT ProgramDate, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments FROM OnlineProgram";
 
 
-      SqlCommand cmd = new SqlCommand("Select OnlineProgramTypeName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, NumberOfKids, NumberOfPeople, " +
-          "City, State, Country, TeacherName  as Educator, ContactEmail, ExtraComments FROM OnlineProgram op inner join OnlineProgramType opt on  op.onlineprogramtypeid = opt.onlineprogramtypeid", sc);
-       
+        SqlCommand cmd = new SqlCommand("Select OnlineProgramTypeName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, NumberOfKids, NumberOfPeople, " +
+            "City, State, Country, TeacherName  as Educator, ContactEmail, ExtraComments FROM OnlineProgram op inner join OnlineProgramType opt on  op.onlineprogramtypeid = opt.onlineprogramtypeid", sc);
+
         sc.Open();
 
         SqlDataAdapter da = new SqlDataAdapter(cmd);
         DataSet ds = new DataSet();
         da.Fill(ds);
 
-        ds.WriteXml(@"C:\Users\labpatron\Desktop\" + animalReport  + ".xls");
+        ds.WriteXml(@"C:\Users\labpatron\Desktop\" + animalReport + ".xls");
 
 
         sc.Close();
@@ -1543,6 +1565,16 @@ public partial class Programs : System.Web.UI.Page
 
 
         }
+    }
+
+    // All Program Tab Order By
+
+    protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int OrderSelect = ddlOrderBy.SelectedIndex;
+        createAccordianUsingRepeaterAll(OrderSelect);
+
+
     }
 
 }
