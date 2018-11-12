@@ -111,34 +111,6 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         gridSearch.DataSource = dt;
         gridSearch.DataBind();
     }
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        gridSearch.DataBind();
-        gridOnlinePrograms.Visible = false;
-        AnimalLiveGrid.Visible = false;
-        gridSearch.Visible = true;
-
-
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        sc.ConnectionString = cs;
-        sc.Open();
-
-        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
-        search.Connection = sc;
-        SqlConnection con = new SqlConnection(cs);
-        string searchAnimal = txtSearch.Text;
-
-        DataTable dt = new DataTable();
-
-        SqlDataAdapter adapt = new SqlDataAdapter("Select a.AnimalType, a.AnimalName, (Count(p.AnimalID) + COUNT(o.AnimalID)) as TotalPrograms from Animal a full join ProgramAnimal p on a.AnimalID = p.AnimalID full join OnlineAnimal o on a.animalID = o.animalID where UPPER(a.AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(a.AnimalType) like UPPER('" + searchAnimal + "%') group by a.animalName, a.animalType", con);
-
-        adapt.Fill(dt);
-
-        gridSearch.DataSource = dt;
-        gridSearch.DataBind();
-    }
 
     private void ExportToExcel()
     {
@@ -166,12 +138,6 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         response.AddHeader("content-disposition", "attachment; filename=\"" + animalReport + filename + "\"" + ".xls");
 
 
-
-
-        // AnimalLiveGrid.RenderControl(htW);
-        //AnimalLiveGrid.RenderControl(htW2);
-        //AnimalLiveGrid.RenderControl(htW3);
-
         string headerTable = @"<Table>" + animalReport + " " + filename + "<tr><td></td></tr></Table>";
         string headerTable1 = @"<Table>" + drpAnimalType.SelectedValue.ToString() + " Totals Based on Live Programs <tr><td></td></tr></Table>";
 
@@ -198,12 +164,6 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         
         Response.End();
 
-
-        //}
-        //catch (Exception ex)
-        //{
-        //    Response.Write("<script>alert('" + ex.Message + "')</script>");
-        //}
     }
 
     public override void VerifyRenderingInServerForm(Control control)

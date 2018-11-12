@@ -137,10 +137,7 @@
         <div class="card-body">
           
        <div class="mx-auto d-flex justify-content-center">
-  
 
-
-   
     <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct YEAR(ProgramDate) AS YEAR FROM Program Order By YEAR(ProgramDate)"></asp:SqlDataSource>
 
             </div>
@@ -220,7 +217,7 @@
      <br />
    
 
-  <asp:GridView runat="server" id="totalAnimalCount" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" >
+  <asp:GridView runat="server" id="GridView1" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" >
 
             <Columns>
                <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" >
@@ -233,10 +230,10 @@
             </Columns>
         </asp:GridView>
 
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
 
             SelectCommand="Select distinct a.AnimalID, a.AnimalName, a.AnimalType, (COUNT(p.AnimalID) + COUNT(o.AnimalID)) AS TotalPrograms From Animal a full join ProgramAnimal p ON a.AnimalID = p.AnimalID 
-            full join OnlineAnimal o ON a.AnimalID = o.AnimalID GROUP BY a.AnimalID, a.AnimalName, a.AnimalType order by AnimalType, AnimalName">
+            full join OnlineAnimal o ON a.AnimalID = o.AnimalID WHERE(a.AnimalType = @animalType) GROUP BY a.AnimalID, a.AnimalName, a.AnimalType order by AnimalType, AnimalName">
             <SelectParameters>
                 <asp:ControlParameter ControlID="drpAnimalType" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
             </SelectParameters>
@@ -265,7 +262,6 @@
     <br />
      <br />
    
-
  <asp:GridView ID="AnimalLiveGrid" class="table table-bordered table-condensed table-hover" runat="server"  AutoGenerateColumns="False"     
 
      EmptyDataText="There are no records to display." >
@@ -292,31 +288,30 @@
           
         </Columns>
     </asp:GridView>
-
           <br />
      <br /><br /><br />
               </div>
     </div>
                  </div>
           <p></p>
-              <%-- this div  is the internal div--%>
+     <%-- this div  is the internal div--%>
         <div class="block3">
   
                  <div class="tab-content">
                  
 <div class="InternalTab">
     <div class="col-md-12 ProgramTitle">
-             <br />
+        <br />
 			  <div class="ReportTitle text-center">Animal Totals Based on Online Programs</div>
 			
 		</div>
 	</div>
-                         <br />
-
+                     <br />
               <div class="col-md-12 mx-auto d-flex justify-content-center">
     <br />
      <br />
    
+ 
  <asp:GridView runat="server" id="gridOnlinePrograms" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
         EmptyDataText="There are no records to display.">
             <Columns>
@@ -344,72 +339,24 @@
                 <asp:ControlParameter ControlID="drpAnimalType" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
-
           <br />
-     <br /><br /><br />
+    
               </div>
-    </div>
+
     </div>
                  </div>
-    <p></p>
-                 <%-- this div  is the internal div--%>
-        <div class="block3">
-  
-                 <div class="tab-content">
-                 
-<div class="InternalTab">
-    <div class="col-md-12 ProgramTitle">
-             <br />
-			  <div class="ReportTitle text-center">Search Results</div>
-			
-		</div>
-	</div>
-                         <br />
 
-              <div class="col-md-12 mx-auto d-flex justify-content-center">
-    <br />
-     <br />
-   
-<asp:GridView ID="gridSearch"  class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False">
-                      <Columns>
-                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
-                          <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
-                  
-                          <asp:BoundField DataField="TotalPrograms" HeaderText="Total Programs" ReadOnly="True" SortExpression="TotalPrograms"/>
-                          
-                      </Columns>
-                 </asp:GridView>
 
-          <br />
-     <br /><br /><br />
-              </div>
-    </div>
-
-                 </div>
-          <p></p>
-
-   
+     
                    
-         </div>--%>
-              <asp:GridView runat="server" id="totalAnimalCount" class="table table-borderless table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2"    
-                  EmptyDataText="There are no records to display." >
-            <Columns>
-               <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
-            <asp:BoundField DataField="TotalOnlinePrograms" HeaderText="Total OnlinePrograms" ReadOnly="True" SortExpression="TotalOnlinePrograms" />
-                  <asp:BoundField DataField="TotalPrograms" HeaderText="Total Programs" ReadOnly="True" SortExpression="TotalPrograms" />
-            </Columns>
-        </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
-
+         </div>
           <div class="mx-auto d-flex justify-content-center">
-
                           <asp:Button ID="btnToExcel" runat="server" OnClick="btnToExcel_Click1" Text="Export to Excel"  class="btn btn-primary btn-inside" />
             <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>   
-          
-                      </div>
-          <br />
+            
               </div>
-
+          <br />
+        </div>
       </div>
     </div>
 
@@ -420,6 +367,8 @@
 
 
 </div>
+
+
 
 
 

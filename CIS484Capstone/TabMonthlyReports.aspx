@@ -174,6 +174,12 @@
 
                    
    </div>
+                    <div class="row WildTable">
+        <div class="col-md-12 mx-auto d-flex justify-content-center">
+
+    <asp:Button ID="Button2" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
+             </div>
+        </div>
            
             </div>
    </div>
