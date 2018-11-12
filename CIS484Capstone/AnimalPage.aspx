@@ -446,8 +446,8 @@
                                  <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
                             </div>
                      
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                 <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"">Status</h4>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                 <h4 class="alert" style="background-color: #AB9993 !important; color: white !important;"">Status</h4>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                  <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Image</h4>
@@ -465,12 +465,10 @@
                       <asp:TemplateField >
                               <ItemTemplate>
                                   <img src = '<%# Eval("AnimalImage") %>' id="imageControl" runat="server" />
-
                               </ItemTemplate>
                           </asp:TemplateField>    
                     </Columns>
                 </asp:GridView>
-
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalName], [AnimalType], [Status], [AnimalImage] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [Status], [AnimalName]">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Reptile" Name="AnimalType" Type="String" />
@@ -629,6 +627,7 @@
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <Triggers> 
      <asp:AsyncPostBackTrigger ControlID="ddlAnimal" EventName="SelectedIndexChanged" /> 
+     <asp:AsyncPostBackTrigger ControlID="btnUpdate" EventName="Click" /> 
    </Triggers> 
 <ContentTemplate>
   <div class="modal-body">
@@ -678,20 +677,21 @@
         </asp:DropDownList>
                     </div>
               </div>
-                   <div class ="row">
+<%--                   <div class ="row">
                 <div class =" col-md-4 InternalAnimalForm">
                     Upload Picture: <asp:FileUpload ID="FileUpload2" runat="server" />
                     </div>
-            </div>
+            </div>--%>
               <asp:Label ID="lblLastUpdated" runat="server" Text=""></asp:Label>&nbsp;
               <asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>
-              <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
+<%--              <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate1_Click" />--%>
             <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdate_Click" />
+<%--                <button type="button" class="btn btn-primary btn-inside" OnClick="btnUpdate1_Click">Update</button>--%>
+                  <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdate1_Click" Enabled="true"></asp:Button>
                 <%--<asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />--%>
 
-       <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
+<%--        <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
       
       </div>
        
@@ -705,6 +705,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 
@@ -729,4 +731,3 @@
 
     </div>
 </asp:Content>
-

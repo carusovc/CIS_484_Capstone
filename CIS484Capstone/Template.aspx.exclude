@@ -252,7 +252,7 @@
         <div class="card-body">
             <div class="mx-auto d-flex justify-content-center">
                 <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Animal</div>
-                <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal">Edit Animal</div>
+                <div class="btn btn-primary btn-inside" data-target="#UpdateAnimalModal" data-toggle="modal">Edit Animal</div>
             </div>
             <%-- this div  is the internal div--%>
             <ul class="nav nav-tabs block4" role="tablist">
