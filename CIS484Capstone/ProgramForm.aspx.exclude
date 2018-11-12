@@ -123,6 +123,13 @@
             <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
           </div>
         </li>
+
+                  <li class="nav-item">
+          <a class="nav-link" href="Location.aspx">
+            
+            <span>Location</span></a>
+        </li>
+
           <li class="nav-item">
           <a class="nav-link" href="createUser.aspx">
             <i class="fas fa-fw fa-door"></i>
@@ -530,21 +537,7 @@
   </div>--%>
              <asp:ListBox ID="ddlBirds"  CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu" Placeholder ="Select Birds">
        <asp:ListItem Text="--Select Birds--" Value="0" />
-<%--       <asp:ListItem Text="Buddy" Value="1" />
-    <asp:ListItem Text="Verlon" Value="2" />
-    <asp:ListItem Text="Edie" Value="3" />
-    <asp:ListItem Text="Maggie" Value="4" />
-    <asp:ListItem Text="Grayson" Value="5" />
-     <asp:ListItem Text="Keeya" Value="6" />
-    <asp:ListItem Text="Ruby" Value="7" />
-    <asp:ListItem Text="Rosalie" Value="8" />
-    <asp:ListItem Text="Athena" Value="9" />
-    <asp:ListItem Text="Gus" Value="20" />
-     <asp:ListItem Text="Papa G'Ho" Value="11" />
-    <asp:ListItem Text="Quin" Value="12" />
-    <asp:ListItem Text="Alex" Value="13" />
-    <asp:ListItem Text="Buttercup" Value="14" />
-    <asp:ListItem Text="Jaz" Value="15" />--%>
+
 </asp:ListBox>
 
 </div>
@@ -571,12 +564,7 @@
 
            <asp:ListBox CssClass="form-control" ID="ddlReptiles" runat="server" SelectionMode="Multiple" class="dropdown-menu">
      <asp:ListItem Text="--Select Reptiles--" Value="0" />
-<%--    <asp:ListItem Text="Malcom" Value="1" />
-    <asp:ListItem Text="Albus" Value="2" />
-    <asp:ListItem Text="Severus" Value="3" />
-    <asp:ListItem Text="Oscar" Value="4" />
-    <asp:ListItem Text="Emma" Value="5" />
-    <asp:ListItem Text="Wilson" Value="6" />--%>
+
 
 </asp:ListBox>
   
@@ -599,9 +587,7 @@
 </div>--%>
  <asp:ListBox ID="ddlMammals" CssClass="form-control" runat="server" SelectionMode="Multiple" class="dropdown-menu">
     <asp:ListItem Text="--Select Mammals--" Value="0" />
-<%--    <asp:ListItem Text="Bo" Value="1" />
-    <asp:ListItem Text="Posie" Value="2" />
-    <asp:ListItem Text="Willow" Value="3" />--%>
+
 </asp:ListBox>
 </div>
   </div>

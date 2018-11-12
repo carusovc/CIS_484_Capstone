@@ -110,6 +110,13 @@
             <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
           </div>
         </li>
+
+                  <li class="nav-item">
+          <a class="nav-link" href="Location.aspx">
+            
+            <span>Location</span></a>
+        </li>
+
           <li class="nav-item">
           <a class="nav-link" href="createUser.aspx">
             <span>Create Outreach Coordinator Access</span></a>
@@ -219,8 +226,8 @@
     <br />
      <br />
    
-
-  <asp:GridView runat="server" id="totalAnimalCount" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" >
+<%--                  NEEDS TO BE FIXED LATER--%>
+  <%--<asp:GridView runat="server" id="totalAnimalCount" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource" >
 
             <Columns>
                <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" >
@@ -231,9 +238,9 @@
                                <ItemStyle HorizontalAlign="Center" />
             </asp:BoundField>
             </Columns>
-        </asp:GridView>
+        </asp:GridView>--%>
 
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
 
             SelectCommand="Select distinct a.AnimalID, a.AnimalName, a.AnimalType, (COUNT(p.AnimalID) + COUNT(o.AnimalID)) AS TotalPrograms From Animal a full join ProgramAnimal p ON a.AnimalID = p.AnimalID 
             full join OnlineAnimal o ON a.AnimalID = o.AnimalID GROUP BY a.AnimalID, a.AnimalName, a.AnimalType order by AnimalType, AnimalName">
@@ -266,7 +273,7 @@
      <br />
    
 
- <asp:GridView ID="AnimalLiveGrid" class="table table-bordered table-condensed table-hover" runat="server"  AutoGenerateColumns="False"     
+ <asp:GridView ID="GridView1" class="table table-bordered table-condensed table-hover" runat="server"  AutoGenerateColumns="False"     
 
      EmptyDataText="There are no records to display." >
         <Columns>
@@ -370,15 +377,15 @@
     <br />
      <br />
    
-<asp:GridView ID="gridSearch"  class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False">
+<%--<asp:GridView ID="gridSearch2" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False">
                       <Columns>
-                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
+<%--                          <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />-
                           <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
                   
                           <asp:BoundField DataField="TotalPrograms" HeaderText="Total Programs" ReadOnly="True" SortExpression="TotalPrograms"/>
                           
                       </Columns>
-                 </asp:GridView>
+                 </asp:GridView>--%>
 
           <br />
      <br /><br /><br />
@@ -423,5 +430,6 @@
 
 
 
+    </div>
 </asp:Content>
 
