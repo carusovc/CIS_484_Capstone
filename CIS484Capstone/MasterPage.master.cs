@@ -194,8 +194,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
         update.ExecuteNonQuery();
 
-       // lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
-       // lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+        // lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        // lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
         string read = "Select * from Organization";
         SqlCommand cmd = new SqlCommand(read, sc);
@@ -208,6 +208,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         ddlOrganization.DataBind();
 
+        txtOrgName.Text = "";
+        txtCity.Text = "";
+        txtCounty.Text = "";
+        ddlOrganization.SelectedIndex = 0;
     }
 
 
