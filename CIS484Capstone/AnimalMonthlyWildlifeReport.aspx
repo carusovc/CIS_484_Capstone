@@ -249,7 +249,7 @@
 
 
                             <div class="mx-auto d-flex justify-content-center">
-                                <asp:DropDownList ID="drpAnimalType" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
+                                <asp:DropDownList ID="drpAnimalType" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;"  runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                             </div>
                         </div>
@@ -330,16 +330,19 @@
                                             <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName">
                                                 <ItemStyle HorizontalAlign="Left" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" ReadOnly="True" SortExpression="AnimalType" />
-                                            <asp:BoundField DataField="TotalPrograms" HeaderText="Total Programs" ReadOnly="True" SortExpression="TotalPrograms">
+                                           <asp:BoundField DataField="TotalLivePrograms" HeaderText="Total Live Programs" ReadOnly="True" SortExpression="TotalLivePrograms">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="TotalOnLinePrograms" HeaderText="Total Online Programs" ReadOnly="True" SortExpression="TotalOnlinePrograms">
                                                 <ItemStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
                                         </Columns>
                                     </asp:GridView>
 
                                     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                                        SelectCommand="Select distinct a.AnimalID, a.AnimalName, a.AnimalType, COUNT(p.AnimalID + o.AnimalID) AS TotalPrograms From Animal a full join ProgramAnimal p ON a.AnimalID = p.AnimalID 
-            full join OnlineAnimal o ON a.AnimalID = o.AnimalID WHERE(a.AnimalType = @animalType) GROUP BY a.AnimalID, a.AnimalName, a.AnimalType order by AnimalType, AnimalName">
+                                        SelectCommand="SELECT  a.AnimalName, Count(pa.ProgramID) AS TotalLivePrograms, COUNT(oa.OnlineProgramID) as TotalOnlinePrograms 
+                                        FROM ProgramAnimal pa full join Animal a on pa.animalId = a.animalID full join OnlineAnimal oa on a.AnimalID = oa.AnimalID 
+                                        WHERE(a.AnimalType = @animalType) GROUP BY a.AnimalName ORDER BY a.AnimalName">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="drpAnimalType" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
                                         </SelectParameters>
@@ -458,7 +461,7 @@
 
 
 
-                    </div>
+                    
                     <div class="mx-auto d-flex justify-content-center">
                         <asp:Button ID="btnToExcel" runat="server" OnClick="btnToExcel_Click1" Text="Export to Excel" class="btn btn-primary btn-inside" />
                         <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>
@@ -466,6 +469,7 @@
                     </div>
                     <br />
                 </div>
+        </div>
         </div>
     </div>
 
