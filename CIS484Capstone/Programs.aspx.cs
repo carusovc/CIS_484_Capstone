@@ -20,8 +20,8 @@ public partial class Programs : System.Web.UI.Page
 
         if (!this.IsPostBack)
         {
-            createAccordianUsingRepeaterLive();
-            createAccordianUsingRepeaterOnline();
+            createAccordianUsingRepeaterLive(0);
+            createAccordianUsingRepeaterOnline(0);
             createAccordianUsingRepeaterAll(0);
         }
 
@@ -329,11 +329,32 @@ public partial class Programs : System.Web.UI.Page
         }
     }
 
-    public void createAccordianUsingRepeaterLive()
+    public void createAccordianUsingRepeaterLive(int orderType)
     {
 
-        rptProgramHLLive.DataSource = GetData("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID;"); //inner join Organization on z.OrgID = Organization.OrgID
-        rptProgramHLLive.DataBind();
+
+        // 0 = Default
+        // 1 = Date
+        // 2 = Program Type
+
+        switch (orderType)
+        {
+
+            case 0:
+                rptProgramHLLive.DataSource = GetData("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID;"); //inner join Organization on z.OrgID = Organization.OrgID
+                rptProgramHLLive.DataBind();
+                break;
+            case 1:
+                rptProgramHLLive.DataSource = GetData("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID order by ProgramDate DESC;"); //inner join Organization on z.OrgID = Organization.OrgID
+                rptProgramHLLive.DataBind();
+                break;
+            case 2:
+                rptProgramHLLive.DataSource = GetData("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID order by ProgramType;"); //inner join Organization on z.OrgID = Organization.OrgID
+                rptProgramHLLive.DataBind();
+                break;
+        }
+
+
     }
 
 
@@ -365,13 +386,32 @@ public partial class Programs : System.Web.UI.Page
         }
     }
 
-    public void createAccordianUsingRepeaterOnline()
+    public void createAccordianUsingRepeaterOnline(int orderType)
     {
-        //rptProgramHL.DataSource = GetData("SELECT OrgID, OrgName from Organization");
+      
+
+        // 0 = Default
+        // 1 = Date
+        // 2 = Program Type
+
+        switch (orderType)
+        {
+
+            case 0:
+                rptProgramHLOnline.DataSource = GetData("SELECT OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID;"); //inner join Organization on z.OrgID = Organization.OrgID
+                rptProgramHLOnline.DataBind();
+                break;
+            case 1:
+                rptProgramHLOnline.DataSource = GetData("SELECT OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID order by ProgramDate DESC;"); //inner join Organization on z.OrgID = Organization.OrgID
+                rptProgramHLOnline.DataBind();
+                break;
+            case 2:
+                rptProgramHLOnline.DataSource = GetData("SELECT OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID order by ProgramType;"); //inner join Organization on z.OrgID = Organization.OrgID
+                rptProgramHLOnline.DataBind();
+                break;
+        }
 
 
-        rptProgramHLOnline.DataSource = GetData("SELECT OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID;"); //inner join Organization on z.OrgID = Organization.OrgID
-        rptProgramHLOnline.DataBind();
     }
 
     //GO FOR ALL
@@ -391,7 +431,7 @@ public partial class Programs : System.Web.UI.Page
 
     public void createAccordianUsingRepeaterAll(int orderType)
     {
-          // 0 = Default, Program Cateogry
+          // 0 = Default
           // 1 = Date
          // 2 = Program Type
 
@@ -399,11 +439,11 @@ public partial class Programs : System.Web.UI.Page
         {
            
             case 0:
-                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramCategory;");
+                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms;");
                 rptProgramHLAll.DataBind();
                 break;
             case 1:
-                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramCategory;");
+                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramDate DESC;");
                 rptProgramHLAll.DataBind();
                 break;
             case 2:
@@ -1567,14 +1607,16 @@ public partial class Programs : System.Web.UI.Page
         }
     }
 
-    // All Program Tab Order By
+    //All Program Tab Order By
 
-    //protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    int OrderSelect = ddlOrderBy.SelectedIndex;
-    //    createAccordianUsingRepeaterAll(OrderSelect);
+    protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int OrderSelect = ddlOrderBy.SelectedIndex;
+        createAccordianUsingRepeaterAll(OrderSelect);
+        createAccordianUsingRepeaterLive(OrderSelect);
+        createAccordianUsingRepeaterOnline(OrderSelect);
 
 
-    //}
+    }
 
 }
