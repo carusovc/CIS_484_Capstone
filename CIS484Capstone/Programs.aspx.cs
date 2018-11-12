@@ -22,7 +22,7 @@ public partial class Programs : System.Web.UI.Page
         {
             createAccordianUsingRepeaterLive();
             createAccordianUsingRepeaterOnline();
-            createAccordianUsingRepeaterAll(2);
+            createAccordianUsingRepeaterAll(0);
         }
 
 
@@ -391,14 +391,15 @@ public partial class Programs : System.Web.UI.Page
 
     public void createAccordianUsingRepeaterAll(int orderType)
     {
-        // 0 = Date
-        // 1 = Program Cateogry
-        // 2 = Program Type
+          // 0 = Default, Program Cateogry
+          // 1 = Date
+         // 2 = Program Type
 
         switch (orderType)
         {
+           
             case 0:
-                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramDate Desc;");
+                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramCategory;");
                 rptProgramHLAll.DataBind();
                 break;
             case 1:
@@ -409,6 +410,7 @@ public partial class Programs : System.Web.UI.Page
                 rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramType;");
                 rptProgramHLAll.DataBind();
                 break;
+            
 
         }
 
@@ -1564,18 +1566,12 @@ public partial class Programs : System.Web.UI.Page
 
     // All Program Tab Order By
 
-    //protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-
-    //    string sOrderSelect = (e.Item.FindControl("ddlOrderBy") as DropDownList).SelectedValue;
-
-      
+    protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int OrderSelect = ddlOrderBy.SelectedIndex;
+        createAccordianUsingRepeaterAll(OrderSelect);
 
 
-    //    int OrderSelect = Int32.Parse(sOrderSelect);
-    //    createAccordianUsingRepeaterAll(OrderSelect);
-
-
-    //}
+    }
 
 }

@@ -265,6 +265,16 @@
 
                                 </div>
 
+                                <div class="col-md-3 ml-auto">
+                                    <asp:DropDownList ID="ddlOrderBy" runat="server" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+                                        <asp:ListItem Text="Order By" />
+                                        <asp:ListItem Text="Program Date" />
+                                        <asp:ListItem Text="Program Type A-Z" />
+                                    </asp:DropDownList>
+                                    &nbsp;&nbsp;&nbsp;
+
+                                </div>
+
                                 <%-- this div  is the internal div--%>
                                 <div class="block3">
 
@@ -287,16 +297,12 @@
                                         <div id="AllTab" class="tab-pane show active">
                                             <div class="block justify-content-center table-responsive">
 
+
                                                 <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
                                                     <HeaderTemplate>
                                                         <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
 
-                                                            <asp:DropDownList ID="ddlOrderBy" runat="server" AppendDataBoundItems="false" AutoPostBack="true">
-                                                                <asp:ListItem Text="Order By" Value="0" />
-                                                                <asp:ListItem Text="Program Category" Value="0" />
-                                                                <asp:ListItem Text="Program Date" Value="0" />
-                                                                <asp:ListItem Text="Program Type A-Z" Value="0" />
-                                                            </asp:DropDownList>
+
 
 
 
