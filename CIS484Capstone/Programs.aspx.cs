@@ -87,13 +87,15 @@ public partial class Programs : System.Web.UI.Page
                    while (myRead1.Read())
                    {
                      ddlProgram.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
-                   }
+                     ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
+                    }
                 }
                 if (dropDownOrganization.Items.Count < 2)
                 {
                     while (myRead2.Read())
                     {
                         dropDownOrganization.Items.Add(new ListItem(myRead2["OrgName"].ToString(), myRead2["OrgID"].ToString()));
+                        ddlOrganization.Items.Add(new ListItem(myRead2["OrgName"].ToString(), myRead2["OrgID"].ToString()));
                     }
                 }
 
@@ -102,6 +104,8 @@ public partial class Programs : System.Web.UI.Page
                         while (myReadLive3.Read())
                         {
                             lstSelectEducatorsLive.Items.Add(new ListItem(myReadLive3["EducatorFirstName"].ToString() + " " + myReadLive3["EducatorLastName"].ToString(), myReadLive3["EducatorID"].ToString()));
+                            drpEducators.Items.Add(new ListItem(myReadLive3["EducatorFirstName"].ToString() + " " + myReadLive3["EducatorLastName"].ToString(), myReadLive3["EducatorID"].ToString()));
+
                         }
                 }
 
@@ -186,10 +190,7 @@ public partial class Programs : System.Web.UI.Page
                     lstOnlineProgramType.Items.Add(new ListItem(myReadOnline1["OnlineProgramTypeName"].ToString(), myReadOnline1["OnlineProgramTypeID"].ToString()));
                 }
 
-                //while (myReadOnline2.Read())
-                //{
-                //    lstOnlineEducators.Items.Add(new ListItem(myReadOnline2["EducatorFirstName"].ToString() + " " + myReadOnline2["EducatorLastName"].ToString(), myReadOnline2["EducatorID"].ToString()));
-                //}
+
                 ddlOnlineProgramID.DataBind();
 
                 if (OnlineGrades.Items.Count < 2)
@@ -272,106 +273,70 @@ public partial class Programs : System.Web.UI.Page
                 }
 
 
+                // Edit Live Program
 
-
-
-                //Edit live program
-                while (myRead.Read())
+                if (ddlProgramID.Items.Count < 2)
                 {
+                    string readStatement = "Select * from Program";
+                    SqlCommand cmdLive = new SqlCommand(readStatement, con);
+                    SqlDataReader myReadLive = cmdLive.ExecuteReader();
 
-                    ddlProgramID.Items.Add(new ListItem(myRead["ProgramID"].ToString(), myRead["ProgramID"].ToString()));
-                }
-
-                while (myRead1.Read())
-                {
-                    ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
-                }
-
-                while (myRead2.Read())
-                {
-                    ddlOrganization.Items.Add(new ListItem(myRead2["OrgName"].ToString(), myRead2["OrgID"].ToString()));
-                }
-                ddlProgramID.DataBind();
-
-                if (AddGrade.Items.Count < 2)
-                {
-
-                    string gradeRead = "Select * from Grade";
-                    SqlCommand cmd3 = new SqlCommand(gradeRead, con);
-                    SqlDataReader myRead3 = cmd3.ExecuteReader();
-
-                    while (myRead3.Read())
+                    while (myReadLive.Read())
                     {
-
-                        AddGrade.Items.Add(new ListItem(myRead3["GradeLevel"].ToString(), myRead3["GradeID"].ToString()));
+                        ddlProgramID.Items.Add(new ListItem(myReadLive["ProgramID"].ToString(), myReadLive["ProgramID"].ToString()));
                     }
-
-                }
-
-                if (drpEducators.Items.Count < 2)
-                {
-
-                    string educatorRead = "Select * from Educators order by EducatorFirstName";
-                    SqlCommand cmd4 = new SqlCommand(educatorRead, con);
-                    SqlDataReader myRead4 = cmd4.ExecuteReader();
-
-                    while (myRead4.Read())
-                    {
-
-                        drpEducators.Items.Add(new ListItem(myRead4["EducatorFirstName"].ToString() + " " + myRead4["EducatorLastName"].ToString(), myRead4["EducatorID"].ToString()));
-                    }
-
-
                 }
 
                 if (ddlBirds.Items.Count < 2)
                 {
+                    string readStatement = "Select * from Animal where AnimalType = 'Bird' order by AnimalName";
+                    SqlCommand cmdLive = new SqlCommand(readStatement, con);
+                    SqlDataReader myReadLive = cmdLive.ExecuteReader();
 
-                    string birdRead = "Select * from Animal where AnimalType = 'Bird' order by AnimalName";
-                    SqlCommand cmd5 = new SqlCommand(birdRead, con);
-                    SqlDataReader myRead5 = cmd5.ExecuteReader();
-
-                    while (myRead5.Read())
+                    while (myReadLive.Read())
                     {
 
-                        ddlBirds.Items.Add(new ListItem(myRead5["AnimalName"].ToString(), myRead5["AnimalID"].ToString()));
+                        ddlBirds.Items.Add(new ListItem(myReadLive["AnimalName"].ToString(), myReadLive["AnimalID"].ToString()));
                     }
-
-
                 }
 
                 if (ddlReptiles.Items.Count < 2)
                 {
+                    string readStatement = "Select * from Animal where AnimalType = 'Reptile' order by AnimalName";
+                    SqlCommand cmdLive = new SqlCommand(readStatement, con);
+                    SqlDataReader myReadLive = cmdLive.ExecuteReader();
 
-                    string reptileRead = "Select * from Animal where AnimalType = 'Reptile' order by AnimalName";
-                    SqlCommand cmd6 = new SqlCommand(reptileRead, con);
-                    SqlDataReader myRead6 = cmd6.ExecuteReader();
-
-                    while (myRead6.Read())
+                    while (myReadLive.Read())
                     {
-
-                        ddlReptiles.Items.Add(new ListItem(myRead6["AnimalName"].ToString(), myRead6["AnimalID"].ToString()));
+                        ddlReptiles.Items.Add(new ListItem(myReadLive["AnimalName"].ToString(), myReadLive["AnimalID"].ToString()));
                     }
-
-
                 }
 
                 if (lstMammals.Items.Count < 2)
                 {
+                    string readStatement = "Select * from Animal where AnimalType = 'Mammal' order by AnimalName";
+                    SqlCommand cmdLive = new SqlCommand(readStatement, con);
+                    SqlDataReader myReadLive = cmdLive.ExecuteReader();
 
-                    string mammalRead = "Select * from Animal where AnimalType = 'Mammal' order by AnimalName";
-                    SqlCommand cmd7 = new SqlCommand(mammalRead, con);
-                    SqlDataReader myRead7 = cmd7.ExecuteReader();
-
-                    while (myRead7.Read())
+                    while (myReadLive.Read())
                     {
-
-                        lstMammals.Items.Add(new ListItem(myRead7["AnimalName"].ToString(), myRead7["AnimalID"].ToString()));
+                        lstMammals.Items.Add(new ListItem(myReadLive["AnimalName"].ToString(), myReadLive["AnimalID"].ToString()));
                     }
-
-
                 }
 
+                if (AddGrade.Items.Count < 2)
+                {
+                    string readStatement = "Select * from Grade";
+                    SqlCommand cmdLive = new SqlCommand(readStatement, con);
+                    SqlDataReader myReadLive = cmdLive.ExecuteReader();
+
+                    while (myReadLive.Read())
+                    {
+
+                        AddGrade.Items.Add(new ListItem(myReadLive["GradeLevel"].ToString(), myReadLive["GradeID"].ToString()));
+                    }
+
+                }
             }
         }
 
@@ -627,11 +592,16 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@programTypeID", ddlProgramType.SelectedItem.Value);
         update.Parameters.AddWithValue("@orgID", ddlOrganization.SelectedItem.Value);
         update.Parameters.AddWithValue("@programID", ddlProgramID.SelectedItem.Value);
-        update.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Value);
+        //update.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Value);
+        update.Parameters.AddWithValue("@status", "Completed");
+
         update.Parameters.AddWithValue("@programAddress", txtAddress.Text);
         update.Parameters.AddWithValue("@cityCounty", txtCity.Text + ", " + txtCounty.Text);
 
-        update.Parameters.AddWithValue("@state", ddlState1.SelectedValue);
+        //update.Parameters.AddWithValue("@state", ddlState1.SelectedValue);
+        update.Parameters.AddWithValue("@state", txtState.Text.ToString());
+
+
 
         update.Parameters.AddWithValue("@onOff", rboOnOff.SelectedIndex);
         update.Parameters.AddWithValue("@numOfChildren", txtNumOfChildren.Text);
@@ -641,6 +611,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@programTime", txtProgramTime.Text);
         update.Parameters.AddWithValue("@month", month);
         update.Parameters.AddWithValue("@comments", txtComments.Text);
+        
 
 
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
@@ -678,8 +649,8 @@ public partial class Programs : System.Web.UI.Page
 
                 //// Pulls Educator Name based on the selected educator
                 //// MAY NEED TO CHANGE IF WE COMPOSITE EDUCATORS
-                pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE EducatorFirstName = @EducatorFN";
-                pullEducatorID.Parameters.AddWithValue("@EducatorFN", li.Text);
+                pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE EducatorFirstName + ' ' + EducatorLastName = @EducatorName";
+                pullEducatorID.Parameters.AddWithValue("@EducatorName", li.Text);
                 int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
 
                 //// Inserts programID and EducatorID into Assocaited table ProgramEducators
@@ -836,7 +807,7 @@ public partial class Programs : System.Web.UI.Page
     //Live Program ID
     protected void ddlProgramID_SelectedIndexChanged1(object sender, EventArgs e)
     {
-        ddlState1.ClearSelection();
+       //ddlState1.ClearSelection();
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
@@ -861,6 +832,16 @@ public partial class Programs : System.Web.UI.Page
         pullBird.Connection = sc;
         pullReptile.Connection = sc;
         pullMammal.Connection = sc;
+
+        insert.Parameters.Clear();
+        programType.Parameters.Clear();
+
+        organization.Parameters.Clear();
+        pullBird.Parameters.Clear();
+        pullEducators.Parameters.Clear();
+        pullGrades.Parameters.Clear();
+        pullMammal.Parameters.Clear();
+        pullReptile.Parameters.Clear();
 
 
 
@@ -919,24 +900,23 @@ public partial class Programs : System.Web.UI.Page
                 txtAddress.Text = sdr[4].ToString();
                 txtCity.Text = city;
                 txtCounty.Text = county;
+                txtState.Text = sdr[6].ToString();
+                //for (int i = 0; i < ddlState1.Items.Count; i++)
+                //{
 
-                //txtState.Text = sdr[6].ToString();
-                for (int i = 0; i < ddlState1.Items.Count; i++)
-                {
+                //    if (ddlState1.Items[i].ToString() == sdr[6].ToString())
+                //    {
+                //        ddlState1.Items[i].Selected = true;
+                //    }
+                //}
 
-                    if (ddlState1.Items[i].ToString() == sdr[6].ToString())
-                    {
-                        ddlState1.Items[i].Selected = true;
-                    }
-                }
-
-                for (int i = 0; i < ddlStatus.Items.Count; i++)
-                {
-                    if (ddlStatus.Items[i].ToString() == sdr[3].ToString())
-                    {
-                        ddlStatus.Items[i].Selected = true;
-                    }
-                }
+                //for (int i = 0; i < ddlStatus.Items.Count; i++)
+                //{
+                //    if (ddlStatus.Items[i].ToString() == sdr[3].ToString())
+                //    {
+                //        ddlStatus.Items[i].Selected = true;
+                //    }
+                //}
 
                 if (sdr[7].ToString() == "1")
                 {
@@ -949,6 +929,14 @@ public partial class Programs : System.Web.UI.Page
                 //rboOnOff.SelectedItem.Value = sdr[7].ToString();
                 txtNumOfChildren.Text = sdr[8].ToString();
                 txtNumOfAdults.Text = sdr[9].ToString();
+
+                string testChild = txtNumOfChildren.Text.ToString();
+                Console.WriteLine("Test Children: " + txtNumOfChildren.Text.ToString());
+                Console.Write("Hello World!");
+                System.Diagnostics.Debug.WriteLine("Test Children: " + txtNumOfChildren.Text.ToString());
+                //System.Diagnostics.Debug.WriteLine("Hello World: " + ddlState1.SelectedValue.ToString());
+
+
                 if (sdr[10].ToString() == "1")
                 {
                     rboPayment.SelectedIndex = 0;
@@ -1208,7 +1196,7 @@ public partial class Programs : System.Web.UI.Page
                 txtNumOfKids.Text = sdr[4].ToString();
                 txtNumOfAdults2.Text = sdr[5].ToString();
                 txtCity2.Text = sdr[6].ToString();
-                ddlState2.Text = sdr[7].ToString();
+                //ddlState2.Text = sdr[7].ToString();
                 txtCountry.Text = sdr[8].ToString();
                 ddlTeacher.SelectedItem.Text = sdr[9].ToString();
                 txtEmail.Text = sdr[10].ToString();
@@ -1440,7 +1428,9 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@numOfKids", txtNumOfKids.Text);
         update.Parameters.AddWithValue("@numofAdults", txtNumOfAdults2.Text);
         update.Parameters.AddWithValue("@city", txtCity2.Text);
-        update.Parameters.AddWithValue("@state", ddlState2.Text);
+        //update.Parameters.AddWithValue("@state", ddlState2.Text);
+        update.Parameters.AddWithValue("@state", txtState.Text);
+
         update.Parameters.AddWithValue("@country", txtCountry.Text);
         update.Parameters.AddWithValue("@teacherName", ddlTeacher.SelectedItem.Text);
         update.Parameters.AddWithValue("@contactEmail", txtEmail.Text);

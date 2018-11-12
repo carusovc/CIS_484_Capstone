@@ -16,13 +16,13 @@ public partial class AnimalPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#EditAnimalModal').modal('show');});</script>", false);
 
         AnimalAddDiv.Visible = true;
         AnimalEditDiv.Visible = true;
         AnimalSearchDiv.Visible = false;
-     
+
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -34,19 +34,19 @@ public partial class AnimalPage : System.Web.UI.Page
         insert.Connection = sc;
 
 
-        
+
 
 
         if (!IsPostBack)
         {
-           
+
             //call read array
             SqlConnection conAnimal = new SqlConnection(cs);
             conAnimal.Open();
             if (conAnimal.State == System.Data.ConnectionState.Open)
             {
                 string read = "Select * from Animal Order By AnimalName";
-                
+
                 SqlCommand cmd = new SqlCommand(read, conAnimal);
                 SqlDataReader myRead = cmd.ExecuteReader();
 
@@ -64,7 +64,7 @@ public partial class AnimalPage : System.Web.UI.Page
     {
         AnimalAddDiv.Visible = true;
         ViewAnimals.Visible = true;
-        
+
 
     }
     protected void btnEditAnimal_Click(object sender, EventArgs e)
@@ -146,10 +146,10 @@ public partial class AnimalPage : System.Web.UI.Page
 
         //byte[] image = (byte[])retrieveImage.ExecuteScalar();
         //System.Drawing.Image newImage = ByteArrayToImage(image);
-      
 
-        
-        
+
+
+
         //animalImage.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(image);
 
 
@@ -183,7 +183,7 @@ public partial class AnimalPage : System.Web.UI.Page
         insert.Connection = sc;
         insert.Parameters.Clear();
 
-        
+
 
         //ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#EditAnimalModal').modal('show');});</script>", true);
 
@@ -212,7 +212,7 @@ public partial class AnimalPage : System.Web.UI.Page
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-               
+
                 for (int i = 0; i < ddlAnimalTypeEdit.Items.Count; i++)
                 {
 
@@ -225,9 +225,9 @@ public partial class AnimalPage : System.Web.UI.Page
 
                 txtBoxAnimalName.Text = sdr[2].ToString();
 
-                for (int i = 0; i<ddlStatus.Items.Count; i++)
+                for (int i = 0; i < ddlStatus.Items.Count; i++)
                 {
-                    if(ddlStatus.Items[i].ToString() == sdr[5].ToString())
+                    if (ddlStatus.Items[i].ToString() == sdr[5].ToString())
                     {
                         ddlStatus.Items[i].Selected = true;
                     }
@@ -260,17 +260,17 @@ public partial class AnimalPage : System.Web.UI.Page
         select.Connection = sc;
 
         update.Connection = sc;
-        
+
         SqlConnection con = new SqlConnection(cs);
 
-                update.CommandText = "update animal set animalType = @animalType, animalName = @animalName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, status = @status where animalID = @animalID";
-                update.Parameters.AddWithValue("@animalType", ddlAnimalTypeEdit.SelectedItem.Text);
-                update.Parameters.AddWithValue("@animalName", txtBoxAnimalName.Text);
-                update.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
-                update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-                update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
-                update.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
-                update.ExecuteNonQuery();
+        update.CommandText = "update animal set animalType = @animalType, animalName = @animalName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, status = @status where animalID = @animalID";
+        update.Parameters.AddWithValue("@animalType", ddlAnimalTypeEdit.SelectedItem.Text);
+        update.Parameters.AddWithValue("@animalName", txtBoxAnimalName.Text);
+        update.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
+        update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
+        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
+        update.ExecuteNonQuery();
 
         //select.CommandText = "select animalImage from Animal where AnimalID = @animalID";
         //select.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
@@ -329,8 +329,8 @@ public partial class AnimalPage : System.Web.UI.Page
 
     protected void gridBird_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-       
-        if(e.Row.RowType ==DataControlRowType.DataRow)
+
+        if (e.Row.RowType == DataControlRowType.DataRow)
         {
             System.Web.UI.HtmlControls.HtmlImage imageControl = (System.Web.UI.HtmlControls.HtmlImage)e.Row.FindControl("imageControl");
             if (((DataRowView)e.Row.DataItem)["AnimalImage"] != DBNull.Value)
@@ -413,7 +413,7 @@ public partial class AnimalPage : System.Web.UI.Page
         //gridBird.Visible = false;
         //gridReptile.Visible = false;
         //gridSearch.Visible = true;
-  
+
 
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
@@ -436,5 +436,3 @@ public partial class AnimalPage : System.Web.UI.Page
         gridSearch.DataBind();
     }
 }
-
-
