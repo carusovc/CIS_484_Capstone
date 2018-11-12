@@ -470,10 +470,10 @@
                                                                         <ItemTemplate>
                                                                             <tr class="row">
                                                                                 <td class="col-md-4">
-                                                                                    <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("OnOff") %>' />
+                                                                                    <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("OnOffSite") %>' />
                                                                                 </td>
                                                                                 <td class="col-md-4">
-                                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("PaymentNeeded") %>' />
+                                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("Paid?") %>' />
                                                                                 </td>
                                                                                 <td class="col-md-4">
                                                                                     <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
@@ -513,6 +513,13 @@
                                                         </table>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
+                                                <div class="row">
+                                                    <%-- Onclick export live --%>
+                                                    <div class="mx-auto d-flex justify-content-center col-lg-3 col-md-4 col-sm-6">
+                                                        <asp:Button type="button" id="btnExportLive" class="btn btn-primary  btn-inside btn-block" runat="server" text="Export to Excel" onclick="btnExportLive_Click"></asp:Button>
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -667,7 +674,16 @@
                                                         </table>
                                                     </FooterTemplate>
                                                 </asp:Repeater>
+                                                <div class="row">
+                                                    <%-- Onclick export live --%>
+                                                    <div class="mx-auto d-flex justify-content-center col-lg-3 col-md-4 col-sm-6">
+                                                        <asp:Button type="button" id="btnExportOnline" class="btn btn-primary  btn-inside btn-block" runat="server" text="Export to Excel" onclick="btnExportLive_Click"></asp:Button>
+
+
+                                                    </div>
+                                                </div>
                                             </div>
+
                                         </div>
 
 
@@ -1450,7 +1466,6 @@
 
                         </div>
 
-
                     </div>
 
 
@@ -1482,7 +1497,7 @@
                                 </div>
                             </div>
 
-                             <div class="form-group row">
+                            <div class="form-group row">
                                 <div class="col-5">
                                     <label id="SelectBirdsOnline" for="SelectBirdsOnline">Select Birds:</label>
                                 </div>
@@ -1609,6 +1624,7 @@
                             <input type="button" class="btn" id="btnEndstep24" value="Submit" />
 
                         </div>
+
                     </div>
 
 

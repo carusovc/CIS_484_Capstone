@@ -441,7 +441,7 @@ public partial class Programs : System.Web.UI.Page
 
         sc.Close();
         string script = "alert('File Successfully Exported to Desktop');";
-        System.Web.UI.ScriptManager.RegisterClientScriptBlock(Button1, this.GetType(), "Test", script, true);
+        System.Web.UI.ScriptManager.RegisterClientScriptBlock(btnExportLive, this.GetType(), "Test", script, true);
 
     }
     public override void VerifyRenderingInServerForm(Control control)
@@ -478,7 +478,7 @@ public partial class Programs : System.Web.UI.Page
 
         sc.Close();
         string script = "alert('File Successfully Exported to Desktop');";
-        System.Web.UI.ScriptManager.RegisterClientScriptBlock(Button1, this.GetType(), "Test", script, true);
+        System.Web.UI.ScriptManager.RegisterClientScriptBlock(btnExportOnline, this.GetType(), "Test", script, true);
     }
 
 
@@ -1569,12 +1569,12 @@ public partial class Programs : System.Web.UI.Page
 
     // All Program Tab Order By
 
-    protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        int OrderSelect = ddlOrderBy.SelectedIndex;
-        createAccordianUsingRepeaterAll(OrderSelect);
+    //protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
+    //{
+    //    int OrderSelect = ddlOrderBy.SelectedIndex;
+    //    createAccordianUsingRepeaterAll(OrderSelect);
 
 
-    }
+    //}
 
 }
