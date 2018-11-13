@@ -44,7 +44,7 @@
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
-      <li class="nav-item dropdown no-arrow active">
+      <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -86,7 +86,7 @@
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown no-arrow active">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Payment</span>
@@ -143,7 +143,7 @@
         <!-- Sidebar -->
 
         <ul class="sidebar navbar-nav d-none d-md-block">
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -183,7 +183,7 @@
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown no-arrow active">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Payment</span>
@@ -323,6 +323,39 @@
                         <div class="card-header NewUserTitle">Add New Payment</div>
                         <div class="card-body">
                             <div class="form-group">
+
+                                 <div class="form-group row">
+                                  <div class="col-sm-12 col-md-6">
+                                    <h6>Invoice Number</h6>
+                                
+                                <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder ="Enter Invoice Number"></asp:TextBox>
+                                <%--<asp:RequiredFieldValidator id="RequiredFieldValidator7" runat="server" ControlToValidate="txtInvoiceNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
+
+                                </div>
+                                     </div>
+                                 <p></p>
+
+
+                                <div class="form-group row">
+                             <div class="col-sm-12 col-md-6">
+                                 <h6>Program</h6>
+                                    <asp:DropDownList ID="ddlProgramType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" >                                  
+                                        <asp:ListItem>--Select Program--</asp:ListItem> </asp:DropDownList>
+                                  <%--<asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
+
+                                </div>
+                                    <div class="col-sm-12 col-md-6">
+                               <h6>Organization</h6>
+                                    <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" >                                  
+                                        <asp:ListItem>--Select Organization--</asp:ListItem> </asp:DropDownList>
+                                  <asp:RequiredFieldValidator id="RequiredFieldValidator8" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
+
+                                </div>
+                                 
+                                </div>
+                                <p></p>
+
+
                                <div class="form-group row">
                             <div class="col-sm-12 col-md-6">
                                <h6>Month</h6>
@@ -412,34 +445,6 @@
                                 </div>
                                 </div>
                                 <p></p>
-
-                              
-
-
-                                <div class="form-group row">
-                            <div class="col-sm-12 col-md-6">
-                               <h6>Organization</h6>
-                             
-                                <%--<asp:TextBox ID="txtOrganization" runat="server" class="form-control" placeholder ="Enter Organization ID"></asp:TextBox>--%>
-                                    <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" >
-                                   
-                                        <asp:ListItem>--Select Organization--</asp:ListItem> </asp:DropDownList>
-                                  <asp:RequiredFieldValidator id="RequiredFieldValidator8" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
-
-                                </div>
-                                   <div class="col-sm-12 col-md-6">
-                                    <h6>Invoice Number</h6>
-                                
-                                <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder ="Enter Invoice Number"></asp:TextBox>
-                                <asp:RequiredFieldValidator id="RequiredFieldValidator7" runat="server" ControlToValidate="txtInvoiceNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
-
-                                </div>
-                                </div>
-                                <p></p>
-
-                          
-                                
-                               
 
                                 <div class="form-group row">
                                 <div class="col-sm-12 col-md-6">

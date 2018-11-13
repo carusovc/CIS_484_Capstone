@@ -21,6 +21,34 @@ public partial class Payments : System.Web.UI.Page
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
+        string programNameRead = "Select * from ProgramType order by ProgramName";
+        string programTypeRead = "Select * from OnlineProgramType order by OnlineProgramTypeName";
+        SqlCommand cmd1 = new SqlCommand(programNameRead, sc);
+        SqlCommand cmd2 = new SqlCommand(programTypeRead, sc);
+        SqlDataReader myRead1 = cmd1.ExecuteReader();
+        SqlDataReader myRead2 = cmd2.ExecuteReader();
+
+
+
+        if (ddlProgramType.Items.Count < 2)
+        {
+            while (myRead1.Read())
+            {
+                ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
+            }
+            while(myRead2.Read())
+            {
+                ddlProgramType.Items.Add(new ListItem(myRead2["OnlineProgramTypeName"].ToString(), myRead2["OnlineProgramTypeID"].ToString()));
+            }
+        }
+
+        //if (ddlProgramType.Items.Count < 2)
+        //{
+        //    while(myRead2.Read())
+        //    {
+        //        ddlProgramType.Items.Add(new ListItem(myRead2["OnlineProgramTypeName"].ToString(), myRead2["OnlineProgramTypeID"].ToString()));
+        //    }
+        //}
 
         // Populate Year from 1990 through 2020
         for (int i = 2020; i >= 1990; i--)
