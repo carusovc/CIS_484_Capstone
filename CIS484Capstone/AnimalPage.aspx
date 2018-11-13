@@ -446,7 +446,7 @@
                                  <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
                             </div>
                      
-                            <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="col-lg-4 col-md-4 col-sm-4">
                                  <h4 class="alert" style="background-color: #AB9993 !important; color: white !important;"">Status</h4>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
