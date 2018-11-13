@@ -5,11 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Data.SqlClient;
 
 public partial class Payments : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+  
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
@@ -25,11 +27,27 @@ public partial class Payments : System.Web.UI.Page
         {
             ddlYear.Items.Add(new ListItem(i.ToString()));
         }
+        string read = "Select * from Organization";
 
+    
+        
+        SqlCommand cmd = new SqlCommand(read, sc);
+        SqlDataReader myRead = cmd.ExecuteReader();
+    
+
+        while (myRead.Read())
+        {
+
+            ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
+        }
+
+       
+        ddlOrganization.DataBind();
+        
 
     }
 
-
+    
 
     protected void btnSubmit_Click1(object sender, EventArgs e)
     {
@@ -48,8 +66,8 @@ public partial class Payments : System.Web.UI.Page
         string month = ddlMonth.SelectedValue.ToString();
         decimal paymentAmount = Convert.ToDecimal(txtAmount.Text);
         string checkNum = txtCheckNum.Text.ToString();
-        string paymentType = txtPaymentType.Text.ToString();
-        int orgID = Int32.Parse(txtOrganization.Text.ToString());
+        string paymentType = ddlPaymentType.Text.ToString();
+        int orgID = Int32.Parse(ddlOrganization.Text.ToString());
         string invoice = txtInvoiceNum.Text.ToString();
 
         string cancelledSet = txtCancelledChar.Text.ToString();
@@ -83,20 +101,35 @@ public partial class Payments : System.Web.UI.Page
 
     }
 
-    protected void btnPopulate_Click(object sender, EventArgs e)
+    
+    //protected void btnPopulate_Click(object sender, EventArgs e)
+    //{
+    //    ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
+    //    selectMonthDays();
+    //    ddlDate.SelectedValue = DateTime.Now.Day.ToString();
+    //    ddlYear.SelectedValue = DateTime.Now.Year.ToString();
+    //    txtAmount.Text = "300";
+    //    txtCheckNum.Text = "1234";
+    //    ddlPaymentType.SelectedValue = "Check";
+    //    ddlOrganization.SelectedValue = "5";
+    //    txtInvoiceNum.Text = "AW18-001";
+    //    txtCancelledChar.Text = "N";
+
+
+    //}
+    protected void ddlPaymentType_SelectedIndexChanged(object sender, EventArgs e)
     {
-        ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
-        selectMonthDays();
-        ddlDate.SelectedValue = DateTime.Now.Day.ToString();
-        ddlYear.SelectedValue = DateTime.Now.Year.ToString();
-        txtAmount.Text = "300";
-        txtCheckNum.Text = "1234";
-        txtPaymentType.Text = "Check";
-        txtOrganization.Text = "5";
-        txtInvoiceNum.Text = "AW18-001";
-        txtCancelledChar.Text = "N";
-
-
+        int selectedPaymentType = ddlPaymentType.SelectedIndex;
+        if (selectedPaymentType == 1)
+        {
+            txtCheckNum.ReadOnly = false;
+        }
+        else
+        {
+            txtCheckNum.ReadOnly = true;
+        }
+        
+       
 
     }
 
@@ -128,15 +161,15 @@ public partial class Payments : System.Web.UI.Page
         }
         else if (selectedMonth == 2)
         {
-            ddlDate.Items.Clear();
-            if (Int32.Parse(ddlYear.SelectedItem.Value) % 4 == 0)
-            {
+            //ddlDate.Items.Clear();
+            //if (Int32.Parse(ddlYear.SelectedItem.Value) % 4 == 0)
+            //{
                 SetDaysInMonth(29);
-            }
-            else
-            {
-                SetDaysInMonth(28);
-            }
+            //}
+            //else
+            //{
+              //  SetDaysInMonth(28);
+            //}
         }
     }
 

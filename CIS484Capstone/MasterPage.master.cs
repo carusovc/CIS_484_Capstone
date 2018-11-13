@@ -194,8 +194,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
         update.ExecuteNonQuery();
 
-       // lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
-       // lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+        // lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        // lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
         string read = "Select * from Organization";
         SqlCommand cmd = new SqlCommand(read, sc);
@@ -208,6 +208,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         ddlOrganization.DataBind();
 
+        txtOrgName.Text = "";
+        txtCity.Text = "";
+        txtCounty.Text = "";
+        ddlOrganization.SelectedIndex = 0;
     }
 
 
@@ -350,8 +354,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         txtEducatorFirstName.Text = "";
         txtEducatorLastName.Text = "";
-        txtEducatorEmail.Text = "";
-        txtEducatorPhone.Text = "";
+        //txtEducatorEmail.Text = "";
+        //txtEducatorPhone.Text = "";
         ddlEducatorName.DataBind();
     }
 
@@ -430,16 +434,32 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         insert.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
 
+        ddlAnimalTypeEdit.ClearSelection();
+        ddlAnimalStatus.ClearSelection();
         try
         {
             con.Open();
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                ddlAnimalTypeEdit.SelectedItem.Text = sdr[1].ToString();
+                for (int i = 0; i < ddlAnimalTypeEdit.Items.Count; i++)
+                {
+                    if (ddlAnimalTypeEdit.Items[i].ToString() == sdr[1].ToString())
+                    {
+                        ddlAnimalTypeEdit.Items[i].Selected = true;
+                    }
+                }
+                //ddlAnimalTypeEdit.SelectedItem.Text = sdr[1].ToString();
                 //ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
                 txtBoxAnimalName.Text = sdr[2].ToString();
-                ddlAnimalStatus.Text = sdr[5].ToString();
+                for (int i = 0; i < ddlAnimalStatus.Items.Count; i++)
+                {
+                    if (ddlAnimalStatus.Items[i].ToString() == sdr[5].ToString())
+                    {
+                        ddlAnimalStatus.Items[i].Selected = true;
+                    }
+                }
+                //ddlAnimalStatus.Text = sdr[5].ToString();
                 //lblLastUpdated.Text = sdr["LastUpdated"].ToString();
                 //lblLastUpdatedBy.Text = sdr["LastUpdatedBy"].ToString();
 

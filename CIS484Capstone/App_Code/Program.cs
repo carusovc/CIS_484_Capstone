@@ -18,9 +18,9 @@ public class Program
     private int numOfAdult;
     private char waitForPayment;
     private DateTime date;
-    private String reportMonth;
+    //private String reportMonth;
     //private int grade;
-    private TimeSpan time;
+    private string time;
     private String comments;
 
     public Program()
@@ -28,14 +28,14 @@ public class Program
 
     }
     //Overload Constructor
-    public Program(byte onOff, string status, string programAddress, string cityCounty, string reportMonth, int programTypeID,
-        int numOfChildren, int numOfAdult, char waitForPayment, DateTime date, TimeSpan time, string comments)
+    public Program(byte onOff, string status, string programAddress, string cityCounty, int programTypeID,
+        int numOfChildren, int numOfAdult, char waitForPayment, DateTime date, string time, string comments)
     {
         setOnOff(onOff);
         setStatus(status);
         //setOrganizationName(organizationName);
         setProgramAddress(programAddress);
-        setReportMonth(reportMonth);
+
         setDate(date);
         setTime(time);
         setComments(comments);
@@ -80,10 +80,6 @@ public class Program
         this.programAddress = programAddress;
     }
 
-    public void setReportMonth(string reportMonth)
-    {
-        this.reportMonth = reportMonth;
-    }
 
     //public void setDateTime(DateTime dateTime)
     //{
@@ -116,7 +112,7 @@ public class Program
         this.date = date;
     }
 
-    public void setTime(TimeSpan time)
+    public void setTime(string time)
     {
         this.time = time;
     }
@@ -157,10 +153,6 @@ public class Program
         return programAddress;
     }
 
-    public String getReportMonth()
-    {
-        return reportMonth;
-    }
 
     //public DateTime getDateTime()
     //{
@@ -199,7 +191,7 @@ public class Program
         return date;
     }
 
-    public TimeSpan getTime()
+    public string getTime()
     {
         return time;
     }

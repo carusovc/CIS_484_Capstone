@@ -53,7 +53,7 @@ INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedB
 INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Albus', GETDATE(), 'WildTekDevelopers','Active')
 INSERT INTO [dbo].[Animal] ([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Severus', GETDATE(), 'WildTekDevelopers','Active');
 INSERT INTO [dbo].[Animal]([AnimalType],[AnimalName], LastUpdated, LastUpdatedBy) VALUES ('Reptile','Clifford', GETDATE(), 'WildTekDevelopers','Active');
-
+                   
 Insert into [dbo].[Organization](OrgName,City,County, LastUpdated, LastUpdatedBy) VALUES ('Library One','Blacksburg','Montgomery', GETDATE(), 'WildTekDevelopers');
 Insert into [dbo].[Organization](OrgName,City,County, LastUpdated, LastUpdatedBy) VALUES ('Library Two','Harrisonburg','Rockingham', GETDATE(), 'WildTekDevelopers');
 Insert into [dbo].[Organization](OrgName,City,County, LastUpdated, LastUpdatedBy) VALUES ('School One','Fishersville','Augusta', GETDATE(), 'WildTekDevelopers');
@@ -338,3 +338,12 @@ INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdat
 INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (20,4,GETDATE(),'WildTekDevelopers');
 INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (21,9,GETDATE(),'WildTekDevelopers');
 INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (22,16,GETDATE(),'WildTekDevelopers');
+                                                                       
+INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],[CancelledInvoice],[OrgID],[LastUpdated],[LastUpdatedBy])
+VALUES (500, '2018-01-01', null, 'Credit', 'GA1001', 'N', 2, GETDATE(), 'WildTekDevelopers');
+
+INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],[CancelledInvoice],[OrgID],[LastUpdated],[LastUpdatedBy])
+VALUES (655, '2018-03-01', null, 'Debit', 'GA1002', 'N', 8, GETDATE(), 'WildTekDevelopers');
+
+INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],[CancelledInvoice],[OrgID],[LastUpdated],[LastUpdatedBy])
+VALUES (1000, '2018-05-01', null, 'Debit', 'GA1003', 'N', 4, GETDATE(), 'WildTekDevelopers');
