@@ -289,8 +289,8 @@
                                                             <ItemStyle HorizontalAlign="Center" />
                                                         </asp:BoundField>
 
-                                                        <asp:BoundField DataField="PaymentID" HeaderText="Payment ID" InsertVisible="False" ReadOnly="True" SortExpression="PaymentID" Visible="False" />
-                                                        <asp:BoundField DataField="OrgName" HeaderText="Organization" SortExpression="OrgName">
+                                                        <asp:TemplateField  HeaderText="Program" InsertVisible="False" />
+                                                         <asp:BoundField DataField="OrgName" HeaderText="Organization" SortExpression="OrgName">
 
                                                             <ItemStyle HorizontalAlign="Center" />
                                                         </asp:BoundField>
@@ -380,6 +380,7 @@
                                                 </asp:BoundField>
 
                                                 <asp:BoundField DataField="PaymentID" HeaderText="Payment ID" InsertVisible="False" ReadOnly="True" SortExpression="PaymentID" Visible="False" />
+                                                  <asp:TemplateField  HeaderText="Program" InsertVisible="False" />
                                                 <asp:BoundField DataField="OrgName" HeaderText="Organization" SortExpression="OrgName">
 
                                                     <ItemStyle HorizontalAlign="Center" />
