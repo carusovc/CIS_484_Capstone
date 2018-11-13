@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
+using System.Drawing;
+using System.IO;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
@@ -288,29 +291,40 @@ public partial class MasterPage : System.Web.UI.MasterPage
             String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
             sc.ConnectionString = cs;
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand retrieveImage = new System.Data.SqlClient.SqlCommand();
 
-
-            sc.Open();
+        sc.Open();
             insert.Connection = sc;
+        retrieveImage.Connection = sc;
 
-            String animalType = ddlAnimalType.SelectedItem.Text;
+        String animalType = ddlAnimalType.SelectedItem.Text;
             String animalName = txtAnimalName.Text;
             DateTime lastUpdated = DateTime.Today;
             String lastUpdatedBy = "WildTek";
 
 
             Animal newAnimal = new Animal(animalType, animalName);
+        string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
+        using (Stream fs = FileUpload1.PostedFile.InputStream)
+        {
+            using (BinaryReader br = new BinaryReader(fs))
+            {
+                byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
-            insert.CommandText = "Insert into Animal (animalType, animalName, lastUpdated, lastUpdatedBy, status) values (@animalType, @animalName, @lastUpdated, @lastUpdatedBy, @status)";
+                insert.CommandText = "Insert into Animal (animalType, animalName, lastUpdated, lastUpdatedBy, status) values (@animalType, @animalName, @lastUpdated, @lastUpdatedBy, @status, @animalImage)";
             insert.Parameters.AddWithValue("@animalType", newAnimal.getAnimalType());
             insert.Parameters.AddWithValue("@animalName", newAnimal.getAnimalName());
             insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
             insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
             insert.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
+                insert.Parameters.AddWithValue("@animalImage", bytes);
 
-            insert.ExecuteNonQuery();
-            lblLastUpdated.Text = "Last Updated: " + lastUpdated;
-            lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
+                insert.ExecuteNonQuery();
+            }
+        }
+        lblLastUpdated.Text = "Last Updated: " + lastUpdated;
+
+        lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
 
             txtAnimalName.Text = "";
             //gridAnimalMammal.DataBind();
@@ -318,7 +332,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
             //gridBird.DataBind();
 
         }
-
+    public System.Drawing.Image ByteArrayToImage(byte[] byteArrayIn)
+    {
+        using (var ms = new MemoryStream(byteArrayIn))
+        {
+            return System.Drawing.Image.FromStream(ms);
+        }
+    }
 
 
     protected void btnAddEducator_Click(object sender, EventArgs e)
