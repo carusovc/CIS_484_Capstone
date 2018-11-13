@@ -14,7 +14,18 @@
     <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
     <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
 
-
+    <style>
+        body {
+    background-image: url(../Images/BackgroundLogin/sunset.jpg);
+    background-color: #D9D6D0;
+    height: auto; /* You must set a specified height */
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+    font-family: 'Titillium Web', sans-serif;
+}
+    </style>
 
     
     
