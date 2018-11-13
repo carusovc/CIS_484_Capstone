@@ -12,18 +12,22 @@ body html {
 }
 
 
+
 body {
-    background-image: url(../Images/BackgroundLogin/sunset.jpg);
+    /*background-image: url(../Images/BackgroundLogin/sunset.jpg);*/
     background-color: #455379;
+    background-color: #819286;
     height: auto; /* You must set a specified height */
     background-position: top; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
     background-attachment: fixed;
     font-family: 'Titillium Web', sans-serif;
-
 }
 
+Default.body {
+    background-image: url(../Images/BackgroundLogin/sunset.jpg);
+}
     
     body.login {
         /*background-image: url(../Images/FlyingBirdsBG.jpg);*/
