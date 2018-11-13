@@ -360,7 +360,7 @@
 
 
 
-                                            <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn  text-center btn-inside btn-secondary btn-block btn-sm dropdown-toggle" Style="background-color: #FFBC7C !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+                                            <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
                                                 <asp:ListItem>--Order By--</asp:ListItem>
                                                 <asp:ListItem>Program Date</asp:ListItem>
                                                 <asp:ListItem>Program Type A-Z</asp:ListItem>
@@ -607,7 +607,7 @@
                                                     <div class="row">
                                                         <%--OnClick="btnExportLive_Click"--%>
                                                         <div class="mx-auto d-flex justify-content-center  col-lg-3    col-md-4 col-sm-6 ">
-                                                            <asp:Button ID="btnExportLive" runat="server" Text="Export to Excel" class="btn btn-primary btn-inside btn-block"></asp:Button>
+                                                            <asp:Button ID="btnExportLive" runat="server" Text="Export to Excel" onclick="btnExportLive_Click" class="btn btn-primary btn-inside btn-block"></asp:Button>
 
                                                         </div>
 
@@ -770,7 +770,7 @@
                                                     <%--OnClick="btnExportOnline_Click"--%>
                                                     <div class="row">
                                                         <div class="mx-auto d-flex justify-content-center  col-lg-3    col-md-4 col-sm-6 ">
-                                                            <asp:Button ID="btnExportOnline" runat="server" Text="Export to Excel" class="btn btn-primary btn-inside btn-block"></asp:Button>
+                                                            <asp:Button ID="btnExportOnline" runat="server" Text="Export to Excel" OnClick="btnExportOnline_Click" class="btn btn-primary btn-inside btn-block"></asp:Button>
 
                                                         </div>
                                                     </div>
@@ -810,7 +810,7 @@
         <div class="modal-dialog  modal-full " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit Live Program</h5>
+                    <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Live Program</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1074,7 +1074,7 @@
 
                     <%-- <button type="button" id="btnUpdate" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate_Click">Update</button>--%>
                     <%--                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" text="Delete" onclick="btnDelete_Click">Delete</button>--%>
-                    <asp:Button ID="Button1" runat="server" class="btn  btn-inside" Text="Update" OnClick="btnUpdate_Click" />
+                    <asp:Button ID="Button1" runat="server" class="btn  btn-inside" Text="Save Changes" OnClick="btnUpdate_Click" />
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
@@ -1089,7 +1089,7 @@
         <div class="modal-dialog  modal-full " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit Online Program </h5>
+                    <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Online Program </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -1312,7 +1312,7 @@
 
 
                     <button type="button" id="Button2" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Delete" onclick="btnOnlineDelete_Click">Delete</button>
-                    <asp:Button ID="Button3" runat="server" class="btn  btn-inside" Text="Update" OnClick="btnOnlineUpdate_Click" />
+                    <asp:Button ID="Button3" runat="server" class="btn  btn-inside" Text="Save Changes" OnClick="btnOnlineUpdate_Click" />
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -1625,17 +1625,19 @@
 
 
     <%--Adding new program modal--%>
-    <div id="addProgramModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myTitle" aria-hidden="true" style="z-index: 2000">
+    <div id="addProgramModal" class="modal" tabindex="-1" role="dialog" tabindex="-1" aria-labelledby="myTitle" aria-hidden="true" style="z-index: 2000">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+                    <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;" id="myTitle">Add Program</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="visible-xs">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="myTitle">Add Program</h4>
+                    
 
                 </div>
                 <div class="modal-body">
+
 
                     <%-- Modal Step 1 - Selector--%>
                     <div id="SelectProgramType">
