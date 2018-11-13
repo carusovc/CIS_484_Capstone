@@ -826,11 +826,11 @@
                                 <div class="col-md-12 col-lg-6 
            col-sm-12">
                                     <p>
-                                        Select Program ID:
+                                        Select Program:
                                         <br />
                                         <asp:DropDownList ID="ddlProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
 
-                                            <asp:ListItem Text="--Select Online Program ID--" Value="0" />
+                                            <asp:ListItem Text="--Select Live Program--" Value="0" />
                                         </asp:DropDownList>
                                 </div>
                                 <div class="col-md-12 col-lg-6 
@@ -839,6 +839,7 @@
                                     <p>
                                         Program Type:<br />
                                         &nbsp;<asp:DropDownList ID="ddlProgramType" runat="server">
+                                            <asp:ListItem Text="--Live Program--" Value="0" />
                                         </asp:DropDownList>
                                 </div>
 
@@ -851,6 +852,8 @@
                                     Organization:
                                     <br />
                                     <asp:DropDownList ID="ddlOrganization" runat="server">
+                                        <asp:ListItem Text="--Organization--" Value="0" />
+
                                     </asp:DropDownList>
 
                                 </div>
@@ -1105,10 +1108,10 @@
                                 <div class="col-md-12 col-lg-6 
            col-sm-12">
                                     <p>
-                                        Select Online Program ID:
+                                        Select Online Program:
                                         <br />
                                         <asp:DropDownList ID="ddlOnlineProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OnlineProgramID" DataValueField="OnlineProgramID" OnSelectedIndexChanged="ddlOnlineProgramID_SelectedIndexChanged1">
-                                            <asp:ListItem Text="--Select Online Program ID--" Value="0" />
+                                            <asp:ListItem Text="--Select Online Program--" Value="0" />
                                         </asp:DropDownList>
                                 </div>
                                 <div class="col-md-12 col-lg-6 
@@ -1117,6 +1120,8 @@
                                     <p>
                                         Online Program Type:<br />
                                         &nbsp;<asp:DropDownList ID="ddlOnlineProgramType" runat="server">
+                                            <asp:ListItem Text="--Program Type--" Value="0" />
+
                                         </asp:DropDownList>
                                 </div>
 
@@ -1171,7 +1176,7 @@
            col-sm-12">
                                     Number of Children:
                                     <br />
-                                   <asp:TextBox ID="txtNumOfOnlineKids" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtNumOfOnlineKids" runat="server"></asp:TextBox>
 
 
 
@@ -1190,12 +1195,12 @@
 
                             <br />
 
-                             <div class="row">
+                            <div class="row">
                                 <div class="col-md-12 col-lg-4 
            col-sm-12">
                                     Program Date:
                                     <br />
-                            <asp:TextBox ID="txtOnlineProgramDate" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtOnlineProgramDate" runat="server"></asp:TextBox>
 
                                 </div>
 
@@ -1203,7 +1208,7 @@
            col-sm-12">
                                     Contact Email:
                                     <br />
-                                <asp:TextBox ID="txtOEmail" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtOEmail" runat="server"></asp:TextBox>
 
 
 
@@ -1217,15 +1222,15 @@
 
                             </div>
                             <br />
-                             <div class="row">
-                                
+                            <div class="row">
+
                                 <div class="col-md-12 col-lg-4
            col-sm-12">
                                     Grades:
                                     <br />
                                     <asp:ListBox ID="lstOGrades" runat="server" SelectionMode="Multiple">
-                                <asp:ListItem Text="--Select Grades--" Value="0" />
-                            </asp:ListBox>
+                                        <asp:ListItem Text="--Select Grades--" Value="0" />
+                                    </asp:ListBox>
 
                                 </div>
 
@@ -1234,8 +1239,8 @@
                                     Educators:
                                     <br />
                                     <asp:ListBox ID="lstOEducators" runat="server" SelectionMode="Multiple">
-                                <asp:ListItem Text="--Select Educators--" Value="0" />
-                            </asp:ListBox>
+                                        <asp:ListItem Text="--Select Educators--" Value="0" />
+                                    </asp:ListBox>
 
 
                                 </div>
@@ -1249,9 +1254,9 @@
            col-sm-12">
                                     Birds:
                                     <br />
-                                     <asp:ListBox ID="lstOBirds" runat="server" SelectionMode="Multiple">
-                                <asp:ListItem Text="--Select Birds--" Value="0" />
-                            </asp:ListBox>
+                                    <asp:ListBox ID="lstOBirds" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Birds--" Value="0" />
+                                    </asp:ListBox>
                                 </div>
 
 
@@ -1260,9 +1265,9 @@
            col-sm-12">
                                     Reptiles:
                                     <br />
-                                     <asp:ListBox ID="lstOReptiles" runat="server" SelectionMode="Multiple">
-                                 <asp:ListItem Text="--Select Reptiles--" Value="0" />
-                             </asp:ListBox>
+                                    <asp:ListBox ID="lstOReptiles" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Reptiles--" Value="0" />
+                                    </asp:ListBox>
 
                                 </div>
 
@@ -1270,9 +1275,9 @@
            col-sm-12">
                                     Mammals:
                                     <br />
-                                   <asp:ListBox ID="lstOMammals" runat="server" SelectionMode="Multiple">
-                                <asp:ListItem Text="--Select Mammals--" Value="0" />
-                            </asp:ListBox>
+                                    <asp:ListBox ID="lstOMammals" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Mammals--" Value="0" />
+                                    </asp:ListBox>
 
 
                                 </div>
@@ -1282,12 +1287,12 @@
                             <br />
 
                             <div class="row">
-                    
+
                                 <div class="col-md-12 col-lg-9
            col-sm-12">
                                     Comments:
                                     <br />
-                             <asp:TextBox ID="txtOComments" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtOComments" runat="server"></asp:TextBox>
 
                                 </div>
 
@@ -2440,6 +2445,7 @@
 
     </script>
 
+    </div>
     </div>
 </asp:Content>
 
