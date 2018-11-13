@@ -43,7 +43,7 @@
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
-      <li class="nav-item dropdown no-arrow active">
+      <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -85,7 +85,7 @@
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown no-arrow active">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Payment</span>
@@ -142,7 +142,7 @@
         <!-- Sidebar -->
 
         <ul class="sidebar navbar-nav d-none d-md-block">
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -182,7 +182,7 @@
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown no-arrow active">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Payment</span>

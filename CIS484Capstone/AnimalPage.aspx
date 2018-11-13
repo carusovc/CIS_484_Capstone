@@ -47,7 +47,7 @@
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
-      <li class="nav-item dropdown no-arrow active">
+      <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -62,7 +62,7 @@
             <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-            <li class="nav-item dropdown no-arrow ">
+            <li class="nav-item dropdown no-arrow active ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
 
@@ -146,7 +146,7 @@
         <!-- Sidebar -->
 
         <ul class="sidebar navbar-nav d-none d-md-block">
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -161,7 +161,7 @@
             <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-            <li class="nav-item dropdown no-arrow ">
+            <li class="nav-item dropdown no-arrow active">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                      <span>Animals</span>
@@ -602,7 +602,7 @@
     </div>
         <div class="modal-footer">
              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <asp:Button ID="Button3" class="btn btn-primary btn-inside" runat="server" Text="Save changes" OnClick="btnAdd_Click" />
+          <asp:Button ID="Button3" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAdd_Click" />
             <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
            
       </div>
@@ -619,7 +619,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Update Animal</h5>
+        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Animal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -688,7 +688,7 @@
             <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 <%--                <button type="button" class="btn btn-primary btn-inside" OnClick="btnUpdate1_Click">Update</button>--%>
-                  <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdate1_Click" Enabled="true"></asp:Button>
+                  <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdate1_Click" Enabled="true"></asp:Button>
                 <%--<asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />--%>
 
 <%--        <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>

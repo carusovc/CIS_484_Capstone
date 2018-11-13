@@ -42,7 +42,7 @@
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
-      <li class="nav-item dropdown no-arrow active">
+      <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -117,7 +117,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
             </li>
-            <li class="nav-item " style="display: inline-block;
+            <li class="nav-item active " style="display: inline-block;
   white-space: nowrap;">
                 <a class="nav-link" href="createUser.aspx">
 
@@ -141,7 +141,7 @@
         <!-- Sidebar -->
 
         <ul class="sidebar navbar-nav d-none d-md-block">
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -214,7 +214,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="createUser.aspx">
 
                     <span>Create Outreach Coordinator Access</span></a>
