@@ -237,7 +237,7 @@
         <div class="container-fluid ">
 
           
-<section class="login-block  col-md-6 col-md-8 col-s-5 mx-auto ">
+<section class="login-block   col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 mx-auto ">
             <%--<section class="card card-register mx-auto mt-5">--%>
     <div class="container1">
       <div class="card  mx-auto mt-3">
@@ -252,8 +252,9 @@
                 </div>
             <br />
             <div class="row">
-               
-                <div class=" col-md-4 ml-auto InternalAnimalForm">
+               <div class=" col-xl-6 col-lg-6 col-md-6 col-sm-4 col-xs-4  InternalAnimalForm">
+                   </div>
+                <div class=" col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-8 text-right InternalAnimalForm">
                     <asp:TextBox  class="InternalAnimalForm" ID="txtSearch" runat="server"></asp:TextBox>
                     <asp:Button ID ="btnSearch" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
                     &nbsp;&nbsp;&nbsp;
@@ -317,13 +318,13 @@
                     <a class="nav-link active TabStyle" data-toggle="tab" href="#AnimalsAllTab" style="color:black;">All</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsMammalTab" style="color:black;">Mammals</a>
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsMammalTab" style="color:black;">Mammal</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsReptileTab" style="color:black;">Reptiles</a>
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsReptileTab" style="color:black;">Reptile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsBirdTab" style="color:black;">Birds</a>
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsBirdTab" style="color:black;">Bird</a>
                 </li>
             </ul>
             <div class="tab-content">
@@ -334,7 +335,8 @@
                         <br /><br /><br />--%>
                         <div class ="grid-mammal text-center">
                    
-                                <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Mammal</h4>
+                                <h4 class="alert d-none d-md-block " style="background-color: #AB9993 !important; color: white !important;"> Mammal</h4>
+                               <h4 class="alert d-md-none" style="background-color: #AB9993 !important; color: white !important;"> M</h4>
                            
     <asp:GridView ID="GridView1"  class="table table-borderless table-condensed  table-striped " runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4" AllowSorting="True" >
         <Columns>
@@ -357,7 +359,8 @@
   
        <div class ="grid-reptile text-center">
             
-             <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Reptile</h4>
+          <h4 class="alert d-none d-md-block " style="background-color: #AB9993 !important; color: white !important;"> Reptile</h4>
+                               <h4 class="alert d-md-none" style="background-color: #AB9993 !important; color: white !important;"> R</h4>
          
                 <asp:GridView ID="GridView2"  class="table table-borderless table-condensed table-striped  " runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" AllowSorting="True">
                     <Columns>
@@ -375,7 +378,8 @@
      
         <div class ="grid-bird text-center ">
            
-         <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Birds</h4>
+  <h4 class="alert d-none d-md-block " style="background-color: #AB9993 !important; color: white !important;"> Bird</h4>
+                               <h4 class="alert d-md-none" style="background-color: #AB9993 !important; color: white !important;"> B</h4>
                   <asp:GridView ID="GridView3"  class="table table-borderless table-condensed table-striped " runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" AllowSorting="True" >
                       <Columns>
                           <asp:BoundField DataField="AnimalName"  SortExpression="AnimalName" />
@@ -394,15 +398,19 @@
                     <div class="InternalAnimalTab">
                    
                         <div class="row mx-auto d-flex justify-content-center">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                 <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <h4 class="alert d-none d-lg-block " style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
+                               <h4 class="alert d-lg-none" style="background-color: #AB9993 !important; color: white !important;"> Name</h4>
+                             
                             </div>
                      
-                            <div class="col-lg-4 col-md-4 col-sm-4">
+                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                  <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Status</h4>
+                               
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                  <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Image</h4>
+                                
                             </div>
                         </div> 
 
