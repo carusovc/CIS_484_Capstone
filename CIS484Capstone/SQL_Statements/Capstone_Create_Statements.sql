@@ -163,3 +163,27 @@ LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_ProgramGrade PRIMARY KEY (ProgramID, GradeID),
 CONSTRAINT FK_ProgramGradeProgram FOREIGN KEY (ProgramID) references Program,
 CONSTRAINT FK_ProgramGradeGrade FOREIGN KEY (GradeID) references Grade);
+                                      
+Create table AllProgram (
+AllProgramID int IDENTITY(1,1) NOT NULL,
+ProgramCateory varchar(50) NULL,
+ProgramDate date NULL,
+ProgramType varchar(100) NULL,
+LiveProgramTime time NULL,
+EventMonth varchar(25) NULL,
+LiveProgramStatus varchar(5) NULL,
+NumberOfChildren int NULL,
+NumberOfAdults int NULL,
+LiveProgramStreetAddress varchar(50) NULL,
+CityCounty varchar(50) NULL,
+OnlineProgramCountry varchar(100),
+State varchar(50) NULL,
+LiveProgramOnOff bit NULL,
+LiveProgramPaid char(1),
+LiveProgramPaymentID int NULL,
+OnlineTeacherName varchar(100) NULL,
+OnlineContactEmail varchar(100) NULL,
+ExtraComments varchar(250) NULL,
+LastUpdated datetime NULL,
+LastUpdatedBy varchar(100) NULL
+)
