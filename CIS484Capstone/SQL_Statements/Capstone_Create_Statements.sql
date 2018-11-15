@@ -166,7 +166,7 @@ CONSTRAINT FK_ProgramGradeGrade FOREIGN KEY (GradeID) references Grade);
                                       
 Create table AllProgram (
 AllProgramID int IDENTITY(1,1) NOT NULL,
-ProgramCateory varchar(50) NULL,
+ProgramCategory varchar(50) NULL,
 ProgramDate date NULL,
 ProgramType varchar(100) NULL,
 LiveProgramTime time NULL,
