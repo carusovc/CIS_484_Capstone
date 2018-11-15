@@ -504,20 +504,32 @@ public partial class Programs : System.Web.UI.Page
     {
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
         {
+
+            // new version
             string ProgramID = (e.Item.FindControl("hfProgramIDLive") as HiddenField).Value;
-            Repeater rptProgramLLLive = e.Item.FindControl("rptProgramLLLive") as Repeater;
-            Repeater rptProgramLL2Live = e.Item.FindControl("rptProgramLL2Live") as Repeater;
-            Repeater rptProgramLL3Live = e.Item.FindControl("rptProgramLL3Live") as Repeater;
+            Repeater rptNewLiveProgramLL1 = e.Item.FindControl("rptNewLiveProgramLL1") as Repeater;
+            Repeater rptNewLiveProgramLL2 = e.Item.FindControl("rptNewLiveProgramLL2") as Repeater;
+            Repeater rptNewLiveProgramLL3 = e.Item.FindControl("rptNewLiveProgramLL3") as Repeater;
+            Repeater rptNewLiveProgramLL4 = e.Item.FindControl("rptNewLiveProgramLL4") as Repeater;
+            Repeater rptNewLiveProgramLL5 = e.Item.FindControl("rptNewLiveProgramLL5") as Repeater;
 
 
-            rptProgramLLLive.DataSource = GetData(string.Format("SELECT ProgramID, Status, NumberOfChildren, NumberOfAdults From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
-            rptProgramLLLive.DataBind();
 
-            rptProgramLL2Live.DataSource = GetData(string.Format("SELECT ProgramID, ProgramAddress, CityCounty AS City, State From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
-            rptProgramLL2Live.DataBind();
+            rptNewLiveProgramLL1.DataSource = GetData(string.Format("SELECT ProgramID, Status, Case when PaymentNeeded = 'Y' then 'Not Paid' else 'Paid' end as 'PaymentStatus', Case when OnOff = 1 then 'On' else 'Off' end as 'OnOffSite' From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
+            rptNewLiveProgramLL1.DataBind();
 
-            rptProgramLL3Live.DataSource = GetData(string.Format("SELECT Case when OnOff = 1 then 'On' else 'Off' end as 'OnOffSite', ProgramID, Case when PaymentNeeded = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments AS Comments From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
-            rptProgramLL3Live.DataBind();
+            rptNewLiveProgramLL2.DataSource = GetData(string.Format("Select ProgramID, EventMonth, NumberOfChildren, NumberOfAdults from Program WHERE ProgramID = " + ProgramID + "", ProgramID));
+            rptNewLiveProgramLL2.DataBind();
+
+            rptNewLiveProgramLL3.DataSource = GetData(string.Format("Select ProgramID, ProgramAddress, CityCounty, State from Program WHERE ProgramID = " + ProgramID + "", ProgramID));
+            rptNewLiveProgramLL3.DataBind();
+
+            rptNewLiveProgramLL4.DataSource = GetData(string.Format("Select ProgramID, pa.AnimalID, AnimalName from ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where Animal.AnimalType = 'Bird' and ProgramID = " + ProgramID + "", ProgramID));
+            rptNewLiveProgramLL4.DataBind();
+
+            rptNewLiveProgramLL5.DataSource = GetData(string.Format("Select ProgramID, ExtraComments, LastUpdatedBy, LastUpdated from Program WHERE ProgramID = " + ProgramID + "", ProgramID));
+            rptNewLiveProgramLL5.DataBind();
+
 
 
         }
@@ -980,7 +992,7 @@ public partial class Programs : System.Web.UI.Page
 
 
             }
-          
+
         }
     }
 
@@ -1031,7 +1043,7 @@ public partial class Programs : System.Web.UI.Page
         SqlConnection con = new SqlConnection(cs);
         string tempProgramID = ddlProgramID.SelectedItem.Value;
         tempProgramID = tempProgramID.Substring(0, 1);
-       
+
 
         insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, PaymentNeeded, convert(varchar, ProgramDate,101) as ProgramDate, CONVERT(VARCHAR(15), ProgramTime, 108) as ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
                           " ProgramID = @ProgramID";
@@ -1476,7 +1488,7 @@ public partial class Programs : System.Web.UI.Page
                 pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE (EducatorFirstName + ' ' + EducatorLastName) = @EducatorName";
                 pullEducatorID.Parameters.AddWithValue("@EducatorName", li.Text);
                 int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
-               // string stempProgramID = ddlProgram.SelectedItem.Value.Substring(0, 1);
+                // string stempProgramID = ddlProgram.SelectedItem.Value.Substring(0, 1);
 
                 //// Inserts programID and EducatorID into Assocaited table ProgramEducators
                 programEducatorInsert.CommandText = "INSERT INTO ProgramEducators (ProgramID, EducatorID, LastUpdated, LastUpdatedBy) values (@programID, @educatorID, @lastUpdated, @lastUpdatedBy)";
@@ -1983,7 +1995,7 @@ public partial class Programs : System.Web.UI.Page
                 pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
 
                 int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
-                tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value.Substring(0, 1); 
+                tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value.Substring(0, 1);
 
                 // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
                 updateOnlineAnimal.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
@@ -2012,7 +2024,7 @@ public partial class Programs : System.Web.UI.Page
                 pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
 
                 int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
-                tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value.Substring(0, 1); 
+                tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value.Substring(0, 1);
 
                 // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
                 updateOnlineAnimal.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
@@ -2041,7 +2053,7 @@ public partial class Programs : System.Web.UI.Page
                 pullAnimalID.Parameters.AddWithValue("@AnimalName", li.Text);
 
                 int tempAnimalID = (int)pullAnimalID.ExecuteScalar();
-                tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value.Substring(0, 1); 
+                tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value.Substring(0, 1);
 
                 // Insert ProgramID and AnimalID into Assocaited table ProgramAnimal
                 updateOnlineAnimal.CommandText = "Insert into OnlineAnimal (OnlineProgramID, AnimalID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @animalID, @lastUpdated, @lastUpdatedBy)";
@@ -2179,7 +2191,7 @@ public partial class Programs : System.Web.UI.Page
             }
 
 
-           while (sdr1.Read())
+            while (sdr1.Read())
             {
                 ddlOnlineProgramType.SelectedItem.Text = sdr1[0].ToString();
             }
@@ -2339,7 +2351,7 @@ public partial class Programs : System.Web.UI.Page
             {
 
                 ddlOnlineProgramID.Items.Add(new ListItem(myRead["OnlineProgramID"].ToString(), myRead["OnlineProgramID"].ToString()) + ": " + new ListItem(myRead["ProgramDate"].ToString(), myRead["ProgramDate"].ToString()) + "--" + new ListItem(myRead["ProgramType"].ToString(), myRead["ProgramType"].ToString()));
-                }
+            }
 
 
         }

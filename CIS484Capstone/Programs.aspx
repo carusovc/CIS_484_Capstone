@@ -360,7 +360,7 @@
 
 
 
-                                            <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+                                            <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
                                                 <asp:ListItem>--Order By--</asp:ListItem>
                                                 <asp:ListItem>Program Date</asp:ListItem>
                                                 <asp:ListItem>Program Type A-Z</asp:ListItem>
@@ -383,7 +383,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link TabStyle" id="OnlineTabNav" data-toggle="tab" href="#OnlineTab" style="color: black;">Online Programs</a>
-                                                </li>
+                                            </li>
                                         </ul>
 
                                         <%-- Version 1 All --%>
@@ -466,23 +466,50 @@
                                                                 <td>
                                                                     <img alt="" style="cursor: pointer; padding-left: -50%;" src="images/plus.png" />
                                                                     <asp:Panel ID="pnlProgramLive" runat="server" Style="display: none">
-                                                                        <asp:Repeater ID="rptProgramLLLive" runat="server">
+                                                                        <asp:Repeater ID="rptNewLiveProgramLL1" runat="server">
 
                                                                             <HeaderTemplate>
 
                                                                                 <table class="ChildGrid table  table-borderless table-condensed WideTable  col-md-12" border="0" table-layout: fixed>
-
-                                                                                    
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row">
-                                                                                    <td class="col-md-4"> <strong> Status</strong> <br />
-                                                                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Status") %>' />
+                                                                                    <td class="col-md-4"><strong>Status</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblLiveStatus" runat="server" Text='<%# Eval("Status") %>' />
                                                                                     </td>
-                                                                                    <td class="col-md-4"> <strong> Number of Children </strong> <br />
+                                                                                    <td class="col-md-4"><strong>Payment Status </strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblNumOfChildren" runat="server" Text='<%# Eval("PaymentStatus") %>' />
+                                                                                    </td>
+                                                                                    <td class="col-md-4"><strong>Number of Adults</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblOnOff" runat="server" Text='<%# Eval("OnOffSite") %>' />
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </ItemTemplate>
+                                                                            <FooterTemplate>
+                                                                                </table>
+                                                                            </FooterTemplate>
+                                                                        </asp:Repeater>
+                                                                        <asp:Repeater ID="rptNewLiveProgramLL2" runat="server">
+
+                                                                            <HeaderTemplate>
+
+                                                                                <table class="ChildGrid table  table-borderless table-condensed WideTable  col-md-12" border="0" table-layout: fixed>
+                                                                            </HeaderTemplate>
+                                                                            <ItemTemplate>
+                                                                                <tr class="row">
+                                                                                    <td class="col-md-4"><strong>Program Month</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("EventMonth") %>' />
+                                                                                    </td>
+                                                                                    <td class="col-md-4"><strong>Number of Children </strong>
+                                                                                        <br />
                                                                                         <asp:Label ID="lblNumOfChildren" runat="server" Text='<%# Eval("NumberOfChildren") %>' />
                                                                                     </td>
-                                                                                    <td class="col-md-4"> <strong> Number of Adults</strong> <br />
+                                                                                    <td class="col-md-4"><strong>Number of Adults</strong>
+                                                                                        <br />
                                                                                         <asp:Label ID="lblNumOfAdults" runat="server" Text='<%# Eval("NumberOfAdults") %>' />
                                                                                     </td>
 
@@ -496,26 +523,27 @@
                                                                             </FooterTemplate>
 
                                                                         </asp:Repeater>
-                                                                        <asp:Repeater ID="rptProgramLL2Live" runat="server">
+                                                                        <asp:Repeater ID="rptNewLiveProgramLL3" runat="server">
 
                                                                             <HeaderTemplate>
 
                                                                                 <table class="ChildGrid table  table-borderless table-condensed WideTable" border="0" table-layout: fixed>
-
-                                                                                   
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row">
-                                                                                    
-                                                                                        <td class="col-md-4"> <strong> Street Addess</strong> <br />
+
+                                                                                    <td class="col-md-4"><strong>Street Addess</strong>
+                                                                                        <br />
                                                                                         <asp:Label ID="Label3" runat="server" Text='<%# Eval("ProgramAddress") %>' />
                                                                                     </td>
-                                                                                   
-                                                                                        <td class="col-md-4"> <strong> City, County</strong> <br />
-                                                                                        <asp:Label ID="lblCity" runat="server" Text='<%# Eval("City") %>' />
+
+                                                                                    <td class="col-md-4"><strong>City, County</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblCity" runat="server" Text='<%# Eval("CityCounty") %>' />
                                                                                     </td>
-                                                                                    
-                                                                                        <td class="col-md-4"> <strong> State</strong> <br />
+
+                                                                                    <td class="col-md-4"><strong>State</strong>
+                                                                                        <br />
                                                                                         <asp:Label ID="lblState" runat="server" Text='<%# Eval("State") %>' />
                                                                                     </td>
 
@@ -527,31 +555,75 @@
 
                                                                             <FooterTemplate>
                                                                                 </table>
+                                                                               
                                                                             </FooterTemplate>
 
                                                                         </asp:Repeater>
-                                                                        <asp:Repeater ID="rptProgramLL3Live" runat="server">
+
+
+                                                                         <asp:Repeater ID="Repeater1" runat="server">
 
                                                                             <HeaderTemplate>
 
                                                                                 <table class="ChildGrid table   table-borderless table-condensed WideTable" border="0" table-layout: fixed>
+                                                                                     <tr class="row" ">
 
+                                                                                    <td class="col-md-4" ">
+                                                                                        <strong>Bird</strong>
+
+                                                                                        
+                                                                                    </td>
+
+                                                                                    <td class="col-md-4" ">
+                                                                                        <strong>Reptile</strong>
+
+                                                                                       
+                                                                                    </td>
+
+                                                                                    <td class="col-md-4" ">
+                                                                                        <strong>Mammal</strong>
+
+                                                                                       
+                                                                                    </td>
+
+                                                                                </tr>
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
-                                                                                <tr class="row">
-                                                                                   
-                                                                                         <td class="col-md-4"> <strong> On/Off Site</strong> <br />
-                                                                                        <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("OnOffSite") %>' />
-                                                                                    </td>
-                                                                                   
-                                                                                         <td class="col-md-4"> <strong> Payment Status</strong> <br />
-                                                                                        <asp:Label ID="lblCity" runat="server" Text='<%# Eval("Paid?") %>' />
-                                                                                    </td>
-                                                                                    
-                                                                                         <td class="col-md-4"> <strong> Comments</strong> <br />
-                                                                                        <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
+                                                                               
+                                                                            </ItemTemplate>
+
+
+
+                                                                            <FooterTemplate>
+                                                                                </table>
+                                                                            </FooterTemplate>
+
+                                                                        </asp:Repeater>
+
+
+                                                                        <asp:Repeater ID="rptNewLiveProgramLL4" runat="server">
+
+                                                                            <HeaderTemplate>
+
+                                                                                <table class="ChildGrid table   table-borderless table-condensed WideTable" border="0" table-layout: fixed>
+                                                                            </HeaderTemplate>
+                                                                            <ItemTemplate>
+                                                                                <tr class="row" style="padding-top: 0px; padding-bottom: 0px;">
+
+                                                                                    <td class="col-md-4" style="padding-top: 0px; padding-bottom: 0px;">
+
+                                                                                        <asp:Label ID="Label3" Style="padding-top: 0px; padding-bottom: 0px;" runat="server" Text='<%# Eval("ProgramID") %>' />
                                                                                     </td>
 
+                                                                                    <td class="col-md-4" style="padding-top: 0px; padding-bottom: 0px;">
+
+                                                                                        <asp:Label ID="lblAddBird" Style="padding-top: 0px; padding-bottom: 0px;" runat="server" Text='<%# Eval("AnimalName") %>' />
+                                                                                    </td>
+
+                                                                                    <td class="col-md-4" style="padding-top: 0px; padding-bottom: 0px;">
+
+                                                                                        <%--<asp:Label ID="lblState" runat="server" Text='<%# Eval("Organization") %>' />--%>
+                                                                                    </td>
 
                                                                                 </tr>
                                                                             </ItemTemplate>
@@ -563,6 +635,43 @@
                                                                             </FooterTemplate>
 
                                                                         </asp:Repeater>
+                                                                        <asp:Repeater ID="rptNewLiveProgramLL5" runat="server">
+
+                                                                            <HeaderTemplate>
+
+                                                                                <table class="ChildGrid table  table-borderless table-condensed WideTable" border="0" table-layout: fixed>
+                                                                            </HeaderTemplate>
+                                                                            <ItemTemplate>
+                                                                                <tr class="row">
+
+                                                                                    <td class="col-md-4"><strong>Comments</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("ExtraComments") %>' />
+                                                                                    </td>
+
+                                                                                    <td class="col-md-4"><strong>Last Updated By</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblCity" runat="server" Text='<%# Eval("LastUpdatedBy") %>' />
+                                                                                    </td>
+
+                                                                                    <td class="col-md-4"><strong>Last Updated</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblState" runat="server" Text='<%# Eval("LastUpdated") %>' />
+                                                                                    </td>
+
+                                                                                </tr>
+
+                                                                            </ItemTemplate>
+
+
+
+                                                                            <FooterTemplate>
+                                                                                </table>
+                                                                            </FooterTemplate>
+
+                                                                        </asp:Repeater>
+
+
                                                                     </asp:Panel>
                                                                 </td>
                                                                 <asp:HiddenField ID="hfProgramIDLive" runat="server" Value='<%# Eval("ProgramID") %>' />
@@ -589,7 +698,7 @@
                                                     <div class="row">
                                                         <%--OnClick="btnExportLive_Click"--%>
                                                         <div class="mx-auto d-flex justify-content-center  col-lg-3    col-md-4 col-sm-6 ">
-                                                            <asp:Button ID="btnExportLive" runat="server" Text="Export to Excel" onclick="btnExportLive_Click" class="btn btn-primary btn-inside btn-block"></asp:Button>
+                                                            <asp:Button ID="btnExportLive" runat="server" Text="Export to Excel" OnClick="btnExportLive_Click" class="btn btn-primary btn-inside btn-block"></asp:Button>
 
                                                         </div>
 
@@ -625,18 +734,19 @@
                                                                             <HeaderTemplate>
 
                                                                                 <table class="ChildGrid table  table-condensed WideTable " border="0" table-layout: fixed>
-
-                                                                                   
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row">
-                                                                                    <td class="col-md-4"> <strong> Number of Children</strong> <br />
+                                                                                    <td class="col-md-4"><strong>Number of Children</strong>
+                                                                                        <br />
                                                                                         <asp:Label ID="lblNumOfChildren" runat="server" Text='<%# Eval("NumberOfKids") %>' />
                                                                                     </td>
-                                                                                    <td class="col-md-4"> <strong> Number of Adults</strong> <br />
+                                                                                    <td class="col-md-4"><strong>Number of Adults</strong>
+                                                                                        <br />
                                                                                         <asp:Label ID="lblNumOfAdults" runat="server" Text='<%# Eval("NumberOfPeople") %>' />
                                                                                     </td>
-                                                                                    <td class="col-md-4"> <strong> Educator Name</strong> <br />
+                                                                                    <td class="col-md-4"><strong>Educator Name</strong>
+                                                                                        <br />
                                                                                         <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("TeacherName") %>' />
                                                                                     </td>
 
@@ -655,26 +765,19 @@
                                                                             <HeaderTemplate>
 
                                                                                 <table class="ChildGrid table  table-condensed WideTable" border="0" table-layout: fixed>
-
-                                                                                    <tr class="row">
-
-                                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>City
-                                                                                        </th>
-                                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>State
-                                                                                        </th>
-                                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Country
-                                                                                        </th>
-                                                                                    </tr>
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row">
-                                                                                   <td class="col-md-4"> <strong> City</strong> <br />
+                                                                                    <td class="col-md-4"><strong>City</strong>
+                                                                                        <br />
                                                                                         <asp:Label ID="lblCity" runat="server" Text='<%# Eval("City") %>' />
                                                                                     </td>
-                                                                                   <td class="col-md-4"> <strong> State</strong> <br />
+                                                                                    <td class="col-md-4"><strong>State</strong>
+                                                                                        <br />
                                                                                         <asp:Label ID="lblState" runat="server" Text='<%# Eval("State") %>' />
                                                                                     </td>
-                                                                                    <td class="col-md-4"> <strong> Country</strong> <br />
+                                                                                    <td class="col-md-4"><strong>Country</strong>
+                                                                                        <br />
                                                                                         <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("Country") %>' />
                                                                                     </td>
 
@@ -693,15 +796,15 @@
                                                                             <HeaderTemplate>
 
                                                                                 <table class="ChildGrid table table-condensed WideTable" border="0" table-layout: fixed>
-
-                                                                                   
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row">
-                                                                                   <td class="col-md-4"> <strong> Contact Email</strong> <br />
+                                                                                    <td class="col-md-4"><strong>Contact Email</strong>
+                                                                                        <br />
                                                                                         <asp:Label ID="lblCity" runat="server" Text='<%# Eval("ContactEmail") %>' />
                                                                                     </td>
-                                                                                   <td class="col-md-8"> <strong> Comments</strong> <br />
+                                                                                    <td class="col-md-8"><strong>Comments</strong>
+                                                                                        <br />
                                                                                         <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
                                                                                     </td>
 
@@ -1606,7 +1709,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    
+
 
                 </div>
                 <div class="modal-body">
