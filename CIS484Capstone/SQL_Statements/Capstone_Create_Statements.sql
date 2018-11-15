@@ -78,7 +78,7 @@ LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_OnlineProgram PRIMARY KEY (OnlineProgramID),
 CONSTRAINT FK_OnlineProgramOnlineProgramType FOREIGN KEY (OnlineProgramTypeID) references OnlineProgramType,
-CONSTRAINT FK_OnlineProgramPaymentID FOREIGN KEY (PaymentID) references PaymentRecord);
+CONSTRAINT FK_OnlineProgramPaymentID NULL FOREIGN KEY (PaymentID) references PaymentRecord);
 
 Create Table OnlineEducators(
 OnlineProgramID int NOT NULL,
@@ -120,7 +120,7 @@ LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_ProgramID PRIMARY KEY (ProgramID),
 CONSTRAINT FK_OrgID FOREIGN KEY (OrgID) references Organization,
 CONSTRAINT FK_ProgramTypeID FOREIGN KEY (ProgramTypeID) references ProgramType,
-CONSTRAINT FK_ProgramPaymentID FOREIGN KEY (PaymentID) references PaymentRecord);
+CONSTRAINT FK_ProgramPaymentID NULL FOREIGN KEY (PaymentID) references PaymentRecord);
 
 
 Create Table ProgramEducators(
