@@ -34,8 +34,15 @@ CONSTRAINT PK_AnimalID PRIMARY KEY (AnimalID));
 Create Table Organization (
 OrgID int IDENTITY(1,1) NOT NULL,
 OrgName varchar(50) NOT NULL,
+StreetAddress varchar(50) NOT NULL,
 City varchar(30) NOT NULL,
 County varchar(30) NOT NULL,
+State varchar(2) NOT NULL,
+PostalCode varchar(20) NOT NULL,
+ContactFirstName varchar(50) NOT NULL,
+ContactLastName varchar(50) NOT NULL,
+PhoneNumber numeric NOT NULL,
+Email varchar(50) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_OrgID PRIMARY KEY (OrgID));
