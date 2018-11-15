@@ -107,6 +107,7 @@
                     <span>Organizations</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
@@ -204,6 +205,8 @@
                     <span>Organizations</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
