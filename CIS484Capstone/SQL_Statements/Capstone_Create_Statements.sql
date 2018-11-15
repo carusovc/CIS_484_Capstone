@@ -164,7 +164,7 @@ CONSTRAINT PK_ProgramGrade PRIMARY KEY (ProgramID, GradeID),
 CONSTRAINT FK_ProgramGradeProgram FOREIGN KEY (ProgramID) references Program,
 CONSTRAINT FK_ProgramGradeGrade FOREIGN KEY (GradeID) references Grade);
                                       
-Create table AllProgram (
+Create table AllPrograms (
 AllProgramID int IDENTITY(0,1) NOT NULL,
 ProgramCategory varchar(100) NULL,
 ProgramDate date NULL,
