@@ -128,7 +128,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                     <div class="modal-footer">
 
   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save" OnClick="btnUpdateOrganization_Click" />
+                        <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdateOrganization_Click" />
                         
                       
                     </div>
@@ -173,7 +173,7 @@ $(".modal-wide").on("show.bs.modal", function() {
         </asp:UpdatePanel>
                     <div class="modal-footer">
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnAddProgram" class="btn btn-primary btn-inside" runat="server" Text="Add" OnClick="btnAddProgramType_Click" />
+                        <asp:Button ID="btnAddProgram" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddProgramType_Click" />
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                         
                     </div>
@@ -226,7 +226,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                     </div>
                     <div class="modal-footer">
  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnAddOrg" class="btn btn-primary btn-inside" runat="server" Text="Add" OnClick="btnAddOrg_Click" />
+                        <asp:Button ID="btnAddOrg" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddOrg_Click" />
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                        
                     </div>
@@ -252,6 +252,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                 <div class=" col-md-3 InternalAnimalForm">
 
                     <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" ID="ddlAnimalType" runat="server">
+                        <asp:ListItem Text="--Animal Type--" Value=""></asp:ListItem>
                         <asp:ListItem>Bird</asp:ListItem>
                         <asp:ListItem>Mammal</asp:ListItem>
                         <asp:ListItem>Reptile</asp:ListItem>
@@ -262,7 +263,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                 <div class=" col-md-4 text-right InternalAnimalForm"><h6>Animal Name</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
 
-                    <asp:TextBox  class="InternalAnimalForm " ID="txtAnimalName" runat="server"></asp:TextBox>&nbsp&nbsp
+                    <asp:TextBox  class="InternalAnimalForm " ID="txtAnimalName" placeholder="Animal Name" runat="server"></asp:TextBox>&nbsp&nbsp
                 </div>
             </div>
 
@@ -272,12 +273,21 @@ $(".modal-wide").on("show.bs.modal", function() {
                     <div class=" col-md-3 InternalAnimalForm">
 
                         <asp:DropDownList ID="ddlStatus" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
-            <asp:ListItem>Active</asp:ListItem>
+            <asp:ListItem Text="--Status--" Value=""></asp:ListItem>
+                            <asp:ListItem>Active</asp:ListItem>
             <asp:ListItem>Inactive</asp:ListItem>
         </asp:DropDownList>
                     </div>
               </div>
-            <div>
+            <div class ="row">
+                <div class =" col-md-4 InternalAnimalForm">
+                    Upload Picture: <asp:FileUpload ID="FileUpload1" runat="server" />
+                    </div>
+            </div>
+            <div class ="row">
+                <div class =" col-md-4 InternalAnimalForm">
+                    <asp:Image ID="animalImage" runat="server" />
+                    </div>
             </div>
             <asp:Label ID="lblLastUpdated" runat="server" Text=""></asp:Label>&nbsp;
             <asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>
@@ -285,7 +295,7 @@ $(".modal-wide").on("show.bs.modal", function() {
     </div>
         <div class="modal-footer"> 
             <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
-          <asp:Button ID="btnAddAnimal" class="btn btn-primary btn-inside" runat="server" Text="Add Animal" OnClick="btnAddAnimal_Click" />
+          <asp:Button ID="btnAddAnimal" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddAnimal_Click" />
             <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
             
       </div>
@@ -346,7 +356,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                     </div>
                     <div class="modal-footer">
   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnAddEducator" class="btn btn-primary btn-inside" runat="server" Text="Add" OnClick="btnAddEducator_Click" />
+                        <asp:Button ID="btnAddEducator" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddEducator_Click" />
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                       
                     </div>
@@ -386,7 +396,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                 <div class=" col-md-4 text-right InternalAnimalForm"><h6>Animal Type</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
 
-                        <asp:DropDownList class="InternalAnimalForm" cssclass="btn btn-secondary btn-sm dropdown-toggle" ID="ddlAnimalTypeEdit" runat="server">
+                        <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" ID="ddlAnimalTypeEdit" runat="server">
                             <asp:ListItem Text="--Animal Type--" Value=""></asp:ListItem>
                             <asp:ListItem Text="Bird" Value="0"></asp:ListItem>
                             <asp:ListItem Text="Mammal" Value="1"></asp:ListItem>
@@ -398,7 +408,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                 <div class=" col-md-4 text-right InternalAnimalForm"><h6>Animal Name</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
 
-                         <asp:TextBox ID="txtBoxAnimalName" runat="server"></asp:TextBox>&nbsp&nbsp
+                         <asp:TextBox ID="txtBoxAnimalName" placeholder="Animal Name" runat="server"></asp:TextBox>&nbsp&nbsp
                     </div>
               </div>
 
@@ -406,8 +416,8 @@ $(".modal-wide").on("show.bs.modal", function() {
                 <div class=" col-md-4 text-right InternalAnimalForm"><h6>Status</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
 
-                        <asp:DropDownList ID="ddlAnimalStatus" class="btn btn-secondary btn-sm dropdown-toggle" runat="server">
-                            <asp:ListItem Text="--Select Status--" Value=""></asp:ListItem>
+                        <asp:DropDownList ID="ddlAnimalStatus" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
+                            <asp:ListItem Text="--Status--" Value=""></asp:ListItem>
             <asp:ListItem Text="Active" Value="0"></asp:ListItem>
             <asp:ListItem Text="Inactive" Value="1"></asp:ListItem>
         </asp:DropDownList>
@@ -418,7 +428,7 @@ $(".modal-wide").on("show.bs.modal", function() {
               <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <asp:Button ID="btnUpdateAnimal" class="btn btn-primary btn-inside" runat="server" Text="Save" OnClick="btnUpdateAnimal_Click" />
+          <asp:Button ID="btnUpdateAnimal" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdateAnimal_Click" />
                 <%--<asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />--%>
        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
        
@@ -501,7 +511,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                     <div class="modal-footer">
  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <asp:Button ID="btnDeleteEducator" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDeleteEducator_Click" />
-                        <asp:Button ID="btnUpdateEducator" class="btn btn-primary btn-inside" runat="server" Text="Save" OnClick="btnUpdateEducator_Click" />
+                        <asp:Button ID="btnUpdateEducator" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdateEducator_Click" />
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                        
                     </div>

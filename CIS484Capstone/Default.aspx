@@ -11,11 +11,24 @@
 
 <!-- Bootstrap v4 -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
-<link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
-<link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Content/Login.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
 
+    <style>
+        body {
+    background-image: url(../Images/BackgroundLogin/sunset.jpg);
+    background-color: #D9D6D0;
+    height: auto; /* You must set a specified height */
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+    font-family: 'Titillium Web', sans-serif;
+}
+    </style>
 
-
+    
+    
 
     <section class="login-block">
     
@@ -115,13 +128,14 @@
 
        
 </section>
+        
 
 
 
 
 </div>	
 </section>
-
+    
 
 <!-- jQuery and Bootstrap links - do not delete! -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
