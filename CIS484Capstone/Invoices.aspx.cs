@@ -27,8 +27,8 @@ public partial class Invoices : System.Web.UI.Page
     }
     private void PopulateData()
     {
-       // GridView1.DataBind();
-       
+        // GridView1.DataBind();
+
 
     }
     public override void VerifyRenderingInServerForm(Control control)
@@ -42,6 +42,8 @@ public partial class Invoices : System.Web.UI.Page
 
         // need to check is any row selected 
         bool isSelected = false;
+  
+       
         foreach (GridViewRow i in GridView1.Rows)
         {
             CheckBox cb = (CheckBox)i.FindControl("chkSelect");
@@ -70,7 +72,9 @@ public partial class Invoices : System.Web.UI.Page
                 CheckBox cb = (CheckBox)i.FindControl("chkSelect");
                 if (cb != null && cb.Checked)
                 {
-                    gvExport.Rows[i.RowIndex].Visible = true;
+
+                   gvExport.Rows[i.RowIndex].Visible = true;
+          
                 }
             }
             string invoiceyear = drpMonth.SelectedValue.ToString() + ", " + drpYear.SelectedValue.ToString() + " Invoices ";
@@ -98,7 +102,10 @@ public partial class Invoices : System.Web.UI.Page
         }
 
     }
-    protected void exportBtn2_ClickAv(object sender, EventArgs e)
+    double sum = 0;
+
+
+        protected void exportBtn2_ClickAv(object sender, EventArgs e)
     {
         // Export Selected Rows to Excel file Here
 
@@ -170,16 +177,23 @@ public partial class Invoices : System.Web.UI.Page
 
         // check row type
         if (e.Row.RowType == DataControlRowType.DataRow)
+        {
             // if row type is DataRow, add ProductSales value to TotalSales
             TotalNotCancelled += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "PaymentAmount"));
+            DataRowView drv = e.Row.DataItem as DataRowView;
+            if (drv["Paid"].ToString().Equals("N"))
+            {
+                e.Row.BackColor = System.Drawing.Color.LightCoral;
+            }
+            else
+            {
+                e.Row.BackColor = System.Drawing.Color.LightGreen;
+            }
+        }
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency
-            e.Row.Cells[1].Text = String.Format("{0:c}", TotalNotCancelled);
-
-
-
-
+            e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
 
     }
     protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -192,7 +206,7 @@ public partial class Invoices : System.Web.UI.Page
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency
-            e.Row.Cells[1].Text = String.Format("{0:c}", TotalCancelled);
+            e.Row.Cells[2].Text = String.Format("{0:c}", TotalCancelled);
 
 
 
@@ -200,9 +214,34 @@ public partial class Invoices : System.Web.UI.Page
 
     }
 
-
-    protected void btnAddPaymentForm(object sender, EventArgs e)
+    protected void cancelInvoice(object sender, EventArgs e)
     {
+        //GridView GridView1 = (GridView)sender;
+        // Are there checked boxes?
 
+        foreach (GridViewRow i in GridView1.Rows)
+        {
+            CheckBox cb = (CheckBox)i.FindControl("chkSelect");
+            if (cb != null && cb.Checked)
+            {
+                System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+                String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+                sc.ConnectionString = cs;
+                SqlConnection con = new SqlConnection(cs);
+                sc.Open();
+                System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
+                update.Connection = sc;
+                update.CommandText = "Update PaymentRecord set CancelledInvoice = @cancelledInvoice where PaymentID = @paymentID";
+                update.Parameters.AddWithValue("@cancelledInvoice", 'Y');
+                update.Parameters.AddWithValue("@paymentID", Convert.ToInt32(i.Cells[7].Text));
+                update.ExecuteNonQuery();
+                GridView1.DataBind();
+                GridView2.DataBind();
+            }
+            else
+            {
+                continue;
+            }
+        }
     }
 }

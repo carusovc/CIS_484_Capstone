@@ -144,6 +144,7 @@ public partial class YearlyInvoices : System.Web.UI.Page
         }
 
         // export here
+        double sum = 0;
         if (isSelected)
         {
             GridView gvExport = GridView2;
@@ -182,11 +183,11 @@ public partial class YearlyInvoices : System.Web.UI.Page
 
 
     }
-    protected void btnAddPaymentForm(object sender, EventArgs e)
+    //protected void btnAddPaymentForm(object sender, EventArgs e)
 
-    {
+    //{
 
-    }
+    //}
     private decimal TotalNotCancelled = (decimal)0.0;
     private decimal TotalCancelled = (decimal)0.0;
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -195,8 +196,19 @@ public partial class YearlyInvoices : System.Web.UI.Page
 
         // check row type
         if (e.Row.RowType == DataControlRowType.DataRow)
+        {
             // if row type is DataRow, add ProductSales value to TotalSales
             TotalNotCancelled += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "PaymentAmount"));
+            DataRowView drv = e.Row.DataItem as DataRowView;
+            if (drv["Paid"].ToString().Equals("N"))
+            {
+                e.Row.BackColor = System.Drawing.Color.Salmon;
+            }
+            else
+            {
+                e.Row.BackColor = System.Drawing.Color.LightGreen;
+            }
+        }
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency

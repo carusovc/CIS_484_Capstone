@@ -265,65 +265,47 @@
                                                 <br />
 
 
-                                                <asp:GridView HeaderStyle-BackColor="#FFBC7C"
-                                                    HeaderStyle-ForeColor="#732700" ID="GridView1" runat="server" class="table table-bordered table-condensed table-hover" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display.">
-                                                    <Columns>
-                                                        <asp:TemplateField HeaderText="Select">
-                                                            <ItemTemplate>
-                                                                <asp:CheckBox ID="chkSelect" runat="server" />
-                                                            </ItemTemplate>
-                                                            <FooterStyle Font-Bold="True" HorizontalAlign="Right" />
-                                                        </asp:TemplateField>
-                                                        <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month" ReadOnly="True" FooterText="Total:">
-                                                            <FooterStyle HorizontalAlign="Right" Font-Bold="True" />
-                                                            <ItemStyle HorizontalAlign="Center" />
-                                                        </asp:BoundField>
-                                                        <asp:BoundField DataField="PaymentAmount" HeaderText="Payment Amount" SortExpression="PaymentAmount" DataFormatString="{0:c}" ReadOnly="True">
-                                                            <FooterStyle HorizontalAlign="Center" />
-                                                            <ItemStyle HorizontalAlign="Center" />
-                                                        </asp:BoundField>
-                                                        <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" SortExpression="PaymentType">
-                                                            <ItemStyle HorizontalAlign="Center" />
-                                                        </asp:BoundField>
-                                                        <asp:BoundField DataField="CheckNumber" HeaderText="Check Number" SortExpression="CheckNumber" InsertVisible="True">
-                                                            <ItemStyle HorizontalAlign="Center" />
-                                                        </asp:BoundField>
+                                                <asp:GridView ID="GridView1"  HeaderStyle-Backcolor="#FFBC7C"
+    HeaderStyle-Forecolor="#732700" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
+                                            <Columns>
+                                                 <asp:TemplateField HeaderText="Select" >
+                                                <ItemTemplate>
+                                                    <asp:CheckBox ID="chkSelect" HorizontalAlign="Center" runat="server" Width="110px" />
+                                                </ItemTemplate>
+                                              
+                                            </asp:TemplateField>
+                                                <asp:BoundField DataField="PaymentDate" HeaderText="PaymentDate" SortExpression="PaymentDate" >
+                                                      <FooterStyle Font-Bold="True" HorizontalAlign="Right" />
+                                                </asp:BoundField>
+                                                <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
+                                                </asp:BoundField>
+                                                 <asp:BoundField DataField="PaymentType" HeaderText="PaymentType" SortExpression="PaymentType" />
+                                                <asp:BoundField DataField="CheckNumber" HeaderText="CheckNumber" SortExpression="CheckNumber" InsertVisible="True">
+                                                </asp:BoundField>
 
-                                                        <asp:TemplateField  HeaderText="Program" InsertVisible="False" />
-                                                         <asp:BoundField DataField="OrgName" HeaderText="Organization" SortExpression="OrgName">
+                                               <asp:BoundField DataField="ProgramName" HeaderText="Program" SortExpression="ProgramName" />            
+                                                <asp:BoundField DataField="OrgName" HeaderText="Organization" SortExpression="OrgName">
+                                            </asp:BoundField>
 
-                                                            <ItemStyle HorizontalAlign="Center" />
-                                                        </asp:BoundField>
+                                                <asp:BoundField DataField="PaymentID" HeaderText="PaymentID" SortExpression="PaymentID" Visible="False" ReadOnly="True"/>
+                                                <asp:BoundField DataField="Invoice" HeaderText="Invoice" SortExpression="Invoice" />
+                                                 <asp:BoundField DataField="Paid" HeaderText="Paid?" SortExpression="Paid" ReadOnly="True"/>
+                                            </Columns>
 
+<HeaderStyle BackColor="#FFBC7C" ForeColor="#732700"></HeaderStyle>
 
-                                                        <asp:BoundField DataField="Invoice" HeaderText="Invoice" SortExpression="Invoice">
-                                                            <ItemStyle HorizontalAlign="Center" />
-                                                        </asp:BoundField>
-                                                    </Columns>
+                                        </asp:GridView>
+                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
+                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Paid
+                                            FROM [PaymentRecord] left outer join [Organization] on  PaymentRecord.OrgID = Organization.OrgID inner join [Program] on PaymentRecord.PaymentID = Program.PaymentID full join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID WHERE 
+                                            (YEAR(paymentDate)=@Year and cancelledinvoice ='N')"
+                                            ProviderName="System.Data.SqlClient">
+                                            <SelectParameters>
 
-                                                </asp:GridView>
-                                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                                                    SelectCommand="SELECT CASE { fn MONTH(PaymentRecord.paymentDate) } 
-            when 1 then 'January'
-            when 2 then 'February'
-            when 3 then 'March'
-            when 4 then 'April'
-            when 5 then 'May'
-            when 6 then 'June'
-            when 7 then 'July'
-            when 8 then 'August'
-            when 9 then 'September'
-            when 10 then 'October'
-            when 11 then 'November'
-            when 12 then 'December'
-           END as MonthName,[PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice],CancelledInvoice FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (YEAR(paymentDate)=@Year) AND CancelledInvoice ='N'  ORDER BY MONTH(PaymentRecord.paymentDate)"
-                                                    ProviderName="System.Data.SqlClient">
-                                                    <SelectParameters>
-
-                                                        <asp:ControlParameter ControlID="drpYear" Name="Year" PropertyName="SelectedValue" Type="String" />
-
-                                                    </SelectParameters>
-                                                </asp:SqlDataSource>
+                                                  <asp:ControlParameter ControlID="drpYear" Name="Year" PropertyName="SelectedValue" Type="String" />
+                                                <%--   <asp:ControlParameter ControlID="drpOrg" Name="OrgName" PropertyName="SelectedValue"  Type="String" />--%>
+                                            </SelectParameters>
+                                        </asp:SqlDataSource>
                                             </div>
 
                                         </div>
@@ -355,66 +337,43 @@
                                         <br />
                                         <br />
 
-                                        <asp:GridView HeaderStyle-BackColor="#FFBC7C"
-                                            HeaderStyle-ForeColor="#732700" ID="GridView2" runat="server" class="table table-bordered table-condensed table-hover" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" ShowFooter="True" OnRowDataBound="GridView2_RowDataBound" EmptyDataText="There are no records to display.">
-                                            <Columns>
-                                                <asp:TemplateField HeaderText="Select">
-                                                    <ItemTemplate>
-                                                        <asp:CheckBox ID="chkSelect" runat="server" />
-                                                    </ItemTemplate>
+                                        <asp:GridView  HeaderStyle-Backcolor="#FFBC7C"
+    HeaderStyle-Forecolor="#732700" ID="GridView2" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID" OnRowDataBound="GridView2_RowDataBound" AllowSorting="False" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
+                                        <Columns>
+                                                 <asp:TemplateField HeaderText="Select">
+                                                <ItemTemplate>
+                                                    <asp:CheckBox ID="chkSelect" HorizontalAlign="Center" runat="server" Width="110px" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                                <asp:BoundField DataField="PaymentDate" HeaderText="PaymentDate" SortExpression="PaymentDate" >
                                                     <FooterStyle Font-Bold="True" HorizontalAlign="Right" />
-                                                </asp:TemplateField>
-                                                <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month" ReadOnly="True" FooterText="Total:">
-                                                    <FooterStyle HorizontalAlign="Right" Font-Bold="True" />
-                                                    <ItemStyle HorizontalAlign="Center" />
                                                 </asp:BoundField>
-                                                <asp:BoundField DataField="PaymentAmount" HeaderText="Payment Amount" SortExpression="PaymentAmount" DataFormatString="{0:c}" ReadOnly="True">
-                                                    <FooterStyle HorizontalAlign="Center" />
-                                                    <ItemStyle HorizontalAlign="Center" />
+                                                <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
                                                 </asp:BoundField>
-                                                <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" SortExpression="PaymentType">
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                </asp:BoundField>
-                                                <asp:BoundField DataField="CheckNumber" HeaderText="Check Number" SortExpression="CheckNumber" InsertVisible="True">
-                                                    <ItemStyle HorizontalAlign="Center" />
+                                                 <asp:BoundField DataField="PaymentType" HeaderText="PaymentType" SortExpression="PaymentType" />
+                                                <asp:BoundField DataField="CheckNumber" HeaderText="CheckNumber" SortExpression="CheckNumber" InsertVisible="True">
                                                 </asp:BoundField>
 
-                                                <asp:BoundField DataField="PaymentID" HeaderText="Payment ID" InsertVisible="False" ReadOnly="True" SortExpression="PaymentID" Visible="False" />
-                                                  <asp:TemplateField  HeaderText="Program" InsertVisible="False" />
+                                               <asp:BoundField DataField="ProgramName" HeaderText="Program" SortExpression="ProgramName" />            
                                                 <asp:BoundField DataField="OrgName" HeaderText="Organization" SortExpression="OrgName">
+                                            </asp:BoundField>
 
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                </asp:BoundField>
-
-
-                                                <asp:BoundField DataField="Invoice" HeaderText="Invoice" SortExpression="Invoice">
-                                                    <ItemStyle HorizontalAlign="Center" />
-                                                </asp:BoundField>
+                                                <asp:BoundField DataField="PaymentID" HeaderText="PaymentID" SortExpression="PaymentID" Visible="False" ReadOnly="True"/>
+                                                <asp:BoundField DataField="Invoice" HeaderText="Invoice" SortExpression="Invoice" />
                                             </Columns>
-                                        </asp:GridView>
-                                        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                                            SelectCommand="SELECT CASE { fn MONTH(PaymentRecord.paymentDate) } 
-            when 1 then 'January'
-            when 2 then 'February'
-            when 3 then 'March'
-            when 4 then 'April'
-            when 5 then 'May'
-            when 6 then 'June'
-            when 7 then 'July'
-            when 8 then 'August'
-            when 9 then 'September'
-            when 10 then 'October'
-            when 11 then 'November'
-            when 12 then 'December'
-           END MonthName,[PaymentAmount], [CheckNumber],  [PaymentType], [OrgName],[PaymentID],[Invoice] FROM [PaymentRecord] left outer join Organization on  PaymentRecord.OrgID = Organization.OrgID WHERE (YEAR(paymentDate)=@Year) AND CancelledInvoice ='Y'  ORDER BY MONTH(PaymentRecord.paymentDate) "
+                                    </asp:GridView>
+                                    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
+                                        SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice]
+                                            FROM [PaymentRecord] left outer join [Organization] on  PaymentRecord.OrgID = Organization.OrgID inner join [Program] on PaymentRecord.PaymentID = Program.PaymentID full join
+                                        ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID WHERE (YEAR(paymentDate)=@Year and cancelledinvoice ='Y')"
                                             ProviderName="System.Data.SqlClient">
-                                            <SelectParameters>
+                                        <SelectParameters>
 
-
-                                                <asp:ControlParameter ControlID="drpYear" Name="Year" PropertyName="SelectedValue" Type="String" />
-                                                <%-- <asp:ControlParameter ControlID="drpOrg" Name="OrgName" PropertyName="SelectedValue"  Type="String" />--%>
-                                            </SelectParameters>
-                                        </asp:SqlDataSource>
+                                           
+                                            <asp:ControlParameter ControlID="drpYear" Name="Year" PropertyName="SelectedValue" Type="String" />
+                                            <%-- <asp:ControlParameter ControlID="drpOrg" Name="OrgName" PropertyName="SelectedValue"  Type="String" />--%>
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>
                                     </div>
                                     <div class="mx-auto d-flex justify-content-center">
 

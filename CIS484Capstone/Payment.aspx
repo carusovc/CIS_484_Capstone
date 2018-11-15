@@ -234,82 +234,7 @@
 
         <div class="container-fluid block ">
      
- 
-    
-         
-			
-
-
-  <%--  <div id="wrapper">
-
-        <!-- Sidebar -->
-        <ul class="sidebar navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="Programs.aspx">
-                    <i class="fas fa-fw fa-book-open"></i>
-                    <span>Programs</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="AnimalPage.aspx">
-                    <i class="fas fa-fw fa-book-open"></i>
-                    <span>Animal</span>
-                </a>
-            </li>
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <i class="fas fa-envelope fa-fw"></i>
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a> --%>
-               <%-- </div>
-            </li>
-           <%-- <li class="nav-item dropdown no-arrow active">--%>
-<%--                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <i class="fas fa-envelope fa-fw"></i>
-                    <span>Payment</span>
-                </a>--%>
-<%--                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>--%>
-                
-          
-
-<%--            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <i class="fas fa-envelope fa-fw"></i>
-                    <span>Add New Program Content</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
-                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                </div>
-            </li>--%>
-
-<%--            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <i class="fas fa-envelope fa-fw"></i>
-                    <span>Update Program Content</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
-                </div>
-            </li>--%>
-
-
-
-        
+  
 
 
 
@@ -329,8 +254,13 @@
                                     <h6>Invoice Number</h6>
                                 
                                 <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder ="Enter Invoice Number"></asp:TextBox>
+                                   
+                                     </div>
                                 <%--<asp:RequiredFieldValidator id="RequiredFieldValidator7" runat="server" ControlToValidate="txtInvoiceNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-
+                                     
+                                  <div class="col-sm-12 col-md-6">   
+                                      <h6>Date of Payment</h6>
+                                <asp:Label runat="server" id="lblDate"></asp:Label>
                                 </div>
                                      </div>
                                  <p></p>
@@ -354,13 +284,13 @@
                                  
                                 </div>
                                 <p></p>
-
+                                
 
                                <div class="form-group row">
-                            <div class="col-sm-12 col-md-6">
-                               <h6>Month</h6>
+                        
+                            
                                
-                                <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged" Style="text-align: left;" class="form-control">
+                              <%--  <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged" Style="text-align: left;" class="form-control">
                                                 <asp:ListItem>Month</asp:ListItem>
                                                 <asp:ListItem>January</asp:ListItem>
                                                 <asp:ListItem>February</asp:ListItem>
@@ -402,9 +332,8 @@
                                 <asp:ListItem Value="Year"></asp:ListItem>
                                 </asp:DropDownList>
                                     <asp:RequiredFieldValidator id="RequiredFieldValidator3" runat="server" ControlToValidate="ddlYear" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
+                                  --%>
 
-
-                                </div>
                                  <div class="col-sm-12 col-md-6">
                                 <h6>Amount</h6>
                               
@@ -412,13 +341,21 @@
                                      <asp:CompareValidator ID="AmountValidator" runat="server" ControlToValidate="txtAmount" Type="Integer"
                                         Operator="DataTypeCheck" ErrorMessage="Value must be a money" />
                                 <asp:RequiredFieldValidator id="RequiredFieldValidator4" runat="server" ControlToValidate="txtAmount" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
-
+                                     
+                                
                                 </div>
+                                   <div class="col-sm-12 col-md-6">
+                                       <h6>Select</h6>
+                                       <p></p>
+                                    <asp:RadioButtonList ID="rdbPaid" runat="server"> <asp:ListItem Text="Paid"/> <asp:ListItem  Text="Not Paid"/>
+                                 </asp:RadioButtonList>
+                                       </div>
                                 </div>
                                 <p></p>
 
                                 
                                 <p></p>
+                                   <p></p>
 
                                 <div class="form-group row">
                                <div class="col-sm-12 col-md-6">
@@ -448,10 +385,9 @@
 
                                 <div class="form-group row">
                                 <div class="col-sm-12 col-md-6">
-                                <h6>Cancelled (Y/N)</h6>
-                               
-                                <asp:TextBox ID="txtCancelledChar" runat="server" MaxLength="1" Width="70px" class="form-control" placeholder ="(Y/N)"></asp:TextBox>
-                                <asp:RequiredFieldValidator id="RequiredFieldValidator9" runat="server" ControlToValidate="txtCancelledChar" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
+                                   
+                                <%--<asp:TextBox ID="txtCancelledChar" runat="server" MaxLength="1" Width="70px" class="form-control" placeholder ="(Y/N)"></asp:TextBox>
+                                <asp:RequiredFieldValidator id="RequiredFieldValidator9" runat="server" ControlToValidate="txtCancelledChar" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
 
                                 </div>
                         </div>
