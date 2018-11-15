@@ -156,3 +156,14 @@ LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_ProgramGrade PRIMARY KEY (ProgramID, GradeID),
 CONSTRAINT FK_ProgramGradeProgram FOREIGN KEY (ProgramID) references Program,
 CONSTRAINT FK_ProgramGradeGrade FOREIGN KEY (GradeID) references Grade);
+                                       
+Create Table Volunteers(
+VolunteerID int IDENTITY(1,1) NOT NULL,
+VolunteerFirstName varchar(100) NOT NULL,
+VolunteerLastName varchar(100) Not NULL,
+VolunteerPhoneNumber varchar(15) NOT NULL,
+VolunteerEmail varchar(50) NOT NULL,
+VolunteerStatus varchar(20) NOT NULL,
+LastUpdated datetime NOT NULL,
+LastUpdatedBy varchar(100) NOT NULL,
+CONSTRAINT PK_VolunteerID PRIMARY KEY (VolunteerID));
