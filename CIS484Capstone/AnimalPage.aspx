@@ -39,7 +39,7 @@
                 
          
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -62,7 +62,7 @@
             <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-            <li class="nav-item dropdown no-arrow active ">
+            <li class="nav-item dropdown no-arrow active">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
 
@@ -75,21 +75,12 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+              <li class="nav-item ">
+                    <a class="nav-link" href="Report.aspx">
 
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown no-arrow">
+                        <span>Reports</span></a>
+                </li>
+            <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Payment</span>
@@ -160,7 +151,7 @@
         <!-- Sidebar -->
 
         <ul class="sidebar navbar-nav d-none d-md-block">
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -186,21 +177,17 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+             <li class="nav-item ">
+                    <a class="nav-link" href="Report.aspx">
 
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown no-arrow">
+                        <span>Reports</span></a>
+                </li>
+            <li class="nav-item ">
+                    <a class="nav-link" href="Tableau.aspx">
+
+                        <span>Visualization</span></a>
+                </li>
+            <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Payment</span>
@@ -266,7 +253,7 @@
         <div class="container-fluid ">
 
           
-<section class="login-block  col-md-6 col-md-8 col-s-5 mx-auto ">
+<section class="login-block  col-lg-10 col-xl-8 col-md-10 col-s-5 mx-auto ">
             <%--<section class="card card-register mx-auto mt-5">--%>
     <div class="container1">
       <div class="card  mx-auto mt-3">
@@ -281,6 +268,7 @@
                 </div>
             <br />
             <div class="row">
+
                 <div class=" col-xl-6 col-lg-6 col-md-4 col-sm-4 col-sx-4 InternalAnimalForm">
                     </div>
                 <div class=" text-right col-xl-6 col-lg-6 col-md-8 col-sm-8 col-sx-8 InternalAnimalForm">
@@ -364,7 +352,8 @@
                         <br /><br /><br />--%>
                         <div class ="grid-mammal text-center">
                    
-                                <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Mammal</h4>
+                                  <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Mammal</h4>
+                                 <h4 class="alert d-md-none" style="background-color: #AB9993 !important; color: white !important;"> M</h4>
                            
     <asp:GridView ID="GridView1"  class="table table-borderless table-condensed  table-striped " runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4" AllowSorting="True" >
         <Columns>
@@ -387,7 +376,8 @@
   
        <div class ="grid-reptile text-center">
             
-             <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Reptile</h4>
+             <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Reptile</h4>
+                                 <h4 class="alert d-md-none" style="background-color: #AB9993 !important; color: white !important;"> R</h4>
          
                 <asp:GridView ID="GridView2"  class="table table-borderless table-condensed table-striped  " runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" AllowSorting="True">
                     <Columns>
@@ -405,7 +395,8 @@
      
         <div class ="grid-bird text-center ">
            
-         <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Birds</h4>
+            <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Bird</h4>
+                                 <h4 class="alert d-md-none" style="background-color: #AB9993 !important; color: white !important;"> B</h4>
                   <asp:GridView ID="GridView3"  class="table table-borderless table-condensed table-striped " runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" AllowSorting="True" >
                       <Columns>
                           <asp:BoundField DataField="AnimalName"  SortExpression="AnimalName" />
@@ -423,18 +414,22 @@
                 <div id="AnimalsMammalTab" class="container1 block3 tab-pane text-center WildTable">
                     <div class="InternalAnimalTab">
                    
-                        <div class="row mx-auto d-flex justify-content-center">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                 <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
+                         <div class="row mx-auto d-flex justify-content-center">
+                            <div class="col-4">
+                                <h4 class="alert d-none d-lg-block" style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
+                                 <h4 class=" d-md-none" style="background-color: #AB9993 !important; color: white !important; "> Name</h4>
+                                     <h4 class="alert d-none d-md-block d-lg-none" style="background-color: #AB9993 !important; color: white !important;"> Name</h4>
                             </div>
                      
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                 <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Status</h4>
+                            <div class="col-4">
+                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Status</h4>
+                                 <h4 class=" d-md-none " style="background-color: #AB9993 !important; color: white !important; "> Status</h4>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                 <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Image</h4>
+                               <div class="col-4">
+                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Image</h4>
+                                      <h4 class=" d-md-none" style="background-color: #AB9993 !important; color: white !important; "> Image</h4>
                             </div>
-                        </div> 
+                        </div>  
 
                         <asp:GridView ID="gridAnimalMammal"  class="table table-borderless table-striped table-condensed"  runat="server" AutoGenerateColumns="False"  AllowSorting="True"  DataSourceID="SqlDataSource2" OnRowDataBound ="gridMammal_RowDataBound">
         <Columns>
@@ -471,18 +466,22 @@
                 <div id="AnimalsReptileTab" class="container1 block3 tab-pane  text-center WildTable">
                     <div class="InternalAnimalTab">
                      
-                        <div class="row mx-auto d-flex justify-content-center">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                 <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
+                          <div class="row mx-auto d-flex justify-content-center">
+                            <div class="col-4">
+                                <h4 class="alert d-none d-lg-block" style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
+                                <h4 class=" d-md-none " style="background-color: #AB9993 !important; color: white !important; "> Name</h4>
+                                     <h4 class="alert d-none d-md-block d-lg-none" style="background-color: #AB9993 !important; color: white !important;"> Name</h4>
                             </div>
                      
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                 <h4 class="alert" style="background-color: #AB9993 !important; color: white !important;"">Status</h4>
+                            <div class="col-4">
+                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Status</h4>
+                                       <h4 class=" d-md-none " style="background-color: #AB9993 !important; color: white !important; "> Status</h4>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                 <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Image</h4>
+                               <div class="col-4">
+                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Image</h4>
+                                             <h4 class=" d-md-none" style="background-color: #AB9993 !important; color: white !important; "> Image</h4>
                             </div>
-                        </div> 
+                        </div>  
                         <asp:GridView ID="gridReptile"  class="table table-borderless table-condensed  table-striped "  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowSorting="True"  OnRowDataBound ="gridReptile_RowDataBound">
                     <Columns>
                         <%--  <asp:BoundField DataField="AnimalType"  SortExpression="AnimalType" Visible="False" /> --%>
@@ -514,15 +513,19 @@
                     <div class="InternalAnimalTab">                   
                        
                            <div class="row mx-auto d-flex justify-content-center">
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
+                            <div class="col-4">
+                                <h4 class="alert d-none d-lg-block" style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
+                                   <h4 class=" d-md-none " style="background-color: #AB9993 !important; color: white !important; "> Name</h4>
+                                     <h4 class="alert d-none d-md-block d-lg-none" style="background-color: #AB9993 !important; color: white !important;"> Name</h4>
                             </div>
                      
-                            <div class="col-lg-4 col-md-6 col-sm-4">
-                                 <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Status</h4>
+                            <div class="col-4">
+                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Status</h4>
+                                        <h4 class=" d-md-none " style="background-color: #AB9993 !important; color: white !important; "> Status</h4>
                             </div>
-                               <div class="col-lg-4 col-md-4 col-sm-4">
-                                 <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Image</h4>
+                               <div class="col-4">
+                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Image</h4>
+                                         <h4 class=" d-md-none" style="background-color: #AB9993 !important; color: white !important; "> Image</h4>
                             </div>
                         </div>  
                         <asp:GridView ID="gridBird"  class="table table-borderless table-condensed  table-striped" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True" OnRowDataBound ="gridBird_RowDataBound">

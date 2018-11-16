@@ -482,12 +482,9 @@ body.sidebar-toggled footer.sticky-footer {
     display: none;
 }
 
-.modal-backdrop {
-    z-index: -1;
-    margin-top: 200%;
 
 
-}
+
 
 .modal-content {
     margin-top: 200px;

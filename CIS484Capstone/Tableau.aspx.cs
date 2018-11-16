@@ -14,6 +14,6 @@ public partial class Tableau2 : System.Web.UI.Page
 
     protected void btnBack_Click(object sender, EventArgs e)
     {
-        Response.Redirect("AnimalMonthlyWildlifeReport.aspx");
+        Response.Redirect("Report.aspx");
     }
 }

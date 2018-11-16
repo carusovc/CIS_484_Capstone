@@ -59,12 +59,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
                 string read2 = "Select * from Animal";
                 SqlCommand cmd2 = new SqlCommand(read2, con);
-                SqlDataReader myRead2 = cmd2.ExecuteReader();
+                SqlDataReader myRead9 = cmd2.ExecuteReader();
 
-                while (myRead2.Read())
+                while (myRead9.Read())
                 {
 
-                    ddlAnimal.Items.Add(new ListItem(myRead2["AnimalName"].ToString(), myRead2["AnimalID"].ToString()));
+                    ddlAnimal.Items.Add(new ListItem(myRead9["AnimalName"].ToString(), myRead9["AnimalID"].ToString()));
                 }
                 ddlOrganization.DataBind();
                 ddlEducatorName.DataBind();
