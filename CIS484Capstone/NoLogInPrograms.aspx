@@ -264,9 +264,12 @@
                                 <div class="mx-auto">
                                     <div class="row mx-auto d-flex text cetner justify-content-center">
 
-                                        <div class=" col-lg-3    col-md-4 col-sm-6 ">
-                                            <div class="btn  btn-primary btn-inside btn-block" data-target="#addProgramModal" data-toggle="modal">Add Program Form</div>
+                                        <div class=" col-lg-3    col-md-4 col-sm-6  ">
+                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live Program</div>
                                         </div>
+
+                                        <div class=" col-lg-3   col-md-4  col-sm-6  ">
+                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online Program</div>
 
 
                                         
