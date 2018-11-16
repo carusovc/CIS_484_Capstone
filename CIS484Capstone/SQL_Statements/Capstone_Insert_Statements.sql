@@ -376,6 +376,10 @@ INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdat
 INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdatedBy]) VALUES (23,16,GETDATE(),'WildTekDevelopers');
                                                                        
 
+
+INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],[CancelledInvoice],[OrgID],[LastUpdated],[LastUpdatedBy])
+VALUES (1000, '2018-05-01', null, 'Debit', 'GA1003', 'N', 4, GETDATE(), 'WildTekDevelopers');
+
                                                                                                                                                 
                                                                                                                                                 
 Insert into [dbo].[Volunteers](VolunteerFirstName, VolunteerLastName, VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus,
