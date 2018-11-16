@@ -561,35 +561,34 @@
                                                                         </asp:Repeater>
 
 
-                                                                         <asp:Repeater ID="Repeater1" runat="server">
+                                                                        <asp:Repeater ID="Repeater1" runat="server">
 
                                                                             <HeaderTemplate>
 
                                                                                 <table class="ChildGrid table   table-borderless table-condensed WideTable" border="0" table-layout: fixed>
-                                                                                     <tr class="row" ">
+                                                                                    <tr class="row">
 
-                                                                                    <td class="col-md-4" ">
-                                                                                        <strong>Bird</strong>
+                                                                                        <td class="col-md-4">
+                                                                                            <strong>Bird</strong>
 
-                                                                                        
-                                                                                    </td>
 
-                                                                                    <td class="col-md-4" ">
-                                                                                        <strong>Reptile</strong>
+                                                                                        </td>
 
-                                                                                       
-                                                                                    </td>
+                                                                                        <td class="col-md-4">
+                                                                                            <strong>Reptile</strong>
 
-                                                                                    <td class="col-md-4" ">
-                                                                                        <strong>Mammal</strong>
 
-                                                                                       
-                                                                                    </td>
+                                                                                        </td>
 
-                                                                                </tr>
+                                                                                        <td class="col-md-4">
+                                                                                            <strong>Mammal</strong>
+
+
+                                                                                        </td>
+
+                                                                                    </tr>
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
-                                                                               
                                                                             </ItemTemplate>
 
 
@@ -610,19 +609,25 @@
                                                                             <ItemTemplate>
                                                                                 <tr class="row" style="padding-top: 0px; padding-bottom: 0px;">
 
+                                                                                    <%--<asp:ListBox ID="lstBirds" runat="server">
+                                                                                        <asp:ListItem Text="--Select Grades--" Value="0" />
+                                                                                    </asp:ListBox>--%>
+
+
                                                                                     <td class="col-md-4" style="padding-top: 0px; padding-bottom: 0px;">
 
-                                                                                        <asp:Label ID="Label3" Style="padding-top: 0px; padding-bottom: 0px;" runat="server" Text='<%# Eval("ProgramID") %>' />
+                                                                                        <asp:Label ID="Label3" Style="padding-top: 0px; padding-bottom: 0px;" runat="server" Text='<%# Eval("Birds") %>' />
                                                                                     </td>
 
                                                                                     <td class="col-md-4" style="padding-top: 0px; padding-bottom: 0px;">
 
-                                                                                        <asp:Label ID="lblAddBird" Style="padding-top: 0px; padding-bottom: 0px;" runat="server" Text='<%# Eval("AnimalName") %>' />
+                                                                                        <asp:Label ID="lblAddBird" Style="padding-top: 0px; padding-bottom: 0px;" runat="server" Text='<%# Eval("Mammals") %>' />
                                                                                     </td>
 
                                                                                     <td class="col-md-4" style="padding-top: 0px; padding-bottom: 0px;">
 
-                                                                                        <%--<asp:Label ID="lblState" runat="server" Text='<%# Eval("Organization") %>' />--%>
+                                                                                        <asp:Label ID="Label6" Style="padding-top: 0px; padding-bottom: 0px;" runat="server" Text='<%# Eval("Reptiles") %>' />
+
                                                                                     </td>
 
                                                                                 </tr>

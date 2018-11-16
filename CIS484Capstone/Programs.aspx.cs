@@ -511,7 +511,17 @@ public partial class Programs : System.Web.UI.Page
             Repeater rptNewLiveProgramLL2 = e.Item.FindControl("rptNewLiveProgramLL2") as Repeater;
             Repeater rptNewLiveProgramLL3 = e.Item.FindControl("rptNewLiveProgramLL3") as Repeater;
             Repeater rptNewLiveProgramLL4 = e.Item.FindControl("rptNewLiveProgramLL4") as Repeater;
+
+            //Repeater rptNewLiveProgramLL42 = e.Item.FindControl("rptNewLiveProgramLL4") as Repeater;
+            //Repeater rptNewLiveProgramLL43 = e.Item.FindControl("rptNewLiveProgramLL4") as Repeater;
             Repeater rptNewLiveProgramLL5 = e.Item.FindControl("rptNewLiveProgramLL5") as Repeater;
+
+  
+
+
+            ListBox lstBird = (e.Item.FindControl("lstBirds") as ListBox);
+            lstBird.DataSource = GetData(String.Format("Select ProgramID, AnimalName as Birds  FROM ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where AnimalName IS NOT NULL AND ProgramID = 3 and AnimalType = 'Bird'"));
+            lstBird.DataBind();
 
 
 
@@ -524,15 +534,23 @@ public partial class Programs : System.Web.UI.Page
             rptNewLiveProgramLL3.DataSource = GetData(string.Format("Select ProgramID, ProgramAddress, CityCounty, State from Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptNewLiveProgramLL3.DataBind();
 
-            rptNewLiveProgramLL4.DataSource = GetData(string.Format("Select ProgramID, pa.AnimalID, AnimalName from ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where Animal.AnimalType = 'Bird' and ProgramID = " + ProgramID + "", ProgramID));
+            rptNewLiveProgramLL4.DataSource = GetData(string.Format("SELECT ProgramID, pa.AnimalID, (CASE WHEN AnimalType ='Bird' Then AnimalName ELSE NULL END) AS 'Birds', (CASE WHEN AnimalType = 'Mammal' Then AnimalName ELSE NULL END) AS 'Mammals', (CASE WHEN AnimalType = 'Reptile' Then AnimalName ELSE NULL END) AS 'Reptiles' FROM ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where ProgramID = " + ProgramID + "", ProgramID));
             rptNewLiveProgramLL4.DataBind();
+
+            //rptNewLiveProgramLL42.DataSource = GetData(string.Format("Select ProgramID, pa.AnimalID, AnimalName as 'Mammals1' from ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where Animal.AnimalType = 'Mammal' and ProgramID = " + ProgramID + "", ProgramID));
+            //rptNewLiveProgramLL42.DataBind();
+
+            //rptNewLiveProgramLL43.DataSource = GetData(string.Format("Select ProgramID, pa.AnimalID, AnimalName as 'Reptiles' from ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where Animal.AnimalType = 'Reptile' and ProgramID = " + ProgramID + "", ProgramID));
+            //rptNewLiveProgramLL43.DataBind();
+
+
 
             rptNewLiveProgramLL5.DataSource = GetData(string.Format("Select ProgramID, ExtraComments, LastUpdatedBy, LastUpdated from Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptNewLiveProgramLL5.DataBind();
 
 
-
         }
+
     }
 
     public void createAccordianUsingRepeaterLive(int orderType)
