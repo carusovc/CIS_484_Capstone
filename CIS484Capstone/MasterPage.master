@@ -114,6 +114,17 @@ $(".modal-wide").on("show.bs.modal", function() {
                                     <asp:TextBox ID="txtOrgName" runat="server"></asp:TextBox>&nbsp&nbsp
                                 </div>
                             </div>
+                            <div class="row">
+                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Street Address</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Street Address</h6>
+                                </div>
+                                <div class=" col-md-3 InternalAnimalForm">
+                                    <asp:TextBox ID="txtStreetAddress2" runat="server"></asp:TextBox>&nbsp&nbsp
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
@@ -139,6 +150,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                     <asp:TextBox ID="txtCounty" runat="server"></asp:TextBox>&nbsp&nbsp
                                 </div>
                             </div>
+
 
                             <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
@@ -343,6 +355,17 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="textOrgName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+                             <div class="row">
+                               <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Street Address</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Street Address</h6>
+                                </div>
+                                <div class=" col-md-3 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtStreetAddress" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 

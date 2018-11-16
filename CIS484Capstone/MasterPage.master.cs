@@ -16,7 +16,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
