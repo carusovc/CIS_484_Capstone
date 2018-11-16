@@ -265,8 +265,8 @@
                                                 <br />
 
 
-                                                <asp:GridView ID="GridView1"  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
+                                                <asp:GridView ID="YearlyInvoiceGrid"  HeaderStyle-Backcolor="#FFBC7C"
+    HeaderStyle-Forecolor="#732700" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID" OnRowDataBound="YearlyInvoiceGrid_RowDataBound" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
                                             <Columns>
                                                  <asp:TemplateField HeaderText="Select" >
                                                 <ItemTemplate>
@@ -310,7 +310,7 @@
 
                                         </div>
                                         <div class="mx-auto d-flex justify-content-center">
-                                            <asp:Button ID="Button1" runat="server" Text="Export Invoices to Excel" class="btn btn-primary btn-inside" OnClick="exportBtn_ClickAv" />
+                                            <asp:Button ID="btnyearly" runat="server" Text="Export Invoices to Excel" class="btn btn-primary btn-inside" OnClick="exportBtnYearly_Click" />
 
                                         </div>
 

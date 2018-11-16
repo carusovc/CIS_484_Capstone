@@ -21,11 +21,12 @@ public class Payment
     private String checkNum;
     private String paymentType;
     private String invoice;
-    private char cancelledInvoice; // To Deal with V2 10/23/18 8:30 pm
+    private string cancelledInvoice; // To Deal with V2 10/23/18 8:30 pm
     private int orgID; // To Deal with V2 10/23/18 8:30 pm
+  //  private string paid;
 
    
-    public Payment(decimal PaymentAmount, DateTime paymentDate, String checkNum, String paymentType, String invoice, char cancelledInvoice, int orgID)
+    public Payment(decimal PaymentAmount, DateTime paymentDate, String checkNum, String paymentType, String invoice, string cancelledInvoice, int orgID)
     {
         // Call Setters
         setPaymentAmount(paymentAmount);
@@ -35,6 +36,7 @@ public class Payment
         setInvoice(invoice);
         setCancelled(cancelledInvoice);
         setOrgId(orgID);
+       // setPaid(paid);
     }
 
     //Setters
@@ -63,7 +65,7 @@ public class Payment
         this.invoice = invoice;
     }
 
-    public void setCancelled(char cancelledInvoice)
+    public void setCancelled(string cancelledInvoice)
     {
         this.cancelledInvoice = cancelledInvoice;
     }
@@ -73,6 +75,11 @@ public class Payment
         this.orgID = orgID;
     }
     
+
+    //public void setPaid(string paid)
+    //{
+    //    this.paid = paid;
+    //}
     //Getters
 
     public decimal getPaymentAmount()
@@ -100,7 +107,7 @@ public class Payment
         return this.invoice;
     }
 
-    public char getCancelledInvoice()
+    public string getCancelledInvoice()
     {
         return this.cancelledInvoice;
     }
@@ -109,5 +116,9 @@ public class Payment
     {
         return this.orgID;
     }
+    //public string getPaid()
+    //{
+    //    return this.paid;
+    //}
 
 }

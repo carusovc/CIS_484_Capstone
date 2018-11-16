@@ -278,7 +278,7 @@
                                <h6>Organization</h6>
                                     <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" >                                  
                                         <asp:ListItem>--Select Organization--</asp:ListItem> </asp:DropDownList>
-                                  <asp:RequiredFieldValidator id="RequiredFieldValidator8" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
+<%--                                  <asp:RequiredFieldValidator id="RequiredFieldValidator8" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
 
                                 </div>
                                  
@@ -338,16 +338,19 @@
                                 <h6>Amount</h6>
                               
                                 <asp:TextBox ID="txtAmount" runat="server" class="form-control" placeholder ="Enter Amount"></asp:TextBox>
-                                     <asp:CompareValidator ID="AmountValidator" runat="server" ControlToValidate="txtAmount" Type="Integer"
-                                        Operator="DataTypeCheck" ErrorMessage="Value must be a money" />
-                                <asp:RequiredFieldValidator id="RequiredFieldValidator4" runat="server" ControlToValidate="txtAmount" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
+                            <%--         <asp:CompareValidator ID="AmountValidator" runat="server" ControlToValidate="txtAmount" Type="Integer"
+                                        Operator="DataTypeCheck" ErrorMessage="Value must be a money" />--%>
+<%--                                <asp:RequiredFieldValidator id="RequiredFieldValidator4" runat="server" ControlToValidate="txtAmount" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                      
                                 
                                 </div>
                                    <div class="col-sm-12 col-md-6">
                                        <h6>Select</h6>
                                        <p></p>
-                                    <asp:RadioButtonList ID="rdbPaid" runat="server"> <asp:ListItem Text="Paid"/> <asp:ListItem  Text="Not Paid"/>
+                                    <asp:RadioButtonList ID="rdbPaid" runat="server"> 
+                                        <asp:ListItem Text="Paid" Value ="Y"/>
+                                        <asp:ListItem  Text="Not Paid" Value ="N"/>
+                                         <asp:ListItem Text="Cancelled" Value ="C"/> 
                                  </asp:RadioButtonList>
                                        </div>
                                 </div>
@@ -375,8 +378,8 @@
                              
                                
                                 <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" ReadOnly="true" placeholder ="Enter Check Number"></asp:TextBox>
-                                     <asp:CompareValidator ID="CheckNumberValidator" runat="server" ControlToValidate="txtCheckNum" Type="Integer"
-                                        Operator="DataTypeCheck" ErrorMessage="Value must be a number." />
+                                    <%-- <asp:CompareValidator ID="CheckNumberValidator" runat="server" ControlToValidate="txtCheckNum" Type="Integer"
+                                        Operator="DataTypeCheck" ErrorMessage="Value must be a number." />--%>
                                <%-- <asp:RequiredFieldValidator id="RequiredFieldValidator6" runat="server" ControlToValidate="txtCheckNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
 
                                 </div>
@@ -395,6 +398,7 @@
                         <div class="mx-auto d-flex justify-content-center">
                             <%--<asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" class="btn btn-primary btn-inside" />--%>
                             <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary btn-inside" Text="Submit" />
+                               <asp:Button ID="btnInvoices" runat="server" OnClick="btnInvoices_Click" class="btn btn-primary btn-inside" Text="View Invoices" />
                         </div>
                         <p></p>
                        

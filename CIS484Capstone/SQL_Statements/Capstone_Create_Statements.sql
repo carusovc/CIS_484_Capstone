@@ -1,4 +1,4 @@
-Use WildTek6
+Use WildTek3
 Go
 
 Create Table OnlineProgramType(
@@ -55,7 +55,7 @@ paymentDate DateTime NOT NULL,
 CheckNumber varchar(25) NULL,
 PaymentType varchar(25) NOT NULL,
 Invoice varchar(50) NOT NULL,
-CancelledInvoice char(1) NOT NULL,
+Paid char(1) Not null,
 OrgID int NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
@@ -113,7 +113,7 @@ State varchar(50) NULL,
 OnOff bit NOT NULL,
 NumberOfChildren int NOT NULL,
 NumberOfAdults int NOT NULL,
-PaymentID int NULL,
+PaymentID int not NULL,
 Paid char(1) Not null,
 ProgramDate date NOT NULL,
 ProgramTime time NOT NULL,

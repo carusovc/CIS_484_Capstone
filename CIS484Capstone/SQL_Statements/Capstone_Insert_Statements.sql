@@ -1,4 +1,4 @@
-Use WildTek6
+Use WildTek3
 Insert into [dbo].[ProgramType](ProgramName, LastUpdated, LastUpdatedBy) VALUES ('Display', GETDATE(), 'WildTekDevelopers');
 Insert into [dbo].[ProgramType](ProgramName, LastUpdated, LastUpdatedBy) VALUES ('Special Request', GETDATE(), 'WildTekDevelopers');
 Insert into [dbo].[ProgramType](ProgramName, LastUpdated, LastUpdatedBy) VALUES ('Open House', GETDATE(), 'WildTekDevelopers');
@@ -101,23 +101,41 @@ Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName, LastUpdated, LastUp
 Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName, LastUpdated, LastUpdatedBy) VALUES ('Skype: Opossums', GETDATE(), 'WildTekDevelopers');
 Insert into [dbo].[OnlineProgramType](OnlineProgramTypeName, LastUpdated, LastUpdatedBy) VALUES ('Skype: Snakes', GETDATE(), 'WildTekDevelopers');
 
-Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice,CancelledInvoice, OrgID,LastUpdated, LastUpdatedBy)
-VALUES ( 100, '01/15/18', null, 'Credit', 'ISV-890', 'Y', 1, GETDATE(), 'WildTekDevelopers');
-Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice,CancelledInvoice, OrgID,LastUpdated, LastUpdatedBy)
-VALUES ( 100, '01/15/18', null, 'Credit', 'ISV-890', 'Y',  1,  GETDATE(), 'WildTekDevelopers');
-Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice,CancelledInvoice, OrgID,LastUpdated, LastUpdatedBy)
-VALUES ( 100, '01/15/18', null, 'Credit', 'ISV-890', 'Y',  1,  GETDATE(), 'WildTekDevelopers');
-Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice,CancelledInvoice, OrgID,LastUpdated, LastUpdatedBy)
-VALUES ( 100, '01/15/18', null, 'Credit', 'ISV-890', 'Y',  1,  GETDATE(), 'WildTekDevelopers');
+Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice, Paid, OrgID,LastUpdated, LastUpdatedBy)
+VALUES ( 100, '01/15/18', null, 'Credit', 'ISV-890', 'C', 1, GETDATE(), 'WildTekDevelopers');
+Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice, Paid, OrgID,LastUpdated, LastUpdatedBy)
+VALUES ( 100, '01/15/18', null, 'Credit', 'ISV-890', 'C', 2,  GETDATE(), 'WildTekDevelopers');
+Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice,Paid, OrgID,LastUpdated, LastUpdatedBy)
+VALUES ( 100, '01/15/18', null, 'Credit', 'ISV-890', 'Y',  3, GETDATE(), 'WildTekDevelopers');
+Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice, Paid,OrgID,LastUpdated, LastUpdatedBy)
+VALUES ( 100, '01/15/18', null, 'Credit', 'ISV-890', 'Y', 4,  GETDATE(), 'WildTekDevelopers');
 
-INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],[CancelledInvoice],[OrgID],[LastUpdated],[LastUpdatedBy])
-VALUES (500, '2018-01-01', null, 'Credit', 'GA1001', 'N', 2, GETDATE(), 'WildTekDevelopers');
+INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],Paid,[OrgID],[LastUpdated],[LastUpdatedBy])
+VALUES (500, '2018-01-01', null, 'Credit', 'GA1001', 'N',5, GETDATE(), 'WildTekDevelopers');
 
-INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],[CancelledInvoice],[OrgID],[LastUpdated],[LastUpdatedBy])
-VALUES (655, '2018-03-01', null, 'Debit', 'GA1002', 'N', 8, GETDATE(), 'WildTekDevelopers');
+INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],Paid,[OrgID],[LastUpdated],[LastUpdatedBy])
+VALUES (655, '2018-03-01', null, 'Debit', 'GA1002', 'N',6, GETDATE(), 'WildTekDevelopers');
 
-INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],[CancelledInvoice],[OrgID],[LastUpdated],[LastUpdatedBy])
-VALUES (1000, '2018-05-01', null, 'Debit', 'GA1003', 'N', 4, GETDATE(), 'WildTekDevelopers');
+INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],Paid,[OrgID],[LastUpdated],[LastUpdatedBy])
+VALUES (1000, '2018-05-01', null, 'Debit', 'GA1003', 'N', 7, GETDATE(), 'WildTekDevelopers');
+Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice,Paid, OrgID,LastUpdated, LastUpdatedBy)
+VALUES ( 300, '01/15/18', null, 'Credit', 'ISV-890', 'Y',8, GETDATE(), 'WildTekDevelopers');
+Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice, Paid, OrgID,LastUpdated, LastUpdatedBy)
+VALUES ( 400, '01/15/18', null, 'Credit', 'ISV-890', 'Y',9,  GETDATE(), 'WildTekDevelopers');
+Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice,Paid, OrgID,LastUpdated, LastUpdatedBy)
+VALUES ( 500, '01/15/18', null, 'Credit', 'ISV-890', 'Y', 11, GETDATE(), 'WildTekDevelopers');
+Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice, Paid,OrgID,LastUpdated, LastUpdatedBy)
+VALUES ( 600, '01/15/18', null, 'Credit', 'ISV-890', 'Y',10,  GETDATE(), 'WildTekDevelopers');
+INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],Paid,[OrgID],[LastUpdated],[LastUpdatedBy])
+VALUES (1000, '2018-05-01', null, 'Debit', 'GA1003', 'N', 7, GETDATE(), 'WildTekDevelopers');
+Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice,Paid, OrgID,LastUpdated, LastUpdatedBy)
+VALUES ( 300, '01/15/18', null, 'Credit', 'ISV-890', 'Y',8, GETDATE(), 'WildTekDevelopers');
+Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice, Paid, OrgID,LastUpdated, LastUpdatedBy)
+VALUES ( 400, '01/15/18', null, 'Credit', 'ISV-890', 'Y',9,  GETDATE(), 'WildTekDevelopers');
+Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice,Paid, OrgID,LastUpdated, LastUpdatedBy)
+VALUES ( 500, '01/15/18', null, 'Credit', 'ISV-890', 'Y', 11, GETDATE(), 'WildTekDevelopers');
+Insert into [dbo].[PaymentRecord](PaymentAmount, paymentDate,CheckNumber,PaymentType,Invoice, Paid,OrgID,LastUpdated, LastUpdatedBy)
+VALUES ( 600, '01/15/18', null, 'Credit', 'ISV-890', 'Y',10,  GETDATE(), 'WildTekDevelopers');
                    
 INSERT INTO [dbo].[Program]([ProgramTypeID],[OrgID],[Status],[ProgramAddress],[CityCounty],[State],[OnOff],[NumberOfChildren],[NumberOfAdults],[PaymentID],[Paid],[ProgramDate],[ProgramTime],[EventMonth],[ExtraComments],[LastUpdated],[LastUpdatedBy])
 VALUES (1, 1, 'Completed', null, 'Blacksburg, Montgomery', 'Virginia', 'true', 0, 200, 1, 'Y', '01/15/18', '1:00', 'January', 'Went well!', '10/25/2018', 'Tyler Stewart'); 
@@ -129,7 +147,7 @@ INSERT INTO [dbo].[Program]([ProgramTypeID],[OrgID],[Status],[ProgramAddress],[C
 VALUES (3, 7, 'Completed', null, 'Fishersville, Augusta', 'Virginia', 'false', 80, 3, 3,'Y', '01/28/18', '5:00', 'January', 'Went ok!', '10/25/2018', 'Tyler Stewart');
 
 INSERT INTO [dbo].[Program]([ProgramTypeID],[OrgID],[Status],[ProgramAddress],[CityCounty],[State],[OnOff],[NumberOfChildren],[NumberOfAdults],[PaymentID],[Paid],[ProgramDate],[ProgramTime],[EventMonth],[ExtraComments],[LastUpdated],[LastUpdatedBy])
-VALUES (4, 15, 'Completed', null, 'Fishersville, Augusta', 'Virginia', 'true', 0, 40, 4,'N', '02/05/18', '4:00', 'February', 'Was a great group.', '10/25/2018', 'Tyler Stewart');
+VALUES (4, 15, 'Completed', null, 'Fishersville, Augusta', 'Virginia', 'true', 0, 40,6,'Y', '02/05/18', '4:00', 'February', 'Was a great group.', '10/25/2018', 'Catey Susco');
 
 INSERT INTO [dbo].[Program]([ProgramTypeID],[OrgID],[Status],[ProgramAddress],[CityCounty],[State],[OnOff],[NumberOfChildren],[NumberOfAdults],[PaymentID],[Paid],[ProgramDate],[ProgramTime],[EventMonth],[ExtraComments],[LastUpdated],[LastUpdatedBy])
 VALUES (5, 10, 'Completed', null, 'Waynesboro, Augusta', 'Virginia', 'false', 500, 15, 5,'Y', '02/20/18', '3:00', 'February', 'Was a great group.', '10/25/2018', 'Tyler Stewart');
@@ -175,7 +193,7 @@ VALUES (18, 1, 'Completed', null, 'Shenandoah, Page', 'Virginia', 'true', 30, 50
 
 
 INSERT INTO [dbo].[Program]([ProgramTypeID],[OrgID],[Status],[ProgramAddress],[CityCounty],[State],[OnOff],[NumberOfChildren],[NumberOfAdults],[PaymentID],[Paid],[ProgramDate],[ProgramTime],[EventMonth],[ExtraComments],[LastUpdated],[LastUpdatedBy])
-VALUES (18, 8, 'Completed', null, 'Stuarts Draft, Augusta', 'Virginia', 'false', 330, 60, 19,'Y', '08/20/18', '3:00', 'August', 'Alright group.', '10/25/2018', 'Tyler Stewart'); 
+VALUES (19, 8, 'Completed', null, 'Stuarts Draft, Augusta', 'Virginia', 'false', 330, 60, 19,'Y', '08/20/18', '3:00', 'August', 'Alright group.', '10/25/2018', 'Tyler Stewart'); 
 
 INSERT INTO [dbo].[Program]([ProgramTypeID],[OrgID],[Status],[ProgramAddress],[CityCounty],[State],[OnOff],[NumberOfChildren],[NumberOfAdults],[PaymentID],[Paid],[ProgramDate],[ProgramTime],[EventMonth],[ExtraComments],[LastUpdated],[LastUpdatedBy])
 VALUES (16, 4, 'Completed', null, 'Stone Ridge, Loudoun', 'Virginia', 'true', 30, 50, 20,'N', '09/25/18', '3:00', 'September', 'Great group.', '10/25/2018', 'Tyler Stewart');
