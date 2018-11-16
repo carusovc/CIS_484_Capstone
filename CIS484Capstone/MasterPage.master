@@ -74,7 +74,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
         <div class="modal fade" id="UpdateOrganization" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+              <div class="modal-content mt-5">
                     <div class="modal-header ">
                         <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Organization</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -90,7 +90,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                         <div runat="server" id="OrganizationupdateDiv">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class=" col-md-4 text-right InternalAnimalForm">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Select Organization</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Select Organization</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
@@ -101,7 +104,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 text-right InternalAnimalForm">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Organization Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Organization Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
@@ -110,7 +116,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
 
                             <div class="row">
-                                <div class=" col-md-4 text-right InternalAnimalForm">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>City</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>City</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
@@ -120,7 +129,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
                         
                             <div class="row">
-                                <div class=" col-md-4 text-right InternalAnimalForm">
+                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>County</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>County</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
@@ -159,7 +171,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
         <div class="modal fade" id="AddProgram" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content mt-5">
                     <div class="modal-header">
                         <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add New Program Type</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -175,7 +187,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                         <div runat="server" id="AnimalAddDiv">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class=" col-md-4 InternalAnimalForm text-right">
+                               <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Program Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Program Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
@@ -203,7 +218,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
          <div class="modal fade" id="AddOrganization" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content mt-5">
                     <div class="modal-header">
                         <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add New Organization</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -214,7 +229,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                         <div runat="server" id="OrgAddDiv">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Organization Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Organization Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
@@ -222,7 +240,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                               <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>City</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>City</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
@@ -230,7 +251,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                              <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>County</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>County</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
@@ -256,7 +280,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 <div class="modal fade" id="AddAnimal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content mt-5">
       <div class="modal-header ">
         <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add Animal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -267,7 +291,12 @@ $(".modal-wide").on("show.bs.modal", function() {
         <div runat= server id="Div1">
             <p>&nbsp;</p>
             <div class="row">
-                <div class=" col-md-4 text-right InternalAnimalForm"><h6>Animal Type</h6> </div>
+                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Animal Type</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Animal Type</h6>
+                                </div>
                 <div class=" col-md-3 InternalAnimalForm">
 
                     <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" ID="ddlAnimalType" runat="server">
@@ -279,15 +308,25 @@ $(".modal-wide").on("show.bs.modal", function() {
                 </div>
             </div>
             <div class="row">
-                <div class=" col-md-4 text-right InternalAnimalForm"><h6>Animal Name</h6> </div>
+                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Animal Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Animal Name</h6>
+                                </div>
                 <div class=" col-md-3 InternalAnimalForm">
 
-                    <asp:TextBox  class="InternalAnimalForm " ID="txtAnimalName" placeholder="Animal Name" runat="server"></asp:TextBox>&nbsp&nbsp
+                    <asp:TextBox  class="InternalAnimalForm " ID="txtAnimalName" runat="server"></asp:TextBox>&nbsp&nbsp
                 </div>
             </div>
 
               <div class="row"> 
-                <div class=" col-md-4 text-right InternalAnimalForm"><h6>Status</h6> </div>
+                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
 
                     <div class=" col-md-3 InternalAnimalForm">
 
@@ -325,7 +364,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
         <div class="modal fade" id="AddEducator" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+               <div class="modal-content mt-5">
                     <div class="modal-header">
                         <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add New Educator</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -336,7 +375,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                         <div runat="server" id="EducatorAddDiv">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class=" col-md-4 text-right InternalEducatorForm">
+                             <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>First Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>First Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
@@ -344,7 +386,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 text-right InternalEducatorForm">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Last Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Last Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
@@ -465,7 +510,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 <div class="modal fade" id="UpdateAnimal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content mt-5">
       <div class="modal-header">
         <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Animal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -481,7 +526,12 @@ $(".modal-wide").on("show.bs.modal", function() {
       <div runat= server id="AnimalEditDiv">
           <p>&nbsp;</p>
           <div class="row"> 
-            <div class=" col-md-4 text-right InternalAnimalForm"><h6>Select Animal</h6> </div>
+            <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Select Animal</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Select Animal</h6>
+                                </div>
                 <div class=" col-md-3 InternalAnimalForm">
                 <asp:DropDownList ID="ddlAnimal" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="AnimalName" DataValueField="AnimalID"  OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
                 <asp:ListItem>--Select Animal--</asp:ListItem>
@@ -490,7 +540,12 @@ $(".modal-wide").on("show.bs.modal", function() {
                 </div>     
                </div>
             <div class="row"> 
-                <div class=" col-md-4 text-right InternalAnimalForm"><h6>Animal Type</h6> </div>
+              <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Animal Type</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Animal Type</h6>
+                                </div>
                     <div class=" col-md-3 InternalAnimalForm">
 
                         <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" ID="ddlAnimalTypeEdit" runat="server">
@@ -502,15 +557,25 @@ $(".modal-wide").on("show.bs.modal", function() {
                     </div>
             </div>
               <div class="row"> 
-                <div class=" col-md-4 text-right InternalAnimalForm"><h6>Animal Name</h6> </div>
+                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Animal Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Animal Name</h6>
+                                </div>
                     <div class=" col-md-3 InternalAnimalForm">
 
-                         <asp:TextBox ID="txtBoxAnimalName" placeholder="Animal Name" runat="server"></asp:TextBox>&nbsp&nbsp
+                         <asp:TextBox ID="txtBoxAnimalName"  runat="server"></asp:TextBox>&nbsp&nbsp
                     </div>
               </div>
 
               <div class="row"> 
-                <div class=" col-md-4 text-right InternalAnimalForm"><h6>Status</h6> </div>
+                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
                     <div class=" col-md-3 InternalAnimalForm">
 
                         <asp:DropDownList ID="ddlAnimalStatus" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
@@ -545,8 +610,8 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
         <div class="modal fade" id="UpdateEducator" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
+            <div class="modal-dialog " role="document">
+               <div class="modal-content mt-5">
                     <div class="modal-header">
                         <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Educator</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -562,7 +627,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                         <div runat="server" id="EducatorEditDiv">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalAnimalForm">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Select Educator</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Select Educator</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
@@ -574,7 +642,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalAnimalForm">
+                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>First Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>First Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
@@ -583,7 +654,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
 
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalAnimalForm">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Last Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Last Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
