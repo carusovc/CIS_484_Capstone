@@ -148,7 +148,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select OrgID, OrgName, City, County, LastUpdated, LastUpdatedBy from Organization where" +
+        insert.CommandText = "select OrgID, OrgName, City, County, LastUpdated, LastUpdatedBy, StreetAddress, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email from Organization where" +
                           " OrgID = @OrgID";
 
         insert.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
@@ -162,6 +162,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 txtOrgName.Text = sdr[1].ToString();
                 txtCity.Text = sdr[2].ToString();
                 txtCounty.Text = sdr[3].ToString();
+                txtStreetAddress2.Text = sdr[6].ToString();
+                ddlState2.SelectedItem.Value = sdr[7].ToString();
+                txtPostalCode2.Text = sdr[8].ToString();
+                txtContactFirstName2.Text = sdr[9].ToString();
+                txtContactLastName2.Text = sdr[10].ToString();
+                txtPhoneNumber2.Text = sdr[11].ToString();
+                txtEmail2.Text = sdr[12].ToString();
                 //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
@@ -184,14 +191,23 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
 
-        update.CommandText = "update organization set orgName = @orgName, city = @city, county = @county, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where orgID = @orgID";
+        update.CommandText = "update organization set orgName = @orgName, city = @city, county = @county, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, streetAddress = @streetAddress, state = @state, postalCode = @postalCode, contactFirstName = @contactFirstName, contactLastName = @contactLastName, phoneNumber = @phoneNumber, email = @email where orgID = @orgID";
         update.Parameters.AddWithValue("@orgName", txtOrgName.Text);
         update.Parameters.AddWithValue("@city", txtCity.Text);
         update.Parameters.AddWithValue("@county", txtCounty.Text);
         update.Parameters.AddWithValue("@orgID", ddlOrganization.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@streetAddress", txtStreetAddress2.Text);
+        update.Parameters.AddWithValue("@state", ddlState2.SelectedItem.Value);
+        update.Parameters.AddWithValue("@postalCode", txtPostalCode2.Text);
+        update.Parameters.AddWithValue("@contactFirstName", txtContactFirstName2.Text);
+        update.Parameters.AddWithValue("@contactLastName", txtContactLastName2.Text);
+        update.Parameters.AddWithValue("@phoneNumber", txtPhoneNumber2.Text);
+        update.Parameters.AddWithValue("@email", txtEmail2.Text);
         update.ExecuteNonQuery();
+
+
 
         // lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
         // lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
@@ -210,7 +226,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtOrgName.Text = "";
         txtCity.Text = "";
         txtCounty.Text = "";
+        txtStreetAddress.Text = "";
+        ddlState.SelectedIndex = 0;
         ddlOrganization.SelectedIndex = 0;
+        txtPostalCode.Text = "";
+        txtContactFirstName.Text = "";
+        txtContactLastName.Text = "";
+        txtPhoneNumber.Text = "";
+        txtEmail.Text = "";
     }
 
 
@@ -261,21 +284,49 @@ public partial class MasterPage : System.Web.UI.MasterPage
         String orgName = textOrgName.Text;
         String city = textOrgCity.Text;
         String county = textOrgCounty.Text;
+        String streetAddress = txtStreetAddress.Text;
+        String state = ddlState.SelectedValue; ; 
+        String postalCode = txtPostalCode.Text;
+        String contactFirstName = txtContactFirstName.Text;
+        String contactLastName = txtContactLastName.Text;
+        String phoneNumber = txtPhoneNumber.Text;
+        String email = txtEmail.Text;
         DateTime lastUpdated = DateTime.Today;
         String lastUpdatedBy = "WildTekDevs";
 
-        Organization newOrg = new Organization(orgName, city, county);
-        insert.CommandText = "insert into Organization (orgName, city, county, lastUpdated, lastUpdatedBy) values (@orgName, @city, @county, @lastUpdated, @lastUpdatedBy)";
+        Organization newOrg = new Organization(orgName, city, county, streetAddress, state, postalCode, contactFirstName, contactLastName, phoneNumber, email);
+        insert.CommandText = "insert into Organization (orgName, city, county, lastUpdated, lastUpdatedBy, streetAddress, state, postalCode, contactFirstName, contactLastName, phoneNumber, email) values (@orgName, @city, @county, @lastUpdated, @lastUpdatedBy, @streetAddress, @state, @postalCode, @contactFirstName, @contactLastName, @phoneNumber, @email)";
         insert.Parameters.AddWithValue("@orgName", newOrg.getOrgName());
         insert.Parameters.AddWithValue("@city", newOrg.getCity());
         insert.Parameters.AddWithValue("@county", newOrg.getCounty());
         insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
         insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+        insert.Parameters.AddWithValue("@streetAddress", newOrg.getStreetAddress());
+        insert.Parameters.AddWithValue("@state", newOrg.getState());
+        insert.Parameters.AddWithValue("@postalCode", newOrg.getPostalCode());
+        insert.Parameters.AddWithValue("@contactFirstName", newOrg.getContactFirstName());
+        insert.Parameters.AddWithValue("@contactLastName", newOrg.getContactLastName());
+        insert.Parameters.AddWithValue("@phoneNumber", newOrg.getPhoneNumber());
+        insert.Parameters.AddWithValue("@email", newOrg.getEmail());
+        
+
         insert.ExecuteNonQuery();
 
         //lblLastUpdated.Text = "Last Updated: " + lastUpdated;
         //lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
         ddlOrganization.DataBind();
+
+        txtOrgName.Text = "";
+        txtCity.Text = "";
+        txtCounty.Text = "";
+        txtStreetAddress.Text = "";
+        ddlState.SelectedIndex = 0;
+        ddlOrganization.SelectedIndex = 0;
+        txtPostalCode.Text = "";
+        txtContactFirstName.Text = "";
+        txtContactLastName.Text = "";
+        txtPhoneNumber.Text = "";
+        txtEmail.Text = "";
     }
 
     protected void btnAddAnimal_Click(object sender, EventArgs e)
