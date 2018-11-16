@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Organizations.aspx.cs" Inherits="Organizations" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Volunteers.aspx.cs" Inherits="Volunteers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -220,6 +220,17 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
             </li>
+            <li class="nav-item dropdown no-arrow ">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                 <span>Volunteers</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#" data-target="Volunteers.aspx" data-toggle="modal">View Volunteers</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
+                    </div>
+                </li>
             <li class="nav-item">
                 <a class="nav-link" href="createUser.aspx">
 
@@ -248,15 +259,15 @@
       <div class="card  mx-auto mt-3">
         <div class="card-header NewUserTitle text-center">
            
-            Organization Listing</div>
+            Volunteer Listing</div>
         <div class="card-body">
             <div class="mx-auto d-flex justify-content-center">
-                <div class="btn btn-primary btn-inside" data-target="#AddOrganization" data-toggle="modal">Add Orgnaization</div>
-                <div class="btn btn-primary btn-inside" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</div>
+                <div class="btn btn-primary btn-inside" data-target="#AddVolunteer" data-toggle="modal">Add Volunteer</div>
+                <div class="btn btn-primary btn-inside" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteer</div>
             </div>
                 </div>
             <br />
-            <div class="row">
+            <%--<div class="row">
                
                 <div class=" col-md-4 ml-auto InternalOrganizationForm">
                     <asp:TextBox  class="InternalOrganizationForm" ID="txtSearch" runat="server"></asp:TextBox>
@@ -268,13 +279,13 @@
                 <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
                     <asp:ListItem>--Order By--</asp:ListItem>
                     <%--<asp:ListItem>Program Date</asp:ListItem>--%>
-                    <asp:ListItem>Organization Name A-Z</asp:ListItem>
+                    <%--<asp:ListItem>Organization Name A-Z</asp:ListItem>
                     <asp:ListItem>City A-Z</asp:ListItem>
                     <asp:ListItem>County A-Z</asp:ListItem>
-                </asp:DropDownList>
+                </asp:DropDownList>--%>
 
             
-            </div>
+            
             <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
 
     <div class="container1 block">
@@ -282,93 +293,61 @@
                
         <div runat="server" id="ViewOrganizations">
 
-                      </div>
+                      <%--</div>--%>
                    
-    <div class="block3">
-  
-                 <div class="tab-content">
-                 
-<div class="">
-    <div class="col-md-12 ">
-             <br />
-			  <div class=" text-center">
-                  <h6 class="ReportTitle" >Search Results</h6>
-
-			  </div>
-			
-		</div>
-	</div>
-                        
-
-              <div class="col-md-12 mx-auto d-flex justify-content-center">
-   
-   
-<asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" runat="server" AutoGenerateColumns="False">
-                      <Columns>
-                          <asp:BoundField DataField="OrgName" HeaderText="Orgnaization Name" SortExpression="OrgName" />
-                          <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" />
-                          <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
-                          <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" />
-                          <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
-                          <asp:BoundField DataField="PostalCode" HeaderText="Postal Code" SortExpression="PostalCode" />
-                          <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName" />
-                          <asp:BoundField DataField="ContactLastName" HeaderText="Contact Last Name" SortExpression="ContactLastName" />
-                          <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" SortExpression="PhoneNumber" />
-                          <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                      </Columns>
-                 </asp:GridView><br /><br /><br />
-              </div>
-           </div>
+            <div class="block3">
+                 <div class="tab-content">   
+                    <div class="">
+                        <div class="col-md-12 ">
+                                 <br />
+			                     
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
          
 
             <%-- this div  is the internal div--%>
        
-            <ul class="nav nav-tabs block4" role="tablist">
+         <ul class="nav nav-tabs block4" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active TabStyle" data-toggle="tab" href="#OrganizationsAllTab" style="color:black;">All</a>
+                    <a class="nav-link active TabStyle" data-toggle="tab" href="#VolunteersAllTab" style="color:black;">All Volunteers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#VolunteersActiveTab" style="color:black;">Active Volunteers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#VolunteersInactiveTab" style="color:black;">Inactive Volunteers</a>
                 </li>
                 
             </ul>
-            <div class="tab-content">
-                <div id="OrganizationsAllTab" class="container1 block3 tab-pane  WildTable active">
-                    <div class="InternalOrganizationsTab">
-                        <div class ="grid-mammal text-center">
+
+
+
+
+          <div class="tab-content">
+                <div id="VolunteersAllTab" class="container1 block3 tab-pane  active WildTable ">
+                    <div class="InternalAnimalTab">
+                       <div class ="grid-volunteers text-center">
                    
                                 <%--<h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>--%>
                            
     <asp:GridView ID="GridView1"  class="table table-borderless table-condensed  table-striped " runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
         <Columns>
-            <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" >
+            <asp:BoundField DataField="VolunteerFirstName" HeaderText="First Name" SortExpression="VolunteerFirstName" >
  
             </asp:BoundField>
-            <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" >
+            <asp:BoundField DataField="VolunteerLastName" HeaderText="Volunteer Last Name" SortExpression="VolunteerLastName" >
             
             </asp:BoundField>
-            <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" >
+            <asp:BoundField DataField="VolunteerPhoneNumber" HeaderText="Volunteer Phone Number" SortExpression="VolunteerPhoneNumber" >
             
             </asp:BoundField>
-            <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" >
+            <asp:BoundField DataField="VolunteerEmail" HeaderText="Volunteer Email" SortExpression="VolunteerEmail" >
             
             </asp:BoundField>
-            <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" >
-            
-            </asp:BoundField>
-            <asp:BoundField DataField="PostalCode" HeaderText="Postal Code" SortExpression="PostalCode">
-            
-            </asp:BoundField>
-            <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName" >
-            
-            </asp:BoundField>
-            <asp:BoundField DataField="ContactLastName" HeaderText="Contact Last Name" SortExpression="ContactLastName" >
-            
-            </asp:BoundField>
-            <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" SortExpression="PhoneNumber" >
-            
-            </asp:BoundField>
-            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email">
+            <asp:BoundField DataField="VolunteerStatus" HeaderText="Volunteer Status" SortExpression="VolunteerStatus" >
             
             </asp:BoundField>
             
@@ -376,13 +355,76 @@
         
      </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
-                    SelectCommand="SELECT [OrgName], [StreetAddress], [City], [County], [State], [PostalCode], [ContactFirstName], [ContactLastName], [PhoneNumber], [Email] FROM [Organization] ORDER BY [OrgName]">
+                    SelectCommand="SELECT [VolunteerFirstName], [VolunteerLastName], [VolunteerPhoneNumber], [VolunteerEmail], [VolunteerStatus] FROM [Volunteers] ORDER BY [VolunteerFirstName]">
                 </asp:SqlDataSource>
-     </div>
-  
-       
-     
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="VolunteersActiveTab" class="container1 block3 tab-pane text-center WildTable ">
+                    <div class="InternalAnimalTab">
+                   
+                        <div class ="grid-volunteers text-center">
+                            <asp:GridView ID="GridView2"  class="table table-borderless table-condensed  table-striped " runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource1">
+                            <Columns>
+                                <asp:BoundField DataField="VolunteerFirstName" HeaderText="First Name" SortExpression="VolunteerFirstName" >
+ 
+                                </asp:BoundField>
+                                <asp:BoundField DataField="VolunteerLastName" HeaderText="Volunteer Last Name" SortExpression="VolunteerLastName" >
+            
+                                </asp:BoundField>
+                                <asp:BoundField DataField="VolunteerPhoneNumber" HeaderText="Volunteer Phone Number" SortExpression="VolunteerPhoneNumber" >
+            
+                                </asp:BoundField>
+                                <asp:BoundField DataField="VolunteerEmail" HeaderText="Volunteer Email" SortExpression="VolunteerEmail" >
+            
+                                </asp:BoundField>
+                                <asp:BoundField DataField="VolunteerStatus" HeaderText="Volunteer Status" SortExpression="VolunteerStatus" >
+            
+                                </asp:BoundField>
+            
+                            </Columns>
         
+                         </asp:GridView>
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
+                                        SelectCommand="SELECT [VolunteerFirstName], [VolunteerLastName], [VolunteerPhoneNumber], [VolunteerEmail], [VolunteerStatus] FROM [Volunteers] WHERE[VolunteerStatus] = 'Active' ORDER BY [VolunteerFirstName]">
+                                    </asp:SqlDataSource>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div id="VolunteersInactiveTab" class="container1 block3 tab-pane  text-center WildTable">
+                    <div class="InternalAnimalTab">
+                     <div class ="grid-volunteers text-center">
+                            <asp:GridView ID="GridView3"  class="table table-borderless table-condensed  table-striped " runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
+                            <Columns>
+                                <asp:BoundField DataField="VolunteerFirstName" HeaderText="First Name" SortExpression="VolunteerFirstName" >
+ 
+                                </asp:BoundField>
+                                <asp:BoundField DataField="VolunteerLastName" HeaderText="Volunteer Last Name" SortExpression="VolunteerLastName" >
+            
+                                </asp:BoundField>
+                                <asp:BoundField DataField="VolunteerPhoneNumber" HeaderText="Volunteer Phone Number" SortExpression="VolunteerPhoneNumber" >
+            
+                                </asp:BoundField>
+                                <asp:BoundField DataField="VolunteerEmail" HeaderText="Volunteer Email" SortExpression="VolunteerEmail" >
+            
+                                </asp:BoundField>
+                                <asp:BoundField DataField="VolunteerStatus" HeaderText="Volunteer Status" SortExpression="VolunteerStatus" >
+            
+                                </asp:BoundField>
+            
+                            </Columns>
+        
+                         </asp:GridView>
+                                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
+                                        SelectCommand="SELECT [VolunteerFirstName], [VolunteerLastName], [VolunteerPhoneNumber], [VolunteerEmail], [VolunteerStatus] FROM [Volunteers] WHERE[VolunteerStatus] = 'Inactive' ORDER BY [VolunteerFirstName]">
+                                    </asp:SqlDataSource>
+                        </div>
                     </div>
                 </div>
 
@@ -392,23 +434,68 @@
 
 
             </div>
-        </div>
-                </div>
-          <div runat="server" id="Div1">
-          </div>
-      </div>
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
 
         </div>
-      </div>
+    </div>
+    <div runat="server" id="Div1">
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+        </div>
+
+    </div>
+    <%--</div>
+    </div>
+    </div>
 
 
-
-
-
-
-
-
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>--%>
+    </div>
     </div>
     </div>
     </div>
