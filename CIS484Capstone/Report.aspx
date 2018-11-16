@@ -73,21 +73,12 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                         <li class="nav-item active">
+                    <a class="nav-link" href="Report.aspx">
 
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Report.aspx">Reports</a>
-                  <%-- --%>
-                   <%-- --%>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown no-arrow active">
+                        <span>Reports</span></a>
+                </li>
+            <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Payment</span>
@@ -314,10 +305,10 @@
                                     </div>
                                     <br />
                             </div> 
-                                    <div class="col-md-12 mx-auto d-flex justify-content-center">
+                                    <div class="row table-responsive mx-auto d-flex justify-content-center">
                                         <br />
                                         <br />
-
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <asp:GridView HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" runat="server" ID="gridSearch" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False">
                                             <Columns>
@@ -331,7 +322,7 @@
                                             </Columns>
                                         </asp:GridView>
 
-
+                                            </div>
                                         <br />
                                         <br />
                                         <br />
@@ -353,13 +344,14 @@
                                 </div>
                                 <br />
 
-                                     <div class="col-md-12 mx-auto d-flex justify-content-center">
+                                     <div class=" row  table-responsive mx-auto d-flex justify-content-center">
                                     <br />
                                     <br />
 
-
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <asp:GridView  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" runat="server" ID="GridView1" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" width="600px" DataSourceID="SqlDataSource3">
+                                    HeaderStyle-Forecolor="#732700" runat="server" ID="GridView1" class=" table table-bordered table-condensed table-hover" 
+                                        AutoGenerateColumns="False"  DataSourceID="SqlDataSource3">
 
                                         <Columns>
                                             <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName">
@@ -382,7 +374,7 @@
                                             <asp:ControlParameter ControlID="drpAnimalType" Name="AnimalType" PropertyName="SelectedValue" Type="String" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
-
+    </div>
                                     <br />
                                     <br />
                                     <br />
@@ -404,10 +396,10 @@
                                 </div>
                                 <br />
 
-                                <div class="col-md-12 mx-auto d-flex justify-content-center">
+                                <div class="row table-responsive mx-auto d-flex justify-content-center">
                                     <br />
                                     <br />
-
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <asp:GridView  HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" ID="AnimalLiveGrid" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"
                                         EmptyDataText="There are no records to display.">
@@ -435,10 +427,9 @@
                                         </Columns>
                                     </asp:GridView>
                                     <br />
-                                    <br />
-                                    <br />
-                                    <br />
+                                  
                                 </div>
+                                    </div>
                             </div>
                         </div>
                         <p></p>
@@ -455,11 +446,11 @@
                                     </div>
                                 </div>
                                 <br />
-                                <div class="col-md-12 mx-auto d-flex justify-content-center">
+                                <div class="row table-responsive mx-auto d-flex justify-content-center">
                                     <br />
                                     <br />
 
-
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <asp:GridView HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" runat="server" ID="gridOnlinePrograms" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
                                         EmptyDataText="There are no records to display.">
@@ -491,6 +482,7 @@
                                     <br />
 
                                 </div>
+                                      </div>
 
                             </div>
                         </div>
@@ -498,7 +490,7 @@
 
 
 
-                    
+                    <br />
                     <div class="mx-auto d-flex justify-content-center">
                         <asp:Button ID="btnToExcel" runat="server" OnClick="btnToExcel_Click1" Text="Export to Excel" class="btn btn-primary btn-inside" />
                         <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>
@@ -558,10 +550,10 @@
 	</div>
                          <br />
 
-              <div class="col-md-12 mx-auto d-flex justify-content-center">
+              <div class="row table-responsive mx-auto d-flex justify-content-center">
     <br />
      <br />
-   
+   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <asp:GridView ID="gridLivePrograms" HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" runat="server" class="table table-bordered table-condensed table-hover" 
     AutoGenerateColumns="False" DataSourceID="SqlDataSource9" EmptyDataText="There are no records to display.">
@@ -628,11 +620,10 @@
 
         </SelectParameters>
      </asp:SqlDataSource>
-          <br />
-     <br /><br /><br />
+         <br />
               </div>
     </div>
-                 </div>
+                 </div> </div>
           <p></p>
      <%-- this div  is the internal div--%>
         <div class="block3">
@@ -647,11 +638,11 @@
 		</div>
 	</div>
                      <br />
-              <div class="col-md-12 mx-auto d-flex justify-content-center">
+              <div class="row table-responsive mx-auto d-flex justify-content-center">
     <br />
      <br />
    
- 
+ <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <asp:GridView runat="server" HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" id= "gridOnlineAnimalsTotals" class="table table-bordered table-condensed table-hover" 
         AutoGenerateColumns="False" DataSourceID="SqlDataSource11" EmptyDataText="There are no records to display.">
@@ -712,6 +703,7 @@
           <br />
     
               </div>
+                   </div>
 
     
 
@@ -719,6 +711,7 @@
      
                    
          </div>
+            <br />
           <div class="mx-auto d-flex justify-content-center">
 <asp:Button ID="btnMonthToExcel" runat="server" OnClick="btnMonthsToExcel_Click" Text="Export to Excel"  class="btn btn-primary btn-inside" />
            
@@ -747,10 +740,10 @@
 	
                          <br />
 
-              <div class="col-md-12 mx-auto d-flex justify-content-center">
+              <div class="row table-responsive mx-auto d-flex justify-content-center">
     <br />
      <br />
-   
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <asp:GridView ID="gridPrograms"  HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center">
         <Columns>
@@ -809,9 +802,9 @@
             <asp:ControlParameter ControlID="drpYear" Name="YEAR" PropertyName="SelectedValue" />
         </SelectParameters>
     </asp:SqlDataSource>
-          <br />
-     <br /><br /><br />
+         <br />
               </div>
+                  </div>
     </div>
                  
           <p></p>
@@ -828,11 +821,11 @@
 		</div>
 	</div>
                      <br />
-              <div class="col-md-12 mx-auto d-flex justify-content-center">
+              <div class="row table-responsive mx-auto d-flex justify-content-center">
     <br />
      <br />
    
- 
+ <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <asp:GridView ID="GridView2" HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700"  class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" HorizontalAlign="Center">
         <Columns>
@@ -881,16 +874,16 @@
             <asp:ControlParameter ControlID="drpYear" Name="YEAR" PropertyName="SelectedValue" />
         </SelectParameters>
     </asp:SqlDataSource>
-          <br />
-     <br /><br /><br />
+        <br />
               </div>
+                  </div>
 
     </div>
                  </div>
 
-         
+           <br />
           <div class="mx-auto d-flex justify-content-center">
-
+              
               <asp:Button ID="btnExportYearlyInformation" runat="server" Text="Export to Excel" class="btn btn-primary btn-inside" OnClick="btnExportLiveYearlyInformation_Click"></asp:Button>
 
               </div>
