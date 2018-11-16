@@ -251,19 +251,28 @@
             Organization Listing</div>
         <div class="card-body">
             <div class="mx-auto d-flex justify-content-center">
-                <div class="btn btn-primary btn-inside" data-target="#AddOrganization" data-toggle="modal">Add Animal</div>
-                <div class="btn btn-primary btn-inside" data-target="#UpdateOrganization" data-toggle="modal">Edit Animal</div>
+                <div class="btn btn-primary btn-inside" data-target="#AddOrganization" data-toggle="modal">Add Orgnaization</div>
+                <div class="btn btn-primary btn-inside" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</div>
             </div>
                 </div>
             <br />
             <div class="row">
                
-                <%--<div class=" col-md-4 ml-auto InternalOrganizationForm">
+                <div class=" col-md-4 ml-auto InternalOrganizationForm">
                     <asp:TextBox  class="InternalOrganizationForm" ID="txtSearch" runat="server"></asp:TextBox>
                     <asp:Button ID ="btnSearch" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
                     &nbsp;&nbsp;&nbsp;
                     
-                </div>--%>
+                </div>
+                <br />
+                <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+                    <asp:ListItem>--Order By--</asp:ListItem>
+                    <%--<asp:ListItem>Program Date</asp:ListItem>--%>
+                    <asp:ListItem>Organization Name A-Z</asp:ListItem>
+                    <asp:ListItem>City A-Z</asp:ListItem>
+                    <asp:ListItem>County A-Z</asp:ListItem>
+                </asp:DropDownList>
+
             
             </div>
             <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
@@ -292,8 +301,7 @@
                         
 
               <div class="col-md-12 mx-auto d-flex justify-content-center">
-    <br />
-     <br />
+   
    
 <asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" runat="server" AutoGenerateColumns="False">
@@ -327,17 +335,14 @@
             <div class="tab-content">
                 <div id="OrganizationsAllTab" class="container1 block3 tab-pane  WildTable active">
                     <div class="InternalOrganizationsTab">
-                        <%--<p>  Hello</p>
-                        <br />
-                        <br /><br /><br />--%>
                         <div class ="grid-mammal text-center">
                    
-                                <h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>
+                                <%--<h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>--%>
                            
     <asp:GridView ID="GridView1"  class="table table-borderless table-condensed  table-striped " runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4" AllowSorting="True" >
         <Columns>
             <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" >
-            
+ 
             </asp:BoundField>
             <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" >
             
@@ -404,5 +409,9 @@
 
 
 
+    </div>
+    </div>
+    </div>
+    </div>
 </asp:Content>
 
