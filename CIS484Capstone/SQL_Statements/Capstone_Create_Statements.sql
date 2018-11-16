@@ -34,8 +34,15 @@ CONSTRAINT PK_AnimalID PRIMARY KEY (AnimalID));
 Create Table Organization (
 OrgID int IDENTITY(1,1) NOT NULL,
 OrgName varchar(50) NOT NULL,
+StreetAddress varchar(50) NOT NULL,
 City varchar(30) NOT NULL,
 County varchar(30) NOT NULL,
+State varchar(2) NOT NULL,
+PostalCode varchar(20) NOT NULL,
+ContactFirstName varchar(50) NOT NULL,
+ContactLastName varchar(50) NOT NULL,
+PhoneNumber numeric NOT NULL,
+Email varchar(50) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_OrgID PRIMARY KEY (OrgID));
@@ -158,6 +165,31 @@ LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_ProgramGrade PRIMARY KEY (ProgramID, GradeID),
 CONSTRAINT FK_ProgramGradeProgram FOREIGN KEY (ProgramID) references Program,
 CONSTRAINT FK_ProgramGradeGrade FOREIGN KEY (GradeID) references Grade);
+                                      
+Create table AllPrograms (
+AllProgramID int IDENTITY(0,1) NOT NULL,
+ProgramCategory varchar(100) NULL,
+ProgramDate date NULL,
+ProgramType varchar(150) NULL,
+LiveProgramTime time(7) NULL,
+EventMonth varchar(50) NULL,
+LiveProgramStatus varchar(50) NULL,
+NumberOfChildren int NULL,
+NumberOfAdults int NULL,
+LiveProgramStreetAddress varchar(100) NULL,
+CityCounty varchar(100) NULL,
+OnlineProgramCountry varchar(150),
+State varchar(100) NULL,
+LiveProgramOnOff bit NULL,
+LiveProgramPaid char(1),
+LiveProgramPaymentID int NULL,
+OnlineTeacherName varchar(150) NULL,
+OnlineContactEmail varchar(150) NULL,
+ExtraComments varchar(300) NULL,
+LastUpdated datetime NULL,
+LastUpdatedBy varchar(150) NULL
+)
+
                                        
 Create Table Volunteers(
 VolunteerID int IDENTITY(1,1) NOT NULL,
