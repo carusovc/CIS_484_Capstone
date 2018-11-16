@@ -252,8 +252,9 @@
                 </div>
             <br />
             <div class="row">
-               
-                <div class=" col-md-4 ml-auto InternalAnimalForm">
+                <div class=" col-xl-6 col-lg-6 col-md-4 col-sm-4 col-sx-4 InternalAnimalForm">
+                    </div>
+                <div class=" text-right col-xl-6 col-lg-6 col-md-8 col-sm-8 col-sx-8 InternalAnimalForm">
                     <asp:TextBox  class="InternalAnimalForm" ID="txtSearch" runat="server"></asp:TextBox>
                     <asp:Button ID ="btnSearch" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
                     &nbsp;&nbsp;&nbsp;
@@ -317,13 +318,13 @@
                     <a class="nav-link active TabStyle" data-toggle="tab" href="#AnimalsAllTab" style="color:black;">All</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsMammalTab" style="color:black;">Mammals</a>
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsMammalTab" style="color:black;">Mammal</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsReptileTab" style="color:black;">Reptiles</a>
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsReptileTab" style="color:black;">Reptile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsBirdTab" style="color:black;">Birds</a>
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsBirdTab" style="color:black;">Bird</a>
                 </li>
             </ul>
             <div class="tab-content">
