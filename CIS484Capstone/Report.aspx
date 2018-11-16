@@ -41,7 +41,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand logo" href="Programs.aspx">Wildtek</a>
+  <a class="navbar-brand logo" href="Programs.aspx">Wildlife Center of Virginia</a>
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -111,6 +111,18 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
             </li>
+        <li class="nav-item dropdown no-arrow ">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                 <span>Volunteers</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
+                    </div>
+                </li>
+
             <li class="nav-item " style="display: inline-block;
   white-space: nowrap;">
                 <a class="nav-link" href="createUser.aspx">
@@ -204,6 +216,18 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
             </li>
+            <li class="nav-item dropdown no-arrow ">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                 <span>Volunteers</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
+                    </div>
+                </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="createUser.aspx">
 

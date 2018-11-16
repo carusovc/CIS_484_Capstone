@@ -43,7 +43,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand logo" href="Programs.aspx">Wildtek</a>
+  <a class="navbar-brand logo" href="Programs.aspx">Wildlife Center of Virginia</a>
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -62,7 +62,7 @@
             <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-            <li class="nav-item dropdown no-arrow active ">
+            <li class="nav-item dropdown no-arrow  ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
 
@@ -123,6 +123,18 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
             </li>
+        <li class="nav-item dropdown no-arrow active">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                 <span>Volunteers</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
+                    </div>
+                </li>
+
             <li class="nav-item " style="display: inline-block;
   white-space: nowrap;">
                 <a class="nav-link" href="createUser.aspx">
@@ -311,15 +323,18 @@
             <%-- this div  is the internal div--%>
        
          <ul class="nav nav-tabs block4" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active TabStyle" data-toggle="tab" href="#VolunteersAllTab" style="color:black;">All Volunteers</a>
+                <li class="nav-item ">
+                
+                                
+                    <a class="nav-link   active TabStyle" data-toggle="tab" href="#VolunteersAllTab" style="color:black;"><p class="d-none d-lg-block">All Volunteers</p><p class="d-lg-none">All </p></a>
+                 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link TabStyle" data-toggle="tab" href="#VolunteersActiveTab" style="color:black;">Active Volunteers</a>
-                </li>
+                     <a class="nav-link    TabStyle" data-toggle="tab" href="#VolunteersActiveTab" style="color:black;"><p class="d-none d-lg-block">Active Volunteers</p><p class="d-lg-none">Active </p></a>
+                      </li>
                 <li class="nav-item">
-                    <a class="nav-link TabStyle" data-toggle="tab" href="#VolunteersInactiveTab" style="color:black;">Inactive Volunteers</a>
-                </li>
+                    <a class="nav-link  TabStyle" data-toggle="tab" href="#VolunteersInactiveTab" style="color:black;"><p class="d-none d-lg-block">Inactive Volunteers</p><p class="d-lg-none">Inactive </p></a>
+                     </li>
                 
             </ul>
 
@@ -330,10 +345,11 @@
                 <div id="VolunteersAllTab" class="container1 block3 tab-pane  active WildTable ">
                     <div class="InternalAnimalTab">
                        <div class ="grid-volunteers text-center">
-                   
+                   <div class="row table-responsive mx-auto d-flex  justify-content-center">
+              <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                 <%--<h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>--%>
                            
-    <asp:GridView ID="GridView1"  class="table table-borderless table-condensed  table-striped " runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
+    <asp:GridView ID="GridView1"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
         <Columns>
             <asp:BoundField DataField="VolunteerFirstName" HeaderText="First Name" SortExpression="VolunteerFirstName" >
  
@@ -361,12 +377,17 @@
                     </div>
                 </div>
 
+                          </div>
+                </div>
+
 
                 <div id="VolunteersActiveTab" class="container1 block3 tab-pane text-center WildTable ">
                     <div class="InternalAnimalTab">
                    
                         <div class ="grid-volunteers text-center">
-                            <asp:GridView ID="GridView2"  class="table table-borderless table-condensed  table-striped " runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource1">
+                            <div class="row table-responsive mx-auto d-flex  justify-content-center">
+              <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
+                            <asp:GridView ID="GridView2"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource1">
                             <Columns>
                                 <asp:BoundField DataField="VolunteerFirstName" HeaderText="First Name" SortExpression="VolunteerFirstName" >
  
@@ -392,6 +413,8 @@
                                     </asp:SqlDataSource>
                         </div>
                     </div>
+                              </div>
+                    </div>
                 </div>
 
 
@@ -400,7 +423,9 @@
                 <div id="VolunteersInactiveTab" class="container1 block3 tab-pane  text-center WildTable">
                     <div class="InternalAnimalTab">
                      <div class ="grid-volunteers text-center">
-                            <asp:GridView ID="GridView3"  class="table table-borderless table-condensed  table-striped " runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
+                               <div class="row table-responsive mx-auto d-flex  justify-content-center">
+              <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
+                            <asp:GridView ID="GridView3"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
                             <Columns>
                                 <asp:BoundField DataField="VolunteerFirstName" HeaderText="First Name" SortExpression="VolunteerFirstName" >
  
@@ -425,6 +450,8 @@
                                         SelectCommand="SELECT [VolunteerFirstName], [VolunteerLastName], [VolunteerPhoneNumber], [VolunteerEmail], [VolunteerStatus] FROM [Volunteers] WHERE[VolunteerStatus] = 'Inactive' ORDER BY [VolunteerFirstName]">
                                     </asp:SqlDataSource>
                         </div>
+                    </div>
+                            </div>
                     </div>
                 </div>
 

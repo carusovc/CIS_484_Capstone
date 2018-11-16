@@ -673,8 +673,8 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
         <div class="modal fade" id="AddVolunteer" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content mt-5">
                     <div class="modal-header">
                         <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add New Volunteer</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -685,7 +685,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                         <div runat="server" id="Div3">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class=" col-md-4 text-right InternalEducatorForm">
+                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>First Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>First Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
@@ -693,7 +696,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 text-right InternalEducatorForm">
+                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Last Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Last Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
@@ -704,7 +710,10 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
                             <div class="row">
-                                <div class=" col-md-4 text-right InternalEducatorForm">
+                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Phone Number</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Phone Number</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
@@ -713,7 +722,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 text-right InternalEducatorForm">
+                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Email</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Email</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
@@ -721,7 +733,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 text-right InternalEducatorForm">
+                               <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Status</h6>
                                 </div>
                                 <div class=" col-md-3 InternalEducatorForm">
@@ -934,8 +949,8 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
                 <div class="modal fade" id="UpdateVolunteer" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content mt-5">
                     <div class="modal-header">
                         <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Volunteer</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -951,7 +966,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                         <div runat="server" id="Div2">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalAnimalForm">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Select Volunteer</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Select Volunteer</h6>
                                 </div>
                                 <div class=" col-md-3 InternalForm">
@@ -963,7 +981,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalAnimalForm">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>First Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>First Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
@@ -972,7 +993,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
 
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalAnimalForm">
+                              <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Last Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Last Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
@@ -983,7 +1007,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
 
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalAnimalForm">
+                              <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Phone Number</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Phone Number</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
@@ -994,7 +1021,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
 
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalAnimalForm">
+                               <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Email</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Email</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
@@ -1005,8 +1035,11 @@ $(".modal-wide").on("show.bs.modal", function() {
                             </div>
 
                            <div class="row">
-                                <div class=" text-right col-md-4 InternalAnimalForm">
-                                    <h6>Last Name</h6>
+                            <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
                                 </div>
                                 <div class=" col-md-3 InternalAnimalForm">
 

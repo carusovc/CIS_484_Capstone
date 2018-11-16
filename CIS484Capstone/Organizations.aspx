@@ -43,7 +43,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand logo" href="Programs.aspx">Wildtek</a>
+  <a class="navbar-brand logo" href="Programs.aspx">Wildlife Center of Virginia</a>
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -242,7 +242,7 @@
         <div class="container-fluid ">
 
           
-<section class="login-block  col-md-6 col-md-8 col-s-5 mx-auto ">
+<section class="login-block  col-xl-10 col-lg-10 col-md-12 col-s-12 mx-auto ">
             <%--<section class="card card-register mx-auto mt-5">--%>
     <div class="container1">
       <div class="card  mx-auto mt-3">
@@ -255,17 +255,15 @@
                 <div class="btn btn-primary btn-inside" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</div>
             </div>
                 </div>
-            <br />
-            <div class="row">
-               
-                <div class=" col-md-4 ml-auto InternalOrganizationForm">
-                    <asp:TextBox  class="InternalOrganizationForm" ID="txtSearch" runat="server"></asp:TextBox>
-                    <asp:Button ID ="btnSearch" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
-                    &nbsp;&nbsp;&nbsp;
-                    
-                </div>
-                <br />
-                <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+            
+
+          <div class="row">
+
+                <div class=" col-xl-6 col-lg-6 col-md-4 col-sm-4 col-sx-4 InternalAnimalForm">
+                    </div>
+            
+                <div class=" text-right col-xl-6 col-lg-6 col-md-8 col-sm-8 col-sx-8 InternalAnimalForm" >
+                    <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFAFA !important; color: #732700 !important; margin-right:15px;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
                     <asp:ListItem>--Order By--</asp:ListItem>
                     <%--<asp:ListItem>Program Date</asp:ListItem>--%>
                     <asp:ListItem>Organization Name A-Z</asp:ListItem>
@@ -273,9 +271,28 @@
                     <asp:ListItem>County A-Z</asp:ListItem>
                 </asp:DropDownList>
 
+                    
+                </div>
+
+                
+                
             
             </div>
-            <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
+          <br />
+                <div class="row">
+
+                <div class=" col-xl-6 col-lg-6 col-md-4 col-sm-4 col-sx-4 InternalAnimalForm">
+                    </div>
+                <div class=" text-right col-xl-6 col-lg-6 col-md-8 col-sm-8 col-sx-8 InternalAnimalForm">
+                    <asp:TextBox  class="InternalAnimalForm" ID="txtSearch" runat="server"></asp:TextBox>
+                    <asp:Button ID ="Button1" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
+                    &nbsp;&nbsp;&nbsp;
+                    
+                </div>
+            
+            </div>
+           
+          <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
 
     <div class="container1 block">
      <div runat="server" id="OrganizationSearchDiv">
@@ -300,7 +317,8 @@
 	</div>
                         
 
-              <div class="col-md-12 mx-auto d-flex justify-content-center">
+            <div class="row table-responsive mx-auto d-flex  justify-content-center">
+              <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
    
    
 <asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#FFBC7C"
@@ -321,6 +339,7 @@
               </div>
            </div>
         </div>
+         </div>
     </div>
          
 
@@ -335,11 +354,10 @@
             <div class="tab-content">
                 <div id="OrganizationsAllTab" class="container1 block3 tab-pane  WildTable active">
                     <div class="InternalOrganizationsTab">
-                        <div class ="grid-mammal text-center">
-                   
-                                <%--<h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>--%>
-                           
-    <asp:GridView ID="GridView1"  class="table table-borderless table-condensed  table-striped " runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
+                          <div class ="grid-volunteers text-center">
+                            <div class="row table-responsive mx-auto d-flex  justify-content-center">
+              <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">      
+    <asp:GridView ID="GridView1"  HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
         <Columns>
             <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" >
  
@@ -385,6 +403,8 @@
         
                     </div>
                 </div>
+                        </div>
+                </div>
 
 
 
@@ -399,6 +419,7 @@
       </div>
         </div>
 
+    </section>
         </div>
       </div>
 
@@ -410,8 +431,6 @@
 
 
     </div>
-    </div>
-    </div>
-    </div>
+   
 </asp:Content>
 
