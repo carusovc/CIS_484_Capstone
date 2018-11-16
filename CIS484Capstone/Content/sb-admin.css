@@ -4,6 +4,24 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/LICENSE)
  */
 
+.phone-number .col-xs-3::after {
+    content: "-";
+    position: absolute;
+    right: 5px;
+    color: black;
+    border: 0px solid;
+    top: 5px;
+}
+
+.phone-number .col-xs-4 {
+    width: 25%;
+}
+
+.phone-number .col-xs-3, .phone-number .col-xs-4 {
+    padding-left: 0;
+}
+
+
 body html {
     position: relative;
     min-height: 100%;
@@ -1073,3 +1091,6 @@ Regular {
     color: #963300 !important;
 }
 .NavBarHidden{display:none !important;}
+
+
+

@@ -372,7 +372,7 @@
                                                                     <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("OnOff") %>' />
                                                                 </td>
                                                                 <td class="col-md-4">
-                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("PaymentNeeded") %>' />
+                                                                    <asp:Label ID="lblCity" runat="server" Text='<%# Eval("paid") %>' />
                                                                 </td>
                                                                 <td class="col-md-8">
                                                                     <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
