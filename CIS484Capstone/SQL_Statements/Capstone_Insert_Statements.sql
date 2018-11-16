@@ -347,3 +347,9 @@ VALUES (655, '2018-03-01', null, 'Debit', 'GA1002', 'N', 8, GETDATE(), 'WildTekD
 
 INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],[CancelledInvoice],[OrgID],[LastUpdated],[LastUpdatedBy])
 VALUES (1000, '2018-05-01', null, 'Debit', 'GA1003', 'N', 4, GETDATE(), 'WildTekDevelopers');
+                                                                                                                                                
+                                                                                                                                                
+Insert into [dbo].[Volunteers](VolunteerFirstName, VolunteerLastName, VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus,
+ LastUpdated, LastUpdatedBy) VALUES ('Shelley','Hokanson', '703-555-5555', 'shelleyhokanson@jmu.edu', 'Active', GETDATE(), 'WildTekDevelopers');                                                                  
+Insert into [dbo].[Volunteers](VolunteerFirstName, VolunteerLastName, VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus,
+ LastUpdated, LastUpdatedBy) VALUES ('Sarah','Chamness', '703-123-4567', 'sarahchamness@gmail.com', 'Active', GETDATE(), 'WildTekDevelopers');      

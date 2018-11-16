@@ -14,6 +14,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
@@ -69,7 +70,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 ddlEducatorName.DataBind();
                 ddlAnimal.DataBind();
                 ddlOrganization.DataBind();
-                
+
 
 
                 ////call read array
@@ -113,29 +114,24 @@ public partial class MasterPage : System.Web.UI.MasterPage
             if (con.State == System.Data.ConnectionState.Open)
             {
 
-                string read = "Select * from Educators";
+                string read = "Select * from Volunteers";
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlDataReader myRead = cmd.ExecuteReader();
 
                 while (myRead.Read())
                 {
-                    ddlEducatorName.Items.Add(new ListItem(myRead["EducatorFirstName"].ToString() + " " + myRead["EducatorLastName"].ToString(), myRead["EducatorID"].ToString()));
+                    ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
                 }
-
-
             }
-
-            txtEducatorFirst.Text = "";
-            txtEducatorLastName.Text = "";
             con.Close();
         }
 
-        
-            
-                
-               
-        }
-        protected void ddlOrganization_SelectedIndexChanged1(object sender, EventArgs e)
+
+
+
+
+    }
+    protected void ddlOrganization_SelectedIndexChanged1(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -174,7 +170,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 txtPhoneNumber2.Text = sdr[11].ToString();
                 txtEmail2.Text = sdr[12].ToString();
                 //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
-               // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
+                // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
         }
         catch (Exception ex)
@@ -267,8 +263,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         insert.ExecuteNonQuery();
 
-      //  lblLastUpdated.Text = "Last Updated: " + lastUpdated;
-      //  lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
+        //  lblLastUpdated.Text = "Last Updated: " + lastUpdated;
+        //  lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
     }
 
     protected void btnAddOrg_Click(object sender, EventArgs e)
@@ -335,26 +331,26 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void btnAddAnimal_Click(object sender, EventArgs e)
     {
-            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-            // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
 
-            String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-            sc.ConnectionString = cs;
-            System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand retrieveImage = new System.Data.SqlClient.SqlCommand();
 
         sc.Open();
-            insert.Connection = sc;
+        insert.Connection = sc;
         retrieveImage.Connection = sc;
 
         String animalType = ddlAnimalType.SelectedItem.Text;
-            String animalName = txtAnimalName.Text;
-            DateTime lastUpdated = DateTime.Today;
-            String lastUpdatedBy = "WildTek";
+        String animalName = txtAnimalName.Text;
+        DateTime lastUpdated = DateTime.Today;
+        String lastUpdatedBy = "WildTek";
 
 
-            Animal newAnimal = new Animal(animalType, animalName);
+        Animal newAnimal = new Animal(animalType, animalName);
         string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
         using (Stream fs = FileUpload1.PostedFile.InputStream)
         {
@@ -363,11 +359,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
                 insert.CommandText = "Insert into Animal (animalType, animalName, lastUpdated, lastUpdatedBy, status) values (@animalType, @animalName, @lastUpdated, @lastUpdatedBy, @status, @animalImage)";
-            insert.Parameters.AddWithValue("@animalType", newAnimal.getAnimalType());
-            insert.Parameters.AddWithValue("@animalName", newAnimal.getAnimalName());
-            insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
-            insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
-            insert.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
+                insert.Parameters.AddWithValue("@animalType", newAnimal.getAnimalType());
+                insert.Parameters.AddWithValue("@animalName", newAnimal.getAnimalName());
+                insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
+                insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+                insert.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
                 insert.Parameters.AddWithValue("@animalImage", bytes);
 
                 insert.ExecuteNonQuery();
@@ -377,12 +373,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
 
-            txtAnimalName.Text = "";
-            //gridAnimalMammal.DataBind();
-            //gridReptile.DataBind();
-            //gridBird.DataBind();
+        txtAnimalName.Text = "";
+        //gridAnimalMammal.DataBind();
+        //gridReptile.DataBind();
+        //gridBird.DataBind();
 
-        }
+    }
     public System.Drawing.Image ByteArrayToImage(byte[] byteArrayIn)
     {
         using (var ms = new MemoryStream(byteArrayIn))
@@ -714,6 +710,194 @@ public partial class MasterPage : System.Web.UI.MasterPage
             throw ex;
         }
     }
+
+    protected void ddlVolunteer_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        insert.Connection = sc;
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+
+        insert.CommandText = "select VolunteerFirstName, VolunteerLastName, VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus, lastUpdated, lastUpdatedBy from Volunteers where VolunteerID = @VolunteerID";
+
+        insert.Parameters.AddWithValue("@VolunteerID", ddlVolunteerName.SelectedItem.Value);
+
+        ddlVolunteerStatus.ClearSelection();
+        try
+        {
+            con.Open();
+            SqlDataReader sdr = insert.ExecuteReader();
+            while (sdr.Read())
+            {
+                txtVolunteerFirstName.Text = sdr[0].ToString();
+                txtVolunteerLastName.Text = sdr[1].ToString();
+                txtVolunteerPhoneNumber.Text = sdr[2].ToString();
+                txtVolunteerEmail.Text = sdr[3].ToString();
+                for (int i = 0; i < ddlVolunteerStatus.Items.Count; i++)
+                {
+                    if (ddlVolunteerStatus.Items[i].ToString() == sdr[4].ToString())
+                    {
+                        ddlVolunteerStatus.Items[i].Selected = true;
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    protected void btnDeleteVolunteer_Click(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
+
+        delete.Connection = sc;
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+        delete.CommandText = "Delete from Volunteers where VolunteerID = @VolunteerID";
+        delete.Parameters.AddWithValue("@VolunteerID", ddlVolunteerName.SelectedItem.Value);
+
+        delete.ExecuteNonQuery();
+
+        ddlVolunteerName.Items.Clear();
+        //call read array
+        con.Open();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from Volunteers";
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            while (myRead.Read())
+            {
+
+                ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString(), myRead["VolunteerID"].ToString()));
+            }
+
+
+        }
+        txtVolunteerFirstName.Text = "";
+        txtVolunteerLastName.Text = "";
+        txtVolunteerAddPhoneNumber.Text = "";
+        txtVoluteerAddEmail.Text = "";
+        ddlVolunteerAddStatus.SelectedIndex = 0;
+        ddlVolunteerName.DataBind();
+        con.Close();
+    }
+
+    protected void btnUpdateVolunteer_Click(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
+        update.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+
+        update.CommandText = "update Volunteers set VolunteerFirstName = @VolunteerFirstName, VolunteerLastName = @VolunteerLastName, VolunteerPhoneNumber = @VolunteerPhoneNumber, VolunteerEmail = @VolunteerEmail, VolunteerStatus = @VolunteerStatus," +
+            " lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where VolunteerID = @VolunteerID";
+        update.Parameters.AddWithValue("@VolunteerFirstName", txtVolunteerFirstName.Text);
+        update.Parameters.AddWithValue("@VolunteerLastName", txtVolunteerLastName.Text);
+        update.Parameters.AddWithValue("@VolunteerPhoneNumber", txtVolunteerPhoneNumber.Text);
+        update.Parameters.AddWithValue("@VolunteerEmail", txtVolunteerEmail.Text);
+        update.Parameters.AddWithValue("@VolunteerStatus", ddlVolunteerStatus.SelectedItem.Value);
+        update.Parameters.AddWithValue("@VolunteerID", ddlVolunteerName.SelectedItem.Value);
+        update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
+        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.ExecuteNonQuery();
+
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        SqlConnection con2 = new SqlConnection(cs);
+
+        ddlVolunteerName.Items.Clear();
+        //call read array
+        con.Open();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from Volunteers";
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            while (myRead.Read())
+            {
+                ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
+            }
+        }
+
+
+    }
+
+    protected void btnAddVolunteer_Click(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+
+
+        sc.Open();
+        insert.Connection = sc;
+
+        String firstName = txtVolunteerAddFirstName.Text;
+        String lastName = txtVolunteerAddLastName.Text;
+        string phoneNumber = txtVolunteerAddPhoneNumber.Text;
+        string email = txtVoluteerAddEmail.Text;
+        string status = ddlVolunteerAddStatus.Text;
+
+        DateTime lastUpdated = DateTime.Today;
+        String lastUpdatedBy = "WildTek";
+
+
+        insert.CommandText = "insert into Volunteers (VolunteerFirstName, VolunteerLastName, VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus, lastUpdated, lastUpdatedBy) values (@firstName, @lastName, @phoneNumber, @email, @status, @lastUpdated, @lastUpdatedBy)";
+        insert.Parameters.AddWithValue("@firstName", firstName);
+        insert.Parameters.AddWithValue("@lastName", lastName);
+        insert.Parameters.AddWithValue("@phoneNumber", phoneNumber);
+        insert.Parameters.AddWithValue("@email", email);
+        insert.Parameters.AddWithValue("@status", status);
+        insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
+        insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+        insert.ExecuteNonQuery();
+
+
+        txtVolunteerAddFirstName.Text = "";
+        txtVolunteerAddLastName.Text = "";
+        txtVolunteerAddPhoneNumber.Text = "";
+        txtVoluteerAddEmail.Text = "";
+        ddlVolunteerAddStatus.SelectedIndex = 0;
+        ddlVolunteerName.DataBind();
+    }
+
+
 }
 
 

@@ -84,7 +84,8 @@ ExtraComments varchar(250) NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_OnlineProgram PRIMARY KEY (OnlineProgramID),
-CONSTRAINT FK_OnlineProgramOnlineProgramType FOREIGN KEY (OnlineProgramTypeID) references OnlineProgramType);
+CONSTRAINT FK_OnlineProgramOnlineProgramType FOREIGN KEY (OnlineProgramTypeID) references OnlineProgramType,
+CONSTRAINT FK_OnlineProgramPaymentID NULL FOREIGN KEY (PaymentID) references PaymentRecord);
 
 Create Table OnlineEducators(
 OnlineProgramID int NOT NULL,
@@ -125,7 +126,8 @@ LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_ProgramID PRIMARY KEY (ProgramID),
 CONSTRAINT FK_OrgID FOREIGN KEY (OrgID) references Organization,
-CONSTRAINT FK_ProgramTypeID FOREIGN KEY (ProgramTypeID) references ProgramType);
+CONSTRAINT FK_ProgramTypeID FOREIGN KEY (ProgramTypeID) references ProgramType,
+CONSTRAINT FK_ProgramPaymentID NULL FOREIGN KEY (PaymentID) references PaymentRecord);
 
 
 Create Table ProgramEducators(
@@ -187,3 +189,15 @@ ExtraComments varchar(300) NULL,
 LastUpdated datetime NULL,
 LastUpdatedBy varchar(150) NULL
 )
+
+                                       
+Create Table Volunteers(
+VolunteerID int IDENTITY(1,1) NOT NULL,
+VolunteerFirstName varchar(100) NOT NULL,
+VolunteerLastName varchar(100) Not NULL,
+VolunteerPhoneNumber varchar(15) NOT NULL,
+VolunteerEmail varchar(50) NOT NULL,
+VolunteerStatus varchar(20) NOT NULL,
+LastUpdated datetime NOT NULL,
+LastUpdatedBy varchar(100) NOT NULL,
+CONSTRAINT PK_VolunteerID PRIMARY KEY (VolunteerID));
