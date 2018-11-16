@@ -1,4 +1,4 @@
-Use WildTek
+Use WildTek3
 Go
 
 Create Table OnlineProgramType(
@@ -29,6 +29,7 @@ AnimalType varchar(50) NOT NULL,
 AnimalName varchar(50) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
+Status varchar(100) Not Null,
 CONSTRAINT PK_AnimalID PRIMARY KEY (AnimalID));
 
 Create Table Organization (
@@ -61,7 +62,7 @@ paymentDate DateTime NOT NULL,
 CheckNumber varchar(25) NULL,
 PaymentType varchar(25) NOT NULL,
 Invoice varchar(50) NOT NULL,
-CancelledInvoice char(1) NOT NULL,
+Paid char(1) Not null,
 OrgID int NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
@@ -83,9 +84,12 @@ ContactEmail varchar(100) NULL,
 ExtraComments varchar(250) NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
+--PaymentID int NULL,
 CONSTRAINT PK_OnlineProgram PRIMARY KEY (OnlineProgramID),
 CONSTRAINT FK_OnlineProgramOnlineProgramType FOREIGN KEY (OnlineProgramTypeID) references OnlineProgramType,
 CONSTRAINT FK_OnlineProgramPaymentID NULL FOREIGN KEY (PaymentID) references PaymentRecord);
+
+--CONSTRAINT FK_OnlineProgramPaymentID FOREIGN KEY (PaymentID) references PaymentRecord
 
 Create Table OnlineEducators(
 OnlineProgramID int NOT NULL,
@@ -117,7 +121,8 @@ State varchar(50) NULL,
 OnOff bit NOT NULL,
 NumberOfChildren int NOT NULL,
 NumberOfAdults int NOT NULL,
-PaymentNeeded char(1) NULL,
+PaymentID int not NULL,
+Paid char(1) Not null,
 ProgramDate date NOT NULL,
 ProgramTime time NOT NULL,
 EventMonth varchar(15) NOT NULL,
@@ -127,7 +132,9 @@ LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_ProgramID PRIMARY KEY (ProgramID),
 CONSTRAINT FK_OrgID FOREIGN KEY (OrgID) references Organization,
 CONSTRAINT FK_ProgramTypeID FOREIGN KEY (ProgramTypeID) references ProgramType,
-CONSTRAINT FK_ProgramPaymentID NULL FOREIGN KEY (PaymentID) references PaymentRecord);
+CONSTRAINT FK_PaymentID FOREIGN KEY (PaymentID) references PaymentRecord);
+--CONSTRAINT FK_ProgramPaymentID NULL FOREIGN KEY (PaymentID) references PaymentRecord);
+
 
 
 Create Table ProgramEducators(
@@ -165,7 +172,7 @@ LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_ProgramGrade PRIMARY KEY (ProgramID, GradeID),
 CONSTRAINT FK_ProgramGradeProgram FOREIGN KEY (ProgramID) references Program,
 CONSTRAINT FK_ProgramGradeGrade FOREIGN KEY (GradeID) references Grade);
-                                      
+                         
 Create table AllPrograms (
 AllProgramID int IDENTITY(0,1) NOT NULL,
 ProgramCategory varchar(100) NULL,
@@ -201,3 +208,4 @@ VolunteerStatus varchar(20) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_VolunteerID PRIMARY KEY (VolunteerID));
+
