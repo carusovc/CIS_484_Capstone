@@ -339,7 +339,7 @@
 
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID as PaymentID,[Invoice], PaymentRecord.Paid
+                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],PaymentRecord.PaymentID as PaymentID,Invoice, PaymentRecord.Paid
                                             FROM [PaymentRecord] left outer join [Organization] on  PaymentRecord.OrgID = Organization.OrgID full join [Program] on PaymentRecord.PaymentID = Program.PaymentID full join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID WHERE (CASE { fn MONTH(paymentDate) } 
                                             when 1 then 'January'
                                             when 2 then 'February'

@@ -1,4 +1,4 @@
-Use WildTek3
+Use WildTek
 Go
 
 Create Table OnlineProgramType(
@@ -86,9 +86,7 @@ LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 --PaymentID int NULL,
 CONSTRAINT PK_OnlineProgram PRIMARY KEY (OnlineProgramID),
-CONSTRAINT FK_OnlineProgramOnlineProgramType FOREIGN KEY (OnlineProgramTypeID) references OnlineProgramType,
-CONSTRAINT FK_OnlineProgramPaymentID NULL FOREIGN KEY (PaymentID) references PaymentRecord);
-
+CONSTRAINT FK_OnlineProgramOnlineProgramType FOREIGN KEY (OnlineProgramTypeID) references OnlineProgramType);
 --CONSTRAINT FK_OnlineProgramPaymentID FOREIGN KEY (PaymentID) references PaymentRecord
 
 Create Table OnlineEducators(
