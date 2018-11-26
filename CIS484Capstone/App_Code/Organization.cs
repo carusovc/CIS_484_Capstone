@@ -19,9 +19,9 @@ public class Organization
     private String contactLastName;
     private String phoneNumber;
     private String email;
+    private String secondaryEmail;
 
-   
-    public Organization(String orgName, String city, String county, String streetAddress, String state, String postalCode, String contactFirstName, String contactLastName, String phoneNumber, String email)
+    public Organization(String orgName, String city, String county, String streetAddress, String state, String postalCode, String contactFirstName, String contactLastName, String phoneNumber, String email, String secondaryEmail)
     {
         setOrgName(orgName);
         setCity(city);
@@ -33,6 +33,7 @@ public class Organization
         setContactLastName(contactLastName);
         setPhoneNumber(phoneNumber);
         setEmail(email);
+        setSecondaryEmail(secondaryEmail);
     }
 
     public void setOrgName(String orgName)
@@ -85,6 +86,11 @@ public class Organization
         this.email = email;
     }
 
+    public void setSecondaryEmail(String secondaryEmail)
+    {
+        this.secondaryEmail = secondaryEmail;
+    }
+
     public String getOrgName()
     {
         return orgName;
@@ -128,4 +134,8 @@ public class Organization
         return email;
     }
 
+    public String getSecondaryEmail()
+    {
+        return secondaryEmail;
+    }
 }

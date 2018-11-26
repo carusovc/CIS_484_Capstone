@@ -75,7 +75,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
+            <%--<li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Reports</span>
@@ -88,6 +88,16 @@
                     <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
+            </li>--%>
+            <li class="nav-item ">
+                    <a class="nav-link" href="Report.aspx">
+
+                        <span>Reports</span></a>
+            </li>
+            <li class="nav-item ">
+                    <a class="nav-link" href="Tableau.aspx">
+
+                        <span>Visualization</span></a>
             </li>
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -107,7 +117,7 @@
                     <span>Organizations</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Organizations.aspx">Add New Organization</a>
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
@@ -185,7 +195,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
+            <%--<li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Reports</span>
@@ -198,6 +208,16 @@
                     <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
+            </li>--%>
+            <li class="nav-item ">
+                    <a class="nav-link" href="Report.aspx">
+
+                        <span>Reports</span></a>
+                </li>
+            <li class="nav-item ">
+                    <a class="nav-link" href="Tableau.aspx">
+
+                        <span>Visualization</span></a>
             </li>
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -217,6 +237,7 @@
                     <span>Organizations</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
