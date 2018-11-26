@@ -493,7 +493,7 @@ public partial class Programs : System.Web.UI.Page
                     using (DataSet ds = new DataSet())
                     {
                         DataTable dt = new DataTable();
-                        sda.Fill(dt);
+                         sda.Fill(dt);
                         return dt;
                     }
                 }
@@ -640,51 +640,66 @@ public partial class Programs : System.Web.UI.Page
     //GO FOR ALL
 
 
+
+
     protected void OnItemDataBoundAll(object sender, RepeaterItemEventArgs e)
     {
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
         {
-
-            //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            //// sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-            //String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-            //sc.ConnectionString = cs;
-            //sc.Open();
-
-            //System.Data.SqlClient.SqlCommand pullProgramCategory = new System.Data.SqlClient.SqlCommand();
-            //pullProgramCategory.Connection = sc;
-
-
-            //sc.Close();
-           
-
-
-
             string ProgramID = (e.Item.FindControl("hfProgramIDAll") as HiddenField).Value;
-
-            //pullProgramCategory.CommandText = "SELECT ProgramCategory From AllPrograms WHERE AllProgramID = @AllProgramID";
-            //pullProgramCategory.Parameters.AddWithValue("@AllProgramID", ProgramID);
-
-            //string tempProgramCat = (string)pullProgramCategory.ExecuteScalar();
-
-            //Repeater rptAllLL1 = e.Item.FindControl("rptAllLL1") as Repeater;
-                
-            
-            //if (tempProgramCat.ToString().Equals("Live Program"))
-            //{
-            //    // Query 1 for Live
-            //    rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, LiveProgramStatus as Field1, LiveProgramPaid AS Field2, LiveProgramOnOff AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
-            //    rptAllLL1.DataBind();
-
-            //} else if (tempProgramCat.ToString().Equals("Live Program"))
-            //{
-            //    // Query 1 for Online
-            //    rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, TeacherName AS Field1, OnlinePrimaryContactEmail AS Field2, OnlineSecondaryEmail AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
-            //    rptAllLL1.DataBind();
-            //}
+            string tempProgramCategory = (e.Item.FindControl("hfProgramCategory") as HiddenField).Value;
+            Repeater rptAllLL1 = e.Item.FindControl("rptAllLL1") as Repeater;
+            Repeater rptAllLL2 = e.Item.FindControl("rptAllLL2") as Repeater;
+            Repeater rptAllLL3 = e.Item.FindControl("rptAllLL3") as Repeater;
+            Repeater rptAllLL4 = e.Item.FindControl("rptAllLL4") as Repeater;
 
 
-            
+
+
+            if (tempProgramCategory.ToString().Equals("Live Program"))
+            {
+                // Query 1 for Live
+                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, LiveProgramStatus as Field1, LiveProgramPaid AS Field2, LiveProgramOnOff AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL1.DataBind();
+
+                // Query 2 for Live
+                rptAllLL2.DataSource = GetData(string.Format("SELECT ProgramCategory, EventMonth as Field4, NumberOfChildren AS Field5, NumberOfAdults AS Field6 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL2.DataBind();
+
+                // Query 3 for Live
+                rptAllLL3.DataSource = GetData(string.Format("SELECT ProgramCategory, LiveProgramStreetAddress as Field7, CityCounty AS Field8, State AS Field9 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL3.DataBind();
+
+                // Query 4 for Live
+                rptAllLL4.DataSource = GetData(string.Format("SELECT ProgramCategory, ExtraComments as Field10, LastUpdatedBy AS Field11, LastUpdated AS Field12 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL4.DataBind();
+
+
+
+            }
+            else if (tempProgramCategory.ToString().Equals("Online Program"))
+            {
+                // Query 1 for Online
+                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2, OnlineSecondaryEmail AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL1.DataBind();
+
+                // Query 2 for Live
+                rptAllLL2.DataSource = GetData(string.Format("SELECT ProgramCategory, EventMonth as Field4, NumberOfChildren AS Field5, NumberOfAdults AS Field6 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL2.DataBind();
+
+                // Query 3 for Live
+                rptAllLL3.DataSource = GetData(string.Format("SELECT ProgramCategory, CityCounty as Field7, State AS Field8, OnlineProgramCountry AS Field9 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL3.DataBind();
+
+                // Query 4 for Live
+                rptAllLL4.DataSource = GetData(string.Format("SELECT ProgramCategory, ExtraComments as Field10, LastUpdatedBy AS Field11, LastUpdated AS Field12 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL4.DataBind();
+
+
+            }
+
+
+
 
 
         }
