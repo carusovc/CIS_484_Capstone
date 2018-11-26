@@ -252,7 +252,19 @@
             <asp:Button class="btn btn-primary btn-inside" ID="btnAddPayment" runat="server" Text="Add Payment" OnClick="btnAddPayment_Click" />
             <p></p>
             <div class="block3">
-                                        <ul class="nav nav-tabs block4" role="tablist">
+                                         <script>
+$(function() {
+    $('a[data-toggle="tab"]').on('click', function(e) {
+        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+    var activeTab = window.localStorage.getItem('activeTab');
+    if (activeTab) {
+        $('#myTab a[href="' + activeTab + '"]').tab('show');
+        window.localStorage.removeItem("activeTab");
+    }
+});       </script>
+
+                        <ul class="nav nav-tabs block4" id="myTab" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active TabStyle" id="CurrentInvoiceNav" data-toggle="tab" href="#CurrentInvoice" style="color: black;">Current Invoices</a>
                                             </li>

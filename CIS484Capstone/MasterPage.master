@@ -157,7 +157,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                     <h6>State</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:DropDownList ID="ddlState2" runat="server" placeholder="Add State/Province">
+                                    <asp:DropDownList ID="ddlState2" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" placeholder="Add State/Province">
                                         <asp:ListItem>--Select State--</asp:ListItem>
                                         <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
                                         <asp:ListItem Value="AL"></asp:ListItem>
@@ -397,7 +397,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                     <h6>State</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:DropDownList ID="ddlState" runat="server" placeholder="Add State/Province">
+                                    <asp:DropDownList ID="ddlState" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" placeholder="Add State/Province">
                                         <asp:ListItem>--Select State--</asp:ListItem>
                                         <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
                                         <asp:ListItem Value="AL"></asp:ListItem>
@@ -450,7 +450,8 @@ $(".modal-wide").on("show.bs.modal", function() {
                                         <asp:ListItem Value="WV"></asp:ListItem>
                                         <asp:ListItem Value="WI"></asp:ListItem>
                                         <asp:ListItem Value="WY"></asp:ListItem>
-                                    </asp:DropDownList>
+                                    </asp:DropDownList>&nbsp;&nbsp;
+                                    </asp:DropDownList>&nbsp;&nbsp;
 
                                 </div>
                             </div>
