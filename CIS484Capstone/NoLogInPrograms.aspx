@@ -98,11 +98,15 @@
                         <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
                     </div>
                 </li>
+                </ul>
+            </div>
+
+        </nav>
                 <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-                <li class="nav-item dropdown no-arrow ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+             <%--   <li class="nav-item dropdown no-arrow ">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">--%>
 
                         <%--   Cs-Design View Version 
             <span>Animals</span>
@@ -119,19 +123,19 @@
                     <span>Reports</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                    <a class="dropdown-item" href="Report.aspx">Reports</a>
+                  <%-- --%>
+                   <%-- --%>
+              <%--      <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
                     <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
             </li>
             <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">--%>
 
               
-         
+<%--         
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -142,26 +146,26 @@
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown no-arrow active">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">--%>
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
 
-                        <span>Programs</span>
+<%--                        <span>Programs</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="Programs.aspx">View Programs</a>
                         <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
                     </div>
-                </li>
+                </li>--%>
                 <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-                <li class="nav-item dropdown no-arrow ">
+              <%--  <li class="nav-item dropdown no-arrow ">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                         </li>--%>
 
 
-
-                        <span>Animals</span>
+                       <%-- <span>Animals</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
@@ -175,10 +179,10 @@
                         <span>Reports</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                        <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                        <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                        <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                        <a class="dropdown-item" href="Report.aspx">Reports</a>
+                      <%-- --%>
+                       <%-- --%>
+                      <%--  <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
                         <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
                         <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                     </div>
@@ -230,7 +234,7 @@
             </ul>
 
         </div>
-    </nav>
+    </nav>--%>
 
 
 
@@ -260,9 +264,12 @@
                                 <div class="mx-auto">
                                     <div class="row mx-auto d-flex text cetner justify-content-center">
 
-                                        <div class=" col-lg-3    col-md-4 col-sm-6 ">
-                                            <div class="btn  btn-primary btn-inside btn-block" data-target="#addProgramModal" data-toggle="modal">Add Program Form</div>
+                                        <div class=" col-lg-3    col-md-4 col-sm-6  ">
+                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live Program</div>
                                         </div>
+
+                                        <div class=" col-lg-3   col-md-4  col-sm-6  ">
+                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online Program</div>
 
 
                                         
