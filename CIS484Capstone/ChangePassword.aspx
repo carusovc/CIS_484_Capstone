@@ -363,13 +363,7 @@
 
             </asp:CompareValidator>             
 
-                  </div>
-
-                      <br?/> <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>
-
-                  
-
-                      
+                  </div>        
 
                 </div>
 
