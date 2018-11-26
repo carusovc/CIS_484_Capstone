@@ -692,7 +692,7 @@ public partial class Programs : System.Web.UI.Page
             rptProgramLL2Live.DataSource = GetData(string.Format("SELECT ProgramID, ProgramAddress, CityCounty AS City, State From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptProgramLL2Live.DataBind();
 
-            rptProgramLL3Live.DataSource = GetData(string.Format("SELECT OnOff, ProgramID, PaymentNeeded, ExtraComments AS Comments From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
+            rptProgramLL3Live.DataSource = GetData(string.Format("SELECT OnOff, ProgramID, paid, ExtraComments AS Comments From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptProgramLL3Live.DataBind();
 
 
