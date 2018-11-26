@@ -140,6 +140,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
+        insert.Parameters.Clear();
 
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
@@ -147,7 +148,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select OrgID, OrgName, City, County, LastUpdated, LastUpdatedBy, StreetAddress, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail from Organization where" +
+        insert.CommandText = "select OrgName, City, County, StreetAddress, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail from Organization where" +
                           " OrgID = @OrgID";
 
         insert.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
@@ -158,25 +159,45 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                txtOrgName.Text = sdr[1].ToString();
-                txtCity.Text = sdr[2].ToString();
-                txtCounty.Text = sdr[3].ToString();
-                txtStreetAddress2.Text = sdr[6].ToString();
-                ddlState2.SelectedItem.Value = sdr[7].ToString();
-                txtPostalCode2.Text = sdr[8].ToString();
-                txtContactFirstName2.Text = sdr[9].ToString();
-                txtContactLastName2.Text = sdr[10].ToString();
-                txtPhoneNumber2.Text = sdr[11].ToString();
-                txtEmail2.Text = sdr[12].ToString();
-                txtSecondaryEmail2.Text = sdr[14].ToString();
+                txtOrgName.Text = sdr[0].ToString();
+                txtCity.Text = sdr[1].ToString();
+                txtCounty.Text = sdr[2].ToString();
+                txtStreetAddress2.Text = sdr[3].ToString();
+                txtPostalCode2.Text = sdr[4].ToString();
+                txtContactFirstName2.Text = sdr[5].ToString();
+                txtContactLastName2.Text = sdr[6].ToString();
+                txtPhoneNumber2.Text = sdr[7].ToString();
+                txtEmail2.Text = sdr[8].ToString();
+                txtSecondaryEmail2.Text = sdr[9].ToString();
                 //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
+
+            System.Data.SqlClient.SqlCommand selectState = new System.Data.SqlClient.SqlCommand();
+            selectState.Connection = sc;
+
+            selectState.Parameters.Clear();
+
+            selectState.CommandText = "SELECT State From Organization WHERE OrgID = @OrgID";
+            selectState.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
+            String tempState = (String)selectState.ExecuteScalar();
+
+            ddlState2.ClearSelection();
+            for (int i = 0; i < ddlState2.Items.Count; i++)
+            {
+                if (ddlState2.Items[i].Value == tempState)
+                {
+                    ddlState2.Items[i].Selected = true;
+                }
+            }
+
+            con.Close();
         }
         catch (Exception ex)
         {
             throw ex;
         }
+        sc.Close();
     }
 
     protected void btnUpdateOrganization_Click(object sender, EventArgs e)
@@ -217,9 +238,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         SqlCommand cmd = new SqlCommand(read, sc);
         SqlDataReader myRead = cmd.ExecuteReader();
 
+        ddlOrganization.Items.Clear();
+        ddlOrganization.Items.Add(new ListItem("--Select Organization--", "0"));
         while (myRead.Read())
         {
-
             ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
         }
         ddlOrganization.DataBind();
@@ -236,6 +258,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtPhoneNumber.Text = "";
         txtEmail.Text = "";
         txtSecondaryEmail.Text = "";
+
+        sc.Close();
     }
 
 
@@ -267,10 +291,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         //  lblLastUpdated.Text = "Last Updated: " + lastUpdated;
         //  lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
+        sc.Close();
     }
 
     protected void btnAddOrg_Click(object sender, EventArgs e)
-    {
+    { 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -318,11 +343,21 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         //lblLastUpdated.Text = "Last Updated: " + lastUpdated;
         //lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
+        string read = "Select * from Organization";
+        SqlCommand cmd = new SqlCommand(read, sc);
+        SqlDataReader myRead = cmd.ExecuteReader();
+
+        ddlOrganization.Items.Clear();
+        ddlOrganization.Items.Add(new ListItem("--Select Organization--", "0"));
+        while (myRead.Read())
+        {
+            ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
+        }
         ddlOrganization.DataBind();
 
-        txtOrgName.Text = "";
-        txtCity.Text = "";
-        txtCounty.Text = "";
+        textOrgName.Text = "";
+        textOrgCity.Text = "";
+        textOrgCounty.Text = "";
         txtStreetAddress.Text = "";
         ddlState.SelectedIndex = 0;
         ddlOrganization.SelectedIndex = 0;
@@ -332,6 +367,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtPhoneNumber.Text = "";
         txtEmail.Text = "";
         txtSecondaryEmail.Text = "";
+
+        sc.Close();
     }
 
     protected void btnAddAnimal_Click(object sender, EventArgs e)
@@ -382,6 +419,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //gridAnimalMammal.DataBind();
         //gridReptile.DataBind();
         //gridBird.DataBind();
+        sc.Close();
 
     }
     public System.Drawing.Image ByteArrayToImage(byte[] byteArrayIn)
@@ -428,7 +466,18 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtEducatorLastName.Text = "";
         //txtEducatorEmail.Text = "";
         //txtEducatorPhone.Text = "";
-        ddlEducatorName.DataBind();
+
+        ddlEducatorName.Items.Clear();
+        string read1 = "Select * from Educators";
+        SqlCommand cmd1 = new SqlCommand(read1, sc);
+        SqlDataReader myRead1 = cmd1.ExecuteReader();
+
+        ddlEducatorName.Items.Add(new ListItem("--Select Educator--", "0"));
+        while (myRead1.Read())
+        {
+            ddlEducatorName.Items.Add(new ListItem(myRead1["EducatorFirstName"].ToString(), myRead1["EducatorID"].ToString()));
+        }
+        sc.Close();
     }
 
 
@@ -479,6 +528,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //gridReptile.DataBind();
         //gridBird.DataBind();
 
+        sc.Close();
     }
 
     protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
@@ -536,11 +586,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 //lblLastUpdatedBy.Text = sdr["LastUpdatedBy"].ToString();
 
             }
+            con.Close();
         }
         catch (Exception ex)
         {
             throw ex;
         }
+        sc.Close();
     }
 
     //protected void btnDelete_Click(object sender, EventArgs e)
@@ -628,8 +680,19 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         txtEducatorFirst.Text = "";
         txtEducatorLastName.Text = "";
-        ddlEducatorName.DataBind();
+        string read1 = "Select * from Educators";
+        SqlCommand cmd1 = new SqlCommand(read1, con);
+        SqlDataReader myRead1 = cmd1.ExecuteReader();
 
+        ddlEducatorName.Items.Clear();
+        ddlEducatorName.Items.Add(new ListItem("--Select Educator--", "0"));
+        while (myRead1.Read())
+        {
+            ddlEducatorName.Items.Add(new ListItem(myRead1["EducatorFirstName"].ToString(), myRead1["EducatorID"].ToString()));
+        }
+
+        con.Close();
+        sc.Close();
     }
 
     protected void btnDeleteEducator_Click(object sender, EventArgs e)
@@ -664,6 +727,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlCommand cmd = new SqlCommand(read, con);
             SqlDataReader myRead = cmd.ExecuteReader();
 
+            ddlEducatorName.Items.Add(new ListItem("--Select Educator--", "0"));
             while (myRead.Read())
             {
 
@@ -675,6 +739,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtEducatorFirst.Text = "";
         txtEducatorLast.Text = "";
         ddlEducatorName.DataBind();
+
+        con.Close();
+        sc.Close();
     }
 
     protected void ddlEducator_SelectedIndexChanged1(object sender, EventArgs e)
@@ -714,6 +781,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             throw ex;
         }
+        con.Close();
+        sc.Close();
     }
 
     protected void ddlVolunteer_SelectedIndexChanged(object sender, EventArgs e)
@@ -761,6 +830,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             throw ex;
         }
+        con.Close();
+        sc.Close();
     }
 
     protected void btnDeleteVolunteer_Click(object sender, EventArgs e)
@@ -808,8 +879,23 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtVolunteerAddPhoneNumber.Text = "";
         txtVoluteerAddEmail.Text = "";
         ddlVolunteerAddStatus.SelectedIndex = 0;
-        ddlVolunteerName.DataBind();
+        ddlVolunteerName.Items.Clear();
+        //call read array
+        if (sc.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from Volunteers";
+            SqlCommand cmd = new SqlCommand(read, sc);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            ddlVolunteerName.Items.Add(new ListItem("--Select Volunteer--", "0"));
+            while (myRead.Read())
+            {
+                ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
+            }
+        }
         con.Close();
+        sc.Close();
     }
 
     protected void btnUpdateVolunteer_Click(object sender, EventArgs e)
@@ -850,11 +936,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlCommand cmd = new SqlCommand(read, con);
             SqlDataReader myRead = cmd.ExecuteReader();
 
+            ddlVolunteerName.Items.Add(new ListItem("--Select Volunteer--", "0"));
             while (myRead.Read())
             {
                 ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
             }
         }
+        con.Close();
+        sc.Close();
 
 
     }
@@ -899,7 +988,24 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtVolunteerAddPhoneNumber.Text = "";
         txtVoluteerAddEmail.Text = "";
         ddlVolunteerAddStatus.SelectedIndex = 0;
-        ddlVolunteerName.DataBind();
+        //ddlVolunteerName.DataBind();
+
+        ddlVolunteerName.Items.Clear();
+        //call read array
+        if (sc.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from Volunteers";
+            SqlCommand cmd = new SqlCommand(read, sc);
+            SqlDataReader myRead = cmd.ExecuteReader();
+            ddlVolunteerName.Items.Add(new ListItem("--Select Volunteer--", "0"));
+            while (myRead.Read())
+            {
+                ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
+            }
+        }
+
+        sc.Close();
     }
 
     protected void ddlOrganization_SelectedIndexChanged(object sender, EventArgs e)
@@ -912,6 +1018,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
+        insert.Parameters.Clear();
 
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
@@ -919,9 +1026,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, LastUpdated, LastUpdatedBy, SecondaryEmail from Organization where OrgID = @OrgID";
-        insert.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedIndex);
-        ddlState.ClearSelection();
+        insert.CommandText = "select OrgName, City, County, StreetAddress, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail from Organization where" +
+                          " OrgID = @OrgID";
+
+        insert.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
 
         try
         {
@@ -930,32 +1038,45 @@ public partial class MasterPage : System.Web.UI.MasterPage
             while (sdr.Read())
             {
                 txtOrgName.Text = sdr[0].ToString();
-                txtStreetAddress2.Text = sdr[1].ToString();
-                txtCity.Text = sdr[2].ToString();
-                txtCounty.Text = sdr[3].ToString();
-                //ddlState2.SelectedValue = sdr[4].ToString();
-                txtPostalCode2.Text = sdr[5].ToString();
-                txtContactFirstName2.Text = sdr[6].ToString();
-                txtContactLastName2.Text = sdr[7].ToString();
-                txtPhoneNumber2.Text = sdr[8].ToString();
-                txtEmail2.Text = sdr[9].ToString();
-                txtSecondaryEmail2.Text = sdr[12].ToString();
-
-                //for (int i = 0; i < ddlState.Items.Count; i++)
-                //{
-                //    if (ddlState.Items[i].ToString() == sdr[4].ToString())
-                //    {
-                //        ddlState.Items[i].Selected = true;
-                //    }
-                //}
+                txtCity.Text = sdr[1].ToString();
+                txtCounty.Text = sdr[2].ToString();
+                txtStreetAddress2.Text = sdr[3].ToString();
+                txtPostalCode2.Text = sdr[4].ToString();
+                txtContactFirstName2.Text = sdr[5].ToString();
+                txtContactLastName2.Text = sdr[6].ToString();
+                txtPhoneNumber2.Text = sdr[7].ToString();
+                txtEmail2.Text = sdr[8].ToString();
+                txtSecondaryEmail2.Text = sdr[9].ToString();
+                //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
+                // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
+
+            System.Data.SqlClient.SqlCommand selectState = new System.Data.SqlClient.SqlCommand();
+            selectState.Connection = sc;
+
+            selectState.Parameters.Clear();
+
+            selectState.CommandText = "SELECT State From Organization WHERE OrgID = @OrgID";
+            selectState.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
+            String tempState = (String)selectState.ExecuteScalar();
+
+            ddlState2.ClearSelection();
+            for (int i = 0; i < ddlState2.Items.Count; i++)
+            {
+                if (ddlState2.Items[i].Value == tempState)
+                {
+                    ddlState2.Items[i].Selected = true;
+                }
+            }
+
+            con.Close();
         }
         catch (Exception ex)
         {
             throw ex;
         }
+
         sc.Close();
-        con.Close();
     }
 
 
