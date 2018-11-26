@@ -745,6 +745,19 @@
                                 <div class="col-md-12 col-lg-6 
            col-sm-12">
                                     <p>
+                                        Select Volunteer:
+                                        <br />
+                                        <asp:DropDownList ID="ddlLiveVolunteer" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
+
+                                            <asp:ListItem Text="--Select Volunteer--" Value="0" />
+                                        </asp:DropDownList>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6 
+           col-sm-12">
+                                    <p>
                                         Select Program:
                                         <br />
                                         <asp:DropDownList ID="ddlProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
@@ -1023,6 +1036,19 @@
                     <ContentTemplate>
                         <div class="modal-body">
 
+                              <div class="row">
+                                <div class="col-md-12 col-lg-6 
+           col-sm-12">
+                                    <p>
+                                        Select Volunteer:
+                                        <br />
+                                        <asp:DropDownList ID="ddlOnlineVolunteer" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
+
+                                            <asp:ListItem Text="--Select Volunteer--" Value="0" />
+                                        </asp:DropDownList>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 
            col-sm-12">
@@ -1086,8 +1112,7 @@
            col-sm-12">
                                     Teacher:
                                     <br />
-                                    <asp:DropDownList ID="ddlOTeacher" runat="server">
-                                    </asp:DropDownList>
+                                    <asp:TextBox ID="txtOnlineTeacher" runat="server"></asp:TextBox>
 
                                 </div>
                                 <br />
