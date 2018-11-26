@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
  
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/sb-admin.css" rel="stylesheet">
@@ -259,9 +259,20 @@
                 </div>
               </div>
             </div>
-
+             <div class="form-group">
+              <div class="form-row">
+                           <div class="col-md-6">
+                  <div class="form-label-group">
+                        <h6>Email</h6>
+                    
+                   <%--  <label for="inputPassword">PASSWORD</label> --%>
+                     
+                                    <asp:TextBox ID="txtEmail" class="form-control" placeholder="Enter email" required="required" runat="server"></asp:TextBox>
+                </div></div>
+                   </div></div>
             <div class="form-group">
               <div class="form-row">
+
                 <div class="col-md-6">
                   <div class="form-label-group">
                         <h6>Username</h6>
@@ -270,8 +281,7 @@
                      
                                     <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox>
                 </div></div>
-                   
-                           
+                 
                     <div class="col-md-6">
                   <div class="form-label-group">
                 <h6>Password</h6>
@@ -282,8 +292,12 @@
                       
                 </div>
                           <p runat="server" class=" PasswordReq" style="font-size: 75%;"> Password must include: <br> 1 Number, 1 Special Character <br> 1 Capital Letter, Minimum 8 Characters  </p>
-              </div>
+                        <p runat="server" class=" PasswordReq" style="font-size: 75%;"> &nbsp;</p>
+                        </div>
+
+                    
             </div>
+                 
             
                 </div>
             <div class="row">
