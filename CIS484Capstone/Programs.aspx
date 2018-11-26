@@ -409,6 +409,55 @@
                                                         <ItemTemplate>
                                                             <tr>
 
+                                                                <td>
+
+                                                                    <img alt="" style="cursor: pointer; padding-left: -50%;" src="images/plus.png" />
+                                                                    <asp:Panel ID="pnlProgramAll" runat="server" Style="display: none">
+                                                                        <asp:Repeater ID="rptAllLL1" runat="server">
+
+                                                                            <HeaderTemplate>
+
+                                                                                <table class="ChildGrid table  table-condensed WideTable " border="0" table-layout: fixed>
+                                                                            </HeaderTemplate>
+                                                                            <ItemTemplate>
+                                                                                <tr class="row">
+                                                                                    <asp:Label ID="lblForField1" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Status" : "Educator Name" %>'
+                                                                                            runat="server" />
+                                                                                    <td class="col-md-4" style="font-weight:600;" >
+
+                                                                                      
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblField1" runat="server" Text='<%# Eval("Field1") %>' />
+                                                                                        <%--Live = Status, Online = Educator Name--%>
+                                                                                    </td>
+                                                                                    <td class="col-md-4"><strong>Primary Contact Email</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblField2" runat="server" Text='<%# Eval("Field2") %>' />
+                                                                                        <%--Live = Payment Status, Online = Primary Email--%>
+                                                                                    </td>
+                                                                                    <td class="col-md-4"><strong>Secondary Email</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblField3" runat="server" Text='<%# Eval("Field3") %>' />
+                                                                                        <%--Live = On off Site, Online = SecondaryEmail--%>
+                                                                                    </td>
+
+                                                                                </tr>
+                                                                            </ItemTemplate>
+
+
+
+                                                                            <FooterTemplate>
+                                                                                </table>
+                                                                            </FooterTemplate>
+
+                                                                        </asp:Repeater>
+
+
+
+
+                                                                    </asp:Panel>
+                                                                </td>
+
                                                                 <asp:HiddenField ID="hfProgramIDAll" runat="server" Value='<%# Eval("AllProgramID") %>' />
                                                                 <td>
                                                                     <img alt="" style="cursor: pointer;" src="#" />
@@ -482,7 +531,7 @@
                                                                                         <br />
                                                                                         <asp:Label ID="lblNumOfChildren" runat="server" Text='<%# Eval("PaymentStatus") %>' />
                                                                                     </td>
-                                                                                    <td class="col-md-4"><strong>Number of Adults</strong>
+                                                                                    <td class="col-md-4"><strong>On or Off Site</strong>
                                                                                         <br />
                                                                                         <asp:Label ID="lblOnOff" runat="server" Text='<%# Eval("OnOffSite") %>' />
                                                                                     </td>
@@ -561,7 +610,7 @@
                                                                         </asp:Repeater>
 
 
-                                                                        <asp:Repeater ID="Repeater1" runat="server">
+                                                                        <%--<asp:Repeater ID="Repeater1" runat="server">
 
                                                                             <HeaderTemplate>
 
@@ -597,10 +646,10 @@
                                                                                 </table>
                                                                             </FooterTemplate>
 
-                                                                        </asp:Repeater>
+                                                                        </asp:Repeater>--%>
 
 
-                                                                        <asp:Repeater ID="rptNewLiveProgramLL4" runat="server">
+                                                                        <%-- <asp:Repeater ID="rptNewLiveProgramLL4" runat="server">
 
                                                                             <HeaderTemplate>
 
@@ -608,11 +657,6 @@
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row" style="padding-top: 0px; padding-bottom: 0px;">
-
-                                                                                    <%--<asp:ListBox ID="lstBirds" runat="server">
-                                                                                        <asp:ListItem Text="--Select Grades--" Value="0" />
-                                                                                    </asp:ListBox>--%>
-
 
                                                                                     <td class="col-md-4" style="padding-top: 0px; padding-bottom: 0px;">
 
@@ -639,7 +683,7 @@
                                                                                 </table>
                                                                             </FooterTemplate>
 
-                                                                        </asp:Repeater>
+                                                                        </asp:Repeater>--%>
                                                                         <asp:Repeater ID="rptNewLiveProgramLL5" runat="server">
 
                                                                             <HeaderTemplate>
@@ -734,7 +778,7 @@
 
                                                                     <img alt="" style="cursor: pointer; padding-left: -50%;" src="images/plus.png" />
                                                                     <asp:Panel ID="pnlProgramOnline" runat="server" Style="display: none">
-                                                                        <asp:Repeater ID="rptProgramLLOnline" runat="server">
+                                                                        <asp:Repeater ID="rptOnlineLL1" runat="server">
 
                                                                             <HeaderTemplate>
 
@@ -742,17 +786,17 @@
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row">
-                                                                                    <td class="col-md-4"><strong>Number of Children</strong>
-                                                                                        <br />
-                                                                                        <asp:Label ID="lblNumOfChildren" runat="server" Text='<%# Eval("NumberOfKids") %>' />
-                                                                                    </td>
-                                                                                    <td class="col-md-4"><strong>Number of Adults</strong>
-                                                                                        <br />
-                                                                                        <asp:Label ID="lblNumOfAdults" runat="server" Text='<%# Eval("NumberOfPeople") %>' />
-                                                                                    </td>
                                                                                     <td class="col-md-4"><strong>Educator Name</strong>
                                                                                         <br />
-                                                                                        <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("TeacherName") %>' />
+                                                                                        <asp:Label ID="lblOnlineTeacherName" runat="server" Text='<%# Eval("TeacherName") %>' />
+                                                                                    </td>
+                                                                                    <td class="col-md-4"><strong>Primary Contact Email</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblPrimaryEmail" runat="server" Text='<%# Eval("ContactEmail") %>' />
+                                                                                    </td>
+                                                                                    <td class="col-md-4"><strong>Secondary Email</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblSecondaryEmail" runat="server" Text='<%# Eval("SecondaryEmail") %>' />
                                                                                     </td>
 
                                                                                 </tr>
@@ -765,7 +809,39 @@
                                                                             </FooterTemplate>
 
                                                                         </asp:Repeater>
-                                                                        <asp:Repeater ID="rptProgramLL2Online" runat="server">
+                                                                        <asp:Repeater ID="rptOnlineLL2" runat="server">
+
+                                                                            <HeaderTemplate>
+
+                                                                                <table class="ChildGrid table  table-condensed WideTable " border="0" table-layout: fixed>
+                                                                            </HeaderTemplate>
+                                                                            <ItemTemplate>
+                                                                                <tr class="row">
+                                                                                    <td class="col-md-4"><strong>Program Month</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblOnlineMonth" runat="server" Text='<%# Eval("Month") %>' />
+                                                                                    </td>
+                                                                                    <td class="col-md-4"><strong>Number of Children</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblOnlineNumChildren" runat="server" Text='<%# Eval("NumberOfKids") %>' />
+                                                                                    </td>
+                                                                                    <td class="col-md-4"><strong>Number of Participants</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblOnlineTotalPeople" runat="server" Text='<%# Eval("NumberOfPeople") %>' />
+                                                                                        <%--to change later to secondary field--%>
+                                                                                    </td>
+
+                                                                                </tr>
+                                                                            </ItemTemplate>
+
+
+
+                                                                            <FooterTemplate>
+                                                                                </table>
+                                                                            </FooterTemplate>
+
+                                                                        </asp:Repeater>
+                                                                        <asp:Repeater ID="rptOnlineLL3" runat="server">
 
                                                                             <HeaderTemplate>
 
@@ -796,23 +872,26 @@
                                                                             </FooterTemplate>
 
                                                                         </asp:Repeater>
-                                                                        <asp:Repeater ID="rptProgramLL3Online" runat="server">
+                                                                        <asp:Repeater ID="rptOnlineLL4" runat="server">
 
                                                                             <HeaderTemplate>
 
-                                                                                <table class="ChildGrid table table-condensed WideTable" border="0" table-layout: fixed>
+                                                                                <table class="ChildGrid table  table-condensed WideTable" border="0" table-layout: fixed>
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row">
-                                                                                    <td class="col-md-4"><strong>Contact Email</strong>
+                                                                                    <td class="col-md-4"><strong>Comments</strong>
                                                                                         <br />
-                                                                                        <asp:Label ID="lblCity" runat="server" Text='<%# Eval("ContactEmail") %>' />
+                                                                                        <asp:Label ID="lblComments" runat="server" Text='<%# Eval("Comments") %>' />
                                                                                     </td>
-                                                                                    <td class="col-md-8"><strong>Comments</strong>
+                                                                                    <td class="col-md-4"><strong>Last Updated By</strong>
                                                                                         <br />
-                                                                                        <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
+                                                                                        <asp:Label ID="lblLastUpdatedBy" runat="server" Text='<%# Eval("LastUpdatedBy") %>' />
                                                                                     </td>
-
+                                                                                    <td class="col-md-4"><strong>Last Updated</strong>
+                                                                                        <br />
+                                                                                        <asp:Label ID="lblLastUodated" runat="server" Text='<%# Eval("LastUpdated") %>' />
+                                                                                    </td>
 
                                                                                 </tr>
                                                                             </ItemTemplate>
@@ -824,6 +903,7 @@
                                                                             </FooterTemplate>
 
                                                                         </asp:Repeater>
+
                                                                     </asp:Panel>
                                                                 </td>
                                                                 <asp:HiddenField ID="hfProgramIDOnline" runat="server" Value='<%# Eval("OnlineProgramID") %>' />

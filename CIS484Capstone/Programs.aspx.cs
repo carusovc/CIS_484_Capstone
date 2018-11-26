@@ -34,6 +34,7 @@ public partial class Programs : System.Web.UI.Page
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
+        sc.Close();
 
 
         //online postback
@@ -163,6 +164,7 @@ public partial class Programs : System.Web.UI.Page
 
 
             }
+            con.Close();
         }
 
         // Live postback
@@ -468,6 +470,7 @@ public partial class Programs : System.Web.UI.Page
                     }
 
                 }
+                con.Close();
             }
         }
 
@@ -516,16 +519,7 @@ public partial class Programs : System.Web.UI.Page
             //Repeater rptNewLiveProgramLL43 = e.Item.FindControl("rptNewLiveProgramLL4") as Repeater;
             Repeater rptNewLiveProgramLL5 = e.Item.FindControl("rptNewLiveProgramLL5") as Repeater;
 
-  
-
-
-            ListBox lstBird = (e.Item.FindControl("lstBirds") as ListBox);
-            lstBird.DataSource = GetData(String.Format("Select ProgramID, AnimalName as Birds  FROM ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where AnimalName IS NOT NULL AND ProgramID = 3 and AnimalType = 'Bird'"));
-            lstBird.DataBind();
-
-
-
-            rptNewLiveProgramLL1.DataSource = GetData(string.Format("SELECT ProgramID, Status, Case when PaymentNeeded = 'Y' then 'Not Paid' else 'Paid' end as 'PaymentStatus', Case when OnOff = 1 then 'On' else 'Off' end as 'OnOffSite' From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
+            rptNewLiveProgramLL1.DataSource = GetData(string.Format("SELECT ProgramID, Status, Case when Paid = 'Y' then 'Not Paid' else 'Paid' end as 'PaymentStatus', Case when OnOff = 1 then 'On' else 'Off' end as 'OnOffSite' From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptNewLiveProgramLL1.DataBind();
 
             rptNewLiveProgramLL2.DataSource = GetData(string.Format("Select ProgramID, EventMonth, NumberOfChildren, NumberOfAdults from Program WHERE ProgramID = " + ProgramID + "", ProgramID));
@@ -534,8 +528,8 @@ public partial class Programs : System.Web.UI.Page
             rptNewLiveProgramLL3.DataSource = GetData(string.Format("Select ProgramID, ProgramAddress, CityCounty, State from Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptNewLiveProgramLL3.DataBind();
 
-            rptNewLiveProgramLL4.DataSource = GetData(string.Format("SELECT ProgramID, pa.AnimalID, (CASE WHEN AnimalType ='Bird' Then AnimalName ELSE NULL END) AS 'Birds', (CASE WHEN AnimalType = 'Mammal' Then AnimalName ELSE NULL END) AS 'Mammals', (CASE WHEN AnimalType = 'Reptile' Then AnimalName ELSE NULL END) AS 'Reptiles' FROM ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where ProgramID = " + ProgramID + "", ProgramID));
-            rptNewLiveProgramLL4.DataBind();
+            //rptNewLiveProgramLL4.DataSource = GetData(string.Format("SELECT ProgramID, pa.AnimalID, (CASE WHEN AnimalType ='Bird' Then AnimalName ELSE NULL END) AS 'Birds', (CASE WHEN AnimalType = 'Mammal' Then AnimalName ELSE NULL END) AS 'Mammals', (CASE WHEN AnimalType = 'Reptile' Then AnimalName ELSE NULL END) AS 'Reptiles' FROM ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where ProgramID = " + ProgramID + "", ProgramID));
+            //rptNewLiveProgramLL4.DataBind();
 
             //rptNewLiveProgramLL42.DataSource = GetData(string.Format("Select ProgramID, pa.AnimalID, AnimalName as 'Mammals1' from ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where Animal.AnimalType = 'Mammal' and ProgramID = " + ProgramID + "", ProgramID));
             //rptNewLiveProgramLL42.DataBind();
@@ -590,21 +584,26 @@ public partial class Programs : System.Web.UI.Page
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
         {
             string OnlineProgramID = (e.Item.FindControl("hfProgramIDOnline") as HiddenField).Value;
-            Repeater rptProgramLLOnline = e.Item.FindControl("rptProgramLLOnline") as Repeater;
-            Repeater rptProgramLL2Online = e.Item.FindControl("rptProgramLL2Online") as Repeater;
-            Repeater rptProgramLL3Online = e.Item.FindControl("rptProgramLL3Online") as Repeater;
+            Repeater rptOnlineLL1 = e.Item.FindControl("rptOnlineLL1") as Repeater;
+            Repeater rptOnlineLL2 = e.Item.FindControl("rptOnlineLL2") as Repeater;
+            Repeater rptOnlineLL3 = e.Item.FindControl("rptOnlineLL3") as Repeater;
+            Repeater rptOnlineLL4 = e.Item.FindControl("rptOnlineLL4") as Repeater;
+
 
             //Repeater rptProgramLL2 = e.Item.FindControl("rptProgramLL2") as Repeater;
 
-            rptProgramLLOnline.DataSource = GetData(string.Format("SELECT NumberOfKids, NumberOfPeople, TeacherName From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
-            rptProgramLLOnline.DataBind();
+            rptOnlineLL1.DataSource = GetData(string.Format("SELECT TeacherName, ContactEmail, SecondaryEmail From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
+            rptOnlineLL1.DataBind();
 
 
-            rptProgramLL2Online.DataSource = GetData(string.Format("SELECT City, State, Country From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
-            rptProgramLL2Online.DataBind();
+            rptOnlineLL2.DataSource = GetData(string.Format("SELECT Month, NumberOfKids, NumberOfPeople From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
+            rptOnlineLL2.DataBind();
 
-            rptProgramLL3Online.DataSource = GetData(string.Format("SELECT ContactEmail, ExtraComments AS Comments From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
-            rptProgramLL3Online.DataBind();
+            rptOnlineLL3.DataSource = GetData(string.Format("SELECT City, State, Country From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
+            rptOnlineLL3.DataBind();
+
+            rptOnlineLL4.DataSource = GetData(string.Format("SELECT ExtraComments AS Comments, LastUpdatedBy, convert(varchar, LastUpdated,101) as LastUpdated From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
+            rptOnlineLL4.DataBind();
 
 
         }
@@ -645,8 +644,47 @@ public partial class Programs : System.Web.UI.Page
     {
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
         {
+
+            //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+            //// sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+            //String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+            //sc.ConnectionString = cs;
+            //sc.Open();
+
+            //System.Data.SqlClient.SqlCommand pullProgramCategory = new System.Data.SqlClient.SqlCommand();
+            //pullProgramCategory.Connection = sc;
+
+
+            //sc.Close();
+           
+
+
+
             string ProgramID = (e.Item.FindControl("hfProgramIDAll") as HiddenField).Value;
 
+            //pullProgramCategory.CommandText = "SELECT ProgramCategory From AllPrograms WHERE AllProgramID = @AllProgramID";
+            //pullProgramCategory.Parameters.AddWithValue("@AllProgramID", ProgramID);
+
+            //string tempProgramCat = (string)pullProgramCategory.ExecuteScalar();
+
+            //Repeater rptAllLL1 = e.Item.FindControl("rptAllLL1") as Repeater;
+                
+            
+            //if (tempProgramCat.ToString().Equals("Live Program"))
+            //{
+            //    // Query 1 for Live
+            //    rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, LiveProgramStatus as Field1, LiveProgramPaid AS Field2, LiveProgramOnOff AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+            //    rptAllLL1.DataBind();
+
+            //} else if (tempProgramCat.ToString().Equals("Live Program"))
+            //{
+            //    // Query 1 for Online
+            //    rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, TeacherName AS Field1, OnlinePrimaryContactEmail AS Field2, OnlineSecondaryEmail AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+            //    rptAllLL1.DataBind();
+            //}
+
+
+            
 
 
         }
@@ -665,6 +703,7 @@ public partial class Programs : System.Web.UI.Page
             case 0:
                 rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms;");
                 rptProgramHLAll.DataBind();
+
                 break;
             case 1:
                 rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramDate DESC;");
@@ -693,7 +732,7 @@ public partial class Programs : System.Web.UI.Page
         string onlineName = animalReport + filename;
 
         SqlCommand cmd = new SqlCommand("Select pt.ProgramName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, CONVERT(VARCHAR(15), ProgramTime, 100) as ProgramTime, o.OrgName, ProgramAddress,CityCounty, State, Status, NumberOfChildren, NumberOfAdults," +
-            "Case when OnOff = 1 then 'On' else 'Off' end as 'On or Off Site', Case when PaymentNeeded = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments FROM Program p inner join ProgramType pt on  p.programtypeid = pt.programtypeid inner join Organization o on p.orgid = o.orgid", sc);
+            "Case when OnOff = 1 then 'On' else 'Off' end as 'On or Off Site', Case when Paid = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments FROM Program p inner join ProgramType pt on  p.programtypeid = pt.programtypeid inner join Organization o on p.orgid = o.orgid", sc);
 
         sc.Open();
 
@@ -780,6 +819,8 @@ public partial class Programs : System.Web.UI.Page
         updateAnimal.Connection = sc;
         deleteAnimal.Connection = sc;
 
+        sc.Close();
+
         // Clear the parameters for deleting associated table inserts
         deleteEducator.Parameters.Clear();
         deleteGrade.Parameters.Clear();
@@ -789,7 +830,7 @@ public partial class Programs : System.Web.UI.Page
         DateTime programDate = Convert.ToDateTime(txtProgramDate.Text);
         String month = programDate.ToString("MMMM");
         update.CommandText = "update program set programTypeID = @programTypeID, orgID = @orgID, status = @status, programAddress = @programAddress, citycounty = @cityCounty, state = @state, onOff = @onOff, numberOfChildren = @numOfChildren," +
-            "numberOfAdults = @numofAdults, paymentNeeded= @paymentNeeded, programDate = @programDate, programTime = @programTime, eventMonth = @month, extraComments = @comments, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where programID = @programID";
+            "numberOfAdults = @numofAdults, Paid= @Paid, programDate = @programDate, programTime = @programTime, eventMonth = @month, extraComments = @comments, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where programID = @programID";
         update.Parameters.AddWithValue("@programTypeID", ddlProgramType.SelectedItem.Value);
         update.Parameters.AddWithValue("@orgID", ddlOrganization.SelectedItem.Value);
         string tempProgramID = ddlProgram.SelectedItem.Value;
@@ -808,7 +849,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@onOff", rboOnOff.SelectedIndex);
         update.Parameters.AddWithValue("@numOfChildren", txtNumOfChildren.Text);
         update.Parameters.AddWithValue("@numofAdults", txtNumOfAdults.Text);
-        update.Parameters.AddWithValue("@paymentNeeded", rboPayment.SelectedIndex);
+        update.Parameters.AddWithValue("@Paid", rboPayment.SelectedIndex);
         update.Parameters.AddWithValue("@programDate", txtProgramDate.Text);
         update.Parameters.AddWithValue("@programTime", txtProgramTime.Text);
         update.Parameters.AddWithValue("@month", month);
@@ -1012,6 +1053,7 @@ public partial class Programs : System.Web.UI.Page
             }
 
         }
+        con.Close();
     }
 
     //Live Program ID
@@ -1043,6 +1085,8 @@ public partial class Programs : System.Web.UI.Page
         pullReptile.Connection = sc;
         pullMammal.Connection = sc;
 
+        sc.Close();
+
         insert.Parameters.Clear();
         programType.Parameters.Clear();
 
@@ -1063,7 +1107,7 @@ public partial class Programs : System.Web.UI.Page
         tempProgramID = tempProgramID.Substring(0, 1);
 
 
-        insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, PaymentNeeded, convert(varchar, ProgramDate,101) as ProgramDate, CONVERT(VARCHAR(15), ProgramTime, 108) as ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
+        insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, Paid, convert(varchar, ProgramDate,101) as ProgramDate, CONVERT(VARCHAR(15), ProgramTime, 108) as ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
                           " ProgramID = @ProgramID";
         insert.Parameters.AddWithValue("@ProgramID", tempProgramID);
 
@@ -1087,7 +1131,6 @@ public partial class Programs : System.Web.UI.Page
 
         pullMammal.CommandText = "Select Animal.AnimalName from Animal inner join ProgramAnimal on Animal.AnimalID = ProgramAnimal.AnimalID where Animal.AnimalType = 'mammal' and ProgramID = @ProgramID";
         pullMammal.Parameters.AddWithValue("@ProgramID", tempProgramID); //ddlProgramID.SelectedItem.Value
-
         try
         {
             con.Open();
@@ -1099,6 +1142,7 @@ public partial class Programs : System.Web.UI.Page
             SqlDataReader sdr5 = pullBird.ExecuteReader();
             SqlDataReader sdr6 = pullReptile.ExecuteReader();
             SqlDataReader sdr7 = pullMammal.ExecuteReader();
+            con.Close();
 
             while (sdr.Read())
             {
@@ -1285,6 +1329,7 @@ public partial class Programs : System.Web.UI.Page
         delete2.Connection = sc;
         delete3.Connection = sc;
         delete4.Connection = sc;
+        sc.Close();
 
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
@@ -1332,7 +1377,7 @@ public partial class Programs : System.Web.UI.Page
 
 
         }
-
+        con.Close();
 
 
     }
@@ -1356,6 +1401,7 @@ public partial class Programs : System.Web.UI.Page
         delete2.Connection = sc;
         delete3.Connection = sc;
         delete4.Connection = sc;
+        sc.Close();
 
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
@@ -1381,6 +1427,7 @@ public partial class Programs : System.Web.UI.Page
         delete4.ExecuteNonQuery();
 
         ddlOnlineProgramID.Items.Clear();
+        con.Close();
         //call read array
         con.Open();
         if (con.State == System.Data.ConnectionState.Open)
@@ -1398,6 +1445,7 @@ public partial class Programs : System.Web.UI.Page
 
 
         }
+        con.Close();
     }
 
     protected void btnSubmitLive_Click(object sender, EventArgs e)
@@ -1422,7 +1470,7 @@ public partial class Programs : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand pullGradeID = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullOrgID = new System.Data.SqlClient.SqlCommand();
 
-
+        
 
 
 
@@ -1436,8 +1484,9 @@ public partial class Programs : System.Web.UI.Page
         pullEducatorID.Connection = sc;
         pullAnimalID.Connection = sc;
         pullGradeID.Connection = sc;
+        sc.Close();
 
-
+       
         ////Program class attributes
         byte onOff = Convert.ToByte(OnOff.Value);
         string status = txtStatus.Text.ToString();
@@ -1465,8 +1514,8 @@ public partial class Programs : System.Web.UI.Page
         Program newProgram = new Program(onOff, status, programAddress, cityCounty, programTypeID, numOfChildren, numOfAdult, waitForPayment, programDate, programTime, extraComments);
 
 
-        insert.CommandText = "insert into dbo.Program (programTypeID, orgID, status, programAddress, CityCounty, state, onOff, numberOfChildren, numberOfAdults, paymentNeeded, programDate, programTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy) values "
-            + "(@programTypeID, @orgID, @status, @programAddress, @cityCounty, @state, @onOff, @numberOfChildren, @numberOfAdults, @paymentNeeded, @programDate, @programTime, @eventMonth, @extraComments, @lastUpdated, @lastUpdatedBy)";
+        insert.CommandText = "insert into dbo.Program (programTypeID, orgID, status, programAddress, CityCounty, state, onOff, numberOfChildren, numberOfAdults, Paid, programDate, programTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy) values "
+            + "(@programTypeID, @orgID, @status, @programAddress, @cityCounty, @state, @onOff, @numberOfChildren, @numberOfAdults, @Paid, @programDate, @programTime, @eventMonth, @extraComments, @lastUpdated, @lastUpdatedBy)";
 
         insert.Parameters.AddWithValue("@programTypeID", newProgram.getProgramTypeID());
         insert.Parameters.AddWithValue("@orgID", orgID);
@@ -1476,7 +1525,7 @@ public partial class Programs : System.Web.UI.Page
         insert.Parameters.AddWithValue("@onOff", newProgram.getOnOff());
         insert.Parameters.AddWithValue("@numberOfChildren", newProgram.getNumOfChildren());
         insert.Parameters.AddWithValue("@numberOfAdults", newProgram.getNumOfAdult());
-        insert.Parameters.AddWithValue("@paymentNeeded", newProgram.getWaitForPayment());
+        insert.Parameters.AddWithValue("@Paid", newProgram.getWaitForPayment());
         insert.Parameters.AddWithValue("@programDate", newProgram.getDate());
         insert.Parameters.AddWithValue("@programTime", newProgram.getTime());
         insert.Parameters.AddWithValue("@eventMonth", newProgram.getDate().ToString("MMMM"));
@@ -1487,7 +1536,7 @@ public partial class Programs : System.Web.UI.Page
                                                                              //insert.Parameters.AddWithValue("@grade", newProgram.getGrade());
 
         insert.ExecuteNonQuery();
-
+       
         // Pulls Program ID
         pullProgramID.CommandText = "SELECT MAX(ProgramID) From Program";
         int tempProgramID = (int)pullProgramID.ExecuteScalar();
@@ -1599,7 +1648,7 @@ public partial class Programs : System.Web.UI.Page
                 continue;
             }
         }
-
+       
 
         //// Pull program grade based on selected Grade
         foreach (ListItem li in lstGrades.Items)
@@ -1644,6 +1693,7 @@ public partial class Programs : System.Web.UI.Page
         NumOfChildren.Value = "";
         NumOfAdults.Value = "";
         Comments.Value = "";
+        sc.Close();
     }
 
     protected void btnSubmitOnline_Click(object sender, EventArgs e)
@@ -1675,6 +1725,7 @@ public partial class Programs : System.Web.UI.Page
 
         pullGradeID.Connection = sc;
         onlineProgramGradesInsert.Connection = sc;
+        sc.Close();
 
         //Online Program ;
         //int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
@@ -1854,6 +1905,7 @@ public partial class Programs : System.Web.UI.Page
             {
                 continue;
             }
+
         }
     }
 
@@ -1898,6 +1950,8 @@ public partial class Programs : System.Web.UI.Page
         pullAnimalID.Connection = sc;
         updateOnlineAnimal.Connection = sc;
         deleteOnlineAnimal.Connection = sc;
+
+        sc.Close();
 
         deleteEducator.Parameters.Clear();
         deleteGrade.Parameters.Clear();
@@ -2112,6 +2166,7 @@ public partial class Programs : System.Web.UI.Page
 
             }
         }
+        con.Close();
     }
 
 
@@ -2138,6 +2193,7 @@ public partial class Programs : System.Web.UI.Page
         pullBird.Connection = sc;
         pullReptile.Connection = sc;
         pullMammal.Connection = sc;
+        sc.Close();
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
 
@@ -2311,6 +2367,8 @@ public partial class Programs : System.Web.UI.Page
         {
             throw ex;
         }
+        con.Close();
+        sc.Close();
     }
 
 
@@ -2331,6 +2389,7 @@ public partial class Programs : System.Web.UI.Page
         delete2.Connection = sc;
         delete3.Connection = sc;
         delete4.Connection = sc;
+        sc.Close();
 
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
@@ -2373,6 +2432,8 @@ public partial class Programs : System.Web.UI.Page
 
 
         }
+        con.Close();
+        sc.Close();
     }
 
 
