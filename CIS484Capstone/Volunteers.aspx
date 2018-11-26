@@ -43,7 +43,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand logo" href="Programs.aspx">Wildlife Center of Virginia</a>
+   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -75,20 +75,12 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+            <li class="nav-item ">
+                    <a class="nav-link" href="Report.aspx">
 
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>
+                        <span>Reports</span></a>
+                </li>
+
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -185,20 +177,16 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+            <li class="nav-item ">
+                    <a class="nav-link" href="Report.aspx">
 
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>
+                        <span>Reports</span></a>
+                </li>
+         <li class="nav-item ">
+                    <a class="nav-link" href="Tableau.aspx">
+
+                        <span>Visualization</span></a>
+                </li>
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -322,7 +310,20 @@
 
             <%-- this div  is the internal div--%>
        
-         <ul class="nav nav-tabs block4" role="tablist">
+      
+                                                    <script>
+$(function() {
+    $('a[data-toggle="tab"]').on('click', function(e) {
+        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+    var activeTab = window.localStorage.getItem('activeTab');
+    if (activeTab) {
+        $('#myTab a[href="' + activeTab + '"]').tab('show');
+        window.localStorage.removeItem("activeTab");
+    }
+});       </script>
+
+                        <ul class="nav nav-tabs block4" id="myTab" role="tablist">
                 <li class="nav-item ">
                 
                                 

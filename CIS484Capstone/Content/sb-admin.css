@@ -33,7 +33,7 @@ body html {
 
 body {
     /*background-image: url(../Images/BackgroundLogin/sunset.jpg);*/
-    background-color: #D9D6D0;
+    background-color: #D6D1CE;
     height: auto; /* You must set a specified height */
     background-position: top; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -184,12 +184,7 @@ body.fixed-nav #content-wrapper {
 
 .sidebar {
     width: 90px !important;
-    background-color: #34383a;
-    min-height: calc(100vh - 56px);
-    text-align: center;
-}.sidebar {
-    width: 90px !important;
-    background-color: #34383a;
+    background-color: #34383a !important;
     min-height: calc(100vh - 56px);
     text-align: center;
 }

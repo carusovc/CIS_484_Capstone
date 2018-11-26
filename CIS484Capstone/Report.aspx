@@ -41,7 +41,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand logo" href="Programs.aspx">Wildlife Center of Virginia</a>
+  <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -262,7 +262,19 @@
                             </div>
 
 
-                        <ul class="nav nav-tabs block4" role="tablist">
+                                                    <script>
+$(function() {
+    $('a[data-toggle="tab"]').on('click', function(e) {
+        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+    var activeTab = window.localStorage.getItem('activeTab');
+    if (activeTab) {
+        $('#myTab a[href="' + activeTab + '"]').tab('show');
+        window.localStorage.removeItem("activeTab");
+    }
+});       </script>
+
+                        <ul class="nav nav-tabs block4" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active TabStyle" data-toggle="tab" href="#AnimalTab" style="color:black;">Animal</a>
                 </li>
@@ -321,7 +333,7 @@
                         <div class="tab-content">
 
                                     <div class="InternalTab">
-                                        <div class="col-md-12 ProgramTitle">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ProgramTitle">
                                             <br />
                                             <div class="ReportTitle text-center">Search Results</div>
 
@@ -517,7 +529,7 @@
                     <br />
                     <div class="mx-auto d-flex justify-content-center">
                         <asp:Button ID="btnToExcel" runat="server" OnClick="btnToExcel_Click1" Text="Export to Excel" class="btn btn-primary btn-inside" />
-                        <asp:Button ID="btnMonthlyVisualize" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualize_Click"></asp:Button>
+                       
 
                     </div>
 
@@ -739,7 +751,7 @@
           <div class="mx-auto d-flex justify-content-center">
 <asp:Button ID="btnMonthToExcel" runat="server" OnClick="btnMonthsToExcel_Click" Text="Export to Excel"  class="btn btn-primary btn-inside" />
            
-    <asp:Button ID="btnVisualizeMonthly" runat="server" Text="Visualize" class="btn btn-primary btn-inside" OnClick="btnVisualizeMonthly_Click"></asp:Button>   
+   
             
               </div>
           <br />

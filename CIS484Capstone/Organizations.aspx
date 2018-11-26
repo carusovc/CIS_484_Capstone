@@ -43,7 +43,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand logo" href="Programs.aspx">Wildlife Center of Virginia</a>
+   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -62,7 +62,7 @@
             <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-            <li class="nav-item dropdown no-arrow active ">
+            <li class="nav-item dropdown no-arrow  ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
 
@@ -75,20 +75,12 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+             <li class="nav-item ">
+                    <a class="nav-link" href="Report.aspx">
 
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>
+                        <span>Reports</span></a>
+                </li>
+        
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -101,7 +93,7 @@
                 </div>
             </li>
 
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown no-arrow active">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Organizations</span>
@@ -162,7 +154,7 @@
             <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                      <span>Animals</span>
@@ -173,20 +165,16 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+            <li class="nav-item ">
+                    <a class="nav-link" href="Report.aspx">
 
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>
+                        <span>Reports</span></a>
+                </li>
+            <li class="nav-item ">
+                    <a class="nav-link" href="Tableau.aspx">
+
+                        <span>Visualization</span></a>
+                </li>
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -199,7 +187,7 @@
                 </div>
             </li>
 
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown no-arrow active">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Organizations</span>
@@ -251,19 +239,18 @@
             Organization Listing</div>
         <div class="card-body">
             <div class="mx-auto d-flex justify-content-center">
-                <div class="btn btn-primary btn-inside" data-target="#AddOrganization" data-toggle="modal">Add Orgnaization</div>
+                <div class="btn btn-primary btn-inside" data-target="#AddOrganization" data-toggle="modal">Add Organization</div>
                 <div class="btn btn-primary btn-inside" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</div>
             </div>
                 </div>
             
 
-          <div class="row">
+          
+       
+                <div class="row">
 
-                <div class=" col-xl-6 col-lg-6 col-md-4 col-sm-4 col-sx-4 InternalAnimalForm">
-                    </div>
-            
-                <div class=" text-right col-xl-6 col-lg-6 col-md-8 col-sm-8 col-sx-8 InternalAnimalForm" >
-                    <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFAFA !important; color: #732700 !important; margin-right:15px;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+                <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 InternalAnimalForm"  >
+                    <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
                     <asp:ListItem>--Order By--</asp:ListItem>
                     <%--<asp:ListItem>Program Date</asp:ListItem>--%>
                     <asp:ListItem>Organization Name A-Z</asp:ListItem>
@@ -274,20 +261,14 @@
                     
                 </div>
 
-                
-                
-            
-            </div>
-          <br />
-                <div class="row">
+                <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-5 col-sm-12 col-xs-12 InternalAnimalForm"  >
+                    <div class="form-check-inline">
+                    <asp:TextBox  class="InternalAnimalForm form-control" ID="txtSearch" runat="server"></asp:TextBox>
 
-                <div class=" col-xl-6 col-lg-6 col-md-4 col-sm-4 col-sx-4 InternalAnimalForm">
-                    </div>
-                <div class=" text-right col-xl-6 col-lg-6 col-md-8 col-sm-8 col-sx-8 InternalAnimalForm">
-                    <asp:TextBox  class="InternalAnimalForm" ID="txtSearch" runat="server"></asp:TextBox>
-                    <asp:Button ID ="Button1" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
+                  
+                    <asp:Button ID ="Button1" runat ="server" class="btn" Text ="Search" OnClick="btnSearch_Click" />
                     &nbsp;&nbsp;&nbsp;
-                    
+                     </div>
                 </div>
             
             </div>
@@ -318,7 +299,7 @@
                         
 
             <div class="row table-responsive mx-auto d-flex  justify-content-center">
-              <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
    
    
 <asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#FFBC7C"
@@ -345,12 +326,7 @@
 
             <%-- this div  is the internal div--%>
        
-            <ul class="nav nav-tabs block4" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active TabStyle" data-toggle="tab" href="#OrganizationsAllTab" style="color:black;">All</a>
-                </li>
-                
-            </ul>
+           
             <div class="tab-content">
                 <div id="OrganizationsAllTab" class="container1 block3 tab-pane  WildTable active">
                     <div class="InternalOrganizationsTab">
