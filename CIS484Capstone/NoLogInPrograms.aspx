@@ -637,6 +637,8 @@
                                                                                     <tr class="row">
                                                                                         <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Contact Email
                                                                                         </th>
+                                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Secondary Email
+                                                                                        </th>
                                                                                         <th class="col-md-8" scope="col" <%--style="width: 250px"--%>>Comments
                                                                                         </th>
 
@@ -646,6 +648,9 @@
                                                                                 <tr class="row">
                                                                                     <td class="col-md-4">
                                                                                         <asp:Label ID="lblCity" runat="server" Text='<%# Eval("ContactEmail") %>' />
+                                                                                    </td>
+                                                                                    <td class="col-md-4">
+                                                                                        <asp:Label ID="lblSecondaryEmail" runat="server" Text='<%# Eval("SecondaryEmail") %>' />
                                                                                     </td>
                                                                                     <td class="col-md-8">
                                                                                         <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
@@ -735,6 +740,19 @@
                     </Triggers>
                     <ContentTemplate>
                         <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6 
+           col-sm-12">
+                                    <p>
+                                        Select Volunteer:
+                                        <br />
+                                        <asp:DropDownList ID="ddlLiveVolunteer" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
+
+                                            <asp:ListItem Text="--Select Volunteer--" Value="0" />
+                                        </asp:DropDownList>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 
@@ -1018,6 +1036,19 @@
                     <ContentTemplate>
                         <div class="modal-body">
 
+                              <div class="row">
+                                <div class="col-md-12 col-lg-6 
+           col-sm-12">
+                                    <p>
+                                        Select Volunteer:
+                                        <br />
+                                        <asp:DropDownList ID="ddlOnlineVolunteer" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
+
+                                            <asp:ListItem Text="--Select Volunteer--" Value="0" />
+                                        </asp:DropDownList>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 
            col-sm-12">
@@ -1081,8 +1112,7 @@
            col-sm-12">
                                     Teacher:
                                     <br />
-                                    <asp:DropDownList ID="ddlOTeacher" runat="server">
-                                    </asp:DropDownList>
+                                    <asp:TextBox ID="txtOnlineTeacher" runat="server"></asp:TextBox>
 
                                 </div>
                                 <br />
@@ -1127,6 +1157,17 @@
 
 
                                 </div>
+
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Secondary Email:
+                                    <br />
+                                    <asp:TextBox ID="txtSecondaryEmail" runat="server"></asp:TextBox>
+
+
+
+                                </div>
+
                                 <br />
                                 <div class="col-md-12 col-lg-4
            col-sm-12">
@@ -1934,6 +1975,14 @@
                             </div>
 
 
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="SecondaryEmailLabel" for="SecondaryEmail">Secondary Email:</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="email" id="SecondaryEmail" class="form-control" runat="server" />
+                                </div>
+                            </div>
 
 
                             <div class="form-group row">

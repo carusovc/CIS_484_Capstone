@@ -260,6 +260,15 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Secondary Email</h6>
+                                </div>
+                                <div class=" col-md-3 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtSecondaryEmail2" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+
                             <div>
                                 <div class="row">
                                     <div class=" col-12">
@@ -500,7 +509,14 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
 
-                           
+                           <div class="row">
+                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Secondary Email</h6>
+                                </div>
+                                <div class=" col-md-3 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtSecondaryEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
                                
                             
                             

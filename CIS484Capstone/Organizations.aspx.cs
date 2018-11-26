@@ -43,7 +43,7 @@ public partial class Organizations : System.Web.UI.Page
             string searchOrganization = txtSearch.Text;
 
             DataTable dt = new DataTable();
-            SqlDataAdapter adapt = new SqlDataAdapter("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email " +
+            SqlDataAdapter adapt = new SqlDataAdapter("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail " +
                 "from Organization where UPPER(OrgName) like UPPER('" + searchOrganization + "%') or UPPER(County) like UPPER('" + searchOrganization + "%') " +
                 "or UPPER(City) like UPPER('" + searchOrganization + "%') or UPPER(State) like UPPER('" + searchOrganization + "%') or UPPER(ContactFirstName) like UPPER('" + searchOrganization + "%') " +
                 "or UPPER(ContactLastName) like UPPER('" + searchOrganization + "%')", con);
@@ -82,21 +82,21 @@ protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
             case 1:
             
                 DataTable dt1 = new DataTable();
-                SqlDataAdapter adapt1 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email  From Organization Order by OrgName;"), con);
+                SqlDataAdapter adapt1 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail  From Organization Order by OrgName;"), con);
                 adapt1.Fill(dt1);
                 gridSearch.DataSource = dt1;
                 gridSearch.DataBind();
                 break;
             case 2:
                 DataTable dt2 = new DataTable();
-                SqlDataAdapter adapt2 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email  From Organization Order by City;"), con);
+                SqlDataAdapter adapt2 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail  From Organization Order by City;"), con);
                 adapt2.Fill(dt2);
                 gridSearch.DataSource = dt2;
                 gridSearch.DataBind();
                 break;
             case 3:
                 DataTable dt3 = new DataTable();
-                SqlDataAdapter adapt3 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email  From Organization Order by County;"), con);
+                SqlDataAdapter adapt3 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail  From Organization Order by County;"), con);
                 adapt3.Fill(dt3);
                 gridSearch.DataSource = dt3;
                 gridSearch.DataBind();
