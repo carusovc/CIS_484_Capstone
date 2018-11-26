@@ -60,6 +60,8 @@
              <h6>Password</h6>
             <asp:TextBox ID="txtPassword" class="input-md textinput textInput form-control" name="password1" placeholder="Password" style="margin-bottom: 10px" runat="server" TextMode="Password"></asp:TextBox>
        <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <asp:LinkButton ID="btnReset" runat="server" onclick="btnResetPassword_Click" Text="Forgot Password" AutoPostback ="True" ></asp:LinkButton>
        </div>
                </div>
                 </div>

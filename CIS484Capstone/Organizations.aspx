@@ -1,9 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="TabLiveReports.aspx.cs" Inherits="Tableau4" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Organizations.aspx.cs" Inherits="Organizations" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- 
+
+
+    <%--                <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>--%>
+
 <meta charset="UTF-8">
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
@@ -32,18 +36,18 @@
       <!-- Logo FOnt-->
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
-                  
+                
          
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand logo" href="Programs.aspx">Wildtek</a>
+  <a class="navbar-brand logo" href="Programs.aspx">Wildlife Center of Virginia</a>
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
-      <li class="nav-item dropdown no-arrow ">
+      <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -58,7 +62,7 @@
             <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-            <li class="nav-item dropdown no-arrow ">
+            <li class="nav-item dropdown no-arrow active ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
 
@@ -71,7 +75,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Reports</span>
@@ -103,6 +107,7 @@
                     <span>Organizations</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">Add New Organization</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
@@ -157,7 +162,7 @@
             <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-            <li class="nav-item dropdown no-arrow ">
+            <li class="nav-item dropdown no-arrow active">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                      <span>Animals</span>
@@ -168,7 +173,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Reports</span>
@@ -228,21 +233,204 @@
 
         </ul>
 
-      <div id="content-wrapper">
 
-          
 
+
+
+
+        <div id="content-wrapper">
         <div class="container-fluid ">
 
-<div class='tableauPlaceholder' id='viz1540835282581' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Gr&#47;GradeReport&#47;GradeDash&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GradeReport&#47;GradeDash' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Gr&#47;GradeReport&#47;GradeDash&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>               
- <script type='text/javascript'>                    var divElement = document.getElementById('viz1540835282581');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>   
+          
+<section class="login-block  col-xl-10 col-lg-10 col-md-12 col-s-12 mx-auto ">
+            <%--<section class="card card-register mx-auto mt-5">--%>
+    <div class="container1">
+      <div class="card  mx-auto mt-3">
+        <div class="card-header NewUserTitle text-center">
+           
+            Organization Listing</div>
+        <div class="card-body">
+            <div class="mx-auto d-flex justify-content-center">
+                <div class="btn btn-primary btn-inside" data-target="#AddOrganization" data-toggle="modal">Add Orgnaization</div>
+                <div class="btn btn-primary btn-inside" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</div>
+            </div>
+                </div>
+            
 
+          <div class="row">
 
-<br />
+                <div class=" col-xl-6 col-lg-6 col-md-4 col-sm-4 col-sx-4 InternalAnimalForm">
+                    </div>
+            
+                <div class=" text-right col-xl-6 col-lg-6 col-md-8 col-sm-8 col-sx-8 InternalAnimalForm" >
+                    <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFAFA !important; color: #732700 !important; margin-right:15px;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+                    <asp:ListItem>--Order By--</asp:ListItem>
+                    <%--<asp:ListItem>Program Date</asp:ListItem>--%>
+                    <asp:ListItem>Organization Name A-Z</asp:ListItem>
+                    <asp:ListItem>City A-Z</asp:ListItem>
+                    <asp:ListItem>County A-Z</asp:ListItem>
+                </asp:DropDownList>
 
-</div>
+                    
+                </div>
+
+                
+                
+            
+            </div>
+          <br />
+                <div class="row">
+
+                <div class=" col-xl-6 col-lg-6 col-md-4 col-sm-4 col-sx-4 InternalAnimalForm">
+                    </div>
+                <div class=" text-right col-xl-6 col-lg-6 col-md-8 col-sm-8 col-sx-8 InternalAnimalForm">
+                    <asp:TextBox  class="InternalAnimalForm" ID="txtSearch" runat="server"></asp:TextBox>
+                    <asp:Button ID ="Button1" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
+                    &nbsp;&nbsp;&nbsp;
+                    
+                </div>
+            
+            </div>
+           
+          <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
+
+    <div class="container1 block">
+     <div runat="server" id="OrganizationSearchDiv">
+               
+        <div runat="server" id="ViewOrganizations">
+
+                      </div>
+                   
+    <div class="block3">
+  
+                 <div class="tab-content">
+                 
+<div class="">
+    <div class="col-md-12 ">
+             <br />
+			  <div class=" text-center">
+                  <h6 class="ReportTitle" >Search Results</h6>
+
+			  </div>
+			
+		</div>
+	</div>
+                        
+
+            <div class="row table-responsive mx-auto d-flex  justify-content-center">
+              <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
+   
+   
+<asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#FFBC7C"
+    HeaderStyle-Forecolor="#732700" runat="server" AutoGenerateColumns="False">
+                      <Columns>
+                          <asp:BoundField DataField="OrgName" HeaderText="Orgnaization Name" SortExpression="OrgName" />
+                          <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" />
+                          <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
+                          <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" />
+                          <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
+                          <asp:BoundField DataField="PostalCode" HeaderText="Postal Code" SortExpression="PostalCode" />
+                          <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName" />
+                          <asp:BoundField DataField="ContactLastName" HeaderText="Contact Last Name" SortExpression="ContactLastName" />
+                          <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" SortExpression="PhoneNumber" />
+                          <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                      </Columns>
+                 </asp:GridView><br /><br /><br />
+              </div>
+           </div>
+        </div>
+         </div>
     </div>
+         
+
+            <%-- this div  is the internal div--%>
+       
+            <ul class="nav nav-tabs block4" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active TabStyle" data-toggle="tab" href="#OrganizationsAllTab" style="color:black;">All</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                <div id="OrganizationsAllTab" class="container1 block3 tab-pane  WildTable active">
+                    <div class="InternalOrganizationsTab">
+                          <div class ="grid-volunteers text-center">
+                            <div class="row table-responsive mx-auto d-flex  justify-content-center">
+              <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">      
+    <asp:GridView ID="GridView1"  HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
+        <Columns>
+            <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" >
+ 
+            </asp:BoundField>
+            <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" >
+            
+            </asp:BoundField>
+            <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" >
+            
+            </asp:BoundField>
+            <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" >
+            
+            </asp:BoundField>
+            <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" >
+            
+            </asp:BoundField>
+            <asp:BoundField DataField="PostalCode" HeaderText="Postal Code" SortExpression="PostalCode">
+            
+            </asp:BoundField>
+            <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName" >
+            
+            </asp:BoundField>
+            <asp:BoundField DataField="ContactLastName" HeaderText="Contact Last Name" SortExpression="ContactLastName" >
+            
+            </asp:BoundField>
+            <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" SortExpression="PhoneNumber" >
+            
+            </asp:BoundField>
+            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email">
+            
+            </asp:BoundField>
+            
+        </Columns>
+        
+     </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
+                    SelectCommand="SELECT [OrgName], [StreetAddress], [City], [County], [State], [PostalCode], [ContactFirstName], [ContactLastName], [PhoneNumber], [Email] FROM [Organization] ORDER BY [OrgName]">
+                </asp:SqlDataSource>
+     </div>
+  
+       
+     
+        
+                    </div>
+                </div>
+                        </div>
+                </div>
 
 
+
+
+
+
+            </div>
+        </div>
+                </div>
+          <div runat="server" id="Div1">
+          </div>
+      </div>
+        </div>
+
+    </section>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+   
 </asp:Content>
 
