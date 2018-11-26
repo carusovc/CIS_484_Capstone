@@ -59,10 +59,11 @@ public partial class createUser : System.Web.UI.Page
 
 
                         // INSERT USER RECORD
-                        createUser.CommandText = "insert into[dbo].[Person] values(@FName, @LName, @Username)";
+                        createUser.CommandText = "insert into[dbo].[Person] values(@FName, @LName, @Username, @Email)";
                         createUser.Parameters.Add(new SqlParameter("@FName", txtFirstName.Text));
                         createUser.Parameters.Add(new SqlParameter("@LName", txtLastName.Text));
                         createUser.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
+                        createUser.Parameters.Add(new SqlParameter("@Email", txtEmail.Text));
                         createUser.ExecuteNonQuery();
 
                         System.Data.SqlClient.SqlCommand setPass = new System.Data.SqlClient.SqlCommand();
@@ -77,6 +78,7 @@ public partial class createUser : System.Web.UI.Page
                         sc.Close();
 
                         lblStatus.Text = "User committed!";
+                        txtEmail.Enabled = false;
                         txtFirstName.Enabled = false;
                         txtLastName.Enabled = false;
                         txtUsername.Enabled = false;
@@ -115,6 +117,7 @@ public partial class createUser : System.Web.UI.Page
     {
         txtFirstName.Enabled = true;
         txtLastName.Enabled = true;
+        txtEmail.Enabled = true;
         txtUsername.Enabled = true;
         txtPassword.Enabled = true;
         btnSubmit.Enabled = true;
