@@ -176,9 +176,10 @@ public partial class Payments : System.Web.UI.Page
 
         txtAmount.Text = "";
         txtCheckNum.Text = "";
-        ddlPaymentType.SelectedItem.Value = "0";
-        ddlOrganization.SelectedItem.Value = "0";
+        ddlPaymentType.SelectedIndex = 0;
+        ddlOrganization.SelectedIndex = 0;
         txtInvoiceNum.Text = "";
+        ddlPaymentType.SelectedIndex = 0;
         
 
 
