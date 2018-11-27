@@ -23,6 +23,7 @@ public partial class Programs : System.Web.UI.Page
             createAccordianUsingRepeaterLive(0);
             createAccordianUsingRepeaterOnline(0);
             createAccordianUsingRepeaterAll(0);
+
         }
 
 
@@ -515,6 +516,11 @@ public partial class Programs : System.Web.UI.Page
             Repeater rptNewLiveProgramLL3 = e.Item.FindControl("rptNewLiveProgramLL3") as Repeater;
             Repeater rptNewLiveProgramLL4 = e.Item.FindControl("rptNewLiveProgramLL4") as Repeater;
 
+           
+
+
+
+
             //Repeater rptNewLiveProgramLL42 = e.Item.FindControl("rptNewLiveProgramLL4") as Repeater;
             //Repeater rptNewLiveProgramLL43 = e.Item.FindControl("rptNewLiveProgramLL4") as Repeater;
             Repeater rptNewLiveProgramLL5 = e.Item.FindControl("rptNewLiveProgramLL5") as Repeater;
@@ -528,10 +534,10 @@ public partial class Programs : System.Web.UI.Page
             rptNewLiveProgramLL3.DataSource = GetData(string.Format("Select ProgramID, ProgramAddress, CityCounty, State from Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptNewLiveProgramLL3.DataBind();
 
-            //rptNewLiveProgramLL4.DataSource = GetData(string.Format("SELECT ProgramID, pa.AnimalID, (CASE WHEN AnimalType ='Bird' Then AnimalName ELSE NULL END) AS 'Birds', (CASE WHEN AnimalType = 'Mammal' Then AnimalName ELSE NULL END) AS 'Mammals', (CASE WHEN AnimalType = 'Reptile' Then AnimalName ELSE NULL END) AS 'Reptiles' FROM ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where ProgramID = " + ProgramID + "", ProgramID));
-            //rptNewLiveProgramLL4.DataBind();
+            rptNewLiveProgramLL4.DataSource = GetData(string.Format("SELECT ProgramID, pa.AnimalID, (CASE WHEN AnimalType ='Bird' Then AnimalName ELSE NULL END) AS 'Birds', (CASE WHEN AnimalType = 'Mammal' Then AnimalName ELSE NULL END) AS 'Mammals', (CASE WHEN AnimalType = 'Reptile' Then AnimalName ELSE NULL END) AS 'Reptiles' FROM ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where ProgramID = " + ProgramID + "", ProgramID));
+            rptNewLiveProgramLL4.DataBind();
 
-            //rptNewLiveProgramLL42.DataSource = GetData(string.Format("Select ProgramID, pa.AnimalID, AnimalName as 'Mammals1' from ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where Animal.AnimalType = 'Mammal' and ProgramID = " + ProgramID + "", ProgramID));
+            //rptNewLiveProgramLL42.DataSource = GetData(string.Format("Select ProgramID, pa.AnimalID, AnimalName as 'Birds' from ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where Animal.AnimalType = 'Bird' and ProgramID = " + ProgramID + "", ProgramID));
             //rptNewLiveProgramLL42.DataBind();
 
             //rptNewLiveProgramLL43.DataSource = GetData(string.Format("Select ProgramID, pa.AnimalID, AnimalName as 'Reptiles' from ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where Animal.AnimalType = 'Reptile' and ProgramID = " + ProgramID + "", ProgramID));
@@ -541,6 +547,7 @@ public partial class Programs : System.Web.UI.Page
 
             rptNewLiveProgramLL5.DataSource = GetData(string.Format("Select ProgramID, ExtraComments, LastUpdatedBy, LastUpdated from Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptNewLiveProgramLL5.DataBind();
+
 
 
         }
@@ -794,7 +801,6 @@ public partial class Programs : System.Web.UI.Page
         ds.WriteXml(@"C:\Users\labpatron\Desktop\" + animalReport + ".xls");
 
 
-        sc.Close();
         string script = "alert('File Successfully Exported to Desktop');";
         System.Web.UI.ScriptManager.RegisterClientScriptBlock(btnExportOnline, this.GetType(), "Test", script, true);
     }
@@ -834,7 +840,6 @@ public partial class Programs : System.Web.UI.Page
         updateAnimal.Connection = sc;
         deleteAnimal.Connection = sc;
 
-        sc.Close();
 
         // Clear the parameters for deleting associated table inserts
         deleteEducator.Parameters.Clear();
@@ -1068,7 +1073,6 @@ public partial class Programs : System.Web.UI.Page
             }
 
         }
-        con.Close();
     }
 
     //Live Program ID
@@ -1100,7 +1104,6 @@ public partial class Programs : System.Web.UI.Page
         pullReptile.Connection = sc;
         pullMammal.Connection = sc;
 
-        sc.Close();
 
         insert.Parameters.Clear();
         programType.Parameters.Clear();
@@ -1157,7 +1160,6 @@ public partial class Programs : System.Web.UI.Page
             SqlDataReader sdr5 = pullBird.ExecuteReader();
             SqlDataReader sdr6 = pullReptile.ExecuteReader();
             SqlDataReader sdr7 = pullMammal.ExecuteReader();
-            con.Close();
 
             while (sdr.Read())
             {
@@ -1344,7 +1346,6 @@ public partial class Programs : System.Web.UI.Page
         delete2.Connection = sc;
         delete3.Connection = sc;
         delete4.Connection = sc;
-        sc.Close();
 
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
@@ -1392,7 +1393,6 @@ public partial class Programs : System.Web.UI.Page
 
 
         }
-        con.Close();
 
 
     }
@@ -1416,7 +1416,6 @@ public partial class Programs : System.Web.UI.Page
         delete2.Connection = sc;
         delete3.Connection = sc;
         delete4.Connection = sc;
-        sc.Close();
 
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
@@ -1442,7 +1441,6 @@ public partial class Programs : System.Web.UI.Page
         delete4.ExecuteNonQuery();
 
         ddlOnlineProgramID.Items.Clear();
-        con.Close();
         //call read array
         con.Open();
         if (con.State == System.Data.ConnectionState.Open)
@@ -1460,7 +1458,7 @@ public partial class Programs : System.Web.UI.Page
 
 
         }
-        con.Close();
+
     }
 
     protected void btnSubmitLive_Click(object sender, EventArgs e)
@@ -1499,7 +1497,6 @@ public partial class Programs : System.Web.UI.Page
         pullEducatorID.Connection = sc;
         pullAnimalID.Connection = sc;
         pullGradeID.Connection = sc;
-        sc.Close();
 
        
         ////Program class attributes
@@ -1708,7 +1705,6 @@ public partial class Programs : System.Web.UI.Page
         NumOfChildren.Value = "";
         NumOfAdults.Value = "";
         Comments.Value = "";
-        sc.Close();
     }
 
     protected void btnSubmitOnline_Click(object sender, EventArgs e)
@@ -1740,7 +1736,6 @@ public partial class Programs : System.Web.UI.Page
 
         pullGradeID.Connection = sc;
         onlineProgramGradesInsert.Connection = sc;
-        sc.Close();
 
         //Online Program ;
         //int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
@@ -1966,7 +1961,6 @@ public partial class Programs : System.Web.UI.Page
         updateOnlineAnimal.Connection = sc;
         deleteOnlineAnimal.Connection = sc;
 
-        sc.Close();
 
         deleteEducator.Parameters.Clear();
         deleteGrade.Parameters.Clear();
@@ -2181,7 +2175,6 @@ public partial class Programs : System.Web.UI.Page
 
             }
         }
-        con.Close();
     }
 
 
@@ -2208,7 +2201,6 @@ public partial class Programs : System.Web.UI.Page
         pullBird.Connection = sc;
         pullReptile.Connection = sc;
         pullMammal.Connection = sc;
-        sc.Close();
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
 
@@ -2382,8 +2374,8 @@ public partial class Programs : System.Web.UI.Page
         {
             throw ex;
         }
-        con.Close();
-        sc.Close();
+
+
     }
 
 
@@ -2404,7 +2396,6 @@ public partial class Programs : System.Web.UI.Page
         delete2.Connection = sc;
         delete3.Connection = sc;
         delete4.Connection = sc;
-        sc.Close();
 
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
