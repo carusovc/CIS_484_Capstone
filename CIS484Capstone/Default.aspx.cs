@@ -112,6 +112,19 @@ public partial class userLogin : System.Web.UI.Page
 
                         Session["USER_ID"] = txtUsername.Text;
 
+                        if (txtUsername.Text.ToString().Equals("Volunteer"))
+                        {
+                            lblStatus.Text = "Success!";
+                            btnLogin.Enabled = false;
+                            txtUsername.Enabled = false;
+                            txtPassword.Enabled = false;
+                            Response.Redirect("NoLogInPrograms.aspx", false);
+
+
+                            Session["USER_ID"] = txtUsername.Text;
+
+                        }
+
                     }
 
                     else
