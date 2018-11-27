@@ -21,15 +21,28 @@ public partial class Payments : System.Web.UI.Page
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
-        string programNameRead = "Select * from ProgramType order by ProgramName";
+        //string programNameRead = "Select * from Program";
         string programTypeRead = "Select * from OnlineProgramType order by OnlineProgramTypeName";
         string read = "Select * from Organization";
-        SqlCommand cmd1 = new SqlCommand(programNameRead, sc);
+        //SqlCommand cmd1 = new SqlCommand(programNameRead, sc);
         SqlCommand cmd8 = new SqlCommand(programTypeRead, sc);
         SqlCommand cmd = new SqlCommand(read, sc);
-        SqlDataReader myRead1 = cmd1.ExecuteReader();
+        //SqlDataReader myRead1 = cmd1.ExecuteReader();
         SqlDataReader myRead8 = cmd8.ExecuteReader();
         SqlDataReader myRead = cmd.ExecuteReader();
+
+        if (ddlProgramType.Items.Count < 2)
+        {
+            string readStatement = "SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID where z.Paid = 'N'";
+            SqlCommand cmdLive = new SqlCommand(readStatement, sc);
+            SqlDataReader myReadLive = cmdLive.ExecuteReader();
+
+
+            while (myReadLive.Read())
+            {
+                ddlProgramType.Items.Add(new ListItem(myReadLive["ProgramDate"].ToString() + "--" + myReadLive["ProgramType"].ToString(), myReadLive["ProgramID"].ToString()));
+            }
+        }
 
 
 
@@ -44,17 +57,17 @@ public partial class Payments : System.Web.UI.Page
 
         
 
-        if (ddlProgramType.Items.Count < 2)
-        {
-            while (myRead1.Read())
-            {
-                ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
-            }
-            while (myRead8.Read())
-            {
-                ddlProgramType.Items.Add(new ListItem(myRead8["OnlineProgramTypeName"].ToString(), myRead8["OnlineProgramTypeID"].ToString()));
-            }
-        }
+        //if (ddlProgramType.Items.Count < 2)
+        //{
+        //    while (myRead1.Read())
+        //    {
+        //        ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
+        //    }
+        //    while (myRead8.Read())
+        //    {
+        //        ddlProgramType.Items.Add(new ListItem(myRead8["OnlineProgramTypeName"].ToString(), myRead8["OnlineProgramTypeID"].ToString()));
+        //    }
+        //}
 
 
 
@@ -108,42 +121,73 @@ public partial class Payments : System.Web.UI.Page
         decimal paymentAmount = Convert.ToDecimal(txtAmount.Text);
         string checkNum = txtCheckNum.Text.ToString();
         string paymentType = ddlPaymentType.Text.ToString();
-        int orgID = Int32.Parse(ddlOrganization.Text.ToString());
+        string cancelledInvoices = "N";
         string invoice = txtInvoiceNum.Text.ToString();
-        string paid = rdbPaid.SelectedItem.Value.ToString();
-        string cancelledSet = rdbPaid.Text.ToString();
-        char[] cancelledCharArr = cancelledSet.ToCharArray();
-        char CancelledStatus = cancelledCharArr[0];
+        string paid = "N";
+        //string cancelledSet = rdbPaid.Text.ToString();
+        //char[] cancelledCharArr = cancelledSet.ToCharArray();
+        //char CancelledStatus = cancelledCharArr[0];
 
         //Temporary LastUpdated and LastUpdatedBy
         DateTime tempLastUpdated = DateTime.Today;
-        String tempLastUpdatedBy = "TempWildTekDevs";
+        String tempLastUpdatedBy = "WildTekDevelopers";
 
 
 
 
-        Payment newPayment = new Payment(paymentAmount, paymentDate, checkNum, paymentType, invoice, paid, orgID);
+        Payment newPayment = new Payment(paymentAmount, paymentDate, checkNum, paymentType, invoice, paid, cancelledInvoices);
 
-        insert.CommandText = "insert into dbo.PaymentRecord (PaymentAmount, paymentDate, CheckNumber, PaymentType, Invoice, Paid, OrgID, LastUpdated, LastUpdatedBy) " +
-            "values (@paymentAmount, @paymentDate, @CheckNumber, @PaymentType, @Invoice, @Paid, @OrgID, @LastUpdated, @LastUpdatedBy)";
+        insert.CommandText = "insert into dbo.PaymentRecord (PaymentAmount, paymentDate, CheckNumber, PaymentType, Invoice, Paid, CancelledInvoices, LastUpdated, LastUpdatedBy) " +
+            "values (@paymentAmount, @paymentDate, @CheckNumber, @PaymentType, @Invoice, @Paid, @CancelledInvoices, @LastUpdated, @LastUpdatedBy)";
 
         insert.Parameters.AddWithValue("@paymentAmount", paymentAmount);
         insert.Parameters.AddWithValue("@paymentDate", newPayment.getPaymentDate());
         insert.Parameters.AddWithValue("@CheckNumber", newPayment.getCheckNum());
         insert.Parameters.AddWithValue("@PaymentType", newPayment.getPaymentType());
         insert.Parameters.AddWithValue("@Invoice", newPayment.getInvoice());
-        insert.Parameters.AddWithValue("@Paid", newPayment.getCancelledInvoice());
+        insert.Parameters.AddWithValue("@Paid", newPayment.getPaid());
         //insert.Parameters.AddWithValue("@paid", newPayment.getPaid());
-        insert.Parameters.AddWithValue("@OrgID", newPayment.getOrgId());
+        insert.Parameters.AddWithValue("@CancelledInvoices", newPayment.getCancelledInvoices());
         insert.Parameters.AddWithValue("@LastUpdated", tempLastUpdated);
         insert.Parameters.AddWithValue("@LastUpdatedBy", tempLastUpdatedBy);
 
         insert.ExecuteNonQuery();
+
+        System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
+        update.Connection = sc;
+        update.Parameters.Clear();
+
+        System.Data.SqlClient.SqlCommand pullPaymentID = new System.Data.SqlClient.SqlCommand();
+        pullPaymentID.Connection = sc;
+        pullPaymentID.Parameters.Clear();
+
+        pullPaymentID.CommandText = "SELECT MAX(PaymentID) FROM PaymentRecord";
+        int tempPaymentID = (int)pullPaymentID.ExecuteScalar();
+
+        update.CommandText = "Update Program set Paid = @paid, PaymentID = @paymentID  where ProgramID = @programID";
+        update.Parameters.AddWithValue("@paid", 'Y');
+        update.Parameters.AddWithValue("@paymentID", tempPaymentID);
+        update.Parameters.AddWithValue("@programID", ddlProgramType.SelectedItem.Value);
+        update.ExecuteNonQuery();
+
+        lblStatus.Text = "Payment has been submitted";
+
         sc.Close();
+
+        txtAmount.Text = "";
+        txtCheckNum.Text = "";
+        ddlPaymentType.SelectedIndex = 0;
+        ddlOrganization.SelectedIndex = 0;
+        txtInvoiceNum.Text = "";
+        ddlPaymentType.SelectedIndex = 0;
+        
+
+
+
 
     }
 
-    
+
     //protected void btnPopulate_Click(object sender, EventArgs e)
     //{
     //    ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");

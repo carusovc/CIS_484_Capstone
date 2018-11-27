@@ -40,7 +40,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand logo" href="Programs.aspx">Wildtek</a>
+  <a class="navbar-brand logo" href="Programs.aspx">Wildlife Center</a>
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -355,15 +355,15 @@
                                 <div class="form-group row">
                              <div class="col-sm-12 col-md-6">
                                  <h6>Program</h6>
-                                    <asp:DropDownList ID="ddlProgramType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" >                                  
-                                        <asp:ListItem>--Select Program--</asp:ListItem> </asp:DropDownList>
+                                    <asp:DropDownList ID="ddlProgramType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="false" DataTextField="OrgName" DataValueField="OrgID" >                                  
+                                        <asp:ListItem Value ="0">--Select Program--</asp:ListItem> </asp:DropDownList>
                                   <%--<asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
 
                                 </div>
                                     <div class="col-sm-12 col-md-6">
                                <h6>Organization</h6>
-                                    <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" >                                  
-                                        <asp:ListItem>--Select Organization--</asp:ListItem> </asp:DropDownList>
+                                    <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="false" DataTextField="OrgName" DataValueField="OrgID" >                                  
+                                        <asp:ListItem Value ="0">--Select Organization--</asp:ListItem> </asp:DropDownList>
 <%--                                  <asp:RequiredFieldValidator id="RequiredFieldValidator8" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
 
                                 </div>
@@ -430,15 +430,15 @@
                                      
                                 
                                 </div>
-                                   <div class="col-sm-12 col-md-6">
+                              <%--     <div class="col-sm-12 col-md-6">
                                        <h6>Select</h6>
                                        <p></p>
                                     <asp:RadioButtonList ID="rdbPaid" runat="server"> 
                                         <asp:ListItem Text="Paid" Value ="Y"/>
                                         <asp:ListItem  Text="Not Paid" Value ="N"/>
-                                         <asp:ListItem Text="Cancelled" Value ="C"/> 
+                                      
                                  </asp:RadioButtonList>
-                                       </div>
+                                       </div>--%>
                                 </div>
                                 <p></p>
 
@@ -450,7 +450,7 @@
                                <div class="col-sm-12 col-md-6">
                                 <h6> Payment Type</h6>
                                <asp:DropDownList ID="ddlPaymentType" runat="server"  class="form-control" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged">
-                                    <asp:ListItem>--Payment Type--</asp:ListItem>
+                                    <asp:ListItem Value ="0">--Payment Type--</asp:ListItem>
                                     <asp:ListItem>Check</asp:ListItem>
                                     <asp:ListItem>Credit</asp:ListItem>
                                     <asp:ListItem>Debit</asp:ListItem>
@@ -487,9 +487,10 @@
                                <asp:Button ID="btnInvoices" runat="server" OnClick="btnInvoices_Click" class="btn btn-primary btn-inside" Text="View Invoices" />
                         </div>
                         <p></p>
-                       
+                        <asp:Label ID="lblStatus" ForeColor="red" runat="server"></asp:Label>
                     </div>
                 </div>
+         
             </div>
                    </div>
                 </div>
