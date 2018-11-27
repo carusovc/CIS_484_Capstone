@@ -214,9 +214,35 @@ public partial class Payments : System.Web.UI.Page
         {
             txtCheckNum.ReadOnly = true;
         }
-        
-       
 
+    }
+
+    protected void ddlProgramType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+        System.Data.SqlClient.SqlCommand selectOrganization = new System.Data.SqlClient.SqlCommand();
+        selectOrganization.Connection = sc;
+
+        selectOrganization.Parameters.Clear();
+
+        selectOrganization.CommandText = "SELECT OrgID From Program WHERE ProgramID = @progamID";
+        selectOrganization.Parameters.AddWithValue("@programID", ddlProgramType.SelectedItem.Value);
+        String tempOrg = (String)selectOrganization.ExecuteScalar();
+
+        ddlOrganization.ClearSelection();
+        for (int i = 0; i < ddlOrganization.Items.Count; i++)
+        {
+            if (ddlOrganization.Items[i].Value == tempOrg)
+            {
+                ddlOrganization.Items[i].Selected = true;
+            }
+        }
     }
 
     //// sets days in dropdown for month
