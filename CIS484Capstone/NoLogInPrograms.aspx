@@ -649,6 +649,8 @@ $(function() {
                                                                                     <tr class="row">
                                                                                         <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Contact Email
                                                                                         </th>
+                                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Secondary Email
+                                                                                        </th>
                                                                                         <th class="col-md-8" scope="col" <%--style="width: 250px"--%>>Comments
                                                                                         </th>
 
@@ -658,6 +660,9 @@ $(function() {
                                                                                 <tr class="row">
                                                                                     <td class="col-md-4">
                                                                                         <asp:Label ID="lblCity" runat="server" Text='<%# Eval("ContactEmail") %>' />
+                                                                                    </td>
+                                                                                    <td class="col-md-4">
+                                                                                        <asp:Label ID="lblSecondaryEmail" runat="server" Text='<%# Eval("SecondaryEmail") %>' />
                                                                                     </td>
                                                                                     <td class="col-md-8">
                                                                                         <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
@@ -747,6 +752,19 @@ $(function() {
                     </Triggers>
                     <ContentTemplate>
                         <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6 
+           col-sm-12">
+                                    <p>
+                                        Select Volunteer:
+                                        <br />
+                                        <asp:DropDownList ID="ddlLiveVolunteer" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
+
+                                            <asp:ListItem Text="--Select Volunteer--" Value="0" />
+                                        </asp:DropDownList>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 
@@ -998,7 +1016,7 @@ $(function() {
 
 
 
-                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Delete" onclick="btnDelete_Click">Delete</button>
+                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Disable" onclick="btnDelete_Click">Disable</button>
 
 
                     <%-- <button type="button" id="btnUpdate" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate_Click">Update</button>--%>
@@ -1029,6 +1047,19 @@ $(function() {
                     </Triggers>
                     <ContentTemplate>
                         <div class="modal-body">
+
+                              <div class="row">
+                                <div class="col-md-12 col-lg-6 
+           col-sm-12">
+                                    <p>
+                                        Select Volunteer:
+                                        <br />
+                                        <asp:DropDownList ID="ddlOnlineVolunteer" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
+
+                                            <asp:ListItem Text="--Select Volunteer--" Value="0" />
+                                        </asp:DropDownList>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 
@@ -1093,8 +1124,7 @@ $(function() {
            col-sm-12">
                                     Teacher:
                                     <br />
-                                    <asp:DropDownList ID="ddlOTeacher" runat="server">
-                                    </asp:DropDownList>
+                                    <asp:TextBox ID="txtOnlineTeacher" runat="server"></asp:TextBox>
 
                                 </div>
                                 <br />
@@ -1139,6 +1169,17 @@ $(function() {
 
 
                                 </div>
+
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Secondary Email:
+                                    <br />
+                                    <asp:TextBox ID="txtSecondaryEmail" runat="server"></asp:TextBox>
+
+
+
+                                </div>
+
                                 <br />
                                 <div class="col-md-12 col-lg-4
            col-sm-12">
@@ -1242,7 +1283,7 @@ $(function() {
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--%>
 
 
-                    <button type="button" id="Button2" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Delete" onclick="btnOnlineDelete_Click">Delete</button>
+                    <button type="button" id="Button2" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Disable" onclick="btnOnlineDelete_Click">Disable</button>
                     <asp:Button ID="Button3" runat="server" class="btn  btn-inside" Text="Save Changes" OnClick="btnOnlineUpdate_Click" />
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
@@ -1946,6 +1987,14 @@ $(function() {
                             </div>
 
 
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="SecondaryEmailLabel" for="SecondaryEmail">Secondary Email:</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="email" id="SecondaryEmail" class="form-control" runat="server" />
+                                </div>
+                            </div>
 
 
                             <div class="form-group row">

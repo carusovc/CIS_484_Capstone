@@ -243,6 +243,7 @@
                     <span>Organizations</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
@@ -256,6 +257,17 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Volunteers</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
+                    <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
                 </div>
             </li>
             <li class="nav-item " style="display: inline-block;
@@ -336,6 +348,7 @@
                     <span>Organizations</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
@@ -358,7 +371,7 @@
                     <span>Volunteers</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#" data-target="Volunteers.aspx" data-toggle="modal">Add New Volunteer</a>
+                    <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
                     <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
                 </div>
@@ -773,7 +786,9 @@
                                                                                 <table class="ChildGrid table table-striped table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                     <tr class="row">
-                                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Contact Email
+                                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Contact Primary Email
+                                                                                        </th>
+                                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Secondary Email
                                                                                         </th>
                                                                                         <th class="col-md-8" scope="col" <%--style="width: 250px"--%>>Comments
                                                                                         </th>
@@ -784,6 +799,9 @@
                                                                                 <tr class="row">
                                                                                     <td class="col-md-4">
                                                                                         <asp:Label ID="lblCity" runat="server" Text='<%# Eval("ContactEmail") %>' />
+                                                                                    </td>
+                                                                                    <td class="col-md-4">
+                                                                                        <asp:Label ID="lblSecondaryEmail" runat="server" Text='<%# Eval("SecondaryEmail") %>' />
                                                                                     </td>
                                                                                     <td class="col-md-8">
                                                                                         <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
@@ -1125,7 +1143,7 @@
 
 
 
-                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Delete" onclick="btnDelete_Click">Delete</button>
+                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Disable" onclick="btnDelete_Click">Disable</button>
 
 
                     <%-- <button type="button" id="btnUpdate" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate_Click">Update</button>--%>
@@ -1265,6 +1283,17 @@
 
 
                                 </div>
+
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Secondary Email:
+                                    <br />
+                                    <asp:TextBox ID="txtSecondaryEmail" runat="server"></asp:TextBox>
+
+
+
+                                </div>
+
                                 <br />
                                 <div class="col-md-12 col-lg-4
            col-sm-12">
@@ -1368,7 +1397,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--%>
 
 
-                    <button type="button" id="Button2" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Delete" onclick="btnOnlineDelete_Click">Delete</button>
+                    <button type="button" id="Button2" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Disable" onclick="btnOnlineDelete_Click">Disable</button>
                     <asp:Button ID="Button3" runat="server" class="btn  btn-inside" Text="Save Changes" OnClick="btnOnlineUpdate_Click" />
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
@@ -1853,7 +1882,7 @@
 
                                     </select>--%>
                                     <asp:DropDownList CssClass="form-control" ID="Payment" runat="server" class="dropdown-menu radioButtonList">
-                                        <asp:ListItem Text="--Select Payment Status--" Value="0" />
+                                        <asp:ListItem Text="--Select Payment Status--" />
                                         <asp:ListItem Text="Payment Complete" Value="Y" />
                                         <asp:ListItem Text="Payment Not Complete" Value="N" />
                                     </asp:DropDownList>
@@ -2071,7 +2100,14 @@
                                 </div>
                             </div>
 
-
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="SecondaryEmailLabel" for="SecondaryEmail">Secondary Email:</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="email" id="SecondaryEmail" class="form-control" runat="server" />
+                                </div>
+                            </div>
 
 
                             <div class="form-group row">

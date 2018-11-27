@@ -56,12 +56,9 @@ public partial class ChangePassword : System.Web.UI.Page
 
     {
 
-        if (validatePassword(txtNewPassword.Text.ToString()) == true)
+        if ((validatePassword(txtNewPassword.Text.ToString()) == true) && (validatePassword(txtConfirmNewPassword.Text.ToString()) == true))
 
         {
-
-
-
 
 
             // COMMIT VALUES
@@ -222,38 +219,7 @@ public partial class ChangePassword : System.Web.UI.Page
 
     }
 
-    protected void chkShowPassword_CheckedChanged(object sender, EventArgs e)
-
-    {
-
-        if (chkShowPassword.Checked)
-
-        {
-
-            txtNewPassword.TextMode = TextBoxMode.SingleLine;
-
-            this.txtNewPassword.Text = txtNewPassword.Text;
-
-        }
-
-        else
-
-        {
-
-            txtNewPassword.TextMode = TextBoxMode.Password;
-
-            txtNewPassword.Attributes.Add("value", txtNewPassword.Text);
-
-            this.txtNewPassword.Text = txtNewPassword.Text;
-
-        }
-
-
-
-
-
-    }
-
+    
     private bool validatePassword(string password)
 
     {

@@ -94,6 +94,7 @@
                     <span>Organizations</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
@@ -116,6 +117,7 @@
                     <span>Volunteers</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
                     <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
                 </div>
@@ -199,6 +201,7 @@
                     <span>Organizations</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
@@ -223,6 +226,7 @@
                     <span>Volunteers</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
                     <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
                 </div>
@@ -351,8 +355,9 @@ $(function() {
 
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],PaymentRecord.PaymentID as PaymentID,Invoice, PaymentRecord.Paid
-                                            FROM [PaymentRecord] left outer join [Organization] on  PaymentRecord.OrgID = Organization.OrgID full join [Program] on PaymentRecord.PaymentID = Program.PaymentID full join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID WHERE (CASE { fn MONTH(paymentDate) } 
+                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
+                                            FROM [Program] inner join [Organization] on  Program.OrgID = Organization.OrgID inner join [PaymentRecord] 
+											on PaymentRecord.PaymentID = Program.PaymentID inner join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID  WHERE (CASE { fn MONTH(paymentDate) } 
                                             when 1 then 'January'
                                             when 2 then 'February'
                                             when 3 then 'March'
@@ -365,7 +370,7 @@ $(function() {
                                             when 10 then 'October'
                                             when 11 then 'November'
                                             when 12 then 'December'
-                                           END = @Month ) AND (YEAR(paymentDate)=@Year and paymentRecord.paid !='C')"
+                                           END = @Month ) AND (YEAR(paymentDate)=@Year and paymentRecord.cancelledinvoices !='Y')"
                                             ProviderName="System.Data.SqlClient">
                                             <SelectParameters>
 
@@ -453,8 +458,9 @@ $(function() {
                                             </Columns>
                                     </asp:GridView>
                                     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                                        SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],PaymentRecord.PaymentID,[Invoice]
-                                            FROM [PaymentRecord] left outer join [Organization] on  PaymentRecord.OrgID = Organization.OrgID inner join [Program] on PaymentRecord.PaymentID = Program.PaymentID full join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID WHERE (CASE { fn MONTH(paymentDate) } 
+                                        SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
+                                            FROM [Program] inner join [Organization] on  Program.OrgID = Organization.OrgID inner join [PaymentRecord] 
+											on PaymentRecord.PaymentID = Program.PaymentID inner join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID WHERE (CASE { fn MONTH(paymentDate) } 
                                             when 1 then 'January'
                                             when 2 then 'February'
                                             when 3 then 'March'
@@ -467,7 +473,7 @@ $(function() {
                                             when 10 then 'October'
                                             when 11 then 'November'
                                             when 12 then 'December'
-                                           END = @Month ) AND (YEAR(paymentDate)=@Year and paymentRecord.paid ='C')"
+                                           END = @Month ) AND (YEAR(paymentDate)=@Year and paymentRecord.paid ='Y')"
                                             ProviderName="System.Data.SqlClient">
                                         <SelectParameters>
 
@@ -542,7 +548,8 @@ $(function() {
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                                             SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
-                                            FROM [PaymentRecord] left outer join [Organization] on  PaymentRecord.OrgID = Organization.OrgID inner join [Program] on PaymentRecord.PaymentID = Program.PaymentID full join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID WHERE 
+                                            FROM [Program] inner join [Organization] on  Program.OrgID = Organization.OrgID inner join [PaymentRecord] 
+											on PaymentRecord.PaymentID = Program.PaymentID inner join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID  WHERE 
                                             (YEAR(paymentDate)=@Year and paymentRecord.paid !='C')"
                                             ProviderName="System.Data.SqlClient">
                                             <SelectParameters>
