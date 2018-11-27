@@ -681,11 +681,11 @@
                   <HeaderStyle HorizontalAlign="Center" />
             <ItemStyle HorizontalAlign="Center" />
             </asp:BoundField>
-             <asp:BoundField DataField="NumberOfKids" HeaderText="Number Of Kids" SortExpression="NumberOfKids" ReadOnly="True" >
+             <asp:BoundField DataField="NumberOfKids" HeaderText="Number Of Children" SortExpression="NumberOfKids" ReadOnly="True" >
                   <HeaderStyle HorizontalAlign="Center" />
             <ItemStyle HorizontalAlign="Center" />
             </asp:BoundField>
-             <asp:BoundField DataField="NumberOfPeople" HeaderText="Number Of People" SortExpression="NumberOfPeople" ReadOnly="True" >
+             <asp:BoundField DataField="NumberOfPeople" HeaderText="Total Participants" SortExpression="NumberOfPeople" ReadOnly="True" >
                   <HeaderStyle HorizontalAlign="Center" />
             <ItemStyle HorizontalAlign="Center" />
             </asp:BoundField>
@@ -869,7 +869,7 @@
             <ItemStyle HorizontalAlign="Center" />
             </asp:BoundField>
             
-            <asp:BoundField DataField="NumberOfPeople" HeaderText="Number Of People" SortExpression="NumberOfPeople" >
+            <asp:BoundField DataField="NumberOfPeople" HeaderText="Total Participants" SortExpression="NumberOfPeople" >
             
 
             <HeaderStyle HorizontalAlign="Center" />
