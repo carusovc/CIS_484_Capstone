@@ -205,7 +205,7 @@
 
                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
 
-                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+                    
 
                 </div>
 

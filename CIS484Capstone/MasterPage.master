@@ -955,7 +955,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                     </asp:UpdatePanel>
                     <div class="modal-footer">
  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnDeleteEducator" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDeleteEducator_Click" />
+                       
                         <asp:Button ID="btnUpdateEducator" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdateEducator_Click" />
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                        

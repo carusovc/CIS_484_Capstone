@@ -38,7 +38,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand logo" href="Programs.aspx">Wildlife Center of Virginia</a>
+  <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -102,7 +102,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
                     <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+                    
                 </div>
             </li>
 
@@ -222,7 +222,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
                     <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+                    
                 </div>
             </li>
 

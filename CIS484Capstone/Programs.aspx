@@ -89,7 +89,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand logo" href="Programs.aspx">Wildlife Center of Virginia</a>
+     <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
 
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -424,7 +424,21 @@
 
                                     <%-- this div  is the internal div--%>
                                     <div class="block3">
-                                        <ul class="nav nav-tabs block4" role="tablist">
+                                                 <script>
+$(function() {
+    $('a[data-toggle="tab"]').on('click', function(e) {
+        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+    var activeTab = window.localStorage.getItem('activeTab');
+    if (activeTab) {
+        $('#myTab a[href="' + activeTab + '"]').tab('show');
+        window.localStorage.removeItem("activeTab");
+    }
+});       </script>
+
+            <%-- this div  is the internal div--%>
+       
+            <ul class="nav nav-tabs block4" id="myTab" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active TabStyle" id="AllTabNav" data-toggle="tab" href="#AllTab" style="color: black;">All Programs</a>
                                             </li>
@@ -456,7 +470,7 @@
                                                                 </tr>
                                                         </HeaderTemplate>
                                                         <ItemTemplate>
-                                                            <tr>
+                                                           <tr class="row">
 
                                                                 <td>
 
@@ -466,32 +480,34 @@
 
                                                                             <HeaderTemplate>
 
-                                                                                <table class="ChildGrid table  table-condensed WideTable " border="0" table-layout: fixed>
+                                                                                <table class="ChildGrid table   table-condensed WideTable " border="0" table-layout: fixed>
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row">
-                                                                                    <asp:Label ID="lblForField1" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Status" : "Educator Name" %>'
+                                                                                    <td class="col-md-4" >
+                                                                                             <asp:Label style="font-weight: 600;" ID="lblForField1" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Status" : "Educator Name" %>'
                                                                                         runat="server" />
-                                                                                    <td class="col-md-4" style="font-weight: 600;">
-
-
-                                                                                        <br />
+                                                                                        <%--Live = Status, Online = Educator Name--%>
+                                                          
+                                                                                        <br /> <br />
                                                                                         <asp:Label ID="lblField1" runat="server" Text='<%# Eval("Field1") %>' />
                                                                                         <%--Live = Status, Online = Educator Name--%>
                                                                                     </td>
 
-                                                                                    <asp:Label ID="lblForField2" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Payment Status" : "Primary Email" %>'
+                                                                                    
+                                                                                    <td class="col-md-4" >
+                                                                                        <asp:Label style="font-weight: 600;" ID="lblForField2" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Payment Status" : "Primary Email" %>'
                                                                                         runat="server" />
-                                                                                    <td class="col-md-4" style="font-weight: 600;">
-                                                                                        <br />
+                                                                                        <br /> <br />
                                                                                         <asp:Label ID="lblField2" runat="server" Text='<%# Eval("Field2") %>' />
                                                                                         <%--Live = Payment Status, Online = Primary Email--%>
                                                                                     </td>
 
-                                                                                    <asp:Label ID="lblForField3" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "On or Off Site" : "Secondary Email" %>'
+                                                                                   
+                                                                                    <td class="col-md-4" >
+                                                                                         <asp:Label style="font-weight: 600;" ID="lblForField3" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "On or Off Site" : "Secondary Email" %>'
                                                                                         runat="server" />
-                                                                                    <td class="col-md-4" style="font-weight: 600;">
-                                                                                        <br />
+                                                                                        <br /><br />
                                                                                         <asp:Label ID="lblField3" runat="server" Text='<%# Eval("Field3") %>' />
                                                                                         <%--Live = On off Site, Online = SecondaryEmail--%>
                                                                                     </td>
@@ -516,27 +532,30 @@
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row">
-                                                                                    <asp:Label ID="lblForField4" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Event Month" : "Event Month" %>'
+                                                                                   
+                                                                                    <td class="col-md-4" >
+                                                                                         <asp:Label style="font-weight: 600;" ID="lblForField4" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Event Month" : "Event Month" %>'
                                                                                         runat="server" />
-                                                                                    <td class="col-md-4" style="font-weight: 600;">
-                                                                                        <br />
+                                                                                        <br /> <br />
                                                                                         <asp:Label ID="lblField4" runat="server" Text='<%# Eval("Field4") %>' />
                                                                                         <%--Live = Event Month, Online = Event Month--%>
                                                                                     </td>
 
-                                                                                    <asp:Label ID="lblForField5" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Number of Children" : "Number of Children" %>'
+                                                                                   
+                                                                                    <td class="col-md-4" >
+                                                                                         <asp:Label style="font-weight: 600;" ID="lblForField5" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Number of Children" : "Number of Children" %>'
                                                                                         runat="server" />
-                                                                                    <td class="col-md-4" style="font-weight: 600;">
-                                                                                        <br />
+                                                                                        <br /><br />
                                                                                         <asp:Label ID="lblField5" runat="server" Text='<%# Eval("Field5") %>' />
                                                                                         <%--Live = Number of Children, Online = Number of Children--%>
                                                                                     </td>
 
-                                                                                    <asp:Label ID="lblForField6" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Number of Adults" : "Total Participants" %>'
-                                                                                        runat="server" />
+                                                                                    
                                                                                     <%--need to fix total participant count--%>
-                                                                                    <td class="col-md-4" style="font-weight: 600;">
-                                                                                        <br />
+                                                                                    <td class="col-md-4" >
+                                                                                        <asp:Label style="font-weight: 600;" ID="lblForField6" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Number of Adults" : "Total Participants" %>'
+                                                                                        runat="server" />
+                                                                                        <br /><br />
                                                                                         <asp:Label ID="lblField6" runat="server" Text='<%# Eval("Field6") %>' />
                                                                                         <%--Live = Number of Adults, Online = Total Participants--%>
                                                                                     </td>
@@ -560,26 +579,29 @@
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row">
-                                                                                    <asp:Label ID="lblForField7" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Street Address" : "City/County" %>'
+                                                                                   
+                                                                                    <td class="col-md-4" >
+                                                                                         <asp:Label style="font-weight: 600;" ID="lblForField7" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Street Address" : "City/County" %>'
                                                                                         runat="server" />
-                                                                                    <td class="col-md-4" style="font-weight: 600;">
-                                                                                        <br />
+                                                                                        <br /><br />
                                                                                         <asp:Label ID="lblField7" runat="server" Text='<%# Eval("Field7") %>' />
                                                                                         <%--Live = Street Address, Online = CityCounty--%>
                                                                                     </td>
 
-                                                                                    <asp:Label ID="lblForField8" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "City/County" : "State" %>'
+                                                                                   
+                                                                                    <td class="col-md-4" >
+                                                                                         <asp:Label style="font-weight: 600;" ID="lblForField8" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "City/County" : "State" %>'
                                                                                         runat="server" />
-                                                                                    <td class="col-md-4" style="font-weight: 600;">
-                                                                                        <br />
+                                                                                        <br />  <br />
                                                                                         <asp:Label ID="lblField8" runat="server" Text='<%# Eval("Field8") %>' />
                                                                                         <%--Live = CityCounty, Online = State--%>
                                                                                     </td>
 
-                                                                                    <asp:Label ID="lblForField9" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "State" : "Country" %>'
+                                                                                   
+                                                                                    <td class="col-md-4" >
+                                                                                         <asp:Label style="font-weight: 600;" ID="lblForField9" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "State" : "Country" %>'
                                                                                         runat="server" />
-                                                                                    <td class="col-md-4" style="font-weight: 600;">
-                                                                                        <br />
+                                                                                        <br /> <br />
                                                                                         <asp:Label ID="lblField9" runat="server" Text='<%# Eval("Field9") %>' />
                                                                                         <%--Live = State, Online = Country--%>
                                                                                     </td>
@@ -603,26 +625,29 @@
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row">
-                                                                                    <asp:Label ID="lblForField10" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Comments" : "Comments" %>'
+                                                                                    
+                                                                                    <td class="col-md-4" >
+                                                                                        <asp:Label style="font-weight: 600;" ID="lblForField10" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Comments" : "Comments" %>'
                                                                                         runat="server" />
-                                                                                    <td class="col-md-4" style="font-weight: 600;">
-                                                                                        <br />
+                                                                                        <br /><br />
                                                                                         <asp:Label ID="lblField10" runat="server" Text='<%# Eval("Field10") %>' />
                                                                                         <%--Live = Comments, Online = Comments--%>
                                                                                     </td>
 
-                                                                                    <asp:Label ID="lblForField11" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Last Updated By" : "Last Updated By" %>'
+                                                                                    
+                                                                                    <td class="col-md-4" >
+                                                                                        <asp:Label style="font-weight: 600;" ID="lblForField11" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Last Updated By" : "Last Updated By" %>'
                                                                                         runat="server" />
-                                                                                    <td class="col-md-4" style="font-weight: 600;">
-                                                                                        <br />
+                                                                                        <br /><br />
                                                                                         <asp:Label ID="lblField11" runat="server" Text='<%# Eval("Field11") %>' />
                                                                                         <%--Live = LastUpdatedBy, Online = LastUpdatedBy--%>
                                                                                     </td>
 
-                                                                                    <asp:Label ID="lblForField12" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Last Updated" : "Last Updated" %>'
+                                                                                    
+                                                                                    <td class="col-md-4" >
+                                                                                        <asp:Label style="font-weight: 600;" ID="lblForField12" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Last Updated" : "Last Updated" %>'
                                                                                         runat="server" />
-                                                                                    <td class="col-md-4" style="font-weight: 600;">
-                                                                                        <br />
+                                                                                        <br /> <br />
                                                                                         <asp:Label ID="lblField12" runat="server" Text='<%# Eval("Field12") %>' />
                                                                                         <%--Live = LastUpdated, Online = LastUpdated--%>
                                                                                     </td>
@@ -643,7 +668,7 @@
 
                                                                     </asp:Panel>
                                                                 </td>
-
+                                                            <tr >
                                                                 <asp:HiddenField ID="hfProgramIDAll" runat="server" Value='<%# Eval("AllProgramID") %>' />
                                                                 <asp:HiddenField ID="hfProgramCategory" runat="server" Value='<%# Eval("ProgramCategory") %>' />
                                                                 <td>
@@ -706,7 +731,7 @@
 
                                                                             <HeaderTemplate>
 
-                                                                                <table class="ChildGrid table table-striped table-borderless table-condensed WideTable  col-md-12" border="0" table-layout: fixed>
+                                                                                <table class="ChildGrid table  table-borderless table-condensed WideTable  col-md-12" border="0" table-layout: fixed>
 
                                                                                     <tr class="row">
                                                                                         <th class="col-md-4" scope="col">Status
@@ -744,7 +769,7 @@
 
                                                                             <HeaderTemplate>
 
-                                                                                <table class="ChildGrid table table-striped table-borderless table-condensed WideTable" border="0" table-layout: fixed>
+                                                                                <table class="ChildGrid table  table-borderless table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                     <tr class="row">
 
@@ -783,7 +808,7 @@
 
                                                                             <HeaderTemplate>
 
-                                                                                <table class="ChildGrid table  table-striped table-borderless table-condensed WideTable" border="0" table-layout: fixed>
+                                                                                <table class="ChildGrid table   table-borderless table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                     <tr class="row">
                                                                                         <th class="col-md-4" scope="col">On/Off Site
@@ -879,7 +904,7 @@
 
                                                                             <HeaderTemplate>
 
-                                                                                <table class="ChildGrid table table-striped table-condensed WideTable " border="0" table-layout: fixed>
+                                                                                <table class="ChildGrid table  table-condensed WideTable " border="0" table-layout: fixed>
 
                                                                                     <tr class="row">
 
@@ -917,7 +942,7 @@
 
                                                                             <HeaderTemplate>
 
-                                                                                <table class="ChildGrid table table-striped table-condensed WideTable" border="0" table-layout: fixed>
+                                                                                <table class="ChildGrid table  table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                     <tr class="row">
 
@@ -955,7 +980,7 @@
 
                                                                             <HeaderTemplate>
 
-                                                                                <table class="ChildGrid table table-striped table-condensed WideTable" border="0" table-layout: fixed>
+                                                                                <table class="ChildGrid table  table-condensed WideTable" border="0" table-layout: fixed>
 
                                                                                     <tr class="row">
                                                                                         <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Contact Primary Email

@@ -102,7 +102,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
                     <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+                    
                 </div>
             </li>
 
@@ -228,7 +228,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
                     <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+                    
                 </div>
             </li>
 
