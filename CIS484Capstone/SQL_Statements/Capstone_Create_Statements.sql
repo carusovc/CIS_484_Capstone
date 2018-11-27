@@ -29,13 +29,21 @@ AnimalType varchar(50) NOT NULL,
 AnimalName varchar(50) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
+Status varchar(100) Not Null,
 CONSTRAINT PK_AnimalID PRIMARY KEY (AnimalID));
 
 Create Table Organization (
 OrgID int IDENTITY(1,1) NOT NULL,
 OrgName varchar(50) NOT NULL,
+StreetAddress varchar(50) NOT NULL,
 City varchar(30) NOT NULL,
 County varchar(30) NOT NULL,
+State varchar(2) NOT NULL,
+PostalCode varchar(20) NOT NULL,
+ContactFirstName varchar(50) NOT NULL,
+ContactLastName varchar(50) NOT NULL,
+PhoneNumber numeric NOT NULL,
+Email varchar(50) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_OrgID PRIMARY KEY (OrgID));
@@ -54,12 +62,11 @@ paymentDate DateTime NOT NULL,
 CheckNumber varchar(25) NULL,
 PaymentType varchar(25) NOT NULL,
 Invoice varchar(50) NOT NULL,
-CancelledInvoice char(1) NOT NULL,
-OrgID int NOT NULL,
+Paid char(1) Not null,
+CancelledInvoices char(1) Not null,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
-CONSTRAINT PK_PaymentRecord PRIMARY KEY (PaymentID),
-CONSTRAINT FK_PaymentRecordOrganization FOREIGN KEY (OrgID) references Organization);
+CONSTRAINT PK_PaymentRecord PRIMARY KEY (PaymentID));
 
 Create Table OnlineProgram(
 OnlineProgramID int IDENTITY(1,1)  NOT NULL,
@@ -76,8 +83,10 @@ ContactEmail varchar(100) NULL,
 ExtraComments varchar(250) NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
+--PaymentID int NULL,
 CONSTRAINT PK_OnlineProgram PRIMARY KEY (OnlineProgramID),
 CONSTRAINT FK_OnlineProgramOnlineProgramType FOREIGN KEY (OnlineProgramTypeID) references OnlineProgramType);
+--CONSTRAINT FK_OnlineProgramPaymentID FOREIGN KEY (PaymentID) references PaymentRecord
 
 Create Table OnlineEducators(
 OnlineProgramID int NOT NULL,
@@ -109,7 +118,8 @@ State varchar(50) NULL,
 OnOff bit NOT NULL,
 NumberOfChildren int NOT NULL,
 NumberOfAdults int NOT NULL,
-PaymentNeeded char(1) NULL,
+PaymentID int NULL,
+Paid char(1) Not null,
 ProgramDate date NOT NULL,
 ProgramTime time NOT NULL,
 EventMonth varchar(15) NOT NULL,
@@ -118,7 +128,10 @@ LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_ProgramID PRIMARY KEY (ProgramID),
 CONSTRAINT FK_OrgID FOREIGN KEY (OrgID) references Organization,
-CONSTRAINT FK_ProgramTypeID FOREIGN KEY (ProgramTypeID) references ProgramType);
+CONSTRAINT FK_ProgramTypeID FOREIGN KEY (ProgramTypeID) references ProgramType,
+CONSTRAINT FK_PaymentID FOREIGN KEY (PaymentID) references PaymentRecord);
+--CONSTRAINT FK_ProgramPaymentID NULL FOREIGN KEY (PaymentID) references PaymentRecord);
+
 
 
 Create Table ProgramEducators(
@@ -156,3 +169,41 @@ LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_ProgramGrade PRIMARY KEY (ProgramID, GradeID),
 CONSTRAINT FK_ProgramGradeProgram FOREIGN KEY (ProgramID) references Program,
 CONSTRAINT FK_ProgramGradeGrade FOREIGN KEY (GradeID) references Grade);
+                         
+Create table AllPrograms (
+AllProgramID int IDENTITY(0,1) NOT NULL,
+ProgramCategory varchar(100) NULL,
+ProgramDate date NULL,
+ProgramType varchar(150) NULL,
+LiveProgramTime time(7) NULL,
+EventMonth varchar(50) NULL,
+LiveProgramStatus varchar(50) NULL,
+NumberOfChildren int NULL,
+NumberOfAdults int NULL,
+LiveProgramStreetAddress varchar(100) NULL,
+CityCounty varchar(100) NULL,
+OnlineProgramCountry varchar(150),
+State varchar(100) NULL,
+LiveProgramOnOff bit NULL,
+LiveProgramPaid char(1),
+LiveProgramPaymentID int NULL,
+OnlineTeacherName varchar(150) NULL,
+OnlinePrimaryContactEmail varchar(150) NULL,
+OnlineSecondaryEmail varchar(150) NULL,
+ExtraComments varchar(300) NULL,
+LastUpdated datetime NULL,
+LastUpdatedBy varchar(150) NULL
+)
+
+                                       
+Create Table Volunteers(
+VolunteerID int IDENTITY(1,1) NOT NULL,
+VolunteerFirstName varchar(100) NOT NULL,
+VolunteerLastName varchar(100) Not NULL,
+VolunteerPhoneNumber varchar(15) NOT NULL,
+VolunteerEmail varchar(50) NOT NULL,
+VolunteerStatus varchar(20) NOT NULL,
+LastUpdated datetime NOT NULL,
+LastUpdatedBy varchar(100) NOT NULL,
+CONSTRAINT PK_VolunteerID PRIMARY KEY (VolunteerID));
+

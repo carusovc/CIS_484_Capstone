@@ -16,13 +16,9 @@ public partial class MonthlyWildlifeReport : System.Web.UI.Page
     {
 
     }
-    protected void btnVisualize_Click(object sender, EventArgs e)
+    protected void btnVisualizeMonthly_Click(object sender, EventArgs e)
     {
-        Response.Redirect("TabMonthlyReports.aspx");
-    }
-    protected void btnBack_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ReportChoice.aspx");
+       Response.Redirect("TabMonthlyReports.aspx");
     }
     protected void btnMonthsToExcel_Click(object sender, EventArgs e)
     {

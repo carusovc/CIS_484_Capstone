@@ -322,7 +322,7 @@ public partial class Programs : System.Web.UI.Page
             rptProgramLL2Live.DataSource = GetData(string.Format("SELECT ProgramID, ProgramAddress, CityCounty AS City, State From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptProgramLL2Live.DataBind();
 
-            rptProgramLL3Live.DataSource = GetData(string.Format("SELECT Case when OnOff = 1 then 'On' else 'Off' end as 'OnOffSite', ProgramID, Case when PaymentNeeded = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments AS Comments From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
+            rptProgramLL3Live.DataSource = GetData(string.Format("SELECT Case when OnOff = 1 then 'On' else 'Off' end as 'OnOffSite', ProgramID, Case when paid = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments AS Comments From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptProgramLL3Live.DataBind();
 
 
@@ -407,7 +407,7 @@ public partial class Programs : System.Web.UI.Page
         string onlineName = animalReport + filename;
 
         SqlCommand cmd = new SqlCommand("Select pt.ProgramName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, CONVERT(VARCHAR(15), ProgramTime, 100) as ProgramTime, o.OrgName, ProgramAddress,CityCounty, State, Status, NumberOfChildren, NumberOfAdults," +
-            "Case when OnOff = 1 then 'On' else 'Off' end as 'On or Off Site', Case when PaymentNeeded = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments FROM Program p inner join ProgramType pt on  p.programtypeid = pt.programtypeid inner join Organization o on p.orgid = o.orgid", sc);
+            "Case when OnOff = 1 then 'On' else 'Off' end as 'On or Off Site', Case when paid = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments FROM Program p inner join ProgramType pt on  p.programtypeid = pt.programtypeid inner join Organization o on p.orgid = o.orgid", sc);
 
         sc.Open();
 
@@ -500,7 +500,7 @@ public partial class Programs : System.Web.UI.Page
         DateTime programDate = Convert.ToDateTime(txtProgramDate.Text);
         String month = programDate.ToString("MMMM");
         update.CommandText = "update program set programTypeID = @programTypeID, orgID = @orgID, status = @status, programAddress = @programAddress, citycounty = @cityCounty, state = @state, onOff = @onOff, numberOfChildren = @numOfChildren," +
-            "numberOfAdults = @numofAdults, paymentNeeded= @paymentNeeded, programDate = @programDate, programTime = @programTime, eventMonth = @month, extraComments = @comments, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where programID = @programID";
+            "numberOfAdults = @numofAdults, paid= @paid, programDate = @programDate, programTime = @programTime, eventMonth = @month, extraComments = @comments, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where programID = @programID";
         update.Parameters.AddWithValue("@programTypeID", ddlProgramType.SelectedItem.Value);
         update.Parameters.AddWithValue("@orgID", ddlOrganization.SelectedItem.Value);
         update.Parameters.AddWithValue("@programID", ddlProgramID.SelectedItem.Value);
@@ -511,7 +511,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@onOff", rboOnOff.SelectedIndex);
         update.Parameters.AddWithValue("@numOfChildren", txtNumOfChildren.Text);
         update.Parameters.AddWithValue("@numofAdults", txtNumOfAdults.Text);
-        update.Parameters.AddWithValue("@paymentNeeded", rboPayment.SelectedIndex);
+        update.Parameters.AddWithValue("@paid", rboPayment.SelectedIndex);
         update.Parameters.AddWithValue("@programDate", txtProgramDate.Text);
         update.Parameters.AddWithValue("@programTime", txtProgramTime.Text);
         update.Parameters.AddWithValue("@month", month);
@@ -743,7 +743,7 @@ public partial class Programs : System.Web.UI.Page
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, PaymentNeeded, ProgramDate, ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
+        insert.CommandText = "select ProgramID, ProgramTypeID, OrgID, Status, ProgramAddress, CityCounty, State, OnOff, NumberOfChildren, NumberOfAdults, paid, ProgramDate, ProgramTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy from Program where" +
                           " ProgramID = @ProgramID";
         insert.Parameters.AddWithValue("@ProgramID", ddlProgramID.SelectedItem.Value);
 

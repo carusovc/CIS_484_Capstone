@@ -82,7 +82,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand logo" href="Default.aspx">< Back to Login</a>
+        <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Default.aspx">Back to Login</a>
 
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -98,11 +98,15 @@
                         <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
                     </div>
                 </li>
+                </ul>
+            </div>
+
+        </nav>
                 <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-                <li class="nav-item dropdown no-arrow ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+             <%--   <li class="nav-item dropdown no-arrow ">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">--%>
 
                         <%--   Cs-Design View Version 
             <span>Animals</span>
@@ -119,19 +123,19 @@
                     <span>Reports</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                    <a class="dropdown-item" href="Report.aspx">Reports</a>
+                  <%-- --%>
+                   <%-- --%>
+              <%--      <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
                     <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
             </li>
             <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">--%>
 
               
-         
+<%--         
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -142,26 +146,26 @@
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown no-arrow active">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">--%>
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
 
-                        <span>Programs</span>
+<%--                        <span>Programs</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="Programs.aspx">View Programs</a>
                         <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
                     </div>
-                </li>
+                </li>--%>
                 <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-                <li class="nav-item dropdown no-arrow ">
+              <%--  <li class="nav-item dropdown no-arrow ">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                         </li>--%>
 
 
-
-                        <span>Animals</span>
+                       <%-- <span>Animals</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
@@ -175,10 +179,10 @@
                         <span>Reports</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                        <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                        <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                        <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                        <a class="dropdown-item" href="Report.aspx">Reports</a>
+                      <%-- --%>
+                       <%-- --%>
+                      <%--  <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
                         <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
                         <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                     </div>
@@ -230,7 +234,7 @@
             </ul>
 
         </div>
-    </nav>
+    </nav>--%>
 
 
 
@@ -260,9 +264,12 @@
                                 <div class="mx-auto">
                                     <div class="row mx-auto d-flex text cetner justify-content-center">
 
-                                        <div class=" col-lg-3    col-md-4 col-sm-6 ">
-                                            <div class="btn  btn-primary btn-inside btn-block" data-target="#addProgramModal" data-toggle="modal">Add Program Form</div>
+                                        <div class=" col-lg-3    col-md-4 col-sm-6  ">
+                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live Program</div>
                                         </div>
+
+                                        <div class=" col-lg-3   col-md-4  col-sm-6  ">
+                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online Program</div>
 
 
                                         
@@ -281,7 +288,19 @@
 
                                     <%-- this div  is the internal div--%>
                                     <div class="block3">
-                                        <ul class="nav nav-tabs block4" role="tablist">
+                                       <script>
+$(function() {
+    $('a[data-toggle="tab"]').on('click', function(e) {
+        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+    var activeTab = window.localStorage.getItem('activeTab');
+    if (activeTab) {
+        $('#myTab a[href="' + activeTab + '"]').tab('show');
+        window.localStorage.removeItem("activeTab");
+    }
+});       </script>
+
+                        <ul class="nav nav-tabs block4" id="myTab" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active TabStyle" id="AllTabNav" data-toggle="tab" href="#AllTab" style="color: black;">All Programs</a>
                                             </li>
@@ -630,6 +649,8 @@
                                                                                     <tr class="row">
                                                                                         <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Contact Email
                                                                                         </th>
+                                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Secondary Email
+                                                                                        </th>
                                                                                         <th class="col-md-8" scope="col" <%--style="width: 250px"--%>>Comments
                                                                                         </th>
 
@@ -639,6 +660,9 @@
                                                                                 <tr class="row">
                                                                                     <td class="col-md-4">
                                                                                         <asp:Label ID="lblCity" runat="server" Text='<%# Eval("ContactEmail") %>' />
+                                                                                    </td>
+                                                                                    <td class="col-md-4">
+                                                                                        <asp:Label ID="lblSecondaryEmail" runat="server" Text='<%# Eval("SecondaryEmail") %>' />
                                                                                     </td>
                                                                                     <td class="col-md-8">
                                                                                         <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
@@ -728,6 +752,19 @@
                     </Triggers>
                     <ContentTemplate>
                         <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6 
+           col-sm-12">
+                                    <p>
+                                        Select Volunteer:
+                                        <br />
+                                        <asp:DropDownList ID="ddlLiveVolunteer" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
+
+                                            <asp:ListItem Text="--Select Volunteer--" Value="0" />
+                                        </asp:DropDownList>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 
@@ -979,7 +1016,7 @@
 
 
 
-                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Delete" onclick="btnDelete_Click">Delete</button>
+                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Disable" onclick="btnDelete_Click">Disable</button>
 
 
                     <%-- <button type="button" id="btnUpdate" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate_Click">Update</button>--%>
@@ -1010,6 +1047,19 @@
                     </Triggers>
                     <ContentTemplate>
                         <div class="modal-body">
+
+                              <div class="row">
+                                <div class="col-md-12 col-lg-6 
+           col-sm-12">
+                                    <p>
+                                        Select Volunteer:
+                                        <br />
+                                        <asp:DropDownList ID="ddlOnlineVolunteer" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
+
+                                            <asp:ListItem Text="--Select Volunteer--" Value="0" />
+                                        </asp:DropDownList>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 
@@ -1074,8 +1124,7 @@
            col-sm-12">
                                     Teacher:
                                     <br />
-                                    <asp:DropDownList ID="ddlOTeacher" runat="server">
-                                    </asp:DropDownList>
+                                    <asp:TextBox ID="txtOnlineTeacher" runat="server"></asp:TextBox>
 
                                 </div>
                                 <br />
@@ -1120,6 +1169,17 @@
 
 
                                 </div>
+
+                                <div class="col-md-12 col-lg-4 
+           col-sm-12">
+                                    Secondary Email:
+                                    <br />
+                                    <asp:TextBox ID="txtSecondaryEmail" runat="server"></asp:TextBox>
+
+
+
+                                </div>
+
                                 <br />
                                 <div class="col-md-12 col-lg-4
            col-sm-12">
@@ -1223,7 +1283,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--%>
 
 
-                    <button type="button" id="Button2" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Delete" onclick="btnOnlineDelete_Click">Delete</button>
+                    <button type="button" id="Button2" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Disable" onclick="btnOnlineDelete_Click">Disable</button>
                     <asp:Button ID="Button3" runat="server" class="btn  btn-inside" Text="Save Changes" OnClick="btnOnlineUpdate_Click" />
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
@@ -1927,6 +1987,14 @@
                             </div>
 
 
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="SecondaryEmailLabel" for="SecondaryEmail">Secondary Email:</label>
+                                </div>
+                                <div class="col-7">
+                                    <input type="email" id="SecondaryEmail" class="form-control" runat="server" />
+                                </div>
+                            </div>
 
 
                             <div class="form-group row">
