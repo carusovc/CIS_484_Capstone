@@ -185,7 +185,7 @@
             <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                      <span>Animals</span>
@@ -255,7 +255,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
+            <li class="nav-item dropdown no-arrow active ">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                  <span>Volunteers</span>

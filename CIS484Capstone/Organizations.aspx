@@ -82,7 +82,7 @@
                         <span>Reports</span></a>
                 </li> --%>
         
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="Report.aspx">
 
                     <span>Reports</span>
@@ -191,7 +191,7 @@
             </li>
 
 
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="Report.aspx">
 
                     <span>Reports</span>
@@ -359,7 +359,7 @@
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
    
    
-<asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#FFBC7C"
+<asp:GridView ID="gridSearch"   class="table table-bordered table-condensed table-hover"  HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" runat="server" AutoGenerateColumns="False">
                       <Columns>
                           <asp:BoundField DataField="OrgName" HeaderText="Orgnaization Name" SortExpression="OrgName" />
@@ -372,7 +372,7 @@
                           <asp:BoundField DataField="ContactLastName" HeaderText="Contact Last Name" SortExpression="ContactLastName" />
                           <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" SortExpression="PhoneNumber" />
                           <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                          <asp:BoundField DataField="SecondaryEmail" HeaderText="SecondaryEmail" SortExpression="SecondaryEmail" />
+                          <asp:BoundField DataField="SecondaryEmail" HeaderText="Secondary Email" SortExpression="SecondaryEmail" />
                       </Columns>
                  </asp:GridView><br /><br /><br />
               </div>
@@ -424,7 +424,7 @@
             
             </asp:BoundField>
             
-            <asp:BoundField DataField="SecondaryEmail" HeaderText="SecondaryEmail" SortExpression="SecondaryEmail">
+            <asp:BoundField DataField="SecondaryEmail" HeaderText="Secondary Email" SortExpression="SecondaryEmail">
             
             </asp:BoundField>
 

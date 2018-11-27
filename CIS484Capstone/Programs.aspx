@@ -323,7 +323,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
                     <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                    <a class="dropdown-item" href="YearlyInvoices.aspx">Yearly Invoices</a>
+                   
                 </div>
             </li>
 
@@ -456,25 +456,27 @@ $(function() {
 
                                                     <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
                                                         <HeaderTemplate>
-                                                            <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
-                                                                <tr class="alert " style="background-color: #AB9993 !important; color: white !important;">
-                                                                    <th scope="col"></th>
-                                                                    <th scope="col"></th>
-                                                                    <th style="font-weight: 600; font-size: 110%;" scope="col">Program Category
+                                                            <table class="Grid table   table-borderless  WideTable " border="1" table-layout: fixed>
+                                                                <tr class="alert " style="background-color: #AB9993 !important;  color: white !important;">
+                                                                    
+                                                                    <th scope="col">&nbsp
                                                                     </th>
-                                                                    <th style="font-weight: 600; font-size: 110%;" scope="col">Program Date
+                                                                    <th  style="font-weight: 600; font-size: 110%; margin-left: 25px !important;" scope="col">Program Category
                                                                     </th>
-                                                                    <th style="font-weight: 600; font-size: 110%;" scope="col">Program Type
+                                                                    <th  style="font-weight: 600; font-size: 110%; margin-left: 15px !important;" scope="col">Program Date
+                                                                    </th>
+                                                                    <th  style="font-weight: 600; font-size: 110%; margin-left: 15px !important;" scope="col">Program Type
                                                                     </th>
 
                                                                 </tr>
                                                         </HeaderTemplate>
                                                         <ItemTemplate>
-                                                           <tr class="row">
+                                                           <tr class="row ">
+                                                               
+                                                                <td >
 
-                                                                <td>
+                                                                    <img alt="" style="cursor: pointer; " src="images/plus.png" />
 
-                                                                    <img alt="" style="cursor: pointer; padding-left: -50%;" src="images/plus.png" />
                                                                     <asp:Panel ID="pnlProgramAll" runat="server" Style="display: none">
                                                                         <asp:Repeater ID="rptAllLL1" runat="server">
 
@@ -484,6 +486,7 @@ $(function() {
                                                                             </HeaderTemplate>
                                                                             <ItemTemplate>
                                                                                 <tr class="row">
+                                                                                  
                                                                                     <td class="col-md-4" >
                                                                                              <asp:Label style="font-weight: 600;" ID="lblForField1" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "Status" : "Educator Name" %>'
                                                                                         runat="server" />
@@ -511,7 +514,7 @@ $(function() {
                                                                                         <asp:Label ID="lblField3" runat="server" Text='<%# Eval("Field3") %>' />
                                                                                         <%--Live = On off Site, Online = SecondaryEmail--%>
                                                                                     </td>
-
+                                                                                    </div>
                                                                                 </tr>
                                                                             </ItemTemplate>
 
@@ -668,31 +671,33 @@ $(function() {
 
                                                                     </asp:Panel>
                                                                 </td>
-                                                            <tr >
+                                                            
                                                                 <asp:HiddenField ID="hfProgramIDAll" runat="server" Value='<%# Eval("AllProgramID") %>' />
                                                                 <asp:HiddenField ID="hfProgramCategory" runat="server" Value='<%# Eval("ProgramCategory") %>' />
-                                                                <td>
+                                                                <div class="row ">
+                                                               <td class="col-md-1">
                                                                     <img alt="" style="cursor: pointer;" src="#" />
 
                                                                 </td>
-                                                                <td>
+                                                                <td class="col-md-1">
                                                                     <img alt="" style="cursor: pointer;" src="#" />
 
                                                                 </td>
-                                                                <td>
+                                                              
+                                                                 <td  class="col-md-2">
                                                                     <asp:Label ID="Label2" runat="server" Text='<%# Eval("ProgramCategory") %>' />
 
                                                                 </td>
-                                                                <td>
+                                                                <td  class="col-md-2">
                                                                     <asp:Label ID="lblProgramDate" runat="server" Text='<%# Eval("ProgramDate") %>' />
 
                                                                 </td>
-                                                                <td>
+                                                                 <td  class="col-md-5">
                                                                     <asp:Label ID="lblOrganization" runat="server" Text='<%# Eval("ProgramType") %>' />
 
                                                                 </td>
-                                                                <td></td>
-
+                                                               </div>
+                                                               
                                                             </tr>
                                                         </ItemTemplate>
                                                         <FooterTemplate>
@@ -725,8 +730,8 @@ $(function() {
                                                         <ItemTemplate>
                                                             <tr>
                                                                 <td>
-                                                                    <img alt="" style="cursor: pointer; padding-left: -50%;" src="images/plus.png" />
-                                                                    <asp:Panel ID="pnlProgramLive" runat="server" Style="display: none">
+                                                                    <img alt="" style="cursor: pointer; " src="images/plus.png" />
+                                                                    <asp:Panel ID="pnlProgramLive" runat="server" Style="display:none">
                                                                         <asp:Repeater ID="rptProgramLLLive" runat="server">
 
                                                                             <HeaderTemplate>
@@ -898,7 +903,7 @@ $(function() {
                                                             <tr>
                                                                 <td>
 
-                                                                    <img alt="" style="cursor: pointer; padding-left: -50%;" src="images/plus.png" />
+                                                                    <img alt="" style="cursor: pointer; " src="images/plus.png" />
                                                                     <asp:Panel ID="pnlProgramOnline" runat="server" Style="display: none">
                                                                         <asp:Repeater ID="rptProgramLLOnline" runat="server">
 
@@ -987,7 +992,7 @@ $(function() {
                                                                                         </th>
                                                                                         <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Secondary Email
                                                                                         </th>
-                                                                                        <th class="col-md-8" scope="col" <%--style="width: 250px"--%>>Comments
+                                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Comments
                                                                                         </th>
 
                                                                                     </tr>

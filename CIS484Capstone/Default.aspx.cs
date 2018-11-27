@@ -255,7 +255,7 @@ public partial class userLogin : System.Web.UI.Page
 
         // MailMessage class is present is System.Net.Mail namespace
 
-        MailMessage mailMessage = new MailMessage("YourEmail@gmail.com", ToEmail);
+        MailMessage mailMessage = new MailMessage("wildtek6@gmail.com", ToEmail);
 
 
 
@@ -271,7 +271,7 @@ public partial class userLogin : System.Web.UI.Page
 
         sbEmailBody.Append("<br/>");
 
-        sbEmailBody.Append("<br/>"); sbEmailBody.Append("http://localhost:58211/ChangePassword.aspx?uid=" + UniqueId);
+        sbEmailBody.Append("<br/>"); sbEmailBody.Append("http://wildtek.site/ChangePassword.aspx?uid=" + UniqueId);
 
         sbEmailBody.Append("<br/><br/>");
 

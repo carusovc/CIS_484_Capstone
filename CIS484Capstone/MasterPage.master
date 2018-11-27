@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wildlife Center of Virgina</title>
+    <title>Wildlife Center of Virginia</title>
     <%--   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/sb-admin.css" rel="stylesheet">--%>
     <link href="http://localhost:62931/Content/" rel="stylesheet" />
@@ -37,24 +37,6 @@ $(".modal-wide").on("show.bs.modal", function() {
   var height = $(window).height() - 200;
   $(this).find(".modal-body").css("max-height", height);
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </script>
 
