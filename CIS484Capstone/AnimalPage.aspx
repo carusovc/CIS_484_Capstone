@@ -37,7 +37,9 @@
       <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
                 
-         
+    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.19.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />     
 
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -353,6 +355,9 @@ $(function() {
                 <li class="nav-item">
                     <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsBirdTab" style="color:black;">Bird</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsLocationTab" style="color:black;">Location</a>
+                </li>
             </ul>
             <div class="tab-content">
                 <div id="AnimalsAllTab" class="container1 block3 tab-pane  WildTable active">
@@ -565,6 +570,163 @@ $(function() {
                     </div>
                 </div>
 
+<div id="AnimalsLocationTab" class="container1 block3 tab-pane text-center  WildTable">
+                    <div class="InternalAnimalTab">     
+                        <div class="row mx-auto d-flex justify-content-center">
+                            <div class="col-4">
+                                <h4 class="alert d-none d-lg-block" style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
+                                   <h4 class=" d-md-none " style="background-color: #AB9993 !important; color: white !important; "> Name</h4>
+                                     <h4 class="alert d-none d-md-block d-lg-none" style="background-color: #AB9993 !important; color: white !important;"> Name</h4>
+                            </div>
+                     
+                            <div class="col-4">
+                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Status</h4>
+                                        <h4 class=" d-md-none " style="background-color: #AB9993 !important; color: white !important; "> Status</h4>
+                            </div>
+                               <div class="col-4">
+                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Image</h4>
+                                         <h4 class=" d-md-none" style="background-color: #AB9993 !important; color: white !important; "> Image</h4>
+                            </div>
+                        </div>  
+                         <%--<a class="d-block small" href="forgot-password.html">Forgot Password?</a>--%>
+        <div class="block3">
+                 
+
+                 <div class="tab-content">
+                      <div id="AllTab" class="container1 block3 tab-pane  WildTable active">
+<div class="InternalTab">
+     <p>  <style type="text/css">
+#mapContainer {
+    height: 739px;
+    width: 1650px;
+    border:10px solid #eaeaea;
+}
+</style>
+
+<script src="http://maps.google.com/maps/api/js?sensor=false">
+</script>
+
+<script type="text/javascript">
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var coords = new google.maps.LatLng(latitude, longitude);
+        var mapOptions = {
+            zoom: 15,
+            center: coords,
+            mapTypeControl: true,
+            navigationControlOptions: {
+                style: google.maps.NavigationControlStyle.SMALL
+            },
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(
+                document.getElementById("mapContainer"), mapOptions
+                );
+            var marker = new google.maps.Marker({
+                    position: coords,
+                    map: map,
+                    title: "Your current location!"
+            });
+ 
+        });
+    }else {
+        alert("Geolocation API is not supported in your browser.");
+    }
+
+</script>
+
+         <div class="card-header NewUserTitle text-center">Location Services<br />
+             <asp:Button ID="btnTrack" runat="server" Font-Size="Small" Height="33px" Text="Start Tracking????" Width="127px" />
+     </div>
+         <div class="container">
+      <h1>PubNub Google Maps Tutorial - Live Flight Path</h1>
+      <div id="map-canvas" style="width:600px;height:400px"></div>
+    </div>
+
+    <script>
+    window.lat = 38.039303693465236;
+    window.lng = -78.9137649536133;
+
+    var map;
+    var mark;
+    var lineCoords = [];
+      
+    var initialize = function() {
+      map  = new google.maps.Map(document.getElementById('map-canvas'), {center:{lat:lat,lng:lng},zoom:12});
+      mark = new google.maps.Marker({position:{lat:lat, lng:lng}, map:map});
+    };
+
+    window.initialize = initialize;
+
+    var redraw = function(payload) {
+      lat = payload.message.lat;
+      lng = payload.message.lng;
+
+      map.setCenter({lat:lat, lng:lng, alt:0});
+      mark.setPosition({lat:lat, lng:lng, alt:0});
+      
+      lineCoords.push(new google.maps.LatLng(lat, lng));
+
+      var lineCoordinatesPath = new google.maps.Polyline({
+        path: lineCoords,
+        geodesic: true,
+        strokeColor: '#2E10FF'
+      });
+      
+      lineCoordinatesPath.setMap(map);
+    };
+
+    var pnChannel = "map3-channel";
+
+    var pubnub = new PubNub({
+      publishKey:   'pub-c-ccdc4b85-b3e4-4db0-b70a-c45dfb682591',
+      subscribeKey: 'sub-c-976595e8-f0fe-11e8-9886-12310f425d87'
+    });
+
+    pubnub.subscribe({channels: [pnChannel]});
+    pubnub.addListener({message:redraw});
+
+    setInterval(function() {
+      pubnub.publish({channel:pnChannel, message:{lat:window.lat + 0.001, lng:window.lng + 0.01}});
+    }, 500);
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBg2nITIncYD46WfW9B57reDqmTwuoUH2o&callback=initialize"></script>
+  
+<div id="mapContainer" visible ="false"></div>
+         </p>
+          <br />
+     <br /><br /><br />
+              </div>
+</div>
+                        <%--      
+                        <asp:GridView ID="GridView4"  class="table table-borderless table-condensed  table-striped" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" AllowSorting="True" OnRowDataBound ="gridBird_RowDataBound">
+                      
+                            <Columns>
+                      
+                                <asp:BoundField DataField="AnimalType"   SortExpression="AnimalType" Visible="False" />
+                          <asp:BoundField DataField="AnimalName"  SortExpression="AnimalName" >
+                              <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                          <asp:BoundField DataField="Status"  SortExpression="Status" >
+                              <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                            <asp:TemplateField >
+                              <ItemTemplate>
+                                  <img src = '<%# Eval("AnimalImage") %>' id="imageControl" runat="server" />
+
+                              </ItemTemplate>
+                          </asp:TemplateField>
+                      </Columns>
+                 </asp:GridView> --%>
+
+                    <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT [AnimalType], [AnimalName], [Status], [AnimalImage] FROM [Animal] WHERE ([AnimalType] = @AnimalType) ORDER BY [Status], [AnimalName]">
+                        <SelectParameters>
+                            <asp:Parameter DefaultValue="Bird" Name="AnimalType" Type="String" />
+                        </SelectParameters>
+                 </asp:SqlDataSource>
+                    </div>
 
             </div>
         </div>
