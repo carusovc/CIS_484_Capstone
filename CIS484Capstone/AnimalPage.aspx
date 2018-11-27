@@ -657,11 +657,9 @@ $(function() {
 
 </script>
 
-         <div class="card-header NewUserTitle text-center">Location Services<br />
-             <asp:Button ID="btnTrack" runat="server" Font-Size="Small" Height="33px" Text="Start Tracking????" Width="127px" />
-     </div>
+      
          <div class="container">
-      <h1>PubNub Google Maps Tutorial - Live Flight Path</h1>
+      <h1> Google Maps - Live Flight Path</h1>
       <div id="map-canvas" style="width:600px;height:400px"></div>
     </div>
 
