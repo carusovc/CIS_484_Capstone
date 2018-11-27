@@ -73,7 +73,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-        <a class="navbar-brand mr-1 logo" href="Default.aspx">< Back to Login</a>
+        <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Default.aspx">Back to Login</a>
 
     </nav>
 

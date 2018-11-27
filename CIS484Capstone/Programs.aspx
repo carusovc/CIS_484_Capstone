@@ -918,7 +918,7 @@
 
                             </div>
                             <div class="row">
-                                <div class="col-md-12 col-lg-6 
+                                <div class="col-md-12 col-lg-4 
            col-sm-12">
                                     Organization:
                                     <br />
@@ -1105,7 +1105,7 @@
 
                             <br />
                             <div class="row">
-                                <div class="col-md-12 col-lg-3 
+                                <div class="col-md-12 col-lg-4 
            col-sm-12">
                                     Grades:
                                     <br />
@@ -1116,7 +1116,7 @@
 
 
                                 <br />
-                                <div class="col-md-12 col-lg-9
+                                <div class="col-md-12 col-lg-8
            col-sm-12">
                                     Comments:
                                     <br />

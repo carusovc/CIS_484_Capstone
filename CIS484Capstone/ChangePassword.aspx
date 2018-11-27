@@ -72,7 +72,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand logo" href="Default.aspx">< Back to Login</a>
+       <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Default.aspx">Back to Login</a>
 
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">

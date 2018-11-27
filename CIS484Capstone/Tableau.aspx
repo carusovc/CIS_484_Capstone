@@ -41,7 +41,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand logo" href="Programs.aspx">Wildlife Center of Virginia</a>
+  <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -264,8 +264,19 @@
 
                             </div>
 
+                                <script>
+$(function() {
+    $('a[data-toggle="tab"]').on('click', function(e) {
+        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+    var activeTab = window.localStorage.getItem('activeTab');
+    if (activeTab) {
+        $('#myTab a[href="' + activeTab + '"]').tab('show');
+        window.localStorage.removeItem("activeTab");
+    }
+});       </script>
 
-                        <ul class="nav nav-tabs block4" role="tablist">
+                        <ul class="nav nav-tabs block4" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active TabStyle" data-toggle="tab" href="#AnimalTab" style="color:black;">Animal</a>
                 </li>
@@ -283,7 +294,7 @@
             </ul>
             <div class="tab-content mx-auto ">
                 <div id="AnimalTab" class=" row container1 table-responsive block3 tab-pane WildTable active">
-                    <div class="InternalAnimalTab col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="InternalAnimalTab col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto d-flex justify-content-center">
                      <div class='tableauPlaceholder' id='viz1540499675172' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ta&#47;Tableau_Animal&#47;AnimalReport&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Tableau_Animal&#47;AnimalReport' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ta&#47;Tableau_Animal&#47;AnimalReport&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>            
                         <script  type='text/javascript'>                   
                             var divElement = document.getElementById('viz1540499675172');
@@ -307,7 +318,7 @@
 </div>--%>
 
                 <div id="LiveTab" class="container1 block3 tab-pane   WildTable">
-                    <div class="InternalAnimalTab">
+                    <div class="InternalAnimalTab col-md-12 mx-auto d-flex justify-content-center">
     <div class='tableauPlaceholder' id='viz1540752441714' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ph&#47;PhysicalReport&#47;ProDash&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PhysicalReport&#47;ProDash' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ph&#47;PhysicalReport&#47;ProDash&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1540752441714');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 
          </div>
@@ -331,7 +342,7 @@
                 <div class="row WildTable">
         <div class="col-md-12 mx-auto d-flex justify-content-center">
 
-    <asp:Button ID="Button1" runat="server" Text="Back" class="btn btn-primary btn-inside" OnClick="btnBack_Click"></asp:Button>
+    
              </div>
         </div>
         </div>
