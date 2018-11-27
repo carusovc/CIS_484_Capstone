@@ -77,9 +77,9 @@
                     <span>Reports</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="Report.aspx">Reports</a>
+                  <%-- --%>
+                   <%-- --%>
                     <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
                     <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
@@ -118,6 +118,18 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
             </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Volunteers</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
+                </div>
+            </li>
+
             <li class="nav-item " style="display: inline-block;
   white-space: nowrap;">
                 <a class="nav-link" href="createUser.aspx">
@@ -174,9 +186,9 @@
                     <span>Reports</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="Report.aspx">Reports</a>
+                  <%-- --%>
+                   <%-- --%>
                     <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
                     <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
@@ -215,6 +227,18 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
             </li>
+
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Volunteers</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
+                </div>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="createUser.aspx">
 
@@ -455,13 +479,13 @@
           <br />
         </div>
       </div>
-    </div>
+
 
 
 
        
 </section>         
-
+            </div>
 
 </div>
 

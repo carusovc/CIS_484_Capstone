@@ -117,9 +117,9 @@
                     <span>Reports</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="Report.aspx">Reports</a>
+                  <%-- --%>
+                   <%-- --%>
                     <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
                     <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
@@ -358,7 +358,7 @@
                                                                                 <asp:Label ID="lblCountry" runat="server" Text='<%# Eval("OnOff") %>' />
                                                                             </td>
                                                                             <td class="col-md-4">
-                                                                                <asp:Label ID="lblCity" runat="server" Text='<%# Eval("PaymentNeeded") %>' />
+                                                                                <asp:Label ID="lblCity" runat="server" Text='<%# Eval("paid") %>' />
                                                                             </td>
                                                                             <td class="col-md-4">
                                                                                 <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />

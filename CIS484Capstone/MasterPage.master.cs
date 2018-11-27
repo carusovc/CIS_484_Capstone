@@ -14,8 +14,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
@@ -58,18 +58,18 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
                 string read2 = "Select * from Animal";
                 SqlCommand cmd2 = new SqlCommand(read2, con);
-                SqlDataReader myRead2 = cmd2.ExecuteReader();
+                SqlDataReader myRead9 = cmd2.ExecuteReader();
 
-                while (myRead2.Read())
+                while (myRead9.Read())
                 {
 
-                    ddlAnimal.Items.Add(new ListItem(myRead2["AnimalName"].ToString(), myRead2["AnimalID"].ToString()));
+                    ddlAnimal.Items.Add(new ListItem(myRead9["AnimalName"].ToString(), myRead9["AnimalID"].ToString()));
                 }
                 ddlOrganization.DataBind();
                 ddlEducatorName.DataBind();
                 ddlAnimal.DataBind();
                 ddlOrganization.DataBind();
-                
+
 
 
                 ////call read array
@@ -113,29 +113,24 @@ public partial class MasterPage : System.Web.UI.MasterPage
             if (con.State == System.Data.ConnectionState.Open)
             {
 
-                string read = "Select * from Educators";
+                string read = "Select * from Volunteers";
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlDataReader myRead = cmd.ExecuteReader();
 
                 while (myRead.Read())
                 {
-                    ddlEducatorName.Items.Add(new ListItem(myRead["EducatorFirstName"].ToString() + " " + myRead["EducatorLastName"].ToString(), myRead["EducatorID"].ToString()));
+                    ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
                 }
-
-
             }
-
-            txtEducatorFirst.Text = "";
-            txtEducatorLastName.Text = "";
             con.Close();
         }
 
-        
-            
-                
-               
-        }
-        protected void ddlOrganization_SelectedIndexChanged1(object sender, EventArgs e)
+
+
+
+
+    }
+    protected void ddlOrganization_SelectedIndexChanged1(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -145,6 +140,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
+        insert.Parameters.Clear();
 
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
@@ -152,7 +148,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select OrgID, OrgName, City, County, LastUpdated, LastUpdatedBy from Organization where" +
+        insert.CommandText = "select OrgName, City, County, StreetAddress, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail from Organization where" +
                           " OrgID = @OrgID";
 
         insert.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
@@ -163,17 +159,45 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                txtOrgName.Text = sdr[1].ToString();
-                txtCity.Text = sdr[2].ToString();
-                txtCounty.Text = sdr[3].ToString();
+                txtOrgName.Text = sdr[0].ToString();
+                txtCity.Text = sdr[1].ToString();
+                txtCounty.Text = sdr[2].ToString();
+                txtStreetAddress2.Text = sdr[3].ToString();
+                txtPostalCode2.Text = sdr[4].ToString();
+                txtContactFirstName2.Text = sdr[5].ToString();
+                txtContactLastName2.Text = sdr[6].ToString();
+                txtPhoneNumber2.Text = sdr[7].ToString();
+                txtEmail2.Text = sdr[8].ToString();
+                txtSecondaryEmail2.Text = sdr[9].ToString();
                 //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
-               // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
+                // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
+
+            System.Data.SqlClient.SqlCommand selectState = new System.Data.SqlClient.SqlCommand();
+            selectState.Connection = sc;
+
+            selectState.Parameters.Clear();
+
+            selectState.CommandText = "SELECT State From Organization WHERE OrgID = @OrgID";
+            selectState.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
+            String tempState = (String)selectState.ExecuteScalar();
+
+            ddlState2.ClearSelection();
+            for (int i = 0; i < ddlState2.Items.Count; i++)
+            {
+                if (ddlState2.Items[i].Value == tempState)
+                {
+                    ddlState2.Items[i].Selected = true;
+                }
+            }
+
+            con.Close();
         }
         catch (Exception ex)
         {
             throw ex;
         }
+        sc.Close();
     }
 
     protected void btnUpdateOrganization_Click(object sender, EventArgs e)
@@ -188,14 +212,24 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
 
-        update.CommandText = "update organization set orgName = @orgName, city = @city, county = @county, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where orgID = @orgID";
+        update.CommandText = "update organization set orgName = @orgName, city = @city, county = @county, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, streetAddress = @streetAddress, state = @state, postalCode = @postalCode, contactFirstName = @contactFirstName, contactLastName = @contactLastName, phoneNumber = @phoneNumber, email = @email, secondaryEmail = @secondaryEmail where orgID = @orgID";
         update.Parameters.AddWithValue("@orgName", txtOrgName.Text);
         update.Parameters.AddWithValue("@city", txtCity.Text);
         update.Parameters.AddWithValue("@county", txtCounty.Text);
         update.Parameters.AddWithValue("@orgID", ddlOrganization.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@streetAddress", txtStreetAddress2.Text);
+        update.Parameters.AddWithValue("@state", ddlState2.SelectedItem.Value);
+        update.Parameters.AddWithValue("@postalCode", txtPostalCode2.Text);
+        update.Parameters.AddWithValue("@contactFirstName", txtContactFirstName2.Text);
+        update.Parameters.AddWithValue("@contactLastName", txtContactLastName2.Text);
+        update.Parameters.AddWithValue("@phoneNumber", txtPhoneNumber2.Text);
+        update.Parameters.AddWithValue("@email", txtEmail2.Text);
+        update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail2.Text);
         update.ExecuteNonQuery();
+
+
 
         // lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
         // lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
@@ -204,9 +238,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         SqlCommand cmd = new SqlCommand(read, sc);
         SqlDataReader myRead = cmd.ExecuteReader();
 
+        ddlOrganization.Items.Clear();
+        ddlOrganization.Items.Add(new ListItem("--Select Organization--", "0"));
         while (myRead.Read())
         {
-
             ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
         }
         ddlOrganization.DataBind();
@@ -214,7 +249,17 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtOrgName.Text = "";
         txtCity.Text = "";
         txtCounty.Text = "";
+        txtStreetAddress.Text = "";
+        ddlState.SelectedIndex = 0;
         ddlOrganization.SelectedIndex = 0;
+        txtPostalCode.Text = "";
+        txtContactFirstName.Text = "";
+        txtContactLastName.Text = "";
+        txtPhoneNumber.Text = "";
+        txtEmail.Text = "";
+        txtSecondaryEmail.Text = "";
+
+        sc.Close();
     }
 
 
@@ -244,12 +289,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         insert.ExecuteNonQuery();
 
-      //  lblLastUpdated.Text = "Last Updated: " + lastUpdated;
-      //  lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
+        //  lblLastUpdated.Text = "Last Updated: " + lastUpdated;
+        //  lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
+        sc.Close();
     }
 
     protected void btnAddOrg_Click(object sender, EventArgs e)
-    {
+    { 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -265,45 +311,88 @@ public partial class MasterPage : System.Web.UI.MasterPage
         String orgName = textOrgName.Text;
         String city = textOrgCity.Text;
         String county = textOrgCounty.Text;
+        String streetAddress = txtStreetAddress.Text;
+        String state = ddlState.SelectedValue; ; 
+        String postalCode = txtPostalCode.Text;
+        String contactFirstName = txtContactFirstName.Text;
+        String contactLastName = txtContactLastName.Text;
+        String phoneNumber = txtPhoneNumber.Text;
+        String email = txtEmail.Text;
+        String secondaryEmail = txtSecondaryEmail.Text;
         DateTime lastUpdated = DateTime.Today;
         String lastUpdatedBy = "WildTekDevs";
 
-        Organization newOrg = new Organization(orgName, city, county);
-        insert.CommandText = "insert into Organization (orgName, city, county, lastUpdated, lastUpdatedBy) values (@orgName, @city, @county, @lastUpdated, @lastUpdatedBy)";
+        Organization newOrg = new Organization(orgName, city, county, streetAddress, state, postalCode, contactFirstName, contactLastName, phoneNumber, email, secondaryEmail);
+        insert.CommandText = "insert into Organization (orgName, city, county, lastUpdated, lastUpdatedBy, streetAddress, state, postalCode, contactFirstName, contactLastName, phoneNumber, email, secondaryEmail) values (@orgName, @city, @county, @lastUpdated, @lastUpdatedBy, @streetAddress, @state, @postalCode, @contactFirstName, @contactLastName, @phoneNumber, @email, @secondaryEmail)";
         insert.Parameters.AddWithValue("@orgName", newOrg.getOrgName());
         insert.Parameters.AddWithValue("@city", newOrg.getCity());
         insert.Parameters.AddWithValue("@county", newOrg.getCounty());
         insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
         insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+        insert.Parameters.AddWithValue("@streetAddress", newOrg.getStreetAddress());
+        insert.Parameters.AddWithValue("@state", newOrg.getState());
+        insert.Parameters.AddWithValue("@postalCode", newOrg.getPostalCode());
+        insert.Parameters.AddWithValue("@contactFirstName", newOrg.getContactFirstName());
+        insert.Parameters.AddWithValue("@contactLastName", newOrg.getContactLastName());
+        insert.Parameters.AddWithValue("@phoneNumber", newOrg.getPhoneNumber());
+        insert.Parameters.AddWithValue("@email", newOrg.getEmail());
+        insert.Parameters.AddWithValue("@secondaryEmail", newOrg.getSecondaryEmail());
+
+
         insert.ExecuteNonQuery();
 
         //lblLastUpdated.Text = "Last Updated: " + lastUpdated;
         //lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
+        string read = "Select * from Organization";
+        SqlCommand cmd = new SqlCommand(read, sc);
+        SqlDataReader myRead = cmd.ExecuteReader();
+
+        ddlOrganization.Items.Clear();
+        ddlOrganization.Items.Add(new ListItem("--Select Organization--", "0"));
+        while (myRead.Read())
+        {
+            ddlOrganization.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
+        }
         ddlOrganization.DataBind();
+
+        textOrgName.Text = "";
+        textOrgCity.Text = "";
+        textOrgCounty.Text = "";
+        txtStreetAddress.Text = "";
+        ddlState.SelectedIndex = 0;
+        ddlOrganization.SelectedIndex = 0;
+        txtPostalCode.Text = "";
+        txtContactFirstName.Text = "";
+        txtContactLastName.Text = "";
+        txtPhoneNumber.Text = "";
+        txtEmail.Text = "";
+        txtSecondaryEmail.Text = "";
+
+        sc.Close();
     }
 
     protected void btnAddAnimal_Click(object sender, EventArgs e)
     {
-            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
-            // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
 
-            String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-            sc.ConnectionString = cs;
-            System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand retrieveImage = new System.Data.SqlClient.SqlCommand();
 
         sc.Open();
-            insert.Connection = sc;
+        insert.Connection = sc;
         retrieveImage.Connection = sc;
 
         String animalType = ddlAnimalType.SelectedItem.Text;
-            String animalName = txtAnimalName.Text;
-            DateTime lastUpdated = DateTime.Today;
-            String lastUpdatedBy = "WildTek";
+        String animalName = txtAnimalName.Text;
+        DateTime lastUpdated = DateTime.Today;
+        String lastUpdatedBy = "WildTek";
 
 
-            Animal newAnimal = new Animal(animalType, animalName);
+        Animal newAnimal = new Animal(animalType, animalName);
         string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
         using (Stream fs = FileUpload1.PostedFile.InputStream)
         {
@@ -312,11 +401,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
                 insert.CommandText = "Insert into Animal (animalType, animalName, lastUpdated, lastUpdatedBy, status) values (@animalType, @animalName, @lastUpdated, @lastUpdatedBy, @status, @animalImage)";
-            insert.Parameters.AddWithValue("@animalType", newAnimal.getAnimalType());
-            insert.Parameters.AddWithValue("@animalName", newAnimal.getAnimalName());
-            insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
-            insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
-            insert.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
+                insert.Parameters.AddWithValue("@animalType", newAnimal.getAnimalType());
+                insert.Parameters.AddWithValue("@animalName", newAnimal.getAnimalName());
+                insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
+                insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+                insert.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
                 insert.Parameters.AddWithValue("@animalImage", bytes);
 
                 insert.ExecuteNonQuery();
@@ -326,12 +415,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
 
-            txtAnimalName.Text = "";
-            //gridAnimalMammal.DataBind();
-            //gridReptile.DataBind();
-            //gridBird.DataBind();
+        txtAnimalName.Text = "";
+        //gridAnimalMammal.DataBind();
+        //gridReptile.DataBind();
+        //gridBird.DataBind();
+        sc.Close();
 
-        }
+    }
     public System.Drawing.Image ByteArrayToImage(byte[] byteArrayIn)
     {
         using (var ms = new MemoryStream(byteArrayIn))
@@ -376,7 +466,18 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtEducatorLastName.Text = "";
         //txtEducatorEmail.Text = "";
         //txtEducatorPhone.Text = "";
-        ddlEducatorName.DataBind();
+
+        ddlEducatorName.Items.Clear();
+        string read1 = "Select * from Educators";
+        SqlCommand cmd1 = new SqlCommand(read1, sc);
+        SqlDataReader myRead1 = cmd1.ExecuteReader();
+
+        ddlEducatorName.Items.Add(new ListItem("--Select Educator--", "0"));
+        while (myRead1.Read())
+        {
+            ddlEducatorName.Items.Add(new ListItem(myRead1["EducatorFirstName"].ToString(), myRead1["EducatorID"].ToString()));
+        }
+        sc.Close();
     }
 
 
@@ -427,6 +528,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //gridReptile.DataBind();
         //gridBird.DataBind();
 
+        sc.Close();
     }
 
     protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
@@ -484,11 +586,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 //lblLastUpdatedBy.Text = sdr["LastUpdatedBy"].ToString();
 
             }
+            con.Close();
         }
         catch (Exception ex)
         {
             throw ex;
         }
+        sc.Close();
     }
 
     //protected void btnDelete_Click(object sender, EventArgs e)
@@ -576,8 +680,19 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         txtEducatorFirst.Text = "";
         txtEducatorLastName.Text = "";
-        ddlEducatorName.DataBind();
+        string read1 = "Select * from Educators";
+        SqlCommand cmd1 = new SqlCommand(read1, con);
+        SqlDataReader myRead1 = cmd1.ExecuteReader();
 
+        ddlEducatorName.Items.Clear();
+        ddlEducatorName.Items.Add(new ListItem("--Select Educator--", "0"));
+        while (myRead1.Read())
+        {
+            ddlEducatorName.Items.Add(new ListItem(myRead1["EducatorFirstName"].ToString(), myRead1["EducatorID"].ToString()));
+        }
+
+        con.Close();
+        sc.Close();
     }
 
     protected void btnDeleteEducator_Click(object sender, EventArgs e)
@@ -612,6 +727,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlCommand cmd = new SqlCommand(read, con);
             SqlDataReader myRead = cmd.ExecuteReader();
 
+            ddlEducatorName.Items.Add(new ListItem("--Select Educator--", "0"));
             while (myRead.Read())
             {
 
@@ -623,6 +739,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtEducatorFirst.Text = "";
         txtEducatorLast.Text = "";
         ddlEducatorName.DataBind();
+
+        con.Close();
+        sc.Close();
     }
 
     protected void ddlEducator_SelectedIndexChanged1(object sender, EventArgs e)
@@ -662,7 +781,305 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             throw ex;
         }
+        con.Close();
+        sc.Close();
     }
+
+    protected void ddlVolunteer_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        insert.Connection = sc;
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+
+        insert.CommandText = "select VolunteerFirstName, VolunteerLastName, VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus, lastUpdated, lastUpdatedBy from Volunteers where VolunteerID = @VolunteerID";
+
+        insert.Parameters.AddWithValue("@VolunteerID", ddlVolunteerName.SelectedItem.Value);
+
+        ddlVolunteerStatus.ClearSelection();
+        try
+        {
+            con.Open();
+            SqlDataReader sdr = insert.ExecuteReader();
+            while (sdr.Read())
+            {
+                txtVolunteerFirstName.Text = sdr[0].ToString();
+                txtVolunteerLastName.Text = sdr[1].ToString();
+                txtVolunteerPhoneNumber.Text = sdr[2].ToString();
+                txtVolunteerEmail.Text = sdr[3].ToString();
+                for (int i = 0; i < ddlVolunteerStatus.Items.Count; i++)
+                {
+                    if (ddlVolunteerStatus.Items[i].ToString() == sdr[4].ToString())
+                    {
+                        ddlVolunteerStatus.Items[i].Selected = true;
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        con.Close();
+        sc.Close();
+    }
+
+    protected void btnDeleteVolunteer_Click(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
+
+        delete.Connection = sc;
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+        delete.CommandText = "Delete from Volunteers where VolunteerID = @VolunteerID";
+        delete.Parameters.AddWithValue("@VolunteerID", ddlVolunteerName.SelectedItem.Value);
+
+        delete.ExecuteNonQuery();
+
+        ddlVolunteerName.Items.Clear();
+        //call read array
+        con.Open();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from Volunteers";
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            while (myRead.Read())
+            {
+
+                ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString(), myRead["VolunteerID"].ToString()));
+            }
+
+
+        }
+        txtVolunteerFirstName.Text = "";
+        txtVolunteerLastName.Text = "";
+        txtVolunteerAddPhoneNumber.Text = "";
+        txtVoluteerAddEmail.Text = "";
+        ddlVolunteerAddStatus.SelectedIndex = 0;
+        ddlVolunteerName.Items.Clear();
+        //call read array
+        if (sc.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from Volunteers";
+            SqlCommand cmd = new SqlCommand(read, sc);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            ddlVolunteerName.Items.Add(new ListItem("--Select Volunteer--", "0"));
+            while (myRead.Read())
+            {
+                ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
+            }
+        }
+        con.Close();
+        sc.Close();
+    }
+
+    protected void btnUpdateVolunteer_Click(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
+        update.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+
+        update.CommandText = "update Volunteers set VolunteerFirstName = @VolunteerFirstName, VolunteerLastName = @VolunteerLastName, VolunteerPhoneNumber = @VolunteerPhoneNumber, VolunteerEmail = @VolunteerEmail, VolunteerStatus = @VolunteerStatus," +
+            " lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where VolunteerID = @VolunteerID";
+        update.Parameters.AddWithValue("@VolunteerFirstName", txtVolunteerFirstName.Text);
+        update.Parameters.AddWithValue("@VolunteerLastName", txtVolunteerLastName.Text);
+        update.Parameters.AddWithValue("@VolunteerPhoneNumber", txtVolunteerPhoneNumber.Text);
+        update.Parameters.AddWithValue("@VolunteerEmail", txtVolunteerEmail.Text);
+        update.Parameters.AddWithValue("@VolunteerStatus", ddlVolunteerStatus.SelectedItem.Value);
+        update.Parameters.AddWithValue("@VolunteerID", ddlVolunteerName.SelectedItem.Value);
+        update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
+        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.ExecuteNonQuery();
+
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        SqlConnection con2 = new SqlConnection(cs);
+
+        ddlVolunteerName.Items.Clear();
+        //call read array
+        con.Open();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from Volunteers";
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            ddlVolunteerName.Items.Add(new ListItem("--Select Volunteer--", "0"));
+            while (myRead.Read())
+            {
+                ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
+            }
+        }
+        con.Close();
+        sc.Close();
+
+
+    }
+
+    protected void btnAddVolunteer_Click(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+
+
+        sc.Open();
+        insert.Connection = sc;
+
+        String firstName = txtVolunteerAddFirstName.Text;
+        String lastName = txtVolunteerAddLastName.Text;
+        string phoneNumber = txtVolunteerAddPhoneNumber.Text;
+        string email = txtVoluteerAddEmail.Text;
+        string status = ddlVolunteerAddStatus.Text;
+
+        DateTime lastUpdated = DateTime.Today;
+        String lastUpdatedBy = "WildTek";
+
+
+        insert.CommandText = "insert into Volunteers (VolunteerFirstName, VolunteerLastName, VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus, lastUpdated, lastUpdatedBy) values (@firstName, @lastName, @phoneNumber, @email, @status, @lastUpdated, @lastUpdatedBy)";
+        insert.Parameters.AddWithValue("@firstName", firstName);
+        insert.Parameters.AddWithValue("@lastName", lastName);
+        insert.Parameters.AddWithValue("@phoneNumber", phoneNumber);
+        insert.Parameters.AddWithValue("@email", email);
+        insert.Parameters.AddWithValue("@status", status);
+        insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
+        insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+        insert.ExecuteNonQuery();
+
+
+        txtVolunteerAddFirstName.Text = "";
+        txtVolunteerAddLastName.Text = "";
+        txtVolunteerAddPhoneNumber.Text = "";
+        txtVoluteerAddEmail.Text = "";
+        ddlVolunteerAddStatus.SelectedIndex = 0;
+        //ddlVolunteerName.DataBind();
+
+        ddlVolunteerName.Items.Clear();
+        //call read array
+        if (sc.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from Volunteers";
+            SqlCommand cmd = new SqlCommand(read, sc);
+            SqlDataReader myRead = cmd.ExecuteReader();
+            ddlVolunteerName.Items.Add(new ListItem("--Select Volunteer--", "0"));
+            while (myRead.Read())
+            {
+                ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
+            }
+        }
+
+        sc.Close();
+    }
+
+    protected void ddlOrganization_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        insert.Connection = sc;
+        insert.Parameters.Clear();
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+
+        insert.CommandText = "select OrgName, City, County, StreetAddress, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail from Organization where" +
+                          " OrgID = @OrgID";
+
+        insert.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
+
+        try
+        {
+            con.Open();
+            SqlDataReader sdr = insert.ExecuteReader();
+            while (sdr.Read())
+            {
+                txtOrgName.Text = sdr[0].ToString();
+                txtCity.Text = sdr[1].ToString();
+                txtCounty.Text = sdr[2].ToString();
+                txtStreetAddress2.Text = sdr[3].ToString();
+                txtPostalCode2.Text = sdr[4].ToString();
+                txtContactFirstName2.Text = sdr[5].ToString();
+                txtContactLastName2.Text = sdr[6].ToString();
+                txtPhoneNumber2.Text = sdr[7].ToString();
+                txtEmail2.Text = sdr[8].ToString();
+                txtSecondaryEmail2.Text = sdr[9].ToString();
+                //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
+                // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
+            }
+
+            System.Data.SqlClient.SqlCommand selectState = new System.Data.SqlClient.SqlCommand();
+            selectState.Connection = sc;
+
+            selectState.Parameters.Clear();
+
+            selectState.CommandText = "SELECT State From Organization WHERE OrgID = @OrgID";
+            selectState.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
+            String tempState = (String)selectState.ExecuteScalar();
+
+            ddlState2.ClearSelection();
+            for (int i = 0; i < ddlState2.Items.Count; i++)
+            {
+                if (ddlState2.Items[i].Value == tempState)
+                {
+                    ddlState2.Items[i].Selected = true;
+                }
+            }
+
+            con.Close();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
+        sc.Close();
+    }
+
+
 }
 
 

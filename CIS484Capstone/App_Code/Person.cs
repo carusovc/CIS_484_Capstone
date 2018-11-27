@@ -11,10 +11,13 @@ public class Person
     private String firstName;
     private String lastName;
     private String userName;
-    public Person(String firstName, String lastName, String userName)
+    private String newUserName;
+
+    public Person(String firstName, String lastName, String email, String userName)
     {
         setFirstName(firstName);
         setLastName(lastName);
+       // setEmail(email);
         setUserName(userName);
     }
 
@@ -46,5 +49,14 @@ public class Person
     public String getUserName()
     {
         return userName;
+    }
+    private void setnewUserName(String newUserName)
+    {
+        this.newUserName = newUserName;
+    }
+
+    public String getNewUserName()
+    {
+        return newUserName;
     }
 }

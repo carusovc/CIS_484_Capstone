@@ -336,7 +336,7 @@ public partial class AnimalPage : System.Web.UI.Page
             if (((DataRowView)e.Row.DataItem)["AnimalImage"] != DBNull.Value)
             {
                 imageControl.Src = "data:image/png;base64," + Convert.ToBase64String((byte[])(((DataRowView)e.Row.DataItem))["AnimalImage"]);
-                imageControl.Width = 100;
+                imageControl.Width = 75;
 
             }
         }
@@ -351,7 +351,7 @@ public partial class AnimalPage : System.Web.UI.Page
             if (((DataRowView)e.Row.DataItem)["AnimalImage"] != DBNull.Value)
             {
                 imageControl.Src = "data:image/png;base64," + Convert.ToBase64String((byte[])(((DataRowView)e.Row.DataItem))["AnimalImage"]);
-                imageControl.Width = 100;
+                imageControl.Width = 75;
             }
         }
     }
