@@ -362,7 +362,7 @@
 <asp:GridView ID="gridSearch"   class="table table-bordered table-condensed table-hover"  HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" runat="server" AutoGenerateColumns="False">
                       <Columns>
-                          <asp:BoundField DataField="OrgName" HeaderText="Orgnaization Name" SortExpression="OrgName" />
+                          <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" />
                           <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" />
                           <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
                           <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" />
