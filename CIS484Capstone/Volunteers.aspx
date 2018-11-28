@@ -387,7 +387,7 @@ $(function() {
                            
     <asp:GridView ID="GridView1"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
         <Columns>
-            <asp:BoundField DataField="VolunteerFirstName" HeaderText="First Name" SortExpression="VolunteerFirstName" >
+            <asp:BoundField DataField="VolunteerFirstName" HeaderText="Volunteer First Name" SortExpression="VolunteerFirstName" >
  
             </asp:BoundField>
             <asp:BoundField DataField="VolunteerLastName" HeaderText="Volunteer Last Name" SortExpression="VolunteerLastName" >
@@ -425,7 +425,7 @@ $(function() {
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                             <asp:GridView ID="GridView2"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource1">
                             <Columns>
-                                <asp:BoundField DataField="VolunteerFirstName" HeaderText="First Name" SortExpression="VolunteerFirstName" >
+                                <asp:BoundField DataField="VolunteerFirstName" HeaderText="Volunteer First Name" SortExpression="VolunteerFirstName" >
  
                                 </asp:BoundField>
                                 <asp:BoundField DataField="VolunteerLastName" HeaderText="Volunteer Last Name" SortExpression="VolunteerLastName" >
@@ -463,7 +463,7 @@ $(function() {
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                             <asp:GridView ID="GridView3"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
                             <Columns>
-                                <asp:BoundField DataField="VolunteerFirstName" HeaderText="First Name" SortExpression="VolunteerFirstName" >
+                                <asp:BoundField DataField="VolunteerFirstName" HeaderText="Volunteer First Name" SortExpression="VolunteerFirstName" >
  
                                 </asp:BoundField>
                                 <asp:BoundField DataField="VolunteerLastName" HeaderText="Volunteer Last Name" SortExpression="VolunteerLastName" >

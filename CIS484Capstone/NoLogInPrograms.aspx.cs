@@ -533,6 +533,8 @@ public partial class Programs : System.Web.UI.Page
             Repeater rptProgramLLLive = e.Item.FindControl("rptProgramLLLive") as Repeater;
             Repeater rptProgramLL2Live = e.Item.FindControl("rptProgramLL2Live") as Repeater;
             Repeater rptProgramLL3Live = e.Item.FindControl("rptProgramLL3Live") as Repeater;
+            Repeater rptNewLiveProgramLL4 = e.Item.FindControl("rptNewLiveProgramLL4") as Repeater;
+
 
 
             rptProgramLLLive.DataSource = GetData(string.Format("SELECT ProgramID, Status, NumberOfChildren, NumberOfAdults From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
@@ -541,9 +543,12 @@ public partial class Programs : System.Web.UI.Page
             rptProgramLL2Live.DataSource = GetData(string.Format("SELECT ProgramID, ProgramAddress, CityCounty AS City, State From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptProgramLL2Live.DataBind();
 
-            rptProgramLL3Live.DataSource = GetData(string.Format("SELECT Case when OnOff = 1 then 'On' else 'Off' end as 'OnOffSite', ProgramID, Case when Paid = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments AS Comments From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
-
+            rptProgramLL3Live.DataSource = GetData(string.Format("SELECT Case when OnOff = 1 then 'On' else 'Off' end as 'OnOffSite', ProgramID, Case when paid = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments AS Comments From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptProgramLL3Live.DataBind();
+
+            rptNewLiveProgramLL4.DataSource = GetData(string.Format("SELECT ProgramID, pa.AnimalID, (CASE WHEN AnimalType ='Bird' Then AnimalName ELSE NULL END) AS 'Birds', (CASE WHEN AnimalType = 'Mammal' Then AnimalName ELSE NULL END) AS 'Mammals', (CASE WHEN AnimalType = 'Reptile' Then AnimalName ELSE NULL END) AS 'Reptiles' FROM ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where ProgramID = " + ProgramID + "", ProgramID));
+            rptNewLiveProgramLL4.DataBind();
+
 
 
         }
@@ -636,12 +641,63 @@ public partial class Programs : System.Web.UI.Page
 
     //GO FOR ALL
 
-
     protected void OnItemDataBoundAll(object sender, RepeaterItemEventArgs e)
     {
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
         {
             string ProgramID = (e.Item.FindControl("hfProgramIDAll") as HiddenField).Value;
+            string tempProgramCategory = (e.Item.FindControl("hfProgramCategory") as HiddenField).Value;
+            Repeater rptAllLL1 = e.Item.FindControl("rptAllLL1") as Repeater;
+            Repeater rptAllLL2 = e.Item.FindControl("rptAllLL2") as Repeater;
+            Repeater rptAllLL3 = e.Item.FindControl("rptAllLL3") as Repeater;
+            Repeater rptAllLL4 = e.Item.FindControl("rptAllLL4") as Repeater;
+
+
+
+
+            if (tempProgramCategory.ToString().Equals("Live Program"))
+            {
+                // Query 1 for Live
+                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, LiveProgramStatus as Field1, Case when LiveProgramPaid = 'Y' then 'Not Paid' else 'Paid' end AS Field2, Case when LiveProgramOnOff = 1 then 'On' else 'Off' end AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL1.DataBind();
+
+                // Query 2 for Live
+                rptAllLL2.DataSource = GetData(string.Format("SELECT ProgramCategory, EventMonth as Field4, NumberOfChildren AS Field5, NumberOfAdults AS Field6 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL2.DataBind();
+
+                // Query 3 for Live
+                rptAllLL3.DataSource = GetData(string.Format("SELECT ProgramCategory, LiveProgramStreetAddress as Field7, CityCounty AS Field8, State AS Field9 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL3.DataBind();
+
+                // Query 4 for Live
+                rptAllLL4.DataSource = GetData(string.Format("SELECT ProgramCategory, ExtraComments as Field10, LastUpdatedBy AS Field11, LastUpdated AS Field12 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL4.DataBind();
+
+
+
+            }
+            else if (tempProgramCategory.ToString().Equals("Online Program"))
+            {
+                // Query 1 for Online
+                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2, OnlineSecondaryEmail AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL1.DataBind();
+
+                // Query 2 for Live
+                rptAllLL2.DataSource = GetData(string.Format("SELECT ProgramCategory, EventMonth as Field4, NumberOfChildren AS Field5, NumberOfAdults AS Field6 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL2.DataBind();
+
+                // Query 3 for Live
+                rptAllLL3.DataSource = GetData(string.Format("SELECT ProgramCategory, CityCounty as Field7, State AS Field8, OnlineProgramCountry AS Field9 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL3.DataBind();
+
+                // Query 4 for Live
+                rptAllLL4.DataSource = GetData(string.Format("SELECT ProgramCategory, ExtraComments as Field10, LastUpdatedBy AS Field11, LastUpdated AS Field12 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL4.DataBind();
+
+
+            }
+
+
 
 
 
@@ -661,6 +717,7 @@ public partial class Programs : System.Web.UI.Page
             case 0:
                 rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms;");
                 rptProgramHLAll.DataBind();
+
                 break;
             case 1:
                 rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramDate DESC;");
@@ -1516,7 +1573,7 @@ public partial class Programs : System.Web.UI.Page
                 pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE (EducatorFirstName + ' ' + EducatorLastName) = @EducatorName";
                 pullEducatorID.Parameters.AddWithValue("@EducatorName", li.Text);
                 int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
-               // string stempProgramID = ddlProgram.SelectedItem.Value.Substring(0, 1);
+                // string stempProgramID = ddlProgram.SelectedItem.Value.Substring(0, 1);
 
                 //// Inserts programID and EducatorID into Assocaited table ProgramEducators
                 programEducatorInsert.CommandText = "INSERT INTO ProgramEducators (ProgramID, EducatorID, LastUpdated, LastUpdatedBy) values (@programID, @educatorID, @lastUpdated, @lastUpdatedBy)";
@@ -1704,7 +1761,7 @@ public partial class Programs : System.Web.UI.Page
         //Temporary LastUpdated and LastUpdatedBy
         DateTime tempLastUpdated = DateTime.Today;
         String tempLastUpdatedBy = "TempWildTekDevs";
-        
+
         // OnlineProgram table inserts
         OnlineProgram newOnlineProgram = new OnlineProgram(programDate, typeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments, secondaryEmail);
 

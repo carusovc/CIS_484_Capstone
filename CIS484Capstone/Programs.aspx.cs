@@ -507,6 +507,8 @@ public partial class Programs : System.Web.UI.Page
             Repeater rptProgramLLLive = e.Item.FindControl("rptProgramLLLive") as Repeater;
             Repeater rptProgramLL2Live = e.Item.FindControl("rptProgramLL2Live") as Repeater;
             Repeater rptProgramLL3Live = e.Item.FindControl("rptProgramLL3Live") as Repeater;
+            Repeater rptNewLiveProgramLL4 = e.Item.FindControl("rptNewLiveProgramLL4") as Repeater;
+
 
 
             rptProgramLLLive.DataSource = GetData(string.Format("SELECT ProgramID, Status, NumberOfChildren, NumberOfAdults From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
@@ -517,6 +519,10 @@ public partial class Programs : System.Web.UI.Page
 
             rptProgramLL3Live.DataSource = GetData(string.Format("SELECT Case when OnOff = 1 then 'On' else 'Off' end as 'OnOffSite', ProgramID, Case when paid = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments AS Comments From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptProgramLL3Live.DataBind();
+
+            rptNewLiveProgramLL4.DataSource = GetData(string.Format("SELECT ProgramID, pa.AnimalID, (CASE WHEN AnimalType ='Bird' Then AnimalName ELSE NULL END) AS 'Birds', (CASE WHEN AnimalType = 'Mammal' Then AnimalName ELSE NULL END) AS 'Mammals', (CASE WHEN AnimalType = 'Reptile' Then AnimalName ELSE NULL END) AS 'Reptiles' FROM ProgramAnimal pa inner join Animal on pa.AnimalID = Animal.AnimalID where ProgramID = " + ProgramID + "", ProgramID));
+            rptNewLiveProgramLL4.DataBind();
+
 
 
         }
@@ -562,6 +568,8 @@ public partial class Programs : System.Web.UI.Page
             Repeater rptProgramLLOnline = e.Item.FindControl("rptProgramLLOnline") as Repeater;
             Repeater rptProgramLL2Online = e.Item.FindControl("rptProgramLL2Online") as Repeater;
             Repeater rptProgramLL3Online = e.Item.FindControl("rptProgramLL3Online") as Repeater;
+            Repeater rptNewOnlineProgramLL4 = e.Item.FindControl("rptNewOnlineProgramLL4") as Repeater;
+
 
             //Repeater rptProgramLL2 = e.Item.FindControl("rptProgramLL2") as Repeater;
 
@@ -574,6 +582,9 @@ public partial class Programs : System.Web.UI.Page
 
             rptProgramLL3Online.DataSource = GetData(string.Format("SELECT ContactEmail, ExtraComments AS Comments, SecondaryEmail From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
             rptProgramLL3Online.DataBind();
+
+            rptNewOnlineProgramLL4.DataSource = GetData(string.Format("SELECT OnlineProgramID, oa.AnimalID, (CASE WHEN AnimalType ='Bird' Then AnimalName ELSE NULL END) AS 'Birds', (CASE WHEN AnimalType = 'Mammal' Then AnimalName ELSE NULL END) AS 'Mammals', (CASE WHEN AnimalType = 'Reptile' Then AnimalName ELSE NULL END) AS 'Reptiles' FROM OnlineAnimal oa inner join Animal on oa.AnimalID = Animal.AnimalID where OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
+            rptNewOnlineProgramLL4.DataBind();
 
 
         }
@@ -626,7 +637,7 @@ public partial class Programs : System.Web.UI.Page
             if (tempProgramCategory.ToString().Equals("Live Program"))
             {
                 // Query 1 for Live
-                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, LiveProgramStatus as Field1, LiveProgramPaid AS Field2, LiveProgramOnOff AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, LiveProgramStatus as Field1, Case when LiveProgramPaid = 'Y' then 'Not Paid' else 'Paid' end AS Field2, Case when LiveProgramOnOff = 1 then 'On' else 'Off' end AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
                 rptAllLL1.DataBind();
 
                 // Query 2 for Live

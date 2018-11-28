@@ -952,7 +952,7 @@
 
 
                     <button type="button" id="btnUpdate" class="btn  btn-inside" runat="server" text="Update" onclick="btnUpdate_Click">Save</button>
-                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" text="Delete" onclick="btnDelete_Click">Delete</button>
+                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" text="Disable" onclick="btnDelete_Click">Disable</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -1172,7 +1172,7 @@
                 <div class="modal-footer">
 
                     <button type="button" id="btnUpdate2" class="btn  btn-inside" runat="server" text="Upgrade" onclick="btnUpdate2_Click">Save</button>
-                    <button type="button" id="btnDelete2" runat="server" class="btn  btn-inside" text="Delete" onclick="btnDelete2_Click">Delete</button>
+                    <button type="button" id="btnDelete2" runat="server" class="btn  btn-inside" text="Disable" onclick="btnDelete2_Click">Disable</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
