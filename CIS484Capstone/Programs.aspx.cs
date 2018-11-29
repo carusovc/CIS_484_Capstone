@@ -498,8 +498,8 @@ public partial class Programs : System.Web.UI.Page
     }
 
 
-
-    protected void OnItemDataBoundLive(object sender, RepeaterItemEventArgs e)
+  
+        protected void OnItemDataBoundLive(object sender, RepeaterItemEventArgs e)
     {
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
         {
@@ -552,6 +552,28 @@ public partial class Programs : System.Web.UI.Page
                 rptProgramHLLive.DataBind();
                 break;
         }
+
+
+    }
+
+    // Overloaded method for search
+    public void createAccordianUsingRepeaterLive(string searchWord)
+    {
+
+
+        // 0 = Default
+        // 1 = Date
+        // 2 = Program Type
+
+        
+                rptProgramHLLive.DataSource = GetData("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID" +
+                    "WHERE (ProgramType.ProgramName) like ('" + searchWord + "%');"); //inner join Organization on z.OrgID = Organization.OrgID
+                rptProgramHLLive.DataBind();
+
+        //SqlDataAdapter adapt = new SqlDataAdapter("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail " +
+        //      "from Organization where UPPER(OrgName) like UPPER('" + searchOrganization + "%') or UPPER(County) like UPPER('" + searchOrganization + "%') " +
+        //      "or UPPER(City) like UPPER('" + searchOrganization + "%') or UPPER(State) like UPPER('" + searchOrganization + "%') or UPPER(ContactFirstName) like UPPER('" + searchOrganization + "%') " +
+        //      "or UPPER(ContactLastName) like UPPER('" + searchOrganization + "%')", con);
 
 
     }
@@ -1930,6 +1952,16 @@ public partial class Programs : System.Web.UI.Page
         createAccordianUsingRepeaterLive(OrderSelect);
         createAccordianUsingRepeaterOnline(OrderSelect);
     }
+
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        string searchWord = txtSearch.Text.ToString();
+        createAccordianUsingRepeaterLive(searchWord);
+    }
+
+
+
+
 
     protected void btnOnlineUpdate_Click(object sender, EventArgs e)
     {
