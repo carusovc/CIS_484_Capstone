@@ -545,8 +545,24 @@ $(function() {
           
        <div class="mx-auto d-flex justify-content-center">
   
+           <div class="form-group row">
+                                <div class="col-3">
+                                    <label id="StartDateLabel" for="StartDate">Start Date:</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="date" id="StartDate" class="form-control" runat="server" />
+                                </div>
+               
+                                <div class="col-3">
+                                    <label id="EndDateLabel" for="EndDate">End Date:</label>
+                                </div>
+                                <div class="col-6">
+                                    <input type="date" id="EndDate" class="form-control" runat="server" />
+                                </div>
+               <asp:Button ID="btnView" runat="server" OnClick="btnView_Click" Text="View" />
+                            </div>
 
-      <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True"  class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" DataSourceID="SqlDataSource6" DataTextField="MonthName" DataValueField="MonthName">
+     <%-- <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True"  class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" DataSourceID="SqlDataSource6" DataTextField="MonthName" DataValueField="MonthName">
                         <asp:ListItem></asp:ListItem>
                         </asp:DropDownList>&nbsp&nbsp&nbsp&nbsp
             <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(Program.ProgramDate) } 
@@ -570,7 +586,7 @@ $(function() {
                         <asp:ListItem></asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct(YEAR(ProgramDate)) AS YEAR FROM Program"></asp:SqlDataSource>
-    
+    --%>
     <br />
             </div>
             <br />
@@ -596,7 +612,7 @@ $(function() {
     HeaderStyle-Forecolor="#732700" runat="server" class="table table-bordered table-condensed table-hover" 
     AutoGenerateColumns="False" DataSourceID="SqlDataSource9" EmptyDataText="There are no records to display.">
         <Columns>
-            <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month Name" ReadOnly="True" >
+            <asp:BoundField DataField="ProgramDate" HeaderText="Date" SortExpression="Program Date" ReadOnly="True" >
                  <HeaderStyle HorizontalAlign="Left" />
             <ItemStyle HorizontalAlign="Left" />
             </asp:BoundField>
@@ -622,41 +638,16 @@ $(function() {
             </asp:BoundField>
                   </Columns>
      </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource9" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(Program.ProgramDate) } 
-            when 1 then 'January'
-            when 2 then 'February'
-            when 3 then 'March'
-            when 4 then 'April'
-            when 5 then 'May'
-            when 6 then 'June'
-            when 7 then 'July'
-            when 8 then 'August'
-            when 9 then 'September'
-            when 10 then 'October'
-            when 11 then 'November'
-            when 12 then 'December'
-           END
-      AS MonthName, SUM(CASE WHEN onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, count(Program.ProgramID) as TotalLivePrograms,
+    <asp:SqlDataSource ID="SqlDataSource9" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Program.ProgramDate
+      AS ProgramDate, SUM(CASE WHEN onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, count(Program.ProgramID) as TotalLivePrograms,
          SUM(NumberOfChildren) as NumberOfChildren, SUM(NumberOfAdults) AS NumberOfAdults, SUM(NumberOfChildren + NumberOfAdults) AS TotalParticipants 
-		 FROM Program WHERE (CASE { fn MONTH(Program.ProgramDate) } 
-            when 1 then 'January'
-            when 2 then 'February'
-            when 3 then 'March'
-            when 4 then 'April'
-            when 5 then 'May'
-            when 6 then 'June'
-            when 7 then 'July'
-            when 8 then 'August'
-            when 9 then 'September'
-            when 10 then 'October'
-            when 11 then 'November'
-            when 12 then 'December'
-           END = @Month) AND (YEAR(ProgramDate)=@Year) GROUP BY { fn MONTH(Program.ProgramDate) } ORDER BY { fn MONTH(Program.ProgramDate) }">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="DropDownList1" Name="Month" PropertyName="SelectedValue" Type="String" />
-             <asp:ControlParameter ControlID="drpYear" Name="Year" PropertyName="SelectedValue" Type="String" />
+		 FROM Program WHERE Program.ProgramDate BETWEEN '2018-01-15' and '2018-05-09'
+  GROUP BY Program.ProgramDate ORDER BY Program.ProgramDate">
+<%--        <SelectParameters>
+            <asp:ControlParameter ControlID="StartDate" Name="StartDate" PropertyName="SelectedValue" Type="datetime" />
+             <asp:ControlParameter ControlID="EndDate" Name="EndDate" PropertyName="SelectedValue" Type="datetime" />
 
-        </SelectParameters>
+        </SelectParameters>--%>
      </asp:SqlDataSource>
          <br />
               </div>
@@ -685,7 +676,7 @@ $(function() {
     HeaderStyle-Forecolor="#732700" id= "gridOnlineAnimalsTotals" class="table table-bordered table-condensed table-hover" 
         AutoGenerateColumns="False" DataSourceID="SqlDataSource11" EmptyDataText="There are no records to display.">
         <Columns>
-             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month Name" ReadOnly="True" >
+             <asp:BoundField DataField="ProgramDate" HeaderText="Date" SortExpression="Program Date" ReadOnly="True" >
                  <HeaderStyle HorizontalAlign="Left" />
             <ItemStyle HorizontalAlign="Left" />
             </asp:BoundField>
@@ -703,40 +694,15 @@ $(function() {
             </asp:BoundField>
          </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource11" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(OnlineProgram.ProgramDate) } 
-            when 1 then 'January'
-            when 2 then 'February'
-            when 3 then 'March'
-            when 4 then 'April'
-            when 5 then 'May'
-            when 6 then 'June'
-            when 7 then 'July'
-            when 8 then 'August'
-            when 9 then 'September'
-            when 10 then 'October'
-            when 11 then 'November'
-            when 12 then 'December'
-           END
-      AS MonthName, Count(OnlineProgram.OnlineProgramID) as TotalOnlinePrograms,
-	   SUM(NumberOfKids) as NumberOfKids, SUM(NumberOfPeople) as NumberOfPeople FROM [OnlineProgram] WHERE (CASE { fn MONTH(OnlineProgram.ProgramDate) } 
-            when 1 then 'January'
-            when 2 then 'February'
-            when 3 then 'March'
-            when 4 then 'April'
-            when 5 then 'May'
-            when 6 then 'June'
-            when 7 then 'July'
-            when 8 then 'August'
-            when 9 then 'September'
-            when 10 then 'October'
-            when 11 then 'November'
-            when 12 then 'December'
-           END = @Month) AND (YEAR(OnlineProgram.ProgramDate)=@Year) GROUP BY { fn MONTH(OnlineProgram.ProgramDate) } ORDER BY { fn MONTH(OnlineProgram.ProgramDate) }">
-         <SelectParameters>
-            <asp:ControlParameter ControlID="DropDownList1" Name="Month" PropertyName="SelectedValue" Type="String" />
-             <asp:ControlParameter ControlID="drpYear" Name="Year" PropertyName="SelectedValue" Type="String" />
+    <asp:SqlDataSource ID="SqlDataSource11" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="  SELECT OnlineProgram.ProgramDate
+      AS ProgramDate, Count(OnlineProgram.OnlineProgramID) as TotalOnlinePrograms,
+	   SUM(NumberOfKids) as NumberOfKids, SUM(NumberOfPeople) as NumberOfPeople FROM [OnlineProgram] WHERE OnlineProgram.ProgramDate BETWEEN
+        '2018-01-15' AND '2018-05-09' GROUP BY OnlineProgram.ProgramDate ORDER BY OnlineProgram.ProgramDate">
+<%--         <SelectParameters>
+            <asp:ControlParameter ControlID="StartDate" Name="StartDate" PropertyName="SelectedValue" Type="datetime" />
+             <asp:ControlParameter ControlID="EndDate" Name="EndDate" PropertyName="SelectedValue" Type="datetime" />
           
-        </SelectParameters>
+        </SelectParameters>--%>
     </asp:SqlDataSource>
           <br />
     
