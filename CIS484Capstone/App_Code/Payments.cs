@@ -21,11 +21,12 @@ public class Payment
     private String checkNum;
     private String paymentType;
     private String invoice;
-    private char cancelledInvoice; // To Deal with V2 10/23/18 8:30 pm
-    private int orgID; // To Deal with V2 10/23/18 8:30 pm
+    private string cancelledInvoices; // To Deal with V2 10/23/18 8:30 pm
+    private string paid; // To Deal with V2 10/23/18 8:30 pm
+  //  private string paid;
 
    
-    public Payment(decimal PaymentAmount, DateTime paymentDate, String checkNum, String paymentType, String invoice, char cancelledInvoice, int orgID)
+    public Payment(decimal PaymentAmount, DateTime paymentDate, String checkNum, String paymentType, String invoice, string paid, string cancelledInvoices)
     {
         // Call Setters
         setPaymentAmount(paymentAmount);
@@ -33,8 +34,10 @@ public class Payment
         setCheckNum(checkNum);
         setPaymentType(paymentType);
         setInvoice(invoice);
-        setCancelled(cancelledInvoice);
-        setOrgId(orgID);
+        setPaid(paid);
+        setCancelledInvoices(cancelledInvoices);
+        
+       // setPaid(paid);
     }
 
     //Setters
@@ -63,16 +66,21 @@ public class Payment
         this.invoice = invoice;
     }
 
-    public void setCancelled(char cancelledInvoice)
+    public void setCancelledInvoices(string cancelledInvoices)
     {
-        this.cancelledInvoice = cancelledInvoice;
+        this.cancelledInvoices = cancelledInvoices;
     }
 
-    public void setOrgId(int orgID)
+    public void setPaid(string paid)
     {
-        this.orgID = orgID;
+        this.paid = paid;
     }
     
+
+    //public void setPaid(string paid)
+    //{
+    //    this.paid = paid;
+    //}
     //Getters
 
     public decimal getPaymentAmount()
@@ -100,14 +108,18 @@ public class Payment
         return this.invoice;
     }
 
-    public char getCancelledInvoice()
+    public string getCancelledInvoices()
     {
-        return this.cancelledInvoice;
+        return this.cancelledInvoices;
     }
 
-    public int getOrgId()
+    public string getPaid()
     {
-        return this.orgID;
+        return this.paid;
     }
+    //public string getPaid()
+    //{
+    //    return this.paid;
+    //}
 
 }

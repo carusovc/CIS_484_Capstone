@@ -290,8 +290,8 @@ public partial class ProgramForm : System.Web.UI.Page
         pullOrgID.CommandText = "SELECT MAX(OrgID) From Organization";
         int tempOrgID = (int)pullOrgID.ExecuteScalar();
 
-        insert.CommandText = "insert into dbo.Program (programTypeID, orgID, status, programAddress, CityCounty, state, onOff, numberOfChildren, numberOfAdults, paymentNeeded, programDate, programTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy) values "
-            + "(@programTypeID, @orgID, @status, @programAddress, @cityCounty, @state, @onOff, @numberOfChildren, @numberOfAdults, @paymentNeeded, @programDate, @programTime, @eventMonth, @extraComments, @lastUpdated, @lastUpdatedBy)";
+        insert.CommandText = "insert into dbo.Program (programTypeID, orgID, status, programAddress, CityCounty, state, onOff, numberOfChildren, numberOfAdults, paid, programDate, programTime, EventMonth, ExtraComments, LastUpdated, LastUpdatedBy) values "
+            + "(@programTypeID, @orgID, @status, @programAddress, @cityCounty, @state, @onOff, @numberOfChildren, @numberOfAdults, @paid, @programDate, @programTime, @eventMonth, @extraComments, @lastUpdated, @lastUpdatedBy)";
 
         insert.Parameters.AddWithValue("@programTypeID", newProgram.getProgramTypeID());
         insert.Parameters.AddWithValue("@orgID", tempOrgID);
@@ -301,7 +301,7 @@ public partial class ProgramForm : System.Web.UI.Page
         insert.Parameters.AddWithValue("@onOff", newProgram.getOnOff());
         insert.Parameters.AddWithValue("@numberOfChildren", newProgram.getNumOfChildren());
         insert.Parameters.AddWithValue("@numberOfAdults", newProgram.getNumOfAdult());
-        insert.Parameters.AddWithValue("@paymentNeeded", newProgram.getWaitForPayment());
+        insert.Parameters.AddWithValue("@paid", newProgram.getWaitForPayment());
         insert.Parameters.AddWithValue("@programDate", newProgram.getDate());
         insert.Parameters.AddWithValue("@programTime", newProgram.getTime());
         insert.Parameters.AddWithValue("@eventMonth", newProgram.getReportMonth());

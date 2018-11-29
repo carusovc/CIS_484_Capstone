@@ -12,13 +12,28 @@ public class Organization
     private String orgName;
     private String city;
     private String county;
+    private String streetAddress;
+    private String state;
+    private String postalCode;
+    private String contactFirstName;
+    private String contactLastName;
+    private String phoneNumber;
+    private String email;
+    private String secondaryEmail;
 
-   
-    public Organization(String orgName, String city, String county)
+    public Organization(String orgName, String city, String county, String streetAddress, String state, String postalCode, String contactFirstName, String contactLastName, String phoneNumber, String email, String secondaryEmail)
     {
         setOrgName(orgName);
         setCity(city);
         setCounty(county);
+        setStreetAddress(streetAddress);
+        setState(state);
+        setPostalCode(postalCode);
+        setContactFirstName(contactFirstName);
+        setContactLastName(contactLastName);
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
+        setSecondaryEmail(secondaryEmail);
     }
 
     public void setOrgName(String orgName)
@@ -36,6 +51,46 @@ public class Organization
         this.county = county;
     }
 
+    public void setStreetAddress(String streetAddress)
+    {
+        this.streetAddress = streetAddress;
+    }
+
+    public void setState(String state)
+    {
+        this.state = state;
+    }
+
+    public void setPostalCode(String postalCode)
+    {
+        this.postalCode = postalCode;
+    }
+
+    public void setContactFirstName(String contactFirstName)
+    {
+        this.contactFirstName = contactFirstName;
+    }
+
+    public void setContactLastName(String contactLastName)
+    {
+        this.contactLastName = contactLastName;
+    }
+
+    public void setPhoneNumber(String phoneNumber)
+    {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
+
+    public void setSecondaryEmail(String secondaryEmail)
+    {
+        this.secondaryEmail = secondaryEmail;
+    }
+
     public String getOrgName()
     {
         return orgName;
@@ -50,5 +105,37 @@ public class Organization
     {
         return county;
     }
+    public String getStreetAddress()
+    {
+        return streetAddress;
+    }
+    public String getState()
+    {
+        return state;
+    }
+    public String getPostalCode()
+    {
+        return postalCode;
+    }
+    public String getContactFirstName()
+    {
+        return contactFirstName;
+    }
+    public String getContactLastName()
+    {
+        return contactLastName;
+    }
+    public String getPhoneNumber()
+    {
+        return phoneNumber;
+    }
+    public String getEmail()
+    {
+        return email;
+    }
 
+    public String getSecondaryEmail()
+    {
+        return secondaryEmail;
+    }
 }

@@ -27,6 +27,7 @@ public class OnlineProgram
     private String comments;
     private String teacher;
     private String email;
+    private String secondaryEmail;
     //private String educator;
     //private String theme;
     //private String animalsUsed;
@@ -34,7 +35,7 @@ public class OnlineProgram
 
 
     //Overload Constructor
-    public OnlineProgram(DateTime date, int type, int kidsInClass, int numOfPeople, string city, string stateTerritory, string country, string teacher, string email, string comments)
+    public OnlineProgram(DateTime date, int type, int kidsInClass, int numOfPeople, string city, string stateTerritory, string country, string teacher, string email, string comments, string secondaryEmail)
     {
         setDate(date);
         //setProgramTime(date);
@@ -44,11 +45,10 @@ public class OnlineProgram
         setCity(city);
         setstateTerritory(stateTerritory);
         setCountry(country);
-
-
         setTeacher(teacher);
         setEmail(email);
         setComments(comments);
+        setSecondaryEmail(secondaryEmail);
         //setEducator(educator);
         //setTheme(theme);
         //setAnimalsUsed(animalsUsed);     
@@ -123,6 +123,10 @@ public class OnlineProgram
         this.comments = comments;
     }
 
+    public void setSecondaryEmail(string secondaryEmail)
+    {
+        this.secondaryEmail = secondaryEmail;
+    }
     //public void setEducator(string educator)
     //{
     //    this.educator = educator;
@@ -206,6 +210,10 @@ public class OnlineProgram
         return comments;
     }
 
+    public String getSecondaryEmail()
+    {
+        return secondaryEmail;
+    }
     //public String getEducator()
     //{
     //    return educator;
