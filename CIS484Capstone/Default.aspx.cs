@@ -110,7 +110,7 @@ public partial class userLogin : System.Web.UI.Page
 
 
 
-                        Session["USER_ID"] = txtUsername.Text;
+                        Session["USER_ID"] = HttpUtility.HtmlEncode(txtUsername.Text);
 
                         if (txtUsername.Text.ToString().Equals("Volunteer"))
                         {
@@ -121,7 +121,7 @@ public partial class userLogin : System.Web.UI.Page
                             Response.Redirect("NoLogInPrograms.aspx", false);
 
 
-                            Session["USER_ID"] = txtUsername.Text;
+                            Session["USER_ID"] = HttpUtility.HtmlEncode(txtUsername.Text);
 
                         }
 
@@ -213,7 +213,7 @@ public partial class userLogin : System.Web.UI.Page
 
                     {
 
-                        SendPasswordResetEmail(rdr["Email"].ToString(), txtUsername.Text, rdr["UniqueId"].ToString());
+                        SendPasswordResetEmail(rdr["Email"].ToString(), HttpUtility.HtmlEncode(txtUsername.Text), rdr["UniqueId"].ToString());
 
                         string script = "alert('An email with instructions to reset your password has been sent to your registered email');";
 
@@ -331,7 +331,8 @@ public partial class userLogin : System.Web.UI.Page
 
             txtPassword.TextMode = TextBoxMode.SingleLine;
 
-            this.txtPassword.Text = txtPassword.Text;
+            this.txtPassword.Text = HttpUtility.HtmlEncode(txtPassword.Text);
+            
 
         }
 
@@ -343,7 +344,7 @@ public partial class userLogin : System.Web.UI.Page
 
             txtPassword.Attributes.Add("value", txtPassword.Text);
 
-            this.txtPassword.Text = txtPassword.Text;
+            this.txtPassword.Text = HttpUtility.HtmlEncode(txtPassword.Text);
 
         }
 

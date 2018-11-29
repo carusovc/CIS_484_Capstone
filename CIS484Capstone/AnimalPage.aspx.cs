@@ -110,10 +110,10 @@ public partial class AnimalPage : System.Web.UI.Page
         insert.Connection = sc;
         retrieveImage.Connection = sc;
 
-        String animalType = ddlAnimalType.SelectedItem.Text;
-        String animalName = txtAnimalName.Text;
+        String animalType = HttpUtility.HtmlEncode(ddlAnimalType.SelectedItem.Text);
+        String animalName = HttpUtility.HtmlEncode(txtAnimalName.Text);
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTek";
+        String lastUpdatedBy = "WildTekDevelopers";
 
 
         Animal newAnimal = new Animal(animalType, animalName);
@@ -138,7 +138,7 @@ public partial class AnimalPage : System.Web.UI.Page
         }
 
         lblLastUpdated.Text = "Last Updated: " + lastUpdated;
-        lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
+        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(lastUpdatedBy);
 
 
         //retrieveImage.CommandText = "Select AnimalImage from Animal where animalID = 24";
@@ -223,7 +223,7 @@ public partial class AnimalPage : System.Web.UI.Page
                 }
 
 
-                txtBoxAnimalName.Text = sdr[2].ToString();
+                txtBoxAnimalName.Text = HttpUtility.HtmlEncode(sdr[2].ToString());
 
                 for (int i = 0; i < ddlStatus.Items.Count; i++)
                 {
@@ -425,7 +425,7 @@ public partial class AnimalPage : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
         search.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
-        string searchAnimal = txtSearch.Text;
+        string searchAnimal = HttpUtility.HtmlEncode(txtSearch.Text);
 
         DataTable dt = new DataTable();
         SqlDataAdapter adapt = new SqlDataAdapter("Select AnimalType, AnimalName, Status from Animal where UPPER(AnimalName) like UPPER('" + searchAnimal + "%') or UPPER(AnimalType) like UPPER('" + searchAnimal + "%') or UPPER(status) like UPPER('" + searchAnimal + "%')", con);

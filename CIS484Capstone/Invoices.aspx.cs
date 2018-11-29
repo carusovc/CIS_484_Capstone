@@ -202,7 +202,7 @@ public partial class Invoices : System.Web.UI.Page
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency
-            e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
+            e.Row.Cells[2].Text = String.Format("{0:c}", HttpUtility.HtmlEncode(TotalNotCancelled));
 
     }
     protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -215,7 +215,7 @@ public partial class Invoices : System.Web.UI.Page
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency
-            e.Row.Cells[2].Text = String.Format("{0:c}", TotalCancelled);
+            e.Row.Cells[2].Text = String.Format("{0:c}", HttpUtility.HtmlEncode(TotalCancelled));
 
 
 
