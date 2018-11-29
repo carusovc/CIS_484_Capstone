@@ -317,6 +317,7 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
     <span class="navbar-toggler-icon"></span>
   </button>
    <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+       
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -423,7 +424,9 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
 
         <!-- Sidebar -->
 
-        <ul class="sidebar navbar-nav d-none d-md-block">
+       
+
+        <ul class=" sidebar navbar-nav d-none d-md-block " >
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -520,7 +523,7 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
             </li>
 
         </ul>
-
+           
 
       <div id="content-wrapper">
         <div class="container-fluid ">
