@@ -322,26 +322,22 @@
             
             
             <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
-
-    <div class="container1 block">
-     <div runat="server" id="OrganizationSearchDiv">
-               
-        <div runat="server" id="ViewOrganizations">
+                <div class="container1 block">
+                    <div runat="server" id="OrganizationSearchDiv">
+                        <div runat="server" id="ViewOrganizations">
 
                       <%--</div>--%>
                    
-            <div class="block3">
-                 <div class="tab-content">   
-                    <div class="">
-                        <div class="col-md-12 ">
-                                 <br />
-			                     
+                            <div class="block3">
+                                 <div class="tab-content">   
+                                    <div class="">
+                                        <div class="col-md-12 ">
+                                                 <br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-         
 
             <%-- this div  is the internal div--%>
        

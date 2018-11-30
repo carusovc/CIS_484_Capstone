@@ -148,7 +148,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select OrgName, City, County, StreetAddress, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail from Organization where" +
+        insert.CommandText = "select OrgName, City, County, StreetAddress, PostalCode from Organization where" +
                           " OrgID = @OrgID";
 
         insert.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
@@ -164,11 +164,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 txtCounty.Text = sdr[2].ToString();
                 txtStreetAddress2.Text = sdr[3].ToString();
                 txtPostalCode2.Text = sdr[4].ToString();
-                txtContactFirstName2.Text = sdr[5].ToString();
-                txtContactLastName2.Text = sdr[6].ToString();
-                txtPhoneNumber2.Text = sdr[7].ToString();
-                txtEmail2.Text = sdr[8].ToString();
-                txtSecondaryEmail2.Text = sdr[9].ToString();
+                //txtContactFirstName2.Text = sdr[5].ToString();
+                //txtContactLastName2.Text = sdr[6].ToString();
+                //txtPhoneNumber2.Text = sdr[7].ToString();
+                //txtEmail2.Text = sdr[8].ToString();
+                //txtSecondaryEmail2.Text = sdr[9].ToString();
                 //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
@@ -212,7 +212,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
 
-        update.CommandText = "update organization set orgName = @orgName, city = @city, county = @county, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, streetAddress = @streetAddress, state = @state, postalCode = @postalCode, contactFirstName = @contactFirstName, contactLastName = @contactLastName, phoneNumber = @phoneNumber, email = @email, secondaryEmail = @secondaryEmail where orgID = @orgID";
+        update.CommandText = "update organization set orgName = @orgName, city = @city, county = @county, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, streetAddress = @streetAddress, state = @state, postalCode = @postalCode where orgID = @orgID";
         update.Parameters.AddWithValue("@orgName", txtOrgName.Text);
         update.Parameters.AddWithValue("@city", txtCity.Text);
         update.Parameters.AddWithValue("@county", txtCounty.Text);
@@ -222,11 +222,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@streetAddress", txtStreetAddress2.Text);
         update.Parameters.AddWithValue("@state", ddlState2.SelectedItem.Value);
         update.Parameters.AddWithValue("@postalCode", txtPostalCode2.Text);
-        update.Parameters.AddWithValue("@contactFirstName", txtContactFirstName2.Text);
-        update.Parameters.AddWithValue("@contactLastName", txtContactLastName2.Text);
-        update.Parameters.AddWithValue("@phoneNumber", txtPhoneNumber2.Text);
-        update.Parameters.AddWithValue("@email", txtEmail2.Text);
-        update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail2.Text);
+        //update.Parameters.AddWithValue("@contactFirstName", txtContactFirstName2.Text);
+        //update.Parameters.AddWithValue("@contactLastName", txtContactLastName2.Text);
+        //update.Parameters.AddWithValue("@phoneNumber", txtPhoneNumber2.Text);
+        //update.Parameters.AddWithValue("@email", txtEmail2.Text);
+        //update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail2.Text);
         update.ExecuteNonQuery();
 
 
@@ -253,11 +253,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
         ddlState.SelectedIndex = 0;
         ddlOrganization.SelectedIndex = 0;
         txtPostalCode.Text = "";
-        txtContactFirstName.Text = "";
-        txtContactLastName.Text = "";
-        txtPhoneNumber.Text = "";
-        txtEmail.Text = "";
-        txtSecondaryEmail.Text = "";
+        //txtContactFirstName.Text = "";
+        //txtContactLastName.Text = "";
+        //txtPhoneNumber.Text = "";
+        //txtEmail.Text = "";
+        //txtSecondaryEmail.Text = "";
 
         sc.Close();
     }
@@ -304,9 +304,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
         sc.ConnectionString = cs;
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
 
+        System.Data.SqlClient.SqlCommand insertContact = new System.Data.SqlClient.SqlCommand();
+
+        System.Data.SqlClient.SqlCommand pullOrgID = new System.Data.SqlClient.SqlCommand();
+
 
         sc.Open();
         insert.Connection = sc;
+        insertContact.Connection = sc;
+        pullOrgID.Connection = sc;
 
         String orgName = textOrgName.Text;
         String city = textOrgCity.Text;
@@ -316,14 +322,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
         String postalCode = txtPostalCode.Text;
         String contactFirstName = txtContactFirstName.Text;
         String contactLastName = txtContactLastName.Text;
-        String phoneNumber = txtPhoneNumber.Text;
+        //String phoneNumber = txtPhoneNumber.Text;
         String email = txtEmail.Text;
-        String secondaryEmail = txtSecondaryEmail.Text;
+        //String secondaryEmail = txtSecondaryEmail.Text;
         DateTime lastUpdated = DateTime.Today;
         String lastUpdatedBy = "WildTekDevs";
 
-        Organization newOrg = new Organization(orgName, city, county, streetAddress, state, postalCode, contactFirstName, contactLastName, phoneNumber, email, secondaryEmail);
-        insert.CommandText = "insert into Organization (orgName, city, county, lastUpdated, lastUpdatedBy, streetAddress, state, postalCode, contactFirstName, contactLastName, phoneNumber, email, secondaryEmail) values (@orgName, @city, @county, @lastUpdated, @lastUpdatedBy, @streetAddress, @state, @postalCode, @contactFirstName, @contactLastName, @phoneNumber, @email, @secondaryEmail)";
+        Organization newOrg = new Organization(orgName, city, county, streetAddress, state, postalCode);
+        insert.CommandText = "insert into Organization (orgName, city, county, lastUpdated, lastUpdatedBy, streetAddress, state, postalCode) values (@orgName, @city, @county, @lastUpdated, @lastUpdatedBy, @streetAddress, @state, @postalCode)";
         insert.Parameters.AddWithValue("@orgName", newOrg.getOrgName());
         insert.Parameters.AddWithValue("@city", newOrg.getCity());
         insert.Parameters.AddWithValue("@county", newOrg.getCounty());
@@ -332,14 +338,29 @@ public partial class MasterPage : System.Web.UI.MasterPage
         insert.Parameters.AddWithValue("@streetAddress", newOrg.getStreetAddress());
         insert.Parameters.AddWithValue("@state", newOrg.getState());
         insert.Parameters.AddWithValue("@postalCode", newOrg.getPostalCode());
-        insert.Parameters.AddWithValue("@contactFirstName", newOrg.getContactFirstName());
-        insert.Parameters.AddWithValue("@contactLastName", newOrg.getContactLastName());
-        insert.Parameters.AddWithValue("@phoneNumber", newOrg.getPhoneNumber());
-        insert.Parameters.AddWithValue("@email", newOrg.getEmail());
-        insert.Parameters.AddWithValue("@secondaryEmail", newOrg.getSecondaryEmail());
+        //insert.Parameters.AddWithValue("@contactFirstName", newOrg.getContactFirstName());
+        //insert.Parameters.AddWithValue("@contactLastName", newOrg.getContactLastName());
+        //insert.Parameters.AddWithValue("@phoneNumber", newOrg.getPhoneNumber());
+        //insert.Parameters.AddWithValue("@email", newOrg.getEmail());
+        //insert.Parameters.AddWithValue("@secondaryEmail", newOrg.getSecondaryEmail());
 
 
         insert.ExecuteNonQuery();
+
+        pullOrgID.Parameters.Clear();
+        pullOrgID.CommandText = "SELECT MAX(OrgID) From Organization";
+
+        int tempOrgID = (int)pullOrgID.ExecuteScalar();
+
+        insertContact.CommandText = "insert into ContactInformation (contactFirstName, contactLastName, contactEmail, PrimaryContact, OrgID, LastUpdated, LastUpdatedBy) values (@contactFN, @contactLN, @contactEmail, @primaryContact, @OrgID, @LastUpdated, @LastUpdatedBy)";
+        insertContact.Parameters.AddWithValue("@contactFN", contactFirstName);
+        insertContact.Parameters.AddWithValue("@contactLN", contactLastName);
+        insertContact.Parameters.AddWithValue("@contactEmail", email);
+        insertContact.Parameters.AddWithValue("@PrimaryContact", "Y");
+        insertContact.Parameters.AddWithValue("@OrgID", tempOrgID);
+        insertContact.Parameters.AddWithValue("@LastUpdated", lastUpdated);
+        insertContact.Parameters.AddWithValue("@LastUpdatedBy", lastUpdatedBy);
+        insertContact.ExecuteNonQuery();
 
         //lblLastUpdated.Text = "Last Updated: " + lastUpdated;
         //lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
@@ -364,9 +385,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtPostalCode.Text = "";
         txtContactFirstName.Text = "";
         txtContactLastName.Text = "";
-        txtPhoneNumber.Text = "";
+        //txtPhoneNumber.Text = "";
         txtEmail.Text = "";
-        txtSecondaryEmail.Text = "";
+        //txtSecondaryEmail.Text = "";
 
         sc.Close();
     }
@@ -1026,7 +1047,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select OrgName, City, County, StreetAddress, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail from Organization where" +
+        insert.CommandText = "select OrgName, City, County, StreetAddress, PostalCode from Organization where" +
                           " OrgID = @OrgID";
 
         insert.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
@@ -1042,11 +1063,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 txtCounty.Text = sdr[2].ToString();
                 txtStreetAddress2.Text = sdr[3].ToString();
                 txtPostalCode2.Text = sdr[4].ToString();
-                txtContactFirstName2.Text = sdr[5].ToString();
-                txtContactLastName2.Text = sdr[6].ToString();
-                txtPhoneNumber2.Text = sdr[7].ToString();
-                txtEmail2.Text = sdr[8].ToString();
-                txtSecondaryEmail2.Text = sdr[9].ToString();
+                //txtContactFirstName2.Text = sdr[5].ToString();
+                //txtContactLastName2.Text = sdr[6].ToString();
+                //txtPhoneNumber2.Text = sdr[7].ToString();
+                //txtEmail2.Text = sdr[8].ToString();
+                //txtSecondaryEmail2.Text = sdr[9].ToString();
                 //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
