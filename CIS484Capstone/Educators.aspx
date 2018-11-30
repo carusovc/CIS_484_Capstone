@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Volunteers.aspx.cs" Inherits="Volunteers" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Educators.aspx.cs" Inherits="Educators" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
 
-    <%--                <asp:ScriptManager ID="ScriptManager1" runat="server">
+      <%--                <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>--%>
 
 <meta charset="UTF-8">
@@ -56,7 +56,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
+                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -76,20 +76,6 @@
                 </div>
             </li>
 
-            <%--<li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>--%>
             <li class="nav-item ">
                     <a class="nav-link" href="Report.aspx">
 
@@ -146,21 +132,16 @@
                         <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
                     </div>
                 </li>
-
             <li class="nav-item " style="display: inline-block;
   white-space: nowrap;">
                 <a class="nav-link" href="createUser.aspx">
-
                     <span>Create Outreach Coordinator Access</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="Default.aspx">
-
                     <span>Logout</span></a>
             </li>
-
     </ul>
-   
   </div>
 </nav>
 
@@ -180,7 +161,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
+                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -296,55 +277,38 @@
       <div class="card  mx-auto mt-3">
         <div class="card-header NewUserTitle text-center">
            
-            Volunteer Listing</div>
+            Educator Listing</div>
         <div class="card-body">
             <div class="mx-auto d-flex justify-content-center">
-                <div class="btn btn-primary btn-inside" data-target="#AddVolunteer" data-toggle="modal">Add Volunteer</div>
-                <div class="btn btn-primary btn-inside" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteer</div>
+                <div class="btn btn-primary btn-inside" data-target="#AddEducator" data-toggle="modal">Add Educator</div>
+                <div class="btn btn-primary btn-inside" data-target="#UpdateEducator" data-toggle="modal">Edit Educator</div>
             </div>
                 </div>
             <br />
-            <%--<div class="row">
-               
-                <div class=" col-md-4 ml-auto InternalOrganizationForm">
-                    <asp:TextBox  class="InternalOrganizationForm" ID="txtSearch" runat="server"></asp:TextBox>
-                    <asp:Button ID ="btnSearch" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
-                    &nbsp;&nbsp;&nbsp;
-                    
-                </div>
-                <br />
-                <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
-                    <asp:ListItem>--Order By--</asp:ListItem>
-                    <%--<asp:ListItem>Program Date</asp:ListItem>--%>
-                    <%--<asp:ListItem>Organization Name A-Z</asp:ListItem>
-                    <asp:ListItem>City A-Z</asp:ListItem>
-                    <asp:ListItem>County A-Z</asp:ListItem>
-                </asp:DropDownList>--%>
-
-            
-            
-            <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
-                <div class="container1 block">
-                    <div runat="server" id="OrganizationSearchDiv">
-                        <div runat="server" id="ViewOrganizations">
+        <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
+            <div class="container1 block">
+                <div runat="server" id="OrganizationSearchDiv">
+                    <div runat="server" id="ViewOrganizations">
 
                       <%--</div>--%>
                    
-                            <div class="block3">
-                                 <div class="tab-content">   
-                                    <div class="">
-                                        <div class="col-md-12 ">
-                                                 <br />
-                                        </div>
-                                    </div>
+                    <div class="block3">
+                         <div class="tab-content">   
+                            <div class="">
+                                <div class="col-md-12 ">
+                                         <br />
+			                     
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    </div>
+         
 
             <%-- this div  is the internal div--%>
        
       
-                                                    <script>
+<script>
 $(function() {
     $('a[data-toggle="tab"]').on('click', function(e) {
         window.localStorage.setItem('activeTab', $(e.target).attr('href'));
@@ -360,14 +324,14 @@ $(function() {
                 <li class="nav-item ">
                 
                                 
-                    <a class="nav-link   active TabStyle" data-toggle="tab" href="#VolunteersAllTab" style="color:black;"><p class="d-none d-lg-block">All Volunteers</p><p class="d-lg-none">All </p></a>
+                    <a class="nav-link   active TabStyle" data-toggle="tab" href="#EducatorsAllTab" style="color:black;"><p class="d-none d-lg-block">All Educators</p><p class="d-lg-none">All </p></a>
                  
                 </li>
                 <li class="nav-item">
-                     <a class="nav-link    TabStyle" data-toggle="tab" href="#VolunteersActiveTab" style="color:black;"><p class="d-none d-lg-block">Active Volunteers</p><p class="d-lg-none">Active </p></a>
+                     <a class="nav-link    TabStyle" data-toggle="tab" href="#EducatorsActiveTab" style="color:black;"><p class="d-none d-lg-block">Active Educators</p><p class="d-lg-none">Active </p></a>
                       </li>
                 <li class="nav-item">
-                    <a class="nav-link  TabStyle" data-toggle="tab" href="#VolunteersInactiveTab" style="color:black;"><p class="d-none d-lg-block">Inactive Volunteers</p><p class="d-lg-none">Inactive </p></a>
+                    <a class="nav-link  TabStyle" data-toggle="tab" href="#EducatorsInactiveTab" style="color:black;"><p class="d-none d-lg-block">Inactive Educators</p><p class="d-lg-none">Inactive </p></a>
                      </li>
                 
             </ul>
@@ -376,28 +340,23 @@ $(function() {
 
 
           <div class="tab-content">
-                <div id="VolunteersAllTab" class="container1 block3 tab-pane  active WildTable ">
+                <div id="EducatorsAllTab" class="container1 block3 tab-pane  active WildTable ">
                     <div class="InternalAnimalTab">
-                       <div class ="grid-volunteers text-center">
+                       <div class ="grid-educators text-center">
                    <div class="row table-responsive mx-auto d-flex  justify-content-center">
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                 <%--<h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>--%>
                            
     <asp:GridView ID="GridView1"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
         <Columns>
-            <asp:BoundField DataField="VolunteerFirstName" HeaderText="Volunteer First Name" SortExpression="VolunteerFirstName" >
+            <asp:BoundField DataField="EducatorFirstName" HeaderText="Educator First Name" SortExpression="EducatorFirstName" >
  
             </asp:BoundField>
-            <asp:BoundField DataField="VolunteerLastName" HeaderText="Volunteer Last Name" SortExpression="VolunteerLastName" >
+            <asp:BoundField DataField="EducatorLastName" HeaderText="Educator Last Name" SortExpression="EducatorLastName" >
             
             </asp:BoundField>
-            <asp:BoundField DataField="VolunteerPhoneNumber" HeaderText="Volunteer Phone Number" SortExpression="VolunteerPhoneNumber" >
             
-            </asp:BoundField>
-            <asp:BoundField DataField="VolunteerEmail" HeaderText="Volunteer Email" SortExpression="VolunteerEmail" >
-            
-            </asp:BoundField>
-            <asp:BoundField DataField="VolunteerStatus" HeaderText="Volunteer Status" SortExpression="VolunteerStatus" >
+            <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" >
             
             </asp:BoundField>
             
@@ -405,7 +364,7 @@ $(function() {
         
      </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
-                    SelectCommand="SELECT [VolunteerFirstName], [VolunteerLastName], [VolunteerPhoneNumber], [VolunteerEmail], [VolunteerStatus] FROM [Volunteers] ORDER BY [VolunteerFirstName]">
+                    SelectCommand="SELECT [EducatorFirstName], [EducatorLastName], [Status] FROM [Educators] ORDER BY [EducatorFirstName]">
                 </asp:SqlDataSource>
                         </div>
                     </div>
@@ -415,27 +374,22 @@ $(function() {
                 </div>
 
 
-                <div id="VolunteersActiveTab" class="container1 block3 tab-pane text-center WildTable ">
+                <div id="EducatorsActiveTab" class="container1 block3 tab-pane text-center WildTable ">
                     <div class="InternalAnimalTab">
                    
-                        <div class ="grid-volunteers text-center">
+                        <div class ="grid-educators text-center">
                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                             <asp:GridView ID="GridView2"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource1">
                             <Columns>
-                                <asp:BoundField DataField="VolunteerFirstName" HeaderText="Volunteer First Name" SortExpression="VolunteerFirstName" >
+                                <asp:BoundField DataField="EducatorFirstName" HeaderText="Educator First Name" SortExpression="EducatorFirstName" >
  
                                 </asp:BoundField>
-                                <asp:BoundField DataField="VolunteerLastName" HeaderText="Volunteer Last Name" SortExpression="VolunteerLastName" >
+                                <asp:BoundField DataField="EducatorLastName" HeaderText="Educator Last Name" SortExpression="EducatorLastName" >
             
                                 </asp:BoundField>
-                                <asp:BoundField DataField="VolunteerPhoneNumber" HeaderText="Volunteer Phone Number" SortExpression="VolunteerPhoneNumber" >
-            
-                                </asp:BoundField>
-                                <asp:BoundField DataField="VolunteerEmail" HeaderText="Volunteer Email" SortExpression="VolunteerEmail" >
-            
-                                </asp:BoundField>
-                                <asp:BoundField DataField="VolunteerStatus" HeaderText="Volunteer Status" SortExpression="VolunteerStatus" >
+                                
+                                <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" >
             
                                 </asp:BoundField>
             
@@ -443,37 +397,32 @@ $(function() {
         
                          </asp:GridView>
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
-                                        SelectCommand="SELECT [VolunteerFirstName], [VolunteerLastName], [VolunteerPhoneNumber], [VolunteerEmail], [VolunteerStatus] FROM [Volunteers] WHERE[VolunteerStatus] = 'Active' ORDER BY [VolunteerFirstName]">
+                                        SelectCommand="SELECT [EducatorFirstName], [EducatorLastName], [Status] FROM [Educators] WHERE[Status] = 'Active' ORDER BY [EducatorFirstName]">
                                     </asp:SqlDataSource>
                         </div>
                     </div>
-                              </div>
-                    </div>
                 </div>
+            </div>
+        </div>
 
 
 
 
-                <div id="VolunteersInactiveTab" class="container1 block3 tab-pane  text-center WildTable">
+                <div id="EducatorsInactiveTab" class="container1 block3 tab-pane  text-center WildTable">
                     <div class="InternalAnimalTab">
-                     <div class ="grid-volunteers text-center">
+                     <div class ="grid-educators text-center">
                                <div class="row table-responsive mx-auto d-flex  justify-content-center">
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                             <asp:GridView ID="GridView3"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
                             <Columns>
-                                <asp:BoundField DataField="VolunteerFirstName" HeaderText="Volunteer First Name" SortExpression="VolunteerFirstName" >
+                                <asp:BoundField DataField="EducatorFirstName" HeaderText="Educator First Name" SortExpression="EducatorFirstName" >
  
                                 </asp:BoundField>
-                                <asp:BoundField DataField="VolunteerLastName" HeaderText="Volunteer Last Name" SortExpression="VolunteerLastName" >
+                                <asp:BoundField DataField="EducatorLastName" HeaderText="Educator Last Name" SortExpression="EducatorLastName" >
             
                                 </asp:BoundField>
-                                <asp:BoundField DataField="VolunteerPhoneNumber" HeaderText="Volunteer Phone Number" SortExpression="VolunteerPhoneNumber" >
-            
-                                </asp:BoundField>
-                                <asp:BoundField DataField="VolunteerEmail" HeaderText="Volunteer Email" SortExpression="VolunteerEmail" >
-            
-                                </asp:BoundField>
-                                <asp:BoundField DataField="VolunteerStatus" HeaderText="Volunteer Status" SortExpression="VolunteerStatus" >
+                                
+                                <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" >
             
                                 </asp:BoundField>
             
@@ -481,24 +430,15 @@ $(function() {
         
                          </asp:GridView>
                                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
-                                        SelectCommand="SELECT [VolunteerFirstName], [VolunteerLastName], [VolunteerPhoneNumber], [VolunteerEmail], [VolunteerStatus] FROM [Volunteers] WHERE[VolunteerStatus] = 'Inactive' ORDER BY [VolunteerFirstName]">
+                                        SelectCommand="SELECT [EducatorFirstName], [EducatorLastName], [Status] FROM [Educators] WHERE[Status] = 'Inactive' ORDER BY [EducatorFirstName]">
                                     </asp:SqlDataSource>
-                        </div>
-                    </div>
-                            </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-            </div>
-
-
-
-        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
     <div runat="server" id="Div1">
     </div>
@@ -506,9 +446,7 @@ $(function() {
     </div>
     </div>
     </div>
-    
-        </div>
-
+    </div>
     </div>
 
     </div>
@@ -517,4 +455,9 @@ $(function() {
     </div>
     </div>
 </asp:Content>
+
+
+
+
+
 

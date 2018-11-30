@@ -38,6 +38,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
                 string read = "Select * from Organization";
                 string read1 = "Select * from Educators";
+
                 SqlCommand cmd1 = new SqlCommand(read1, con);
                 SqlDataReader myRead1 = cmd1.ExecuteReader();
 
@@ -47,9 +48,17 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     ddlEducatorName.Items.Add(new ListItem(myRead1["EducatorFirstName"].ToString(), myRead1["EducatorID"].ToString()));
                 }
 
+
+                
+
+
+
+
+
+
+
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlDataReader myRead = cmd.ExecuteReader();
-
                 while (myRead.Read())
                 {
 
@@ -65,10 +74,46 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
                     ddlAnimal.Items.Add(new ListItem(myRead9["AnimalName"].ToString(), myRead9["AnimalID"].ToString()));
                 }
+                string read3 = "Select * from PaymentRecord";
+
+                SqlCommand cmd3 = new SqlCommand(read3, con);
+
+                SqlDataReader myRead3 = cmd3.ExecuteReader();
+
+                //ddlInvoiceNumber.Items.Add(new ListItem("--Select Invoice Number--", "0"));
+
+                while (myRead3.Read())
+
+                {
+
+                    ddlInvoiceNumber.Items.Add(new ListItem(myRead3["Invoice"].ToString(), myRead3["PaymentID"].ToString()));
+
+                }
+
+                //string read10 = "select * from programtype pt inner join program p on pt.programtypeid = p.programtypeid inner join paymentrecord r on p.paymentid = r.paymentid";
+                //SqlCommand cmd10 = new SqlCommand(read10, con);
+                //SqlDataReader myRead10 = cmd10.ExecuteReader();
+
+                //while (myRead10.Read())
+                //{
+
+                //    ddlProgramName.Items.Add(new ListItem(myRead9["programName"].ToString(), myRead9["programTypeID"].ToString()));
+                //}
+                //string read12 = "Select * from organization o inner join program p on o.orgid = p.orgid inner join paymentrecord r on p.paymentid = r.paymentid";
+                //SqlCommand cmd12 = new SqlCommand(read12, con);
+                //SqlDataReader myRead12 = cmd12.ExecuteReader();
+
+                //while (myRead12.Read())
+                //{
+
+                //    ddlOrganizationName.Items.Add(new ListItem(myRead12["OrganizationName"].ToString(), myRead12["OrgID"].ToString()));
+                //}
                 ddlOrganization.DataBind();
                 ddlEducatorName.DataBind();
                 ddlAnimal.DataBind();
                 ddlOrganization.DataBind();
+                ddlProgramThemeName.DataBind();
+
 
 
 
@@ -159,16 +204,17 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                txtOrgName.Text = sdr[0].ToString();
-                txtCity.Text = sdr[1].ToString();
-                txtCounty.Text = sdr[2].ToString();
-                txtStreetAddress2.Text = sdr[3].ToString();
-                txtPostalCode2.Text = sdr[4].ToString();
-                //txtContactFirstName2.Text = sdr[5].ToString();
-                //txtContactLastName2.Text = sdr[6].ToString();
-                //txtPhoneNumber2.Text = sdr[7].ToString();
-                //txtEmail2.Text = sdr[8].ToString();
-                //txtSecondaryEmail2.Text = sdr[9].ToString();
+
+                txtOrgName.Text = HttpUtility.HtmlEncode(sdr[0].ToString());
+                txtCity.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
+                txtCounty.Text = HttpUtility.HtmlEncode(sdr[2].ToString());
+                txtStreetAddress2.Text = HttpUtility.HtmlEncode(sdr[3].ToString());
+                txtPostalCode2.Text = HttpUtility.HtmlEncode(sdr[4].ToString());
+                txtContactFirstName2.Text = HttpUtility.HtmlEncode(sdr[5].ToString());
+                txtContactLastName2.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
+                txtPhoneNumber2.Text = HttpUtility.HtmlEncode(sdr[7].ToString());
+                txtEmail2.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
+                txtSecondaryEmail2.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
                 //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
@@ -199,7 +245,225 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         sc.Close();
     }
+    protected void btnUpdatePayment_Click(object sender, EventArgs e)
 
+    {
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+
+        sc.ConnectionString = cs;
+
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
+
+        update.Connection = sc;
+
+        SqlConnection con = new SqlConnection(cs);
+
+        con.Open();
+
+        update.CommandText = "update PaymentRecord set PaymentAmount = @PaymentAmount, PaymentDate = @PaymentDate,  CheckNumber = @CheckNumber, PaymentType = @PaymentType, Paid = @Paid, CancelledInvoices = @CancelledInvoices," +
+            " lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where PaymentID = @PaymentID";
+
+        update.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+        update.Parameters.AddWithValue("@PaymentDate", txtPaymentDate.Text);
+        //update.Parameters.AddWithValue("@ProgramName", ddlProgramName.SelectedItem.Value);
+        //update.Parameters.AddWithValue("@OrgnizationName", ddlOrganizationName.SelectedItem.Value);
+        update.Parameters.AddWithValue("@PaymentAmount", txtPaymentAmount.Text);
+        update.Parameters.AddWithValue("@PaymentType", ddlPaymentType.Text);
+        update.Parameters.AddWithValue("@CheckNumber", txtCheckNumber.Text);
+        
+        update.Parameters.AddWithValue("@Paid", ddlPaid.SelectedItem.Value);
+        update.Parameters.AddWithValue("@CancelledInvoices", ddlCancelledInvoices.SelectedItem.Value);
+        update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
+        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+
+        update.ExecuteNonQuery();
+
+            string read4 = "Select * from PaymentRecord";
+
+            SqlCommand cmd4 = new SqlCommand(read4, con);
+
+            SqlDataReader myRead4 = cmd4.ExecuteReader();
+
+
+
+           ddlInvoiceNumber.Items.Add(new ListItem("--Select Invoice Number--", "0"));
+
+            while (myRead4.Read())
+
+            {
+
+                ddlInvoiceNumber.Items.Add(new ListItem(myRead4["Invoice"].ToString(), myRead4["PaymentID"].ToString()));
+
+            }
+        ddlInvoiceNumber.DataBind();
+        sc.Close();
+        con.Close();
+
+        ddlInvoiceNumber.ClearSelection();
+        txtPaymentDate.Text = "";
+        txtPaymentAmount.Text = "";
+        ddlPaymentType.ClearSelection();
+        txtCheckNumber.Text = "";
+        ddlPaid.ClearSelection();
+        ddlCancelledInvoices.ClearSelection();
+
+    }
+    protected void ddlInvoiceNumber_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        insert.Connection = sc;
+        insert.Parameters.Clear();
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+
+        insert.CommandText = "select convert(varchar, PaymentDate,101) as PaymentDate, PaymentAmount, CheckNumber from PaymentRecord where" +
+                          " PaymentID = @PaymentID";
+
+        insert.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+
+        try
+        {
+            con.Open();
+            SqlDataReader sdr = insert.ExecuteReader();
+            while (sdr.Read())
+            {
+                txtPaymentDate.Text = HttpUtility.HtmlEncode(sdr[0].ToString());
+                txtPaymentAmount.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
+                txtCheckNumber.Text = HttpUtility.HtmlEncode(sdr[2].ToString());
+            }
+            System.Data.SqlClient.SqlCommand selection = new System.Data.SqlClient.SqlCommand();
+            selection.Connection = sc;
+
+            selection.Parameters.Clear();
+
+            selection.CommandText = "select paymentType from PaymentRecord where PaymentID = @PaymentID";
+            selection.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+            String tempState = (String)selection.ExecuteScalar();
+
+            ddlPaymentType.ClearSelection();
+            for (int i = 0; i < ddlPaymentType.Items.Count; i++)
+            {
+                if (ddlPaymentType.Items[i].Value == tempState)
+                {
+                    ddlPaymentType.Items[i].Selected = true;
+                }
+            }
+
+
+
+
+
+            ddlProgramName.Items.Clear();
+            //program category
+            string read3 = "select * from programtype";
+            //selection.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+            SqlCommand cmd3 = new SqlCommand(read3, con);
+            SqlDataReader myRead3 = cmd3.ExecuteReader();
+            String tempState7 = (String)selection.ExecuteScalar();
+            // ddlProgramName.Items.Add("-- Program Name --");
+            while (myRead3.Read())
+            {
+
+                ddlProgramName.Items.Add(new ListItem(myRead3["ProgramName"].ToString(), myRead3["ProgramTypeID"].ToString()));
+
+            }
+            ddlProgramName.ClearSelection();
+
+            for (int i = 0; i < ddlProgramName.Items.Count; i++)
+            {
+                if (ddlProgramName.Items[i].Value == tempState7)
+                {
+                    ddlProgramName.Items[i].Selected = true;
+                }
+            }
+
+
+          
+
+
+            ddlOrganizationName.Items.Clear();
+            ////program category
+          string read4 = "select * from organization";
+           // selection.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+            SqlCommand cmd4 = new SqlCommand(read4, con);
+            SqlDataReader myRead4 = cmd4.ExecuteReader();
+            String tempState8 = (String)selection.ExecuteScalar();
+            //// ddlProgramName.Items.Add("-- Program Name --");
+            while (myRead4.Read())
+            {
+
+                ddlOrganizationName.Items.Add(new ListItem(myRead4["OrgName"].ToString(), myRead4["OrgID"].ToString()));
+
+            }
+            ddlOrganizationName.ClearSelection();
+            for (int i = 0; i < ddlOrganizationName.Items.Count; i++)
+            {
+                if (ddlOrganizationName.Items[i].Value == tempState8)
+                {
+                    ddlOrganizationName.Items[i].Selected = true;
+                }
+            }
+
+
+
+            System.Data.SqlClient.SqlCommand selection2 = new System.Data.SqlClient.SqlCommand();
+            selection2.Connection = sc;
+
+            selection2.Parameters.Clear();
+            selection2.CommandText = "select Paid from PaymentRecord where PaymentID = @PaymentID";
+            selection2.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+            String tempState2 = (String)selection2.ExecuteScalar();
+            ddlPaid.ClearSelection();
+            for (int i = 0; i < ddlPaid.Items.Count; i++)
+            {
+                if (ddlPaid.Items[i].Value == tempState2)
+                {
+                    ddlPaid.Items[i].Selected = true;
+                }
+            }
+
+            System.Data.SqlClient.SqlCommand selection3 = new System.Data.SqlClient.SqlCommand();
+            selection3.Connection = sc;
+
+            selection3.Parameters.Clear();
+            selection3.CommandText = "select  CancelledInvoices from PaymentRecord where PaymentID = @PaymentID";
+            selection3.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+            String tempState3 = (String)selection3.ExecuteScalar();
+            ddlCancelledInvoices.ClearSelection();
+            for (int i = 0; i < ddlCancelledInvoices.Items.Count; i++)
+            {
+                if (ddlCancelledInvoices.Items[i].Value == tempState3)
+                {
+                    ddlCancelledInvoices.Items[i].Selected = true;
+                }
+            }
+
+            con.Close();
+        }
+
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        sc.Close();
+    }
     protected void btnUpdateOrganization_Click(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
@@ -281,13 +545,31 @@ public partial class MasterPage : System.Web.UI.MasterPage
         DateTime lastUpdated = DateTime.Today;
         String lastUpdatedBy = "WildTek";
 
-        ProgramType newProgram = new ProgramType(programName);
-        insert.CommandText = "insert into ProgramType (programName, lastUpdated, lastUpdatedBy) values (@programName, @lastUpdated, @lastUpdatedBy)";
-        insert.Parameters.AddWithValue("@programName", newProgram.getProgramName());
-        insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
-        insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+        String category = ddlThemeCategory.SelectedValue;
 
-        insert.ExecuteNonQuery();
+        if (category.Equals("Online Program"))
+        {
+            ProgramType newProgram = new ProgramType(programName);
+            insert.CommandText = "insert into OnlineProgramType (onlineProgramTypeName, lastUpdated, lastUpdatedBy, status) values (@onlineProgramTypeName, @lastUpdated, @lastUpdatedBy, @status)";
+            insert.Parameters.AddWithValue("@onlineProgramTypeName", newProgram.getProgramName());
+            insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
+            insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+            insert.Parameters.AddWithValue("@status", "Active");
+            insert.ExecuteNonQuery();
+        }
+
+        else
+        {
+            ProgramType newProgram = new ProgramType(programName);
+            insert.CommandText = "insert into ProgramType (programName, lastUpdated, lastUpdatedBy, status) values (@programName, @lastUpdated, @lastUpdatedBy, @status)";
+            insert.Parameters.AddWithValue("@programName", newProgram.getProgramName());
+            insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
+            insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+            insert.Parameters.AddWithValue("@status", "Active");
+            insert.ExecuteNonQuery();
+        }
+
+
 
         //  lblLastUpdated.Text = "Last Updated: " + lastUpdated;
         //  lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
@@ -295,7 +577,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     }
 
     protected void btnAddOrg_Click(object sender, EventArgs e)
-    { 
+    {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -318,7 +600,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         String city = textOrgCity.Text;
         String county = textOrgCounty.Text;
         String streetAddress = txtStreetAddress.Text;
-        String state = ddlState.SelectedValue; ; 
+        String state = ddlState.SelectedValue; ;
         String postalCode = txtPostalCode.Text;
         String contactFirstName = txtContactFirstName.Text;
         String contactLastName = txtContactLastName.Text;
@@ -432,9 +714,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 insert.ExecuteNonQuery();
             }
         }
-        lblLastUpdated.Text = "Last Updated: " + lastUpdated;
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(lastUpdated);
 
-        lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
+        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(lastUpdatedBy);
 
         txtAnimalName.Text = "";
         //gridAnimalMammal.DataBind();
@@ -472,12 +754,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
         DateTime lastUpdated = DateTime.Today;
         String lastUpdatedBy = "WildTek";
 
+        
 
-        insert.CommandText = "insert into Educators (educatorFirstName, educatorLastName, lastUpdated, lastUpdatedBy) values (@firstName, @lastName, @lastUpdated, @lastUpdatedBy)";
+
+        insert.CommandText = "insert into Educators (educatorFirstName, educatorLastName, lastUpdated, lastUpdatedBy, status) values (@firstName, @lastName, @lastUpdated, @lastUpdatedBy, @status)";
         insert.Parameters.AddWithValue("@firstName", firstName);
         insert.Parameters.AddWithValue("@lastName", lastName);
         insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
         insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+        insert.Parameters.AddWithValue("@status", "Active");
         insert.ExecuteNonQuery();
 
         //lblLastUpdated.Text = "Last Updated: " + lastUpdated;
@@ -551,8 +836,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         sc.Close();
     }
-
-    protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
+    
+        protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
     {
         // UpdatePanel1.Update();
         AnimalEditDiv.Visible = true;
@@ -594,7 +879,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 }
                 //ddlAnimalTypeEdit.SelectedItem.Text = sdr[1].ToString();
                 //ddlAnimalType.SelectedItem.Text = sdr[1].ToString();
-                txtBoxAnimalName.Text = sdr[2].ToString();
+                txtBoxAnimalName.Text = HttpUtility.HtmlEncode(sdr[2].ToString());
                 for (int i = 0; i < ddlAnimalStatus.Items.Count; i++)
                 {
                     if (ddlAnimalStatus.Items[i].ToString() == sdr[5].ToString())
@@ -664,15 +949,16 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
 
-        update.CommandText = "update Educators set educatorFirstName = @firstName, educatorLastName = @lastName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where educatorID = @educatorID";
+        update.CommandText = "update Educators set educatorFirstName = @firstName, educatorLastName = @lastName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, status = @status where educatorID = @educatorID";
         update.Parameters.AddWithValue("@firstName", txtEducatorFirst.Text);
         update.Parameters.AddWithValue("@lastName", txtEducatorLast.Text);
         update.Parameters.AddWithValue("@educatorID", ddlEducatorName.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@status", ddlEducatorStatus.SelectedItem.Value);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
         lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
 
@@ -782,9 +1068,135 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select educatorFirstName, educatorLastName, lastUpdated, lastUpdatedBy from Educators where educatorID = @educatorID";
+        insert.CommandText = "select educatorFirstName, educatorLastName, lastUpdated, lastUpdatedBy, status from Educators where educatorID = @educatorID";
 
         insert.Parameters.AddWithValue("@educatorID", ddlEducatorName.SelectedItem.Value);
+        ddlEducatorStatus.ClearSelection();
+        try
+        {
+            con.Open();
+            SqlDataReader sdr = insert.ExecuteReader();
+            while (sdr.Read())
+            {
+                txtEducatorFirst.Text = HttpUtility.HtmlEncode(sdr[0].ToString());
+                txtEducatorLast.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
+                lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
+                lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
+                //ddlEducatorStatus.SelectedItem.Value = sdr[4].ToString();
+
+
+                for (int i = 0; i < ddlEducatorStatus.Items.Count; i++)
+                {
+                    if (ddlEducatorStatus.Items[i].ToString() == sdr[4].ToString())
+                    {
+                        ddlEducatorStatus.Items[i].Selected = true;
+                    }
+                }
+            }
+            con.Close();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        
+        sc.Close();
+    }
+
+    protected void ddlProgramThemeCategory_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        insert.Connection = sc;
+
+        SqlConnection con = new SqlConnection(cs);
+        con.Open();
+
+        string tempSelection = ddlProgramThemeCategory.SelectedValue.ToString();
+        int tempSelect = Int32.Parse(tempSelection);
+
+        txtProgramName.Text = "";
+        txtProgramThemeName.Text = "";
+        ddlStatus.ClearSelection();
+
+        switch(tempSelect)
+        {
+            case 1:
+                ddlProgramThemeName.Items.Clear();
+                //program category
+                string read3 = "Select * from ProgramType";
+                SqlCommand cmd3 = new SqlCommand(read3, con);
+                SqlDataReader myRead3 = cmd3.ExecuteReader();
+                ddlProgramThemeName.Items.Add("-- Live Programs --");
+                while (myRead3.Read())
+                {
+
+                    ddlProgramThemeName.Items.Add(new ListItem(myRead3["ProgramName"].ToString(), myRead3["ProgramTypeID"].ToString()));
+
+                }
+                break;
+
+            case 2:
+                ddlProgramThemeName.Items.Clear();
+                //program category
+                string read4 = "Select * from OnlineProgramType";
+                SqlCommand cmd4 = new SqlCommand(read4, con);
+                SqlDataReader myRead4 = cmd4.ExecuteReader();
+                ddlProgramThemeName.Items.Add("-- Online Programs --");
+
+                while (myRead4.Read())
+                {
+
+                    ddlProgramThemeName.Items.Add(new ListItem(myRead4["OnlineProgramTypeName"].ToString(), myRead4["OnlineProgramTypeID"].ToString()));
+
+                }
+                break;
+        }
+    }
+
+    protected void ddlProgramThemeName_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string ProgramThemeName = ddlProgramThemeName.SelectedValue.ToString();
+        ddlProgramThemeName.SelectedIndex = 0;
+        string ProgramCategory = ddlProgramThemeName.SelectedValue;
+        ddlProgramThemeName.SelectedValue = ProgramThemeName;
+
+        if (ProgramCategory.Equals("-- Live Programs --"))
+        {
+            updateLiveProgramThemeName(ProgramThemeName);
+        } else
+        {
+            updateOnlineThemeName(ProgramThemeName);
+        }
+    }
+
+    public void updateLiveProgramThemeName(string ProgramThemeName)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        insert.Connection = sc;
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+
+
+
+
+        insert.CommandText = "select ProgramName, Status from ProgramType where ProgramTypeID = @ProgramTypeID";
+        insert.Parameters.AddWithValue("@ProgramTypeID", ddlProgramThemeName.SelectedItem.Value);
+
 
         try
         {
@@ -792,11 +1204,26 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                txtEducatorFirst.Text = sdr[0].ToString();
-                txtEducatorLast.Text = sdr[1].ToString();
-                lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
-                lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
+                txtProgramThemeName.Text = sdr[0].ToString();
             }
+
+            System.Data.SqlClient.SqlCommand selectStatus = new System.Data.SqlClient.SqlCommand();
+            selectStatus.Connection = sc;
+
+            selectStatus.Parameters.Clear();
+
+            selectStatus.CommandText = "SELECT Status From ProgramType WHERE ProgramTypeID = @ProgramTypeID";
+            selectStatus.Parameters.AddWithValue("@ProgramTypeID", ddlProgramThemeName.SelectedItem.Value);
+            String tempStatus = (String)selectStatus.ExecuteScalar();
+            ddlThemeStatus.ClearSelection();
+            for (int i = 0; i < ddlThemeStatus.Items.Count; i++)
+            {
+                if (ddlThemeStatus.Items[i].Value == tempStatus)
+                {
+                    ddlThemeStatus.Items[i].Selected = true;
+                }
+            }
+
         }
         catch (Exception ex)
         {
@@ -805,6 +1232,190 @@ public partial class MasterPage : System.Web.UI.MasterPage
         con.Close();
         sc.Close();
     }
+
+    public void updateOnlineThemeName(string ProgramThemeName)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        insert.Connection = sc;
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+
+
+
+
+        insert.CommandText = "select OnlineProgramTypeName, Status from OnlineProgramType where OnlineProgramTypeID = @ProgramTypeID";
+        insert.Parameters.AddWithValue("@ProgramTypeID", ddlProgramThemeName.SelectedItem.Value);
+
+
+        try
+        {
+            con.Open();
+            SqlDataReader sdr = insert.ExecuteReader();
+            while (sdr.Read())
+            {
+                txtProgramThemeName.Text = sdr[0].ToString();
+            }
+
+            System.Data.SqlClient.SqlCommand selectStatus = new System.Data.SqlClient.SqlCommand();
+            selectStatus.Connection = sc;
+
+            selectStatus.Parameters.Clear();
+
+            selectStatus.CommandText = "SELECT Status From ProgramType WHERE ProgramTypeID = @ProgramTypeID";
+            selectStatus.Parameters.AddWithValue("@ProgramTypeID", ddlProgramThemeName.SelectedItem.Value);
+            String tempStatus = (String)selectStatus.ExecuteScalar();
+            ddlThemeStatus.ClearSelection();
+            for (int i = 0; i < ddlThemeStatus.Items.Count; i++)
+            {
+                if (ddlThemeStatus.Items[i].Value == tempStatus)
+                {
+                    ddlThemeStatus.Items[i].Selected = true;
+                }
+            }
+
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        con.Close();
+        sc.Close();
+    }
+
+
+
+    protected void btnUpdateProgramType_Click (object sender, EventArgs e)
+    {
+        string ProgramThemeName = ddlProgramThemeName.SelectedValue.ToString();
+        ddlProgramThemeName.SelectedIndex = 0;
+        string ProgramCategory = ddlProgramThemeName.SelectedValue;
+        ddlProgramThemeName.SelectedValue = ProgramThemeName;
+
+        if (ProgramCategory.Equals("-- Live Programs --"))
+        {
+            updateLiveProgramType();
+        }
+        else
+        {
+            updateOnlineProgramType();
+        }
+    }
+
+    public void updateLiveProgramType()
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
+        update.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+
+        update.CommandText = "update ProgramType set ProgramName = @ProgramName, LastUpdated = @LastUpdated, LastUpdatedBy = @LastUpdatedBy, Status = @Status where ProgramTypeID = @ProgramTypeID";
+        update.Parameters.AddWithValue("@ProgramName", txtProgramThemeName.Text);
+        update.Parameters.AddWithValue("@LastUpdated", DateTime.Today);
+        update.Parameters.AddWithValue("@LastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@Status", ddlThemeStatus.SelectedItem.Value);
+        update.Parameters.AddWithValue("@ProgramTypeID", ddlProgramThemeName.SelectedItem.Value);
+        update.ExecuteNonQuery();
+
+        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        SqlConnection con2 = new SqlConnection(cs);
+
+        ddlProgramThemeName.Items.Clear();
+        //call read array
+        con.Open();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from ProgramType";
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            while (myRead.Read())
+            {
+                ddlProgramThemeName.Items.Add(new ListItem(myRead["ProgramName"].ToString()));
+            }
+
+
+        }
+
+        txtProgramThemeName.Text = "";
+        ddlProgramThemeName.SelectedIndex = 0;
+        ddlThemeStatus.SelectedIndex = 0;
+
+        con.Close();
+        sc.Close();
+    }
+
+
+    protected void updateOnlineProgramType()
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
+        update.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+
+        update.CommandText = "update OnlineProgramType set OnlineProgramTypeName = @ProgramName, LastUpdated = @LastUpdated, LastUpdatedBy = @LastUpdatedBy, Status = @Status where OnlineProgramTypeID = @ProgramTypeID";
+        update.Parameters.AddWithValue("@ProgramName", txtProgramThemeName.Text);
+        update.Parameters.AddWithValue("@LastUpdated", DateTime.Today);
+        update.Parameters.AddWithValue("@LastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@Status", ddlThemeStatus.SelectedItem.Value);
+        update.Parameters.AddWithValue("@ProgramTypeID", ddlProgramThemeName.SelectedItem.Value);
+        update.ExecuteNonQuery();
+
+        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        SqlConnection con2 = new SqlConnection(cs);
+
+        ddlProgramThemeName.Items.Clear();
+        //call read array
+        con.Open();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+
+            string read = "Select * from OnlineProgramType";
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            while (myRead.Read())
+            {
+                ddlProgramThemeName.Items.Add(new ListItem(myRead["OnlineProgramTypeName"].ToString()));
+            }
+
+
+        }
+
+        txtProgramThemeName.Text = "";
+        ddlProgramThemeName.SelectedIndex = 0;
+        ddlThemeStatus.SelectedIndex = 0;
+
+        con.Close();
+        sc.Close();
+    }
+
 
     protected void ddlVolunteer_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -834,10 +1445,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                txtVolunteerFirstName.Text = sdr[0].ToString();
-                txtVolunteerLastName.Text = sdr[1].ToString();
-                txtVolunteerPhoneNumber.Text = sdr[2].ToString();
-                txtVolunteerEmail.Text = sdr[3].ToString();
+                txtVolunteerFirstName.Text = HttpUtility.HtmlEncode(sdr[0].ToString());
+                txtVolunteerLastName.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
+                txtVolunteerPhoneNumber.Text = HttpUtility.HtmlEncode(sdr[2].ToString());
+                txtVolunteerEmail.Text = HttpUtility.HtmlEncode(sdr[3].ToString());
                 for (int i = 0; i < ddlVolunteerStatus.Items.Count; i++)
                 {
                     if (ddlVolunteerStatus.Items[i].ToString() == sdr[4].ToString())
@@ -1058,16 +1669,17 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                txtOrgName.Text = sdr[0].ToString();
-                txtCity.Text = sdr[1].ToString();
-                txtCounty.Text = sdr[2].ToString();
-                txtStreetAddress2.Text = sdr[3].ToString();
-                txtPostalCode2.Text = sdr[4].ToString();
-                //txtContactFirstName2.Text = sdr[5].ToString();
-                //txtContactLastName2.Text = sdr[6].ToString();
-                //txtPhoneNumber2.Text = sdr[7].ToString();
-                //txtEmail2.Text = sdr[8].ToString();
-                //txtSecondaryEmail2.Text = sdr[9].ToString();
+
+                txtOrgName.Text = HttpUtility.HtmlEncode(sdr[0].ToString());
+                txtCity.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
+                txtCounty.Text = HttpUtility.HtmlEncode(sdr[2].ToString());
+                txtStreetAddress2.Text = HttpUtility.HtmlEncode(sdr[3].ToString());
+                txtPostalCode2.Text = HttpUtility.HtmlEncode(sdr[4].ToString());
+                txtContactFirstName2.Text = HttpUtility.HtmlEncode(sdr[5].ToString());
+                txtContactLastName2.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
+                txtPhoneNumber2.Text = HttpUtility.HtmlEncode(sdr[7].ToString());
+                txtEmail2.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
+                txtSecondaryEmail2.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
                 //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
             }
