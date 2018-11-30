@@ -197,7 +197,7 @@ public partial class Programs : System.Web.UI.Page
             {
                 //Live Program
                 string read = "Select * from Program";
-                string programNameRead = "Select * from ProgramType order by ProgramName";
+                string programNameRead = "Select * from ProgramType where Status = 'Active' order by ProgramName";
                 string organizationRead = "Select * from Organization";
                 string educatorReadStatement = "Select * from Educators order by EducatorFirstName";
 
@@ -295,7 +295,7 @@ public partial class Programs : System.Web.UI.Page
 
                 //Online Program
                 string readOnline = "Select * from OnlineProgram";
-                string onlineProgramRead = "Select * from OnlineProgramType";
+                string onlineProgramRead = "Select * from OnlineProgramType where Status = 'Active'";
                 string educatorsRead = "Select * from Educators order by EducatorFirstName";
 
                 SqlCommand cmdOnline = new SqlCommand(readOnline, con);
