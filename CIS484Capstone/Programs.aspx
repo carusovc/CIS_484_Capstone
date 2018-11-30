@@ -410,19 +410,15 @@
 
 
 
-                                            <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
-                                                <asp:ListItem>--Order By--</asp:ListItem>
-                                                <asp:ListItem>Program Date</asp:ListItem>
-                                                <asp:ListItem>Program Type A-Z</asp:ListItem>
-                                               
-                                            </asp:DropDownList>&nbsp&nbsp
+
                                             <br />
 
-                                             <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearch" runat="server"></asp:TextBox>
-                                            <asp:Button ID="Button4" runat="server" class="btn" Text="Search" OnClick="btnSearch_Click"/>
+
                                             &nbsp;&nbsp;
                                         </div>
                                     </div>
+
+
 
 
 
@@ -457,6 +453,34 @@
                                         <%-- Version 1 All --%>
                                         <div class="tab-content">
                                             <div id="AllTab" class="tab-pane show active">
+                                                  <br /> 
+                                                <div class="row mx-auto d-flex justify-content-center">
+                                                 
+                                                    <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                                         <asp:DropDownList ID="ddlOrderByAll" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByAll_SelectedIndexChanged">
+                                                    <asp:ListItem>--Order By--</asp:ListItem>
+                                                    <asp:ListItem>Program Category</asp:ListItem>
+                                                    <asp:ListItem>Program Date</asp:ListItem>
+                                                    <asp:ListItem>Program Type A-Z</asp:ListItem>
+
+                                                </asp:DropDownList>&nbsp&nbsp
+                                                    </div>
+                                                      <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 " >
+                                                         <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchAll" runat="server"></asp:TextBox>
+
+                                                    </div>
+                                                  
+                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                            <asp:Button ID="btnAllSearch" runat="server" class="btn  " style="margin-right:5px; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click" />
+                                                  
+                                                         <asp:Button ID="btnAllClear" runat="server" class="btn " style=" margin-bottom: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
+                                                    </div>
+
+                                                </div>
+                                                
+                                          
+                                               
                                                 <div class="block justify-content-center table-responsive">
 
                                                     <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
@@ -722,6 +746,45 @@
                                             <%-- For the Live Programs--%>
                                             <div id="LiveTab" class="tab-pane fade in">
                                                 <%--VERSION 1 Live--%>
+
+
+
+
+                                                   <br /> 
+                                                <div class="row mx-auto d-flex justify-content-center">
+                                                 
+                                                    <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                                     <asp:DropDownList ID="ddlOrderByLive" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByLive_SelectedIndexChanged">
+                                                    <asp:ListItem>--Order By--</asp:ListItem>                                                   
+                                                    <asp:ListItem>Program Date</asp:ListItem>
+                                                    <asp:ListItem>Organization A-Z</asp:ListItem>
+                                                    <asp:ListItem>Program Type A-Z</asp:ListItem>
+
+                                                </asp:DropDownList>&nbsp&nbsp
+                                                    </div>
+                                                      <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 " >
+                                                      <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchLive" runat="server"></asp:TextBox>
+
+                                                    </div>
+                                                  
+                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                        
+                                                <asp:Button ID="btnLiveSearch" runat="server" class="btn" style="margin-right:5px; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
+                                                <asp:Button ID="btnLiveClear" runat="server" class="btn" style=" margin-bottom: 5px;" Text="Clear Filters" OnClick="btnLiveClear_Click" />
+                                                    </div>
+
+                                                </div>
+
+
+
+
+
+
+
+
+                                               
+                                              
                                                 <div class="block justify-content-center table-responsive">
                                                     <asp:Repeater ID="rptProgramHLLive" runat="server" OnItemDataBound="OnItemDataBoundLive">
                                                         <HeaderTemplate>
@@ -948,6 +1011,47 @@
 
                                             <div id="OnlineTab" class="tab-pane fade in ">
                                                 <%--For the Online--%>
+
+
+
+
+
+                                                   <br /> 
+                                                <div class="row mx-auto d-flex justify-content-center">
+                                                 
+                                                    <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                                 <asp:DropDownList ID="ddlOrderByOnline" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByOnline_SelectedIndexChanged">
+                                                    <asp:ListItem>--Order By--</asp:ListItem>                                                   
+                                                    <asp:ListItem>Program Date</asp:ListItem>
+                                                    <asp:ListItem>Program Type A-Z</asp:ListItem>
+
+                                                </asp:DropDownList>&nbsp&nbsp
+                                                    </div>
+                                                      <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 " >
+                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchOnline" runat="server"></asp:TextBox>
+
+                                                    </div>
+                                                  
+                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                        
+                                            <asp:Button ID="btnOnlineSearch" runat="server" class="btn" style="margin-right:5px; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
+                                          <asp:Button ID="btnOnlineClear" runat="server" class="btn" style=" margin-bottom: 5px;" Text="Clear Filters" OnClick="btnOnlineClear_Click" />
+                                                    </div>
+
+                                                </div>
+
+
+
+
+
+
+
+
+                                            
+                                               
+                                               
+                                              
                                                 <div class="block justify-content-center table-responsive">
                                                     <asp:Repeater ID="rptProgramHLOnline" runat="server" OnItemDataBound="OnItemDataBoundOnline">
                                                         <HeaderTemplate>
