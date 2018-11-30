@@ -341,7 +341,7 @@ public partial class Invoices : System.Web.UI.Page
                 System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
                 update.Connection = sc;
                 update.CommandText = "Update PaymentRecord set CancelledInvoices = @cancelledInvoice where PaymentID = @paymentID";
-                update.Parameters.AddWithValue("@cancelledInvoice", 'N');
+                update.Parameters.AddWithValue("@cancelledInvoice", 'Y');
                 update.Parameters.AddWithValue("@paymentID", Convert.ToInt32(i.Cells[7].Text));
                 update.ExecuteNonQuery();
                 GridView1.DataBind();
