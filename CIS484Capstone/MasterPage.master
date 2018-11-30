@@ -1223,13 +1223,13 @@ $(".modal-wide").on("show.bs.modal", function() {
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-        <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+        <asp:UpdatePanel ID="UpdatePanel7" runat="server">
         <Triggers> 
      <asp:AsyncPostBackTrigger ControlID="ddlInvoiceNumber" EventName="SelectedIndexChanged" /> 
    </Triggers> 
 <ContentTemplate>
   <div class="modal-body">
-      <div runat= server id="Div4">
+      <div runat= server id="Div5">
           <p>&nbsp;</p>
           <div class="row"> 
             <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
@@ -1363,8 +1363,8 @@ $(".modal-wide").on("show.bs.modal", function() {
         </asp:DropDownList>
                     </div>
             </div>
-              <asp:Label ID="Label5" runat="server" Text=""></asp:Label>&nbsp;
-              <asp:Label ID="Label6" runat="server" Text=""></asp:Label>
+              <asp:Label ID="Label7" runat="server" Text=""></asp:Label>&nbsp;
+              <asp:Label ID="Label8" runat="server" Text=""></asp:Label>
               <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
