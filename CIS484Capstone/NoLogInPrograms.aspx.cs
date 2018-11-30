@@ -871,7 +871,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@programID", tempProgramID);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
         lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
 
@@ -1150,11 +1150,11 @@ public partial class Programs : System.Web.UI.Page
                 String county = words[1];
                 //txtProgramType.Text = sdr[1].ToString();
                 //txtOrganization.Text = sdr[2].ToString();
-                txtStatus.Text = sdr[3].ToString();
-                txtAddress.Text = sdr[4].ToString();
-                txtCity.Text = city;
-                txtCounty.Text = county;
-                txtState.Text = sdr[6].ToString();
+                txtStatus.Text = HttpUtility.HtmlEncode(sdr[3].ToString());
+                txtAddress.Text = HttpUtility.HtmlEncode(sdr[4].ToString());
+                txtCity.Text = HttpUtility.HtmlEncode(city);
+                txtCounty.Text = HttpUtility.HtmlEncode(county);
+                txtState.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
                 for (int i = 0; i < ddlProgramType.Items.Count; i++)
                 {
                     if (ddlProgramType.Items[i].Value.ToString() == sdr[1].ToString())
@@ -1197,8 +1197,8 @@ public partial class Programs : System.Web.UI.Page
                     rboOnOff.SelectedIndex = 1;
                 }
                 //rboOnOff.SelectedItem.Value = sdr[7].ToString();
-                txtNumOfChildren.Text = sdr[8].ToString();
-                txtNumOfAdults.Text = sdr[9].ToString();
+                txtNumOfChildren.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
+                txtNumOfAdults.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
 
                 if (sdr[10].ToString() == "1")
                 {
@@ -1209,12 +1209,12 @@ public partial class Programs : System.Web.UI.Page
                     rboPayment.SelectedIndex = 1;
                 }
                 //rboPayment.SelectedItem.Value = sdr[10].ToString();
-                txtProgramDate.Text = sdr[11].ToString();
-                txtProgramTime.Text = sdr[12].ToString();
+                txtProgramDate.Text = HttpUtility.HtmlEncode(sdr[11].ToString());
+                txtProgramTime.Text = HttpUtility.HtmlEncode(sdr[12].ToString());
                 //txtMonth.Text = sdr[13].ToString();
-                txtComments.Text = sdr[14].ToString();
-                lblLastUpdated.Text = "Last Updated: " + sdr[15].ToString();
-                lblLastUpdatedBy.Text = "Last Updated By: " + sdr[16].ToString();
+                txtComments.Text = HttpUtility.HtmlEncode(sdr[14].ToString());
+                lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[15].ToString());
+                lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[16].ToString());
             }
 
 
@@ -1995,7 +1995,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail.Text);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
         lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
         // Delete Educators from associated table
@@ -2261,19 +2261,19 @@ public partial class Programs : System.Web.UI.Page
             while (sdr.Read())
             {
 
-                txtOnlineProgramDate.Text = sdr[1].ToString();
-                txtNumOfOnlineKids.Text = sdr[4].ToString();
-                txtNumOfOnlineAdults.Text = sdr[5].ToString();
-                txtOCity.Text = sdr[6].ToString();
-                txtOState.Text = sdr[7].ToString();
-                txtOCountry.Text = sdr[8].ToString();
-                txtOnlineTeacher.Text = sdr[9].ToString();
-                txtOEmail.Text = sdr[10].ToString();
-                txtOComments.Text = sdr[11].ToString();
+                txtOnlineProgramDate.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
+                txtNumOfOnlineKids.Text = HttpUtility.HtmlEncode(sdr[4].ToString());
+                txtNumOfOnlineAdults.Text = HttpUtility.HtmlEncode(sdr[5].ToString());
+                txtOCity.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
+                txtOState.Text = HttpUtility.HtmlEncode(sdr[7].ToString());
+                txtOCountry.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
+                txtOnlineTeacher.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
+                txtOEmail.Text = HttpUtility.HtmlEncode(sdr[10].ToString());
+                txtOComments.Text = HttpUtility.HtmlEncode(sdr[11].ToString());
 
 
-                lblLastUpdated.Text = "Last Updated: " + sdr[12].ToString();
-                lblLastUpdatedBy.Text = "Last Updated By: " + sdr[13].ToString();
+                lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[12].ToString());
+                lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[13].ToString());
             }
 
 

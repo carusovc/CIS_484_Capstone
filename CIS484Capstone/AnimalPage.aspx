@@ -385,6 +385,7 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
                     <span>Educators</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
                     <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
@@ -496,6 +497,7 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
                     <span>Educators</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
                     <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>

@@ -59,11 +59,12 @@ public partial class createUser : System.Web.UI.Page
 
 
                         // INSERT USER RECORD
-                        createUser.CommandText = "insert into[dbo].[Person] values(@FName, @LName, @Username, @Email)";
+                        createUser.CommandText = "insert into[dbo].[Person] values(@FName, @LName, @Username, @Email, @Status)";
                         createUser.Parameters.Add(new SqlParameter("@FName", txtFirstName.Text));
                         createUser.Parameters.Add(new SqlParameter("@LName", txtLastName.Text));
                         createUser.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
                         createUser.Parameters.Add(new SqlParameter("@Email", txtEmail.Text));
+                        createUser.Parameters.Add(new SqlParameter("@Status", "Active"));
                         createUser.ExecuteNonQuery();
 
                         System.Data.SqlClient.SqlCommand setPass = new System.Data.SqlClient.SqlCommand();
@@ -89,7 +90,7 @@ public partial class createUser : System.Web.UI.Page
                     }
                     else
                     {
-                        lblStatus.Text = "This username " + txtUsername.Text + " has been created already.";
+                        lblStatus.Text = "This username " + HttpUtility.HtmlEncode(txtUsername.Text) + " has been created already.";
                     }
 
                 }
@@ -156,13 +157,13 @@ public partial class createUser : System.Web.UI.Page
         if (chkShowPassword.Checked)
         {
             txtPassword.TextMode = TextBoxMode.SingleLine;
-            this.txtPassword.Text = txtPassword.Text;
+            this.txtPassword.Text = HttpUtility.HtmlEncode(txtPassword.Text);
         }
         else
         {
             txtPassword.TextMode = TextBoxMode.Password;
             txtPassword.Attributes.Add("value", txtPassword.Text);
-            this.txtPassword.Text = txtPassword.Text;
+            this.txtPassword.Text = HttpUtility.HtmlEncode(txtPassword.Text);
         }
 
 
