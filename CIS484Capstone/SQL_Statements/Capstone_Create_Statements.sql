@@ -6,6 +6,7 @@ OnlineProgramTypeID int IDENTITY(1,1) NOT NULL,
 OnlineProgramTypeName varchar(100) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
+Status varchar(20) NULL,
 CONSTRAINT PK_OnlineProgramTypeID PRIMARY KEY (OnlineProgramTypeID));
 
 Create Table Grade (
@@ -62,6 +63,7 @@ ProgramTypeID int IDENTITY(1,1) NOT NULL,
 ProgramName varchar(100) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
+Status varchar(20) NULL,
 CONSTRAINT PK_ProgramType PRIMARY KEY (ProgramTypeID));
 
 Create Table PaymentRecord(
