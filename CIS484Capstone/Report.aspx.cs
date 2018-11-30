@@ -177,7 +177,52 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
     protected void btnView_Click(object sender, EventArgs e)
     {
-        //StartDate.Value = 
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+        SqlConnection con = new SqlConnection(cs);
+        con.Open();
+
+        SqlCommand cmd = new SqlCommand("SELECT convert(varchar, ProgramDateProgram.ProgramDate,101) as ProgramDate, SUM(CASE WHEN onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, count(Program.ProgramID) as TotalLivePrograms," +
+            " SUM(NumberOfChildren) as NumberOfChildren, SUM(NumberOfAdults) AS NumberOfAdults, SUM(NumberOfChildren + NumberOfAdults) AS TotalParticipants FROM Program WHERE Program.ProgramDate BETWEEN @startDate and @endDate" +
+            " GROUP BY Program.ProgramDate ORDER BY Program.ProgramDate", con);
+        cmd.Parameters.AddWithValue("@startDate", StartDate.Value.ToString());
+        cmd.Parameters.AddWithValue("@endDate", EndDate.Value.ToString());
+        cmd.ExecuteNonQuery();
+
+        cmd.CommandType = CommandType.Text;
+
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+        DataSet ds = new DataSet();
+
+        //DataTable dt = new DataTable();
+
+        da.Fill(ds);
+        gridLivePrograms.DataSource = ds;
+        gridLivePrograms.DataBind();
+
+
+        SqlConnection onlineCon = new SqlConnection(cs);
+
+        onlineCon.Open();
+
+        SqlCommand onlineCmd = new SqlCommand("SELECT convert(varchar, OnlineProgram.ProgramDate,101) AS ProgramDate, Count(OnlineProgram.OnlineProgramID) as TotalOnlinePrograms," +
+       " SUM(NumberOfKids) as NumberOfKids, SUM(NumberOfPeople) as NumberOfPeople FROM[OnlineProgram] WHERE OnlineProgram.ProgramDate BETWEEN" +
+        " @startDate AND @endDate GROUP BY OnlineProgram.ProgramDate ORDER BY OnlineProgram.ProgramDate", onlineCon);
+        onlineCmd.Parameters.AddWithValue("@startDate", StartDate.Value.ToString());
+        onlineCmd.Parameters.AddWithValue("@endDate", EndDate.Value.ToString());
+        onlineCmd.ExecuteNonQuery();
+
+        onlineCmd.CommandType = CommandType.Text;
+        SqlDataAdapter oda = new SqlDataAdapter(onlineCmd);
+        DataSet ods = new DataSet();
+
+        oda.Fill(ods);
+        gridOnlineAnimalsTotals.DataSource = ods;
+        gridOnlineAnimalsTotals.DataBind();
+
     }
 
     protected void btnMonthsToExcel_Click(object sender, EventArgs e)
@@ -185,39 +230,39 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
         //// Export Selected Rows to Excel file Here
 
-        // GridView gvExport = gridOnlineAnimalsTotals;
-        //string title = DropDownList1.SelectedValue.ToString() + ", " + drpYear.SelectedValue.ToString() + " Monthly Live & Online Programs WLC Report ";
-        //string filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
-        //Response.Clear();
-        //Response.Buffer = true;
-        ////Response.AddHeader("Content-Disposition", "attachment;filename=\"" + filename + "\"");
-        //Response.AddHeader("content-disposition", "attachment;filename=\"" + title + filename + ".xls");
-        //Response.Charset = "";
-        //Response.ContentType = "application/vnd.xls";
-        //StringWriter sw = new StringWriter();
-        //StringWriter sw2 = new StringWriter();
+        GridView gvExport = gridOnlineAnimalsTotals;
+        string title = StartDate.Value.ToString() + "-" + EndDate.Value.ToString() + " Monthly Live & Online Programs WLC Report ";
+        string filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+        Response.Clear();
+        Response.Buffer = true;
+        //Response.AddHeader("Content-Disposition", "attachment;filename=\"" + filename + "\"");
+        Response.AddHeader("content-disposition", "attachment;filename=\"" + title + filename + ".xls");
+        Response.Charset = "";
+        Response.ContentType = "application/vnd.xls";
+        StringWriter sw = new StringWriter();
+        StringWriter sw2 = new StringWriter();
 
-        //HtmlTextWriter htW = new HtmlTextWriter(sw);
-        //HtmlTextWriter htW2 = new HtmlTextWriter(sw2);
-
-
-        //string headerTable1 = @"<Table>" + DropDownList1.SelectedValue.ToString() + " Totals Based on Live Programs <tr><td></td></tr></Table>";
-        //string headerTable2 = @"<Table>" + DropDownList1.SelectedValue.ToString() + " Totals Based on  Online Programs <tr><td></td></tr></Table>";
-
-        //string headerTable = @"<Table>" + title + " " + filename + "<tr><td></td></tr></Table>";
-        //string blankline = @"<Table><tr><td></td></tr></Table>";
-        //Response.Write(headerTable);
-        //Response.Write(headerTable1);
-        //gridLivePrograms.RenderControl(htW);
-        //gridOnlineAnimalsTotals.RenderControl(htW2);
-        //Response.Output.Write(sw.ToString());
-        //Response.Write(blankline);
+        HtmlTextWriter htW = new HtmlTextWriter(sw);
+        HtmlTextWriter htW2 = new HtmlTextWriter(sw2);
 
 
-        //Response.Write(headerTable2);
+        string headerTable1 = @"<Table>" + StartDate.Value.ToString() + "-" + EndDate.Value.ToString() + " Totals Based on Live Programs <tr><td></td></tr></Table>";
+        string headerTable2 = @"<Table>" + StartDate.Value.ToString() + "-" + EndDate.Value.ToString() + " Totals Based on  Online Programs <tr><td></td></tr></Table>";
 
-        //Response.Output.Write(sw2.ToString());
-        //Response.End();
+        string headerTable = @"<Table>" + title + " " + filename + "<tr><td></td></tr></Table>";
+        string blankline = @"<Table><tr><td></td></tr></Table>";
+        Response.Write(headerTable);
+        Response.Write(headerTable1);
+        gridLivePrograms.RenderControl(htW);
+        gridOnlineAnimalsTotals.RenderControl(htW2);
+        Response.Output.Write(sw.ToString());
+        Response.Write(blankline);
+
+
+        Response.Write(headerTable2);
+
+        Response.Output.Write(sw2.ToString());
+        Response.End();
 
     }
     protected void btnToExcel_Click1(object sender, EventArgs e)
