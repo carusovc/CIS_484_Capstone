@@ -6,6 +6,7 @@ OnlineProgramTypeID int IDENTITY(1,1) NOT NULL,
 OnlineProgramTypeName varchar(100) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
+Status varchar(20) NULL,
 CONSTRAINT PK_OnlineProgramTypeID PRIMARY KEY (OnlineProgramTypeID));
 
 Create Table Grade (
@@ -21,6 +22,7 @@ EducatorFirstName varchar(50) NOT NULL,
 EducatorLastName varchar(50) NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
+Status varchar(20) NULL,
 CONSTRAINT PK_EducatorID PRIMARY KEY (EducatorID));
 
 Create Table Animal (
@@ -40,19 +42,28 @@ City varchar(30) NOT NULL,
 County varchar(30) NOT NULL,
 State varchar(2) NOT NULL,
 PostalCode varchar(20) NOT NULL,
-ContactFirstName varchar(50) NOT NULL,
-ContactLastName varchar(50) NOT NULL,
-PhoneNumber numeric NOT NULL,
-Email varchar(50) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_OrgID PRIMARY KEY (OrgID));
+                                 
+CREATE table ContactInformation(
+ContactID int IDENTITY(1,1) NOT NULL,
+ContactFirstName varchar(50) NOT NULL,
+ContactLastName varchar(50) NOT NULL,
+ContactEmail varchar(100) NOT NULL,
+PrimaryContact char(1) NOT NULL,
+OrgID int NOT NULL,
+LastUpdated datetime Not NULL, 
+LastUpdatedBy varchar(100) Not NULL,
+CONSTRAINT PK_ContactInformation PRIMARY KEY (ContactID),
+CONSTRAINT FK_ContactInformationOrgID FOREIGN KEY (OrgID) references Organization);
 
 CREATE TABLE ProgramType(
 ProgramTypeID int IDENTITY(1,1) NOT NULL,
 ProgramName varchar(100) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
+Status varchar(20) NULL,
 CONSTRAINT PK_ProgramType PRIMARY KEY (ProgramTypeID));
 
 Create Table PaymentRecord(
@@ -206,4 +217,3 @@ VolunteerStatus varchar(20) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_VolunteerID PRIMARY KEY (VolunteerID));
-
