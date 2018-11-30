@@ -538,7 +538,7 @@
 
 
                                                                                     <td class="col-md-4">
-                                                                                        <asp:Label Style="font-weight: 600;" ID="lblForField3" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "On or Off Site" : "Secondary Email" %>'
+                                                                                        <asp:Label Style="font-weight: 600;" ID="lblForField3" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "On or Off Site" : "" %>'
                                                                                             runat="server" />
                                                                                         <br />
                                                                                         <br />

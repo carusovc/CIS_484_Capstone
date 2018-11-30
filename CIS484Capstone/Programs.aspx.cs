@@ -667,7 +667,7 @@ public partial class Programs : System.Web.UI.Page
             else if (tempProgramCategory.ToString().Equals("Online Program"))
             {
                 // Query 1 for Online
-                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2 From, Case when AllProgramID > 0 then ' ' else ' ' As Field3 AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2, Case when AllProgramID > 0 then ' ' else ' ' end AS Field3 FROM AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
                 rptAllLL1.DataBind();
 
                 // Query 2 for Live
