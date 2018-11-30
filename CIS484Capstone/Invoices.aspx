@@ -486,7 +486,7 @@ $(function() {
                                             when 10 then 'October'
                                             when 11 then 'November'
                                             when 12 then 'December'
-                                           END = @Month ) AND (YEAR(paymentDate)=@Year and paymentRecord.paid ='Y')"
+                                           END = @Month ) AND (YEAR(paymentDate)=@Year and paymentRecord.cancelledinvoices ='Y')"
                                             ProviderName="System.Data.SqlClient">
                                         <SelectParameters>
 
@@ -563,7 +563,7 @@ $(function() {
                                             SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
                                             FROM [Program] inner join [Organization] on  Program.OrgID = Organization.OrgID inner join [PaymentRecord] 
 											on PaymentRecord.PaymentID = Program.PaymentID inner join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID  WHERE 
-                                            (YEAR(paymentDate)=@Year and paymentRecord.paid !='C')"
+                                            (YEAR(paymentDate)=@Year and paymentRecord.cancelledinvoices !='Y')"
                                             ProviderName="System.Data.SqlClient">
                                             <SelectParameters>
 
