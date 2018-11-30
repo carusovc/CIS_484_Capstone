@@ -500,28 +500,6 @@ $(function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-
         </div>
     </div>
     <div runat="server" id="Div1">
@@ -534,30 +512,7 @@ $(function() {
         </div>
 
     </div>
-    <%--</div>
-    </div>
-    </div>
 
-
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>--%>
     </div>
     </div>
     </div>

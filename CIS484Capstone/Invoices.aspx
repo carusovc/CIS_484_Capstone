@@ -254,6 +254,7 @@
         <div class="card-header NewUserTitle text-center">Invoices</div>
         <div class="card-body text-center">
             <asp:Button class="btn btn-primary btn-inside" ID="btnAddPayment" runat="server" Text="Add Payment" OnClick="btnAddPayment_Click" />
+             <div class="btn btn-primary btn-inside" data-target="#UpdatePayment" data-toggle="modal">Edit Payment</div>
             <p></p>
             <div class="block3">
                                          <script>

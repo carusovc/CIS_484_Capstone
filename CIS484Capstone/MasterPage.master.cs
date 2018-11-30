@@ -65,10 +65,48 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
                     ddlAnimal.Items.Add(new ListItem(myRead9["AnimalName"].ToString(), myRead9["AnimalID"].ToString()));
                 }
+                string read3 = "Select * from PaymentRecord";
+
+                SqlCommand cmd3 = new SqlCommand(read3, con);
+
+                SqlDataReader myRead3 = cmd3.ExecuteReader();
+
+                ddlInvoiceNumber.Items.Add(new ListItem("--Select Invoice Number--", "0"));
+
+                while (myRead3.Read())
+
+                {
+
+                    ddlInvoiceNumber.Items.Add(new ListItem(myRead3["Invoice"].ToString(), myRead3["PaymentID"].ToString()));
+
+                }
+
+                //string read10 = "select * from programtype pt inner join program p on pt.programtypeid = p.programtypeid inner join paymentrecord r on p.paymentid = r.paymentid";
+                //SqlCommand cmd10 = new SqlCommand(read10, con);
+                //SqlDataReader myRead10 = cmd10.ExecuteReader();
+
+                //while (myRead10.Read())
+                //{
+
+                //    ddlProgramName.Items.Add(new ListItem(myRead9["programName"].ToString(), myRead9["programTypeID"].ToString()));
+                //}
+                //string read12 = "Select * from organization o inner join program p on o.orgid = p.orgid inner join paymentrecord r on p.paymentid = r.paymentid";
+                //SqlCommand cmd12 = new SqlCommand(read12, con);
+                //SqlDataReader myRead12 = cmd12.ExecuteReader();
+
+                //while (myRead12.Read())
+                //{
+
+                //    ddlOrganizationName.Items.Add(new ListItem(myRead12["OrganizationName"].ToString(), myRead12["OrgID"].ToString()));
+                //}
                 ddlOrganization.DataBind();
                 ddlEducatorName.DataBind();
                 ddlAnimal.DataBind();
-                ddlOrganization.DataBind();
+               // ddlOrganization.DataBind();
+                ddlInvoiceNumber.DataBind();
+               // ddlOrganizationName.DataBind();
+               // ddlProgramName.DataBind();
+
 
 
 
@@ -199,7 +237,225 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         sc.Close();
     }
+    protected void btnUpdatePayment_Click(object sender, EventArgs e)
 
+    {
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+
+        sc.ConnectionString = cs;
+
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
+
+        update.Connection = sc;
+
+        SqlConnection con = new SqlConnection(cs);
+
+        con.Open();
+
+        update.CommandText = "update PaymentRecord set PaymentAmount = @PaymentAmount, PaymentDate = @PaymentDate,  CheckNumber = @CheckNumber, PaymentType = @PaymentType, Paid = @Paid, CancelledInvoices = @CancelledInvoices," +
+            " lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where PaymentID = @PaymentID";
+
+        update.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+        update.Parameters.AddWithValue("@PaymentDate", txtPaymentDate.Text);
+        //update.Parameters.AddWithValue("@ProgramName", ddlProgramName.SelectedItem.Value);
+        //update.Parameters.AddWithValue("@OrgnizationName", ddlOrganizationName.SelectedItem.Value);
+        update.Parameters.AddWithValue("@PaymentAmount", txtPaymentAmount.Text);
+        update.Parameters.AddWithValue("@PaymentType", ddlPaymentType.Text);
+        update.Parameters.AddWithValue("@CheckNumber", txtCheckNumber.Text);
+        
+        update.Parameters.AddWithValue("@Paid", ddlPaid.SelectedItem.Value);
+        update.Parameters.AddWithValue("@CancelledInvoices", ddlCancelledInvoices.SelectedItem.Value);
+        update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
+        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+
+        update.ExecuteNonQuery();
+
+            string read4 = "Select * from PaymentRecord";
+
+            SqlCommand cmd4 = new SqlCommand(read4, con);
+
+            SqlDataReader myRead4 = cmd4.ExecuteReader();
+
+
+
+           ddlInvoiceNumber.Items.Add(new ListItem("--Select Invoice Number--", "0"));
+
+            while (myRead4.Read())
+
+            {
+
+                ddlInvoiceNumber.Items.Add(new ListItem(myRead4["Invoice"].ToString(), myRead4["PaymentID"].ToString()));
+
+            }
+        ddlInvoiceNumber.DataBind();
+        sc.Close();
+        con.Close();
+
+        ddlInvoiceNumber.ClearSelection();
+        txtPaymentDate.Text = "";
+        txtPaymentAmount.Text = "";
+        ddlPaymentType.ClearSelection();
+        txtCheckNumber.Text = "";
+        ddlPaid.ClearSelection();
+        ddlCancelledInvoices.ClearSelection();
+
+    }
+    protected void ddlInvoiceNumber_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        insert.Connection = sc;
+        insert.Parameters.Clear();
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+
+        insert.CommandText = "select convert(varchar, PaymentDate,101) as PaymentDate, PaymentAmount, CheckNumber from PaymentRecord where" +
+                          " PaymentID = @PaymentID";
+
+        insert.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+
+        try
+        {
+            con.Open();
+            SqlDataReader sdr = insert.ExecuteReader();
+            while (sdr.Read())
+            {
+                txtPaymentDate.Text = HttpUtility.HtmlEncode(sdr[0].ToString());
+                txtPaymentAmount.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
+                txtCheckNumber.Text = HttpUtility.HtmlEncode(sdr[2].ToString());
+            }
+            System.Data.SqlClient.SqlCommand selection = new System.Data.SqlClient.SqlCommand();
+            selection.Connection = sc;
+
+            selection.Parameters.Clear();
+
+            selection.CommandText = "select paymentType from PaymentRecord where PaymentID = @PaymentID";
+            selection.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+            String tempState = (String)selection.ExecuteScalar();
+
+            ddlPaymentType.ClearSelection();
+            for (int i = 0; i < ddlPaymentType.Items.Count; i++)
+            {
+                if (ddlPaymentType.Items[i].Value == tempState)
+                {
+                    ddlPaymentType.Items[i].Selected = true;
+                }
+            }
+
+
+
+
+
+            ddlProgramName.Items.Clear();
+            //program category
+            string read3 = "select * from programtype";
+            //selection.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+            SqlCommand cmd3 = new SqlCommand(read3, con);
+            SqlDataReader myRead3 = cmd3.ExecuteReader();
+            String tempState7 = (String)selection.ExecuteScalar();
+            // ddlProgramName.Items.Add("-- Program Name --");
+            while (myRead3.Read())
+            {
+
+                ddlProgramName.Items.Add(new ListItem(myRead3["ProgramName"].ToString(), myRead3["ProgramTypeID"].ToString()));
+
+            }
+            ddlProgramName.ClearSelection();
+
+            for (int i = 0; i < ddlProgramName.Items.Count; i++)
+            {
+                if (ddlProgramName.Items[i].Value == tempState7)
+                {
+                    ddlProgramName.Items[i].Selected = true;
+                }
+            }
+
+
+          
+
+
+            ddlOrganizationName.Items.Clear();
+            ////program category
+          string read4 = "select * from organization";
+           // selection.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+            SqlCommand cmd4 = new SqlCommand(read4, con);
+            SqlDataReader myRead4 = cmd4.ExecuteReader();
+            String tempState8 = (String)selection.ExecuteScalar();
+            //// ddlProgramName.Items.Add("-- Program Name --");
+            while (myRead4.Read())
+            {
+
+                ddlOrganizationName.Items.Add(new ListItem(myRead4["OrgName"].ToString(), myRead4["OrgID"].ToString()));
+
+            }
+            ddlOrganizationName.ClearSelection();
+            for (int i = 0; i < ddlOrganizationName.Items.Count; i++)
+            {
+                if (ddlOrganizationName.Items[i].Value == tempState8)
+                {
+                    ddlOrganizationName.Items[i].Selected = true;
+                }
+            }
+
+
+
+            System.Data.SqlClient.SqlCommand selection2 = new System.Data.SqlClient.SqlCommand();
+            selection2.Connection = sc;
+
+            selection2.Parameters.Clear();
+            selection2.CommandText = "select Paid from PaymentRecord where PaymentID = @PaymentID";
+            selection2.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+            String tempState2 = (String)selection2.ExecuteScalar();
+            ddlPaid.ClearSelection();
+            for (int i = 0; i < ddlPaid.Items.Count; i++)
+            {
+                if (ddlPaid.Items[i].Value == tempState2)
+                {
+                    ddlPaid.Items[i].Selected = true;
+                }
+            }
+
+            System.Data.SqlClient.SqlCommand selection3 = new System.Data.SqlClient.SqlCommand();
+            selection3.Connection = sc;
+
+            selection3.Parameters.Clear();
+            selection3.CommandText = "select  CancelledInvoices from PaymentRecord where PaymentID = @PaymentID";
+            selection3.Parameters.AddWithValue("@PaymentID", ddlInvoiceNumber.SelectedItem.Value);
+            String tempState3 = (String)selection3.ExecuteScalar();
+            ddlCancelledInvoices.ClearSelection();
+            for (int i = 0; i < ddlCancelledInvoices.Items.Count; i++)
+            {
+                if (ddlCancelledInvoices.Items[i].Value == tempState3)
+                {
+                    ddlCancelledInvoices.Items[i].Selected = true;
+                }
+            }
+
+            con.Close();
+        }
+
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        sc.Close();
+    }
     protected void btnUpdateOrganization_Click(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
@@ -530,8 +786,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         sc.Close();
     }
-
-    protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
+    
+        protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
     {
         // UpdatePanel1.Update();
         AnimalEditDiv.Visible = true;
