@@ -197,7 +197,7 @@ public partial class Programs : System.Web.UI.Page
             {
                 //Live Program
                 string read = "Select * from Program";
-                string programNameRead = "Select * from ProgramType order by ProgramName";
+                string programNameRead = "Select * from ProgramType where Status = 'Active' order by ProgramName";
                 string organizationRead = "Select * from Organization";
                 string educatorReadStatement = "Select * from Educators order by EducatorFirstName";
 
@@ -295,7 +295,7 @@ public partial class Programs : System.Web.UI.Page
 
                 //Online Program
                 string readOnline = "Select * from OnlineProgram";
-                string onlineProgramRead = "Select * from OnlineProgramType";
+                string onlineProgramRead = "Select * from OnlineProgramType where Status = 'Active'";
                 string educatorsRead = "Select * from Educators order by EducatorFirstName";
 
                 SqlCommand cmdOnline = new SqlCommand(readOnline, con);
@@ -498,8 +498,8 @@ public partial class Programs : System.Web.UI.Page
     }
 
 
-
-    protected void OnItemDataBoundLive(object sender, RepeaterItemEventArgs e)
+  
+        protected void OnItemDataBoundLive(object sender, RepeaterItemEventArgs e)
     {
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
         {
@@ -534,7 +534,8 @@ public partial class Programs : System.Web.UI.Page
 
         // 0 = Default
         // 1 = Date
-        // 2 = Program Type
+        // 2 = Organization A-Z
+        // 2 = Program Type A-Z
 
         switch (orderType)
         {
@@ -548,6 +549,10 @@ public partial class Programs : System.Web.UI.Page
                 rptProgramHLLive.DataBind();
                 break;
             case 2:
+                rptProgramHLLive.DataSource = GetData("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID order by Organization;"); //inner join Organization on z.OrgID = Organization.OrgID
+                rptProgramHLLive.DataBind();
+                break;
+            case 3:
                 rptProgramHLLive.DataSource = GetData("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID order by ProgramType;"); //inner join Organization on z.OrgID = Organization.OrgID
                 rptProgramHLLive.DataBind();
                 break;
@@ -555,6 +560,10 @@ public partial class Programs : System.Web.UI.Page
 
 
     }
+
+    
+
+    
 
 
 
@@ -580,7 +589,7 @@ public partial class Programs : System.Web.UI.Page
             rptProgramLL2Online.DataSource = GetData(string.Format("SELECT City, State, Country From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
             rptProgramLL2Online.DataBind();
 
-            rptProgramLL3Online.DataSource = GetData(string.Format("SELECT ContactEmail, ExtraComments AS Comments, SecondaryEmail From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
+            rptProgramLL3Online.DataSource = GetData(string.Format("SELECT ContactEmail, ExtraComments AS Comments From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
             rptProgramLL3Online.DataBind();
 
             rptNewOnlineProgramLL4.DataSource = GetData(string.Format("SELECT OnlineProgramID, oa.AnimalID, (CASE WHEN AnimalType ='Bird' Then AnimalName ELSE NULL END) AS 'Birds', (CASE WHEN AnimalType = 'Mammal' Then AnimalName ELSE NULL END) AS 'Mammals', (CASE WHEN AnimalType = 'Reptile' Then AnimalName ELSE NULL END) AS 'Reptiles' FROM OnlineAnimal oa inner join Animal on oa.AnimalID = Animal.AnimalID where OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
@@ -658,7 +667,7 @@ public partial class Programs : System.Web.UI.Page
             else if (tempProgramCategory.ToString().Equals("Online Program"))
             {
                 // Query 1 for Online
-                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2, OnlineSecondaryEmail AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2, Case when AllProgramID > 0 then ' ' else ' ' end AS Field3 FROM AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
                 rptAllLL1.DataBind();
 
                 // Query 2 for Live
@@ -683,12 +692,12 @@ public partial class Programs : System.Web.UI.Page
         }
     }
 
-
     public void createAccordianUsingRepeaterAll(int orderType)
     {
         // 0 = Default
-        // 1 = Date
-        // 2 = Program Type
+        // 1 =Category
+        // 2 = Date
+        // 3 = Program Type
 
         switch (orderType)
         {
@@ -696,13 +705,16 @@ public partial class Programs : System.Web.UI.Page
             case 0:
                 rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms;");
                 rptProgramHLAll.DataBind();
-
                 break;
             case 1:
-                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramDate DESC;");
+                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramCategory DESC;");
                 rptProgramHLAll.DataBind();
                 break;
             case 2:
+                rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramDate DESC;");
+                rptProgramHLAll.DataBind();
+                break;
+            case 3:
                 rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms Order by ProgramType;");
                 rptProgramHLAll.DataBind();
                 break;
@@ -713,6 +725,83 @@ public partial class Programs : System.Web.UI.Page
 
 
     }
+
+    // Overloaded method for search
+    public void createAccordianUsingRepeaterLive(string searchWord)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+        search.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+
+        DataTable dt = new DataTable();
+        SqlDataAdapter adapt = new SqlDataAdapter("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID" +
+                    " WHERE UPPER(ProgramType.ProgramName) like UPPER('" + searchWord + "%') or (ProgramDate) like ('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
+
+        adapt.Fill(dt);
+        rptProgramHLLive.DataSource = dt;
+        rptProgramHLLive.DataBind();
+
+        
+
+    }
+
+    public void createAccordianUsingRepeaterAll(string searchWord)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+        search.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+
+        DataTable dt = new DataTable();
+        SqlDataAdapter adapt = new SqlDataAdapter("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms" +
+                    " WHERE UPPER(ProgramCategory) like UPPER('" + searchWord + "%') or (ProgramDate) like ('" + searchWord + "%') or UPPER(ProgramType) like UPPER('" + searchWord + "%')", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
+
+        adapt.Fill(dt);
+        rptProgramHLAll.DataSource = dt;
+        rptProgramHLAll.DataBind();
+
+
+
+    }
+
+    public void createAccordianUsingRepeaterOnline(string searchWord)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+        search.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+
+        DataTable dt = new DataTable();
+        SqlDataAdapter adapt = new SqlDataAdapter("SELECT OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID" +
+                    " WHERE UPPER(OnlineProgramType.OnlineProgramTypeName) like UPPER('" + searchWord + "%') or (ProgramDate) like ('" + searchWord + "%')", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
+
+        adapt.Fill(dt);
+        rptProgramHLOnline.DataSource = dt;
+        rptProgramHLOnline.DataBind();
+
+      
+ 
+
+    }
+
+
+   
 
     protected void btnExportLive_Click(object sender, EventArgs e)
     {
@@ -761,7 +850,7 @@ public partial class Programs : System.Web.UI.Page
 
 
         SqlCommand cmd = new SqlCommand("Select OnlineProgramTypeName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, NumberOfKids, NumberOfPeople, " +
-            "City, State, Country, TeacherName  as Educator, ContactEmail, ExtraComments, SecondaryEmail FROM OnlineProgram op inner join OnlineProgramType opt on  op.onlineprogramtypeid = opt.onlineprogramtypeid", sc);
+            "City, State, Country, TeacherName  as Educator, ContactEmail, ExtraComments FROM OnlineProgram op inner join OnlineProgramType opt on  op.onlineprogramtypeid = opt.onlineprogramtypeid", sc);
 
         sc.Open();
 
@@ -828,7 +917,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@status", txtStatus.Text.ToString());
 
         update.Parameters.AddWithValue("@programAddress", txtAddress.Text);
-        update.Parameters.AddWithValue("@cityCounty", txtCity.Text + ", " + txtCounty.Text);
+        update.Parameters.AddWithValue("@cityCounty", txtCity.Text);
 
         //update.Parameters.AddWithValue("@state", ddlState1.SelectedValue);
         update.Parameters.AddWithValue("@state", txtState.Text.ToString());
@@ -847,7 +936,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@programID", tempProgramID);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
         lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
 
@@ -1057,6 +1146,15 @@ public partial class Programs : System.Web.UI.Page
     //Live Program ID
     protected void ddlProgramID_SelectedIndexChanged1(object sender, EventArgs e)
     {
+        ddlProgramType.ClearSelection();
+        ddlOrganization.ClearSelection();
+        rboOnOff.ClearSelection();
+        rboPayment.ClearSelection();
+        drpEducators.ClearSelection();
+        ddlBirds.ClearSelection();
+        ddlReptiles.ClearSelection();
+        lstMammals.ClearSelection();
+        AddGrade.ClearSelection();
         //ddlState1.ClearSelection();
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -1144,16 +1242,18 @@ public partial class Programs : System.Web.UI.Page
             {
 
                 String cityCounty = sdr[5].ToString();
-                String[] words = cityCounty.Split(',');
-                String city = words[0];
-                String county = words[1];
+                //String[] words = cityCounty.Split(',');
+                //String city = words[0];
+                //String county = words[1];
+                String city = cityCounty;
+                String county = cityCounty;
                 //txtProgramType.Text = sdr[1].ToString();
                 //txtOrganization.Text = sdr[2].ToString();
-                txtStatus.Text = sdr[3].ToString();
-                txtAddress.Text = sdr[4].ToString();
-                txtCity.Text = city;
-                txtCounty.Text = county;
-                txtState.Text = sdr[6].ToString();
+                txtStatus.Text = HttpUtility.HtmlEncode(sdr[3].ToString());
+                txtAddress.Text = HttpUtility.HtmlEncode(sdr[4].ToString());
+                txtCity.Text = HttpUtility.HtmlEncode(city);
+                txtCounty.Text = HttpUtility.HtmlEncode(county);
+                txtState.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
                 for (int i = 0; i < ddlProgramType.Items.Count; i++)
                 {
                     if (ddlProgramType.Items[i].Value.ToString() == sdr[1].ToString())
@@ -1196,8 +1296,8 @@ public partial class Programs : System.Web.UI.Page
                     rboOnOff.SelectedIndex = 1;
                 }
                 //rboOnOff.SelectedItem.Value = sdr[7].ToString();
-                txtNumOfChildren.Text = sdr[8].ToString();
-                txtNumOfAdults.Text = sdr[9].ToString();
+                txtNumOfChildren.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
+                txtNumOfAdults.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
 
                 if (sdr[10].ToString() == "1")
                 {
@@ -1208,12 +1308,12 @@ public partial class Programs : System.Web.UI.Page
                     rboPayment.SelectedIndex = 1;
                 }
                 //rboPayment.SelectedItem.Value = sdr[10].ToString();
-                txtProgramDate.Text = sdr[11].ToString();
-                txtProgramTime.Text = sdr[12].ToString();
+                txtProgramDate.Text = HttpUtility.HtmlEncode(sdr[11].ToString());
+                txtProgramTime.Text = HttpUtility.HtmlEncode(sdr[12].ToString());
                 //txtMonth.Text = sdr[13].ToString();
-                txtComments.Text = sdr[14].ToString();
-                lblLastUpdated.Text = "Last Updated: " + sdr[15].ToString();
-                lblLastUpdatedBy.Text = "Last Updated By: " + sdr[16].ToString();
+                txtComments.Text = HttpUtility.HtmlEncode(sdr[14].ToString());
+                lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[15].ToString());
+                lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[16].ToString());
             }
 
 
@@ -1307,6 +1407,7 @@ public partial class Programs : System.Web.UI.Page
                 }
                 //txtTempReptiles.Text += sdr6[0].ToString() + " ";
             }
+
 
             while (sdr7.Read())
             {
@@ -1504,7 +1605,7 @@ public partial class Programs : System.Web.UI.Page
 
         ////Program class attributes
         byte onOff = Convert.ToByte(OnOff.Value);
-        string status = txtStatus.Text.ToString();
+        string status = Status.SelectedValue.ToString();
         int programTypeID = Convert.ToInt32(ddlProgram.SelectedItem.Value);
         string programAddress = Address.Value;
         int numOfChildren = Convert.ToInt32(NumOfChildren.Value);
@@ -1751,7 +1852,7 @@ public partial class Programs : System.Web.UI.Page
         string teacherName = AddOnlineTeacher.Value;
         string contactEmail = ContactEmail.Value;
         string extraComments = OnlineComments.Value;
-        string secondaryEmail = SecondaryEmail.Value;
+        //string secondaryEmail = SecondaryEmail.Value;
         DateTime programDate = Convert.ToDateTime(ProgramDate.Value);
         string programTime = ProgramTime.Value;
 
@@ -1760,10 +1861,10 @@ public partial class Programs : System.Web.UI.Page
         String tempLastUpdatedBy = "TempWildTekDevs";
 
         // OnlineProgram table inserts
-        OnlineProgram newOnlineProgram = new OnlineProgram(programDate, typeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments, secondaryEmail);
+        OnlineProgram newOnlineProgram = new OnlineProgram(programDate, typeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments);
 
-        insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments, lastUpdated, lastUpdatedBy, secondaryEmail) " +
-            "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments, @lastUpdated, @lastUpdatedBy, @secondaryEmail)";
+        insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments, lastUpdated, lastUpdatedBy) " +
+            "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments, @lastUpdated, @lastUpdatedBy)";
 
         insert.Parameters.AddWithValue("@programDate", newOnlineProgram.getDate());
         insert.Parameters.AddWithValue("@month", newOnlineProgram.getDate().ToString("MMMM"));
@@ -1778,7 +1879,7 @@ public partial class Programs : System.Web.UI.Page
         insert.Parameters.AddWithValue("@extraComments", newOnlineProgram.getComments());
         insert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated);
         insert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy);
-        insert.Parameters.AddWithValue("@secondaryEmail", newOnlineProgram.getSecondaryEmail());
+        //insert.Parameters.AddWithValue("@secondaryEmail", newOnlineProgram.getSecondaryEmail());
 
         insert.ExecuteNonQuery();
 
@@ -1923,13 +2024,65 @@ public partial class Programs : System.Web.UI.Page
         }
     }
 
-    protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
+    protected void ddlOrderByAll_SelectedIndexChanged(object sender, EventArgs e)
     {
-        int OrderSelect = ddlOrderBy.SelectedIndex;
+        int OrderSelect = ddlOrderByAll.SelectedIndex;
         createAccordianUsingRepeaterAll(OrderSelect);
+    }
+
+    protected void ddlOrderByLive_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int OrderSelect = ddlOrderByLive.SelectedIndex;
         createAccordianUsingRepeaterLive(OrderSelect);
+    }
+
+    protected void ddlOrderByOnline_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int OrderSelect = ddlOrderByOnline.SelectedIndex;
         createAccordianUsingRepeaterOnline(OrderSelect);
     }
+
+
+
+    protected void btnLiveSearch_Click(object sender, EventArgs e)
+    {
+        string searchWord = txtSearchLive.Text.ToString();
+        createAccordianUsingRepeaterLive(searchWord);
+    }
+
+    protected void btnLiveClear_Click(object sender, EventArgs e)
+    {
+        createAccordianUsingRepeaterLive(0);
+        
+    }
+
+    protected void btnOnlineSearch_Click(object sender, EventArgs e)
+    {
+        string searchWord = txtSearchOnline.Text.ToString();
+        createAccordianUsingRepeaterOnline(searchWord);
+    }
+
+    protected void btnOnlineClear_Click(object sender, EventArgs e)
+    {
+        createAccordianUsingRepeaterOnline(0);
+
+    }
+
+    protected void btnAllSearch_Click(object sender, EventArgs e)
+    {
+        string searchWord = txtSearchAll.Text.ToString();
+        createAccordianUsingRepeaterAll(searchWord);
+    }
+
+    protected void btnAllClear_Click(object sender, EventArgs e)
+    {
+        createAccordianUsingRepeaterAll(0);
+
+    }
+
+
+
+
 
     protected void btnOnlineUpdate_Click(object sender, EventArgs e)
     {
@@ -1974,7 +2127,7 @@ public partial class Programs : System.Web.UI.Page
         String month = programDate.ToString("MMMM");
         string tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value;
         update.CommandText = "update onlineProgram set programDate = @programDate, month = @month, onlineProgramTypeID = @onlineTypeID, numberOfKids = @numOfKids, numberOfPeople = @numOfAdults, " +
-            "city = @city, state= @state, country = @country, teacherName = @teacherName, contactEmail = @contactEmail, extraComments= @comments, secondaryEmail=@secondaryEmail where onlineProgramID = @onlineProgramID";
+            "city = @city, state= @state, country = @country, teacherName = @teacherName, contactEmail = @contactEmail, extraComments= @comments where onlineProgramID = @onlineProgramID";
         update.Parameters.AddWithValue("onlineProgramID", tempOnlineProgramID);
         update.Parameters.AddWithValue("@programDate", txtOnlineProgramDate.Text);
         update.Parameters.AddWithValue("@month", month);
@@ -1989,10 +2142,10 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@comments", txtOComments.Text);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
-        update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail.Text);
+        //update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail.Text);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
         lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
         // Delete Educators from associated table
@@ -2243,7 +2396,7 @@ public partial class Programs : System.Web.UI.Page
         string tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value;
 
 
-        insert.CommandText = "select OnlineProgramID,  convert(varchar, ProgramDate,101) as ProgramDate, Month, OnlineProgramTypeID, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments, LastUpdated, LastUpdatedBy, secondaryEmail from OnlineProgram where OnlineProgramID = @onlineProgramID";
+        insert.CommandText = "select OnlineProgramID,  convert(varchar, ProgramDate,101) as ProgramDate, Month, OnlineProgramTypeID, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments, LastUpdated, LastUpdatedBy from OnlineProgram where OnlineProgramID = @onlineProgramID";
         insert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
 
         onlineProgramType.CommandText = "Select OnlineProgramType.OnlineProgramTypeName from OnlineProgramType inner join OnlineProgram on OnlineProgramType.OnlineProgramTypeID = OnlineProgram.OnlineProgramTypeID where OnlineProgram.OnlineProgramID = @onlineProgramID";
@@ -2281,19 +2434,19 @@ public partial class Programs : System.Web.UI.Page
             while (sdr.Read())
             {
 
-                txtOnlineProgramDate.Text = sdr[1].ToString();
-                txtNumOfOnlineKids.Text = sdr[4].ToString();
-                txtNumOfOnlineAdults.Text = sdr[5].ToString();
-                txtOCity.Text = sdr[6].ToString();
-                txtOState.Text = sdr[7].ToString();
-                txtOCountry.Text = sdr[8].ToString();
-                txtOnlineTeacher.Text = sdr[9].ToString();
-                txtOEmail.Text = sdr[10].ToString();
-                txtOComments.Text = sdr[11].ToString();
+                txtOnlineProgramDate.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
+                txtNumOfOnlineKids.Text = HttpUtility.HtmlEncode(sdr[4].ToString());
+                txtNumOfOnlineAdults.Text = HttpUtility.HtmlEncode(sdr[5].ToString());
+                txtOCity.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
+                txtOState.Text = HttpUtility.HtmlEncode(sdr[7].ToString());
+                txtOCountry.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
+                txtOnlineTeacher.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
+                txtOEmail.Text = HttpUtility.HtmlEncode(sdr[10].ToString());
+                txtOComments.Text = HttpUtility.HtmlEncode(sdr[11].ToString());
 
 
-                lblLastUpdated.Text = "Last Updated: " + sdr[12].ToString();
-                lblLastUpdatedBy.Text = "Last Updated By: " + sdr[13].ToString();
+                lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[12].ToString());
+                lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[13].ToString());
             }
 
 

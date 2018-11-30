@@ -21,7 +21,7 @@ public class Organization
     private String email;
     private String secondaryEmail;
 
-    public Organization(String orgName, String city, String county, String streetAddress, String state, String postalCode, String contactFirstName, String contactLastName, String phoneNumber, String email, String secondaryEmail)
+    public Organization(String orgName, String city, String county, String streetAddress, String state, String postalCode)
     {
         setOrgName(orgName);
         setCity(city);
@@ -29,11 +29,11 @@ public class Organization
         setStreetAddress(streetAddress);
         setState(state);
         setPostalCode(postalCode);
-        setContactFirstName(contactFirstName);
-        setContactLastName(contactLastName);
-        setPhoneNumber(phoneNumber);
-        setEmail(email);
-        setSecondaryEmail(secondaryEmail);
+        //setContactFirstName(contactFirstName);
+        //setContactLastName(contactLastName);
+        //setPhoneNumber(phoneNumber);
+        //setEmail(email);
+        //setSecondaryEmail(secondaryEmail);
     }
 
     public void setOrgName(String orgName)

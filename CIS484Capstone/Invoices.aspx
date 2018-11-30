@@ -39,7 +39,9 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+       
    <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+   
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -52,7 +54,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -106,6 +108,7 @@
                     <span>Educators</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
                     <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
@@ -140,13 +143,14 @@
   </div>
 </nav>
 
-    
+  
 
     <div id="wrapper">
 
         <!-- Sidebar -->
+    
 
-        <ul class="sidebar navbar-nav d-none d-md-block">
+        <ul class=" sidebar navbar-nav d-none d-md-block " >
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -156,7 +160,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -214,6 +218,7 @@
                     <span>Educators</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
                     <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
@@ -244,9 +249,15 @@
             </li>
 
         </ul>
+
+        
+
+
+
+
    <div id="content-wrapper">
 
-                 <section class="login-block  col-xl-8 col-lg-10 col-md-12 col-s-12 mx-auto ">
+                 <section class="login-block  col-xl-10 col-lg-10 col-md-12 col-s-12 mx-auto ">
     
 
 <div class="container1">
@@ -254,6 +265,7 @@
         <div class="card-header NewUserTitle text-center">Invoices</div>
         <div class="card-body text-center">
             <asp:Button class="btn btn-primary btn-inside" ID="btnAddPayment" runat="server" Text="Add Payment" OnClick="btnAddPayment_Click" />
+             <div class="btn btn-primary btn-inside" data-target="#UpdatePayment" data-toggle="modal">Edit Payment</div>
             <p></p>
             <div class="block3">
                                          <script>
@@ -267,6 +279,7 @@ $(function() {
         window.localStorage.removeItem("activeTab");
     }
 });       </script>
+
 
                         <ul class="nav nav-tabs block4" id="myTab" role="tablist">
                                             <li class="nav-item">
@@ -291,7 +304,7 @@ $(function() {
         <div class="mx-auto d-flex justify-content-center">
 
                         <asp:DropDownList ID="drpMonth" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="MonthName" DataValueField="MonthName">
-                        <asp:ListItem></asp:ListItem>
+                        <asp:ListItem>--Select Month--</asp:ListItem>
                         </asp:DropDownList>&nbsp&nbsp&nbsp&nbsp
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(paymentDate) } 
             when 1 then 'January'
@@ -309,7 +322,7 @@ $(function() {
            END as MonthName FROM [PaymentRecord] Group by { fn MONTH(paymentDate) } order by { fn MONTH(paymentDate) }"></asp:SqlDataSource>    
 
                                 <asp:DropDownList ID="drpYear" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
-                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem>--Select Year--</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                                     SelectCommand="SELECT Distinct(YEAR(paymentDate)) AS YEAR FROM PaymentRecord"></asp:SqlDataSource>
@@ -473,7 +486,7 @@ $(function() {
                                             when 10 then 'October'
                                             when 11 then 'November'
                                             when 12 then 'December'
-                                           END = @Month ) AND (YEAR(paymentDate)=@Year and paymentRecord.paid ='Y')"
+                                           END = @Month ) AND (YEAR(paymentDate)=@Year and paymentRecord.cancelledinvoices ='Y')"
                                             ProviderName="System.Data.SqlClient">
                                         <SelectParameters>
 
@@ -550,7 +563,7 @@ $(function() {
                                             SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
                                             FROM [Program] inner join [Organization] on  Program.OrgID = Organization.OrgID inner join [PaymentRecord] 
 											on PaymentRecord.PaymentID = Program.PaymentID inner join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID  WHERE 
-                                            (YEAR(paymentDate)=@Year and paymentRecord.paid !='C')"
+                                            (YEAR(paymentDate)=@Year and paymentRecord.cancelledinvoices !='Y')"
                                             ProviderName="System.Data.SqlClient">
                                             <SelectParameters>
 

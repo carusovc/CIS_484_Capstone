@@ -206,7 +206,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
 
-                            <div class="row">
+<%--                            <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Contact First Name</h6>
                                 </div>
@@ -222,34 +222,34 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtContactLastName2" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
-                            </div>
+                            </div>--%>
 
-                            <div class="row">
+<%--                            <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Contact Phone Number</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtPhoneNumber2" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
-                            </div>
+                            </div>--%>
 
-                            <div class="row">
+<%--                            <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Contact Email</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtEmail2" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
-                            </div>
+                            </div>--%>
 
-                            <div class="row">
+<%--                            <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Secondary Email</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtSecondaryEmail2" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <div>
                                 <div class="row">
@@ -282,7 +282,7 @@ $(".modal-wide").on("show.bs.modal", function() {
             <div class="modal-dialog" role="document">
                 <div class="modal-content mt-5">
                     <div class="modal-header">
-                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add New Program Type</h5>
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add New Program Theme</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>&nbsp&nbsp
@@ -296,13 +296,26 @@ $(".modal-wide").on("show.bs.modal", function() {
                         <div runat="server" id="AnimalAddDiv">
                             <p>&nbsp;</p>
                             <div class="row">
-                               <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Program Name</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Program Category</h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Program Name</h6>
+                                &nbsp 
+                                <asp:DropDownList ID="ddlThemeCategory" runat="server"> 
+                                        <asp:ListItem>-- Select Program Category --</asp:ListItem>
+                                        <asp:ListItem>Live Program</asp:ListItem>
+                                        <asp:ListItem>Online Program</asp:ListItem>
+                                    </asp:DropDownList>
+                                <br />
+                                
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Program Theme Name</h6>
                                 </div>
-                                <div class=" col-md-3 InternalAnimalForm">
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Program Theme Name</h6>
+                                </div>
+                                
+                                <div class=" col-md-6 InternalAnimalForm">
+                                    
                                     <asp:TextBox ID="txtProgramName" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
@@ -323,6 +336,116 @@ $(".modal-wide").on("show.bs.modal", function() {
                 </div>
             </div>
         </div>
+
+
+
+
+        <div class="modal fade" id="UpdateProgram" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content mt-5">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Update Program Theme</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>&nbsp&nbsp
+                    </div>
+        <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+        <Triggers> 
+            <asp:AsyncPostBackTrigger ControlID="ddlOrganization" EventName="SelectedIndexChanged" /> 
+        </Triggers> 
+            <ContentTemplate>
+                    <div class="modal-body">
+                        <div runat="server" id="Div4">
+                            <p>&nbsp;</p>
+
+                           <div class="row">
+                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Select Theme Category</h6>
+                                </div>
+                               <asp:DropDownList ID="ddlProgramThemeCategory" class="btn btn-secondary btn-sm btn-block dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;"  runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramName" DataValueField="ProgramTypeID"  OnSelectedIndexChanged ="ddlProgramThemeCategory_SelectedIndexChanged">
+                                        <asp:ListItem>--Select Program Category--</asp:ListItem>
+                                        <asp:ListItem Value="1">Live Program</asp:ListItem>
+                                        <asp:ListItem Value="2">Online Program</asp:ListItem>
+
+                                    </asp:DropDownList>
+                                <br />
+                               <br />
+                                    
+                                    <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Select Theme Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Select Theme Name</h6>
+                                </div>
+                               <div class=" col-md-6 InternalEducatorForm">
+
+                                    <asp:DropDownList ID="ddlProgramThemeName" class="btn btn-secondary btn-sm btn-block dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;"  runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramName" DataValueField="ProgramTypeID"  OnSelectedIndexChanged ="ddlProgramThemeName_SelectedIndexChanged">
+                                        <asp:ListItem>--Select Program Theme--</asp:ListItem>
+                                    </asp:DropDownList>
+                                    &nbsp;&nbsp;
+                                       </div>
+
+                                 </div>
+                            <div class="row">
+
+
+                                
+
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Program Theme Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Program Theme Name</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                    <asp:TextBox ID="txtProgramThemeName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+
+                            <br /> 
+                               <div class="row">
+                              
+                                    
+                                    <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                               <div class=" col-md-6 InternalEducatorForm">
+
+                                    <asp:DropDownList ID="ddlThemeStatus" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
+                                        <asp:ListItem Text="--Status--" Value=""></asp:ListItem>
+                                        <asp:ListItem>Active</asp:ListItem>
+                                        <asp:ListItem>Inactive</asp:ListItem>
+                                    </asp:DropDownList>
+                   
+                               </div>
+
+                                 </div>
+                            <div>
+                            </div>
+                            <asp:Label ID="Label5" runat="server" Text=""></asp:Label>&nbsp;
+            <asp:Label ID="Label6" runat="server" Text=""></asp:Label>
+                        </div>
+                    </div>
+             </ContentTemplate>
+        </asp:UpdatePanel>
+                    <div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <asp:Button ID="btnUpdateTheme" class="btn btn-primary btn-inside" runat="server" Text="Update" OnClick="btnUpdateProgramType_Click" />
+                        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
 
 
          <div class="modal fade" id="AddOrganization" tabindex="-1" role="dialog">
@@ -458,7 +581,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
                             <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Contact First Name</h6>
+                                    <h6> Primary Contact First Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtContactFirstName" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -467,39 +590,39 @@ $(".modal-wide").on("show.bs.modal", function() {
 
                             <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Contact Last Name</h6>
+                                    <h6>Primary Contact Last Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtContactLastName" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
-                            <div class="row">
+<%--                            <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Contact Phone Number</h6>
+                                    <h6>Primary Contact Phone Number</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Contact Email</h6>
+                                    <h6>Primary Contact Email</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
-                           <div class="row">
+<%--                           <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Secondary Email</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtSecondaryEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
-                            </div>
+                            </div>--%>
                                
                             
                             
@@ -847,8 +970,7 @@ $(".modal-wide").on("show.bs.modal", function() {
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <asp:Button ID="btnUpdateAnimal" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdateAnimal_Click" />
-                <%--<asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />--%>
-       <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
+           
        
       </div>
        
@@ -893,6 +1015,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
                                     <asp:DropDownList ID="ddlEducatorName" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;"  runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="EducatorFirstName" DataValueField="EducatorID"  OnSelectedIndexChanged ="ddlEducator_SelectedIndexChanged1">
                                         <asp:ListItem>--Select Educator--</asp:ListItem>
+                                        
                                     </asp:DropDownList>
                                     &nbsp;&nbsp;
                                 </div>
@@ -922,6 +1045,27 @@ $(".modal-wide").on("show.bs.modal", function() {
 
                                 </div>
                             </div>
+
+
+                            <div class="row">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" col-md-3 InternalAnimalForm">
+
+                                    <asp:DropDownList ID="ddlEducatorStatus" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;"  runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="Status" DataValueField="EducatorID">
+                                        <asp:ListItem>--Choose Educator Status--</asp:ListItem>
+                                        <asp:ListItem Text="Active" Value="Active"></asp:ListItem>
+                                        <asp:ListItem Text="Inactive" Value="Inactive"></asp:ListItem>
+                                    </asp:DropDownList>
+
+                                </div>
+                            </div>
+
+
                             <div>
                                 <div class="row">
                                     <div class=" col-12">
@@ -1072,7 +1216,175 @@ $(".modal-wide").on("show.bs.modal", function() {
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="UpdatePayment" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content mt-5">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Payment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <asp:UpdatePanel ID="UpdatePanel7" runat="server">
+        <Triggers> 
+     <asp:AsyncPostBackTrigger ControlID="ddlInvoiceNumber" EventName="SelectedIndexChanged" /> 
+   </Triggers> 
+<ContentTemplate>
+  <div class="modal-body">
+      <div runat= server id="Div5">
+          <p>&nbsp;</p>
+          <div class="row"> 
+            <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Select Invoice Number</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Select Invoice Number</h6>
+                                </div>
+                <div class=" col-md-3 InternalAnimalForm">
+                <asp:DropDownList ID="ddlInvoiceNumber" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="PaymentID" DataValueField="PaymentID"  OnSelectedIndexChanged ="ddlInvoiceNumber_SelectedIndexChanged">
+                <asp:ListItem>--Select Invoice Number--</asp:ListItem>
 
+                </asp:DropDownList>&nbsp&nbsp
+                </div>     
+               </div>
+          <div class="row"> 
+              <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Payment Date</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Payment Date</h6>
+                                </div>
+                    <div class=" col-md-3 InternalAnimalForm">
+
+                         <asp:TextBox ID="txtPaymentDate"  runat="server"></asp:TextBox>&nbsp&nbsp
+                    </div>
+            </div>
+           <div class="row"> 
+           <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Program Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Program Name</h6>
+                                </div>
+                    <div class=" col-md-3 InternalAnimalForm">
+
+                         <asp:DropDownList ID="ddlProgramName" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
+                            <asp:ListItem Text="--Select Program Name--" Value=""></asp:ListItem>
+
+        </asp:DropDownList>&nbsp&nbsp
+                    </div>
+            </div>
+           <div class="row"> 
+           <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Organization Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Organization Name</h6>
+                                </div>
+                    <div class=" col-md-3 InternalAnimalForm">
+
+                       <asp:DropDownList ID="ddlOrganizationName" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
+                            <asp:ListItem Text="--Select Organization Name--" Value=""></asp:ListItem>
+                        </asp:DropDownList>&nbsp&nbsp
+                    </div>
+            </div>
+            
+              <div class="row"> 
+                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Payment Amount</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Payment Amount</h6>
+                                </div>
+                    <div class=" col-md-3 InternalAnimalForm">
+
+                         <asp:TextBox ID="txtPaymentAmount"  runat="server"></asp:TextBox>&nbsp&nbsp
+                    </div>
+              </div>
+           
+          
+              <div class="row"> 
+                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Payment Type</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Payment Type</h6>
+                                </div>
+                    <div class=" col-md-3 InternalAnimalForm">
+
+                        <asp:DropDownList ID="ddlPaymentType" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
+                            <asp:ListItem Text="--Select Payment Type--" Value=""></asp:ListItem>
+            <asp:ListItem Text="Check"></asp:ListItem>
+            <asp:ListItem Text="Credit"></asp:ListItem>
+                            <asp:ListItem Text="Debit"></asp:ListItem>
+        </asp:DropDownList>&nbsp&nbsp
+                    </div>
+              </div>
+      
+          <div class="row"> 
+                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Check Number</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Check Number</h6>
+                                </div>
+                    <div class=" col-md-3 InternalAnimalForm">
+
+                         <asp:TextBox ID="txtCheckNumber"  runat="server"></asp:TextBox>&nbsp&nbsp
+                    </div>
+              </div>
+      <div class="row"> 
+              <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Paid</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Paid</h6>
+                                </div>
+                    <div class=" col-md-3 InternalAnimalForm">
+
+                          <asp:DropDownList ID="ddlPaid" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
+                            <asp:ListItem Text="--Select Payment Status--" Value=""></asp:ListItem>
+            <asp:ListItem Text="Y" Value="Y"></asp:ListItem>
+            <asp:ListItem Text="N" Value="N"></asp:ListItem>    
+        </asp:DropDownList>&nbsp&nbsp
+                    </div>
+            </div>
+        <div class="row"> 
+              <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Invoice Status</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Invoice Status</h6>
+                                </div>
+                    <div class=" col-md-3 InternalAnimalForm">
+
+                          <asp:DropDownList ID="ddlCancelledInvoices" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
+                            <asp:ListItem Text="--Select Invoice Status--" Value=""></asp:ListItem>
+            <asp:ListItem Text="Y" Value="Y"></asp:ListItem>
+            <asp:ListItem Text="N" Value="N"></asp:ListItem>    
+        </asp:DropDownList>
+                    </div>
+            </div>
+              <asp:Label ID="Label7" runat="server" Text=""></asp:Label>&nbsp;
+              <asp:Label ID="Label8" runat="server" Text=""></asp:Label>
+              <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <asp:Button ID="PaymentUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdatePayment_Click" />
+           
+       
+      </div>
+       
+      <div></div>
+    <%--<asp:Label ID="Label7" runat="server" Text=""></asp:Label>
+    &nbsp;<asp:Label ID="Label8" runat="server" Text=""></asp:Label>--%>
+    </div>
+      </div>
+     </ContentTemplate>
+     </asp:UpdatePanel>
+    </div>
+  </div>
+</div>
 
     </form>
 
@@ -1086,3 +1398,5 @@ $(".modal-wide").on("show.bs.modal", function() {
     <!-- end of do not delete -->
 </body>
 </html>
+
+

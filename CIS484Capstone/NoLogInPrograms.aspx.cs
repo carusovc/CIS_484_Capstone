@@ -604,7 +604,7 @@ public partial class Programs : System.Web.UI.Page
             rptProgramLL2Online.DataSource = GetData(string.Format("SELECT City, State, Country From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
             rptProgramLL2Online.DataBind();
 
-            rptProgramLL3Online.DataSource = GetData(string.Format("SELECT ContactEmail, ExtraComments AS Comments, SecondaryEmail From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
+            rptProgramLL3Online.DataSource = GetData(string.Format("SELECT ContactEmail, ExtraComments AS Comments From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
             rptProgramLL3Online.DataBind();
 
 
@@ -679,7 +679,7 @@ public partial class Programs : System.Web.UI.Page
             else if (tempProgramCategory.ToString().Equals("Online Program"))
             {
                 // Query 1 for Online
-                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2, OnlineSecondaryEmail AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
                 rptAllLL1.DataBind();
 
                 // Query 2 for Live
@@ -783,7 +783,7 @@ public partial class Programs : System.Web.UI.Page
 
 
         SqlCommand cmd = new SqlCommand("Select OnlineProgramTypeName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, NumberOfKids, NumberOfPeople, " +
-            "City, State, Country, TeacherName  as Educator, ContactEmail, ExtraComments, SecondaryEmail FROM OnlineProgram op inner join OnlineProgramType opt on  op.onlineprogramtypeid = opt.onlineprogramtypeid", sc);
+            "City, State, Country, TeacherName  as Educator, ContactEmail, ExtraComments FROM OnlineProgram op inner join OnlineProgramType opt on  op.onlineprogramtypeid = opt.onlineprogramtypeid", sc);
 
         sc.Open();
 
@@ -871,7 +871,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@programID", tempProgramID);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
         lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
 
@@ -1150,11 +1150,11 @@ public partial class Programs : System.Web.UI.Page
                 String county = words[1];
                 //txtProgramType.Text = sdr[1].ToString();
                 //txtOrganization.Text = sdr[2].ToString();
-                txtStatus.Text = sdr[3].ToString();
-                txtAddress.Text = sdr[4].ToString();
-                txtCity.Text = city;
-                txtCounty.Text = county;
-                txtState.Text = sdr[6].ToString();
+                txtStatus.Text = HttpUtility.HtmlEncode(sdr[3].ToString());
+                txtAddress.Text = HttpUtility.HtmlEncode(sdr[4].ToString());
+                txtCity.Text = HttpUtility.HtmlEncode(city);
+                txtCounty.Text = HttpUtility.HtmlEncode(county);
+                txtState.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
                 for (int i = 0; i < ddlProgramType.Items.Count; i++)
                 {
                     if (ddlProgramType.Items[i].Value.ToString() == sdr[1].ToString())
@@ -1197,8 +1197,8 @@ public partial class Programs : System.Web.UI.Page
                     rboOnOff.SelectedIndex = 1;
                 }
                 //rboOnOff.SelectedItem.Value = sdr[7].ToString();
-                txtNumOfChildren.Text = sdr[8].ToString();
-                txtNumOfAdults.Text = sdr[9].ToString();
+                txtNumOfChildren.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
+                txtNumOfAdults.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
 
                 if (sdr[10].ToString() == "1")
                 {
@@ -1209,12 +1209,12 @@ public partial class Programs : System.Web.UI.Page
                     rboPayment.SelectedIndex = 1;
                 }
                 //rboPayment.SelectedItem.Value = sdr[10].ToString();
-                txtProgramDate.Text = sdr[11].ToString();
-                txtProgramTime.Text = sdr[12].ToString();
+                txtProgramDate.Text = HttpUtility.HtmlEncode(sdr[11].ToString());
+                txtProgramTime.Text = HttpUtility.HtmlEncode(sdr[12].ToString());
                 //txtMonth.Text = sdr[13].ToString();
-                txtComments.Text = sdr[14].ToString();
-                lblLastUpdated.Text = "Last Updated: " + sdr[15].ToString();
-                lblLastUpdatedBy.Text = "Last Updated By: " + sdr[16].ToString();
+                txtComments.Text = HttpUtility.HtmlEncode(sdr[14].ToString());
+                lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[15].ToString());
+                lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[16].ToString());
             }
 
 
@@ -1753,7 +1753,7 @@ public partial class Programs : System.Web.UI.Page
         string country = ddlCountry.SelectedValue.ToString();
         string teacherName = AddOnlineTeacher.Value;
         string contactEmail = ContactEmail.Value;
-        string secondaryEmail = SecondaryEmail.Value;
+        //string secondaryEmail = SecondaryEmail.Value;
         string extraComments = OnlineComments.Value;
         DateTime programDate = Convert.ToDateTime(ProgramDate.Value);
         string programTime = ProgramTime.Value;
@@ -1763,10 +1763,10 @@ public partial class Programs : System.Web.UI.Page
         String tempLastUpdatedBy = "TempWildTekDevs";
 
         // OnlineProgram table inserts
-        OnlineProgram newOnlineProgram = new OnlineProgram(programDate, typeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments, secondaryEmail);
+        OnlineProgram newOnlineProgram = new OnlineProgram(programDate, typeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments);
 
-        insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments, lastUpdated, lastUpdatedBy, secondaryEmail) " +
-            "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments, @lastUpdated, @lastUpdatedBy, @secondaryEmail)";
+        insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments, lastUpdated, lastUpdatedBy) " +
+            "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments, @lastUpdated, @lastUpdatedBy)";
 
         insert.Parameters.AddWithValue("@programDate", newOnlineProgram.getDate());
         insert.Parameters.AddWithValue("@month", newOnlineProgram.getDate().ToString("MMMM"));
@@ -1781,7 +1781,7 @@ public partial class Programs : System.Web.UI.Page
         insert.Parameters.AddWithValue("@extraComments", newOnlineProgram.getComments());
         insert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated);
         insert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy);
-        insert.Parameters.AddWithValue("@secondaryEmail", newOnlineProgram.getSecondaryEmail());
+        //insert.Parameters.AddWithValue("@secondaryEmail", newOnlineProgram.getSecondaryEmail());
 
         insert.ExecuteNonQuery();
 
@@ -1977,7 +1977,7 @@ public partial class Programs : System.Web.UI.Page
         String month = programDate.ToString("MMMM");
         string tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value;
         update.CommandText = "update onlineProgram set programDate = @programDate, month = @month, onlineProgramTypeID = @onlineTypeID, numberOfKids = @numOfKids, numberOfPeople = @numOfAdults, " +
-            "city = @city, state= @state, country = @country, teacherName = @teacherName, contactEmail = @contactEmail, extraComments= @comments, LastUpdated = @lastUpdated, LastUpdatedBy = @lastUpdatedBy, secondaryEmail=@secondaryEmail where onlineProgramID = @onlineProgramID";
+            "city = @city, state= @state, country = @country, teacherName = @teacherName, contactEmail = @contactEmail, extraComments= @comments, LastUpdated = @lastUpdated, LastUpdatedBy = @lastUpdatedBy where onlineProgramID = @onlineProgramID";
         update.Parameters.AddWithValue("onlineProgramID", tempOnlineProgramID);
         update.Parameters.AddWithValue("@programDate", txtOnlineProgramDate.Text);
         update.Parameters.AddWithValue("@month", month);
@@ -1992,10 +1992,10 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@comments", txtOComments.Text);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlOnlineVolunteer.SelectedValue.ToString());
-        update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail.Text);
+        //update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail.Text);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
         lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
         // Delete Educators from associated table
@@ -2223,7 +2223,7 @@ public partial class Programs : System.Web.UI.Page
         string tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value;
 
 
-        insert.CommandText = "select OnlineProgramID,  convert(varchar, ProgramDate,101) as ProgramDate, Month, OnlineProgramTypeID, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments, LastUpdated, LastUpdatedBy, secondaryEmail from OnlineProgram where OnlineProgramID = @onlineProgramID";
+        insert.CommandText = "select OnlineProgramID,  convert(varchar, ProgramDate,101) as ProgramDate, Month, OnlineProgramTypeID, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments, LastUpdated, LastUpdatedBy from OnlineProgram where OnlineProgramID = @onlineProgramID";
         insert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
 
         onlineProgramType.CommandText = "Select OnlineProgramType.OnlineProgramTypeName from OnlineProgramType inner join OnlineProgram on OnlineProgramType.OnlineProgramTypeID = OnlineProgram.OnlineProgramTypeID where OnlineProgram.OnlineProgramID = @onlineProgramID";
@@ -2261,19 +2261,19 @@ public partial class Programs : System.Web.UI.Page
             while (sdr.Read())
             {
 
-                txtOnlineProgramDate.Text = sdr[1].ToString();
-                txtNumOfOnlineKids.Text = sdr[4].ToString();
-                txtNumOfOnlineAdults.Text = sdr[5].ToString();
-                txtOCity.Text = sdr[6].ToString();
-                txtOState.Text = sdr[7].ToString();
-                txtOCountry.Text = sdr[8].ToString();
-                txtOnlineTeacher.Text = sdr[9].ToString();
-                txtOEmail.Text = sdr[10].ToString();
-                txtOComments.Text = sdr[11].ToString();
+                txtOnlineProgramDate.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
+                txtNumOfOnlineKids.Text = HttpUtility.HtmlEncode(sdr[4].ToString());
+                txtNumOfOnlineAdults.Text = HttpUtility.HtmlEncode(sdr[5].ToString());
+                txtOCity.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
+                txtOState.Text = HttpUtility.HtmlEncode(sdr[7].ToString());
+                txtOCountry.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
+                txtOnlineTeacher.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
+                txtOEmail.Text = HttpUtility.HtmlEncode(sdr[10].ToString());
+                txtOComments.Text = HttpUtility.HtmlEncode(sdr[11].ToString());
 
 
-                lblLastUpdated.Text = "Last Updated: " + sdr[12].ToString();
-                lblLastUpdatedBy.Text = "Last Updated By: " + sdr[13].ToString();
+                lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[12].ToString());
+                lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[13].ToString());
             }
 
 

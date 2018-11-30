@@ -56,7 +56,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -124,6 +124,7 @@
                     <span>Educators</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
                     <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
@@ -172,7 +173,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -250,6 +251,7 @@
                     <span>Educators</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
                     <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
@@ -298,6 +300,7 @@
             <div class="mx-auto d-flex justify-content-center">
                 <div class="btn btn-primary btn-inside" data-target="#AddOrganization" data-toggle="modal">Add Organization</div>
                 <div class="btn btn-primary btn-inside" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</div>
+                <div class="btn btn-primary btn-inside" data-target="#AddContact" data-toggle="modal">Add Contact</div>
             </div>
                 </div>
             
@@ -368,11 +371,6 @@
                           <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" />
                           <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
                           <asp:BoundField DataField="PostalCode" HeaderText="Postal Code" SortExpression="PostalCode" />
-                          <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName" />
-                          <asp:BoundField DataField="ContactLastName" HeaderText="Contact Last Name" SortExpression="ContactLastName" />
-                          <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" SortExpression="PhoneNumber" />
-                          <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                          <asp:BoundField DataField="SecondaryEmail" HeaderText="Secondary Email" SortExpression="SecondaryEmail" />
                       </Columns>
                  </asp:GridView><br /><br /><br />
               </div>
@@ -381,8 +379,133 @@
          </div>
     </div>
          
+<%--start--%>
+         <div class="modal fade" id="AddContact" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content mt-5">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add Contact</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div runat="server" id="OrgAddDiv">
+                            <p>&nbsp;</p>
+                             <div class="row">
+                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Organization</h6>
+                                </div>
+                                <div class=" col-md-3 InternalOrgnaizationForm">
+                                    <asp:DropDownList ID="ddlOrg" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
+                                <asp:ListItem Text="--Select Organization--" Value=""></asp:ListItem>
+                                    </asp:DropDownList>
+                            </div>
+
+                            <div class="row">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Contact First Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Contact First Name</h6>
+                                </div>
+                                <div class=" col-md-3 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtContactFirstName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Contact Last Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Contact Last Name</h6>
+                                </div>
+                                <div class=" col-md-3 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtContactLastName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+                             <div class="row">
+                               <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Contact Email</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Contact Email</h6>
+                                </div>
+                                <div class=" col-md-3 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtContactEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+       
+                            
+                            <div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+ <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <asp:Button ID="btnAddContact" class="btn btn-primary btn-inside" runat="server" Text="Add" OnClick="btnAddContact_Click" />
+                        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+             </div>
 
             <%-- this div  is the internal div--%>
+
+
+
+
+        <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
+                <div class="container1 block">
+                    <div runat="server" id="Div2">
+                        <div runat="server" id="Div3">
+
+                      <%--</div>--%>
+                   
+                            <div class="block3">
+                                 <div class="tab-content">   
+                                    <div class="">
+                                        <div class="col-md-12 ">
+                                                 <br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+            <%-- this div  is the internal div--%>
+       
+      
+                                                    <script>
+$(function() {
+    $('a[data-toggle="tab"]').on('click', function(e) {
+        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+    var activeTab = window.localStorage.getItem('activeTab');
+    if (activeTab) {
+        $('#myTab a[href="' + activeTab + '"]').tab('show');
+        window.localStorage.removeItem("activeTab");
+    }
+});       </script>
+
+                        <ul class="nav nav-tabs block4" id="myTab" role="tablist">
+                <li class="nav-item ">
+                
+                                
+                    <a class="nav-link   active TabStyle" data-toggle="tab" href="#OrganizationsAllTab" style="color:black;"><p class="d-none d-lg-block">All Organizations</p><p class="d-lg-none">All </p></a>
+                 
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link    TabStyle" data-toggle="tab" href="#ContactsTab" style="color:black;"><p class="d-none d-lg-block">Organization Contacts</p><p class="d-lg-none">Active </p></a>
+                      </li>
+                
+                
+            </ul>
+
+
        
            
             <div class="tab-content">
@@ -411,55 +534,65 @@
             <asp:BoundField DataField="PostalCode" HeaderText="Postal Code" SortExpression="PostalCode">
             
             </asp:BoundField>
-            <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName" >
-            
-            </asp:BoundField>
-            <asp:BoundField DataField="ContactLastName" HeaderText="Contact Last Name" SortExpression="ContactLastName" >
-            
-            </asp:BoundField>
-            <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" SortExpression="PhoneNumber" >
-            
-            </asp:BoundField>
-            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email">
-            
-            </asp:BoundField>
-            
-            <asp:BoundField DataField="SecondaryEmail" HeaderText="Secondary Email" SortExpression="SecondaryEmail">
-            
-            </asp:BoundField>
 
         </Columns>
         
      </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
-                    SelectCommand="SELECT [OrgName], [StreetAddress], [City], [County], [State], [PostalCode], [ContactFirstName], [ContactLastName], [PhoneNumber], [Email], [SecondaryEmail] FROM [Organization] ORDER BY [OrgName]">
+                    SelectCommand="SELECT [OrgName], [StreetAddress], [City], [County], [State], [PostalCode] FROM [Organization] ORDER BY [OrgName]">
                 </asp:SqlDataSource>
-     </div>
-  
-       
-     
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+        <div id="ContactsTab" class="container1 block3 tab-pane  text-center WildTable">
+                    <div class="InternalAnimalTab">
+                     <div class ="grid-volunteers text-center">
+                               <div class="row table-responsive mx-auto d-flex  justify-content-center">
+              <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
+                            <asp:GridView ID="GridView3"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
+                            <Columns>
+                                <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" >
+ 
+                                </asp:BoundField>
+                                <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName" >
+ 
+                                </asp:BoundField>
+                                <asp:BoundField DataField="ContactLastName" HeaderText="Contact Last Name" SortExpression="ContactLastName" >
+            
+                                </asp:BoundField>
+                                <asp:BoundField DataField="ContactEmail" HeaderText="Contact Email" SortExpression="ContactEmail" >
+            
+                                </asp:BoundField>
+                                <asp:BoundField DataField="PrimaryContact" HeaderText="Primary Contact" SortExpression="PrimaryContact" >
+            
+                                </asp:BoundField>
+                                
+            
+                            </Columns>
         
+                         </asp:GridView>
+                                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
+                                        SelectCommand="SELECT o.[OrgName] as OrgName, c.[ContactFirstName] as ContactFirstName, c.[ContactLastName] as ContactLastName, c.[ContactEmail] as ContactEmail, c.[PrimaryContact] as PrimaryContact FROM [Organization] as o Right Join [ContactInformation] as c on o.OrgID = c.OrgID ORDER BY [OrgName]">
+                                    </asp:SqlDataSource>
+                        </div>
                     </div>
                 </div>
-                        </div>
-                </div>
-
-
-
-
-
-
             </div>
         </div>
-                </div>
-          <div runat="server" id="Div1">
-          </div>
-      </div>
-        </div>
 
-    </section>
-        </div>
-      </div>
+                        </div>
+                    </div>
+                    <div runat="server" id="Div1">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
 
 
 

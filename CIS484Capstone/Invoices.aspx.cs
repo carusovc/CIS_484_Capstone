@@ -19,6 +19,11 @@ public partial class Invoices : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //drpMonth.Items.Clear();
+        //drpYear.Items.Clear();
+        //drpMonth.Items.Add(new ListItem("--Select Month--", "0"));
+        //drpYear.Items.Add(new ListItem("--Select Year--", "0"));
+
         if (!IsPostBack)
         {
             //PopulateData();
@@ -192,17 +197,17 @@ public partial class Invoices : System.Web.UI.Page
             DataRowView drv = e.Row.DataItem as DataRowView;
             if (drv["Paid"].ToString().Equals("N"))
             {
-                e.Row.BackColor = System.Drawing.Color.LightCoral;
+                e.Row.CssClass = "alert alert-danger";
             }
             else if (drv["Paid"].ToString().Equals("Y"))
             {
-                e.Row.BackColor = System.Drawing.Color.LightGreen;
+                e.Row.CssClass = "alert alert-success";
             }
         }
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency
-            e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
+            e.Row.Cells[2].Text = String.Format("{0:c}", HttpUtility.HtmlEncode(TotalNotCancelled));
 
     }
     protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -215,7 +220,7 @@ public partial class Invoices : System.Web.UI.Page
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency
-            e.Row.Cells[2].Text = String.Format("{0:c}", TotalCancelled);
+            e.Row.Cells[2].Text = String.Format("{0:c}", HttpUtility.HtmlEncode(TotalCancelled));
 
 
 
@@ -234,11 +239,12 @@ public partial class Invoices : System.Web.UI.Page
             DataRowView drv = e.Row.DataItem as DataRowView;
             if (drv["Paid"].ToString().Equals("N"))
             {
-                e.Row.BackColor = System.Drawing.Color.LightCoral;
+                e.Row.CssClass = "alert alert-danger";
             }
+
             else if (drv["Paid"].ToString().Equals("Y"))
             {
-                e.Row.BackColor = System.Drawing.Color.LightGreen;
+                e.Row.CssClass = "alert alert-success";
             }
         }
         //else if (e.Row.RowType == DataControlRowType.Footer)
@@ -341,7 +347,7 @@ public partial class Invoices : System.Web.UI.Page
                 System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
                 update.Connection = sc;
                 update.CommandText = "Update PaymentRecord set CancelledInvoices = @cancelledInvoice where PaymentID = @paymentID";
-                update.Parameters.AddWithValue("@cancelledInvoice", 'N');
+                update.Parameters.AddWithValue("@cancelledInvoice", 'Y');
                 update.Parameters.AddWithValue("@paymentID", Convert.ToInt32(i.Cells[7].Text));
                 update.ExecuteNonQuery();
                 GridView1.DataBind();
