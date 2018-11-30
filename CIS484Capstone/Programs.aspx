@@ -538,7 +538,7 @@
 
 
                                                                                     <td class="col-md-4">
-                                                                                        <asp:Label Style="font-weight: 600;" ID="lblForField3" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "On or Off Site" : "Secondary Email" %>'
+                                                                                        <asp:Label Style="font-weight: 600;" ID="lblForField3" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "On or Off Site" : "" %>'
                                                                                             runat="server" />
                                                                                         <br />
                                                                                         <br />
@@ -1157,8 +1157,7 @@
                                                                                     <tr class="row">
                                                                                         <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Contact Primary Email
                                                                                         </th>
-                                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Secondary Email
-                                                                                        </th>
+                                                                                        
                                                                                         <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Comments
                                                                                         </th>
 
@@ -1169,9 +1168,7 @@
                                                                                     <td class="col-md-4">
                                                                                         <asp:Label ID="lblCity" runat="server" Text='<%# Eval("ContactEmail") %>' />
                                                                                     </td>
-                                                                                    <td class="col-md-4">
-                                                                                        <asp:Label ID="lblSecondaryEmail" runat="server" Text='<%# Eval("SecondaryEmail") %>' />
-                                                                                    </td>
+                                                                                    
                                                                                     <td class="col-md-8">
                                                                                         <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
                                                                                     </td>
