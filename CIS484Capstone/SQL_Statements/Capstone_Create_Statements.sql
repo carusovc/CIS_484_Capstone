@@ -40,13 +40,18 @@ City varchar(30) NOT NULL,
 County varchar(30) NOT NULL,
 State varchar(2) NOT NULL,
 PostalCode varchar(20) NOT NULL,
-ContactFirstName varchar(50) NOT NULL,
-ContactLastName varchar(50) NOT NULL,
-PhoneNumber numeric NOT NULL,
-Email varchar(50) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_OrgID PRIMARY KEY (OrgID));
+                                 
+CREATE table ContactInformation(
+ContactID int IDENTITY(1,1) NOT NULL,
+ContactFirstName varchar(50) NOT NULL,
+ContactLastName varchar(50) NOT NULL,
+PrimaryContact char(1) NOT NULL,
+OrgID int NOT NULL,
+CONSTRAINT PK_ContactInformation PRIMARY KEY (ContactID),
+CONSTRAINT FK_ContactInformationOrgID FOREIGN KEY (OrgID) references Organization);
 
 CREATE TABLE ProgramType(
 ProgramTypeID int IDENTITY(1,1) NOT NULL,
