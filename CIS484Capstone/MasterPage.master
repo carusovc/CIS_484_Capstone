@@ -224,14 +224,14 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
 
-                            <div class="row">
+<%--                            <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Contact Phone Number</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtPhoneNumber2" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
@@ -242,14 +242,14 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 </div>
                             </div>
 
-                            <div class="row">
+<%--                            <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Secondary Email</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtSecondaryEmail2" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <div>
                                 <div class="row">
@@ -579,7 +579,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
                             <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Contact First Name</h6>
+                                    <h6> Primary Contact First Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtContactFirstName" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -588,39 +588,39 @@ $(".modal-wide").on("show.bs.modal", function() {
 
                             <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Contact Last Name</h6>
+                                    <h6>Primary Contact Last Name</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtContactLastName" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
-                            <div class="row">
+<%--                            <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Contact Phone Number</h6>
+                                    <h6>Primary Contact Phone Number</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Contact Email</h6>
+                                    <h6>Primary Contact Email</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
-                           <div class="row">
+<%--                           <div class="row">
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Secondary Email</h6>
                                 </div>
                                 <div class=" col-md-3 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtSecondaryEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
-                            </div>
+                            </div>--%>
                                
                             
                             

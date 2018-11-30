@@ -17,6 +17,35 @@ public partial class Organizations : System.Web.UI.Page
         OrganizationSearchDiv.Visible = false;
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#EditAnimalModal').modal('show');});</script>", false);
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+
+        if (!IsPostBack)
+        {
+
+            //call read array
+            SqlConnection con = new SqlConnection(cs);
+            con.Open();
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+                string read = "Select OrgID, OrgName from Organization";
+
+                SqlCommand cmd = new SqlCommand(read, con);
+                SqlDataReader myRead = cmd.ExecuteReader();
+
+                while (myRead.Read())
+                {
+                    ddlOrg.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
+                }
+                con.Close();
+                sc.Close();
+            }
+        }
     }
 
     protected void btnSearch_Click(object sender, EventArgs e)
@@ -43,10 +72,9 @@ public partial class Organizations : System.Web.UI.Page
             string searchOrganization = txtSearch.Text;
 
             DataTable dt = new DataTable();
-            SqlDataAdapter adapt = new SqlDataAdapter("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail " +
-                "from Organization where UPPER(OrgName) like UPPER('" + searchOrganization + "%') or UPPER(County) like UPPER('" + searchOrganization + "%') " +
-                "or UPPER(City) like UPPER('" + searchOrganization + "%') or UPPER(State) like UPPER('" + searchOrganization + "%') or UPPER(ContactFirstName) like UPPER('" + searchOrganization + "%') " +
-                "or UPPER(ContactLastName) like UPPER('" + searchOrganization + "%')", con);
+            SqlDataAdapter adapt = new SqlDataAdapter("Select OrgName, StreetAddress, City, County, State, PostalCode " +
+                "from Organization where UPPER(OrgName) like UPPER('%" + searchOrganization + "%') or UPPER(County) like UPPER('%" + searchOrganization + "%') " +
+                "or UPPER(City) like UPPER('%" + searchOrganization + "%') or UPPER(State) like UPPER('%" + searchOrganization + "%')", con);
 
         adapt.Fill(dt);
         gridSearch.DataSource = dt;
@@ -82,21 +110,21 @@ protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
             case 1:
             
                 DataTable dt1 = new DataTable();
-                SqlDataAdapter adapt1 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail  From Organization Order by OrgName;"), con);
+                SqlDataAdapter adapt1 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode From Organization Order by OrgName;"), con);
                 adapt1.Fill(dt1);
                 gridSearch.DataSource = dt1;
                 gridSearch.DataBind();
                 break;
             case 2:
                 DataTable dt2 = new DataTable();
-                SqlDataAdapter adapt2 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail  From Organization Order by City;"), con);
+                SqlDataAdapter adapt2 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode From Organization Order by City;"), con);
                 adapt2.Fill(dt2);
                 gridSearch.DataSource = dt2;
                 gridSearch.DataBind();
                 break;
             case 3:
                 DataTable dt3 = new DataTable();
-                SqlDataAdapter adapt3 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode, ContactFirstName, ContactLastName, PhoneNumber, Email, SecondaryEmail  From Organization Order by County;"), con);
+                SqlDataAdapter adapt3 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode From Organization Order by County;"), con);
                 adapt3.Fill(dt3);
                 gridSearch.DataSource = dt3;
                 gridSearch.DataBind();
@@ -104,6 +132,60 @@ protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
 
 
         }
+    }
+    protected void btnAddContact_Click(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+
+
+        sc.Open();
+        insert.Connection = sc;
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+        con.Open();
+        ddlOrg.Items.Clear();
+        if (con.State == System.Data.ConnectionState.Open)
+        {
+            string read = "Select OrgID, OrgName from Organization";
+
+            SqlCommand cmd = new SqlCommand(read, con);
+            SqlDataReader myRead = cmd.ExecuteReader();
+
+            ddlOrg.Items.Add(new ListItem("--Select Organization--", "0"));
+            while (myRead.Read())
+            {
+                ddlOrg.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
+            }
+        }
+
+        String contactFirstName = txtContactFirstName.Text;
+        String contactLastName = txtContactLastName.Text;
+        String contactEmail = txtContactEmail.Text;
+
+        insert.CommandText = "insert into ContactInformation (contactFirstName, contactLastName, contactEmail, PrimaryContact, OrgID, LastUpdated, LastUpdatedBy) values (@contactFN, @contactLN, @contactEmail, @primaryContact, @OrgID, @LastUpdated, @LastUpdatedBy)";
+        insert.Parameters.AddWithValue("@contactFN", contactFirstName);
+        insert.Parameters.AddWithValue("@contactLN", contactLastName);
+        insert.Parameters.AddWithValue("@contactEmail", contactEmail);
+        insert.Parameters.AddWithValue("@PrimaryContact", "N");
+        insert.Parameters.AddWithValue("@OrgID", ddlOrg.SelectedValue);
+        insert.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
+        insert.Parameters.AddWithValue("@LastUpdatedBy", "WildTek Developers");
+        insert.ExecuteNonQuery();
+
+        txtContactFirstName.Text = "";
+        txtContactLastName.Text = "";
+        txtContactEmail.Text = "";
+        ddlOrg.ClearSelection();
+        con.Close();
+        sc.Close();
+
     }
 }
 
