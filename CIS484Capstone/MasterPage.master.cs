@@ -71,7 +71,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
                 SqlDataReader myRead3 = cmd3.ExecuteReader();
 
-                ddlInvoiceNumber.Items.Add(new ListItem("--Select Invoice Number--", "0"));
+                //ddlInvoiceNumber.Items.Add(new ListItem("--Select Invoice Number--", "0"));
 
                 while (myRead3.Read())
 
