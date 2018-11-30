@@ -59,11 +59,12 @@ public partial class createUser : System.Web.UI.Page
 
 
                         // INSERT USER RECORD
-                        createUser.CommandText = "insert into[dbo].[Person] values(@FName, @LName, @Username, @Email)";
+                        createUser.CommandText = "insert into[dbo].[Person] values(@FName, @LName, @Username, @Email, @Status)";
                         createUser.Parameters.Add(new SqlParameter("@FName", txtFirstName.Text));
                         createUser.Parameters.Add(new SqlParameter("@LName", txtLastName.Text));
                         createUser.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
                         createUser.Parameters.Add(new SqlParameter("@Email", txtEmail.Text));
+                        createUser.Parameters.Add(new SqlParameter("@Status", "Active"));
                         createUser.ExecuteNonQuery();
 
                         System.Data.SqlClient.SqlCommand setPass = new System.Data.SqlClient.SqlCommand();

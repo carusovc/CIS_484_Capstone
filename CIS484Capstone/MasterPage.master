@@ -892,6 +892,7 @@ $(".modal-wide").on("show.bs.modal", function() {
 
                                     <asp:DropDownList ID="ddlEducatorName" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;"  runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="EducatorFirstName" DataValueField="EducatorID"  OnSelectedIndexChanged ="ddlEducator_SelectedIndexChanged1">
                                         <asp:ListItem>--Select Educator--</asp:ListItem>
+                                        
                                     </asp:DropDownList>
                                     &nbsp;&nbsp;
                                 </div>
@@ -921,6 +922,27 @@ $(".modal-wide").on("show.bs.modal", function() {
 
                                 </div>
                             </div>
+
+
+                            <div class="row">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" col-md-3 InternalAnimalForm">
+
+                                    <asp:DropDownList ID="ddlEducatorStatus" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;"  runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="Status" DataValueField="EducatorID">
+                                        <asp:ListItem>--Choose Educator Status--</asp:ListItem>
+                                        <asp:ListItem Text="Active" Value="Active"></asp:ListItem>
+                                        <asp:ListItem Text="Inactive" Value="Inactive"></asp:ListItem>
+                                    </asp:DropDownList>
+
+                                </div>
+                            </div>
+
+
                             <div>
                                 <div class="row">
                                     <div class=" col-12">

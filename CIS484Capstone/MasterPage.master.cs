@@ -707,12 +707,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
         DateTime lastUpdated = DateTime.Today;
         String lastUpdatedBy = "WildTek";
 
+        
 
-        insert.CommandText = "insert into Educators (educatorFirstName, educatorLastName, lastUpdated, lastUpdatedBy) values (@firstName, @lastName, @lastUpdated, @lastUpdatedBy)";
+
+        insert.CommandText = "insert into Educators (educatorFirstName, educatorLastName, lastUpdated, lastUpdatedBy, status) values (@firstName, @lastName, @lastUpdated, @lastUpdatedBy, @status)";
         insert.Parameters.AddWithValue("@firstName", firstName);
         insert.Parameters.AddWithValue("@lastName", lastName);
         insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
         insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+        insert.Parameters.AddWithValue("@status", "Active");
         insert.ExecuteNonQuery();
 
         //lblLastUpdated.Text = "Last Updated: " + lastUpdated;
@@ -899,12 +902,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
 
-        update.CommandText = "update Educators set educatorFirstName = @firstName, educatorLastName = @lastName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy where educatorID = @educatorID";
+        update.CommandText = "update Educators set educatorFirstName = @firstName, educatorLastName = @lastName, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, status = @status where educatorID = @educatorID";
         update.Parameters.AddWithValue("@firstName", txtEducatorFirst.Text);
         update.Parameters.AddWithValue("@lastName", txtEducatorLast.Text);
         update.Parameters.AddWithValue("@educatorID", ddlEducatorName.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@status", ddlEducatorStatus.SelectedItem.Value);
         update.ExecuteNonQuery();
 
         lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
@@ -1017,10 +1021,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //call read array
         SqlConnection con = new SqlConnection(cs);
 
-        insert.CommandText = "select educatorFirstName, educatorLastName, lastUpdated, lastUpdatedBy from Educators where educatorID = @educatorID";
+        insert.CommandText = "select educatorFirstName, educatorLastName, lastUpdated, lastUpdatedBy, status from Educators where educatorID = @educatorID";
 
         insert.Parameters.AddWithValue("@educatorID", ddlEducatorName.SelectedItem.Value);
-
+        ddlEducatorStatus.ClearSelection();
         try
         {
             con.Open();
@@ -1031,13 +1035,24 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 txtEducatorLast.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
                 lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
+                //ddlEducatorStatus.SelectedItem.Value = sdr[4].ToString();
+
+
+                for (int i = 0; i < ddlEducatorStatus.Items.Count; i++)
+                {
+                    if (ddlEducatorStatus.Items[i].ToString() == sdr[4].ToString())
+                    {
+                        ddlEducatorStatus.Items[i].Selected = true;
+                    }
+                }
             }
+            con.Close();
         }
         catch (Exception ex)
         {
             throw ex;
         }
-        con.Close();
+        
         sc.Close();
     }
 
