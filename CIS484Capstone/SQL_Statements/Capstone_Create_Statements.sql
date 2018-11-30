@@ -21,6 +21,7 @@ EducatorFirstName varchar(50) NOT NULL,
 EducatorLastName varchar(50) NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
+Status varchar(20) NULL,
 CONSTRAINT PK_EducatorID PRIMARY KEY (EducatorID));
 
 Create Table Animal (
