@@ -542,25 +542,29 @@ $(function() {
                     
     
         <div class="card-body">
-          
-       <div class="mx-auto d-flex justify-content-center">
-  
-           <div class="form-group row">
-                                <div class="col-3">
-                                    <label id="StartDateLabel" for="StartDate">Start Date:</label>
-                                </div>
-                                <div class="col-6">
+           <div class="row mx-auto justify-content-center d-flex">
+                <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
+                       <label id="StartDateLabel" class="" for="StartDate">Start Date:</label>
+                              
                                     <input type="date" id="StartDate" class="form-control" runat="server" />
-                                </div>
-               
-                                <div class="col-3">
-                                    <label id="EndDateLabel" for="EndDate">End Date:</label>
-                                </div>
-                                <div class="col-6">
+                    </div>
+                <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
+                     <label id="EndDateLabel" class="" for="EndDate">End Date:</label>
+                              
                                     <input type="date" id="EndDate" class="form-control" runat="server" />
+                    </div>
+              <div class=" col-lg-2 col-xl-2 col-md-6 col-sm-6 text-right InternalAnimalForm">
+                                 
+                                <br />
+                              <asp:Button ID="Button1" runat="server" style="margin-top:7px;" CssClass="btn btn-block" OnClick="btnView_Click" Text="Filter" />      
                                 </div>
-               <asp:Button ID="btnView" runat="server" OnClick="btnView_Click" Text="Filter" />
-                            </div>
+              
+                          
+            </div>
+       
+  
+         
+                                
 
      <%-- <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True"  class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" DataSourceID="SqlDataSource6" DataTextField="MonthName" DataValueField="MonthName">
                         <asp:ListItem></asp:ListItem>
@@ -587,8 +591,7 @@ $(function() {
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct(YEAR(ProgramDate)) AS YEAR FROM Program"></asp:SqlDataSource>
     --%>
-    <br />
-            </div>
+    
             <br />
                    <%-- this div  is the internal div--%>
         <div class="block3">
