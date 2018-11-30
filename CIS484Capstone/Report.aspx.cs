@@ -184,7 +184,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
         SqlConnection con = new SqlConnection(cs);
         con.Open();
 
-        SqlCommand cmd = new SqlCommand("SELECT convert(varchar, ProgramDateProgram.ProgramDate,101) as ProgramDate, SUM(CASE WHEN onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, count(Program.ProgramID) as TotalLivePrograms," +
+        SqlCommand cmd = new SqlCommand("SELECT convert(varchar, Program.ProgramDate,101) as ProgramDate, SUM(CASE WHEN onoff = 1 THEN 1 ELSE 0 END) AS TotalOnSitePrograms, SUM(CASE WHEN onoff = 0 THEN 1 ELSE 0 END) AS TotalOffSitePrograms, count(Program.ProgramID) as TotalLivePrograms," +
             " SUM(NumberOfChildren) as NumberOfChildren, SUM(NumberOfAdults) AS NumberOfAdults, SUM(NumberOfChildren + NumberOfAdults) AS TotalParticipants FROM Program WHERE Program.ProgramDate BETWEEN @startDate and @endDate" +
             " GROUP BY Program.ProgramDate ORDER BY Program.ProgramDate", con);
         cmd.Parameters.AddWithValue("@startDate", StartDate.Value.ToString());

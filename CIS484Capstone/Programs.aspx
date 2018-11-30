@@ -1373,9 +1373,9 @@
 
                                 <div class="col-md-12 col-lg-4 
            col-sm-12">
-                                    County:
+
                                     <br />
-                                    <asp:TextBox ID="txtCounty" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtCounty" runat="server" hidden="true"></asp:TextBox>
 
 
                                 </div>

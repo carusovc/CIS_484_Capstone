@@ -917,7 +917,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@status", txtStatus.Text.ToString());
 
         update.Parameters.AddWithValue("@programAddress", txtAddress.Text);
-        update.Parameters.AddWithValue("@cityCounty", txtCity.Text + ", " + txtCounty.Text);
+        update.Parameters.AddWithValue("@cityCounty", txtCity.Text);
 
         //update.Parameters.AddWithValue("@state", ddlState1.SelectedValue);
         update.Parameters.AddWithValue("@state", txtState.Text.ToString());
@@ -1146,6 +1146,15 @@ public partial class Programs : System.Web.UI.Page
     //Live Program ID
     protected void ddlProgramID_SelectedIndexChanged1(object sender, EventArgs e)
     {
+        ddlProgramType.ClearSelection();
+        ddlOrganization.ClearSelection();
+        rboOnOff.ClearSelection();
+        rboPayment.ClearSelection();
+        drpEducators.ClearSelection();
+        ddlBirds.ClearSelection();
+        ddlReptiles.ClearSelection();
+        lstMammals.ClearSelection();
+        AddGrade.ClearSelection();
         //ddlState1.ClearSelection();
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -1233,9 +1242,11 @@ public partial class Programs : System.Web.UI.Page
             {
 
                 String cityCounty = sdr[5].ToString();
-                String[] words = cityCounty.Split(',');
-                String city = words[0];
-                String county = words[1];
+                //String[] words = cityCounty.Split(',');
+                //String city = words[0];
+                //String county = words[1];
+                String city = cityCounty;
+                String county = cityCounty;
                 //txtProgramType.Text = sdr[1].ToString();
                 //txtOrganization.Text = sdr[2].ToString();
                 txtStatus.Text = HttpUtility.HtmlEncode(sdr[3].ToString());
@@ -1396,6 +1407,7 @@ public partial class Programs : System.Web.UI.Page
                 }
                 //txtTempReptiles.Text += sdr6[0].ToString() + " ";
             }
+
 
             while (sdr7.Read())
             {
@@ -1593,7 +1605,7 @@ public partial class Programs : System.Web.UI.Page
 
         ////Program class attributes
         byte onOff = Convert.ToByte(OnOff.Value);
-        string status = txtStatus.Text.ToString();
+        string status = Status.SelectedValue.ToString();
         int programTypeID = Convert.ToInt32(ddlProgram.SelectedItem.Value);
         string programAddress = Address.Value;
         int numOfChildren = Convert.ToInt32(NumOfChildren.Value);

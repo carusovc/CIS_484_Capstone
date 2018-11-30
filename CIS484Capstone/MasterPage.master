@@ -306,12 +306,14 @@ $(".modal-wide").on("show.bs.modal", function() {
                                         <asp:ListItem>Online Program</asp:ListItem>
                                     </asp:DropDownList>
                                 <br />
+                                
                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
                                     <h6>Program Theme Name</h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
                                     <h6>Program Theme Name</h6>
                                 </div>
+                                
                                 <div class=" col-md-6 InternalAnimalForm">
                                     
                                     <asp:TextBox ID="txtProgramName" runat="server"></asp:TextBox>&nbsp;&nbsp;
