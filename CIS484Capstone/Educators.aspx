@@ -56,7 +56,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -161,7 +161,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -227,7 +227,7 @@
                 </div>
             </li>
 
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown no-arrow active">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Educators</span>
@@ -238,7 +238,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow active ">
+            <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                  <span>Volunteers</span>
