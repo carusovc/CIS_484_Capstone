@@ -51,7 +51,7 @@ ContactLastName varchar(50) NOT NULL,
 ContactEmail varchar(100) NOT NULL,
 PrimaryContact char(1) NOT NULL,
 OrgID int NOT NULL,
-LastUpdate datetime Not NULL, 
+LastUpdated datetime Not NULL, 
 LastUpdatedBy varchar(100) Not NULL,
 CONSTRAINT PK_ContactInformation PRIMARY KEY (ContactID),
 CONSTRAINT FK_ContactInformationOrgID FOREIGN KEY (OrgID) references Organization);
