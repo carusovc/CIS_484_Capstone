@@ -53,8 +53,10 @@
                         <span>Programs</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
+                        
                         <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                        <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                        <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
+                        
                     </div>
                 </li>
                 <%--      <li class="nav-item">
@@ -155,8 +157,11 @@
                     <span>Programs</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Theme</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateProgram" data-toggle="modal">Edit Program Theme</a>--%>
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -173,7 +178,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="Report.aspx">
 
                     <span>Reports</span></a>
