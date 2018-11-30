@@ -210,10 +210,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 txtCounty.Text = HttpUtility.HtmlEncode(sdr[2].ToString());
                 txtStreetAddress2.Text = HttpUtility.HtmlEncode(sdr[3].ToString());
                 txtPostalCode2.Text = HttpUtility.HtmlEncode(sdr[4].ToString());
-                txtContactFirstName2.Text = HttpUtility.HtmlEncode(sdr[5].ToString());
-                txtContactLastName2.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
+                //txtContactFirstName2.Text = HttpUtility.HtmlEncode(sdr[5].ToString());
+                //txtContactLastName2.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
                 //txtPhoneNumber2.Text = HttpUtility.HtmlEncode(sdr[7].ToString());
-                txtEmail2.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
+                //txtEmail2.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
                 //txtSecondaryEmail2.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
                 //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
@@ -1675,10 +1675,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 txtCounty.Text = HttpUtility.HtmlEncode(sdr[2].ToString());
                 txtStreetAddress2.Text = HttpUtility.HtmlEncode(sdr[3].ToString());
                 txtPostalCode2.Text = HttpUtility.HtmlEncode(sdr[4].ToString());
-                txtContactFirstName2.Text = HttpUtility.HtmlEncode(sdr[5].ToString());
-                txtContactLastName2.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
+                //txtContactFirstName2.Text = HttpUtility.HtmlEncode(sdr[5].ToString());
+                //txtContactLastName2.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
                 //txtPhoneNumber2.Text = HttpUtility.HtmlEncode(sdr[7].ToString());
-                txtEmail2.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
+                //txtEmail2.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
                 //txtSecondaryEmail2.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
                 //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
