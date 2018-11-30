@@ -19,6 +19,11 @@ public partial class Invoices : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //drpMonth.Items.Clear();
+        //drpYear.Items.Clear();
+        //drpMonth.Items.Add(new ListItem("--Select Month--", "0"));
+        //drpYear.Items.Add(new ListItem("--Select Year--", "0"));
+
         if (!IsPostBack)
         {
             //PopulateData();
