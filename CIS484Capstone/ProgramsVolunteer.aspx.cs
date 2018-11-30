@@ -522,7 +522,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
         lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
 
@@ -788,11 +788,11 @@ public partial class Programs : System.Web.UI.Page
                 String county = words[1];
                 //txtProgramType.Text = sdr[1].ToString();
                 //txtOrganization.Text = sdr[2].ToString();
-                txtStatus.Text = sdr[3].ToString();
-                txtAddress.Text = sdr[4].ToString();
-                txtCity.Text = city;
-                txtCounty.Text = county;
-                txtState.Text = sdr[6].ToString();
+                txtStatus.Text = HttpUtility.HtmlEncode(sdr[3].ToString());
+                txtAddress.Text = HttpUtility.HtmlEncode(sdr[4].ToString());
+                txtCity.Text = HttpUtility.HtmlEncode(city);
+                txtCounty.Text = HttpUtility.HtmlEncode(county);
+                txtState.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
                 if (sdr[7].ToString() == "1")
                 {
                     rboOnOff.SelectedIndex = 0;
@@ -802,8 +802,8 @@ public partial class Programs : System.Web.UI.Page
                     rboOnOff.SelectedIndex = 1;
                 }
                 //rboOnOff.SelectedItem.Value = sdr[7].ToString();
-                txtNumOfChildren.Text = sdr[8].ToString();
-                txtNumOfAdults.Text = sdr[9].ToString();
+                txtNumOfChildren.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
+                txtNumOfAdults.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
                 if (sdr[10].ToString() == "1")
                 {
                     rboPayment.SelectedIndex = 0;
@@ -813,24 +813,24 @@ public partial class Programs : System.Web.UI.Page
                     rboPayment.SelectedIndex = 1;
                 }
                 //rboPayment.SelectedItem.Value = sdr[10].ToString();
-                txtProgramDate.Text = sdr[11].ToString();
-                txtProgramTime.Text = sdr[12].ToString();
+                txtProgramDate.Text = HttpUtility.HtmlEncode(sdr[11].ToString());
+                txtProgramTime.Text = HttpUtility.HtmlEncode(sdr[12].ToString());
                 //txtMonth.Text = sdr[13].ToString();
-                txtComments.Text = sdr[14].ToString();
-                lblLastUpdated.Text = "Last Updated: " + sdr[15].ToString();
-                lblLastUpdatedBy.Text = "Last Updated By: " + sdr[16].ToString();
+                txtComments.Text = HttpUtility.HtmlEncode(sdr[14].ToString());
+                lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[15].ToString());
+                lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[16].ToString());
             }
 
 
             while (sdr1.Read())
             {
-                ddlProgramType.SelectedItem.Text = sdr1[0].ToString();
+                ddlProgramType.SelectedItem.Text = HttpUtility.HtmlEncode(sdr1[0].ToString());
             }
 
 
             while (sdr2.Read())
             {
-                ddlOrganization.SelectedItem.Text = sdr2[0].ToString();
+                ddlOrganization.SelectedItem.Text = HttpUtility.HtmlEncode(sdr2[0].ToString());
             }
 
             while (sdr3.Read())
@@ -1059,25 +1059,25 @@ public partial class Programs : System.Web.UI.Page
             while (sdr.Read())
             {
 
-                txtProgramDate2.Text = sdr[1].ToString();
-                txtNumOfKids.Text = sdr[4].ToString();
-                txtNumOfAdults2.Text = sdr[5].ToString();
-                txtCity2.Text = sdr[6].ToString();
-                txtState2.Text = sdr[7].ToString();
-                txtCountry.Text = sdr[8].ToString();
-                ddlTeacher.SelectedItem.Text = sdr[9].ToString();
-                txtEmail.Text = sdr[10].ToString();
-                TextBoxComments.Text = sdr[11].ToString();
+                txtProgramDate2.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
+                txtNumOfKids.Text = HttpUtility.HtmlEncode(sdr[4].ToString());
+                txtNumOfAdults2.Text = HttpUtility.HtmlEncode(sdr[5].ToString());
+                txtCity2.Text = HttpUtility.HtmlEncode(sdr[6].ToString());
+                txtState2.Text = HttpUtility.HtmlEncode(sdr[7].ToString());
+                txtCountry.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
+                ddlTeacher.SelectedItem.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
+                txtEmail.Text = HttpUtility.HtmlEncode(sdr[10].ToString());
+                TextBoxComments.Text = HttpUtility.HtmlEncode(sdr[11].ToString());
 
 
-                lblLastUpdated.Text = "Last Updated: " + sdr[12].ToString();
-                lblLastUpdatedBy.Text = "Last Updated By: " + sdr[13].ToString();
+                lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[12].ToString());
+                lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[13].ToString());
             }
 
 
             while (sdr1.Read())
             {
-                ddlProgramType2.SelectedItem.Text = sdr1[0].ToString();
+                ddlProgramType2.SelectedItem.Text = HttpUtility.HtmlEncode(sdr1[0].ToString());
             }
 
             while (sdr2.Read())
@@ -1304,7 +1304,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
         lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
 
         // Delete Educators from associated table
