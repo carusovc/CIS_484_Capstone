@@ -240,7 +240,7 @@ Order By o.ProgramDate Desc
 End                                       
 
                                        
-Create Proc [dbo].[spChangePassword]
+Create Procedure [dbo].[spChangePassword]
 @GUID uniqueidentifier,
 @Password nvarchar(100)
 as
@@ -272,7 +272,7 @@ Begin
 End
                                        
                                        
-Create Proc [dbo].[spIsPasswordResetLinkValid] 
+Create Procedure [dbo].[spIsPasswordResetLinkValid] 
 @GUID uniqueidentifier
 as
 Begin
@@ -289,7 +289,7 @@ Begin
 End
            
            
-Create proc [dbo].[spResetPassword]
+Create Procedure [dbo].[spResetPassword]
 @Username nvarchar(100)
 as
 Begin
