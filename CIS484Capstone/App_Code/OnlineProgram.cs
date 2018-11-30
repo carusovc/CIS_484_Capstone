@@ -35,7 +35,7 @@ public class OnlineProgram
 
 
     //Overload Constructor
-    public OnlineProgram(DateTime date, int type, int kidsInClass, int numOfPeople, string city, string stateTerritory, string country, string teacher, string email, string comments, string secondaryEmail)
+    public OnlineProgram(DateTime date, int type, int kidsInClass, int numOfPeople, string city, string stateTerritory, string country, string teacher, string email, string comments)
     {
         setDate(date);
         //setProgramTime(date);
@@ -48,7 +48,7 @@ public class OnlineProgram
         setTeacher(teacher);
         setEmail(email);
         setComments(comments);
-        setSecondaryEmail(secondaryEmail);
+        //setSecondaryEmail(secondaryEmail);
         //setEducator(educator);
         //setTheme(theme);
         //setAnimalsUsed(animalsUsed);     

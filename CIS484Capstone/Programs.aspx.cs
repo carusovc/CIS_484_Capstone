@@ -589,7 +589,7 @@ public partial class Programs : System.Web.UI.Page
             rptProgramLL2Online.DataSource = GetData(string.Format("SELECT City, State, Country From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
             rptProgramLL2Online.DataBind();
 
-            rptProgramLL3Online.DataSource = GetData(string.Format("SELECT ContactEmail, ExtraComments AS Comments, SecondaryEmail From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
+            rptProgramLL3Online.DataSource = GetData(string.Format("SELECT ContactEmail, ExtraComments AS Comments From OnlineProgram WHERE OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
             rptProgramLL3Online.DataBind();
 
             rptNewOnlineProgramLL4.DataSource = GetData(string.Format("SELECT OnlineProgramID, oa.AnimalID, (CASE WHEN AnimalType ='Bird' Then AnimalName ELSE NULL END) AS 'Birds', (CASE WHEN AnimalType = 'Mammal' Then AnimalName ELSE NULL END) AS 'Mammals', (CASE WHEN AnimalType = 'Reptile' Then AnimalName ELSE NULL END) AS 'Reptiles' FROM OnlineAnimal oa inner join Animal on oa.AnimalID = Animal.AnimalID where OnlineProgramID = " + OnlineProgramID + "", OnlineProgramID));
@@ -667,7 +667,7 @@ public partial class Programs : System.Web.UI.Page
             else if (tempProgramCategory.ToString().Equals("Online Program"))
             {
                 // Query 1 for Online
-                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2, OnlineSecondaryEmail AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2 From, Case when AllProgramID > 0 then ' ' else ' ' As Field3 AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
                 rptAllLL1.DataBind();
 
                 // Query 2 for Live
@@ -850,7 +850,7 @@ public partial class Programs : System.Web.UI.Page
 
 
         SqlCommand cmd = new SqlCommand("Select OnlineProgramTypeName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, NumberOfKids, NumberOfPeople, " +
-            "City, State, Country, TeacherName  as Educator, ContactEmail, ExtraComments, SecondaryEmail FROM OnlineProgram op inner join OnlineProgramType opt on  op.onlineprogramtypeid = opt.onlineprogramtypeid", sc);
+            "City, State, Country, TeacherName  as Educator, ContactEmail, ExtraComments FROM OnlineProgram op inner join OnlineProgramType opt on  op.onlineprogramtypeid = opt.onlineprogramtypeid", sc);
 
         sc.Open();
 
@@ -1840,7 +1840,7 @@ public partial class Programs : System.Web.UI.Page
         string teacherName = AddOnlineTeacher.Value;
         string contactEmail = ContactEmail.Value;
         string extraComments = OnlineComments.Value;
-        string secondaryEmail = SecondaryEmail.Value;
+        //string secondaryEmail = SecondaryEmail.Value;
         DateTime programDate = Convert.ToDateTime(ProgramDate.Value);
         string programTime = ProgramTime.Value;
 
@@ -1849,10 +1849,10 @@ public partial class Programs : System.Web.UI.Page
         String tempLastUpdatedBy = "TempWildTekDevs";
 
         // OnlineProgram table inserts
-        OnlineProgram newOnlineProgram = new OnlineProgram(programDate, typeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments, secondaryEmail);
+        OnlineProgram newOnlineProgram = new OnlineProgram(programDate, typeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments);
 
-        insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments, lastUpdated, lastUpdatedBy, secondaryEmail) " +
-            "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments, @lastUpdated, @lastUpdatedBy, @secondaryEmail)";
+        insert.CommandText = "insert into dbo.OnlineProgram (programDate, month, onlineProgramTypeID, numberOfKids, numberOfPeople, city, state, country, teacherName, contactEmail, extraComments, lastUpdated, lastUpdatedBy) " +
+            "values (@programDate, @month, @typeID, @numOfKids, @numofPeople, @city, @state, @country, @teacherName, @contactEmail, @extraComments, @lastUpdated, @lastUpdatedBy)";
 
         insert.Parameters.AddWithValue("@programDate", newOnlineProgram.getDate());
         insert.Parameters.AddWithValue("@month", newOnlineProgram.getDate().ToString("MMMM"));
@@ -1867,7 +1867,7 @@ public partial class Programs : System.Web.UI.Page
         insert.Parameters.AddWithValue("@extraComments", newOnlineProgram.getComments());
         insert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated);
         insert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy);
-        insert.Parameters.AddWithValue("@secondaryEmail", newOnlineProgram.getSecondaryEmail());
+        //insert.Parameters.AddWithValue("@secondaryEmail", newOnlineProgram.getSecondaryEmail());
 
         insert.ExecuteNonQuery();
 
@@ -2115,7 +2115,7 @@ public partial class Programs : System.Web.UI.Page
         String month = programDate.ToString("MMMM");
         string tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value;
         update.CommandText = "update onlineProgram set programDate = @programDate, month = @month, onlineProgramTypeID = @onlineTypeID, numberOfKids = @numOfKids, numberOfPeople = @numOfAdults, " +
-            "city = @city, state= @state, country = @country, teacherName = @teacherName, contactEmail = @contactEmail, extraComments= @comments, secondaryEmail=@secondaryEmail where onlineProgramID = @onlineProgramID";
+            "city = @city, state= @state, country = @country, teacherName = @teacherName, contactEmail = @contactEmail, extraComments= @comments where onlineProgramID = @onlineProgramID";
         update.Parameters.AddWithValue("onlineProgramID", tempOnlineProgramID);
         update.Parameters.AddWithValue("@programDate", txtOnlineProgramDate.Text);
         update.Parameters.AddWithValue("@month", month);
@@ -2130,7 +2130,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@comments", txtOComments.Text);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
-        update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail.Text);
+        //update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail.Text);
         update.ExecuteNonQuery();
 
         lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
@@ -2384,7 +2384,7 @@ public partial class Programs : System.Web.UI.Page
         string tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value;
 
 
-        insert.CommandText = "select OnlineProgramID,  convert(varchar, ProgramDate,101) as ProgramDate, Month, OnlineProgramTypeID, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments, LastUpdated, LastUpdatedBy, secondaryEmail from OnlineProgram where OnlineProgramID = @onlineProgramID";
+        insert.CommandText = "select OnlineProgramID,  convert(varchar, ProgramDate,101) as ProgramDate, Month, OnlineProgramTypeID, NumberOfKids, NumberOfPeople, City, State, Country, TeacherName, ContactEmail, ExtraComments, LastUpdated, LastUpdatedBy from OnlineProgram where OnlineProgramID = @onlineProgramID";
         insert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
 
         onlineProgramType.CommandText = "Select OnlineProgramType.OnlineProgramTypeName from OnlineProgramType inner join OnlineProgram on OnlineProgramType.OnlineProgramTypeID = OnlineProgram.OnlineProgramTypeID where OnlineProgram.OnlineProgramID = @onlineProgramID";
