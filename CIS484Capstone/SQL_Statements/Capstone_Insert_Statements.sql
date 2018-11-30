@@ -357,7 +357,7 @@ INSERT INTO [dbo].[ProgramGrades]([ProgramID],[GradeID],[LastUpdated],[LastUpdat
 
 
 INSERT INTO [dbo].[PaymentRecord]([PaymentAmount],[paymentDate],[CheckNumber],[PaymentType],[Invoice],Paid,[CancelledInvoice],[LastUpdated],[LastUpdatedBy])
-VALUES (1000, '2018-05-01', null, 'Debit', 'GA1003', 'N', 'N', GETDATE(), 'WildTekDevelopers');
+VALUES (1000, '2018-11-01', null, 'Debit', 'GA1003', 'N', 'N', GETDATE(), 'WildTekDevelopers');
 
                                                                                                                                                 
                                                                                                                                                 
@@ -365,3 +365,9 @@ Insert into [dbo].[Volunteers](VolunteerFirstName, VolunteerLastName, VolunteerP
  LastUpdated, LastUpdatedBy) VALUES ('Shelley','Hokanson', '703-555-5555', 'shelleyhokanson@jmu.edu', 'Active', GETDATE(), 'WildTekDevelopers');                                                                  
 Insert into [dbo].[Volunteers](VolunteerFirstName, VolunteerLastName, VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus,
  LastUpdated, LastUpdatedBy) VALUES ('Sarah','Chamness', '703-123-4567', 'sarahchamness@gmail.com', 'Active', GETDATE(), 'WildTekDevelopers');      
+
+                   
+ 
+ exec insertLivePrograms
+                   
+ exec insertOnlinesPrograms
