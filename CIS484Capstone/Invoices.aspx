@@ -39,7 +39,9 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+       
    <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+   
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -52,7 +54,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -141,13 +143,14 @@
   </div>
 </nav>
 
-    
+  
 
     <div id="wrapper">
 
         <!-- Sidebar -->
+    
 
-        <ul class="sidebar navbar-nav d-none d-md-block">
+        <ul class=" sidebar navbar-nav d-none d-md-block " >
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -157,7 +160,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
+                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -246,9 +249,15 @@
             </li>
 
         </ul>
+
+        
+
+
+
+
    <div id="content-wrapper">
 
-                 <section class="login-block  col-xl-8 col-lg-10 col-md-12 col-s-12 mx-auto ">
+                 <section class="login-block  col-xl-10 col-lg-10 col-md-12 col-s-12 mx-auto ">
     
 
 <div class="container1">
@@ -270,6 +279,7 @@ $(function() {
         window.localStorage.removeItem("activeTab");
     }
 });       </script>
+
 
                         <ul class="nav nav-tabs block4" id="myTab" role="tablist">
                                             <li class="nav-item">

@@ -192,11 +192,11 @@ public partial class Invoices : System.Web.UI.Page
             DataRowView drv = e.Row.DataItem as DataRowView;
             if (drv["Paid"].ToString().Equals("N"))
             {
-                e.Row.BackColor = System.Drawing.Color.LightCoral;
+                e.Row.CssClass = "alert alert-danger";
             }
             else if (drv["Paid"].ToString().Equals("Y"))
             {
-                e.Row.BackColor = System.Drawing.Color.LightGreen;
+                e.Row.CssClass = "alert alert-success";
             }
         }
         else if (e.Row.RowType == DataControlRowType.Footer)
@@ -234,11 +234,12 @@ public partial class Invoices : System.Web.UI.Page
             DataRowView drv = e.Row.DataItem as DataRowView;
             if (drv["Paid"].ToString().Equals("N"))
             {
-                e.Row.BackColor = System.Drawing.Color.LightCoral;
+                e.Row.CssClass = "alert alert-danger";
             }
+
             else if (drv["Paid"].ToString().Equals("Y"))
             {
-                e.Row.BackColor = System.Drawing.Color.LightGreen;
+                e.Row.CssClass = "alert alert-success";
             }
         }
         //else if (e.Row.RowType == DataControlRowType.Footer)
