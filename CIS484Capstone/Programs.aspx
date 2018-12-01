@@ -1452,16 +1452,7 @@
 
 
                                 <br />
-                                <div class="col-md-12 col-lg-4
-           col-sm-12">
-                                    Payment Needed?
-                                    <br />
-                                    <asp:RadioButtonList ID="rboPayment" runat="server">
-                                        <asp:ListItem>Yes</asp:ListItem>
-                                        <asp:ListItem>No</asp:ListItem>
-                                    </asp:RadioButtonList>
-
-                                </div>
+                               
 
                                 <div class="col-md-12 col-lg-4 
            col-sm-12">
@@ -2232,23 +2223,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <div class="col-5">
-                                    <label id="PaymentLabel" for="Payment">Payment Status:</label>
-                                </div>
-                                <div class="col-7">
-                                    <%--                                    <select name="Payment Status" id="Payment" class="form-control">
-                                        <option value=""></option>
-                                        <option value="T1">Payment Complete</option>
-                                        <option value="T2">Payment Not Complete</option>
-                                    </select>--%>
-                                    <asp:DropDownList CssClass="form-control" ID="Payment" runat="server" class="dropdown-menu radioButtonList">
-                                        <asp:ListItem Text="--Select Payment Status--" Value="0" />
-                                        <asp:ListItem Text="Payment Complete" Value="Y" />
-                                        <asp:ListItem Text="Payment Not Complete" Value="N" />
-                                    </asp:DropDownList>
-                                </div>
-                            </div>
+                         
 
 
 
