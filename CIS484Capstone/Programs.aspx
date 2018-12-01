@@ -1289,7 +1289,7 @@
     </div>
 
     <div class="modal" id="UpdateLiveProgram" tabindex="-1" role="dialog">
-        <div class="modal-dialog  modal-full " role="document">
+        <div class="modal-dialog " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
                     <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Live Program</h5>
@@ -1304,246 +1304,303 @@
                     <ContentTemplate>
                         <div class="modal-body">
 
-                            <div class="row">
-                                <div class="col-md-12 col-lg-6 
-           col-sm-12">
-                                    <p>
-                                        Select Program:
-                                        <br />
-                                        <asp:DropDownList ID="ddlProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
+
+                             <div class="row">
+
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Select Program</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Select Program</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                    <asp:DropDownList ID="ddlProgramID" class="btn btn-block form-control" style="border-color:lightgrey;" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="ProgramID" DataValueField="ProgramID" OnSelectedIndexChanged="ddlProgramID_SelectedIndexChanged1">
 
                                             <asp:ListItem Text="--Select Live Program--" Value="0" />
                                         </asp:DropDownList>
                                 </div>
-                                <div class="col-md-12 col-lg-6 
-           col-sm-12">
-                                    <p>
-                                        Program Type:<br />
-                                        &nbsp;<asp:DropDownList ID="ddlProgramType" runat="server">
+                            </div>
+                            <br />
+                              <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Program Type</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Program Type</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                    <asp:DropDownList ID="ddlProgramType" class="btn btn-block form-control" style="border-color:lightgrey;" runat="server">
                                             <asp:ListItem Text="--Live Program--" Value="0" />
                                         </asp:DropDownList>
                                 </div>
-
-
-
                             </div>
-                            <div class="row">
-                                <div class="col-md-12 col-lg-6 
-           col-sm-12">
-                                    Organization:
-                                    <br />
-                                    <asp:DropDownList ID="ddlOrganization" runat="server">
+                            <br />
+                              <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Organization</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Organization</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                   <asp:DropDownList ID="ddlOrganization" class="btn btn-block form-control" style="border-color:lightgrey;" runat="server">
                                         <asp:ListItem Text="--Organization--" Value="0" />
 
                                     </asp:DropDownList>
-
                                 </div>
-                                <br />
-                                <div class="col-md-12 col-lg-6 
-           col-sm-12">
-                                    Status:
-                                    <br />
-                                    &nbsp;<asp:TextBox ID="txtStatus" runat="server"></asp:TextBox>
-
-
-                                </div>
-
                             </div>
                             <br />
-                            <div class="row">
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Program Address:
-                                    <br />
-                                    <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+                             <div class="row">
 
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Status</h6>
                                 </div>
-                                <br />
-                                <div class="col-md-12 col-lg-4
-           col-sm-12">
-                                    City:
-                                    <br />
-                                    <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
-
-
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Status</h6>
                                 </div>
-
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-
-                                    <br />
-                                    <asp:TextBox ID="txtCounty" runat="server" hidden="true"></asp:TextBox>
-
-
+                                <div class=" col-md-6 InternalAnimalForm">
+                                   <asp:TextBox ID="txtStatus" class="form-control" runat="server"></asp:TextBox>
                                 </div>
-                                <br />
                             </div>
                             <br />
+                             <div class="row">
 
-                            <div class="row">
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    State:
-                                    <br />
-                                    <asp:TextBox ID="txtState" runat="server"></asp:TextBox>
-
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Program Address</h6>
                                 </div>
-                                <br />
-                                <div class="col-md-12 col-lg-4
-           col-sm-12">
-                                    Number of Children:
-                                    <br />
-                                    <asp:TextBox ID="txtNumOfChildren" runat="server"></asp:TextBox>
-
-
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Program Address</h6>
                                 </div>
-
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Number of Adults:
-                                    <br />
-                                    <asp:TextBox ID="txtNumOfAdults" runat="server"></asp:TextBox>
-
-
+                                <div class=" col-md-6 InternalAnimalForm">
+                                  <asp:TextBox ID="txtAddress" class="form-control" runat="server"></asp:TextBox>
                                 </div>
+                            </div>
 
+                         
+                            <br />
+
+                               <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>City/County</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>City/County</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                   <asp:TextBox ID="txtCity" class="form-control" runat="server"></asp:TextBox>
+                                </div>
                             </div>
 
                             <br />
-                            <div class="row">
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Program Date:
-                                    <br />
-                                    <asp:TextBox ID="txtProgramDate" runat="server"></asp:TextBox>
+                           
 
+                               <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>State</h6>
                                 </div>
-
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Program Time:
-                                    <br />
-                                    <asp:TextBox ID="txtProgramTime" runat="server"></asp:TextBox>
-
-
-
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>State</h6>
                                 </div>
-                                <br />
-                                <div class="col-md-12 col-lg-4
-           col-sm-12">
+                                <div class=" col-md-6 InternalAnimalForm">
+                                  <asp:TextBox ID="txtState" class="form-control" runat="server"></asp:TextBox>
                                 </div>
+                            </div>
+                            <br />
+                             <div class="row">
 
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Number of Children</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Number of Children</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                   <asp:TextBox ID="txtNumOfChildren" class="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                            <br />
+                             <div class="row">
 
-
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Number of Adults</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Number of Adults</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                 <asp:TextBox ID="txtNumOfAdults" class="form-control" runat="server"></asp:TextBox>
+                                </div>
                             </div>
 
+                          <br />
+                            <div class="row">
 
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Program Date</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Program Date</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                 <asp:TextBox ID="txtProgramDate" class="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
                             <br />
                             <div class="row">
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    On/Off Site:
-                                    <br />
-                                    <asp:RadioButtonList ID="rboOnOff" runat="server">
-                                        <asp:ListItem Value="0">Yes</asp:ListItem>
-                                        <asp:ListItem Value="1">No</asp:ListItem>
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Program Time</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Program Time</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                 <asp:TextBox ID="txtProgramTime" class="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                            <br />
+                             <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>On/Off Site</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>On/Off Site</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                 <asp:RadioButtonList ID="rboOnOff" runat="server">
+                                        <asp:ListItem Value="0"> On-Site</asp:ListItem>
+                                        <asp:ListItem Value="1"> Off-Site</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </div>
+                            </div>
 
+                            <br />
+                             <div class="row">
 
-                                <br />
-                                <div class="col-md-12 col-lg-4
-           col-sm-12">
-                                    Payment Needed?
-                                    <br />
-                                    <asp:RadioButtonList ID="rboPayment" runat="server">
-                                        <asp:ListItem>Yes</asp:ListItem>
-                                        <asp:ListItem>No</asp:ListItem>
-                                    </asp:RadioButtonList>
-
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Payment Needed?</h6>
                                 </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Payment Needed?</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                <asp:RadioButtonList ID="rboPayment" runat="server">
+                                        <asp:ListItem> Yes</asp:ListItem>
+                                        <asp:ListItem> No</asp:ListItem>
+                                    </asp:RadioButtonList>
+                                </div>
+                            </div>
+                            <br />
+                             <div class="row">
 
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Educators:
-                                    <br />
-                                    <asp:ListBox ID="drpEducators" runat="server" SelectionMode="Multiple">
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Educators</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Educators</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                               <asp:ListBox ID="drpEducators" runat="server" class=" text-left btn btn-block form-control" style="border-color:lightgrey;" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Educators--" Value="0" />
                                     </asp:ListBox>
-
-
-
-
                                 </div>
-
                             </div>
+
                             <br />
-                            <div class="row">
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Birds:
-                                    <br />
-                                    <asp:ListBox ID="ddlBirds" runat="server" SelectionMode="Multiple">
+                            
+                                 <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Birds</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Birds</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                <asp:ListBox ID="ddlBirds" runat="server" class=" text-left btn btn-block form-control" style="border-color:lightgrey;" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Birds--" Value="0" />
                                     </asp:ListBox>
                                 </div>
+                            </div>
+                            <br />
+                             <div class="row">
 
-
-                                <br />
-                                <div class="col-md-12 col-lg-4
-           col-sm-12">
-                                    Reptiles:
-                                    <br />
-                                    <asp:ListBox ID="ddlReptiles" runat="server" SelectionMode="Multiple">
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Reptiles</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Reptiles</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                <asp:ListBox ID="ddlReptiles" runat="server" class=" text-left btn btn-block form-control" style="border-color:lightgrey;" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Reptiles--" Value="0" />
                                     </asp:ListBox>
-
                                 </div>
+                            </div>
+                            <br />
+                             <div class="row">
 
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Mammals:
-                                    <br />
-                                    <asp:ListBox ID="lstMammals" runat="server" SelectionMode="Multiple">
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Mammals</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Mammals</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                 <asp:ListBox ID="lstMammals" runat="server" class=" text-left btn btn-block form-control" style="border-color:lightgrey;" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Mammals--" Value="0" />
                                     </asp:ListBox>
-
-
                                 </div>
-
                             </div>
-
                             <br />
-                            <div class="row">
-                                <div class="col-md-12 col-lg-3 
-           col-sm-12">
-                                    Grades:
-                                    <br />
-                                    <asp:ListBox ID="AddGrade" runat="server" SelectionMode="Multiple">
+
+                             <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Grades</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Grades</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                 <asp:ListBox ID="AddGrade" runat="server" class=" text-left btn btn-block form-control" style="border-color:lightgrey;" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Grades--" Value="0" />
                                     </asp:ListBox>
                                 </div>
+                            </div>
+                            <br />
+                             <div class="row">
 
-
-                                <br />
-                                <div class="col-md-12 col-lg-9
-           col-sm-12">
-                                    Comments:
-                                    <br />
-                                    <asp:TextBox ID="txtComments" runat="server"></asp:TextBox>
-
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Comments</h6>
                                 </div>
-
-
-
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Comments</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                               <asp:TextBox ID="txtComments" class="form-control" rows="3" runat="server"></asp:TextBox>
+                                </div>
                             </div>
 
 
+                      
+                          
+                 <asp:TextBox ID="txtCounty" hidden="true" runat="server"></asp:TextBox>
 
+                            <br />
 
-                            <asp:Label ID="lblLastUpdated" runat="server" Text=""></asp:Label>
-                            &nbsp;<asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>
-
+                              <div class="row">
+                                    <div class=" col-md-12 InternalAnimalForm" >
+                            <asp:Label ID="lblLastUpdated" class="alert-warning mb-1" runat="server" Text=""></asp:Label> <br />
+                            <asp:Label ID="lblLastUpdatedBy" class="alert-warning" runat="server" Text=""></asp:Label>
+   </div>
+                            </div>
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
@@ -1570,7 +1627,7 @@
     <div class="modal" id="UpdateOnlineProgram" tabindex="-1" role="dialog">
 
 
-        <div class="modal-dialog  modal-full " role="document">
+        <div class="modal-dialog   " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
                     <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Online Program </h5>
@@ -1586,215 +1643,297 @@
                         <div class="modal-body">
 
                             <div class="row">
-                                <div class="col-md-12 col-lg-6 
-           col-sm-12">
-                                    <p>
-                                        Select Online Program:
-                                        <br />
-                                        <asp:DropDownList ID="ddlOnlineProgramID" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OnlineProgramID" DataValueField="OnlineProgramID" OnSelectedIndexChanged="ddlOnlineProgramID_SelectedIndexChanged1">
+
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Select Online Program</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Select Online Program</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                     <asp:DropDownList ID="ddlOnlineProgramID" runat="server" style="border-color:lightgrey;" class="btn btn-block form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OnlineProgramID" DataValueField="OnlineProgramID" OnSelectedIndexChanged="ddlOnlineProgramID_SelectedIndexChanged1">
                                             <asp:ListItem Text="--Select Online Program--" Value="0" />
                                         </asp:DropDownList>
                                 </div>
-                                <div class="col-md-12 col-lg-6 
-           col-sm-12">
-                                    <p>
-                                        Online Program Type:<br />
-                                        &nbsp;<asp:DropDownList ID="ddlOnlineProgramType" runat="server">
+                            </div>
+                            <br />
+                              <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Online Program Type</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Online Program Type</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                   <asp:DropDownList ID="ddlOnlineProgramType" style="border-color:lightgrey;" class="btn btn-block form-control" runat="server">
                                             <asp:ListItem Text="--Program Type--" Value="0" />
 
                                         </asp:DropDownList>
                                 </div>
-
-
-
                             </div>
-
-
                             <br />
-                            <div class="row">
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    City:
-                                    <br />
-                                    <asp:TextBox ID="txtOCity" runat="server"></asp:TextBox>
+                              <div class="row">
 
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>City</h6>
                                 </div>
-                                <br />
-                                <div class="col-md-12 col-lg-4
-           col-sm-12">
-                                    State If Applicable:
-                                    <br />
-                                    <asp:TextBox ID="txtOState" runat="server"></asp:TextBox>
-
-
-
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>City</h6>
                                 </div>
-
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Country:
-                                    <br />
-                                    <asp:TextBox ID="txtOCountry" runat="server"></asp:TextBox>
-
-
-
+                                <div class=" col-md-6 InternalAnimalForm">
+                                   <asp:TextBox ID="txtOCity" class="form-control" runat="server"></asp:TextBox>
                                 </div>
-                                <br />
+                            </div>
+                            <br />
+                             <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>State If Applicable</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>State If Applicable</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                  <asp:TextBox ID="txtOState" class="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                            <br />
+                             <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Country</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Country</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                   <asp:TextBox ID="txtOCountry" class="form-control" runat="server"></asp:TextBox>
+                                </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Teacher:
-                                    <br />
-                                    <asp:TextBox ID="txtOnlineTeacher" runat="server"></asp:TextBox>
+                         
+                            <br />
 
+                               <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>City/County</h6>
                                 </div>
-                                <br />
-                                <div class="col-md-12 col-lg-4
-           col-sm-12">
-                                    Number of Children:
-                                    <br />
-                                    <asp:TextBox ID="txtNumOfOnlineKids" runat="server"></asp:TextBox>
-
-
-
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>City/County</h6>
                                 </div>
-
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Number of Adults:
-                                    <br />
-                                    <asp:TextBox ID="txtNumOfOnlineAdults" runat="server"></asp:TextBox>
-
-
+                                <div class=" col-md-6 InternalAnimalForm">
+                                   <asp:TextBox ID="TextBox3" class="form-control" runat="server"></asp:TextBox>
                                 </div>
-
                             </div>
 
                             <br />
+                           
 
+                               <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Teacher</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Teacher</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                  <asp:TextBox ID="txtOnlineTeacher" class="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                            <br />
+                             <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Number of Children</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Number of Children</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                 <asp:TextBox ID="txtNumOfOnlineKids" class="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                            <br />
+                             <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Number of Adults</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Number of Adults</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                  <asp:TextBox ID="txtNumOfOnlineAdults" class="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+
+                          <br />
                             <div class="row">
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Program Date:
-                                    <br />
-                                    <asp:TextBox ID="txtOnlineProgramDate" runat="server"></asp:TextBox>
 
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Program Date</h6>
                                 </div>
-
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Contact Email:
-                                    <br />
-                                    <asp:TextBox ID="txtOEmail" runat="server"></asp:TextBox>
-
-
-
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Program Date</h6>
                                 </div>
-
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Secondary Email:
-                                    <br />
-                                    <asp:TextBox ID="txtSecondaryEmail" runat="server"></asp:TextBox>
-
-
-
+                                <div class=" col-md-6 InternalAnimalForm">
+                                <asp:TextBox ID="txtOnlineProgramDate" class="form-control" runat="server"></asp:TextBox>
                                 </div>
-
-                                <br />
-                                <div class="col-md-12 col-lg-4
-           col-sm-12">
-                                </div>
-
-
-
                             </div>
                             <br />
                             <div class="row">
 
-                                <div class="col-md-12 col-lg-4
-           col-sm-12">
-                                    Grades:
-                                    <br />
-                                    <asp:ListBox ID="lstOGrades" runat="server" SelectionMode="Multiple">
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Contact Email</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Contact Email</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                 <asp:TextBox ID="txtOEmail" class="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+                            
+
+                            <br />
+                             <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Grades</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Grades</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                 <asp:ListBox ID="lstOGrades" runat="server" style="border-color:lightgrey;" class=" text-left btn btn-block form-control" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Grades--" Value="0" />
                                     </asp:ListBox>
-
                                 </div>
-
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Educators:
-                                    <br />
-                                    <asp:ListBox ID="lstOEducators" runat="server" SelectionMode="Multiple">
-                                        <asp:ListItem Text="--Select Educators--" Value="0" />
-                                    </asp:ListBox>
-
-
-                                </div>
-
                             </div>
                             <br />
+                             <div class="row">
 
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Educators</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Educators</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                <asp:ListBox ID="lstOEducators" runat="server" style="border-color:lightgrey;" class=" text-left btn btn-block form-control" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Educators--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
 
-                            <div class="row">
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Birds:
-                                    <br />
-                                    <asp:ListBox ID="lstOBirds" runat="server" SelectionMode="Multiple">
+                            <br />
+                            
+                                 <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Birds</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Birds</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                               <asp:ListBox ID="lstOBirds" runat="server" style="border-color:lightgrey;" class=" text-left btn btn-block form-control" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Birds--" Value="0" />
                                     </asp:ListBox>
                                 </div>
+                            </div>
+                            <br />
+                             <div class="row">
 
-
-                                <br />
-                                <div class="col-md-12 col-lg-4
-           col-sm-12">
-                                    Reptiles:
-                                    <br />
-                                    <asp:ListBox ID="lstOReptiles" runat="server" SelectionMode="Multiple">
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Reptiles</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Reptiles</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                 <asp:ListBox ID="lstOReptiles" runat="server" style="border-color:lightgrey;" class=" text-left btn btn-block form-control" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Reptiles--" Value="0" />
                                     </asp:ListBox>
-
                                 </div>
+                            </div>
+                            <br />
+                             <div class="row">
 
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Mammals:
-                                    <br />
-                                    <asp:ListBox ID="lstOMammals" runat="server" SelectionMode="Multiple">
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Mammals</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Mammals</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                   <asp:ListBox ID="lstOMammals" runat="server" style="border-color:lightgrey;" class=" text-left btn btn-block form-control" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Mammals--" Value="0" />
                                     </asp:ListBox>
-
-
                                 </div>
-
                             </div>
+                            <br />
+
+                             
+                       
+                             <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Comments</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Comments</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                              <asp:TextBox ID="txtOComments" class="form-control" runat="server"></asp:TextBox>
+                                </div>
+                            </div>
+
+
+                      
+                          
+                 <asp:TextBox ID="TextBox10" hidden="true" runat="server"></asp:TextBox>
 
                             <br />
 
-                            <div class="row">
-
-                                <div class="col-md-12 col-lg-9
-           col-sm-12">
-                                    Comments:
-                                    <br />
-                                    <asp:TextBox ID="txtOComments" runat="server"></asp:TextBox>
-
-                                </div>
-
-
-
-                            </div>
+                              <div class="row">
+                                    <div class=" col-md-12 InternalAnimalForm" >
+                            <asp:Label ID="Label4" class="alert-warning mb-1" runat="server" Text=""></asp:Label> <br />
+                            <asp:Label ID="Label5" class="alert-warning" runat="server" Text=""></asp:Label>
+   </div>
+                            
 
 
 
 
-                            <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
-                            &nbsp;<asp:Label ID="Label5" runat="server" Text=""></asp:Label>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                         </div>
                     </ContentTemplate>
@@ -2073,7 +2212,7 @@
 
 
 
-    <%--Adding new program modal--%>
+   <%--Adding new program modal--%>
     <div id="addProgramModal" class="modal" tabindex="-1" role="dialog" tabindex="-1" aria-labelledby="myTitle" aria-hidden="true" style="z-index: 2000">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -2815,6 +2954,7 @@
             </div>
         </div>
     </div>
+
 
     <script>
         //Selector for the first modal slide
