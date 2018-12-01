@@ -49,11 +49,7 @@ $(".modal-wide").on("show.bs.modal", function() {
     </asp:ScriptManager>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
-
-
-
-
-
+         
         <div class="modal fade" id="UpdateOrganization" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content mt-5">

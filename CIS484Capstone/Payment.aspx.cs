@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 
 public partial class Payments : System.Web.UI.Page
 {
@@ -54,38 +55,38 @@ public partial class Payments : System.Web.UI.Page
 
        
         ddlOrganization.DataBind();
+        try { 
+        SqlConnection con = new SqlConnection(cs);
 
-        
+        con.Open();
 
-        //if (ddlProgramType.Items.Count < 2)
-        //{
-        //    while (myRead1.Read())
-        //    {
-        //        ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
-        //    }
-        //    while (myRead8.Read())
-        //    {
-        //        ddlProgramType.Items.Add(new ListItem(myRead8["OnlineProgramTypeName"].ToString(), myRead8["OnlineProgramTypeID"].ToString()));
-        //    }
-        //}
+        //string str = "select * from Person where username= @username";
+        System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+        str.Connection = sc;
+        str.Parameters.Clear();
 
+        str.CommandText = "select * from Person where username= @username";
+        str.Parameters.AddWithValue("@username", Session["USER_ID"]);
+        str.ExecuteNonQuery();
 
+        //SqlCommand com = new SqlCommand(str, con);
 
+        SqlDataAdapter da = new SqlDataAdapter(str);
 
+        DataSet ds = new DataSet();
 
+        da.Fill(ds);
+
+        lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
         sc.Close();
-
-        try
-        {
-            lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
-
-        }
+    }
         catch
         {
             Session.RemoveAll();
             Response.Redirect("Default.aspx", false);
         }
 
+    
 
 
 
@@ -127,7 +128,7 @@ public partial class Payments : System.Web.UI.Page
 
         //Temporary LastUpdated and LastUpdatedBy
         DateTime tempLastUpdated = DateTime.Today;
-        String tempLastUpdatedBy = "WildTekDevelopers";
+        String tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
 
 
 

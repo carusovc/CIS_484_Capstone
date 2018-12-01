@@ -36,14 +36,16 @@
 
 
 
-
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+   <nav class="navbar navbar-dark bg-dark">
+  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-       <asp:Label ID="lblWelcome" runat="server" Text="" class="text-warning bg-dark text-right" ></asp:Label>
-
+        <div class="ml-auto">
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3;" ></asp:Label>
+         <a class=" d-none d-md-block" style="color:#FFBC7C;" href="Default.aspx">
+               <span>Logout</span></a>
+</div>
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown no-arrow">
@@ -351,7 +353,7 @@ $(function() {
                                         <br />
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <asp:GridView HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" runat="server" ID="gridSearch" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False">
+    HeaderStyle-Forecolor="#732700" runat="server" ID="gridSearch" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" AllowSorting="True">
                                             <Columns>
                                                 <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName">
                                                     <ItemStyle HorizontalAlign="Left" />
@@ -392,7 +394,7 @@ $(function() {
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <asp:GridView  HeaderStyle-Backcolor="#FFBC7C"
                                     HeaderStyle-Forecolor="#732700" runat="server" ID="GridView1" class=" table table-bordered table-condensed table-hover" 
-                                        AutoGenerateColumns="False"  DataSourceID="SqlDataSource3">
+                                        AutoGenerateColumns="False"  DataSourceID="SqlDataSource3" AllowSorting="True">
 
                                         <Columns>
                                             <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName">
@@ -443,7 +445,7 @@ $(function() {
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <asp:GridView  HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" ID="AnimalLiveGrid" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"
-                                        EmptyDataText="There are no records to display.">
+                                        EmptyDataText="There are no records to display." AllowSorting="True">
                                         <Columns>
 
                                             <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName">
@@ -494,7 +496,7 @@ $(function() {
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <asp:GridView HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" runat="server" ID="gridOnlinePrograms" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
-                                        EmptyDataText="There are no records to display.">
+                                        EmptyDataText="There are no records to display." AllowSorting="True">
                                         <Columns>
                                             <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName">
                                                 <ItemStyle HorizontalAlign="Left" />
@@ -616,7 +618,7 @@ $(function() {
    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <asp:GridView ID="gridLivePrograms" HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" runat="server" class="table table-bordered table-condensed table-hover" 
-    AutoGenerateColumns="False" EmptyDataText="There are no records to display.">
+    AutoGenerateColumns="False" EmptyDataText="There are no records to display." AllowSorting="True">
         <Columns>
             <asp:BoundField DataField="ProgramDate" HeaderText="Date" SortExpression="Program Date" ReadOnly="True" >
                  <HeaderStyle HorizontalAlign="Left" />
@@ -680,7 +682,7 @@ $(function() {
  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <asp:GridView runat="server" HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="#732700" id= "gridOnlineAnimalsTotals" class="table table-bordered table-condensed table-hover" 
-        AutoGenerateColumns="False" EmptyDataText="There are no records to display.">
+        AutoGenerateColumns="False" EmptyDataText="There are no records to display." AllowSorting="True">
         <Columns>
              <asp:BoundField DataField="ProgramDate" HeaderText="Date" SortExpression="Program Date" ReadOnly="True" >
                  <HeaderStyle HorizontalAlign="Left" />
@@ -755,7 +757,7 @@ $(function() {
      <br />
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <asp:GridView ID="gridPrograms"  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center">
+    HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center" AllowSorting="True">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month Name" ReadOnly="True" >
             <HeaderStyle HorizontalAlign="Left" />
@@ -836,7 +838,7 @@ $(function() {
      <br />
    
  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <asp:GridView ID="GridView2" HeaderStyle-Backcolor="#FFBC7C"
+    <asp:GridView ID="GridView2" HeaderStyle-Backcolor="#FFBC7C" AllowSorting="True"
     HeaderStyle-Forecolor="#732700"  class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" HorizontalAlign="Center">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" >

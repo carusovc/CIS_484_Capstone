@@ -37,13 +37,16 @@
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand " style="color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-        <asp:Label ID="lblWelcome" runat="server" Text="" class="text-warning bg-dark text-right" ></asp:Label>
-
+    <nav class="navbar navbar-dark bg-dark">
+  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+        <div class="ml-auto">
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3;" ></asp:Label>
+         <a class=" d-none d-md-block" style="color:#FFBC7C;" href="Default.aspx">
+               <span>Logout</span></a>
+</div>
         <div class="collapse navbar-collapse active" id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
                 <li class="nav-item dropdown no-arrow">
@@ -331,7 +334,7 @@
                                                 <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                     <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                                         <%--<h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>--%>
-                                                        <asp:GridView ID="GridView1" HeaderStyle-BackColor="#FFBC7C" HeaderStyle-ForeColor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
+                                                        <asp:GridView ID="GridView1" HeaderStyle-BackColor="#FFBC7C" HeaderStyle-ForeColor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4" AllowSorting="True">
                                                             <Columns>
                                                                 <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName"></asp:BoundField>
                                                                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status"></asp:BoundField>

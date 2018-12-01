@@ -22,8 +22,17 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
-       
 
+        //try
+        //{
+        //    lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + " ";
+
+        //}
+        //catch
+        //{
+        //    Session.RemoveAll();
+        //    Response.Redirect("Default.aspx", false);
+        //}
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
         if (!IsPostBack)
         {
