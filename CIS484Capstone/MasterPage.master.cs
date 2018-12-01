@@ -1515,69 +1515,69 @@ public partial class MasterPage : System.Web.UI.MasterPage
         sc.Close();
     }
 
-    protected void btnDeleteVolunteer_Click(object sender, EventArgs e)
-    {
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        sc.ConnectionString = cs;
-        sc.Open();
+    //protected void btnDeleteVolunteer_Click(object sender, EventArgs e)
+    //{
+    //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+    //    // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+    //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+    //    sc.ConnectionString = cs;
+    //    sc.Open();
 
-        System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
+    //    System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
 
-        delete.Connection = sc;
-
-
-        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
-
-        //call read array
-        SqlConnection con = new SqlConnection(cs);
-        delete.CommandText = "Delete from Volunteers where VolunteerID = @VolunteerID";
-        delete.Parameters.AddWithValue("@VolunteerID", ddlVolunteerName.SelectedItem.Value);
-
-        delete.ExecuteNonQuery();
-
-        ddlVolunteerName.Items.Clear();
-        //call read array
-        con.Open();
-        if (con.State == System.Data.ConnectionState.Open)
-        {
-
-            string read = "Select * from Volunteers";
-            SqlCommand cmd = new SqlCommand(read, con);
-            SqlDataReader myRead = cmd.ExecuteReader();
-
-            while (myRead.Read())
-            {
-
-                ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString(), myRead["VolunteerID"].ToString()));
-            }
+    //    delete.Connection = sc;
 
 
-        }
-        txtVolunteerFirstName.Text = "";
-        txtVolunteerLastName.Text = "";
-        txtVolunteerAddPhoneNumber.Text = "";
-        txtVoluteerAddEmail.Text = "";
-        ddlVolunteerAddStatus.SelectedIndex = 0;
-        ddlVolunteerName.Items.Clear();
-        //call read array
-        if (sc.State == System.Data.ConnectionState.Open)
-        {
+    //    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
 
-            string read = "Select * from Volunteers";
-            SqlCommand cmd = new SqlCommand(read, sc);
-            SqlDataReader myRead = cmd.ExecuteReader();
+    //    //call read array
+    //    SqlConnection con = new SqlConnection(cs);
+    //    delete.CommandText = "Delete from Volunteers where VolunteerID = @VolunteerID";
+    //    delete.Parameters.AddWithValue("@VolunteerID", ddlVolunteerName.SelectedItem.Value);
 
-            ddlVolunteerName.Items.Add(new ListItem("--Select Volunteer--", "0"));
-            while (myRead.Read())
-            {
-                ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
-            }
-        }
-        con.Close();
-        sc.Close();
-    }
+    //    delete.ExecuteNonQuery();
+
+    //    ddlVolunteerName.Items.Clear();
+    //    //call read array
+    //    con.Open();
+    //    if (con.State == System.Data.ConnectionState.Open)
+    //    {
+
+    //        string read = "Select * from Volunteers";
+    //        SqlCommand cmd = new SqlCommand(read, con);
+    //        SqlDataReader myRead = cmd.ExecuteReader();
+
+    //        while (myRead.Read())
+    //        {
+
+    //            ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString(), myRead["VolunteerID"].ToString()));
+    //        }
+
+
+    //    }
+    //    txtVolunteerFirstName.Text = "";
+    //    txtVolunteerLastName.Text = "";
+    //    txtVolunteerAddPhoneNumber.Text = "";
+    //    txtVoluteerAddEmail.Text = "";
+    //    ddlVolunteerAddStatus.SelectedIndex = 0;
+    //    ddlVolunteerName.Items.Clear();
+    //    //call read array
+    //    if (sc.State == System.Data.ConnectionState.Open)
+    //    {
+
+    //        string read = "Select * from Volunteers";
+    //        SqlCommand cmd = new SqlCommand(read, sc);
+    //        SqlDataReader myRead = cmd.ExecuteReader();
+
+    //        ddlVolunteerName.Items.Add(new ListItem("--Select Volunteer--", "0"));
+    //        while (myRead.Read())
+    //        {
+    //            ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
+    //        }
+    //    }
+    //    con.Close();
+    //    sc.Close();
+    //}
 
     protected void btnUpdateVolunteer_Click(object sender, EventArgs e)
     {
