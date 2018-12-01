@@ -301,7 +301,7 @@
                                                  <asp:BoundField DataField="Paid" HeaderText="Paid?" SortExpression="Paid" ReadOnly="True"/>
                                             </Columns>
 
-<HeaderStyle BackColor="#FFBC7C" ForeColor="#732700"></HeaderStyle>
+<HeaderStyle-BackColor="#FFBC7C" ForeColor="#732700"></HeaderStyle>
 
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"

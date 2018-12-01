@@ -336,21 +336,21 @@ $(function() {
     <br />
      <br />
    
-                                        <asp:GridView ID="GridView1"  HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
-                                            OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
+                                        <asp:GridView ID="GridView1"   runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
+                                            OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display." class="table  table-bordered table-condensed table-hover">
                                             <Columns>
                                                  <asp:TemplateField HeaderText="Select">
                                                 <ItemTemplate>
                                                     <asp:CheckBox ID="chkSelect" HorizontalAlign="Center" runat="server" Width="110px" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                                <asp:BoundField DataField="PaymentDate" HeaderText="PaymentDate" SortExpression="PaymentDate">
+                                                <asp:BoundField DataField="PaymentDate" HeaderText="Payment Date" SortExpression="PaymentDate">
                                                     
                                                 </asp:BoundField>
-                                                <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
+                                                <asp:BoundField DataField="PaymentAmount" HeaderText="Payment Amount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
                                                 </asp:BoundField>
-                                                 <asp:BoundField DataField="PaymentType" HeaderText="PaymentType" SortExpression="PaymentType" />
-                                                <asp:BoundField DataField="CheckNumber" HeaderText="CheckNumber" SortExpression="CheckNumber" InsertVisible="True">
+                                                 <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" SortExpression="PaymentType" />
+                                                <asp:BoundField DataField="CheckNumber" HeaderText="Check Number" SortExpression="CheckNumber" InsertVisible="True">
                                                 </asp:BoundField>
 
                                                <asp:BoundField DataField="ProgramName" HeaderText="Program" SortExpression="ProgramName" />            
@@ -443,8 +443,8 @@ $(function() {
     <br />
      <br />
    
-                                    <asp:GridView  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" ID="CancelledPaymentGrid" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID"  OnRowDataBound="GridView2_RowDataBound" AllowSorting="False" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover" >
+                                    <asp:GridView   ID="CancelledPaymentGrid" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
+                                        OnRowDataBound="GridView2_RowDataBound" AllowSorting="False" EmptyDataText="There are no records to display." class="table stable-striped table-bordered table-condensed table-hover" >
                                         <Columns>
                                                  <asp:TemplateField HeaderText="Select">
                                                 <ItemTemplate>
@@ -467,6 +467,7 @@ $(function() {
                                                 <asp:BoundField DataField="PaymentID" HeaderText="PaymentID" SortExpression="PaymentID" Visible="False" ReadOnly="True"/>
                                                 <asp:BoundField DataField="Invoice" HeaderText="Invoice" SortExpression="Invoice" />
                                             </Columns>
+                                          <HeaderStyle BackColor="#C7BFC4" ForeColor="Black"></HeaderStyle>
                                     </asp:GridView>
                                     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                                         SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
@@ -527,8 +528,7 @@ $(function() {
                                                 <br />
 
 
-                                                <asp:GridView ID="YearlyInvoiceGrid"  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" runat="server" DataSourceID="SqlDataSource3" AutoGenerateColumns="False" DataKeyNames="PaymentID" OnRowDataBound="YearlyInvoiceGrid_RowDataBound" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
+                                                <asp:GridView ID="YearlyInvoiceGrid"   runat="server" DataSourceID="SqlDataSource3" AutoGenerateColumns="False" DataKeyNames="PaymentID" OnRowDataBound="YearlyInvoiceGrid_RowDataBound" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
                                             <Columns>
                                                  <asp:TemplateField HeaderText="Select" >
                                                 <ItemTemplate>
@@ -554,7 +554,7 @@ $(function() {
                                                  <asp:BoundField DataField="Paid" HeaderText="Paid?" SortExpression="Paid" ReadOnly="True"/>
                                             </Columns>
 
-<HeaderStyle BackColor="#FFBC7C" ForeColor="#732700"></HeaderStyle>
+  <HeaderStyle BackColor="#C7BFC4" ForeColor="Black"></HeaderStyle>
 
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
