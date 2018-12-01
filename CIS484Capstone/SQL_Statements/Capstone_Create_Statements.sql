@@ -99,6 +99,15 @@ CONSTRAINT PK_OnlineProgram PRIMARY KEY (OnlineProgramID),
 CONSTRAINT FK_OnlineProgramOnlineProgramType FOREIGN KEY (OnlineProgramTypeID) references OnlineProgramType);
 --CONSTRAINT FK_OnlineProgramPaymentID FOREIGN KEY (PaymentID) references PaymentRecord
 
+Create Table OnlineVolunteers(
+OnlineProgramID int NOT NULL,
+VolunteerID int NOT NULL,
+LastUpdated datetime NOT NULL,
+LastUpdatedBy varchar(100) NOT NULL,
+CONSTRAINT PK_OnlineVolunteers PRIMARY KEY (OnlineProgramID, VolunteerID),
+CONSTRAINT FK_OnlineVolunteersOnline FOREIGN KEY (OnlineProgramID) references OnlineProgram,
+CONSTRAINT FK_OnlineVolunteersVolunteers FOREIGN KEY (VolunteerID) references Volunteers);
+                                         
 Create Table OnlineEducators(
 OnlineProgramID int NOT NULL,
 EducatorID int NOT NULL,
