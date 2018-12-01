@@ -35,14 +35,14 @@
             
          
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-dark bg-dark">
+  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-       
    <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-   <asp:Label ID="lblWelcome" runat="server" Text="" class="text-warning bg-dark text-right" ></asp:Label>
+         <a class="ml-auto d-none d-md-block" style="color:#FFBC7C;" href="Default.aspx">
 
+                    <span>Logout</span></a>
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown no-arrow">
@@ -132,14 +132,16 @@
 
                     <span>Create Outreach Coordinator Access</span></a>
             </li>
-            <li class="nav-item">
+           
+                 <li class="nav-item">
                 <a class="nav-link" href="Default.aspx">
-
                     <span>Logout</span></a>
             </li>
+            
 
     </ul>
    
+
   </div>
 </nav>
 
@@ -242,11 +244,7 @@
 
                     <span>Create Outreach Coordinator Access</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Default.aspx">
-
-                    <span>Logout</span></a>
-            </li>
+          
 
         </ul>
 
@@ -364,7 +362,7 @@ $(function() {
                                                  <asp:BoundField DataField="Paid" HeaderText="Paid?" SortExpression="Paid" ReadOnly="True"/>
                                             </Columns>
 
-                                            <HeaderStyle BackColor="#FFBC7C" ForeColor="#732700"></HeaderStyle>
+                                            <HeaderStyle BackColor="#C7BFC4" ForeColor="Black"></HeaderStyle>
 
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
