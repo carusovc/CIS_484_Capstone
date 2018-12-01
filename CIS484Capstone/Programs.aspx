@@ -2124,10 +2124,11 @@
                                     <input type="time" id="ProgramTime" class="form-control" runat="server" />
                                 </div>
                             </div>
-
-                            <input type="button" class="btn" id="btnEndSelectProgramType" value="Next" />
-
-                        </div>
+ </div>
+                         <div class="modal-footer">
+                            <input type="button" class="btn btn-inside" id="btnEndSelectProgramType" value="Next" />
+                             </div>
+                       
                     </div>
 
 
@@ -2373,12 +2374,14 @@
                             <textarea name="Comments" id="Comments" rows="5" cols="100" class="form-control" runat="server"></textarea>
 
                             <p></p>
-                            <input type="button" class="btn" id="btnBackLive" value="Back" />
+                        </div>    
+                                        <div class="modal-footer">
+                        <input type="button" class="btn btn-secondary" id="btnBackLive" value="Back" />
 
                             <%--<input type="button" class="btn" id="btnEndstep14" value="Submit" OnClick="btnSubmitLive_Click"/>--%>
-                            <asp:Button ID="btnsubmitLiveProgram" class="btn" runat="server" Text="Submit" OnClick="btnSubmitLive_Click" />
-
-                        </div>
+                            <asp:Button ID="btnsubmitLiveProgram" class="btn btn-inside" runat="server" Text="Submit" OnClick="btnSubmitLive_Click" />
+                            </div>
+                        
 
                     </div>
 
@@ -2799,19 +2802,19 @@
                                     <textarea name="Comments" id="OnlineComments" rows="5" cols="100" class="form-control" runat="server"></textarea>
                                 </div>
                             </div>
-
-
-                            <input type="button" class="btn" id="btnBackOnline" value="Back" />
+                            </div>
+                            <div class="modal-footer">
+                            <input type="button" class="btn btn-secondary " id="btnBackOnline" value="Back" />
                             <%--                            <input type="button" class="btn" id="btnEndstep24" value="Submit" />--%>
-                            <asp:Button ID="btnSubmitOnline" runat="server" Text="Submit" OnClick="btnSubmitOnline_Click" />
+                            <asp:Button ID="btnSubmitOnline" class="btn btn-inside " runat="server" Text="Submit" OnClick="btnSubmitOnline_Click" />
                         </div>
-
+                            
                     </div>
 
 
 
                 </div>
-                <div class="modal-footer"></div>
+
             </div>
         </div>
     </div>

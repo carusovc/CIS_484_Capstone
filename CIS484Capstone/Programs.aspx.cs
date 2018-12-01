@@ -1141,6 +1141,8 @@ public partial class Programs : System.Web.UI.Page
         AddGrade.ClearSelection();
         txtComments.Text = "";
 
+      
+
     }
 
     //Live Program ID
@@ -2126,12 +2128,13 @@ public partial class Programs : System.Web.UI.Page
         DateTime programDate = Convert.ToDateTime(txtOnlineProgramDate.Text);
         String month = programDate.ToString("MMMM");
         string tempOnlineProgramID = ddlOnlineProgramID.SelectedItem.Value;
+        update.Parameters.Clear();
         update.CommandText = "update onlineProgram set programDate = @programDate, month = @month, onlineProgramTypeID = @onlineTypeID, numberOfKids = @numOfKids, numberOfPeople = @numOfAdults, " +
             "city = @city, state= @state, country = @country, teacherName = @teacherName, contactEmail = @contactEmail, extraComments= @comments where onlineProgramID = @onlineProgramID";
-        update.Parameters.AddWithValue("onlineProgramID", tempOnlineProgramID);
+        update.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
         update.Parameters.AddWithValue("@programDate", txtOnlineProgramDate.Text);
         update.Parameters.AddWithValue("@month", month);
-        update.Parameters.AddWithValue("@onlineTypeID", tempOnlineProgramID); // may need to be changed.
+        update.Parameters.AddWithValue("@onlineTypeID", ddlOnlineProgramType.SelectedValue); // may need to be changed.
         update.Parameters.AddWithValue("@numOfKids", txtNumOfOnlineKids.Text);
         update.Parameters.AddWithValue("@numofAdults", txtNumOfOnlineAdults.Text);
         update.Parameters.AddWithValue("@city", txtOCity.Text);
@@ -2321,29 +2324,33 @@ public partial class Programs : System.Web.UI.Page
         lstOGrades.ClearSelection();
         txtOComments.Text = "";
 
+        con.Open();
+        ddlOnlineProgramID.Items.Clear();
+        ddlOnlineProgramID.Items.Add(new ListItem("--Select Online Program--", "0"));
+
+        string onlineProgramRead = "SELECT OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID      ";
+        SqlCommand cmd = new SqlCommand(onlineProgramRead, con);
+        SqlDataReader myRead = cmd.ExecuteReader();
+
+        while (myRead.Read())
+        {
+
+            ddlOnlineProgramID.Items.Add(new ListItem(myRead["ProgramDate"].ToString() + "--" + myRead["ProgramType"].ToString(), myRead["OnlineProgramID"].ToString()));
+        }
 
 
+        con.Close();
 
+        using (var conn = new SqlConnection(cs))
+        using (var command = new SqlCommand("sp_PopulateAllProgrmas", conn)
+        {
+            CommandType = CommandType.StoredProcedure
+        })
+        {
+            conn.Open();
+            command.ExecuteNonQuery();
+        }
 
-
-        //ddlOnlineProgramID.Items.Clear();
-        ////call read array
-        //con.Open();
-        //if (con.State == System.Data.ConnectionState.Open)
-        //{
-
-        //    string read = "SELECT OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID      ";
-        //    SqlCommand cmd = new SqlCommand(read, con);
-        //    SqlDataReader myRead = cmd.ExecuteReader();
-
-        //    while (myRead.Read())
-        //    {
-
-        //        ddlOnlineProgramID.Items.Add(new ListItem(myRead["OnlineProgramID"].ToString(), myRead["OnlineProgramID"].ToString()) + ": " + new ListItem(myRead["ProgramDate"].ToString(), myRead["ProgramDate"].ToString()) + "--" + new ListItem(myRead["ProgramType"].ToString(), myRead["ProgramType"].ToString()));
-        //        // ddlAnimal.DataBind();
-
-        //    }
-        //}
     }
 
 
