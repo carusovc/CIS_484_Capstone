@@ -1444,10 +1444,15 @@
            col-sm-12">
                                     On/Off Site:
                                     <br />
-                                    <asp:RadioButtonList ID="rboOnOff" runat="server">
+                                    <asp:DropDownList ID="ddlOnOffSiteEdit" runat="server">
+                                        <asp:ListItem></asp:ListItem>
                                         <asp:ListItem Value="0">Yes</asp:ListItem>
                                         <asp:ListItem Value="1">No</asp:ListItem>
-                                    </asp:RadioButtonList>
+                                    </asp:DropDownList>
+<%--                                    <asp:RadioButtonList ID="rboOnOff" runat="server">
+                                        <asp:ListItem Value="0">Yes</asp:ListItem>
+                                        <asp:ListItem Value="1">No</asp:ListItem>
+                                    </asp:RadioButtonList>--%>
                                 </div>
 
 

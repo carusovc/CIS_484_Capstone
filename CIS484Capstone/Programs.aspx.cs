@@ -922,7 +922,7 @@ public partial class Programs : System.Web.UI.Page
         //update.Parameters.AddWithValue("@state", ddlState1.SelectedValue);
         update.Parameters.AddWithValue("@state", txtState.Text.ToString());
 
-        update.Parameters.AddWithValue("@onOff", rboOnOff.SelectedIndex);
+        update.Parameters.AddWithValue("@onOff", ddlOnOffSiteEdit.SelectedIndex);
         update.Parameters.AddWithValue("@numOfChildren", txtNumOfChildren.Text);
         update.Parameters.AddWithValue("@numofAdults", txtNumOfAdults.Text);
         update.Parameters.AddWithValue("@paid", rboPayment.SelectedIndex);
@@ -1132,7 +1132,7 @@ public partial class Programs : System.Web.UI.Page
         txtNumOfAdults.Text = "";
         txtProgramDate.Text = "";
         txtProgramTime.Text = "";
-        rboOnOff.ClearSelection();
+        ddlOnOffSiteEdit.ClearSelection();
         rboPayment.ClearSelection();
         drpEducators.ClearSelection();
         ddlBirds.ClearSelection();
@@ -1150,7 +1150,7 @@ public partial class Programs : System.Web.UI.Page
     {
         ddlProgramType.ClearSelection();
         ddlOrganization.ClearSelection();
-        rboOnOff.ClearSelection();
+        ddlOnOffSiteEdit.ClearSelection();
         rboPayment.ClearSelection();
         drpEducators.ClearSelection();
         ddlBirds.ClearSelection();
@@ -1291,11 +1291,11 @@ public partial class Programs : System.Web.UI.Page
 
                 if (sdr[7].ToString() == "1")
                 {
-                    rboOnOff.SelectedIndex = 0;
+                    ddlOnOffSiteEdit.SelectedIndex = 1;
                 }
                 else
                 {
-                    rboOnOff.SelectedIndex = 1;
+                    ddlOnOffSiteEdit.SelectedIndex = 2;
                 }
                 //rboOnOff.SelectedItem.Value = sdr[7].ToString();
                 txtNumOfChildren.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
@@ -2315,7 +2315,7 @@ public partial class Programs : System.Web.UI.Page
         txtNumOfOnlineAdults.Text = "";
         txtOnlineProgramDate.Text = "";
         txtOEmail.Text = "";
-        rboOnOff.ClearSelection();
+        ddlOnOffSiteEdit.ClearSelection();
         rboPayment.ClearSelection();
         lstOEducators.ClearSelection();
         lstOBirds.ClearSelection();
