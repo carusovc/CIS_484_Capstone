@@ -17,7 +17,7 @@ public partial class Payments : System.Web.UI.Page
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
-        //lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString();
+        
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
@@ -75,19 +75,16 @@ public partial class Payments : System.Web.UI.Page
 
         sc.Close();
 
-        //if (ddlProgramType.Items.Count < 2)
-        //{
-        //    while(myRead2.Read())
-        //    {
-        //        ddlProgramType.Items.Add(new ListItem(myRead2["OnlineProgramTypeName"].ToString(), myRead2["OnlineProgramTypeID"].ToString()));
-        //    }
-        //}
+        try
+        {
+            lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
 
-        // Populate Year from 1990 through 2020
-        //for (int i = 2020; i >= 1990; i--)
-        //{
-        //    ddlYear.Items.Add(new ListItem(i.ToString()));
-        //}
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
 
 
 

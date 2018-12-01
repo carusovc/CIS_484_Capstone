@@ -30,7 +30,7 @@ public partial class userLogin : System.Web.UI.Page
 
     {
 
-
+       
 
     }
 
@@ -354,12 +354,12 @@ public partial class userLogin : System.Web.UI.Page
 
 
 
-    protected void btnForm_Click(object sender, EventArgs e)
+    //protected void btnForm_Click(object sender, EventArgs e)
 
-    {
+    //{
 
-        Response.Redirect("NoLogInPrograms.aspx");
+    //    Response.Redirect("NoLogInPrograms.aspx");
 
-    }
+    //}
 
 }

@@ -22,7 +22,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
-
+       
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
         if (!IsPostBack)
@@ -47,13 +47,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
                     ddlEducatorName.Items.Add(new ListItem(myRead1["EducatorFirstName"].ToString(), myRead1["EducatorID"].ToString()));
                 }
-
-
-                
-
-
-
-
 
 
 

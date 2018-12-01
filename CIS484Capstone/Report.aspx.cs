@@ -18,6 +18,16 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        try
+        {
+            lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
+
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
 
         SearchDiv.Visible = false;
         if (!IsPostBack)

@@ -23,7 +23,16 @@ public partial class Organizations : System.Web.UI.Page
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
+        try
+        {
+            lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
 
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
 
         if (!IsPostBack)
         {

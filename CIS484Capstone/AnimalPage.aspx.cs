@@ -33,7 +33,16 @@ public partial class AnimalPage : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
 
+        try
+        {
+            lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
 
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
 
 
 
@@ -435,4 +444,6 @@ public partial class AnimalPage : System.Web.UI.Page
         gridSearch.DataSource = dt;
         gridSearch.DataBind();
     }
+
+  
 }

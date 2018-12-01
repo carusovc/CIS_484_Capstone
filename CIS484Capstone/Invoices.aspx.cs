@@ -24,10 +24,15 @@ public partial class Invoices : System.Web.UI.Page
         //drpMonth.Items.Add(new ListItem("--Select Month--", "0"));
         //drpYear.Items.Add(new ListItem("--Select Year--", "0"));
 
-        if (!IsPostBack)
+        try
         {
-            //PopulateData();
+            lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
 
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
         }
     }
  

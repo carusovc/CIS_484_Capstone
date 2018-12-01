@@ -42,6 +42,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+       <asp:Label ID="lblWelcome" runat="server" Text="" class="text-warning bg-dark text-right" ></asp:Label>
 
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
