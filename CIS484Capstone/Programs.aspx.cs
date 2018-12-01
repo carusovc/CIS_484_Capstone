@@ -199,25 +199,37 @@ public partial class Programs : System.Web.UI.Page
                 string read = "Select * from Program";
                 string programNameRead = "Select * from ProgramType where Status = 'Active' order by ProgramName";
                 string organizationRead = "Select * from Organization";
-                string educatorReadStatement = "Select * from Educators order by EducatorFirstName";
-
+                string educatorReadStatement = "Select * from Educators where Status = 'Active' order by EducatorFirstName";
+                string programTypeRead = "Select * from ProgramType order by ProgramName";
+                string ReadEducatorStatement = "Select * from Educators order by EducatorFirstName";
 
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlCommand cmd1 = new SqlCommand(programNameRead, con);
                 SqlCommand cmd2 = new SqlCommand(organizationRead, con);
                 SqlCommand cmdLive3 = new SqlCommand(educatorReadStatement, con);
+                SqlCommand cmdLiveUpdate1 = new SqlCommand(programTypeRead, con);
+                SqlCommand cmdLiveUpdate2 = new SqlCommand(ReadEducatorStatement, con);
 
                 SqlDataReader myRead = cmd.ExecuteReader();
                 SqlDataReader myRead1 = cmd1.ExecuteReader();
                 SqlDataReader myRead2 = cmd2.ExecuteReader();
                 SqlDataReader myReadLive3 = cmdLive3.ExecuteReader();
+                SqlDataReader myReadLiveUpdate1 = cmdLiveUpdate1.ExecuteReader();
+                SqlDataReader myReadLiveUpdate2 = cmdLiveUpdate2.ExecuteReader();
 
                 if (ddlProgram.Items.Count < 2)
                 {
                     while (myRead1.Read())
                     {
                         ddlProgram.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
-                        ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
+                        //ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
+                    }
+                }
+                if (ddlProgramType.Items.Count < 2)
+                {
+                    while (myReadLiveUpdate1.Read())
+                    {
+                        ddlProgramType.Items.Add(new ListItem(myReadLiveUpdate1["ProgramName"].ToString(), myReadLiveUpdate1["ProgramTypeID"].ToString()));
                     }
                 }
                 if (dropDownOrganization.Items.Count < 2)
@@ -239,9 +251,17 @@ public partial class Programs : System.Web.UI.Page
                     }
                 }
 
+                if (drpEducators.Items.Count < 2)
+                {
+                    while (myReadLiveUpdate2.Read())
+                    {
+                        drpEducators.Items.Add(new ListItem(myReadLiveUpdate2["EducatorFirstName"].ToString() + " " + myReadLiveUpdate2["EducatorLastName"].ToString(), myReadLiveUpdate2["EducatorID"].ToString()));
+                    }
+                }
+
                 if (lstSelectBirdsLive.Items.Count < 2)
                 {
-                    string readStatement = "Select * from Animal where AnimalType = 'Bird' order by AnimalName";
+                    string readStatement = "Select * from Animal where AnimalType = 'Bird' and Status = 'Active' order by AnimalName";
                     SqlCommand cmdLive = new SqlCommand(readStatement, con);
                     SqlDataReader myReadLive = cmdLive.ExecuteReader();
 
@@ -254,7 +274,7 @@ public partial class Programs : System.Web.UI.Page
 
                 if (lstSelectReptilesLive.Items.Count < 2)
                 {
-                    string readStatement = "Select * from Animal where AnimalType = 'Reptile' order by AnimalName";
+                    string readStatement = "Select * from Animal where AnimalType = 'Reptile' and Status = 'Active' order by AnimalName";
                     SqlCommand cmdLive = new SqlCommand(readStatement, con);
                     SqlDataReader myReadLive = cmdLive.ExecuteReader();
 
@@ -266,7 +286,7 @@ public partial class Programs : System.Web.UI.Page
 
                 if (lstSelectMammalsLive.Items.Count < 2)
                 {
-                    string readStatement = "Select * from Animal where AnimalType = 'Mammal' order by AnimalName";
+                    string readStatement = "Select * from Animal where AnimalType = 'Mammal' and Status = 'Active' order by AnimalName";
                     SqlCommand cmdLive = new SqlCommand(readStatement, con);
                     SqlDataReader myReadLive = cmdLive.ExecuteReader();
 
@@ -295,7 +315,7 @@ public partial class Programs : System.Web.UI.Page
 
                 //Online Program
                 string readOnline = "Select * from OnlineProgram";
-                string onlineProgramRead = "Select * from OnlineProgramType where Status = 'Active'";
+                string onlineProgramRead = "Select * from OnlineProgramType where Status= 'Active'";
                 string educatorsRead = "Select * from Educators order by EducatorFirstName";
 
                 SqlCommand cmdOnline = new SqlCommand(readOnline, con);
@@ -340,7 +360,7 @@ public partial class Programs : System.Web.UI.Page
                 if (lstOnlineEducators.Items.Count < 2)
                 {
 
-                    string educatorRead = "Select * from Educators order by EducatorFirstName";
+                    string educatorRead = "Select * from Educators where Status = 'Active' order by EducatorFirstName";
                     SqlCommand cmd4 = new SqlCommand(educatorRead, con);
                     SqlDataReader myRead4 = cmd4.ExecuteReader();
 
@@ -356,7 +376,7 @@ public partial class Programs : System.Web.UI.Page
                 if (lstBirdOnline.Items.Count < 2)
                 {
 
-                    string birdRead = "Select * from Animal where AnimalType = 'Bird' order by AnimalName";
+                    string birdRead = "Select * from Animal where AnimalType = 'Bird' and Status = 'Active' order by AnimalName";
                     SqlCommand cmd5 = new SqlCommand(birdRead, con);
                     SqlDataReader myRead5 = cmd5.ExecuteReader();
 
@@ -372,7 +392,7 @@ public partial class Programs : System.Web.UI.Page
                 if (lstReptilesOnline.Items.Count < 2)
                 {
 
-                    string reptileRead = "Select * from Animal where AnimalType = 'Reptile' order by AnimalName";
+                    string reptileRead = "Select * from Animal where AnimalType = 'Reptile' and Status = 'Active' order by AnimalName";
                     SqlCommand cmd6 = new SqlCommand(reptileRead, con);
                     SqlDataReader myRead6 = cmd6.ExecuteReader();
 
@@ -388,7 +408,7 @@ public partial class Programs : System.Web.UI.Page
                 if (lstMammalsOnline.Items.Count < 2)
                 {
 
-                    string mammalRead = "Select * from Animal where AnimalType = 'Mammal' order by AnimalName";
+                    string mammalRead = "Select * from Animal where AnimalType = 'Mammal' and Status= 'Active' order by AnimalName";
                     SqlCommand cmd7 = new SqlCommand(mammalRead, con);
                     SqlDataReader myRead7 = cmd7.ExecuteReader();
 
