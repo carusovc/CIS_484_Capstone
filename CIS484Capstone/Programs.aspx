@@ -2180,6 +2180,17 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="VolunteerLabelive" for="Volunteer">Volunteer:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox CssClass="form-control" ID="lstSelectVolunteersLive" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Volunteers--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
 
                             <div class="form-group row">
                                 <div class="col-5">
@@ -2415,6 +2426,17 @@
                                 <div class="col-7">
                                     <asp:ListBox CssClass="form-control" ID="lstOnlineEducators" runat="server" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Educators--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="VolunteerLabelOnline" for="Volunteer">Volunteer:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox CssClass="form-control" ID="lstOnlineVolunteers" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Volunteers--" Value="0" />
                                     </asp:ListBox>
                                 </div>
                             </div>

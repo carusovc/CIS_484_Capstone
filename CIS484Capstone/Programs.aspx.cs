@@ -177,6 +177,7 @@ public partial class Programs : System.Web.UI.Page
             lstSelectBirdsLive.ClearSelection();
             lstSelectReptilesLive.ClearSelection();
             lstSelectMammalsLive.ClearSelection();
+            lstSelectVolunteersLive.ClearSelection();
             //Status.SelectedValue = "0";
             Payment.SelectedValue = "0";
             OnOff.Value = "";
@@ -202,6 +203,7 @@ public partial class Programs : System.Web.UI.Page
                 string educatorReadStatement = "Select * from Educators where Status = 'Active' order by EducatorFirstName";
                 string programTypeRead = "Select * from ProgramType order by ProgramName";
                 string ReadEducatorStatement = "Select * from Educators order by EducatorFirstName";
+                string ReadVolunteerStatement = "Select * from Volunteers where VolunteerStatus = 'Active' order by VolunteerFirstName";
 
                 SqlCommand cmd = new SqlCommand(read, con);
                 SqlCommand cmd1 = new SqlCommand(programNameRead, con);
@@ -209,6 +211,7 @@ public partial class Programs : System.Web.UI.Page
                 SqlCommand cmdLive3 = new SqlCommand(educatorReadStatement, con);
                 SqlCommand cmdLiveUpdate1 = new SqlCommand(programTypeRead, con);
                 SqlCommand cmdLiveUpdate2 = new SqlCommand(ReadEducatorStatement, con);
+                SqlCommand cmdLiveUpdate3 = new SqlCommand(ReadVolunteerStatement, con);
 
                 SqlDataReader myRead = cmd.ExecuteReader();
                 SqlDataReader myRead1 = cmd1.ExecuteReader();
@@ -216,6 +219,7 @@ public partial class Programs : System.Web.UI.Page
                 SqlDataReader myReadLive3 = cmdLive3.ExecuteReader();
                 SqlDataReader myReadLiveUpdate1 = cmdLiveUpdate1.ExecuteReader();
                 SqlDataReader myReadLiveUpdate2 = cmdLiveUpdate2.ExecuteReader();
+                SqlDataReader myReadVolunteersLive = cmdLiveUpdate3.ExecuteReader();
 
                 if (ddlProgram.Items.Count < 2)
                 {
@@ -246,7 +250,7 @@ public partial class Programs : System.Web.UI.Page
                     while (myReadLive3.Read())
                     {
                         lstSelectEducatorsLive.Items.Add(new ListItem(myReadLive3["EducatorFirstName"].ToString() + " " + myReadLive3["EducatorLastName"].ToString(), myReadLive3["EducatorID"].ToString()));
-                        drpEducators.Items.Add(new ListItem(myReadLive3["EducatorFirstName"].ToString() + " " + myReadLive3["EducatorLastName"].ToString(), myReadLive3["EducatorID"].ToString()));
+                        //drpEducators.Items.Add(new ListItem(myReadLive3["EducatorFirstName"].ToString() + " " + myReadLive3["EducatorLastName"].ToString(), myReadLive3["EducatorID"].ToString()));
 
                     }
                 }
@@ -256,6 +260,14 @@ public partial class Programs : System.Web.UI.Page
                     while (myReadLiveUpdate2.Read())
                     {
                         drpEducators.Items.Add(new ListItem(myReadLiveUpdate2["EducatorFirstName"].ToString() + " " + myReadLiveUpdate2["EducatorLastName"].ToString(), myReadLiveUpdate2["EducatorID"].ToString()));
+                    }
+                }
+
+                if (lstSelectVolunteersLive.Items.Count < 2)
+                {
+                    while (myReadVolunteersLive.Read())
+                    {
+                        lstSelectVolunteersLive.Items.Add(new ListItem(myReadVolunteersLive["VolunteerFirstName"].ToString() + " " + myReadVolunteersLive["VolunteerLastName"].ToString(), myReadVolunteersLive["VolunteerID"].ToString()));
                     }
                 }
 
@@ -368,6 +380,21 @@ public partial class Programs : System.Web.UI.Page
                     {
 
                         lstOnlineEducators.Items.Add(new ListItem(myRead4["EducatorFirstName"].ToString() + " " + myRead4["EducatorLastName"].ToString(), myRead4["EducatorID"].ToString()));
+                    }
+
+
+                }
+                if (lstOnlineVolunteers.Items.Count < 2)
+                {
+
+                    string VolunteerRead = "Select * from Volunteers where VolunteerStatus = 'Active' order by VolunteerFirstName";
+                    SqlCommand cmdOnlineVolunteer = new SqlCommand(VolunteerRead, con);
+                    SqlDataReader OnlineVolunteerRead = cmdOnlineVolunteer.ExecuteReader();
+
+                    while (OnlineVolunteerRead.Read())
+                    {
+
+                        lstOnlineVolunteers.Items.Add(new ListItem(OnlineVolunteerRead["VolunteerFirstName"].ToString() + " " + OnlineVolunteerRead["VolunteerLastName"].ToString(), OnlineVolunteerRead["VolunteerID"].ToString()));
                     }
 
 
@@ -1608,6 +1635,7 @@ public partial class Programs : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand pullAnimalID = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullGradeID = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullOrgID = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullVolunteerID = new System.Data.SqlClient.SqlCommand();
 
 
 
@@ -1623,6 +1651,7 @@ public partial class Programs : System.Web.UI.Page
         pullEducatorID.Connection = sc;
         pullAnimalID.Connection = sc;
         pullGradeID.Connection = sc;
+        pullVolunteerID.Connection = sc;
 
 
         ////Program class attributes
@@ -1638,6 +1667,7 @@ public partial class Programs : System.Web.UI.Page
         string extraComments = Comments.Value;
         string cityCounty = CityCounty.Value;
         string state = statesDropDown.SelectedItem.Text;
+        
 
         //// TEMPORARY UPDATED AND UPDATEDBY
         string tempLastUpdatedBy = "TempWildTekDevs";
@@ -1708,6 +1738,35 @@ public partial class Programs : System.Web.UI.Page
                 continue;
             }
         }
+
+        //foreach (ListItem li in lstSelectVolunteersLive.Items)
+        //{
+        //    if (li.Selected == true)
+        //    {
+        //        pullVolunteerID.Parameters.Clear();
+        //        programEducatorInsert.Parameters.Clear();
+
+
+        //        //// Pulls Educator Name based on the selected educator
+        //        //// MAY NEED TO CHANGE IF WE COMPOSITE EDUCATORS
+        //        pullVolunteerID.CommandText = "SELECT EducatorID From Educators WHERE (EducatorFirstName + ' ' + EducatorLastName) = @EducatorName";
+        //        pullVolunteerID.Parameters.AddWithValue("@EducatorName", li.Text);
+        //        int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
+        //        // string stempProgramID = ddlProgram.SelectedItem.Value.Substring(0, 1);
+
+        //        //// Inserts programID and EducatorID into Assocaited table ProgramEducators
+        //        programEducatorInsert.CommandText = "INSERT INTO ProgramEducators (ProgramID, EducatorID, LastUpdated, LastUpdatedBy) values (@programID, @educatorID, @lastUpdated, @lastUpdatedBy)";
+        //        programEducatorInsert.Parameters.AddWithValue("@programID", tempProgramID);
+        //        programEducatorInsert.Parameters.AddWithValue("@educatorID", tempEducatorID);
+        //        programEducatorInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+        //        programEducatorInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+        //        programEducatorInsert.ExecuteNonQuery();
+        //    }
+        //    else
+        //    {
+        //        continue;
+        //    }
+        //}
 
 
         // Pull program animal based on selected Animal
