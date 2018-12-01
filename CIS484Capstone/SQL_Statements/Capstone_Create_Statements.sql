@@ -152,7 +152,15 @@ CONSTRAINT FK_ProgramTypeID FOREIGN KEY (ProgramTypeID) references ProgramType,
 CONSTRAINT FK_PaymentID FOREIGN KEY (PaymentID) references PaymentRecord);
 --CONSTRAINT FK_ProgramPaymentID NULL FOREIGN KEY (PaymentID) references PaymentRecord);
 
-
+Create Table ProgramVolunteers(
+ProgramID int NOT NULL,
+VolunteerID int NOT NULL,
+LastUpdated datetime NOT NULL,
+LastUpdatedBy varchar(100) NOT NULL,
+CONSTRAINT PK_ProgramVolunteers PRIMARY KEY (ProgramID, VolunteerID),
+CONSTRAINT FK_ProgramVolunteersProgram FOREIGN KEY (ProgramID) references Program,
+CONSTRAINT FK_ProgramVolunteersEducator FOREIGN KEY (VolunteerID) references Volunteers);
+                                         
 
 Create Table ProgramEducators(
 ProgramID int NOT NULL,
