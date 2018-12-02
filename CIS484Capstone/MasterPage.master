@@ -40,6 +40,10 @@ $(".modal-wide").on("show.bs.modal", function() {
 
     </script>
 
+
+ 
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
