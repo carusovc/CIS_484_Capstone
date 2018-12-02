@@ -1504,10 +1504,15 @@
            col-sm-12">
                                     On/Off Site:
                                     <br />
-                                    <asp:RadioButtonList ID="rboOnOff" runat="server">
+                                    <asp:DropDownList ID="ddlOnOffSiteEdit" runat="server">
+                                        <asp:ListItem></asp:ListItem>
                                         <asp:ListItem Value="0">Yes</asp:ListItem>
                                         <asp:ListItem Value="1">No</asp:ListItem>
-                                    </asp:RadioButtonList>
+                                    </asp:DropDownList>
+<%--                                    <asp:RadioButtonList ID="rboOnOff" runat="server">
+                                        <asp:ListItem Value="0">Yes</asp:ListItem>
+                                        <asp:ListItem Value="1">No</asp:ListItem>
+                                    </asp:RadioButtonList>--%>
                                 </div>
 
 
@@ -2150,7 +2155,7 @@
                                     <label id="lblProgramType" for="ProgramType">Type of Program:</label>
                                 </div>
                                 <div class="col-6">
-                                    <select name="LiveOnline" id="LiveOnline" class="form-control">
+                                    <select name="LiveOnline" id="LiveOnline" class="form-control" runat="server">
                                         <option value=""></option>
                                         <option value="Live">Live Program</option>
                                         <option value="Online">Online Program</option>
@@ -2175,10 +2180,11 @@
                                     <input type="time" id="ProgramTime" class="form-control" runat="server" />
                                 </div>
                             </div>
-
-                            <input type="button" class="btn" id="btnEndSelectProgramType" value="Next" />
-
-                        </div>
+ </div>
+                         <div class="modal-footer">
+                            <input type="button" class="btn btn-inside" id="btnEndSelectProgramType" value="Next" />
+                             </div>
+                       
                     </div>
 
 
@@ -2221,6 +2227,17 @@
                                 <div class="col-7">
                                     <asp:ListBox CssClass="form-control" ID="lstSelectEducatorsLive" runat="server" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Educators--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="VolunteerLabelive" for="Volunteer">Volunteer:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox CssClass="form-control" ID="lstSelectVolunteersLive" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Volunteers--" Value="0" />
                                     </asp:ListBox>
                                 </div>
                             </div>
@@ -2408,12 +2425,14 @@
                             <textarea name="Comments" id="Comments" rows="5" cols="100" class="form-control" runat="server"></textarea>
 
                             <p></p>
-                            <input type="button" class="btn" id="btnBackLive" value="Back" />
+                        </div>    
+                                        <div class="modal-footer">
+                        <input type="button" class="btn btn-secondary" id="btnBackLive" value="Back" />
 
                             <%--<input type="button" class="btn" id="btnEndstep14" value="Submit" OnClick="btnSubmitLive_Click"/>--%>
-                            <asp:Button ID="btnsubmitLiveProgram" class="btn" runat="server" Text="Submit" OnClick="btnSubmitLive_Click" />
-
-                        </div>
+                            <asp:Button ID="btnsubmitLiveProgram" class="btn btn-inside" runat="server" Text="Submit" OnClick="btnSubmitLive_Click" />
+                            </div>
+                        
 
                     </div>
 
@@ -2442,6 +2461,17 @@
                                 <div class="col-7">
                                     <asp:ListBox CssClass="form-control" ID="lstOnlineEducators" runat="server" SelectionMode="Multiple">
                                         <asp:ListItem Text="--Select Educators--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="VolunteerLabelOnline" for="Volunteer">Volunteer:</label>
+                                </div>
+                                <div class="col-7">
+                                    <asp:ListBox CssClass="form-control" ID="lstOnlineVolunteers" runat="server" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Volunteers--" Value="0" />
                                     </asp:ListBox>
                                 </div>
                             </div>
@@ -2834,19 +2864,19 @@
                                     <textarea name="Comments" id="OnlineComments" rows="5" cols="100" class="form-control" runat="server"></textarea>
                                 </div>
                             </div>
-
-
-                            <input type="button" class="btn" id="btnBackOnline" value="Back" />
+                            </div>
+                            <div class="modal-footer">
+                            <input type="button" class="btn btn-secondary " id="btnBackOnline" value="Back" />
                             <%--                            <input type="button" class="btn" id="btnEndstep24" value="Submit" />--%>
-                            <asp:Button ID="btnSubmitOnline" runat="server" Text="Submit" OnClick="btnSubmitOnline_Click" />
+                            <asp:Button ID="btnSubmitOnline" class="btn btn-inside " runat="server" Text="Submit" OnClick="btnSubmitOnline_Click" />
                         </div>
-
+                            
                     </div>
 
 
 
                 </div>
-                <div class="modal-footer"></div>
+
             </div>
         </div>
     </div>
