@@ -337,9 +337,10 @@ $(function() {
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
     <br />
      <br />
-   
-                                        <asp:GridView ID="GridView1"  HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
-                                            OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover" AllowSorting="True">
+
+                  
+                                        <asp:GridView ID="GridView1"   runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
+                                            OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display." class="table  table-bordered table-condensed table-hover">
                                             <Columns>
                                                  <asp:TemplateField HeaderText="Select">
                                                 <ItemTemplate>
@@ -445,8 +446,8 @@ $(function() {
     <br />
      <br />
    
-                                    <asp:GridView  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" ID="CancelledPaymentGrid" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID"  OnRowDataBound="GridView2_RowDataBound" AllowSorting="True" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover" >
+                                    <asp:GridView   ID="CancelledPaymentGrid" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
+                                        OnRowDataBound="GridView2_RowDataBound" AllowSorting="False" EmptyDataText="There are no records to display." class="table stable-striped table-bordered table-condensed table-hover" >
                                         <Columns>
                                                  <asp:TemplateField HeaderText="Select">
                                                 <ItemTemplate>
@@ -469,6 +470,7 @@ $(function() {
                                                 <asp:BoundField DataField="PaymentID" HeaderText="PaymentID" SortExpression="PaymentID" Visible="False" ReadOnly="True"/>
                                                 <asp:BoundField DataField="Invoice" HeaderText="Invoice" SortExpression="Invoice" />
                                             </Columns>
+                                          <HeaderStyle BackColor="#C7BFC4" ForeColor="Black"></HeaderStyle>
                                     </asp:GridView>
                                     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                                         SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
@@ -556,7 +558,7 @@ $(function() {
                                                  <asp:BoundField DataField="Paid" HeaderText="Paid?" SortExpression="Paid" ReadOnly="True"/>
                                             </Columns>
 
-<HeaderStyle BackColor="#FFBC7C" ForeColor="#732700"></HeaderStyle>
+  <HeaderStyle BackColor="#C7BFC4" ForeColor="Black"></HeaderStyle>
 
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"

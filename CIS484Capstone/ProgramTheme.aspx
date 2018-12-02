@@ -263,13 +263,13 @@
                         <div class="card-body">
                         </div>
 
-                        <div class="mx-auto d-flex justify-content-center">
-                            <div class=" col-lg-4    col-md-6 col-sm-6 ">
-                                <div class="btn  btn-primary btn-inside btn-block" data-target="#AddProgram" data-toggle="modal">Add Program Theme</div>
+                        <div class="mx-auto row d-flex justify-content-center">
+                            <div class=" col-lg-6    col-md-6 col-xs-8 ">
+                                <div class="btn   btn-inside btn-block" data-target="#AddProgram" data-toggle="modal">Add Program Theme</div>
                             </div>
 
-                            <div class=" col-lg-4    col-md-6 col-sm-6  ">
-                                <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateProgram" data-toggle="modal">Edit Program Theme</div>
+                            <div class=" col-lg-6    col-md-6 col-xs-8  ">
+                                <div class="btn   btn-inside btn-block" data-target="#UpdateProgram" data-toggle="modal">Edit Program Theme</div>&nbsp;&nbsp;
                             </div>
                             <div class="row mx-auto d-flex text cetner justify-content-center">
                             </div>
@@ -295,10 +295,12 @@
 
                             <ul class="nav nav-tabs block4" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active TabStyle" id="LiveTabTheme1" data-toggle="tab" href="#LiveTabTheme" style="color: black;">Live Program Themes</a>
+                                    <a class="nav-link active d-sm-none TabStyle" id="LiveTabTheme1" data-toggle="tab" href="#LiveTabTheme" style="color: black;">Live</a>
+                                    <a class="nav-link active d-none d-sm-block TabStyle" id="LiveTabTheme2" data-toggle="tab" href="#LiveTabTheme" style="color: black;">Live Program Themes</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link TabStyle" id="OnlineTab" data-toggle="tab" href="#OnlineTabTheme" style="color: black;">Online Program Themes</a>
+                                    <a class="nav-link d-sm-none TabStyle" id="OnlineTab" data-toggle="tab" href="#OnlineTabTheme" style="color: black;">Online</a>
+                                    <a class="nav-link d-none d-sm-block TabStyle" id="OnlineTab2" data-toggle="tab" href="#OnlineTabTheme" style="color: black;">Online Program Themes</a>
                                 </li>
 
                             </ul>
@@ -334,7 +336,7 @@
                                                 <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                     <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                                         <%--<h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>--%>
-                                                        <asp:GridView ID="GridView1" HeaderStyle-BackColor="#FFBC7C" HeaderStyle-ForeColor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4" AllowSorting="True">
+                                                        <asp:GridView ID="GridView1" HeaderStyle-BackColor="#C7BFC4" ForeColor="Black" class="table table-striped table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
                                                             <Columns>
                                                                 <asp:BoundField DataField="ProgramName" HeaderText="Program Name" SortExpression="ProgramName"></asp:BoundField>
                                                                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status"></asp:BoundField>
@@ -375,7 +377,7 @@
                                                 <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                     <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                                         <%--<h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>--%>
-                                                        <asp:GridView ID="GridView2" HeaderStyle-BackColor="#FFBC7C" HeaderStyle-ForeColor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                                                        <asp:GridView ID="GridView2" HeaderStyle-BackColor="#C7BFC4" ForeColor="Black" class="table  table-striped table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                                                             <Columns>
                                                                 <asp:BoundField DataField="OnlineProgramTypeName" HeaderText="Online Program Name" SortExpression="OnlineProgramTypeName"></asp:BoundField>
                                                                 <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status"></asp:BoundField>

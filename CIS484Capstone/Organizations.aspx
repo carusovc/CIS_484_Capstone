@@ -933,14 +933,13 @@
 
                           <div class ="grid-volunteers text-center">
                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
-                <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">      
-                <asp:GridView ID="GridView1"  HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False">
-                    <Columns>
-                        <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" >
-
+              <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">      
+    <asp:GridView ID="GridView1"  HeaderStyle-BackColor="#C7BFC4" ForeColor="Black" class="table table-bordered table-striped table-condensed table-hover" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
+        <Columns>
+            <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" >
  
-                        </asp:BoundField>
-                        <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" >
+            </asp:BoundField>
+            <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" >
             
                         </asp:BoundField>
                         <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" >
@@ -1028,8 +1027,7 @@
                      <div class ="grid-volunteers text-center">
                                <div class="row table-responsive mx-auto d-flex  justify-content-center">
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
-                            <asp:GridView ID="GridView3"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False">
-
+                            <asp:GridView ID="GridView3"   HeaderStyle-BackColor="#C7BFC4" ForeColor="Black" class="table  table-striped table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
                             <Columns>
                                 <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" >
  

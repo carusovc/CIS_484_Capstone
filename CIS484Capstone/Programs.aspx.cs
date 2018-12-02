@@ -429,6 +429,19 @@ public partial class Programs : System.Web.UI.Page
 
                 }
 
+                    string VolunteerRead = "Select * from Volunteers where VolunteerStatus = 'Active' order by VolunteerFirstName";
+                    SqlCommand cmdOnlineVolunteer = new SqlCommand(VolunteerRead, con);
+                    SqlDataReader OnlineVolunteerRead = cmdOnlineVolunteer.ExecuteReader();
+
+                    while (OnlineVolunteerRead.Read())
+                    {
+
+                        lstOnlineVolunteers.Items.Add(new ListItem(OnlineVolunteerRead["VolunteerFirstName"].ToString() + " " + OnlineVolunteerRead["VolunteerLastName"].ToString(), OnlineVolunteerRead["VolunteerID"].ToString()));
+                    }
+
+
+                }
+
                 if (lstBirdOnline.Items.Count < 2)
                 {
 
@@ -574,8 +587,8 @@ public partial class Programs : System.Web.UI.Page
     }
 
 
-  
-        protected void OnItemDataBoundLive(object sender, RepeaterItemEventArgs e)
+
+    protected void OnItemDataBoundLive(object sender, RepeaterItemEventArgs e)
     {
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
         {
@@ -639,9 +652,9 @@ public partial class Programs : System.Web.UI.Page
 
     }
 
-    
 
-    
+
+
 
 
 
@@ -840,7 +853,7 @@ public partial class Programs : System.Web.UI.Page
             rptProgramHLLive.DataBind();
         }
 
-        
+
 
     }
 
@@ -918,7 +931,7 @@ public partial class Programs : System.Web.UI.Page
     }
 
 
-   
+
 
     protected void btnExportLive_Click(object sender, EventArgs e)
     {
@@ -1249,14 +1262,16 @@ public partial class Programs : System.Web.UI.Page
         txtNumOfAdults.Text = "";
         txtProgramDate.Text = "";
         txtProgramTime.Text = "";
-
-        rboOnOff.ClearSelection();
+        ddlOnOffSiteEdit.ClearSelection();
+        rboPayment.ClearSelection();
         drpEducators.ClearSelection();
         ddlBirds.ClearSelection();
         ddlReptiles.ClearSelection();
         lstMammals.ClearSelection();
         AddGrade.ClearSelection();
         txtComments.Text = "";
+
+
 
         using (var conn = new SqlConnection(cs))
         using (var command = new SqlCommand("sp_PopulateAllProgrmas", conn)
@@ -1275,8 +1290,8 @@ public partial class Programs : System.Web.UI.Page
     {
         ddlProgramType.ClearSelection();
         ddlOrganization.ClearSelection();
-
-        rboOnOff.ClearSelection();
+        ddlOnOffSiteEdit.ClearSelection();
+        rboPayment.ClearSelection();
         drpEducators.ClearSelection();
         ddlBirds.ClearSelection();
         ddlReptiles.ClearSelection();
@@ -1739,7 +1754,7 @@ public partial class Programs : System.Web.UI.Page
         string extraComments = Comments.Value;
         string cityCounty = CityCounty.Value;
         string state = statesDropDown.SelectedItem.Text;
-        
+
 
         //// TEMPORARY UPDATED AND UPDATEDBY
         string tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
@@ -2235,6 +2250,27 @@ public partial class Programs : System.Web.UI.Page
         }
     }
 
+        //LiveOnline.Value = "";
+        ProgramDate.Value = "";
+        ProgramTime.Value = "";
+        lstOnlineProgramType.ClearSelection();
+        lstOnlineEducators.ClearSelection();
+        lstOnlineVolunteers.ClearSelection();
+        lstBirdOnline.ClearSelection();
+        lstReptilesOnline.ClearSelection();
+        lstMammalsOnline.ClearSelection();
+        AddOnlineTeacher.Value = "";
+        ContactEmail.Value = "";
+        SecondaryEmail.Value = "";
+        OnlineCityCounty.Value = "";
+        OnlineState.ClearSelection();
+        ddlCountry.ClearSelection();
+        OnlineGrades.ClearSelection();
+        OnlineNumOfChildren.Value = "";
+        OnlineNumOfAdults.Value = "";
+        OnlineComments.Value = "";
+    }
+
     protected void ddlOrderByAll_SelectedIndexChanged(object sender, EventArgs e)
     {
         int OrderSelect = ddlOrderByAll.SelectedIndex;
@@ -2264,7 +2300,7 @@ public partial class Programs : System.Web.UI.Page
     protected void btnLiveClear_Click(object sender, EventArgs e)
     {
         createAccordianUsingRepeaterLive(0);
-        
+
     }
 
     protected void btnOnlineSearch_Click(object sender, EventArgs e)
@@ -2524,8 +2560,8 @@ public partial class Programs : System.Web.UI.Page
         txtNumOfOnlineAdults.Text = "";
         txtOnlineProgramDate.Text = "";
         txtOEmail.Text = "";
-
-        rboOnOff.ClearSelection();
+        ddlOnOffSiteEdit.ClearSelection();
+        rboPayment.ClearSelection();
         lstOEducators.ClearSelection();
         lstOBirds.ClearSelection();
         lstOReptiles.ClearSelection();
@@ -2840,3 +2876,4 @@ public partial class Programs : System.Web.UI.Page
     }
 
 }
+
