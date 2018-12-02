@@ -172,7 +172,7 @@ public partial class AnimalPage : System.Web.UI.Page
         lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(lastUpdatedBy);
 
 
-        //retrieveImage.CommandText = "Select AnimalImage from Animal where animalID = 24";
+        //retrieveImage.CommandText = "Select AnimalImage from Animal where animalID = @animalID";
         //retrieveImage.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
 
         //byte[] image = (byte[])retrieveImage.ExecuteScalar();

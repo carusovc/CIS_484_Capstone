@@ -371,7 +371,7 @@
 
 
                                                                                     <td class="col-md-4">
-                                                                                        <asp:Label Style="font-weight: 600;" ID="lblForField3" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "On or Off Site" : "Secondary Email" %>'
+                                                                                        <asp:Label Style="font-weight: 600;" ID="lblForField3" Text='<%# Eval("ProgramCategory").ToString() == "Live Program" ? "On or Off Site" : "" %>'
                                                                                             runat="server" />
                                                                                         <br />
                                                                                         <br />
@@ -909,8 +909,7 @@
                                                                                     <tr class="row">
                                                                                         <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Contact Primary Email
                                                                                         </th>
-                                                                                        <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Secondary Email
-                                                                                        </th>
+                                                                                        
                                                                                         <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Comments
                                                                                         </th>
 
@@ -920,10 +919,7 @@
                                                                                 <tr class="row">
                                                                                     <td class="col-md-4">
                                                                                         <asp:Label ID="lblCity" runat="server" Text='<%# Eval("ContactEmail") %>' />
-                                                                                    </td>
-                                                                                    <td class="col-md-4">
-                                                                                        <asp:Label ID="lblSecondaryEmail" runat="server" Text='<%# Eval("SecondaryEmail") %>' />
-                                                                                    </td>
+                                                                                  
                                                                                     <td class="col-md-8">
                                                                                         <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
                                                                                     </td>
@@ -1430,15 +1426,7 @@
 
                                 </div>
 
-                                <div class="col-md-12 col-lg-4 
-           col-sm-12">
-                                    Secondary Email:
-                                    <br />
-                                    <asp:TextBox ID="txtSecondaryEmail" runat="server"></asp:TextBox>
-
-
-
-                                </div>
+                           
 
                                 <br />
                                 <div class="col-md-12 col-lg-4
@@ -2247,15 +2235,7 @@
                             </div>
 
 
-                            <div class="form-group row">
-                                <div class="col-5">
-                                    <label id="SecondaryEmailLabel" for="SecondaryEmail">Secondary Email:</label>
-                                </div>
-                                <div class="col-7">
-                                    <input type="email" id="SecondaryEmail" class="form-control" runat="server" />
-                                </div>
-                            </div>
-
+                          
 
                             <div class="form-group row">
                                 <div class="col-5">

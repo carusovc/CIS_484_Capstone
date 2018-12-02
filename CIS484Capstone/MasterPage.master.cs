@@ -186,8 +186,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
         sc.Open();
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullContactName = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
+        pullContactName.Connection = sc;
         insert.Parameters.Clear();
+        pullContactName.Parameters.Clear();
 
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
@@ -199,6 +202,18 @@ public partial class MasterPage : System.Web.UI.MasterPage
                           " OrgID = @OrgID";
 
         insert.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
+
+        pullContactName.CommandText = "select ContactID, ContactFirstName + ' ' + ContactLastName as 'Contact Name' from ContactInformation where" +
+          " OrgID = @OrgID";
+
+        pullContactName.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
+        SqlDataReader readContacts = pullContactName.ExecuteReader();
+        ddlContacts.Items.Clear();
+        ddlContacts.Items.Add(new ListItem("--Select Primary Contact--", "0"));
+        while (readContacts.Read())
+        {
+            ddlContacts.Items.Add(new ListItem(readContacts["Contact Name"].ToString(), readContacts["ContactID"].ToString()));
+        }
 
         try
         {
@@ -219,6 +234,23 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 //txtSecondaryEmail2.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
                 //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
+            }
+
+            System.Data.SqlClient.SqlCommand selectContact = new System.Data.SqlClient.SqlCommand();
+            selectContact.Connection = sc;
+            selectContact.Parameters.Clear();
+
+            selectContact.CommandText = "SELECT ContactFirstName + ' ' + ContactLastName as 'Contact Name' From ContactInformation WHERE PrimaryContact = 'Y' and OrgID = @OrgID";
+            selectContact.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
+            String tempContact = (String)selectContact.ExecuteScalar();
+
+            ddlContacts.ClearSelection();
+            for (int i = 0; i < ddlContacts.Items.Count; i++)
+            {
+                if (ddlContacts.Items[i].Text == tempContact)
+                {
+                    ddlContacts.Items[i].Selected = true;
+                }
             }
 
             System.Data.SqlClient.SqlCommand selectState = new System.Data.SqlClient.SqlCommand();
@@ -478,6 +510,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
 
+        System.Data.SqlClient.SqlCommand updatePrimaryContact = new System.Data.SqlClient.SqlCommand();
+        updatePrimaryContact.Connection = sc;
+
+        System.Data.SqlClient.SqlCommand updateContact = new System.Data.SqlClient.SqlCommand();
+        updateContact.Connection = sc;
+
         update.CommandText = "update organization set orgName = @orgName, city = @city, county = @county, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, streetAddress = @streetAddress, state = @state, postalCode = @postalCode where orgID = @orgID";
         update.Parameters.AddWithValue("@orgName", txtOrgName.Text);
         update.Parameters.AddWithValue("@city", txtCity.Text);
@@ -495,7 +533,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail2.Text);
         update.ExecuteNonQuery();
 
+        updatePrimaryContact.Parameters.Clear();
+        updatePrimaryContact.CommandText = "update ContactInformation set PrimaryContact='N' where OrgID = @orgID";
+        updatePrimaryContact.Parameters.AddWithValue("@orgID", ddlOrganization.SelectedItem.Value);
+        updatePrimaryContact.ExecuteNonQuery();
 
+        updateContact.Parameters.Clear();
+        updateContact.CommandText = "update ContactInformation set PrimaryContact='Y' where ContactID = @contactID";
+        updateContact.Parameters.AddWithValue("@contactID", ddlContacts.SelectedValue);
+        updateContact.ExecuteNonQuery();
 
         // lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
         // lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
@@ -515,10 +561,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
         txtOrgName.Text = "";
         txtCity.Text = "";
         txtCounty.Text = "";
-        txtStreetAddress.Text = "";
-        ddlState.SelectedIndex = 0;
+        txtStreetAddress2.Text = "";
+        ddlState2.SelectedIndex = 0;
         ddlOrganization.SelectedIndex = 0;
-        txtPostalCode.Text = "";
+        txtPostalCode2.Text = "";
+        ddlContacts.ClearSelection();
         //txtContactFirstName.Text = "";
         //txtContactLastName.Text = "";
         //txtPhoneNumber.Text = "";
@@ -660,6 +707,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         ddlOrganization.DataBind();
 
+
         textOrgName.Text = "";
         textOrgCity.Text = "";
         textOrgCounty.Text = "";
@@ -674,6 +722,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //txtSecondaryEmail.Text = "";
 
         sc.Close();
+        
     }
 
     protected void btnAddAnimal_Click(object sender, EventArgs e)
@@ -1468,69 +1517,69 @@ public partial class MasterPage : System.Web.UI.MasterPage
         sc.Close();
     }
 
-    protected void btnDeleteVolunteer_Click(object sender, EventArgs e)
-    {
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        sc.ConnectionString = cs;
-        sc.Open();
+    //protected void btnDeleteVolunteer_Click(object sender, EventArgs e)
+    //{
+    //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+    //    // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+    //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+    //    sc.ConnectionString = cs;
+    //    sc.Open();
 
-        System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
+    //    System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
 
-        delete.Connection = sc;
-
-
-        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
-
-        //call read array
-        SqlConnection con = new SqlConnection(cs);
-        delete.CommandText = "Delete from Volunteers where VolunteerID = @VolunteerID";
-        delete.Parameters.AddWithValue("@VolunteerID", ddlVolunteerName.SelectedItem.Value);
-
-        delete.ExecuteNonQuery();
-
-        ddlVolunteerName.Items.Clear();
-        //call read array
-        con.Open();
-        if (con.State == System.Data.ConnectionState.Open)
-        {
-
-            string read = "Select * from Volunteers";
-            SqlCommand cmd = new SqlCommand(read, con);
-            SqlDataReader myRead = cmd.ExecuteReader();
-
-            while (myRead.Read())
-            {
-
-                ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString(), myRead["VolunteerID"].ToString()));
-            }
+    //    delete.Connection = sc;
 
 
-        }
-        txtVolunteerFirstName.Text = "";
-        txtVolunteerLastName.Text = "";
-        txtVolunteerAddPhoneNumber.Text = "";
-        txtVoluteerAddEmail.Text = "";
-        ddlVolunteerAddStatus.SelectedIndex = 0;
-        ddlVolunteerName.Items.Clear();
-        //call read array
-        if (sc.State == System.Data.ConnectionState.Open)
-        {
+    //    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
 
-            string read = "Select * from Volunteers";
-            SqlCommand cmd = new SqlCommand(read, sc);
-            SqlDataReader myRead = cmd.ExecuteReader();
+    //    //call read array
+    //    SqlConnection con = new SqlConnection(cs);
+    //    delete.CommandText = "Delete from Volunteers where VolunteerID = @VolunteerID";
+    //    delete.Parameters.AddWithValue("@VolunteerID", ddlVolunteerName.SelectedItem.Value);
 
-            ddlVolunteerName.Items.Add(new ListItem("--Select Volunteer--", "0"));
-            while (myRead.Read())
-            {
-                ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
-            }
-        }
-        con.Close();
-        sc.Close();
-    }
+    //    delete.ExecuteNonQuery();
+
+    //    ddlVolunteerName.Items.Clear();
+    //    //call read array
+    //    con.Open();
+    //    if (con.State == System.Data.ConnectionState.Open)
+    //    {
+
+    //        string read = "Select * from Volunteers";
+    //        SqlCommand cmd = new SqlCommand(read, con);
+    //        SqlDataReader myRead = cmd.ExecuteReader();
+
+    //        while (myRead.Read())
+    //        {
+
+    //            ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString(), myRead["VolunteerID"].ToString()));
+    //        }
+
+
+    //    }
+    //    txtVolunteerFirstName.Text = "";
+    //    txtVolunteerLastName.Text = "";
+    //    txtVolunteerAddPhoneNumber.Text = "";
+    //    txtVoluteerAddEmail.Text = "";
+    //    ddlVolunteerAddStatus.SelectedIndex = 0;
+    //    ddlVolunteerName.Items.Clear();
+    //    //call read array
+    //    if (sc.State == System.Data.ConnectionState.Open)
+    //    {
+
+    //        string read = "Select * from Volunteers";
+    //        SqlCommand cmd = new SqlCommand(read, sc);
+    //        SqlDataReader myRead = cmd.ExecuteReader();
+
+    //        ddlVolunteerName.Items.Add(new ListItem("--Select Volunteer--", "0"));
+    //        while (myRead.Read())
+    //        {
+    //            ddlVolunteerName.Items.Add(new ListItem(myRead["VolunteerFirstName"].ToString() + " " + myRead["VolunteerLastName"].ToString(), myRead["VolunteerID"].ToString()));
+    //        }
+    //    }
+    //    con.Close();
+    //    sc.Close();
+    //}
 
     protected void btnUpdateVolunteer_Click(object sender, EventArgs e)
     {

@@ -83,7 +83,7 @@ public partial class Programs : System.Web.UI.Page
                 SqlDataReader myRead2 = cmd2.ExecuteReader();
 
 
-                string readVolunteers = "Select * from Volunteers";
+                string readVolunteers = "Select * from Volunteers where Status = 'Active'";
                 SqlCommand cmdVolunteers = new SqlCommand(readVolunteers, con);
                 SqlDataReader myReadVolunteer = cmdVolunteers.ExecuteReader();
 
@@ -701,7 +701,7 @@ public partial class Programs : System.Web.UI.Page
             else if (tempProgramCategory.ToString().Equals("Online Program"))
             {
                 // Query 1 for Online
-                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2, Case when AllProgramID > 0 then ' ' else ' ' end AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
                 rptAllLL1.DataBind();
 
                 // Query 2 for Live

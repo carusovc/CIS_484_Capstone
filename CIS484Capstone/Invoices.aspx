@@ -265,7 +265,7 @@
         <div class="card-header NewUserTitle text-center">Invoices</div>
         <div class="card-body text-center">
             <asp:Button class="btn btn-primary btn-inside" ID="btnAddPayment" runat="server" Text="Add Payment" OnClick="btnAddPayment_Click" />
-             <div class="btn btn-primary btn-inside" data-target="#UpdatePayment" data-toggle="modal">Edit Payment</div>
+             <div class="btn btn-primary btn-inside" data-target="#UpdatePayment" data-toggle="modal">Edit Invoice</div>
             <p></p>
             <div class="block3">
                                          <script>
@@ -346,12 +346,12 @@ $(function() {
                                                     <asp:CheckBox ID="chkSelect" HorizontalAlign="Center" runat="server" Width="110px" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                                <asp:BoundField DataField="PaymentDate" HeaderText="PaymentDate" SortExpression="PaymentDate">
+                                                <asp:BoundField DataField="PaymentDate" HeaderText="Invoice Date" SortExpression="PaymentDate">
                                                     
                                                 </asp:BoundField>
-                                                <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
+                                                <asp:BoundField DataField="PaymentAmount" HeaderText="Payment Amount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
                                                 </asp:BoundField>
-                                                 <asp:BoundField DataField="PaymentType" HeaderText="PaymentType" SortExpression="PaymentType" />
+                                                 <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" SortExpression="PaymentType" />
                                                 <asp:BoundField DataField="CheckNumber" HeaderText="CheckNumber" SortExpression="CheckNumber" InsertVisible="True">
                                                 </asp:BoundField>
 
@@ -368,7 +368,7 @@ $(function() {
 
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
+                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], PaymentRecord.Paid
                                             FROM [Program] inner join [Organization] on  Program.OrgID = Organization.OrgID inner join [PaymentRecord] 
 											on PaymentRecord.PaymentID = Program.PaymentID inner join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID  WHERE (CASE { fn MONTH(paymentDate) } 
                                             when 1 then 'January'
@@ -454,11 +454,11 @@ $(function() {
                                                 </ItemTemplate>
                                         
                                             </asp:TemplateField>
-                                                <asp:BoundField DataField="PaymentDate" HeaderText="PaymentDate" SortExpression="PaymentDate">
+                                                <asp:BoundField DataField="PaymentDate" HeaderText="Invoice Date" SortExpression="PaymentDate">
                                                 </asp:BoundField>
-                                                <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
+                                                <asp:BoundField DataField="PaymentAmount" HeaderText="Payment Amount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
                                                 </asp:BoundField>
-                                                 <asp:BoundField DataField="PaymentType" HeaderText="PaymentType" SortExpression="PaymentType" />
+                                                 <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" SortExpression="PaymentType" />
                                                 <asp:BoundField DataField="CheckNumber" HeaderText="CheckNumber" SortExpression="CheckNumber" InsertVisible="True">
                                                 </asp:BoundField>
 
@@ -538,7 +538,7 @@ $(function() {
                                                 </ItemTemplate>
                                               
                                             </asp:TemplateField>
-                                                <asp:BoundField DataField="PaymentDate" HeaderText="PaymentDate" SortExpression="PaymentDate" >
+                                                <asp:BoundField DataField="PaymentDate" HeaderText="Invoice Date" SortExpression="PaymentDate" >
                                                       <FooterStyle Font-Bold="True" HorizontalAlign="Right" />
                                                 </asp:BoundField>
                                                 <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
