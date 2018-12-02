@@ -38,13 +38,16 @@
 
                 
          
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+   <nav class="navbar navbar-dark bg-dark">
+  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-
+  <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+        <div class="ml-auto">
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3;" ></asp:Label>
+         <a class=" d-none d-md-block" style="color:#FFBC7C;" href="Default.aspx">
+               <span>Logout</span></a>
+</div>
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown no-arrow">
@@ -263,7 +266,7 @@
                  <span>Volunteers</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#" data-target="Volunteers.aspx" data-toggle="modal">View Volunteers</a>
+                        <a class="dropdown-item" href="Volunteers.aspx" data-toggle="modal">View Volunteers</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
                         <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
                     </div>
@@ -320,7 +323,224 @@
                     <asp:ListItem>City A-Z</asp:ListItem>
                     <asp:ListItem>County A-Z</asp:ListItem>
                 </asp:DropDownList>--%>
+          <%--Add Volunteer--%>
+           <div class="modal fade" id="AddVolunteer" tabindex="-1" role="dialog">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content mt-5">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add New Volunteer</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div runat="server" id="Div3">
+                            <p>&nbsp;</p>
+                            <div class="row">
+                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>First Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>First Name</h6>
+                                </div>
+                                <div class=" col-md-3 InternalEducatorForm">
+                                    <asp:TextBox ID="txtVolunteerAddFirstName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Last Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Last Name</h6>
+                                </div>
+                                <div class=" col-md-3 InternalEducatorForm">
+                                    <asp:TextBox ID="txtVolunteerAddLastName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
 
+
+
+                            <div class="row">
+                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Phone Number</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Phone Number</h6>
+                                </div>
+                                <div class=" col-md-3 InternalEducatorForm">
+                                    <asp:TextBox ID="txtVolunteerAddPhoneNumber" runat="server" placeholder="(___) ___-____"></asp:TextBox>
+                                    &nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Email</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Email</h6>
+                                </div>
+                                <div class=" col-md-3 InternalEducatorForm">
+                                    <asp:TextBox ID="txtVoluteerAddEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                               <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" col-md-3 InternalEducatorForm">
+                                <asp:DropDownList ID="ddlVolunteerAddStatus" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
+                                            <asp:ListItem Text="--Status--" Value=""></asp:ListItem>
+                                            <asp:ListItem Text="Active" Value="Active"></asp:ListItem>
+                                            <asp:ListItem Text="Inactive" Value="Inactive"></asp:ListItem>
+                                </asp:DropDownList>
+                                </div>
+                            </div>
+                            
+                            <div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <asp:Button ID="btnVolunteerAdd" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddVolunteer_Click" />
+                        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <%-- Update Volunteer--%>
+            <div class="modal fade" id="UpdateVolunteer" tabindex="-1" role="dialog">
+            <div class="modal-dialog " role="document">
+                <div class="modal-content mt-5">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Volunteer</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+        <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+            <Triggers> 
+                <asp:AsyncPostBackTrigger ControlID="ddlVolunteerName" EventName="SelectedIndexChanged" /> 
+            </Triggers> 
+                    <ContentTemplate>
+                    <div class="modal-body">
+                        <div runat="server" id="Div2">
+                            <p>&nbsp;</p>
+                            <div class="row">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Select Volunteer</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Select Volunteer</h6>
+                                </div>
+                                <div class=" col-md-3 InternalForm">
+
+                                    <asp:DropDownList ID="ddlVolunteerName" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;"  runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="VolunteerFirstName" DataValueField="VolunteerID"  OnSelectedIndexChanged ="ddlVolunteer_SelectedIndexChanged">
+                                        <asp:ListItem>--Select Volunteer--</asp:ListItem>
+                                    </asp:DropDownList>
+                                    &nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>First Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>First Name</h6>
+                                </div>
+                                <div class=" col-md-3 InternalAnimalForm">
+                                    <asp:TextBox ID="txtVolunteerFirstName" runat="server"></asp:TextBox>&nbsp&nbsp
+                                </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Last Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Last Name</h6>
+                                </div>
+                                <div class=" col-md-3 InternalAnimalForm">
+
+                                    <asp:TextBox ID="txtVolunteerLastName" runat="server"></asp:TextBox>&nbsp&nbsp
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Phone Number</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Phone Number</h6>
+                                </div>
+                                <div class=" col-md-3 InternalAnimalForm">
+
+                                    <asp:TextBox ID="txtVolunteerPhoneNumber" runat="server"></asp:TextBox>&nbsp&nbsp
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                               <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Email</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Email</h6>
+                                </div>
+                                <div class=" col-md-3 InternalAnimalForm">
+
+                                    <asp:TextBox ID="txtVolunteerEmail" runat="server"></asp:TextBox>&nbsp&nbsp
+
+                                </div>
+                            </div>
+
+                           <div class="row">
+                            <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" col-md-3 InternalAnimalForm">
+
+                                    <asp:DropDownList ID="ddlVolunteerStatus" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;"  runat="server" >
+                                        <asp:ListItem>--Select Status--</asp:ListItem>
+                                        <asp:ListItem Text="Active" Value="Active"></asp:ListItem>
+                                        <asp:ListItem Text="Inactive" Value="Inactive"></asp:ListItem>
+                                    </asp:DropDownList>
+
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="row">
+                                    <div class=" col-12">
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    </ContentTemplate>
+                    </asp:UpdatePanel>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <%--<asp:Button ID="btnDeleteVolunteer" class="btn btn-primary btn-inside" runat="server" Text="Disable" OnClick="btnDeleteVolunteer_Click" />--%>
+                        <asp:Button ID="btnUpdateVolunteer" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdateVolunteer_Click" />
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
             
             
             <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
@@ -383,7 +603,7 @@ $(function() {
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                 <%--<h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>--%>
                            
-    <asp:GridView ID="GridView1"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
+    <asp:GridView ID="GridView1"  HeaderStyle-BackColor="#C7BFC4" ForeColor="Black"  class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
         <Columns>
             <asp:BoundField DataField="VolunteerFirstName" HeaderText="Volunteer First Name" SortExpression="VolunteerFirstName" >
  
@@ -421,7 +641,7 @@ $(function() {
                         <div class ="grid-volunteers text-center">
                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
-                            <asp:GridView ID="GridView2"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource1">
+                            <asp:GridView ID="GridView2"   HeaderStyle-BackColor="#C7BFC4" ForeColor="Black" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource1">
                             <Columns>
                                 <asp:BoundField DataField="VolunteerFirstName" HeaderText="Volunteer First Name" SortExpression="VolunteerFirstName" >
  
@@ -459,7 +679,7 @@ $(function() {
                      <div class ="grid-volunteers text-center">
                                <div class="row table-responsive mx-auto d-flex  justify-content-center">
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
-                            <asp:GridView ID="GridView3"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
+                            <asp:GridView ID="GridView3"   HeaderStyle-BackColor="#C7BFC4" ForeColor="Black" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
                             <Columns>
                                 <asp:BoundField DataField="VolunteerFirstName" HeaderText="Volunteer First Name" SortExpression="VolunteerFirstName" >
  
