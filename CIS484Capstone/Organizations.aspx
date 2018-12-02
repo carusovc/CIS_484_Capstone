@@ -295,6 +295,8 @@
       <div class="card  mx-auto mt-3">
         <div class="card-header NewUserTitle text-center">
            
+
+
             Organization Listing</div>
         <div class="card-body">
             <div class="mx-auto d-flex justify-content-center">
@@ -302,82 +304,19 @@
                 <div class="btn btn-primary btn-inside" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</div>
                 <div class="btn btn-primary btn-inside" data-target="#AddContact" data-toggle="modal">Add Contact</div>
             </div>
-                </div>
-            
-
-          
-       
-                <div class="row">
-
-                <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 InternalAnimalForm"  >
-                    <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
-                    <asp:ListItem>--Order By--</asp:ListItem>
-                    <%--<asp:ListItem>Program Date</asp:ListItem>--%>
-                    <asp:ListItem>Organization Name A-Z</asp:ListItem>
-                    <asp:ListItem>City A-Z</asp:ListItem>
-                    <asp:ListItem>County A-Z</asp:ListItem>
-                </asp:DropDownList>
-
-                    
-                </div>
-
-                <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-5 col-sm-12 col-xs-12 InternalAnimalForm"  >
-                    <div class="form-check-inline">
-                    <asp:TextBox  class="InternalAnimalForm form-control" ID="txtSearch" runat="server"></asp:TextBox>
-
-                  
-                    <asp:Button ID ="Button1" runat ="server" class="btn" Text ="Search" OnClick="btnSearch_Click" />
-                    &nbsp;&nbsp;&nbsp;
-                     </div>
-                </div>
-            
-            </div>
-           
-          <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
-
-    <div class="container1 block">
-     <div runat="server" id="OrganizationSearchDiv">
-               
-        <div runat="server" id="ViewOrganizations">
-
-                      </div>
-                   
-    <div class="block3">
-  
-                 <div class="tab-content">
-                 
-<div class="">
-    <div class="col-md-12 ">
-             <br />
-			  <div class=" text-center">
-                  <h6 class="ReportTitle" >Search Results</h6>
-
-			  </div>
-			
-		</div>
-	</div>
-                        
-
-            <div class="row table-responsive mx-auto d-flex  justify-content-center">
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-   
-   
-<asp:GridView ID="gridSearch"   class="table table-bordered table-condensed table-hover"  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" runat="server" AutoGenerateColumns="False">
-                      <Columns>
-                          <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" />
-                          <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" />
-                          <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
-                          <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" />
-                          <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
-                          <asp:BoundField DataField="PostalCode" HeaderText="Postal Code" SortExpression="PostalCode" />
-                      </Columns>
-                 </asp:GridView><br /><br /><br />
-              </div>
-           </div>
         </div>
-         </div>
-    </div>
+            
+        
+
+    
+          
+
+
+
+
+        <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
+            <div class="container1 block">
+            
          
 <%--start--%>
          <div class="modal fade" id="AddContact" tabindex="-1" role="dialog">
@@ -460,84 +399,126 @@
 
         <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
                 <div class="container1 block">
-                    <div runat="server" id="Div2">
-                        <div runat="server" id="Div3">
+                 
 
                       <%--</div>--%>
                    
-                            <div class="block3">
-                                 <div class="tab-content">   
-                                    <div class="">
-                                        <div class="col-md-12 ">
-                                                 <br />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                             <script>
+                      $(function () {
+                      $('a[data-toggle="tab"]').on('click', function (e) {
+                          window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+                      });
+                      var activeTab = window.localStorage.getItem('activeTab');
+                      if (activeTab) {
+                          $('#myTab a[href="' + activeTab + '"]').tab('show');
+                          window.localStorage.removeItem("activeTab");
+                      }
+                  });       </script>
 
-            <%-- this div  is the internal div--%>
-       
-      
-                                                    <script>
-$(function() {
-    $('a[data-toggle="tab"]').on('click', function(e) {
-        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
-    });
-    var activeTab = window.localStorage.getItem('activeTab');
-    if (activeTab) {
-        $('#myTab a[href="' + activeTab + '"]').tab('show');
-        window.localStorage.removeItem("activeTab");
-    }
-});       </script>
+              <%-- this div  is the internal div--%>
 
-                        <ul class="nav nav-tabs block4" id="myTab" role="tablist">
-                <li class="nav-item ">
-                
-                                
-                    <a class="nav-link   active TabStyle" data-toggle="tab" href="#OrganizationsAllTab" style="color:black;"><p class="d-none d-lg-block">All Organizations</p><p class="d-lg-none">All </p></a>
-                 
-                </li>
-                <li class="nav-item">
-                     <a class="nav-link    TabStyle" data-toggle="tab" href="#ContactsTab" style="color:black;"><p class="d-none d-lg-block">Organization Contacts</p><p class="d-lg-none">Active </p></a>
-                      </li>
-                
-                
-            </ul>
+            
+
+ 
+                              <ul class="nav nav-tabs block4" id="myTab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active TabStyle" id="AllTabNav" data-toggle="tab" href="#OrganizationsAllTab" style="color: black;"><p class="d-none d-lg-block">All Organizations</p>
+                      <p class="d-lg-none">All </p> </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link TabStyle" id="LiveTabNav" data-toggle="tab" href="#ContactsTab" style="color: black;"><p class="d-none d-lg-block">Organization Contacts</p>
+                      <p class="d-lg-none">Active </p></a>
+                                            </li>
+                                            
+                                        </ul>
 
 
-       
-           
             <div class="tab-content">
-                <div id="OrganizationsAllTab" class="container1 block3 tab-pane  WildTable active">
+                <div id="OrganizationsAllTab" class="tab-pane show active">
                     <div class="InternalOrganizationsTab">
+                       
+                        <div class="row"> <%-- for Org listing--%>
+            <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 InternalAnimalForm"  >
+                <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+                <asp:ListItem>--Order By--</asp:ListItem>
+                    <%--<asp:ListItem>Program Date</asp:ListItem>--%>
+                    <asp:ListItem>Organization Name A-Z</asp:ListItem>
+                    <asp:ListItem>City A-Z</asp:ListItem>
+                    <asp:ListItem>County A-Z</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-5 col-sm-12 col-xs-12 InternalAnimalForm"  >
+                <div class="form-check-inline">
+                    <asp:TextBox  class="InternalAnimalForm form-control" style=" margin-bottom: 5px; margin-right: 5px;" ID="txtSearch" runat="server"></asp:TextBox>
+                    <asp:Button ID ="btnSearch" runat ="server" class="btn" style=" margin-bottom: 5px; margin-right: 5px;" Text ="Search" OnClick="btnSearch_Click" />
+                    <asp:Button ID="btnAllClear" runat="server" class="btn " style=" margin-bottom: 5px; margin-right: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
+        </div>
+
+
+                        <div runat="server" id="OrganizationSearchDiv">
+                <div runat="server" id="ViewOrganizations">
+                </div>
+                   
+                <div class="block3">
+                    <div class="tab-content">
+                        <div class="">
+                            <div class="col-md-12 ">
+                                     <br />
+			                          <div class=" text-center">
+                                          <h6 class="ReportTitle" >Search Results</h6>
+			                          </div>
+		                    </div>
+	                    </div>
+         <div class="row table-responsive mx-auto d-flex  justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <asp:GridView ID="gridSearch"   class="table table-bordered table-condensed table-hover"  HeaderStyle-Backcolor="#FFBC7C"
+                    HeaderStyle-Forecolor="#732700" runat="server" AutoGenerateColumns="False">
+                                      <Columns>
+                                          <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" />
+                                          <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" />
+                                          <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
+                                          <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" />
+                                          <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
+                                          <asp:BoundField DataField="PostalCode" HeaderText="Postal Code" SortExpression="PostalCode" />
+                                      </Columns>
+                </asp:GridView><br /><br /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
                           <div class ="grid-volunteers text-center">
                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
-              <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">      
-    <asp:GridView ID="GridView1"  HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
-        <Columns>
-            <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" >
+                <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">      
+                <asp:GridView ID="GridView1"  HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False">
+                    <Columns>
+                        <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" >
  
-            </asp:BoundField>
-            <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" >
+                        </asp:BoundField>
+                        <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" >
             
-            </asp:BoundField>
-            <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" >
+                        </asp:BoundField>
+                        <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" >
             
-            </asp:BoundField>
-            <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" >
+                        </asp:BoundField>
+                        <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" >
             
-            </asp:BoundField>
-            <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" >
+                        </asp:BoundField>
+                        <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" >
             
-            </asp:BoundField>
-            <asp:BoundField DataField="PostalCode" HeaderText="Postal Code" SortExpression="PostalCode">
+                        </asp:BoundField>
+                        <asp:BoundField DataField="PostalCode" HeaderText="Postal Code" SortExpression="PostalCode">
             
-            </asp:BoundField>
+                        </asp:BoundField>
 
-        </Columns>
+                    </Columns>
         
-     </asp:GridView>
+                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"  
                     SelectCommand="SELECT [OrgName], [StreetAddress], [City], [County], [State], [PostalCode] FROM [Organization] ORDER BY [OrgName]">
                 </asp:SqlDataSource>
@@ -547,13 +528,67 @@ $(function() {
                                 </div>
                             </div>
 
+               
 
-        <div id="ContactsTab" class="container1 block3 tab-pane  text-center WildTable">
+        <div id="ContactsTab" class="tab-pane show ">
                     <div class="InternalAnimalTab">
+                        <div class="row"> <%--for contact listing--%>
+            <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 InternalAnimalForm"  >
+                <asp:DropDownList ID="ddlContactOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlContactOrderBy_SelectedIndexChanged">
+                <asp:ListItem>--Order By--</asp:ListItem>
+                    <%--<asp:ListItem>Program Date</asp:ListItem>--%>
+                    <asp:ListItem>Organization Name A-Z</asp:ListItem>
+                    <asp:ListItem>Contact First Name A-Z</asp:ListItem>
+                    <asp:ListItem>Contact Last Name A-Z</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-5 col-sm-12 col-xs-12 InternalAnimalForm"  >
+                <div class="form-check-inline">
+                    <asp:TextBox  class="InternalAnimalForm form-control" ID="txtContactSearch" style=" margin-bottom: 5px; margin-right: 5px;" runat="server"></asp:TextBox>
+                    <asp:Button ID ="btnContactSearch" runat ="server" class="btn" style=" margin-bottom: 5px; margin-right: 5px;" Text ="Search" OnClick="btnContactSearch_Click" />
+                    <asp:Button ID="btnContactClear" runat="server" class="btn " style=" margin-bottom: 5px; margin-right: 5px;" Text="Clear Filters" OnClick="btnContactClear_Click" />
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
+        </div>
+
+
+                        <div runat="server" id="ContactSearchDiv">
+                    <div runat="server" id="Div5">
+                    </div>
+                    <div class="block3">
+                        <div class="tab-content">
+                            <div class="">
+                                <div class="col-md-12 ">
+                                <br />
+			                        <div class=" text-center">
+                                    <h6 class="ReportTitle" >Search Results</h6>
+			                        </div>
+		                         </div>
+	                        </div>
+                                 <div class="row table-responsive mx-auto d-flex  justify-content-center">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                        <asp:GridView ID="ContactSearchGrid"   class="table table-bordered table-condensed table-hover"  HeaderStyle-Backcolor="#FFBC7C"
+                                            HeaderStyle-Forecolor="#732700" runat="server" AutoGenerateColumns="False">
+                                                              <Columns>
+                                                                  <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" />
+                                                                  <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName" />
+                                                                  <asp:BoundField DataField="ContactLastName" HeaderText="Contact Last Name" SortExpression="ContactLastName" />
+                                                                  <asp:BoundField DataField="ContactEmail" HeaderText="Contact Email" SortExpression="ContactEmail" />
+                                                                  <asp:BoundField DataField="PrimaryContact" HeaderText="Primary Contact" SortExpression="PrimaryContact" />
+                                                              </Columns>
+                                        </asp:GridView><br /><br /><br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                      <div class ="grid-volunteers text-center">
                                <div class="row table-responsive mx-auto d-flex  justify-content-center">
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
-                            <asp:GridView ID="GridView3"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
+                            <asp:GridView ID="GridView3"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False">
                             <Columns>
                                 <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" >
  
@@ -581,13 +616,21 @@ $(function() {
                         </div>
                     </div>
                 </div>
+
+
+
+
+                
+       
+
+
+
             </div>
         </div>
 
-                        </div>
-                    </div>
-                    <div runat="server" id="Div1">
-                    </div>
+                        </div></div>
+                
+                    
                 </div>
             </div>
         </section>
