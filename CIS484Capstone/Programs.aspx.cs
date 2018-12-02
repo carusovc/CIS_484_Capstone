@@ -44,7 +44,7 @@ public partial class Programs : System.Web.UI.Page
 
             da.Fill(ds);
 
-            lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+            //lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
         }
         catch
         {
@@ -428,19 +428,10 @@ public partial class Programs : System.Web.UI.Page
 
 
                 }
-
-                    string VolunteerRead = "Select * from Volunteers where VolunteerStatus = 'Active' order by VolunteerFirstName";
-                    SqlCommand cmdOnlineVolunteer = new SqlCommand(VolunteerRead, con);
-                    SqlDataReader OnlineVolunteerRead = cmdOnlineVolunteer.ExecuteReader();
-
-                    while (OnlineVolunteerRead.Read())
-                    {
-
-                        lstOnlineVolunteers.Items.Add(new ListItem(OnlineVolunteerRead["VolunteerFirstName"].ToString() + " " + OnlineVolunteerRead["VolunteerLastName"].ToString(), OnlineVolunteerRead["VolunteerID"].ToString()));
-                    }
+                
 
 
-                }
+               
 
                 if (lstBirdOnline.Items.Count < 2)
                 {
@@ -2248,7 +2239,6 @@ public partial class Programs : System.Web.UI.Page
             conn.Open();
             command.ExecuteNonQuery();
         }
-    }
 
         //LiveOnline.Value = "";
         ProgramDate.Value = "";
@@ -2270,6 +2260,8 @@ public partial class Programs : System.Web.UI.Page
         OnlineNumOfAdults.Value = "";
         OnlineComments.Value = "";
     }
+
+       
 
     protected void ddlOrderByAll_SelectedIndexChanged(object sender, EventArgs e)
     {

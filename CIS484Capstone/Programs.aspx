@@ -2752,7 +2752,7 @@
                             
 
 
-                            <div class="form-group row">
+                          <%--  <div class="form-group row">
                                 <div class="col-5">
                                     <label id="VolunteerLabelive" for="Volunteer">Volunteer:</label>
                                 </div>
@@ -2761,7 +2761,7 @@
                                         <asp:ListItem Text="--Select Volunteers--" Value="0" />
                                     </asp:ListBox>
                                 </div>
-                            </div>
+                            </div>--%>
 
 
 

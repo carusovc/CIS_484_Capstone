@@ -7,8 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Configuration;
-using System.Data.SqlClient;
+
 
 public partial class Educators : System.Web.UI.Page
 {
@@ -16,20 +15,20 @@ public partial class Educators : System.Web.UI.Page
     {
         try
         {
-            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+            System.Data.SqlClient.SqlConnection sc1 = new System.Data.SqlClient.SqlConnection();
             //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-            String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-            sc.ConnectionString = cs;
-            sc.Open();
+            String cs1 = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+            sc1.ConnectionString = cs1;
+            sc1.Open();
             // lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
 
-            SqlConnection con = new SqlConnection(cs);
+            SqlConnection con = new SqlConnection(cs1);
 
             con.Open();
 
             //string str = "select * from Person where username= @username";
             System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
-            str.Connection = sc;
+            str.Connection = sc1;
             str.Parameters.Clear();
 
             str.CommandText = "select * from Person where username= @username";
