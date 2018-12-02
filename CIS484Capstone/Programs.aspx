@@ -2104,7 +2104,7 @@
                                     <label id="lblProgramType" for="ProgramType">Type of Program:</label>
                                 </div>
                                 <div class="col-6">
-                                    <select name="LiveOnline" id="LiveOnline" class="form-control">
+                                    <select name="LiveOnline" id="LiveOnline" class="form-control" runat="server">
                                         <option value=""></option>
                                         <option value="Live">Live Program</option>
                                         <option value="Online">Online Program</option>

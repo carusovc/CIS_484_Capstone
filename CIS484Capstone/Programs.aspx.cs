@@ -1636,6 +1636,7 @@ public partial class Programs : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand pullGradeID = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullOrgID = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullVolunteerID = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand programVolunteerInsert = new System.Data.SqlClient.SqlCommand();
 
 
 
@@ -1652,6 +1653,7 @@ public partial class Programs : System.Web.UI.Page
         pullAnimalID.Connection = sc;
         pullGradeID.Connection = sc;
         pullVolunteerID.Connection = sc;
+        programVolunteerInsert.Connection = sc;
 
 
         ////Program class attributes
@@ -1739,34 +1741,34 @@ public partial class Programs : System.Web.UI.Page
             }
         }
 
-        //foreach (ListItem li in lstSelectVolunteersLive.Items)
-        //{
-        //    if (li.Selected == true)
-        //    {
-        //        pullVolunteerID.Parameters.Clear();
-        //        programEducatorInsert.Parameters.Clear();
+        foreach (ListItem li in lstSelectVolunteersLive.Items)
+        {
+            if (li.Selected == true)
+            {
+                pullVolunteerID.Parameters.Clear();
+                programVolunteerInsert.Parameters.Clear();
 
 
-        //        //// Pulls Educator Name based on the selected educator
-        //        //// MAY NEED TO CHANGE IF WE COMPOSITE EDUCATORS
-        //        pullVolunteerID.CommandText = "SELECT EducatorID From Educators WHERE (EducatorFirstName + ' ' + EducatorLastName) = @EducatorName";
-        //        pullVolunteerID.Parameters.AddWithValue("@EducatorName", li.Text);
-        //        int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
-        //        // string stempProgramID = ddlProgram.SelectedItem.Value.Substring(0, 1);
+                //// Pulls Educator Name based on the selected educator
+                //// MAY NEED TO CHANGE IF WE COMPOSITE EDUCATORS
+                pullVolunteerID.CommandText = "SELECT VolunteerID From Volunteers WHERE (VolunteerFirstName + ' ' + VolunteerLastName) = @VolunteerName";
+                pullVolunteerID.Parameters.AddWithValue("@VolunteerName", li.Text);
+                int tempVolunteerID = (int)pullVolunteerID.ExecuteScalar();
+                // string stempProgramID = ddlProgram.SelectedItem.Value.Substring(0, 1);
 
-        //        //// Inserts programID and EducatorID into Assocaited table ProgramEducators
-        //        programEducatorInsert.CommandText = "INSERT INTO ProgramEducators (ProgramID, EducatorID, LastUpdated, LastUpdatedBy) values (@programID, @educatorID, @lastUpdated, @lastUpdatedBy)";
-        //        programEducatorInsert.Parameters.AddWithValue("@programID", tempProgramID);
-        //        programEducatorInsert.Parameters.AddWithValue("@educatorID", tempEducatorID);
-        //        programEducatorInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
-        //        programEducatorInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
-        //        programEducatorInsert.ExecuteNonQuery();
-        //    }
-        //    else
-        //    {
-        //        continue;
-        //    }
-        //}
+                //// Inserts programID and EducatorID into Assocaited table ProgramEducators
+                programVolunteerInsert.CommandText = "INSERT INTO ProgramVolunteers (ProgramID, VolunteerID, LastUpdated, LastUpdatedBy) values (@programID, @volunteerID, @lastUpdated, @lastUpdatedBy)";
+                programVolunteerInsert.Parameters.AddWithValue("@programID", tempProgramID);
+                programVolunteerInsert.Parameters.AddWithValue("@volunteerID", tempVolunteerID);
+                programVolunteerInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+                programVolunteerInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+                programVolunteerInsert.ExecuteNonQuery();
+            }
+            else
+            {
+                continue;
+            }
+        }
 
 
         // Pull program animal based on selected Animal
@@ -1877,6 +1879,7 @@ public partial class Programs : System.Web.UI.Page
         ddlProgram.SelectedValue = "0";
         dropDownOrganization.SelectedValue = "0";
         lstSelectEducatorsLive.ClearSelection();
+        lstSelectVolunteersLive.ClearSelection();
         lstSelectBirdsLive.ClearSelection();
         lstSelectReptilesLive.ClearSelection();
         lstSelectMammalsLive.ClearSelection();
@@ -1909,6 +1912,9 @@ public partial class Programs : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand onlineEducatorsInsert = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand pullGradeID = new System.Data.SqlClient.SqlCommand();
         System.Data.SqlClient.SqlCommand onlineProgramGradesInsert = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand onlineVolunteerInsert = new System.Data.SqlClient.SqlCommand();
+        System.Data.SqlClient.SqlCommand pullVolunteerID = new System.Data.SqlClient.SqlCommand();
+
 
         insert.Connection = sc;
 
@@ -1921,6 +1927,9 @@ public partial class Programs : System.Web.UI.Page
 
         pullGradeID.Connection = sc;
         onlineProgramGradesInsert.Connection = sc;
+
+        onlineVolunteerInsert.Connection = sc;
+        pullVolunteerID.Connection = sc;
 
         //Online Program ;
         //int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
@@ -1997,6 +2006,37 @@ public partial class Programs : System.Web.UI.Page
                 continue;
             }
         }
+
+        // Inserts into online program associated table for volunteers
+        foreach (ListItem li in lstOnlineVolunteers.Items)
+        {
+            if (li.Selected == true)
+            {
+                pullVolunteerID.Parameters.Clear();
+                onlineVolunteerInsert.Parameters.Clear();
+
+
+                //// Pulls Educator Name based on the selected educator
+                //// MAY NEED TO CHANGE IF WE COMPOSITE EDUCATORS
+                pullVolunteerID.CommandText = "SELECT VolunteerID From Volunteers WHERE (VolunteerFirstName + ' ' + VolunteerLastName) = @VolunteerName";
+                pullVolunteerID.Parameters.AddWithValue("@VolunteerName", li.Text);
+                int tempVolunteerID = (int)pullVolunteerID.ExecuteScalar();
+                // string stempProgramID = ddlProgram.SelectedItem.Value.Substring(0, 1);
+
+                //// Inserts programID and EducatorID into Assocaited table ProgramEducators
+                onlineVolunteerInsert.CommandText = "INSERT INTO OnlineVolunteers (OnlineProgramID, VolunteerID, LastUpdated, LastUpdatedBy) values (@onlineProgramID, @volunteerID, @lastUpdated, @lastUpdatedBy)";
+                onlineVolunteerInsert.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
+                onlineVolunteerInsert.Parameters.AddWithValue("@volunteerID", tempVolunteerID);
+                onlineVolunteerInsert.Parameters.AddWithValue("@lastUpdated", tempLastUpdated); // LU
+                onlineVolunteerInsert.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy); // LUB
+                onlineVolunteerInsert.ExecuteNonQuery();
+            }
+            else
+            {
+                continue;
+            }
+        }
+
 
         //Pull animalID
         //Insert into onlineAnimal table
@@ -2103,6 +2143,26 @@ public partial class Programs : System.Web.UI.Page
                 continue;
             }
         }
+
+        LiveOnline.Value = "";
+        ProgramDate.Value = "";
+        ProgramTime.Value = "";
+        lstOnlineProgramType.ClearSelection();
+        lstOnlineEducators.ClearSelection();
+        lstOnlineVolunteers.ClearSelection();
+        lstBirdOnline.ClearSelection();
+        lstReptilesOnline.ClearSelection();
+        lstMammalsOnline.ClearSelection();
+        AddOnlineTeacher.Value = "";
+        ContactEmail.Value = "";
+        SecondaryEmail.Value = "";
+        OnlineCityCounty.Value = "";
+        OnlineState.ClearSelection();
+        ddlCountry.ClearSelection();
+        OnlineGrades.ClearSelection();
+        OnlineNumOfChildren.Value = "";
+        OnlineNumOfAdults.Value = "";
+        OnlineComments.Value = "";
     }
 
     protected void ddlOrderByAll_SelectedIndexChanged(object sender, EventArgs e)
