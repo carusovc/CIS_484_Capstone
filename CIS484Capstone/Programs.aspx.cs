@@ -540,6 +540,8 @@ public partial class Programs : System.Web.UI.Page
         {
 
             case 0:
+                NoRecordsLive.Visible = false;
+                rptProgramHLLive.Visible = true;
                 rptProgramHLLive.DataSource = GetData("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID;"); //inner join Organization on z.OrgID = Organization.OrgID
                 rptProgramHLLive.DataBind();
                 break;
@@ -610,6 +612,8 @@ public partial class Programs : System.Web.UI.Page
         {
 
             case 0:
+                NoRecordsOnline.Visible = false;
+                rptProgramHLOnline.Visible = true;
                 rptProgramHLOnline.DataSource = GetData("SELECT OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID;"); //inner join Organization on z.OrgID = Organization.OrgID
                 rptProgramHLOnline.DataBind();
                 break;
@@ -702,6 +706,8 @@ public partial class Programs : System.Web.UI.Page
         {
 
             case 0:
+                NoRecords.Visible = false;
+                rptProgramHLAll.Visible = true;
                 rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms;");
                 rptProgramHLAll.DataBind();
                 break;
@@ -742,9 +748,20 @@ public partial class Programs : System.Web.UI.Page
         SqlDataAdapter adapt = new SqlDataAdapter("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID" +
                     " WHERE UPPER(ProgramType.ProgramName) like UPPER('" + searchWord + "%') or (ProgramDate) like ('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
 
-        adapt.Fill(dt);
-        rptProgramHLLive.DataSource = dt;
-        rptProgramHLLive.DataBind();
+        if (adapt.Fill(dt) < 1)
+        {
+            NoRecordsLive.Visible = true;
+            rptProgramHLLive.Visible = false;
+        }
+
+        else
+        {
+            adapt.Fill(dt);
+            NoRecordsLive.Visible = false;
+            rptProgramHLLive.Visible = true;
+            rptProgramHLLive.DataSource = dt;
+            rptProgramHLLive.DataBind();
+        }
 
         
 
@@ -766,9 +783,22 @@ public partial class Programs : System.Web.UI.Page
         SqlDataAdapter adapt = new SqlDataAdapter("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms" +
                     " WHERE UPPER(ProgramCategory) like UPPER('" + searchWord + "%') or (ProgramDate) like ('" + searchWord + "%') or UPPER(ProgramType) like UPPER('" + searchWord + "%')", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
 
-        adapt.Fill(dt);
-        rptProgramHLAll.DataSource = dt;
-        rptProgramHLAll.DataBind();
+        if (adapt.Fill(dt) < 1)
+        {
+            NoRecords.Visible = true;
+            rptProgramHLAll.Visible = false;
+        }
+
+        else
+        {
+            adapt.Fill(dt);
+            NoRecords.Visible = false;
+            rptProgramHLAll.Visible = true;
+            rptProgramHLAll.DataSource = dt;
+            rptProgramHLAll.DataBind();
+        }
+
+
 
 
 
@@ -790,12 +820,23 @@ public partial class Programs : System.Web.UI.Page
         SqlDataAdapter adapt = new SqlDataAdapter("SELECT OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID" +
                     " WHERE UPPER(OnlineProgramType.OnlineProgramTypeName) like UPPER('" + searchWord + "%') or (ProgramDate) like ('" + searchWord + "%')", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
 
-        adapt.Fill(dt);
-        rptProgramHLOnline.DataSource = dt;
-        rptProgramHLOnline.DataBind();
+        if (adapt.Fill(dt) < 1)
+        {
+            NoRecordsOnline.Visible = true;
+            rptProgramHLOnline.Visible = false;
+        }
 
-      
- 
+        else
+        {
+            adapt.Fill(dt);
+            NoRecordsOnline.Visible = false;
+            rptProgramHLOnline.Visible = true;
+            rptProgramHLOnline.DataSource = dt;
+            rptProgramHLOnline.DataBind();
+        }
+
+
+
 
     }
 

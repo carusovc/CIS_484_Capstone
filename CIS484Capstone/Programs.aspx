@@ -496,9 +496,11 @@
                                         <div class="tab-content">
 
                                             <div id="CalTab" class="tab-pane active">
-                                                <div class="row mx-auto d-flex justify-content-center">
+                                                <br />
+                                                <div class="row mx-auto d-flex justify-content-center  embed-responsive embed-responsive-4by3" >
 
-                                                    <embed src="myCalendar.html" width="200" height="200">
+                                                    <embed class="col-12 embed-responsive-item"" src="myCalendar.html"  >
+                                                     
                                                 </div>
                                             </div>
                                             <div id="AllTab" class="tab-pane show fade in">
@@ -531,6 +533,9 @@
 
 
                                                 <div class="block justify-content-center table-responsive">
+                                                    <div id="NoRecords" runat="server" visible="false">
+                                                            No records are available.
+                                                    </div>
 
                                                     <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
                                                         <HeaderTemplate>
@@ -835,6 +840,10 @@
 
 
                                                 <div class="block justify-content-center table-responsive">
+                                                    <div id="NoRecordsLive" runat="server" visible="false">
+                                                            No records are available.
+                                                    </div>
+
                                                     <asp:Repeater ID="rptProgramHLLive" runat="server" OnItemDataBound="OnItemDataBoundLive">
                                                         <HeaderTemplate>
                                                             <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
@@ -1102,6 +1111,10 @@
 
 
                                                 <div class="block justify-content-center table-responsive">
+                                                    <div id="NoRecordsOnline" runat="server" visible="false">
+                                                                No records are available.
+                                                        </div>
+
                                                     <asp:Repeater ID="rptProgramHLOnline" runat="server" OnItemDataBound="OnItemDataBoundOnline">
                                                         <HeaderTemplate>
                                                             <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
