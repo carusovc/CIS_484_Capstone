@@ -2771,22 +2771,14 @@
                                 </div>
                             </div>
 
+                            <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
+                            &nbsp;<asp:Label ID="Label5" runat="server" Text=""></asp:Label>
 
-                      
-                          
-                 <asp:TextBox ID="TextBox10" hidden="true" runat="server"></asp:TextBox>
+                          </div>  
+                    </ContentTemplate>
+                </asp:UpdatePanel>
 
-                            <br />
-
-                              <div class="row">
-                                    <div class=" col-md-12 InternalAnimalForm" >
-                            <asp:Label ID="Label4" class="alert-warning mb-1" runat="server" Text=""></asp:Label> <br />
-                            <asp:Label ID="Label5" class="alert-warning" runat="server" Text=""></asp:Label>
-   </div>
-                            
-
-
-                   <div class="modal-footer">
+                <div class="modal-footer">
 
                     <%--  <button type="button" id="btnUpdate2" class="btn  btn-inside" runat="server" text="Update" onclick="btnOnlineUpdate_Click">Update</button>
                     <button type="button" id="btnDelete2" runat="server" class="btn  btn-inside" text="Delete" onclick="btnOnlineDelete_Click">Delete</button>
@@ -2797,14 +2789,10 @@
                     <asp:Button ID="Button3" runat="server" class="btn  btn-inside" Text="Save Changes" OnClick="btnOnlineUpdate_Click" />
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
+            </div>
 
+        </div>
 
-
-
-
-                        </div>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
 
             </div>
 
