@@ -90,7 +90,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-        <div class="ml-auto">
+        <div class="ml-auto ">
         <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3;" ></asp:Label>
          <a class=" d-none d-md-block" style="color:#FFBC7C;" href="Default.aspx">
                <span>Logout</span></a>
@@ -1336,7 +1336,7 @@
            col-sm-12">
                                     Organization:
                                     <br />
-                                    <asp:DropDownList ID="ddlOrganization" runat="server" OnSelectedIndexChanged="dropDownOrganization_SelectedIndexChanged">
+                                    <asp:DropDownList ID="ddlOrganization" runat="server" >
                                         <asp:ListItem Text="--Organization--" Value="0" />
 
                                     </asp:DropDownList>

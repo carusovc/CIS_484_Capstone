@@ -40,9 +40,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-        <div class="ml-auto">
-        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3;" ></asp:Label>
-         <a class=" d-none d-md-block" style="color:#FFBC7C;" href="Default.aspx">
+        <div class="ml-auto row">
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
+         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
                <span>Logout</span></a>
 </div>
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
