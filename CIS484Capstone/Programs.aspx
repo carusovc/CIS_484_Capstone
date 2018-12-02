@@ -2357,6 +2357,23 @@
                             </div>
 
                             <br />
+
+                             <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Volunteers</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Volunteers</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                               <asp:ListBox ID="drpUpdateLiveVolunteers" runat="server" class=" text-left btn btn-block form-control" style="border-color:lightgrey;" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Volunteers--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+                            <br />
                             
                                  <div class="row">
 
@@ -2521,10 +2538,10 @@
                               <div class="row">
 
                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                    <h6>City</h6>
+                                    <h6>City/County</h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                    <h6>City</h6>
+                                    <h6>City/County</h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                    <asp:TextBox ID="txtOCity" class="form-control" runat="server"></asp:TextBox>
@@ -2560,7 +2577,7 @@
                          
                             <br />
 
-                               <div class="row">
+<%--                               <div class="row">
 
                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
                                     <h6>City/County</h6>
@@ -2573,7 +2590,7 @@
                                 </div>
                             </div>
 
-                            <br />
+                            <br />--%>
                            
 
                                <div class="row">
@@ -2675,6 +2692,23 @@
                             </div>
 
                             <br />
+
+                            <div class="row">
+
+                               <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Volunteers</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Volunteerss</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                <asp:ListBox ID="lstUpdateOnlineVolunteers" runat="server" style="border-color:lightgrey;" class=" text-left btn btn-block form-control" SelectionMode="Multiple">
+                                        <asp:ListItem Text="--Select Volunteers--" Value="0" />
+                                    </asp:ListBox>
+                                </div>
+                            </div>
+
+                            <br />
                             
                                  <div class="row">
 
@@ -2752,48 +2786,7 @@
                             
 
 
-                          <%--  <div class="form-group row">
-                                <div class="col-5">
-                                    <label id="VolunteerLabelive" for="Volunteer">Volunteer:</label>
-                                </div>
-                                <div class="col-7">
-                                    <asp:ListBox CssClass="form-control" ID="lstSelectVolunteersLive" runat="server" SelectionMode="Multiple">
-                                        <asp:ListItem Text="--Select Volunteers--" Value="0" />
-                                    </asp:ListBox>
-                                </div>
-                            </div>--%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        </div>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-                <div class="modal-footer">
+                   <div class="modal-footer">
 
                     <%--  <button type="button" id="btnUpdate2" class="btn  btn-inside" runat="server" text="Update" onclick="btnOnlineUpdate_Click">Update</button>
                     <button type="button" id="btnDelete2" runat="server" class="btn  btn-inside" text="Delete" onclick="btnOnlineDelete_Click">Delete</button>
@@ -2804,6 +2797,15 @@
                     <asp:Button ID="Button3" runat="server" class="btn  btn-inside" Text="Save Changes" OnClick="btnOnlineUpdate_Click" />
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
+
+
+
+
+
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
             </div>
 
         </div>
