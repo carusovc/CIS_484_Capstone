@@ -41,9 +41,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-        <div class="ml-auto">
-        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3;" ></asp:Label>
-         <a class=" d-none d-md-block" style="color:#FFBC7C;" href="Default.aspx">
+        <div class="ml-auto row">
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
+         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
                <span>Logout</span></a>
 </div>
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
@@ -105,24 +105,15 @@
                 </div>
             </li>
 
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Educators</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
-                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                </div>
-            </li>
-        <li class="nav-item dropdown no-arrow ">
+            <li class="nav-item dropdown no-arrow ">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                 <span>Volunteers</span>
+                 <span>Educators & Volunteers</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
+                        <a class="dropdown-item" href="Volunteers.aspx" data-toggle="modal"> Educators & Volunteers</a>
+                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
                         <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
                     </div>
@@ -212,24 +203,15 @@
                 </div>
             </li>
 
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Educators</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
-                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown no-arrow ">
+           <li class="nav-item dropdown no-arrow ">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                 <span>Volunteers</span>
+                 <span>Educators & Volunteers</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
+                        <a class="dropdown-item" href="Volunteers.aspx" data-toggle="modal"> Educators & Volunteers</a>
+                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
                         <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
                     </div>
@@ -240,11 +222,7 @@
 
                     <span>Create Outreach Coordinator Access</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Default.aspx">
-
-                    <span>Logout</span></a>
-            </li>
+          
 
         </ul>
 
@@ -321,8 +299,8 @@ $(function() {
                          <div class="row">
                 <div class=" col-md-4 InternalAnimalForm">
                     </div>
-                <div class=" col-md-8 text-right InternalAnimalForm">
-                    <asp:TextBox  class="InternalAnimalForm" ID="txtSearch" runat="server"></asp:TextBox>
+                <div class=" col-md-8 ml-auto d-flex justify-content-end InternalAnimalForm">
+                    <asp:TextBox  class="InternalAnimalForm form-control" ID="txtSearch" runat="server" style="margin-right:5px;"></asp:TextBox>
                     <asp:Button ID ="btnSearch" class="btn" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
                     &nbsp;&nbsp;&nbsp;
                     
@@ -352,8 +330,8 @@ $(function() {
                                         <br />
                                         <br />
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <asp:GridView HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" runat="server" ID="gridSearch" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" AllowSorting="True">
+                                        <asp:GridView class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
+                                                                                HeaderStyle-ForeColor="Black" runat="server" ID="gridSearch"  AutoGenerateColumns="False" AllowSorting="True">
                                             <Columns>
                                                 <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName">
                                                     <ItemStyle HorizontalAlign="Left" />
@@ -392,8 +370,8 @@ $(function() {
                                     <br />
 
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <asp:GridView  HeaderStyle-Backcolor="#FFBC7C"
-                                    HeaderStyle-Forecolor="#732700" runat="server" ID="GridView1" class=" table table-bordered table-condensed table-hover" 
+                                    <asp:GridView  class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
+                                                                                HeaderStyle-ForeColor="Black" runat="server" ID="GridView1" 
                                         AutoGenerateColumns="False"  DataSourceID="SqlDataSource3" AllowSorting="True">
 
                                         <Columns>
@@ -443,8 +421,8 @@ $(function() {
                                     <br />
                                     <br />
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <asp:GridView  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" ID="AnimalLiveGrid" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"
+                                    <asp:GridView  class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
+                                                                                HeaderStyle-ForeColor="Black" ID="AnimalLiveGrid"  runat="server" AutoGenerateColumns="False"
                                         EmptyDataText="There are no records to display." AllowSorting="True">
                                         <Columns>
 
@@ -494,8 +472,8 @@ $(function() {
                                     <br />
 
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <asp:GridView HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" runat="server" ID="gridOnlinePrograms" class="table table-bordered table-condensed table-hover" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
+                                    <asp:GridView class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
+                                                                                HeaderStyle-ForeColor="Black" runat="server" ID="gridOnlinePrograms"  AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
                                         EmptyDataText="There are no records to display." AllowSorting="True">
                                         <Columns>
                                             <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName">
@@ -616,8 +594,8 @@ $(function() {
     <br />
      <br />
    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<asp:GridView ID="gridLivePrograms" HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" runat="server" class="table table-bordered table-condensed table-hover" 
+<asp:GridView ID="gridLivePrograms" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
+                                                                                HeaderStyle-ForeColor="Black" runat="server"  
     AutoGenerateColumns="False" EmptyDataText="There are no records to display." AllowSorting="True">
         <Columns>
             <asp:BoundField DataField="ProgramDate" HeaderText="Date" SortExpression="Program Date" ReadOnly="True" >
@@ -680,8 +658,8 @@ $(function() {
      <br />
    
  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <asp:GridView runat="server" HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" id= "gridOnlineAnimalsTotals" class="table table-bordered table-condensed table-hover" 
+    <asp:GridView runat="server" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
+                                                                                HeaderStyle-ForeColor="Black" id= "gridOnlineAnimalsTotals" 
         AutoGenerateColumns="False" EmptyDataText="There are no records to display." AllowSorting="True">
         <Columns>
              <asp:BoundField DataField="ProgramDate" HeaderText="Date" SortExpression="Program Date" ReadOnly="True" >
@@ -756,8 +734,8 @@ $(function() {
     <br />
      <br />
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<asp:GridView ID="gridPrograms"  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center" AllowSorting="True">
+<asp:GridView ID="gridPrograms"  class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
+                                                                                HeaderStyle-ForeColor="Black"   runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" HorizontalAlign="Center" AllowSorting="True">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="Month Name" ReadOnly="True" >
             <HeaderStyle HorizontalAlign="Left" />
@@ -838,8 +816,9 @@ $(function() {
      <br />
    
  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <asp:GridView ID="GridView2" HeaderStyle-Backcolor="#FFBC7C" AllowSorting="True"
-    HeaderStyle-Forecolor="#732700"  class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" HorizontalAlign="Center">
+    <asp:GridView ID="GridView2"  AllowSorting="True"
+   class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
+                                                                                HeaderStyle-ForeColor="Black"  runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" HorizontalAlign="Center">
         <Columns>
             <asp:BoundField DataField="MonthName" HeaderText="Month" SortExpression="MonthName" >
             <HeaderStyle HorizontalAlign="Left" />

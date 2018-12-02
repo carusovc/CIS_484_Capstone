@@ -82,9 +82,9 @@ public partial class Educators : System.Web.UI.Page
                 con.Close();
                 sc.Close();
             }
-            GridView1.DataBind();
             GridView2.DataBind();
-            GridView3.DataBind();
+            //GridView2.DataBind();
+            //GridView3.DataBind();
         }
 
     }
@@ -138,9 +138,9 @@ public partial class Educators : System.Web.UI.Page
             ddlEducatorName.Items.Add(new ListItem(myRead1["EducatorFirstName"].ToString(), myRead1["EducatorID"].ToString()));
         }
         sc.Close();
-        GridView1.DataBind();
         GridView2.DataBind();
-        GridView3.DataBind();
+        //GridView2.DataBind();
+        //GridView3.DataBind();
     }
 
     protected void btnUpdateEducator_Click(object sender, EventArgs e)
@@ -209,9 +209,9 @@ public partial class Educators : System.Web.UI.Page
 
         con.Close();
         sc.Close();
-        GridView1.DataBind();
         GridView2.DataBind();
-        GridView3.DataBind();
+        //GridView2.DataBind();
+        //GridView3.DataBind();
     }
     protected void ddlEducator_SelectedIndexChanged1(object sender, EventArgs e)
     {
