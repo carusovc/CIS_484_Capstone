@@ -179,7 +179,6 @@ public partial class Programs : System.Web.UI.Page
             lstSelectMammalsLive.ClearSelection();
             lstSelectVolunteersLive.ClearSelection();
             //Status.SelectedValue = "0";
-            Payment.SelectedValue = "0";
             OnOff.Value = "";
             Address.Value = "";
             CityCounty.Value = "";
@@ -588,6 +587,8 @@ public partial class Programs : System.Web.UI.Page
         {
 
             case 0:
+                NoRecordsLive.Visible = false;
+                rptProgramHLLive.Visible = true;
                 rptProgramHLLive.DataSource = GetData("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID;"); //inner join Organization on z.OrgID = Organization.OrgID
                 rptProgramHLLive.DataBind();
                 break;
@@ -658,6 +659,8 @@ public partial class Programs : System.Web.UI.Page
         {
 
             case 0:
+                NoRecordsOnline.Visible = false;
+                rptProgramHLOnline.Visible = true;
                 rptProgramHLOnline.DataSource = GetData("SELECT OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID;"); //inner join Organization on z.OrgID = Organization.OrgID
                 rptProgramHLOnline.DataBind();
                 break;
@@ -750,6 +753,8 @@ public partial class Programs : System.Web.UI.Page
         {
 
             case 0:
+                NoRecords.Visible = false;
+                rptProgramHLAll.Visible = true;
                 rptProgramHLAll.DataSource = GetData("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms;");
                 rptProgramHLAll.DataBind();
                 break;
@@ -790,9 +795,20 @@ public partial class Programs : System.Web.UI.Page
         SqlDataAdapter adapt = new SqlDataAdapter("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID" +
                     " WHERE UPPER(ProgramType.ProgramName) like UPPER('" + searchWord + "%') or (ProgramDate) like ('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
 
-        adapt.Fill(dt);
-        rptProgramHLLive.DataSource = dt;
-        rptProgramHLLive.DataBind();
+        if (adapt.Fill(dt) < 1)
+        {
+            NoRecordsLive.Visible = true;
+            rptProgramHLLive.Visible = false;
+        }
+
+        else
+        {
+            adapt.Fill(dt);
+            NoRecordsLive.Visible = false;
+            rptProgramHLLive.Visible = true;
+            rptProgramHLLive.DataSource = dt;
+            rptProgramHLLive.DataBind();
+        }
 
         
 
@@ -814,9 +830,22 @@ public partial class Programs : System.Web.UI.Page
         SqlDataAdapter adapt = new SqlDataAdapter("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType From AllPrograms" +
                     " WHERE UPPER(ProgramCategory) like UPPER('" + searchWord + "%') or (ProgramDate) like ('" + searchWord + "%') or UPPER(ProgramType) like UPPER('" + searchWord + "%')", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
 
-        adapt.Fill(dt);
-        rptProgramHLAll.DataSource = dt;
-        rptProgramHLAll.DataBind();
+        if (adapt.Fill(dt) < 1)
+        {
+            NoRecords.Visible = true;
+            rptProgramHLAll.Visible = false;
+        }
+
+        else
+        {
+            adapt.Fill(dt);
+            NoRecords.Visible = false;
+            rptProgramHLAll.Visible = true;
+            rptProgramHLAll.DataSource = dt;
+            rptProgramHLAll.DataBind();
+        }
+
+
 
 
 
@@ -838,12 +867,23 @@ public partial class Programs : System.Web.UI.Page
         SqlDataAdapter adapt = new SqlDataAdapter("SELECT OnlineProgramID, convert(varchar, ProgramDate,101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID" +
                     " WHERE UPPER(OnlineProgramType.OnlineProgramTypeName) like UPPER('" + searchWord + "%') or (ProgramDate) like ('" + searchWord + "%')", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
 
-        adapt.Fill(dt);
-        rptProgramHLOnline.DataSource = dt;
-        rptProgramHLOnline.DataBind();
+        if (adapt.Fill(dt) < 1)
+        {
+            NoRecordsOnline.Visible = true;
+            rptProgramHLOnline.Visible = false;
+        }
 
-      
- 
+        else
+        {
+            adapt.Fill(dt);
+            NoRecordsOnline.Visible = false;
+            rptProgramHLOnline.Visible = true;
+            rptProgramHLOnline.DataSource = dt;
+            rptProgramHLOnline.DataBind();
+        }
+
+
+
 
     }
 
@@ -972,7 +1012,7 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@onOff", ddlOnOffSiteEdit.SelectedIndex);
         update.Parameters.AddWithValue("@numOfChildren", txtNumOfChildren.Text);
         update.Parameters.AddWithValue("@numofAdults", txtNumOfAdults.Text);
-        update.Parameters.AddWithValue("@paid", rboPayment.SelectedIndex);
+        update.Parameters.AddWithValue("@paid", null);
         update.Parameters.AddWithValue("@programDate", txtProgramDate.Text);
         update.Parameters.AddWithValue("@programTime", txtProgramTime.Text);
         update.Parameters.AddWithValue("@month", month);
@@ -1179,8 +1219,8 @@ public partial class Programs : System.Web.UI.Page
         txtNumOfAdults.Text = "";
         txtProgramDate.Text = "";
         txtProgramTime.Text = "";
-        ddlOnOffSiteEdit.ClearSelection();
-        rboPayment.ClearSelection();
+
+        rboOnOff.ClearSelection();
         drpEducators.ClearSelection();
         ddlBirds.ClearSelection();
         ddlReptiles.ClearSelection();
@@ -1188,7 +1228,15 @@ public partial class Programs : System.Web.UI.Page
         AddGrade.ClearSelection();
         txtComments.Text = "";
 
-      
+        using (var conn = new SqlConnection(cs))
+        using (var command = new SqlCommand("sp_PopulateAllProgrmas", conn)
+        {
+            CommandType = CommandType.StoredProcedure
+        })
+        {
+            conn.Open();
+            command.ExecuteNonQuery();
+        }
 
     }
 
@@ -1197,8 +1245,8 @@ public partial class Programs : System.Web.UI.Page
     {
         ddlProgramType.ClearSelection();
         ddlOrganization.ClearSelection();
-        ddlOnOffSiteEdit.ClearSelection();
-        rboPayment.ClearSelection();
+
+        rboOnOff.ClearSelection();
         drpEducators.ClearSelection();
         ddlBirds.ClearSelection();
         ddlReptiles.ClearSelection();
@@ -1348,14 +1396,7 @@ public partial class Programs : System.Web.UI.Page
                 txtNumOfChildren.Text = HttpUtility.HtmlEncode(sdr[8].ToString());
                 txtNumOfAdults.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
 
-                if (sdr[10].ToString() == "1")
-                {
-                    rboPayment.SelectedIndex = 0;
-                }
-                else
-                {
-                    rboPayment.SelectedIndex = 1;
-                }
+              
                 //rboPayment.SelectedItem.Value = sdr[10].ToString();
                 txtProgramDate.Text = HttpUtility.HtmlEncode(sdr[11].ToString());
                 txtProgramTime.Text = HttpUtility.HtmlEncode(sdr[12].ToString());
@@ -1663,7 +1704,8 @@ public partial class Programs : System.Web.UI.Page
         string programAddress = Address.Value;
         int numOfChildren = Convert.ToInt32(NumOfChildren.Value);
         int numOfAdult = Convert.ToInt32(NumOfAdults.Value);
-        char waitForPayment = Convert.ToChar(Payment.SelectedItem.Value);
+        //char waitForPayment = Convert.ToChar(Payment.SelectedItem.Value);
+        char waitForPayment = 'N';
         DateTime programDate = Convert.ToDateTime(ProgramDate.Value);
         string programTime = ProgramTime.Value;
         string extraComments = Comments.Value;
@@ -1884,7 +1926,6 @@ public partial class Programs : System.Web.UI.Page
         lstSelectReptilesLive.ClearSelection();
         lstSelectMammalsLive.ClearSelection();
         //Status.SelectedValue = "0";
-        Payment.SelectedValue = "0";
         OnOff.Value = "";
         Address.Value = "";
         CityCounty.Value = "";
@@ -1893,6 +1934,16 @@ public partial class Programs : System.Web.UI.Page
         NumOfChildren.Value = "";
         NumOfAdults.Value = "";
         Comments.Value = "";
+
+        using (var conn = new SqlConnection(cs))
+        using (var command = new SqlCommand("sp_PopulateAllProgrmas", conn)
+        {
+            CommandType = CommandType.StoredProcedure
+        })
+        {
+            conn.Open();
+            command.ExecuteNonQuery();
+        }
     }
 
     protected void btnSubmitOnline_Click(object sender, EventArgs e)
@@ -2144,25 +2195,16 @@ public partial class Programs : System.Web.UI.Page
             }
         }
 
-        LiveOnline.Value = "";
-        ProgramDate.Value = "";
-        ProgramTime.Value = "";
-        lstOnlineProgramType.ClearSelection();
-        lstOnlineEducators.ClearSelection();
-        lstOnlineVolunteers.ClearSelection();
-        lstBirdOnline.ClearSelection();
-        lstReptilesOnline.ClearSelection();
-        lstMammalsOnline.ClearSelection();
-        AddOnlineTeacher.Value = "";
-        ContactEmail.Value = "";
-        SecondaryEmail.Value = "";
-        OnlineCityCounty.Value = "";
-        OnlineState.ClearSelection();
-        ddlCountry.ClearSelection();
-        OnlineGrades.ClearSelection();
-        OnlineNumOfChildren.Value = "";
-        OnlineNumOfAdults.Value = "";
-        OnlineComments.Value = "";
+
+        using (var conn = new SqlConnection(cs))
+        using (var command = new SqlCommand("sp_PopulateAllProgrmas", conn)
+        {
+            CommandType = CommandType.StoredProcedure
+        })
+        {
+            conn.Open();
+            command.ExecuteNonQuery();
+        }
     }
 
     protected void ddlOrderByAll_SelectedIndexChanged(object sender, EventArgs e)
@@ -2454,8 +2496,8 @@ public partial class Programs : System.Web.UI.Page
         txtNumOfOnlineAdults.Text = "";
         txtOnlineProgramDate.Text = "";
         txtOEmail.Text = "";
-        ddlOnOffSiteEdit.ClearSelection();
-        rboPayment.ClearSelection();
+
+        rboOnOff.ClearSelection();
         lstOEducators.ClearSelection();
         lstOBirds.ClearSelection();
         lstOReptiles.ClearSelection();

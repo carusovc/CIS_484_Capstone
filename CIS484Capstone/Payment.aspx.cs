@@ -11,7 +11,7 @@ public partial class Payments : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        lblDate.Text = DateTime.Now.Date.ToShortDateString();
+        //lblDate.Text = DateTime.Now.Date.ToShortDateString();
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
@@ -117,13 +117,25 @@ public partial class Payments : System.Web.UI.Page
 
         
 
-        DateTime paymentDate = Convert.ToDateTime(lblDate.Text);
+       // DateTime paymentDate = Convert.ToDateTime(lblDate.Text);
         decimal paymentAmount = Convert.ToDecimal(txtAmount.Text);
         string checkNum = txtCheckNum.Text.ToString();
         string paymentType = ddlPaymentType.Text.ToString();
         string cancelledInvoices = "N";
         string invoice = txtInvoiceNum.Text.ToString();
-        string paid = "N";
+        string paid = "";
+        string tempPaidStatus = ddlInvoicePaymentStatus.SelectedItem.Value.ToString();
+        switch (tempPaidStatus)
+        {
+            case "Paid":
+                paid = "Y";
+                    break;
+            case "Not Paid":
+                paid = "N";
+                    break;
+
+        }
+
         //string cancelledSet = rdbPaid.Text.ToString();
         //char[] cancelledCharArr = cancelledSet.ToCharArray();
         //char CancelledStatus = cancelledCharArr[0];
@@ -131,7 +143,8 @@ public partial class Payments : System.Web.UI.Page
         //Temporary LastUpdated and LastUpdatedBy
         DateTime tempLastUpdated = DateTime.Today;
         String tempLastUpdatedBy = "WildTekDevelopers";
-
+        string tempPaymentDateString = PaymentDate.Value.ToString();
+        DateTime paymentDate = Convert.ToDateTime(tempPaymentDateString);
 
 
 
@@ -165,12 +178,14 @@ public partial class Payments : System.Web.UI.Page
         int tempPaymentID = (int)pullPaymentID.ExecuteScalar();
 
         update.CommandText = "Update Program set Paid = @paid, PaymentID = @paymentID  where ProgramID = @programID";
-        update.Parameters.AddWithValue("@paid", 'Y');
+        update.Parameters.AddWithValue("@paid", "Y");
         update.Parameters.AddWithValue("@paymentID", tempPaymentID);
         update.Parameters.AddWithValue("@programID", ddlProgramType.SelectedItem.Value);
         update.ExecuteNonQuery();
 
         lblStatus.Text = "Payment has been submitted";
+
+
 
         sc.Close();
 
