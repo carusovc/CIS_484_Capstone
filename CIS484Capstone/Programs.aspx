@@ -7,11 +7,27 @@
 
 
 
+
     <%-- Needed - Coverage Check CVC 11/5/18 --%>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/sunny/jquery-ui.css" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script type="text/javascript">
+    <script type="text/javascript"></script>
+
+
+
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+    <script src="Scripts/myCalendar.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" />
+
+
+
+
+
+    <script>
         $(function () {
             var icons = {
                 header: "ui-icon-circle-arrow-e",
@@ -27,7 +43,12 @@
                     $("#accordion").accordion("option", "icons", icons);
                 }
             });
+
+
         });
+
+
+
     </script>
 
 
@@ -74,6 +95,16 @@
 
     <!-- Logo FOnt-->
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+
+    <script>
+        $(document).ready(function () {
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                $('#calendar0').fullCalendar('render');
+                $('#calendar1').fullCalendar('render');
+            });
+            $('#myTab a:first').tab('show');
+        });
+    </script>
 
 
 
@@ -439,11 +470,18 @@
                                                 }
                                             });       </script>
 
+
+
+
+
                                         <%-- this div  is the internal div--%>
 
                                         <ul class="nav nav-tabs block4" id="myTab" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link active TabStyle" id="AllTabNav" data-toggle="tab" href="#AllTab" style="color: black;">All Programs</a>
+                                                <a class="nav-link active" id="CalendarTab" data-toggle="tab" href="#CalTab" style="color: black;">Program Calendar</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link TabStyle TabStyle" id="AllTabNav" data-toggle="tab" href="#AllTab" style="color: black;">All Programs</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link TabStyle" id="LiveTabNav" data-toggle="tab" href="#LiveTab" style="color: black;">Live Programs</a>
@@ -452,38 +490,52 @@
                                                 <a class="nav-link TabStyle" id="OnlineTabNav" data-toggle="tab" href="#OnlineTab" style="color: black;">Online Programs</a>
                                         </ul>
 
+
+
                                         <%-- Version 1 All --%>
                                         <div class="tab-content">
-                                            <div id="AllTab" class="tab-pane show active">
-                                                  <br /> 
+
+                                            <div id="CalTab" class="tab-pane active">
+                                                <br />
+                                                <div class="row mx-auto d-flex justify-content-center  embed-responsive embed-responsive-4by3" >
+
+                                                    <embed class="col-12 embed-responsive-item"" src="myCalendar.html"  >
+                                                     
+                                                </div>
+                                            </div>
+                                            <div id="AllTab" class="tab-pane show fade in">
+                                                <br />
                                                 <div class="row mx-auto d-flex justify-content-center">
-                                                 
+
                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                                         <asp:DropDownList ID="ddlOrderByAll" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByAll_SelectedIndexChanged">
-                                                    <asp:ListItem>--Order By--</asp:ListItem>
-                                                    <asp:ListItem>Program Category</asp:ListItem>
-                                                    <asp:ListItem>Program Date</asp:ListItem>
-                                                    <asp:ListItem>Program Type A-Z</asp:ListItem>
+                                                        <asp:DropDownList ID="ddlOrderByAll" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByAll_SelectedIndexChanged">
+                                                            <asp:ListItem>--Order By--</asp:ListItem>
+                                                            <asp:ListItem>Program Category</asp:ListItem>
+                                                            <asp:ListItem>Program Date</asp:ListItem>
+                                                            <asp:ListItem>Program Type A-Z</asp:ListItem>
 
-                                                </asp:DropDownList>&nbsp&nbsp
+                                                        </asp:DropDownList>&nbsp&nbsp
                                                     </div>
-                                                      <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
-                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 " >
-                                                         <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchAll" runat="server"></asp:TextBox>
+                                                    <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchAll" runat="server"></asp:TextBox>
 
                                                     </div>
-                                                  
-                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-                                                            <asp:Button ID="btnAllSearch" runat="server" class="btn  " style="margin-right:5px; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click" />
-                                                  
-                                                         <asp:Button ID="btnAllClear" runat="server" class="btn " style=" margin-bottom: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
+
+                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style="margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click" />
+
+                                                        <asp:Button ID="btnAllClear" runat="server" class="btn " Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
                                                     </div>
 
                                                 </div>
-                                                
-                                          
-                                               
+
+
+
                                                 <div class="block justify-content-center table-responsive">
+                                                    <div id="NoRecords" runat="server" visible="false">
+                                                            No records are available.
+                                                    </div>
 
                                                     <asp:Repeater ID="rptProgramHLAll" runat="server" OnItemDataBound="OnItemDataBoundAll">
                                                         <HeaderTemplate>
@@ -752,28 +804,28 @@
 
 
 
-                                                   <br /> 
+                                                <br />
                                                 <div class="row mx-auto d-flex justify-content-center">
-                                                 
+
                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                                     <asp:DropDownList ID="ddlOrderByLive" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByLive_SelectedIndexChanged">
-                                                    <asp:ListItem>--Order By--</asp:ListItem>                                                   
-                                                    <asp:ListItem>Program Date</asp:ListItem>
-                                                    <asp:ListItem>Organization A-Z</asp:ListItem>
-                                                    <asp:ListItem>Program Type A-Z</asp:ListItem>
+                                                        <asp:DropDownList ID="ddlOrderByLive" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByLive_SelectedIndexChanged">
+                                                            <asp:ListItem>--Order By--</asp:ListItem>
+                                                            <asp:ListItem>Program Date</asp:ListItem>
+                                                            <asp:ListItem>Organization A-Z</asp:ListItem>
+                                                            <asp:ListItem>Program Type A-Z</asp:ListItem>
 
-                                                </asp:DropDownList>&nbsp&nbsp
+                                                        </asp:DropDownList>&nbsp&nbsp
                                                     </div>
-                                                      <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
-                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 " >
-                                                      <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchLive" runat="server"></asp:TextBox>
+                                                    <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchLive" runat="server"></asp:TextBox>
 
                                                     </div>
-                                                  
-                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-                                                        
-                                                <asp:Button ID="btnLiveSearch" runat="server" class="btn" style="margin-right:5px; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
-                                                <asp:Button ID="btnLiveClear" runat="server" class="btn" style=" margin-bottom: 5px;" Text="Clear Filters" OnClick="btnLiveClear_Click" />
+
+                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+
+                                                        <asp:Button ID="btnLiveSearch" runat="server" class="btn" Style="margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
+                                                        <asp:Button ID="btnLiveClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnLiveClear_Click" />
                                                     </div>
 
                                                 </div>
@@ -785,9 +837,13 @@
 
 
 
-                                               
-                                              
+
+
                                                 <div class="block justify-content-center table-responsive">
+                                                    <div id="NoRecordsLive" runat="server" visible="false">
+                                                            No records are available.
+                                                    </div>
+
                                                     <asp:Repeater ID="rptProgramHLLive" runat="server" OnItemDataBound="OnItemDataBoundLive">
                                                         <HeaderTemplate>
                                                             <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
@@ -1018,27 +1074,27 @@
 
 
 
-                                                   <br /> 
+                                                <br />
                                                 <div class="row mx-auto d-flex justify-content-center">
-                                                 
-                                                    <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                                 <asp:DropDownList ID="ddlOrderByOnline" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByOnline_SelectedIndexChanged">
-                                                    <asp:ListItem>--Order By--</asp:ListItem>                                                   
-                                                    <asp:ListItem>Program Date</asp:ListItem>
-                                                    <asp:ListItem>Program Type A-Z</asp:ListItem>
 
-                                                </asp:DropDownList>&nbsp&nbsp
+                                                    <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                                        <asp:DropDownList ID="ddlOrderByOnline" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByOnline_SelectedIndexChanged">
+                                                            <asp:ListItem>--Order By--</asp:ListItem>
+                                                            <asp:ListItem>Program Date</asp:ListItem>
+                                                            <asp:ListItem>Program Type A-Z</asp:ListItem>
+
+                                                        </asp:DropDownList>&nbsp&nbsp
                                                     </div>
-                                                      <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
-                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 " >
+                                                    <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
                                                         <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchOnline" runat="server"></asp:TextBox>
 
                                                     </div>
-                                                  
-                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-                                                        
-                                            <asp:Button ID="btnOnlineSearch" runat="server" class="btn" style="margin-right:5px; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
-                                          <asp:Button ID="btnOnlineClear" runat="server" class="btn" style=" margin-bottom: 5px;" Text="Clear Filters" OnClick="btnOnlineClear_Click" />
+
+                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+
+                                                        <asp:Button ID="btnOnlineSearch" runat="server" class="btn" Style="margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
+                                                        <asp:Button ID="btnOnlineClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnOnlineClear_Click" />
                                                     </div>
 
                                                 </div>
@@ -1050,11 +1106,15 @@
 
 
 
-                                            
-                                               
-                                               
-                                              
+
+
+
+
                                                 <div class="block justify-content-center table-responsive">
+                                                    <div id="NoRecordsOnline" runat="server" visible="false">
+                                                                No records are available.
+                                                        </div>
+
                                                     <asp:Repeater ID="rptProgramHLOnline" runat="server" OnItemDataBound="OnItemDataBoundOnline">
                                                         <HeaderTemplate>
                                                             <table class="Grid table  table-borderless  WideTable " border="1" table-layout: fixed>
@@ -1157,7 +1217,7 @@
                                                                                     <tr class="row">
                                                                                         <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Contact Primary Email
                                                                                         </th>
-                                                                                        
+
                                                                                         <th class="col-md-4" scope="col" <%--style="width: 250px"--%>>Comments
                                                                                         </th>
 
@@ -1168,7 +1228,7 @@
                                                                                     <td class="col-md-4">
                                                                                         <asp:Label ID="lblCity" runat="server" Text='<%# Eval("ContactEmail") %>' />
                                                                                     </td>
-                                                                                    
+
                                                                                     <td class="col-md-8">
                                                                                         <asp:Label ID="lblState" runat="server" Text='<%# Eval("Comments") %>' />
                                                                                     </td>
@@ -1452,16 +1512,7 @@
 
 
                                 <br />
-                                <div class="col-md-12 col-lg-4
-           col-sm-12">
-                                    Payment Needed?
-                                    <br />
-                                    <asp:RadioButtonList ID="rboPayment" runat="server">
-                                        <asp:ListItem>Yes</asp:ListItem>
-                                        <asp:ListItem>No</asp:ListItem>
-                                    </asp:RadioButtonList>
 
-                                </div>
 
                                 <div class="col-md-12 col-lg-4 
            col-sm-12">
@@ -2232,23 +2283,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <div class="col-5">
-                                    <label id="PaymentLabel" for="Payment">Payment Status:</label>
-                                </div>
-                                <div class="col-7">
-                                    <%--                                    <select name="Payment Status" id="Payment" class="form-control">
-                                        <option value=""></option>
-                                        <option value="T1">Payment Complete</option>
-                                        <option value="T2">Payment Not Complete</option>
-                                    </select>--%>
-                                    <asp:DropDownList CssClass="form-control" ID="Payment" runat="server" class="dropdown-menu radioButtonList">
-                                        <asp:ListItem Text="--Select Payment Status--" Value="0" />
-                                        <asp:ListItem Text="Payment Complete" Value="Y" />
-                                        <asp:ListItem Text="Payment Not Complete" Value="N" />
-                                    </asp:DropDownList>
-                                </div>
-                            </div>
+
 
 
 
@@ -2868,6 +2903,4 @@
             }
         }
     </script>
-
-
 </asp:Content>

@@ -1190,7 +1190,7 @@ $(".modal-wide").on("show.bs.modal", function() {
   <div class="modal-dialog" role="document">
     <div class="modal-content mt-5">
       <div class="modal-header">
-        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Payment</h5>
+        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Invoice</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1219,10 +1219,10 @@ $(".modal-wide").on("show.bs.modal", function() {
                </div>
           <div class="row"> 
               <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Payment Date</h6>
+                                    <h6>Invoice Date</h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Payment Date</h6>
+                                    <h6>Invoice Date</h6>
                                 </div>
                     <div class=" col-md-3 InternalAnimalForm">
 
@@ -1314,8 +1314,8 @@ $(".modal-wide").on("show.bs.modal", function() {
 
                           <asp:DropDownList ID="ddlPaid" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
                             <asp:ListItem Text="--Select Payment Status--" Value=""></asp:ListItem>
-            <asp:ListItem Text="Y" Value="Y"></asp:ListItem>
-            <asp:ListItem Text="N" Value="N"></asp:ListItem>    
+            <asp:ListItem Text="Paid" Value="Y"></asp:ListItem>
+            <asp:ListItem Text="Not Paid" Value="N"></asp:ListItem>    
         </asp:DropDownList>&nbsp&nbsp
                     </div>
             </div>
@@ -1330,8 +1330,8 @@ $(".modal-wide").on("show.bs.modal", function() {
 
                           <asp:DropDownList ID="ddlCancelledInvoices" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server">
                             <asp:ListItem Text="--Select Invoice Status--" Value=""></asp:ListItem>
-            <asp:ListItem Text="Y" Value="Y"></asp:ListItem>
-            <asp:ListItem Text="N" Value="N"></asp:ListItem>    
+            <asp:ListItem Text="Invoice Canceled " Value="Y"></asp:ListItem>
+            <asp:ListItem Text="Invoice Current" Value="N"></asp:ListItem>    
         </asp:DropDownList>
                     </div>
             </div>
