@@ -138,7 +138,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>State</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
+                                <div class=" col-md-8 InternalOrgnaizationForm">
                                     <asp:DropDownList ID="ddlState2" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" placeholder="Add State/Province">
                                         <asp:ListItem>--Select State--</asp:ListItem>
                                         <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
@@ -201,7 +201,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Postal Code</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
+                                <div class=" col-md-8 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtPostalCode2" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
@@ -419,10 +419,95 @@ $(".modal-wide").on("show.bs.modal", function() {
 
 
 
+        
+
+
+    <div class="modal" id="test" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    
+          
+
+
+    <div id="locationField">
+        <input  id="autocomplete" placeholder="Enter your address"
+               onFocus="geolocate()" type="text"></input>
+    </div>
+
+    <table id="address" class="d-none">
+       <tr>
+            <td class="auto-style1">Street address</td>
+            <td class="auto-style2">
+                <input class="field" id="street_number"
+                       disabled="true"></input>
+            </td>
+            <td class="auto-style3" colspan="2">
+                <input class="field" id="route"
+                       disabled="true"></input>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">City</td>
+            <!-- Note: Selection of address components in this example is typical.
+                 You may need to adjust it for the locations relevant to your app. See
+                 https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+            -->
+            <td class="wideField" colspan="3">
+                <input class="field" id="locality"
+                       disabled="true"></input>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">State</td>
+            <td class="slimField">
+                <input class="field"
+                       id="administrative_area_level_1" disabled="true"></input>
+            </td>
+            <td class="label">Zip code</td>
+            <td class="wideField">
+                <input class="field" id="postal_code"
+                       disabled="true"></input>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">Country</td>
+            <td class="wideField" colspan="3">
+                <input class="field"
+                       id="country" disabled="true"></input>
+            </td>
+        </tr>
+    </table>
+
+ 
+    street name<input id='streetnaming' name='' value='' class=''>
+    city<input id='city' name='' value='' class=''>
+    state<input id='state' name='' value='' class=''>
+    zip<input id='zip' name='' value='' class=''>
+    country<input id='countryName' name='' value='' class=''>
+      empty<input id='empty' name='' value='' class=''>
+    
+              
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+   
 
 
 
-         <div class="modal fade" id="AddOrganization" tabindex="-1" role="dialog">
+         <div class="modal " id="AddOrganization" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content mt-5">
                     <div class="modal-header">
@@ -441,8 +526,8 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Organization Name</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="textOrgName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="textOrgName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                              <div class="row">
@@ -452,8 +537,8 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>Street Address</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="txtStreetAddress" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtStreetAddress" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
@@ -464,8 +549,8 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>City</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="textOrgCity" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="textOrgCity" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
@@ -475,8 +560,8 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                     <h6>County</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="textOrgCounty" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="textOrgCounty" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
@@ -484,8 +569,8 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>State</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:DropDownList ID="ddlState" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" placeholder="Add State/Province">
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:DropDownList ID="ddlState" class="btn btn-secondary btn-block dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" placeholder="Add State/Province">
                                         <asp:ListItem>--Select State--</asp:ListItem>
                                         <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
                                         <asp:ListItem Value="AL"></asp:ListItem>
@@ -548,8 +633,8 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Postal Code</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="txtPostalCode" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtPostalCode" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
@@ -557,8 +642,8 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6> Primary Contact First Name</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="txtContactFirstName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtContactFirstName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
@@ -566,8 +651,8 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Primary Contact Last Name</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="txtContactLastName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtContactLastName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
@@ -575,7 +660,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Primary Contact Phone Number</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
+                                <div class=" col-md-8 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>--%>
@@ -584,7 +669,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Primary Contact Email</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
+                                <div class=" col-md-8 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
@@ -593,7 +678,7 @@ $(".modal-wide").on("show.bs.modal", function() {
                                 <div class=" text-right col-md-4 InternalOrganizationForm">
                                     <h6>Secondary Email</h6>
                                 </div>
-                                <div class=" col-md-3 InternalOrgnaizationForm">
+                                <div class=" col-md-8 InternalOrgnaizationForm">
                                     <asp:TextBox ID="txtSecondaryEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>--%>
