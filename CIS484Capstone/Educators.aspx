@@ -39,12 +39,16 @@
                 
          
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <nav class="navbar navbar-dark bg-dark">
+  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-
+  <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+        <div class="ml-auto">
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3;" ></asp:Label>
+         <a class=" d-none d-md-block" style="color:#FFBC7C;" href="Default.aspx">
+               <span>Logout</span></a>
+</div>
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown no-arrow">
@@ -285,6 +289,181 @@
             </div>
                 </div>
             <br />
+
+          <%--Add Educator--%>
+           <div class="modal fade" id="AddEducator" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content mt-5">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add New Educator</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div runat="server" id="EducatorAddDiv">
+                            <p>&nbsp;</p>
+                            <div class="row">
+                             <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>First Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>First Name</h6>
+                                </div>
+                                <div class=" col-md-3 InternalEducatorForm">
+                                    <asp:TextBox ID="txtEducatorFirstName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Last Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Last Name</h6>
+                                </div>
+                                <div class=" col-md-3 InternalEducatorForm">
+                                    <asp:TextBox ID="txtEducatorLastName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        <%--    <div class="row">
+                                <div class=" col-md-4 text-right InternalEducatorForm">
+                                    <h6>Contact Email</h6>
+                                </div>
+                                <div class=" col-md-3 InternalEducatorForm">
+                                    <asp:TextBox ID="txtEducatorEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" col-md-4 text-right InternalEducatorForm">
+                                    <h6>Phone Number</h6>
+                                </div>
+                                <div class=" col-md-3 InternalEducatorForm">
+                                    <asp:TextBox ID="txtEducatorPhone" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>--%>
+                            
+                            <div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <asp:Button ID="btnAddEducator" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddEducator_Click" />
+                        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <%-- Edit Educator--%>
+           <div class="modal fade" id="UpdateEducator" tabindex="-1" role="dialog">
+            <div class="modal-dialog " role="document">
+               <div class="modal-content mt-5">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Educator</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+        <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+            <Triggers> 
+                <asp:AsyncPostBackTrigger ControlID="ddlEducatorName" EventName="SelectedIndexChanged" /> 
+            </Triggers> 
+                    <ContentTemplate>
+                    <div class="modal-body">
+                        <div runat="server" id="EducatorEditDiv">
+                            <p>&nbsp;</p>
+                            <div class="row">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Select Educator</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Select Educator</h6>
+                                </div>
+                                <div class=" col-md-3 InternalEducatorForm">
+
+                                    <asp:DropDownList ID="ddlEducatorName" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;"  runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="EducatorFirstName" DataValueField="EducatorID"  OnSelectedIndexChanged ="ddlEducator_SelectedIndexChanged1">
+                                        <asp:ListItem>--Select Educator--</asp:ListItem>
+                                        
+                                    </asp:DropDownList>
+                                    &nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>First Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>First Name</h6>
+                                </div>
+                                <div class=" col-md-3 InternalAnimalForm">
+                                    <asp:TextBox ID="txtEducatorFirst" runat="server"></asp:TextBox>&nbsp&nbsp
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Last Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Last Name</h6>
+                                </div>
+                                <div class=" col-md-3 InternalAnimalForm">
+
+                                    <asp:TextBox ID="txtEducatorLast" runat="server"></asp:TextBox>&nbsp&nbsp
+
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Status</h6>
+                                </div>
+                                <div class=" col-md-3 InternalAnimalForm">
+
+                                    <asp:DropDownList ID="ddlEducatorStatus" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;"  runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="Status" DataValueField="EducatorID">
+                                        <asp:ListItem>--Choose Educator Status--</asp:ListItem>
+                                        <asp:ListItem Text="Active" Value="Active"></asp:ListItem>
+                                        <asp:ListItem Text="Inactive" Value="Inactive"></asp:ListItem>
+                                    </asp:DropDownList>
+
+                                </div>
+                            </div>
+                                         <asp:Label ID="lblLastUpdated" runat="server" Text=""></asp:Label>&nbsp;
+            <asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>
+
+
+                            <div>
+                                <div class="row">
+                                    <div class=" col-12">
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <%--<asp:Label ID="Label5" runat="server" Text=""></asp:Label>&nbsp;
+                            <asp:Label ID="Label6" runat="server" Text=""></asp:Label>--%>
+                        </div>
+                    </div>
+                    </ContentTemplate>
+                    </asp:UpdatePanel>
+                    <div class="modal-footer">
+ <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                       
+                        <asp:Button ID="btnUpdateEducator" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdateEducator_Click" />
+                                 
+                        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
             <div class="container1 block">
                 <div runat="server" id="OrganizationSearchDiv">
@@ -347,7 +526,7 @@ $(function() {
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                 <%--<h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>--%>
                            
-    <asp:GridView ID="GridView1"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4">
+    <asp:GridView ID="GridView1"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4" AllowSorting="True">
         <Columns>
             <asp:BoundField DataField="EducatorFirstName" HeaderText="Educator First Name" SortExpression="EducatorFirstName" >
  
@@ -380,7 +559,7 @@ $(function() {
                         <div class ="grid-educators text-center">
                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
-                            <asp:GridView ID="GridView2"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource1">
+                            <asp:GridView ID="GridView2" AllowSorting="True"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource1">
                             <Columns>
                                 <asp:BoundField DataField="EducatorFirstName" HeaderText="Educator First Name" SortExpression="EducatorFirstName" >
  
@@ -413,7 +592,7 @@ $(function() {
                      <div class ="grid-educators text-center">
                                <div class="row table-responsive mx-auto d-flex  justify-content-center">
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
-                            <asp:GridView ID="GridView3"   HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
+                            <asp:GridView ID="GridView3"  AllowSorting="True" HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" class="table table-bordered table-condensed table-hover"  runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
                             <Columns>
                                 <asp:BoundField DataField="EducatorFirstName" HeaderText="Educator First Name" SortExpression="EducatorFirstName" >
  
@@ -454,6 +633,8 @@ $(function() {
     </div>
     </div>
     </div>
+      </div>
+      </div>
 </asp:Content>
 
 
