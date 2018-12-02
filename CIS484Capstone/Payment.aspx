@@ -33,6 +33,24 @@
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
 
+               
+         
+
+   <nav class="navbar navbar-dark bg-dark">
+  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+        <div class="ml-auto">
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3;" ></asp:Label>
+         <a class=" d-none d-md-block" style="color:#FFBC7C;" href="Default.aspx">
+               <span>Logout</span></a>
+</div>
+  <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
+      <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
 
 
 
@@ -254,79 +272,6 @@
 
 
 
-                <%--  <div id="wrapper">
-
-        <!-- Sidebar -->
-        <ul class="sidebar navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="Programs.aspx">
-                    <i class="fas fa-fw fa-book-open"></i>
-                    <span>Programs</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="AnimalPage.aspx">
-                    <i class="fas fa-fw fa-book-open"></i>
-                    <span>Animal</span>
-                </a>
-            </li>
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <i class="fas fa-envelope fa-fw"></i>
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Report.aspx">Reports</a>
-                  <%-- --%>
-                <%-- --%>
-                <%--    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>--%>
-                <%-- </div>
-            </li>
-           <%-- <li class="nav-item dropdown no-arrow active">--%>
-                <%--                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <i class="fas fa-envelope fa-fw"></i>
-                    <span>Payment</span>
-                </a>--%>
-                <%--                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                --%>
-
-
-
-                <%--            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <i class="fas fa-envelope fa-fw"></i>
-                    <span>Add New Program Content</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#" data-target="#AddProgram" data-toggle="modal">Add New Program Type</a>
-                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                </div>
-            </li>--%>
-
-                <%--            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <i class="fas fa-envelope fa-fw"></i>
-                    <span>Update Program Content</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Update Organizations</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Update Animals</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Update Educators</a>
-                </div>
-            </li>--%>
-
-
-
-
-
-
-
 
 
                 <div>
@@ -346,6 +291,7 @@
 
                                             </div>
                                             <%--<asp:RequiredFieldValidator id="RequiredFieldValidator7" runat="server" ControlToValidate="txtInvoiceNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
+
 
                                             <div class="col-sm-12 col-md-6">
                                                 <h6>Date of Payment</h6>

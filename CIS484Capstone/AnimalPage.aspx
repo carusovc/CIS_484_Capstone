@@ -207,7 +207,7 @@ function showPosition(position) {
 
                //Update Info Window on Server Map
                userLocationInfoWindow.setPosition(latlng);
-userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistModeImage[selectedMode] +' style ="width:50px; height:50px"><h6 class ="pink-text">You Are Here</h4> <p class = "purple-text" style ="margin left:30px;">'+result[0].formatted_address+'</p>');
+                userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistModeImage[selectedMode] +' style ="width:50px; height:50px"><h6 class ="pink-text">You Are Here</h4> <p class = "purple-text" style ="margin left:30px;">'+result[0].formatted_address+'</p>');
              
                userLocationInfoWindow.open(map);
                map.setCenter(latlng);
@@ -312,13 +312,16 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
           </script>   
          
 
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+   <nav class="navbar navbar-dark bg-dark">
+  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-       
-
+  <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+        <div class="ml-auto">
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3;" ></asp:Label>
+         <a class=" d-none d-md-block" style="color:#FFBC7C;" href="Default.aspx">
+               <span>Logout</span></a>
+</div>
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown no-arrow">
@@ -589,7 +592,7 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
      <br />
    
 <asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" runat="server" AutoGenerateColumns="False">
+    HeaderStyle-Forecolor="#732700" runat="server" AutoGenerateColumns="False" AllowSorting="True" >
                       <Columns>
                           <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
                           <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
@@ -1103,4 +1106,4 @@ $(function() {
         </div>
 
     </div>
-</asp:Content>
+ </asp:Content>

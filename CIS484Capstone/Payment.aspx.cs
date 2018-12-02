@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 
 public partial class Payments : System.Web.UI.Page
 {
@@ -17,7 +18,7 @@ public partial class Payments : System.Web.UI.Page
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
-        //lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString();
+        
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
@@ -54,41 +55,38 @@ public partial class Payments : System.Web.UI.Page
 
        
         ddlOrganization.DataBind();
+        try { 
+        SqlConnection con = new SqlConnection(cs);
 
-        
+        con.Open();
 
-        //if (ddlProgramType.Items.Count < 2)
-        //{
-        //    while (myRead1.Read())
-        //    {
-        //        ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
-        //    }
-        //    while (myRead8.Read())
-        //    {
-        //        ddlProgramType.Items.Add(new ListItem(myRead8["OnlineProgramTypeName"].ToString(), myRead8["OnlineProgramTypeID"].ToString()));
-        //    }
-        //}
+        //string str = "select * from Person where username= @username";
+        System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+        str.Connection = sc;
+        str.Parameters.Clear();
 
+        str.CommandText = "select * from Person where username= @username";
+        str.Parameters.AddWithValue("@username", Session["USER_ID"]);
+        str.ExecuteNonQuery();
 
+        //SqlCommand com = new SqlCommand(str, con);
 
+        SqlDataAdapter da = new SqlDataAdapter(str);
 
+        DataSet ds = new DataSet();
 
+        da.Fill(ds);
+
+        lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
         sc.Close();
+    }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
 
-        //if (ddlProgramType.Items.Count < 2)
-        //{
-        //    while(myRead2.Read())
-        //    {
-        //        ddlProgramType.Items.Add(new ListItem(myRead2["OnlineProgramTypeName"].ToString(), myRead2["OnlineProgramTypeID"].ToString()));
-        //    }
-        //}
-
-        // Populate Year from 1990 through 2020
-        //for (int i = 2020; i >= 1990; i--)
-        //{
-        //    ddlYear.Items.Add(new ListItem(i.ToString()));
-        //}
-
+    
 
 
 
@@ -142,7 +140,8 @@ public partial class Payments : System.Web.UI.Page
 
         //Temporary LastUpdated and LastUpdatedBy
         DateTime tempLastUpdated = DateTime.Today;
-        String tempLastUpdatedBy = "WildTekDevelopers";
+        String tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
+
         string tempPaymentDateString = PaymentDate.Value.ToString();
         DateTime paymentDate = Convert.ToDateTime(tempPaymentDateString);
 
@@ -203,21 +202,6 @@ public partial class Payments : System.Web.UI.Page
     }
 
 
-    //protected void btnPopulate_Click(object sender, EventArgs e)
-    //{
-    //    ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
-    //    selectMonthDays();
-    //    ddlDate.SelectedValue = DateTime.Now.Day.ToString();
-    //    ddlYear.SelectedValue = DateTime.Now.Year.ToString();
-    //    txtAmount.Text = "300";
-    //    txtCheckNum.Text = "1234";
-    //    ddlPaymentType.SelectedValue = "Check";
-    //    ddlOrganization.SelectedValue = "5";
-    //    txtInvoiceNum.Text = "AW18-001";
-    //    txtCancelledChar.Text = "N";
-
-
-    //}
     protected void ddlPaymentType_SelectedIndexChanged(object sender, EventArgs e)
     {
         int selectedPaymentType = ddlPaymentType.SelectedIndex;
@@ -260,70 +244,5 @@ public partial class Payments : System.Web.UI.Page
         }
     }
 
-    //// sets days in dropdown for month
-    //public void SetDaysInMonth(int maxDay)
-    //{
-    //    for (int i = 1; i <= maxDay; i++)
-    //    {
-    //        ddlDate.Items.Add(new ListItem(i.ToString()));
-    //    }
-
-    //}
-
-    //// if statements to call SetDaysInMonth
-    //public void selectMonthDays()
-    //{
-
-    //    int selectedMonth = ddlMonth.SelectedIndex;
-
-    //    if (selectedMonth == 1 || selectedMonth == 3 || selectedMonth == 5 || selectedMonth == 7 || selectedMonth == 8 || selectedMonth == 10 || selectedMonth == 12)
-    //    {
-    //        SetDaysInMonth(31);
-
-    //    }
-    //    else if (selectedMonth == 4 || selectedMonth == 6 || selectedMonth == 9 || selectedMonth == 11)
-    //    {
-    //        SetDaysInMonth(30);
-
-    //    }
-    //    else if (selectedMonth == 2)
-    //    {
-    //        //ddlDate.Items.Clear();
-    //        //if (Int32.Parse(ddlYear.SelectedItem.Value) % 4 == 0)
-    //        //{
-    //            SetDaysInMonth(29);
-    //        //}
-    //        //else
-    //        //{
-    //          //  SetDaysInMonth(28);
-    //        //}
-    //    }
-    //}
-
-
-    ////Changes based on selected month
-    //protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    selectMonthDays();
-    //}
-
-    //// Accounts for leap years
-    //protected void ddlYear_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    int selectedMonth = ddlMonth.SelectedIndex;
-
-    //    if (selectedMonth == 2)
-    //    {
-    //        ddlDate.Items.Clear();
-    //        if (Int32.Parse(ddlYear.SelectedItem.Value) % 4 == 0)
-    //        {
-    //            SetDaysInMonth(29);
-    //        }
-    //        else
-    //        {
-    //            SetDaysInMonth(28);
-    //        }
-    //    }
-    //}
-
+   
 }

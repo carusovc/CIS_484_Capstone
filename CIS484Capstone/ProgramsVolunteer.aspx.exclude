@@ -74,7 +74,7 @@
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
         <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Default.aspx">Back to Login</a>
-
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="text-warning bg-dark text-right" ></asp:Label>
     </nav>
 
 

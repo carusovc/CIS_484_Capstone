@@ -23,13 +23,40 @@ public partial class Organizations : System.Web.UI.Page
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
+        SqlConnection con = new SqlConnection(cs);
 
+        con.Open();
+        try { 
+        //string str = "select * from Person where username= @username";
+        System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+        str.Connection = sc;
+        str.Parameters.Clear();
+
+        str.CommandText = "select * from Person where username= @username";
+        str.Parameters.AddWithValue("@username", Session["USER_ID"]);
+        str.ExecuteNonQuery();
+
+        //SqlCommand com = new SqlCommand(str, con);
+
+        SqlDataAdapter da = new SqlDataAdapter(str);
+
+        DataSet ds = new DataSet();
+
+        da.Fill(ds);
+
+        lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
 
         if (!IsPostBack)
         {
 
             //call read array
-            SqlConnection con = new SqlConnection(cs);
+           // SqlConnection con = new SqlConnection(cs);
             con.Open();
             if (con.State == System.Data.ConnectionState.Open)
             {

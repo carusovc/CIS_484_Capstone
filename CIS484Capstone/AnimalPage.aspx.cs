@@ -33,7 +33,38 @@ public partial class AnimalPage : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
 
+        try
+        {
+            SqlConnection con = new SqlConnection(cs);
 
+            con.Open();
+
+            //string str = "select * from Person where username= @username";
+            System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+            str.Connection = sc;
+            str.Parameters.Clear();
+
+            str.CommandText = "select * from Person where username= @username";
+            str.Parameters.AddWithValue("@username", Session["USER_ID"]);
+            str.ExecuteNonQuery();
+            
+            //SqlCommand com = new SqlCommand(str, con);
+
+            SqlDataAdapter da = new SqlDataAdapter(str);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+
+
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
 
 
 
@@ -113,7 +144,7 @@ public partial class AnimalPage : System.Web.UI.Page
         String animalType = HttpUtility.HtmlEncode(ddlAnimalType.SelectedItem.Text);
         String animalName = HttpUtility.HtmlEncode(txtAnimalName.Text);
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTekDevelopers";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
 
 
         Animal newAnimal = new Animal(animalType, animalName);
@@ -268,7 +299,7 @@ public partial class AnimalPage : System.Web.UI.Page
         update.Parameters.AddWithValue("@animalName", txtBoxAnimalName.Text);
         update.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()));
         update.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
         update.ExecuteNonQuery();
 
@@ -435,4 +466,6 @@ public partial class AnimalPage : System.Web.UI.Page
         gridSearch.DataSource = dt;
         gridSearch.DataBind();
     }
+
+  
 }
