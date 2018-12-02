@@ -186,21 +186,6 @@ public partial class Payments : System.Web.UI.Page
     }
 
 
-    //protected void btnPopulate_Click(object sender, EventArgs e)
-    //{
-    //    ddlMonth.SelectedValue = DateTime.Now.ToString("MMMM");
-    //    selectMonthDays();
-    //    ddlDate.SelectedValue = DateTime.Now.Day.ToString();
-    //    ddlYear.SelectedValue = DateTime.Now.Year.ToString();
-    //    txtAmount.Text = "300";
-    //    txtCheckNum.Text = "1234";
-    //    ddlPaymentType.SelectedValue = "Check";
-    //    ddlOrganization.SelectedValue = "5";
-    //    txtInvoiceNum.Text = "AW18-001";
-    //    txtCancelledChar.Text = "N";
-
-
-    //}
     protected void ddlPaymentType_SelectedIndexChanged(object sender, EventArgs e)
     {
         int selectedPaymentType = ddlPaymentType.SelectedIndex;
@@ -243,70 +228,5 @@ public partial class Payments : System.Web.UI.Page
         }
     }
 
-    //// sets days in dropdown for month
-    //public void SetDaysInMonth(int maxDay)
-    //{
-    //    for (int i = 1; i <= maxDay; i++)
-    //    {
-    //        ddlDate.Items.Add(new ListItem(i.ToString()));
-    //    }
-
-    //}
-
-    //// if statements to call SetDaysInMonth
-    //public void selectMonthDays()
-    //{
-
-    //    int selectedMonth = ddlMonth.SelectedIndex;
-
-    //    if (selectedMonth == 1 || selectedMonth == 3 || selectedMonth == 5 || selectedMonth == 7 || selectedMonth == 8 || selectedMonth == 10 || selectedMonth == 12)
-    //    {
-    //        SetDaysInMonth(31);
-
-    //    }
-    //    else if (selectedMonth == 4 || selectedMonth == 6 || selectedMonth == 9 || selectedMonth == 11)
-    //    {
-    //        SetDaysInMonth(30);
-
-    //    }
-    //    else if (selectedMonth == 2)
-    //    {
-    //        //ddlDate.Items.Clear();
-    //        //if (Int32.Parse(ddlYear.SelectedItem.Value) % 4 == 0)
-    //        //{
-    //            SetDaysInMonth(29);
-    //        //}
-    //        //else
-    //        //{
-    //          //  SetDaysInMonth(28);
-    //        //}
-    //    }
-    //}
-
-
-    ////Changes based on selected month
-    //protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    selectMonthDays();
-    //}
-
-    //// Accounts for leap years
-    //protected void ddlYear_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    int selectedMonth = ddlMonth.SelectedIndex;
-
-    //    if (selectedMonth == 2)
-    //    {
-    //        ddlDate.Items.Clear();
-    //        if (Int32.Parse(ddlYear.SelectedItem.Value) % 4 == 0)
-    //        {
-    //            SetDaysInMonth(29);
-    //        }
-    //        else
-    //        {
-    //            SetDaysInMonth(28);
-    //        }
-    //    }
-    //}
-
+   
 }

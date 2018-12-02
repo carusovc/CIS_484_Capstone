@@ -1336,7 +1336,7 @@
            col-sm-12">
                                     Organization:
                                     <br />
-                                    <asp:DropDownList ID="ddlOrganization" runat="server">
+                                    <asp:DropDownList ID="ddlOrganization" runat="server" OnSelectedIndexChanged="dropDownOrganization_SelectedIndexChanged">
                                         <asp:ListItem Text="--Organization--" Value="0" />
 
                                     </asp:DropDownList>

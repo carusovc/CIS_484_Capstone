@@ -8,6 +8,8 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using System.IO;
+using System.Drawing;
+
 
 
 public partial class Programs : System.Web.UI.Page
@@ -21,34 +23,34 @@ public partial class Programs : System.Web.UI.Page
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
-        try
-        {
+        //try
+        //{
             
 
-            //string str = "select * from Person where username= @username";
-            System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
-            str.Connection = sc;
-            str.Parameters.Clear();
+        //    //string str = "select * from Person where username= @username";
+        //    System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+        //    str.Connection = sc;
+        //    str.Parameters.Clear();
 
-            str.CommandText = "select * from Person where username= @username";
-            str.Parameters.AddWithValue("@username", Session["USER_ID"]);
-            str.ExecuteNonQuery();
+        //    str.CommandText = "select * from Person where username= @username";
+        //    str.Parameters.AddWithValue("@username", Session["USER_ID"]);
+        //    str.ExecuteNonQuery();
 
-            //SqlCommand com = new SqlCommand(str, con);
+        //    //SqlCommand com = new SqlCommand(str, con);
 
-            SqlDataAdapter da = new SqlDataAdapter(str);
+        //    SqlDataAdapter da = new SqlDataAdapter(str);
 
-            DataSet ds = new DataSet();
+        //    DataSet ds = new DataSet();
 
-            da.Fill(ds);
+        //    da.Fill(ds);
 
-            lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
-        }
-        catch
-        {
-            Session.RemoveAll();
-            Response.Redirect("Default.aspx", false);
-        }
+        //    lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+        //}
+        //catch
+        //{
+        //    Session.RemoveAll();
+        //    Response.Redirect("Default.aspx", false);
+        //}
         if (!this.IsPostBack)
         {
             createAccordianUsingRepeaterLive(0);
@@ -1530,6 +1532,55 @@ public partial class Programs : System.Web.UI.Page
 
     }
 
+    protected void dropDownOrganization_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand display = new System.Data.SqlClient.SqlCommand();
+        display.Connection = sc;
+        display.Parameters.Clear();
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+
+        display.CommandText = "select o.StreetAddress, concat(o.City, ', ' , o.County), o.State, o.PostalCode from Organization o full outer join Program p on" +
+                                "o.OrgID = p.OrgID where OnOff = '0'";
+
+        display.Parameters.AddWithValue("@OrgID", dropDownOrganization.SelectedItem.Value);
+
+        try
+        {
+            con.Open();
+            SqlDataReader sdr = display.ExecuteReader();
+            while (sdr.Read())
+            {
+                Address.Value = HttpUtility.HtmlEncode(sdr[0].ToString());
+                CityCounty.Value = HttpUtility.HtmlEncode(sdr[1].ToString());
+                statesDropDown.Text = HttpUtility.HtmlEncode(sdr[2].ToString());
+                LContactEmail.Value = HttpUtility.HtmlEncode(sdr[3].ToString());
+            }
+            System.Data.SqlClient.SqlCommand selection = new System.Data.SqlClient.SqlCommand();
+            selection.Connection = sc;
+
+            selection.Parameters.Clear();
+
+
+            con.Close();
+        }
+
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        sc.Close();
+    }
 
 
     protected void btnDelete2_Click(object sender, EventArgs e)
