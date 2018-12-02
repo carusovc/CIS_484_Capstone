@@ -111,7 +111,7 @@
                  <span>Educators & Volunteers</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx" data-toggle="modal"> Educators & Volunteers</a>
+                        <a class="dropdown-item" href="Volunteers.aspx" > Educators & Volunteers</a>
                         <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
@@ -209,7 +209,7 @@
                  <span>Educators & Volunteers</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx" data-toggle="modal"> Educators & Volunteers</a>
+                        <a class="dropdown-item" href="Volunteers.aspx" > Educators & Volunteers</a>
                         <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>

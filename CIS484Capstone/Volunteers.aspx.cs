@@ -277,7 +277,7 @@ public partial class Volunteers : System.Web.UI.Page
         String lastName = txtEducatorLastName.Text;
 
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTek";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
 
 
 
