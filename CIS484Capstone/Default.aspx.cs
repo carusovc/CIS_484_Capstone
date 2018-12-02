@@ -30,7 +30,7 @@ public partial class userLogin : System.Web.UI.Page
 
     {
 
-
+       
 
     }
 
@@ -51,67 +51,32 @@ public partial class userLogin : System.Web.UI.Page
             String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
 
             sc.ConnectionString = cs;
-
-
-
-
-
-            //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-
-            //lblStatus.Text = "Database Connection Successful";
-
-
-
             sc.Open();
-
             System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
-
             findPass.Connection = sc;
-
             // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
-
             findPass.CommandText = "select PasswordHash from Pass where Username = @Username";
-
             findPass.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
-
-
-
             SqlDataReader reader = findPass.ExecuteReader(); // create a reader
-
-
+           // SqlDataAdapter asda = new SqlDataAdapter();
+          //  DataSet ds = new DataSet();
 
             if (reader.HasRows) // if the username exists, it will continue
-
             {
-
                 while (reader.Read()) // this will read the single record that matches the entered username
 
                 {
-
                     string storedHash = reader["PasswordHash"].ToString(); // store the database password into this variable
-
-
-
                     if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
-
                     {
-
                         lblStatus.Text = "Success!";
-
                         btnLogin.Enabled = false;
-
                         txtUsername.Enabled = false;
-
                         txtPassword.Enabled = false;
-
                         Response.Redirect("Programs.aspx", false);
-
-
-
-
+             
 
                         Session["USER_ID"] = HttpUtility.HtmlEncode(txtUsername.Text);
-
                         if (txtUsername.Text.ToString().Equals("Volunteer"))
                         {
                             lblStatus.Text = "Success!";
@@ -152,6 +117,27 @@ public partial class userLogin : System.Web.UI.Page
             lblStatus.Text = "Database Error.";
 
         }
+
+    }
+    public void showdata()
+    {
+        //System.Data.SqlClient.SqlCommand findname = new System.Data.SqlClient.SqlCommand();
+        //findname.CommandText = "Select * from Person where Username = @Username";
+        //findname.Parameters.AddWithValue("@Username", txtUsername.Text);
+
+        // findname.Connection = sc;
+        //asda.SelectCommand = firstuser;
+        //asda.Fill(ds);
+        ////// SELECT FirstName STRING WHERE THE ENTERED USERNAME MATCHES
+        //lblWelcome.Text = asda.Tables{ }0.Rows[0]["Firstname"].ToString();
+        //
+
+        //
+        //string strUsername = Convert.ToString(findname.ExecuteScalar());
+
+
+
+        //HttpContext.Current.Session["USER_ID"] = strUsername;
 
     }
 
@@ -354,12 +340,12 @@ public partial class userLogin : System.Web.UI.Page
 
 
 
-    protected void btnForm_Click(object sender, EventArgs e)
+    //protected void btnForm_Click(object sender, EventArgs e)
 
-    {
+    //{
 
-        Response.Redirect("NoLogInPrograms.aspx");
+    //    Response.Redirect("NoLogInPrograms.aspx");
 
-    }
+    //}
 
 }
