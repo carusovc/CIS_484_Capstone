@@ -520,8 +520,8 @@ function showPosition(position) {
             Animal Listing</div>
         <div class="card-body">
             <div class="mx-auto d-flex justify-content-center">
-                <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Animal</div>
-                <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal">Edit Animal</div>
+                <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Animal</div>
+                <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal"> <i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Animal</div>
             </div>
                 </div>
             <br />
@@ -626,8 +626,7 @@ $(function() {
                                   <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Mammal</h4>
                                  <h4 class="alert d-md-none" style="background-color: #C7BFC4 !important; color: Black !important;"> M</h4>
                            
-    <asp:GridView ID="GridView1" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
-                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4" AllowSorting="True" >
+    <asp:GridView ID="GridView1" class="table table-borderless table-condensed table-striped  "   runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4" AllowSorting="True" >
         <Columns>
             <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False">
             <ItemStyle HorizontalAlign="Center" />

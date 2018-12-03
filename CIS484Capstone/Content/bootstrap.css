@@ -4461,9 +4461,8 @@ tbody.collapse.show {
     }
 
 .alert-danger {
-    color: white !important;
-    background-color: #FF7168 !important;
-
+    color: #721c24 !important;
+    background-color: #f8d7da !important;
     border-color: #f5c6cb;
 }
 

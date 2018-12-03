@@ -276,7 +276,7 @@
         <div class="container-fluid ">
 
           
-<section class="login-block  col-md-6 col-md-8 col-s-5 mx-auto ">
+<section class="login-block  col-lg-8 col-md-8 col-s-5 mx-auto ">
             <%--<section class="card card-register mx-auto mt-5">--%>
     <div class="container1">
       <div class="card  mx-auto mt-3">
@@ -284,15 +284,23 @@
            
             Educators & Volunteers</div>
         <div class="card-body">
-            <div class="mx-auto d-flex justify-content-center">
-                        <div class="btn btn-primary btn-inside" data-target="#AddEducator" data-toggle="modal">Add Educator</div>
-                <div class="btn btn-primary btn-inside" data-target="#UpdateEducator" data-toggle="modal">Edit Educator</div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <div class="btn btn-primary btn-inside" data-target="#AddVolunteer" data-toggle="modal">Add Volunteer</div>
-                <div class="btn btn-primary btn-inside" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteer</div>
-        
-            </div>
+            <div class="mx-auto row d-flex justify-content-center">
+                <div class=" col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                        <div class="btn btn-block btn-primary btn-inside" data-target="#AddEducator" data-toggle="modal"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Educator</div>
                 </div>
+                
+            <div class="col-xl-3 col-lg-0 col-md-6 col-sm-12"><div class="btn btn-block btn-primary btn-inside" data-target="#UpdateEducator" data-toggle="modal"><i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Educator</div>
+               </div>
+         
+          <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="btn btn-block btn-primary btn-inside" data-target="#AddVolunteer" data-toggle="modal"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Volunteer</div>
+                </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="btn btn-block btn-primary btn-inside" data-target="#UpdateVolunteer" data-toggle="modal"><i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Volunteer</div>
+        </div>
+                </div>
+            </div>
+              
             <br />
             <%--<div class="row">
                

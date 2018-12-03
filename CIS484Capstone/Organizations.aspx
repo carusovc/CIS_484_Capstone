@@ -285,9 +285,9 @@
                             </div>
                             <div class="card-body">
                                 <div class="mx-auto d-flex justify-content-center">
-                                    <div class="btn btn-primary btn-inside" data-target="#AddOrganization" data-toggle="modal">Add Organization</div>
-                                    <div class="btn btn-primary btn-inside" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</div>
-                                    <div class="btn btn-primary btn-inside" data-target="#AddContact" data-toggle="modal">Add Contact</div>
+                                    <div class="btn btn-primary btn-inside" data-target="#AddOrganization" data-toggle="modal"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Organization</div>
+                                    <div class="btn btn-primary btn-inside" data-target="#UpdateOrganization" data-toggle="modal"><i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Organization</div>
+                                    <div class="btn btn-primary btn-inside" data-target="#AddContact" data-toggle="modal"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Contact</div>
                                 </div>
                             </div>
 

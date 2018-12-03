@@ -1210,15 +1210,18 @@
                                     <div class="row mx-auto d-flex text cetner justify-content-center">
 
                                         <div class=" col-lg-3    col-md-4 col-sm-6 ">
-                                            <div class="btn  btn-primary btn-inside btn-block" data-target="#addProgramModal" data-toggle="modal">Add Program Form</div>
+                                            <div class="btn  btn-primary btn-inside btn-block" data-target="#addProgramModal" data-toggle="modal"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Program Form</div>
                                         </div>
 
-                                        <div class=" col-lg-3    col-md-4 col-sm-6  ">
-                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live</div>
+                                        <div class=" col-lg-3   col-md-4 col-sm-6  ">
+                                           
+                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateLiveProgram" data-toggle="modal">
+                                                <i class="fas fa-pencil-alt " style="margin-right:5px;" > </i> Edit Live </div>
+                                             
                                         </div>
 
                                         <div class=" col-lg-3   col-md-4  col-sm-6  ">
-                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online</div>
+                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateOnlineProgram" data-toggle="modal"> <i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Online</div>
 
 
 
@@ -1302,7 +1305,7 @@
                                                     </div>
 
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style="margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click" />
+                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style="margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click"  /> 
 
                                                         <asp:Button ID="btnAllClear" runat="server" class="btn " Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
                                                     </div>

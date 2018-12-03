@@ -243,8 +243,8 @@
       <div class="card  mx-auto mt-5">
         <div class="card-header NewUserTitle text-center">Invoices</div>
         <div class="card-body text-center">
-            <asp:Button class="btn btn-primary btn-inside" ID="btnAddPayment" runat="server" Text="Add Payment" OnClick="btnAddPayment_Click" />
-             <div class="btn btn-primary btn-inside" data-target="#UpdatePayment" data-toggle="modal">Edit Invoice</div>
+           <a href="Payment.aspx"> <div class="btn btn-primary btn-inside" ID="btnAddPayment" runat="server"  OnClick="btnAddPayment_Click"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Payment</div></a>
+             <div class="btn btn-primary btn-inside" data-target="#UpdatePayment" data-toggle="modal"> <i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Invoice</div>
             <p></p>
             <div class="block3">
                                          <script>
