@@ -42,12 +42,16 @@
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar  navbar-dark bg-dark">
+        <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand " style="color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-
+         <div class="ml-auto row">
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
+         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
+               <span>Logout</span></a>
+</div>
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
                 <li class="nav-item dropdown no-arrow">
@@ -121,24 +125,15 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown no-arrow">
+                 <li class="nav-item dropdown no-arrow active ">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                        <span>Educators</span>
+                 <span>Educators & Volunteers</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Educators.aspx">View Educators</a>
+                        <a class="dropdown-item" href="Volunteers.aspx"> Educators & Volunteers</a>
                         <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown no-arrow ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                        <span>Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
                         <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
                     </div>
@@ -246,40 +241,25 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
-
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Educators</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
-                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                </div>
-            </li>
             <li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Volunteers</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
-                    <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                </div>
-            </li>
+                 <span>Educators & Volunteers</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="Volunteers.aspx"> Educators & Volunteers</a>
+                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
+                    </div>
+                </li>
             <li class="nav-item">
                 <a class="nav-link" href="createUser.aspx">
 
                     <span>Create Outreach Coordinator Access</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Default.aspx">
-
-                    <span>Logout</span></a>
-            </li>
-
+           
         </ul>
 
 
@@ -340,12 +320,12 @@
                                                             <div class=" text-right col-md-4 InternalOrganizationForm">
                                                                 <h6>Organization</h6>
                                                             </div>
-                                                            <div class=" col-md-3 InternalOrgnaizationForm">
-                                                                <asp:DropDownList ID="ddlOrg" class="btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
+                                                            <div class=" col-md-8 InternalOrgnaizationForm">
+                                                                <asp:DropDownList ID="ddlOrg" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
                                                                     <asp:ListItem Text="--Select Organization--" Value=""></asp:ListItem>
-                                                                </asp:DropDownList>
+                                                                </asp:DropDownList>&nbsp;&nbsp;
                                                             </div>
-
+                                                            </div>
                                                             <div class="row">
                                                                 <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
                                                                     <h6>Contact First Name</h6>
@@ -353,8 +333,8 @@
                                                                 <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                                                     <h6>Contact First Name</h6>
                                                                 </div>
-                                                                <div class=" col-md-3 InternalOrgnaizationForm">
-                                                                    <asp:TextBox ID="txtContactFirstName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                                                    <asp:TextBox ID="txtContactFirstName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -364,8 +344,8 @@
                                                                 <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                                                     <h6>Contact Last Name</h6>
                                                                 </div>
-                                                                <div class=" col-md-3 InternalOrgnaizationForm">
-                                                                    <asp:TextBox ID="txtContactLastName" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                                                    <asp:TextBox ID="txtContactLastName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -375,8 +355,8 @@
                                                                 <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                                                     <h6>Contact Email</h6>
                                                                 </div>
-                                                                <div class=" col-md-3 InternalOrgnaizationForm">
-                                                                    <asp:TextBox ID="txtContactEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                                                    <asp:TextBox ID="txtContactEmail" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                                                 </div>
                                                             </div>
 
@@ -384,7 +364,7 @@
                                                             <div>
                                                             </div>
 
-                                                        </div>
+                                                        
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -692,8 +672,15 @@
 
 
 
+                                            <ul class="nav nav-tabs" role="tablist" id="myTab">
+        <li role="presentation" class=""><a href="#OrganizationsAllTab" class="nav-link  active  TabStyle" style="color:black;" aria-controls="home" role="tab" data-toggle="tab">All Organizations</a></li>
+        <li role="presentation"><a href="#ContactsTab" style="color:black;" class="nav-link    TabStyle" aria-controls="profile" role="tab" data-toggle="tab">Organization Contacts</a></li>
+        
+      
+    </ul>
 
-                                            <ul class="nav nav-tabs block4" id="myTab" role="tablist">
+
+                                            <%--<ul class="nav nav-tabs block4" id="myTab" role="tablist">
                                                 <li class="nav-item">
                                                     <a class="nav-link active TabStyle" id="AllTabNav" data-toggle="tab" href="#OrganizationsAllTab" style="color: black;">
                                                         <p class="d-none d-lg-block">All Organizations</p>
@@ -707,13 +694,13 @@
                                                     </a>
                                                 </li>
 
-                                            </ul>
+                                            </ul>--%>
 
 
                                             <div class="tab-content">
                                                 <div id="OrganizationsAllTab" class="tab-pane show active">
                                                     <div class="InternalOrganizationsTab">
-
+                                                        <br />
                                                         <div class="row">
                                                             <%-- for Org listing--%>
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 InternalAnimalForm">
@@ -734,7 +721,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
+                                                        <br />
 
                                                         <div runat="server" id="OrganizationSearchDiv">
                                                             <div runat="server" id="ViewOrganizations">
@@ -752,8 +739,8 @@
                                                                     </div>
                                                                     <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                                                                            <asp:GridView ID="gridSearch" class="table table-bordered table-condensed table-hover" HeaderStyle-BackColor="#FFBC7C"
-                                                                                HeaderStyle-ForeColor="#732700" runat="server" AutoGenerateColumns="False">
+                                                                            <asp:GridView ID="gridSearch" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False">
                                                                                 <Columns>
                                                                                     <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" />
                                                                                     <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" />
@@ -776,7 +763,8 @@
                                                         <div class="grid-volunteers text-center">
                                                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                 <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
-                                                                    <asp:GridView ID="GridView1" HeaderStyle-BackColor="#FFBC7C" HeaderStyle-ForeColor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False">
+                                                                    <asp:GridView ID="GridView1" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False">
                                                                         <Columns>
                                                                             <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName"></asp:BoundField>
                                                                             <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress"></asp:BoundField>
@@ -800,6 +788,7 @@
 
                                                 <div id="ContactsTab" class="tab-pane show ">
                                                     <div class="InternalAnimalTab">
+                                                        <br />
                                                         <div class="row">
                                                             <%--for contact listing--%>
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 InternalAnimalForm">
@@ -821,10 +810,9 @@
                                                             </div>
                                                         </div>
 
-
+                                                        <br />
                                                         <div runat="server" id="ContactSearchDiv">
-                                                            <div runat="server" id="Div5">
-                                                            </div>
+                                                            
                                                             <div class="block3">
                                                                 <div class="tab-content">
                                                                     <div class="">
@@ -837,8 +825,8 @@
                                                                     </div>
                                                                     <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                                                                            <asp:GridView ID="ContactSearchGrid" class="table table-bordered table-condensed table-hover" HeaderStyle-BackColor="#FFBC7C"
-                                                                                HeaderStyle-ForeColor="#732700" runat="server" AutoGenerateColumns="False">
+                                                                            <asp:GridView ID="ContactSearchGrid" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False">
                                                                                 <Columns>
                                                                                     <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" />
                                                                                     <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName" />
@@ -860,7 +848,8 @@
                                                         <div class="grid-volunteers text-center">
                                                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                 <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
-                                                                    <asp:GridView ID="GridView3" HeaderStyle-BackColor="#FFBC7C" HeaderStyle-ForeColor="#732700" class="table table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False">
+                                                                    <asp:GridView ID="GridView3" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False">
                                                                         <Columns>
                                                                             <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName"></asp:BoundField>
                                                                             <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName"></asp:BoundField>

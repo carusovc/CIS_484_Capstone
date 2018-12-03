@@ -44,7 +44,7 @@ public partial class Programs : System.Web.UI.Page
 
             da.Fill(ds);
 
-            //lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+            lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
         }
         catch
         {
@@ -2865,6 +2865,72 @@ public partial class Programs : System.Web.UI.Page
 
 
         }
+    }
+    protected void dropDownOrganization_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand display = new System.Data.SqlClient.SqlCommand();
+
+        display.Connection = sc;
+        display.Parameters.Clear();
+
+
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+        //call read array
+        SqlConnection con = new SqlConnection(cs);
+
+        display.CommandText = "select o.StreetAddress, concat(o.City, ', ' , o.County), o.State, o.PostalCode from Organization o full outer join Program p on" +
+                                " o.OrgID = p.OrgID";
+        display.Parameters.AddWithValue("@OrgID", dropDownOrganization.SelectedItem.Value);
+
+        try
+        {
+            con.Open();
+            SqlDataReader sdr = display.ExecuteReader();
+            while (sdr.Read())
+            {
+                Address.Value = HttpUtility.HtmlEncode(sdr[0].ToString());
+                CityCounty.Value = HttpUtility.HtmlEncode(sdr[1].ToString());
+                //statesDropDown.Text = HttpUtility.HtmlEncode(sdr[2].ToString());
+                LContactEmail.Value = HttpUtility.HtmlEncode(sdr[3].ToString());
+            }
+            System.Data.SqlClient.SqlCommand selection = new System.Data.SqlClient.SqlCommand();
+            selection.Connection = sc;
+
+            selection.Parameters.Clear();
+
+            System.Data.SqlClient.SqlCommand selectState = new System.Data.SqlClient.SqlCommand();
+            selectState.Connection = sc;
+
+            selectState.Parameters.Clear();
+
+            selectState.CommandText = "SELECT State From Organization WHERE OrgID = @OrgID";
+            selectState.Parameters.AddWithValue("@OrgID", dropDownOrganization.SelectedItem.Value);
+            String tempState = (String)selectState.ExecuteScalar();
+
+            statesDropDown.ClearSelection();
+            for (int i = 0; i < statesDropDown.Items.Count; i++)
+            {
+                if (statesDropDown.Items[i].Value == tempState)
+                {
+                    statesDropDown.Items[i].Selected = true;
+                }
+            }
+
+            con.Close();
+        }
+
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        sc.Close();
     }
 
 }
