@@ -74,7 +74,105 @@ public partial class Organizations : System.Web.UI.Page
     }
 
 
+    protected void btnAddOrg_Click(object sender, EventArgs e)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
 
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+
+        System.Data.SqlClient.SqlCommand insertContact = new System.Data.SqlClient.SqlCommand();
+
+        System.Data.SqlClient.SqlCommand pullOrgID = new System.Data.SqlClient.SqlCommand();
+
+
+        sc.Open();
+        insert.Connection = sc;
+        insertContact.Connection = sc;
+        pullOrgID.Connection = sc;
+
+        String orgName = textOrgName.Text;
+        //String city = textOrgCity.Text;
+        String county = textOrgCounty.Text;
+       // String streetAddress = txtStreetAddress.Text;
+        //String state = ddlState.SelectedValue; ;
+        //String postalCode = txtPostalCode.Text;
+        String contactFirstName = txtContactFirstName.Text;
+        String contactLastName = txtContactLastName.Text;
+        //String phoneNumber = txtPhoneNumber.Text;
+        String email = txtEmail.Text;
+        //String secondaryEmail = txtSecondaryEmail.Text;
+        DateTime lastUpdated = DateTime.Today;
+        String lastUpdatedBy = "WildTekDevs";
+
+        //Organization newOrg = new Organization(orgName, city, county, streetAddress, state, postalCode);
+        //insert.CommandText = "insert into Organization (orgName, city, county, lastUpdated, lastUpdatedBy, streetAddress, state, postalCode) values (@orgName, @city, @county, @lastUpdated, @lastUpdatedBy, @streetAddress, @state, @postalCode)";
+        //insert.Parameters.AddWithValue("@orgName", newOrg.getOrgName());
+        //insert.Parameters.AddWithValue("@city", newOrg.getCity());
+        //insert.Parameters.AddWithValue("@county", newOrg.getCounty());
+        //insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
+        //insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+        //insert.Parameters.AddWithValue("@streetAddress", newOrg.getStreetAddress());
+        //insert.Parameters.AddWithValue("@state", newOrg.getState());
+        //insert.Parameters.AddWithValue("@postalCode", newOrg.getPostalCode());
+        //insert.Parameters.AddWithValue("@contactFirstName", newOrg.getContactFirstName());
+        //insert.Parameters.AddWithValue("@contactLastName", newOrg.getContactLastName());
+        //insert.Parameters.AddWithValue("@phoneNumber", newOrg.getPhoneNumber());
+        //insert.Parameters.AddWithValue("@email", newOrg.getEmail());
+        //insert.Parameters.AddWithValue("@secondaryEmail", newOrg.getSecondaryEmail());
+
+
+        insert.ExecuteNonQuery();
+
+        pullOrgID.Parameters.Clear();
+        pullOrgID.CommandText = "SELECT MAX(OrgID) From Organization";
+
+        int tempOrgID = (int)pullOrgID.ExecuteScalar();
+
+        insertContact.CommandText = "insert into ContactInformation (contactFirstName, contactLastName, contactEmail, PrimaryContact, OrgID, LastUpdated, LastUpdatedBy) values (@contactFN, @contactLN, @contactEmail, @primaryContact, @OrgID, @LastUpdated, @LastUpdatedBy)";
+        insertContact.Parameters.AddWithValue("@contactFN", contactFirstName);
+        insertContact.Parameters.AddWithValue("@contactLN", contactLastName);
+        insertContact.Parameters.AddWithValue("@contactEmail", email);
+        insertContact.Parameters.AddWithValue("@PrimaryContact", "Y");
+        insertContact.Parameters.AddWithValue("@OrgID", tempOrgID);
+        insertContact.Parameters.AddWithValue("@LastUpdated", lastUpdated);
+        insertContact.Parameters.AddWithValue("@LastUpdatedBy", lastUpdatedBy);
+        insertContact.ExecuteNonQuery();
+
+        //lblLastUpdated.Text = "Last Updated: " + lastUpdated;
+        //lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
+        string read = "Select * from Organization";
+        SqlCommand cmd = new SqlCommand(read, sc);
+        SqlDataReader myRead = cmd.ExecuteReader();
+
+        ddlOrg.Items.Clear();
+        ddlOrg.Items.Add(new ListItem("--Select Organization--", "0"));
+        while (myRead.Read())
+        {
+            ddlOrg.Items.Add(new ListItem(myRead["OrgName"].ToString(), myRead["OrgID"].ToString()));
+        }
+        ddlOrg.DataBind();
+
+
+        textOrgName.Text = "";
+       // textOrgCity.Text = "";
+        textOrgCounty.Text = "";
+        //txtStreetAddress.Text = "";
+       // ddlState.SelectedIndex = 0;
+        ddlOrg.SelectedIndex = 0;
+       // txtPostalCode.Text = "";
+        txtContactFirstName.Text = "";
+        txtContactLastName.Text = "";
+        //txtPhoneNumber.Text = "";
+        txtEmail.Text = "";
+        //txtSecondaryEmail.Text = "";
+
+        sc.Close();
+
+    }
 
 
     protected void btnSearch_Click(object sender, EventArgs e)

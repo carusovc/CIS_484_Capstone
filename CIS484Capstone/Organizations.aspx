@@ -381,6 +381,275 @@
 
 
 
+
+
+
+                                       <div class="modal " id="AddOrganization" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content mt-5">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Add New Organization</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body locationField">
+                        <div runat="server" id="Div6">
+                            <p>&nbsp;</p>
+                            <div class="row">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Organization Name</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Organization Name</h6>
+                                </div>
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="textOrgName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Enter Address</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Enter Address</h6>
+                                </div>
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                   <%-- <asp:TextBox ID="autocomplete" placeholder="Enter your address" runat="server" onFocus="geolocate()"></asp:TextBox>&nbsp;&nbsp;--%>
+                                    <input  id="autocomplete" class="form-control" placeholder="Enter your address"  onFocus="geolocate()"  type="text"/>&nbsp;&nbsp;
+                                </div>
+                            </div>
+
+
+
+                            <hr />
+                              
+                             <div class="row">
+                               <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Street Address</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>Street Address</h6>
+                                </div>
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                   <%-- <asp:TextBox ID="txtStreetAddress" runat="server"></asp:TextBox>&nbsp;&nbsp;--%>
+                                    <input id='txtStreetAddress' name='' value=''class="form-control" >&nbsp;&nbsp;
+                                </div>
+                            </div>
+
+                            <div class="row">
+                               <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>City</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>City</h6>
+                                </div>
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <%--<asp:TextBox ID="textOrgCity" runat="server"></asp:TextBox>--%>
+                                      <input id="textOrgCity" name='' value='' class="form-control">&nbsp;&nbsp;
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                    <h6>County</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                    <h6>County</h6>
+                                </div>
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="textOrgCounty" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                     
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                                    <h6>State</h6>
+                                </div>
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <%--<asp:DropDownList ID="ddlState" class="btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" placeholder="Add State/Province">
+                                        <asp:ListItem>--Select State--</asp:ListItem>
+                                        <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
+                                        <asp:ListItem Value="AL"></asp:ListItem>
+                                        <asp:ListItem Value="AK"></asp:ListItem>
+                                        <asp:ListItem Value="AZ"></asp:ListItem>
+                                        <asp:ListItem Value="AR"></asp:ListItem>
+                                        <asp:ListItem Value="CA"></asp:ListItem>
+                                        <asp:ListItem Value="CO"></asp:ListItem>
+                                        <asp:ListItem Value="CT"></asp:ListItem>
+                                        <asp:ListItem Value="DE"></asp:ListItem>
+                                        <asp:ListItem Value="FL"></asp:ListItem>
+                                        <asp:ListItem Value="GA"></asp:ListItem>
+                                        <asp:ListItem Value="HI"></asp:ListItem>
+                                        <asp:ListItem Value="ID"></asp:ListItem>
+                                        <asp:ListItem Value="IL"></asp:ListItem>
+                                        <asp:ListItem Value="IN"></asp:ListItem>
+                                        <asp:ListItem Value="IA"></asp:ListItem>
+                                        <asp:ListItem Value="KS"></asp:ListItem>
+                                        <asp:ListItem Value="KY"></asp:ListItem>
+                                        <asp:ListItem Value="LA"></asp:ListItem>
+                                        <asp:ListItem Value="ME"></asp:ListItem>
+                                        <asp:ListItem Value="MD"></asp:ListItem>
+                                        <asp:ListItem Value="MA"></asp:ListItem>
+                                        <asp:ListItem Value="MI"></asp:ListItem>
+                                        <asp:ListItem Value="MN"></asp:ListItem>
+                                        <asp:ListItem Value="MS"></asp:ListItem>
+                                        <asp:ListItem Value="MO"></asp:ListItem>
+                                        <asp:ListItem Value="MT"></asp:ListItem>
+                                        <asp:ListItem Value="NE"></asp:ListItem>
+                                        <asp:ListItem Value="NV"></asp:ListItem>
+                                        <asp:ListItem Value="NH"></asp:ListItem>
+                                        <asp:ListItem Value="NJ"></asp:ListItem>
+                                        <asp:ListItem Value="NM"></asp:ListItem>
+                                        <asp:ListItem Value="NY"></asp:ListItem>
+                                        <asp:ListItem Value="NC"></asp:ListItem>
+                                        <asp:ListItem Value="ND"></asp:ListItem>
+                                        <asp:ListItem Value="OH"></asp:ListItem>
+                                        <asp:ListItem Value="OK"></asp:ListItem>
+                                        <asp:ListItem Value="OR"></asp:ListItem>
+                                        <asp:ListItem Value="PA"></asp:ListItem>
+                                        <asp:ListItem Value="RI"></asp:ListItem>
+                                        <asp:ListItem Value="SC"></asp:ListItem>
+                                        <asp:ListItem Value="SD"></asp:ListItem>
+                                        <asp:ListItem Value="TN"></asp:ListItem>
+                                        <asp:ListItem Value="TX"></asp:ListItem>
+                                        <asp:ListItem Value="UT"></asp:ListItem>
+                                        <asp:ListItem Value="VT"></asp:ListItem>
+                                        <asp:ListItem Value="VA"></asp:ListItem>
+                                        <asp:ListItem Value="WA"></asp:ListItem>
+                                        <asp:ListItem Value="WV"></asp:ListItem>
+                                        <asp:ListItem Value="WI"></asp:ListItem>
+                                        <asp:ListItem Value="WY"></asp:ListItem>
+                                    </asp:DropDownList>--%>
+                                     <input id='state' name='' value='' class="form-control">&nbsp;&nbsp;
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Postal Code</h6>
+                                </div>
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                   <%-- <asp:TextBox ID="txtPostalCode" runat="server"></asp:TextBox>--%>
+                                     <input id='txtPostalCode' name='' value='' class="form-control">&nbsp;&nbsp;
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                                    <h6> Primary Contact First Name</h6>
+                                </div>
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="TextBox1" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Primary Contact Last Name</h6>
+                                </div>
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="TextBox2" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+
+<%--                            <div class="row">
+                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Primary Contact Phone Number</h6>
+                                </div>
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>--%>
+
+                            <div class="row">
+                                <div class=" text-right col-md-4 InternalOrganizationForm">
+                                    <h6>Primary Contact Email</h6>
+                                </div>
+                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtEmail" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                </div>
+                            </div>
+
+                         </div>
+    
+          
+
+
+   <%-- <div id="locationField">--%>
+      <%--  <input  id="autocomplete" placeholder="Enter your address"
+               onFocus="geolocate()" type="text"></input>--%>
+    </div>
+
+
+<%-- DO NOT DELETE THIS TABLE--%>
+    <table id="address" class="d-none">
+       <tr>
+            <td class="auto-style1">Street address</td>
+            <td class="auto-style2">
+                <input class="field" id="street_number"
+                       disabled="true"></input>
+            </td>
+            <td class="auto-style3" colspan="2">
+                <input class="field" id="route"
+                       disabled="true"></input>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">City</td>
+            <!-- Note: Selection of address components in this example is typical.
+                 You may need to adjust it for the locations relevant to your app. See
+                 https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+            -->
+            <td class="wideField" colspan="3">
+                <input class="field" id="locality"
+                       disabled="true"></input>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">State</td>
+            <td class="slimField">
+                <input class="field"
+                       id="administrative_area_level_1" disabled="true"></input>
+            </td>
+            <td class="label">Zip code</td>
+            <td class="wideField">
+                <input class="field" id="postal_code"
+                       disabled="true"></input>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">Country</td>
+            <td class="wideField" colspan="3">
+                <input class="field"
+                       id="country" disabled="true"></input>
+            </td>
+        </tr>
+    </table>
+
+ 
+   
+  
+  
+   
+ <%--  <input id='countryName' name='' value='' class=''>&nbsp;&nbsp;
+      empty<input id='empty' name='' value='' class=''>--%>
+    
+                   <%--         
+                       </div>--%>
+                   <%-- </div>--%>
+                    <div class="modal-footer">
+ <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <asp:Button ID="btnAddOrg" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddOrg_Click" />
+                        <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
                                     <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
                                         <div class="container1 block">
 
@@ -445,8 +714,8 @@
                                                             </div>
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-5 col-sm-12 col-xs-12 InternalAnimalForm">
                                                                 <div class="form-check-inline">
-                                                                    <asp:TextBox class="InternalAnimalForm form-control" Style="margin-bottom: 5px; margin-right: 5px;" ID="txtSearch" runat="server"></asp:TextBox>
-                                                                    <asp:Button ID="btnSearch" runat="server" class="btn" Style="margin-bottom: 5px; margin-right: 5px;" Text="Search" OnClick="btnSearch_Click" />
+                                                                    <asp:TextBox class="InternalAnimalForm form-control" Style="margin-bottom: 5px; margin-right:5px;" ID="txtSearch" runat="server"></asp:TextBox>
+                                                                    <asp:Button ID="btnSearch" runat="server" class="btn" Style="margin-bottom: 5px; margin-right:5px;" Text="Search" OnClick="btnSearch_Click" />
                                                                     <asp:Button ID="btnAllClear" runat="server" class="btn " Style="margin-bottom: 5px; margin-right: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
                                                                     &nbsp;&nbsp;&nbsp;
                                                                 </div>
@@ -627,6 +896,111 @@
 
 
     </div>
+    
+    <script>
+        //THESE ARE THE SCRIPTS FOR THE MODAL GOOGLE ADDRESS VALIDAOTR 
+        // This example displays an address form, using the autocomplete feature
+        // of the Google Places API to help users fill in the information.
+
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+        var placeSearch, autocomplete;
+        var componentForm = {
+            street_number: 'short_name',
+            route: 'long_name',
+            locality: 'long_name',
+            administrative_area_level_1: 'short_name',
+            country: 'long_name',
+            postal_code: 'short_name'
+        };
+
+        function initAutocomplete() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+            autocomplete = new google.maps.places.Autocomplete(
+                                            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                { types: ['geocode'] });
+
+            // When the user selects an address from the dropdown, populate the address
+            // fields in the form.
+            autocomplete.addListener('place_changed', fillInAddress);
+        }
+
+        function fillInAddress() {
+            // Get the place details from the autocomplete object.
+            var place = autocomplete.getPlace();
+
+            for (var component in componentForm) {
+
+                document.getElementById(component).value = '';
+                document.getElementById(component).disabled = false;
+            }
+
+            var array = [];
+
+
+            // Get each component of the address from the place details
+            // and fill the corresponding field on the form.
+            for (var i = 0; i < place.address_components.length; i++) {
+
+                var addressType = place.address_components[i].types[0];
+
+                
+                if (componentForm[addressType]) {
+
+
+                    var val = place.address_components[i][componentForm[addressType]];
+
+                    document.getElementById(addressType).value = val;
+
+                }
+
+            }
+
+            //array = string.split(",");
+            //document.getElementById("total2").value = array;
+            
+            var streetNumber = place.address_components[0].types[0];
+            var streetName = place.address_components[1].types[0];
+            document.getElementById("txtStreetAddress").value = place.address_components[0][componentForm[streetNumber]] + " " + place.address_components[1][componentForm[streetName]];
+
+            var city = place.address_components[2].types[0];
+             document.getElementById("textOrgCity").value = place.address_components[2][componentForm[city]];
+            var state = place.address_components[3].types[0];
+            document.getElementById("state").value = place.address_components[3][componentForm[state]];
+            var zip = place.address_components[5].types[0];
+            document.getElementById("txtPostalCode").value = place.address_components[5][componentForm[zip]];
+            //var countryName = place.address_components[4].types[0];
+            //document.getElementById("countryName").value = place.address_components[4][componentForm[countryName]];
+            //var empty = place.address_components[6].types[0];
+            //document.getElementById("empty").value = place.address_components[6][componentForm[empty]];
+
+
+        }
+
+     
+        // Bias the autocomplete object to the user's geographical location,
+        // as supplied by the browser's 'navigator.geolocation' object.
+        function geolocate() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDF5N5PVHlVRbvfo-7ogAYJzJikONTDWNA&libraries=places&callback=initAutocomplete"
+            async defer></script>
 
 </asp:Content>
 
