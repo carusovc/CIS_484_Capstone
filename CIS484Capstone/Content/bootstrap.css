@@ -1581,7 +1581,7 @@ pre {
 }
 
 .table-hover tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.075);
+    background-color: #FFBC7C !important;
 }
 
 .table-primary,
@@ -4865,7 +4865,7 @@ button.close {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1050;
+    z-index: 990 !important;
     display: none;
     overflow: hidden;
     outline: 0;
@@ -4914,7 +4914,7 @@ button.close {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1040;
+    z-index: 980 !important;
     background-color: #000 !important;
 }
 
