@@ -2392,7 +2392,8 @@ public partial class Programs : System.Web.UI.Page
     protected void btnLiveClear_Click(object sender, EventArgs e)
     {
         createAccordianUsingRepeaterLive(0);
-
+        StartDateLive.Value = "";
+        EndDateLive.Value = "";
     }
 
     protected void btnOnlineSearch_Click(object sender, EventArgs e)
@@ -2404,7 +2405,8 @@ public partial class Programs : System.Web.UI.Page
     protected void btnOnlineClear_Click(object sender, EventArgs e)
     {
         createAccordianUsingRepeaterOnline(0);
-
+        StartDateOnline.Value = "";
+        EndDateOnline.Value = "";
     }
 
     protected void btnAllSearch_Click(object sender, EventArgs e)
@@ -2416,7 +2418,8 @@ public partial class Programs : System.Web.UI.Page
     protected void btnAllClear_Click(object sender, EventArgs e)
     {
         createAccordianUsingRepeaterAll(0);
-
+        StartDateAll.Value = "";
+        EndDateAll.Value = "";
     }
 
 
@@ -3104,6 +3107,136 @@ public partial class Programs : System.Web.UI.Page
             throw ex;
         }
         sc.Close();
+    }
+
+    protected void btnView_Click(object sender, EventArgs e)
+    {
+        string startDate = StartDateAll.Value.ToString();
+        string endDate = EndDateAll.Value.ToString();
+        createAccordianForDatesUsingRepeaterAll(startDate, endDate);
+    }
+
+    protected void btnViewLive_Click(object sender, EventArgs e)
+    {
+        string startDate = StartDateLive.Value.ToString();
+        string endDate = EndDateLive.Value.ToString();
+        createAccordianForDateUsingRepeaterLive(startDate, endDate);
+    }
+
+    protected void btnViewOnline_Click(object sender, EventArgs e)
+    {
+        string startDate = StartDateOnline.Value.ToString();
+        string endDate = EndDateOnline.Value.ToString();
+        createAccordianForDateUsingRepeaterOnline(startDate, endDate);
+    }
+
+    public void createAccordianForDatesUsingRepeaterAll(string startDate, string endDate)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+        search.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+
+        DataTable dt = new DataTable();
+        SqlDataAdapter adapt = new SqlDataAdapter("Select AllProgramID, ProgramCategory, convert(varchar, ProgramDate, 101) as ProgramDate, ProgramType From AllPrograms" +
+                      " WHERE ProgramDate BETWEEN '" + startDate + "' and '" + endDate + "' GROUP BY ProgramDate, AllProgramID, ProgramCategory, ProgramType ORDER BY ProgramDate", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
+
+        if (adapt.Fill(dt) < 1)
+        {
+            NoRecords.Visible = true;
+            rptProgramHLAll.Visible = false;
+        }
+
+        else
+        {
+            adapt.Fill(dt);
+            NoRecords.Visible = false;
+            rptProgramHLAll.Visible = true;
+            rptProgramHLAll.DataSource = dt;
+            rptProgramHLAll.DataBind();
+        }
+
+
+
+
+
+    }
+
+    public void createAccordianForDateUsingRepeaterLive(string startDate, string endDate)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+        search.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+
+        DataTable dt = new DataTable();
+        SqlDataAdapter adapt = new SqlDataAdapter("SELECT ProgramID, convert(varchar, ProgramDate, 101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner " +
+        "join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID " +
+        "WHERE ProgramDate BETWEEN '" + startDate + "' and '" + endDate + "' GROUP BY ProgramDate, ProgramID, ProgramType.ProgramName, Organization.OrgName ORDER BY ProgramDate", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
+
+        if (adapt.Fill(dt) < 1)
+        {
+            NoRecordsLive.Visible = true;
+            rptProgramHLLive.Visible = false;
+        }
+
+        else
+        {
+            adapt.Fill(dt);
+            NoRecordsLive.Visible = false;
+            rptProgramHLLive.Visible = true;
+            rptProgramHLLive.DataSource = dt;
+            rptProgramHLLive.DataBind();
+        }
+
+
+
+    }
+
+    public void createAccordianForDateUsingRepeaterOnline(string startDate, string endDate)
+    {
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+        search.Connection = sc;
+        SqlConnection con = new SqlConnection(cs);
+
+        DataTable dt = new DataTable();
+        SqlDataAdapter adapt = new SqlDataAdapter("SELECT OnlineProgramID, convert(varchar, ProgramDate, 101) as ProgramDate, OnlineProgramType.OnlineProgramTypeName AS ProgramType from OnlineProgram z inner " +
+        "join OnlineProgramType on z.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID WHERE ProgramDate BETWEEN '" + startDate + "' and '" + endDate + "' GROUP BY ProgramDate, OnlineProgramID, OnlineProgramType.OnlineProgramTypeName ORDER BY ProgramDate", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
+
+        if (adapt.Fill(dt) < 1)
+        {
+            NoRecordsOnline.Visible = true;
+            rptProgramHLOnline.Visible = false;
+        }
+
+        else
+        {
+            adapt.Fill(dt);
+            NoRecordsOnline.Visible = false;
+            rptProgramHLOnline.Visible = true;
+            rptProgramHLOnline.DataSource = dt;
+            rptProgramHLOnline.DataBind();
+        }
+
+
+
+
     }
 
 }

@@ -1295,7 +1295,21 @@
 
                                                         </asp:DropDownList>&nbsp&nbsp
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                    <%--<div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>--%>
+                                                               <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
+                                                                       <label id="StartDateLabelAll" class="" for="StartDateAll">Start Date:</label>
+                              
+                                                                                    <input type="date" id="StartDateAll" class="form-control" runat="server" />
+                                                                    </div>
+                                                                <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
+                                                                     <label id="EndDateLabelAll" class="" for="EndDateAll">End Date:</label>
+                              
+                                                                                    <input type="date" id="EndDateAll" class="form-control" runat="server" />
+                                                                    </div>
+                                                              <div class=" col-lg-2 col-xl-2 col-md-6 col-sm-6 text-right InternalAnimalForm">
+                                
+                                                                              <asp:Button ID="btnFilterDatesAll" runat="server" style="margin-top:7px;" CssClass="btn btn-block" OnClick="btnView_Click" Text="Filter Dates" />      
+                                                                                </div>
                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
                                                         <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchAll" runat="server"></asp:TextBox>
 
@@ -1593,7 +1607,21 @@
 
                                                         </asp:DropDownList>&nbsp&nbsp
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                    <%--<div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>--%>
+                                                     <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
+                                                                       <label id="StartDateLabelLive" class="" for="StartDateLive">Start Date:</label>
+                              
+                                                                                    <input type="date" id="StartDateLive" class="form-control" runat="server" />
+                                                                    </div>
+                                                                <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
+                                                                     <label id="EndDateLabelLive" class="" for="EndDateLive">End Date:</label>
+                              
+                                                                                    <input type="date" id="EndDateLive" class="form-control" runat="server" />
+                                                                    </div>
+                                                              <div class=" col-lg-2 col-xl-2 col-md-6 col-sm-6 text-right InternalAnimalForm">
+                                
+                                                                              <asp:Button ID="btnFilterDatesLive" runat="server" style="margin-top:7px;" CssClass="btn btn-block" OnClick="btnViewLive_Click" Text="Filter Dates" />      
+                                                                                </div>
                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
                                                         <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchLive" runat="server"></asp:TextBox>
 
@@ -1862,7 +1890,21 @@
 
                                                         </asp:DropDownList>&nbsp&nbsp
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                    <%--<div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>--%>
+                                                    <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
+                                                                       <label id="StartDateLabelOnline" class="" for="StartDateOnline">Start Date:</label>
+                              
+                                                                                    <input type="date" id="StartDateOnline" class="form-control" runat="server" />
+                                                                    </div>
+                                                                <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
+                                                                     <label id="EndDateLabelOnline" class="" for="EndDateOnline">End Date:</label>
+                              
+                                                                                    <input type="date" id="EndDateOnline" class="form-control" runat="server" />
+                                                                    </div>
+                                                              <div class=" col-lg-2 col-xl-2 col-md-6 col-sm-6 text-right InternalAnimalForm">
+                                
+                                                                              <asp:Button ID="btnFilterDatesOnline" runat="server" style="margin-top:7px;" CssClass="btn btn-block" OnClick="btnViewOnline_Click" Text="Filter Dates" />      
+                                                                                </div>
                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
                                                         <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchOnline" runat="server"></asp:TextBox>
 
