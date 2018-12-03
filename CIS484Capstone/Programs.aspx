@@ -1256,11 +1256,9 @@
                                         <%-- this div  is the internal div--%>
 
                                         <ul class="nav nav-tabs block4" id="myTab" role="tablist">
+                                           
                                             <li class="nav-item">
-                                                <a class="nav-link active" id="CalendarTab" data-toggle="tab" href="#CalTab" style="color: black;">Program Calendar</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link TabStyle TabStyle" id="AllTabNav" data-toggle="tab" href="#AllTab" style="color: black;">All Programs</a>
+                                                <a class="nav-link active TabStyle TabStyle" id="AllTabNav" data-toggle="tab" href="#AllTab" style="color: black;">All Programs</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link TabStyle" id="LiveTabNav" data-toggle="tab" href="#LiveTab" style="color: black;">Live Programs</a>
@@ -1274,20 +1272,37 @@
                                         <%-- Version 1 All --%>
                                         <div class="tab-content">
 
-                                            <div id="CalTab" class="tab-pane active">
+                                          
+                                            <div id="AllTab" class="tab-pane show active">
                                                 <br />
-                                                <div class="row mx-auto d-flex justify-content-center  embed-responsive embed-responsive-4by3" >
 
-                                                    <embed class="col-12 embed-responsive-item"" src="myCalendar.html"  >
-                                                     
-                                                </div>
-                                            </div>
-                                            <div id="AllTab" class="tab-pane show fade in">
-                                                <br />
+
+
                                                 <div class="row mx-auto d-flex justify-content-center">
 
                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                                        <asp:DropDownList ID="ddlOrderByAll" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByAll_SelectedIndexChanged">
+                                                         </div>
+                                                    <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                    <%--<div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">--%>
+                                                                     
+                                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchAll" runat="server"></asp:TextBox>
+
+                                                    </div>
+
+                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+
+                                                           <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style="margin-right:  5px; background-color: #FFBC7C !important; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click" />
+
+                                                        <asp:Button ID="btnAllClear" runat="server" class="btn " Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
+                                                    </div>
+
+                                                </div>
+                                                 
+                                                 <div class="row mx-auto justify-content-center d-flex">
+                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                                           <br />
+                                                             <asp:DropDownList ID="ddlOrderByAll" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style=" margin-top:7px; background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByAll_SelectedIndexChanged">
                                                             <asp:ListItem>--Order By--</asp:ListItem>
                                                             <asp:ListItem>Program Category</asp:ListItem>
                                                             <asp:ListItem>Program Date</asp:ListItem>
@@ -1295,33 +1310,29 @@
 
                                                         </asp:DropDownList>&nbsp&nbsp
                                                     </div>
-                                                    <%--<div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>--%>
-                                                               <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
-                                                                       <label id="StartDateLabelAll" class="" for="StartDateAll">Start Date:</label>
+               <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                       <label id="StartDateLabelAll" class="" for="StartDateAll">Start Date:</label>
                               
                                                                                     <input type="date" id="StartDateAll" class="form-control" runat="server" />
-                                                                    </div>
-                                                                <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
-                                                                     <label id="EndDateLabelAll" class="" for="EndDateAll">End Date:</label>
+                    </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                     <label id="EndDateLabelAll" class="" for="EndDateAll">End Date:</label>
                               
                                                                                     <input type="date" id="EndDateAll" class="form-control" runat="server" />
-                                                                    </div>
-                                                              <div class=" col-lg-2 col-xl-2 col-md-6 col-sm-6 text-right InternalAnimalForm">
-                                
-                                                                              <asp:Button ID="btnFilterDatesAll" runat="server" style="margin-top:7px;" CssClass="btn btn-block" OnClick="btnView_Click" Text="Filter Dates" />      
-                                                                                </div>
-                                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
-                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchAll" runat="server"></asp:TextBox>
+                    </div>
+           <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                 
+                                  <br />
+                                <asp:Button ID="btnFilterDatesAll" runat="server" style="margin-top:7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnView_Click" Text="Filter Dates" />                                                                                     
+                                </div>
+              <br />
+                          
+            </div>
 
-                                                    </div>
 
-                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style="margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click" />
 
-                                                        <asp:Button ID="btnAllClear" runat="server" class="btn " Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
-                                                    </div>
 
-                                                </div>
+                                                
 
 
 
@@ -1596,32 +1607,15 @@
 
 
                                                 <br />
+
+
                                                 <div class="row mx-auto d-flex justify-content-center">
 
                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                                        <asp:DropDownList ID="ddlOrderByLive" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByLive_SelectedIndexChanged">
-                                                            <asp:ListItem>--Order By--</asp:ListItem>
-                                                            <asp:ListItem>Program Date</asp:ListItem>
-                                                            <asp:ListItem>Organization A-Z</asp:ListItem>
-                                                            <asp:ListItem>Program Type A-Z</asp:ListItem>
-
-                                                        </asp:DropDownList>&nbsp&nbsp
-                                                    </div>
-                                                    <%--<div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>--%>
-                                                     <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
-                                                                       <label id="StartDateLabelLive" class="" for="StartDateLive">Start Date:</label>
-                              
-                                                                                    <input type="date" id="StartDateLive" class="form-control" runat="server" />
-                                                                    </div>
-                                                                <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
-                                                                     <label id="EndDateLabelLive" class="" for="EndDateLive">End Date:</label>
-                              
-                                                                                    <input type="date" id="EndDateLive" class="form-control" runat="server" />
-                                                                    </div>
-                                                              <div class=" col-lg-2 col-xl-2 col-md-6 col-sm-6 text-right InternalAnimalForm">
-                                
-                                                                              <asp:Button ID="btnFilterDatesLive" runat="server" style="margin-top:7px;" CssClass="btn btn-block" OnClick="btnViewLive_Click" Text="Filter Dates" />      
-                                                                                </div>
+                                                         </div>
+                                                    <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                    <%--<div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">--%>
+                                                                     
                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
                                                         <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchLive" runat="server"></asp:TextBox>
 
@@ -1629,11 +1623,44 @@
 
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
 
-                                                        <asp:Button ID="btnLiveSearch" runat="server" class="btn" Style="margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
+                                                         <asp:Button ID="btnLiveSearch" runat="server" class="btn" Style="margin-right: 5px; background-color: #FFBC7C !important; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
                                                         <asp:Button ID="btnLiveClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnLiveClear_Click" />
-                                                    </div>
+                                                   </div>
 
                                                 </div>
+                                                 
+                                                 <div class="row mx-auto justify-content-center d-flex">
+                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                                           <br />
+                                                              <asp:DropDownList ID="ddlOrderByLive" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="margin-top:7px; background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByLive_SelectedIndexChanged">
+                                                            <asp:ListItem>--Order By--</asp:ListItem>
+                                                            <asp:ListItem>Program Date</asp:ListItem>
+                                                            <asp:ListItem>Organization A-Z</asp:ListItem>
+                                                            <asp:ListItem>Program Type A-Z</asp:ListItem>
+
+                                                        </asp:DropDownList>&nbsp&nbsp
+                                                    </div>
+               <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                         <label id="StartDateLabelLive" class="" for="StartDateLive">Start Date:</label>
+                              
+                                                                                    <input type="date" id="StartDateLive" class="form-control" runat="server" />
+                    </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                      <label id="EndDateLabelLive" class="" for="EndDateLive">End Date:</label>
+                              
+                                                                                    <input type="date" id="EndDateLive" class="form-control" runat="server" />
+                    </div>
+           <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                 
+                                  <br />
+                               <asp:Button ID="btnFilterDatesLive" runat="server" style="margin-top:7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnViewLive_Click" Text="Filter Dates" />      
+                                                                                </div>
+              <br />
+                          
+            </div>
+
+
+                                                
 
 
 
@@ -1880,31 +1907,15 @@
 
 
                                                 <br />
+
+
                                                 <div class="row mx-auto d-flex justify-content-center">
 
                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                                        <asp:DropDownList ID="ddlOrderByOnline" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByOnline_SelectedIndexChanged">
-                                                            <asp:ListItem>--Order By--</asp:ListItem>
-                                                            <asp:ListItem>Program Date</asp:ListItem>
-                                                            <asp:ListItem>Program Type A-Z</asp:ListItem>
-
-                                                        </asp:DropDownList>&nbsp&nbsp
-                                                    </div>
-                                                    <%--<div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>--%>
-                                                    <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
-                                                                       <label id="StartDateLabelOnline" class="" for="StartDateOnline">Start Date:</label>
-                              
-                                                                                    <input type="date" id="StartDateOnline" class="form-control" runat="server" />
-                                                                    </div>
-                                                                <div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">
-                                                                     <label id="EndDateLabelOnline" class="" for="EndDateOnline">End Date:</label>
-                              
-                                                                                    <input type="date" id="EndDateOnline" class="form-control" runat="server" />
-                                                                    </div>
-                                                              <div class=" col-lg-2 col-xl-2 col-md-6 col-sm-6 text-right InternalAnimalForm">
-                                
-                                                                              <asp:Button ID="btnFilterDatesOnline" runat="server" style="margin-top:7px;" CssClass="btn btn-block" OnClick="btnViewOnline_Click" Text="Filter Dates" />      
-                                                                                </div>
+                                                         </div>
+                                                    <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                    <%--<div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">--%>
+                                                                     
                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
                                                         <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchOnline" runat="server"></asp:TextBox>
 
@@ -1912,15 +1923,47 @@
 
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
 
-                                                        <asp:Button ID="btnOnlineSearch" runat="server" class="btn" Style="margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
+                                                        <asp:Button ID="btnOnlineSearch" runat="server" class="btn Search" Style="margin-right: 5px;  background-color: #FFBC7C !important; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
                                                         <asp:Button ID="btnOnlineClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnOnlineClear_Click" />
                                                     </div>
+
+                                                </div>
+                                                 
+                                                 <div class="row mx-auto justify-content-center d-flex">
+                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                                        <label  class="" for="StartDateOnline"></label>
+                                                        <asp:DropDownList ID="ddlOrderByOnline" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; margin-top:7px; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByOnline_SelectedIndexChanged">
+                                                            <asp:ListItem>--Order By--</asp:ListItem>
+                                                            <asp:ListItem>Program Date</asp:ListItem>
+                                                            <asp:ListItem>Program Type A-Z</asp:ListItem>
+
+                                                        </asp:DropDownList>&nbsp&nbsp
+                                                    </div>
+               <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                       <label id="StartDateLabelOnline" class="" for="StartDateOnline">Start Date:</label>
+                                                     <input type="date" id="StartDateOnline" class="form-control" runat="server" />
+                    </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                     <label id="EndDateLabelOnline" class="" for="EndDateOnline">End Date:</label>
+                              
+                                                                                    <input type="date" id="EndDateOnline" class="form-control" runat="server" />
+                    </div>
+           <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                 
+                                  <br />
+                                                                              <asp:Button ID="btnFilterDatesOnline" runat="server" style="margin-top:7px;  background-color: #FFBC7C !important;" CssClass="btn Search btn-block" OnClick="btnViewOnline_Click" Text="Filter Dates" />      
+                                                                                     
+                                </div>
+              
+                          
+            </div>
+                                               
 
                                                 </div>
 
 
 
-
+                                            
 
 
 
