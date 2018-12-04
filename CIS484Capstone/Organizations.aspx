@@ -42,12 +42,12 @@
 
 
 
-    <nav class="navbar  navbar-dark bg-dark">
-        <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand " style="color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-         <div class="ml-auto row">
+      <nav class="navbar navbar-dark bg-dark">
+  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+        <div class="ml-auto row">
         <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
          <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
                <span>Logout</span></a>
@@ -301,7 +301,206 @@
 
                             <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
                                 <div class="container1 block">
+                                    <%--update organization--%>
+                                     <div class="modal fade" id="UpdateOrganization" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content mt-5">
+                    <div class="modal-header ">
+                        <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Organization</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="ddlOrganization" EventName="SelectedIndexChanged" />
+                        </Triggers>
+                        <ContentTemplate>
+                            <div class="modal-body">
+                                <div runat="server" id="OrganizationupdateDiv">
+                                    <p>&nbsp;</p>
+                                    <div class="row">
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                            <h6>Select Organization</h6>
+                                        </div>
+                                        <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                            <h6>Select Organization</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+                                            <asp:DropDownList ID="ddlOrganization" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
+                                                <asp:ListItem>--Select Organization--</asp:ListItem>
+                                            </asp:DropDownList>&nbsp&nbsp
+                                    &nbsp;&nbsp;
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                            <h6>Organization Name</h6>
+                                        </div>
+                                        <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                            <h6>Organization Name</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+                                            <asp:TextBox ID="txtOrgName" class="form-control" runat="server"></asp:TextBox>&nbsp&nbsp
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                            <h6>Street Address</h6>
+                                        </div>
+                                        <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                            <h6>Street Address</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+                                            <asp:TextBox ID="txtStreetAddress2" class="form-control" runat="server"></asp:TextBox>&nbsp&nbsp
+                                        </div>
+                                    </div>
 
+                                    <div class="row">
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                            <h6>City</h6>
+                                        </div>
+                                        <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                            <h6>City</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+
+                                            <asp:TextBox ID="txtCity" class="form-control" runat="server"></asp:TextBox>&nbsp&nbsp
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                            <h6>County</h6>
+                                        </div>
+                                        <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                            <h6>County</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+                                            <asp:TextBox ID="txtCounty" class="form-control" runat="server"></asp:TextBox>&nbsp&nbsp
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class=" text-right col-md-4 InternalOrganizationForm">
+                                            <h6>State</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalOrgnaizationForm">
+                                            <asp:DropDownList ID="ddlState2" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server" placeholder="Add State/Province">
+
+                                                <asp:ListItem>--Select State--</asp:ListItem>
+                                                <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
+                                                <asp:ListItem Value="AL"></asp:ListItem>
+                                                <asp:ListItem Value="AK"></asp:ListItem>
+                                                <asp:ListItem Value="AZ"></asp:ListItem>
+                                                <asp:ListItem Value="AR"></asp:ListItem>
+                                                <asp:ListItem Value="CA"></asp:ListItem>
+                                                <asp:ListItem Value="CO"></asp:ListItem>
+                                                <asp:ListItem Value="CT"></asp:ListItem>
+                                                <asp:ListItem Value="DE"></asp:ListItem>
+                                                <asp:ListItem Value="FL"></asp:ListItem>
+                                                <asp:ListItem Value="GA"></asp:ListItem>
+                                                <asp:ListItem Value="HI"></asp:ListItem>
+                                                <asp:ListItem Value="ID"></asp:ListItem>
+                                                <asp:ListItem Value="IL"></asp:ListItem>
+                                                <asp:ListItem Value="IN"></asp:ListItem>
+                                                <asp:ListItem Value="IA"></asp:ListItem>
+                                                <asp:ListItem Value="KS"></asp:ListItem>
+                                                <asp:ListItem Value="KY"></asp:ListItem>
+                                                <asp:ListItem Value="LA"></asp:ListItem>
+                                                <asp:ListItem Value="ME"></asp:ListItem>
+                                                <asp:ListItem Value="MD"></asp:ListItem>
+                                                <asp:ListItem Value="MA"></asp:ListItem>
+                                                <asp:ListItem Value="MI"></asp:ListItem>
+                                                <asp:ListItem Value="MN"></asp:ListItem>
+                                                <asp:ListItem Value="MS"></asp:ListItem>
+                                                <asp:ListItem Value="MO"></asp:ListItem>
+                                                <asp:ListItem Value="MT"></asp:ListItem>
+                                                <asp:ListItem Value="NE"></asp:ListItem>
+                                                <asp:ListItem Value="NV"></asp:ListItem>
+                                                <asp:ListItem Value="NH"></asp:ListItem>
+                                                <asp:ListItem Value="NJ"></asp:ListItem>
+                                                <asp:ListItem Value="NM"></asp:ListItem>
+                                                <asp:ListItem Value="NY"></asp:ListItem>
+                                                <asp:ListItem Value="NC"></asp:ListItem>
+                                                <asp:ListItem Value="ND"></asp:ListItem>
+                                                <asp:ListItem Value="OH"></asp:ListItem>
+                                                <asp:ListItem Value="OK"></asp:ListItem>
+                                                <asp:ListItem Value="OR"></asp:ListItem>
+                                                <asp:ListItem Value="PA"></asp:ListItem>
+                                                <asp:ListItem Value="RI"></asp:ListItem>
+                                                <asp:ListItem Value="SC"></asp:ListItem>
+                                                <asp:ListItem Value="SD"></asp:ListItem>
+                                                <asp:ListItem Value="TN"></asp:ListItem>
+                                                <asp:ListItem Value="TX"></asp:ListItem>
+                                                <asp:ListItem Value="UT"></asp:ListItem>
+                                                <asp:ListItem Value="VT"></asp:ListItem>
+                                                <asp:ListItem Value="VA"></asp:ListItem>
+                                                <asp:ListItem Value="WA"></asp:ListItem>
+                                                <asp:ListItem Value="WV"></asp:ListItem>
+                                                <asp:ListItem Value="WI"></asp:ListItem>
+                                                <asp:ListItem Value="WY"></asp:ListItem>
+                                            </asp:DropDownList>
+
+                                        </div>
+                                    </div>
+                                    <p></p>
+                                    <div class="row">
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                                <h6>Postal Code</h6>
+                                            </div>
+                                            <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                                <h6>Postal Code</h6>
+                                            </div>
+                                        
+                                            <div class=" col-md-8 InternalOrgnaizationForm">
+                                                <asp:TextBox ID="txtPostalCode2" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+
+                                            </div>
+                                        
+                                        </div>
+                                        <div class="row">
+                                            <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                                <h6>Primary Contact</h6>
+                                            </div>
+                                            <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                                <h6>Primary Contact</h6>
+                                            </div>
+                                            <div class=" col-md-8 InternalAnimalForm">
+                                                <asp:DropDownList ID="ddlContacts" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false">
+                                                    <asp:ListItem>--Select Primary Contact--</asp:ListItem>
+                                                </asp:DropDownList>&nbsp&nbsp
+                                    &nbsp;&nbsp;
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="row">
+                                                <div class=" col-12">
+                                                    <br />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>&nbsp;
+            <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                                    
+                                    </div>
+                                </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdateOrganization_Click" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 
                                     <%--start--%>
                                     <div class="modal fade" id="AddContact" tabindex="-1" role="dialog">
@@ -434,6 +633,7 @@
                                 <div class=" col-md-8 InternalOrgnaizationForm">
                                    <%-- <asp:TextBox ID="txtStreetAddress" runat="server"></asp:TextBox>&nbsp;&nbsp;--%>
                                     <input id='txtStreetAddress' name='' value=''class="form-control" >&nbsp;&nbsp;
+                                    <input id="hiddenControl" type="hidden" runat="server" />
                                 </div>
                             </div>
 
@@ -447,6 +647,7 @@
                                 <div class=" col-md-8 InternalOrgnaizationForm">
                                     <%--<asp:TextBox ID="textOrgCity" runat="server"></asp:TextBox>--%>
                                       <input id="textOrgCity" name='' value='' class="form-control">&nbsp;&nbsp;
+                                    <input id="hiddenCity" type="hidden" runat="server" />
                                 </div>
                             </div>
                             <div class="row">
@@ -458,6 +659,7 @@
                                 </div>
                                 <div class=" col-md-8 InternalOrgnaizationForm">
                                     <asp:TextBox ID="textOrgCounty" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                   
                                      
                                 </div>
                             </div>
@@ -522,7 +724,7 @@
                                         <asp:ListItem Value="WY"></asp:ListItem>
                                     </asp:DropDownList>--%>
                                      <input id='state' name='' value='' class="form-control">&nbsp;&nbsp;
-
+                                    <input id="hiddenState" type="hidden" runat="server" />
                                 </div>
                             </div>
 
@@ -533,6 +735,7 @@
                                 <div class=" col-md-8 InternalOrgnaizationForm">
                                    <%-- <asp:TextBox ID="txtPostalCode" runat="server"></asp:TextBox>--%>
                                      <input id='txtPostalCode' name='' value='' class="form-control">&nbsp;&nbsp;
+                                    <input id="hiddenZip" type="hidden" runat="server" />
                                 </div>
                             </div>
 
@@ -541,7 +744,7 @@
                                     <h6> Primary Contact First Name</h6>
                                 </div>
                                 <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="TextBox1" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="contactFirstName1" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
@@ -550,7 +753,7 @@
                                     <h6>Primary Contact Last Name</h6>
                                 </div>
                                 <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="TextBox2" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="contactLastName1" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
@@ -764,7 +967,7 @@
                                                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                 <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                                                     <asp:GridView ID="GridView1" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
-                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False">
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False" DataSourceID ="SqlDataSource4">
                                                                         <Columns>
                                                                             <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName"></asp:BoundField>
                                                                             <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress"></asp:BoundField>
@@ -849,7 +1052,7 @@
                                                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                 <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                                                     <asp:GridView ID="GridView3" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
-                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False">
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False" DataSourceID ="SqlDataSource2">
                                                                         <Columns>
                                                                             <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName"></asp:BoundField>
                                                                             <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName"></asp:BoundField>
@@ -967,20 +1170,35 @@
             document.getElementById("txtStreetAddress").value = place.address_components[0][componentForm[streetNumber]] + " " + place.address_components[1][componentForm[streetName]];
 
             var city = place.address_components[2].types[0];
-             document.getElementById("textOrgCity").value = place.address_components[2][componentForm[city]];
+            document.getElementById("textOrgCity").value = place.address_components[2][componentForm[city]];
+
+
             var state = place.address_components[3].types[0];
             document.getElementById("state").value = place.address_components[3][componentForm[state]];
+            
+            
+
+      
             var zip = place.address_components[5].types[0];
             document.getElementById("txtPostalCode").value = place.address_components[5][componentForm[zip]];
             //var countryName = place.address_components[4].types[0];
             //document.getElementById("countryName").value = place.address_components[4][componentForm[countryName]];
             //var empty = place.address_components[6].types[0];
             //document.getElementById("empty").value = place.address_components[6][componentForm[empty]];
+            
+            var hiddenControl = '<%= hiddenControl.ClientID %>';
+            document.getElementById(hiddenControl).value = document.getElementById("txtStreetAddress").value;
 
+            var hiddenCity = '<%= hiddenCity.ClientID %>';
+            document.getElementById(hiddenCity).value = document.getElementById("textOrgCity").value;
 
+            var hiddenState = '<%= hiddenState.ClientID %>';
+            document.getElementById(hiddenState).value = document.getElementById("state").value;
+
+            var hiddenZip = '<%= hiddenZip.ClientID %>';
+            document.getElementById(hiddenZip).value = document.getElementById("txtPostalCode").value;
         }
 
-     
         // Bias the autocomplete object to the user's geographical location,
         // as supplied by the browser's 'navigator.geolocation' object.
         function geolocate() {

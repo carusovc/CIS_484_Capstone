@@ -21,8 +21,7 @@ public partial class createUser : System.Web.UI.Page
             String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
             sc.ConnectionString = cs;
             sc.Open();
-            // lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
-
+         
             SqlConnection con = new SqlConnection(cs);
 
             con.Open();
