@@ -19,8 +19,7 @@ using System.Net.Mail;
 using System.Text;
 
 using System.Data;
-
-
+using System.Collections;
 
 public partial class userLogin : System.Web.UI.Page
 
@@ -29,7 +28,7 @@ public partial class userLogin : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
 
     {
-        
+
     }
 
 
@@ -115,7 +114,26 @@ public partial class userLogin : System.Web.UI.Page
             lblStatus.Text = "Database Error.";
 
         }
+        HttpResponse.RemoveOutputCacheItem("/Default.aspx");
 
+    }
+    public static void ClearCache()
+    {
+        HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        HttpContext.Current.Response.Cache.SetExpires(DateTime.Now);
+        HttpContext.Current.Response.Cache.SetNoServerCaching();
+        HttpContext.Current.Response.Cache.SetNoStore();
+    }
+    public void ClearCacheItems()
+    {
+        List<string> keys = new List<string>();
+        IDictionaryEnumerator enumerator = Cache.GetEnumerator();
+
+        while (enumerator.MoveNext())
+            keys.Add(enumerator.Key.ToString());
+
+        for (int i = 0; i < keys.Count; i++)
+            Cache.Remove(keys[i]);
     }
     public void showdata()
     {

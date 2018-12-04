@@ -24,6 +24,7 @@ public partial class Programs : System.Web.UI.Page
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
+
         try
         {
 
@@ -52,11 +53,13 @@ public partial class Programs : System.Web.UI.Page
             Session.RemoveAll();
             Response.Redirect("Default.aspx", false);
         }
+
         if (!this.IsPostBack)
         {
             createAccordianUsingRepeaterLive(0);
             createAccordianUsingRepeaterOnline(0);
             createAccordianUsingRepeaterAll(0);
+
         }
 
 
@@ -72,7 +75,34 @@ public partial class Programs : System.Web.UI.Page
         if (!IsPostBack)
         {
 
+            try
+            {
 
+
+                //string str = "select * from Person where username= @username";
+                System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+                str.Connection = sc;
+                str.Parameters.Clear();
+
+                str.CommandText = "select * from Person where username= @username";
+                str.Parameters.AddWithValue("@username", Session["USER_ID"]);
+                str.ExecuteNonQuery();
+
+                //SqlCommand com = new SqlCommand(str, con);
+
+                SqlDataAdapter da = new SqlDataAdapter(str);
+
+                DataSet ds = new DataSet();
+
+                da.Fill(ds);
+
+                //lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+            }
+            catch
+            {
+                Session.RemoveAll();
+                Response.Redirect("Default.aspx", false);
+            }
             //call read array
             SqlConnection con = new SqlConnection(cs);
             con.Open();
@@ -1848,7 +1878,8 @@ public partial class Programs : System.Web.UI.Page
 
 
         //// TEMPORARY UPDATED AND UPDATEDBY
-        string tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
+        //string tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
+        string tempLastUpdatedBy = "WildTek Developers";
         DateTime tempLastUpdated = DateTime.Now;
 
         ////Organization class attributes

@@ -53,7 +53,18 @@ public partial class createUser : System.Web.UI.Page
             Response.Redirect("Default.aspx", false);
         }
     }
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
 
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
+    }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
 

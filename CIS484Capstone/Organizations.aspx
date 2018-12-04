@@ -285,9 +285,9 @@
                             </div>
                             <div class="card-body">
                                 <div class="mx-auto d-flex justify-content-center">
-                                    <div class="btn btn-primary btn-inside" data-target="#AddOrganization" data-toggle="modal">Add Organization</div>
-                                    <div class="btn btn-primary btn-inside" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</div>
-                                    <div class="btn btn-primary btn-inside" data-target="#AddContact" data-toggle="modal">Add Contact</div>
+                                    <div class="btn btn-primary btn-inside" data-target="#AddOrganization" data-toggle="modal"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Organization</div>
+                                    <div class="btn btn-primary btn-inside" data-target="#UpdateOrganization" data-toggle="modal"><i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Organization</div>
+                                    <div class="btn btn-primary btn-inside" data-target="#AddContact" data-toggle="modal"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Contact</div>
                                 </div>
                             </div>
 
@@ -918,7 +918,7 @@
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-5 col-sm-12 col-xs-12 InternalAnimalForm">
                                                                 <div class="form-check-inline">
                                                                     <asp:TextBox class="InternalAnimalForm form-control" Style="margin-bottom: 5px; margin-right:5px;" ID="txtSearch" runat="server"></asp:TextBox>
-                                                                    <asp:Button ID="btnSearch" runat="server" class="btn" Style="margin-bottom: 5px; margin-right:5px;" Text="Search" OnClick="btnSearch_Click" />
+                                                                    <asp:Button ID="btnSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-bottom: 5px; margin-right:5px;" Text="Search" OnClick="btnSearch_Click" />
                                                                     <asp:Button ID="btnAllClear" runat="server" class="btn " Style="margin-bottom: 5px; margin-right: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
                                                                     &nbsp;&nbsp;&nbsp;
                                                                 </div>
@@ -1012,7 +1012,7 @@
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-5 col-sm-12 col-xs-12 InternalAnimalForm">
                                                                 <div class="form-check-inline">
                                                                     <asp:TextBox class="InternalAnimalForm form-control" ID="txtContactSearch" Style="margin-bottom: 5px; margin-right: 5px;" runat="server"></asp:TextBox>
-                                                                    <asp:Button ID="btnContactSearch" runat="server" class="btn" Style="margin-bottom: 5px; margin-right: 5px;" Text="Search" OnClick="btnContactSearch_Click" />
+                                                                    <asp:Button ID="btnContactSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-bottom: 5px; margin-right: 5px;" Text="Search" OnClick="btnContactSearch_Click" />
                                                                     <asp:Button ID="btnContactClear" runat="server" class="btn " Style="margin-bottom: 5px; margin-right: 5px;" Text="Clear Filters" OnClick="btnContactClear_Click" />
                                                                     &nbsp;&nbsp;&nbsp;
                                                                 </div>

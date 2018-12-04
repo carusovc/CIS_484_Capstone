@@ -1145,15 +1145,18 @@
                                     <div class="row mx-auto d-flex text cetner justify-content-center">
 
                                         <div class=" col-lg-3    col-md-4 col-sm-6 ">
-                                            <div class="btn  btn-primary btn-inside btn-block" data-target="#addProgramModal" data-toggle="modal">Add Program Form</div>
+                                            <div class="btn  btn-primary btn-inside btn-block" data-target="#addProgramModal" data-toggle="modal"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Program Form</div>
                                         </div>
 
-                                        <div class=" col-lg-3    col-md-4 col-sm-6  ">
-                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateLiveProgram" data-toggle="modal">Edit Live</div>
+                                        <div class=" col-lg-3   col-md-4 col-sm-6  ">
+                                           
+                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateLiveProgram" data-toggle="modal">
+                                                <i class="fas fa-pencil-alt " style="margin-right:5px;" > </i> Edit Live </div>
+                                             
                                         </div>
 
                                         <div class=" col-lg-3   col-md-4  col-sm-6  ">
-                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateOnlineProgram" data-toggle="modal">Edit Online</div>
+                                            <div class="btn btn-primary  btn-inside btn-block" data-target="#UpdateOnlineProgram" data-toggle="modal"> <i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Online</div>
 
 
 
@@ -1256,6 +1259,8 @@
                                                         <input type="date" id="EndDateAll" class="form-control" runat="server" />
                                                     </div>
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click"  /> 
+
 
                                                         <br />
                                                         <asp:Button ID="btnFilterDatesAll" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnView_Click" Text="Filter Dates" />
@@ -1587,8 +1592,11 @@
                                                     </div>
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
 
+                                                        <asp:Button ID="btnLiveSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
+                                                        <asp:Button ID="btnLiveClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnLiveClear_Click" />
                                                         <br />
                                                         <asp:Button ID="btnFilterDatesLive" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnViewLive_Click" Text="Filter Dates" />
+
                                                     </div>
                                                     <br />
 
@@ -1884,6 +1892,9 @@
                                                         <input type="date" id="EndDateOnline" class="form-control" runat="server" />
                                                     </div>
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+
+                                                        <asp:Button ID="btnOnlineSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
+                                                        <asp:Button ID="btnOnlineClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnOnlineClear_Click" />
 
                                                         <br />
                                                         <asp:Button ID="btnFilterDatesOnline" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn Search btn-block" OnClick="btnViewOnline_Click" Text="Filter Dates" />
@@ -2331,7 +2342,7 @@
                                     <h6>On/Off Site</h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
-                                    <asp:DropDownList ID="ddlOnOffSiteEdit" runat="server">
+                                    <asp:DropDownList class="btn btn-block dropdown-toggle" ID="ddlOnOffSiteEdit" runat="server">
                                         <asp:ListItem></asp:ListItem>
                                         <asp:ListItem Value="0">Yes</asp:ListItem>
                                         <asp:ListItem Value="1">No</asp:ListItem>
@@ -2492,6 +2503,7 @@
 
 
 
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Disable" onclick="btnDelete_Click">Disable</button>
 
 
@@ -2499,7 +2511,6 @@
                     <%--                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" text="Delete" onclick="btnDelete_Click">Delete</button>--%>
                     <asp:Button ID="Button1" runat="server" class="btn  btn-inside" Text="Save Changes" OnClick="btnUpdate_Click" />
 
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -2805,10 +2816,10 @@
                     <button type="button" id="btnDelete2" runat="server" class="btn  btn-inside" text="Delete" onclick="btnOnlineDelete_Click">Delete</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--%>
 
-
+ <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" id="Button2" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Disable" onclick="btnOnlineDelete_Click">Disable</button>
                     <asp:Button ID="Button3" runat="server" class="btn  btn-inside" Text="Save Changes" OnClick="btnOnlineUpdate_Click" />
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                   
                 </div>
             </div>
 

@@ -319,8 +319,9 @@ function showPosition(position) {
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
         <div class="ml-auto row">
         <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
-         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
-               <span>Logout</span></a>
+       <%--  <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
+               <span>Logout</span></a>--%>
+               <asp:Button ID="logout" class="btn btn-primary btn-inside" runat="server" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
 </div>
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
@@ -520,23 +521,33 @@ function showPosition(position) {
             Animal Listing</div>
         <div class="card-body">
             <div class="mx-auto d-flex justify-content-center">
-                <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Animal</div>
-                <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal">Edit Animal</div>
+                <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Animal</div>
+                <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal"> <i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Animal</div>
             </div>
-                </div>
+                
             <br />
-            <div class="row">
 
-                <div class=" col-xl-6 col-lg-6 col-md-4 col-sm-4 col-sx-4 InternalAnimalForm">
-                    </div>
-                <div class=" text-right col-xl-6 col-lg-6 col-md-8 col-sm-8 col-sx-8 InternalAnimalForm">
-                    <asp:TextBox  class="InternalAnimalForm" ID="txtSearch" runat="server"></asp:TextBox>
-                    <asp:Button ID ="btnSearch" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
-                    &nbsp;&nbsp;&nbsp;
-                    
-                </div>
+
+            <div class="row mx-auto d-flex justify-content-center">
+
+                                                    <div class=" col-xl-3 col-lg-4 col-md-3 col-sm-0 col-xs-0">
+                                                       
+                                                    </div>
+                                                    <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                    <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-xs-8 ">
+                                                      <asp:TextBox  class=" form-control" ID="txtSearch" runat="server"></asp:TextBox>
+
+                                                    </div>
+
+                                                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
+                                                        <asp:Button ID ="btnSearch" runat ="server" class="btn-block btn" style=" background-color: #FFBC7C;" Text ="Search" OnClick="btnSearch_Click" /></div>
             
-            </div>
+                                                      </div>
+
+                                               
+
+
+         
             <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
 
     <div class="container1 block">
@@ -626,8 +637,7 @@ $(function() {
                                   <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Mammal</h4>
                                  <h4 class="alert d-md-none" style="background-color: #C7BFC4 !important; color: Black !important;"> M</h4>
                            
-    <asp:GridView ID="GridView1" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
-                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4" AllowSorting="True" >
+    <asp:GridView ID="GridView1" class="table table-borderless table-condensed table-striped  "   runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4" AllowSorting="True" >
         <Columns>
             <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False">
             <ItemStyle HorizontalAlign="Center" />
@@ -879,9 +889,9 @@ $(function() {
                 </div>
           <div runat="server" id="Div1">
           </div>
-      </div>
+      
         </div>
-
+          </div>
         </div>
       </div>
  

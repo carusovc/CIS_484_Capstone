@@ -47,7 +47,7 @@ public partial class AnimalPage : System.Web.UI.Page
             str.CommandText = "select * from Person where username= @username";
             str.Parameters.AddWithValue("@username", Session["USER_ID"]);
             str.ExecuteNonQuery();
-            
+
             //SqlCommand com = new SqlCommand(str, con);
 
             SqlDataAdapter da = new SqlDataAdapter(str);
@@ -70,6 +70,7 @@ public partial class AnimalPage : System.Web.UI.Page
 
         if (!IsPostBack)
         {
+            
 
             //call read array
             SqlConnection conAnimal = new SqlConnection(cs);
@@ -97,6 +98,18 @@ public partial class AnimalPage : System.Web.UI.Page
         ViewAnimals.Visible = true;
 
 
+    }
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
+
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
     }
     protected void btnEditAnimal_Click(object sender, EventArgs e)
     {
