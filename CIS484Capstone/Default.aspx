@@ -54,13 +54,6 @@
 
     </style>
 
- 
-
-   
-
-    
-
- 
 
     <section class="login-block">
 

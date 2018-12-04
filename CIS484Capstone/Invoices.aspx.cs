@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
@@ -19,18 +20,48 @@ public partial class Invoices : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //drpMonth.Items.Clear();
-        //drpYear.Items.Clear();
-        //drpMonth.Items.Add(new ListItem("--Select Month--", "0"));
-        //drpYear.Items.Add(new ListItem("--Select Year--", "0"));
-
-        if (!IsPostBack)
+        try
         {
-            //PopulateData();
+            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+            //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+            String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+            sc.ConnectionString = cs;
+            sc.Open();
+            // lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
+
+            SqlConnection con = new SqlConnection(cs);
+
+            con.Open();
+
+            //string str = "select * from Person where username= @username";
+            System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+            str.Connection = sc;
+            str.Parameters.Clear();
+
+            str.CommandText = "select * from Person where username= @username";
+            str.Parameters.AddWithValue("@username", Session["USER_ID"]);
+            str.ExecuteNonQuery();
+
+            //SqlCommand com = new SqlCommand(str, con);
+
+            SqlDataAdapter da = new SqlDataAdapter(str);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+
 
         }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
+
     }
- 
+
     public override void VerifyRenderingInServerForm(Control control)
     {
         /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
