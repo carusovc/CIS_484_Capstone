@@ -17,24 +17,46 @@ public partial class Programs : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
-
-        if (!this.IsPostBack)
-        {
-            createAccordianUsingRepeaterLive(0);
-            createAccordianUsingRepeaterOnline(0);
-            createAccordianUsingRepeaterAll(0);
-        }
-
-
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-
+        //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
+        try
+        {
+           
+            // lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
 
-        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-        insert.Connection = sc;
+            SqlConnection con = new SqlConnection(cs);
+
+            con.Open();
+
+            //string str = "select * from Person where username= @username";
+            System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+            str.Connection = sc;
+            str.Parameters.Clear();
+
+            str.CommandText = "select * from Person where username= @username";
+            str.Parameters.AddWithValue("@username", HttpUtility.HtmlEncode(Session["USER_ID"]));
+            str.ExecuteNonQuery();
+
+            //SqlCommand com = new SqlCommand(str, con);
+
+            SqlDataAdapter da = new SqlDataAdapter(str);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+
+
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
 
 
         //online postback
@@ -61,7 +83,7 @@ public partial class Programs : System.Web.UI.Page
                 SqlDataReader myRead2 = cmd2.ExecuteReader();
 
 
-                string readVolunteers = "Select * from Volunteers";
+                string readVolunteers = "Select * from Volunteers where Status = 'Active'";
                 SqlCommand cmdVolunteers = new SqlCommand(readVolunteers, con);
                 SqlDataReader myReadVolunteer = cmdVolunteers.ExecuteReader();
 
@@ -679,7 +701,7 @@ public partial class Programs : System.Web.UI.Page
             else if (tempProgramCategory.ToString().Equals("Online Program"))
             {
                 // Query 1 for Online
-                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
+                rptAllLL1.DataSource = GetData(string.Format("SELECT ProgramCategory, OnlineTeacherName AS Field1, OnlinePrimaryContactEmail AS Field2, Case when AllProgramID > 0 then ' ' else ' ' end AS Field3 From AllPrograms WHERE AllProgramID = " + ProgramID + "", ProgramID));
                 rptAllLL1.DataBind();
 
                 // Query 2 for Live
@@ -867,12 +889,12 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@comments", txtComments.Text);
 
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlLiveVolunteer.SelectedValue.ToString());
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()) + " " + ddlLiveVolunteer.SelectedValue.ToString());
         update.Parameters.AddWithValue("@programID", tempProgramID);
         update.ExecuteNonQuery();
 
         lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
-        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(Session["USER_ID"].ToString()); 
 
 
         // Delete Educators from associated table
@@ -911,7 +933,7 @@ public partial class Programs : System.Web.UI.Page
                 updateEducator.Parameters.AddWithValue("@programID", tempProgramID);
                 updateEducator.Parameters.AddWithValue("@educatorID", tempEducatorID);
                 updateEducator.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
-                updateEducator.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlLiveVolunteer.SelectedValue.ToString()); // LUB
+                updateEducator.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()) + " " + ddlLiveVolunteer.SelectedValue.ToString()); // LUB
                 updateEducator.ExecuteNonQuery();
             }
             else
@@ -936,7 +958,7 @@ public partial class Programs : System.Web.UI.Page
                 updateGrade.Parameters.AddWithValue("@programID", tempProgramID);
                 updateGrade.Parameters.AddWithValue("@gradeID", tempGradeID);
                 updateGrade.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
-                updateGrade.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlLiveVolunteer.SelectedValue.ToString()); // LUB
+                updateGrade.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()) + " " + ddlLiveVolunteer.SelectedValue.ToString()); // LUB
                 updateGrade.ExecuteNonQuery();
             }
             else
@@ -964,7 +986,7 @@ public partial class Programs : System.Web.UI.Page
                 updateAnimal.Parameters.AddWithValue("@programID", tempProgramID);
                 updateAnimal.Parameters.AddWithValue("@animalID", tempAnimalID);
                 updateAnimal.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
-                updateAnimal.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlLiveVolunteer.SelectedValue.ToString()); // LUB
+                updateAnimal.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()) + " " + ddlLiveVolunteer.SelectedValue.ToString()); // LUB
                 updateAnimal.ExecuteNonQuery();
             }
             else
@@ -993,7 +1015,7 @@ public partial class Programs : System.Web.UI.Page
                 updateAnimal.Parameters.AddWithValue("@programID", tempProgramID);
                 updateAnimal.Parameters.AddWithValue("@animalID", tempAnimalID);
                 updateAnimal.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
-                updateAnimal.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlLiveVolunteer.SelectedValue.ToString()); // LUB
+                updateAnimal.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()) + " " + ddlLiveVolunteer.SelectedValue.ToString()); // LUB
                 updateAnimal.ExecuteNonQuery();
             }
             else
@@ -1022,7 +1044,7 @@ public partial class Programs : System.Web.UI.Page
                 updateAnimal.Parameters.AddWithValue("@programID", tempProgramID);
                 updateAnimal.Parameters.AddWithValue("@animalID", tempAnimalID);
                 updateAnimal.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
-                updateAnimal.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlLiveVolunteer.SelectedValue.ToString()); // LUB
+                updateAnimal.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()) + " " + ddlLiveVolunteer.SelectedValue.ToString()); // LUB
                 updateAnimal.ExecuteNonQuery();
             }
             else
@@ -1518,7 +1540,7 @@ public partial class Programs : System.Web.UI.Page
         string state = statesDropDown.SelectedItem.Text;
 
         //// TEMPORARY UPDATED AND UPDATEDBY
-        string tempLastUpdatedBy = "TempWildTekDevs";
+        string tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
         DateTime tempLastUpdated = DateTime.Now;
 
         ////Organization class attributes
@@ -1760,7 +1782,7 @@ public partial class Programs : System.Web.UI.Page
 
         //Temporary LastUpdated and LastUpdatedBy
         DateTime tempLastUpdated = DateTime.Today;
-        String tempLastUpdatedBy = "TempWildTekDevs";
+        String tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
 
         // OnlineProgram table inserts
         OnlineProgram newOnlineProgram = new OnlineProgram(programDate, typeID, numOfKids, numOfPeople, city, stateTerritory, country, teacherName, contactEmail, extraComments);
@@ -1991,12 +2013,12 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@contactEmail", txtOEmail.Text);
         update.Parameters.AddWithValue("@comments", txtOComments.Text);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlOnlineVolunteer.SelectedValue.ToString());
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()) + " " + ddlOnlineVolunteer.SelectedValue.ToString());
         //update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail.Text);
         update.ExecuteNonQuery();
 
         lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
-        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(Session["USER_ID"].ToString()); 
 
         // Delete Educators from associated table
         deleteEducator.CommandText = "Delete from OnlineEducators where OnlineProgramID = @onlineProgramID";
@@ -2034,7 +2056,7 @@ public partial class Programs : System.Web.UI.Page
                 updateEducator.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
                 updateEducator.Parameters.AddWithValue("@educatorID", tempEducatorID);
                 updateEducator.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
-                updateEducator.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlOnlineVolunteer.SelectedValue.ToString()); // LUB
+                updateEducator.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()) + " " + ddlOnlineVolunteer.SelectedValue.ToString()); // LUB
                 updateEducator.ExecuteNonQuery();
             }
             else
@@ -2058,7 +2080,7 @@ public partial class Programs : System.Web.UI.Page
                 updateGrade.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
                 updateGrade.Parameters.AddWithValue("@gradeID", tempGradeID);
                 updateGrade.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
-                updateGrade.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlOnlineVolunteer.SelectedValue.ToString()); // LUB
+                updateGrade.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()) + " " + ddlOnlineVolunteer.SelectedValue.ToString()); // LUB
                 updateGrade.ExecuteNonQuery();
             }
             else
@@ -2086,7 +2108,7 @@ public partial class Programs : System.Web.UI.Page
                 updateOnlineAnimal.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
                 updateOnlineAnimal.Parameters.AddWithValue("@animalID", tempAnimalID);
                 updateOnlineAnimal.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
-                updateOnlineAnimal.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlOnlineVolunteer.SelectedValue.ToString()); // LUB
+                updateOnlineAnimal.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()) + " " + ddlOnlineVolunteer.SelectedValue.ToString()); // LUB
                 updateOnlineAnimal.ExecuteNonQuery();
             }
             else
@@ -2114,7 +2136,7 @@ public partial class Programs : System.Web.UI.Page
                 updateOnlineAnimal.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
                 updateOnlineAnimal.Parameters.AddWithValue("@animalID", tempAnimalID);
                 updateOnlineAnimal.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
-                updateOnlineAnimal.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlOnlineVolunteer.SelectedValue.ToString()); // LUB
+                updateOnlineAnimal.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()) + " " + ddlOnlineVolunteer.SelectedValue.ToString()); // LUB
                 updateOnlineAnimal.ExecuteNonQuery();
             }
             else
@@ -2142,7 +2164,7 @@ public partial class Programs : System.Web.UI.Page
                 updateOnlineAnimal.Parameters.AddWithValue("@onlineProgramID", tempOnlineProgramID);
                 updateOnlineAnimal.Parameters.AddWithValue("@animalID", tempAnimalID);
                 updateOnlineAnimal.Parameters.AddWithValue("@lastUpdated", DateTime.Today); // LU
-                updateOnlineAnimal.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers" + " " + ddlOnlineVolunteer.SelectedValue.ToString()); // LUB
+                updateOnlineAnimal.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()) + " " + ddlOnlineVolunteer.SelectedValue.ToString()); // LUB
                 updateOnlineAnimal.ExecuteNonQuery();
             }
             else
