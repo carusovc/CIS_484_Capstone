@@ -20,45 +20,47 @@ public partial class Invoices : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        try
-        {
-            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-            String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-            sc.ConnectionString = cs;
-            sc.Open();
-            // lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
+        //try
+        //{
+        //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        //    //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        //    sc.ConnectionString = cs;
+        //    sc.Open();
+        //    // lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
 
-            SqlConnection con = new SqlConnection(cs);
+        //    SqlConnection con = new SqlConnection(cs);
 
-            con.Open();
+        //    con.Open();
 
-            //string str = "select * from Person where username= @username";
-            System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
-            str.Connection = sc;
-            str.Parameters.Clear();
+        //    //string str = "select * from Person where username= @username";
+        //    System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+        //    str.Connection = sc;
+        //    str.Parameters.Clear();
 
             str.CommandText = "select * from Person where username= @username";
             str.Parameters.AddWithValue("@username", HttpUtility.HtmlEncode(Session["USER_ID"]));
             str.ExecuteNonQuery();
 
-            //SqlCommand com = new SqlCommand(str, con);
 
-            SqlDataAdapter da = new SqlDataAdapter(str);
+        //    //SqlCommand com = new SqlCommand(str, con);
 
-            DataSet ds = new DataSet();
+        //    SqlDataAdapter da = new SqlDataAdapter(str);
 
-            da.Fill(ds);
+        //    DataSet ds = new DataSet();
+
+        //    da.Fill(ds);
 
             lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
 
 
-        }
-        catch
-        {
-            Session.RemoveAll();
-            Response.Redirect("Default.aspx", false);
-        }
+
+        //}
+        //catch
+        //{
+        //    Session.RemoveAll();
+        //    Response.Redirect("Default.aspx", false);
+        //}
 
     }
 
@@ -73,8 +75,8 @@ public partial class Invoices : System.Web.UI.Page
 
         // need to check is any row selected 
         bool isSelected = false;
-  
-       
+
+
         foreach (GridViewRow i in CancelledPaymentGrid.Rows)
         {
             CheckBox cb = (CheckBox)i.FindControl("chkSelect");
@@ -104,8 +106,8 @@ public partial class Invoices : System.Web.UI.Page
                 if (cb != null && cb.Checked)
                 {
 
-                   gvExport.Rows[i.RowIndex].Visible = true;
-          
+                    gvExport.Rows[i.RowIndex].Visible = true;
+
                 }
             }
             string invoiceyear = drpMonth2.SelectedValue.ToString() + ", " + drpYear2.SelectedValue.ToString() + " Cancelled Invoices ";
@@ -212,7 +214,7 @@ public partial class Invoices : System.Web.UI.Page
         }
     }
 
-    
+
 
     private decimal TotalNotCancelled = (decimal)0.0;
     private decimal TotalCancelled = (decimal)0.0;
@@ -279,9 +281,9 @@ public partial class Invoices : System.Web.UI.Page
             }
         }
         //else if (e.Row.RowType == DataControlRowType.Footer)
-            // If row type is footer, show calculated total value
-            // Since this example uses sales in dollars, I formatted output as currency
-            // e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
+        // If row type is footer, show calculated total value
+        // Since this example uses sales in dollars, I formatted output as currency
+        // e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
 
     }
     //protected void exportBtnYearly_Click(object sender, EventArgs e)
@@ -464,3 +466,5 @@ public partial class Invoices : System.Web.UI.Page
 
 
 }
+
+
