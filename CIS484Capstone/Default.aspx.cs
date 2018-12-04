@@ -30,8 +30,6 @@ public partial class userLogin : System.Web.UI.Page
 
     {
 
-       
-
     }
 
 

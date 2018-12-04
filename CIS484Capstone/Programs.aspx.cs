@@ -19,6 +19,7 @@ public partial class Programs : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
