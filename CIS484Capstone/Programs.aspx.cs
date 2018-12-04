@@ -44,7 +44,7 @@ public partial class Programs : System.Web.UI.Page
 
             da.Fill(ds);
 
-            //lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+            lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
         }
         catch
         {
