@@ -31,7 +31,7 @@ public partial class Tableau2 : System.Web.UI.Page
             str.Parameters.Clear();
 
             str.CommandText = "select * from Person where username= @username";
-            str.Parameters.AddWithValue("@username", Session["USER_ID"]);
+            str.Parameters.AddWithValue("@username", HttpUtility.HtmlEncode(Session["USER_ID"]));
             str.ExecuteNonQuery();
 
             //SqlCommand com = new SqlCommand(str, con);
@@ -42,7 +42,7 @@ public partial class Tableau2 : System.Web.UI.Page
 
             da.Fill(ds);
 
-            lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+            lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
 
 
         }

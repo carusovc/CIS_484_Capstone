@@ -23,16 +23,16 @@ public partial class MasterPage : System.Web.UI.MasterPage
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
 
-        //try
-        //{
-        //    lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + " ";
+        try
+        {
+            //lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + " ";
 
-        //}
-        //catch
-        //{
-        //    Session.RemoveAll();
-        //    Response.Redirect("Default.aspx", false);
-        //}
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
         if (!IsPostBack)
         {
@@ -177,8 +177,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
 
     }
-
-   
+// THIS COMMENT BLOCK IS FROM GG-Style
+   /*
     protected void ddlOrganization_SelectedIndexChanged1(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
@@ -280,7 +280,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
             throw ex;
         }
         sc.Close();
-    }
+    } */
+
     protected void btnUpdatePayment_Click(object sender, EventArgs e)
 
     {
@@ -317,7 +318,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@Paid", ddlPaid.SelectedItem.Value);
         update.Parameters.AddWithValue("@CancelledInvoices", ddlCancelledInvoices.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"]));
 
         update.ExecuteNonQuery();
 
@@ -524,7 +525,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@county", txtCounty.Text);
         update.Parameters.AddWithValue("@orgID", ddlOrganization.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"]));
         update.Parameters.AddWithValue("@streetAddress", txtStreetAddress2.Text);
         update.Parameters.AddWithValue("@state", ddlState2.SelectedItem.Value);
         update.Parameters.AddWithValue("@postalCode", txtPostalCode2.Text);
@@ -594,7 +595,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         String programName = txtProgramName.Text;
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTek";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"]);
 
         String category = ddlThemeCategory.SelectedValue;
 
@@ -648,29 +649,35 @@ public partial class MasterPage : System.Web.UI.MasterPage
         pullOrgID.Connection = sc;
 
         String orgName = textOrgName.Text;
-        String city = textOrgCity.Text;
+        //String city = textOrgCity.Text;
         String county = textOrgCounty.Text;
-        String streetAddress = txtStreetAddress.Text;
-        String state = ddlState.SelectedValue; ;
-        String postalCode = txtPostalCode.Text;
+        //String streetAddress = txtStreetAddress.Text;
+       // String state = ddlState.SelectedValue; ;
+        //String postalCode = txtPostalCode.Text;
         String contactFirstName = txtContactFirstName.Text;
         String contactLastName = txtContactLastName.Text;
         //String phoneNumber = txtPhoneNumber.Text;
         String email = txtEmail.Text;
         //String secondaryEmail = txtSecondaryEmail.Text;
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTekDevs";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"]);
 
-        Organization newOrg = new Organization(orgName, city, county, streetAddress, state, postalCode);
+        //String lastUpdatedBy = "WildTekDevs";
+        var hiddenValue = hiddenControl.Value;
+        var hiddenCity1 = hiddenCity.Value;
+        var hiddenState1 = hiddenState.Value;
+        var hiddenZip1 = hiddenZip.Value;
+
+        Organization newOrg = new Organization(orgName, hiddenCity1, county, hiddenValue, hiddenState1, hiddenZip1);
         insert.CommandText = "insert into Organization (orgName, city, county, lastUpdated, lastUpdatedBy, streetAddress, state, postalCode) values (@orgName, @city, @county, @lastUpdated, @lastUpdatedBy, @streetAddress, @state, @postalCode)";
         insert.Parameters.AddWithValue("@orgName", newOrg.getOrgName());
-        insert.Parameters.AddWithValue("@city", newOrg.getCity());
+        insert.Parameters.AddWithValue("@city", hiddenCity1);
         insert.Parameters.AddWithValue("@county", newOrg.getCounty());
         insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
         insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
-        insert.Parameters.AddWithValue("@streetAddress", newOrg.getStreetAddress());
-        insert.Parameters.AddWithValue("@state", newOrg.getState());
-        insert.Parameters.AddWithValue("@postalCode", newOrg.getPostalCode());
+        insert.Parameters.AddWithValue("@streetAddress", hiddenValue);
+        insert.Parameters.AddWithValue("@state", hiddenState1);
+        insert.Parameters.AddWithValue("@postalCode", hiddenZip1);
         //insert.Parameters.AddWithValue("@contactFirstName", newOrg.getContactFirstName());
         //insert.Parameters.AddWithValue("@contactLastName", newOrg.getContactLastName());
         //insert.Parameters.AddWithValue("@phoneNumber", newOrg.getPhoneNumber());
@@ -711,12 +718,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
 
         textOrgName.Text = "";
-        textOrgCity.Text = "";
+        //textOrgCity.Text = "";
         textOrgCounty.Text = "";
-        txtStreetAddress.Text = "";
-        ddlState.SelectedIndex = 0;
+        //txtStreetAddress.Text = "";
+        //ddlState.SelectedIndex = 0;
         ddlOrganization.SelectedIndex = 0;
-        txtPostalCode.Text = "";
+       // txtPostalCode.Text = "";
         txtContactFirstName.Text = "";
         txtContactLastName.Text = "";
         //txtPhoneNumber.Text = "";
@@ -745,7 +752,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         String animalType = ddlAnimalType.SelectedItem.Text;
         String animalName = txtAnimalName.Text;
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTek";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"]);
 
 
         Animal newAnimal = new Animal(animalType, animalName);
@@ -805,7 +812,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         String lastName = txtEducatorLastName.Text;
 
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTek";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"]);
 
         
 
@@ -857,7 +864,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@animalName", txtBoxAnimalName.Text);
         update.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"]));
         update.Parameters.AddWithValue("@status", ddlAnimalStatus.SelectedItem.Text);
         update.ExecuteNonQuery();
 
@@ -1007,12 +1014,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@lastName", txtEducatorLast.Text);
         update.Parameters.AddWithValue("@educatorID", ddlEducatorName.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"]));
         update.Parameters.AddWithValue("@status", ddlEducatorStatus.SelectedItem.Value);
         update.ExecuteNonQuery();
 
         lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
-        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(Session["USER_ID"]);
 
 
 
@@ -1133,8 +1140,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
             {
                 txtEducatorFirst.Text = HttpUtility.HtmlEncode(sdr[0].ToString());
                 txtEducatorLast.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
-                lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
-                lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
+                lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr["LastUpdated"].ToString());
+                lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr["LastUpdatedBy"].ToString());
                 //ddlEducatorStatus.SelectedItem.Value = sdr[4].ToString();
 
 
@@ -1257,7 +1264,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                txtProgramThemeName.Text = sdr[0].ToString();
+                txtProgramThemeName.Text = HttpUtility.HtmlEncode(sdr[0].ToString());
             }
 
             System.Data.SqlClient.SqlCommand selectStatus = new System.Data.SqlClient.SqlCommand();
@@ -1316,7 +1323,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                txtProgramThemeName.Text = sdr[0].ToString();
+                txtProgramThemeName.Text = HttpUtility.HtmlEncode(sdr[0].ToString());
             }
 
             System.Data.SqlClient.SqlCommand selectStatus = new System.Data.SqlClient.SqlCommand();
@@ -1384,8 +1391,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@ProgramTypeID", ddlProgramThemeName.SelectedItem.Value);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
-        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
+        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(Session["USER_ID"]);
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         SqlConnection con2 = new SqlConnection(cs);
@@ -1437,8 +1444,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@ProgramTypeID", ddlProgramThemeName.SelectedItem.Value);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
-        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
+        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(Session["USER_ID"]);
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         SqlConnection con2 = new SqlConnection(cs);
@@ -1604,7 +1611,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@VolunteerStatus", ddlVolunteerStatus.SelectedItem.Value);
         update.Parameters.AddWithValue("@VolunteerID", ddlVolunteerName.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"]));
         update.ExecuteNonQuery();
 
 
@@ -1654,7 +1661,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         string status = ddlVolunteerAddStatus.Text;
 
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTek";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"]);
 
 
         insert.CommandText = "insert into Volunteers (VolunteerFirstName, VolunteerLastName, VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus, lastUpdated, lastUpdatedBy) values (@firstName, @lastName, @phoneNumber, @email, @status, @lastUpdated, @lastUpdatedBy)";
@@ -1693,7 +1700,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         sc.Close();
     }
 
-    protected void ddlOrganization_SelectedIndexChanged(object sender, EventArgs e)
+    protected void ddlOrganization_SelectedIndexChanged1(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
         // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
@@ -1703,7 +1710,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
+
         insert.Parameters.Clear();
+        System.Data.SqlClient.SqlCommand pullContactName = new System.Data.SqlClient.SqlCommand();
+        pullContactName.Connection = sc;
+        pullContactName.Parameters.Clear();
 
 
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
@@ -1715,6 +1726,17 @@ public partial class MasterPage : System.Web.UI.MasterPage
                           " OrgID = @OrgID";
 
         insert.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
+        pullContactName.CommandText = "select ContactID, ContactFirstName + ' ' + ContactLastName as 'Contact Name' from ContactInformation where" +
+  " OrgID = @OrgID";
+
+        pullContactName.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
+        SqlDataReader readContacts = pullContactName.ExecuteReader();
+        ddlContacts.Items.Clear();
+        ddlContacts.Items.Add(new ListItem("--Select Primary Contact--", "0"));
+        while (readContacts.Read())
+        {
+            ddlContacts.Items.Add(new ListItem(readContacts["Contact Name"].ToString(), readContacts["ContactID"].ToString()));
+        }
 
         try
         {
@@ -1735,6 +1757,22 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 //txtSecondaryEmail2.Text = HttpUtility.HtmlEncode(sdr[9].ToString());
                 //lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
                 // lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
+            }
+            System.Data.SqlClient.SqlCommand selectContact = new System.Data.SqlClient.SqlCommand();
+            selectContact.Connection = sc;
+            selectContact.Parameters.Clear();
+
+            selectContact.CommandText = "SELECT ContactFirstName + ' ' + ContactLastName as 'Contact Name' From ContactInformation WHERE PrimaryContact = 'Y' and OrgID = @OrgID";
+            selectContact.Parameters.AddWithValue("@OrgID", ddlOrganization.SelectedItem.Value);
+            String tempContact = (String)selectContact.ExecuteScalar();
+
+            ddlContacts.ClearSelection();
+            for (int i = 0; i < ddlContacts.Items.Count; i++)
+            {
+                if (ddlContacts.Items[i].Text == tempContact)
+                {
+                    ddlContacts.Items[i].Selected = true;
+                }
             }
 
             System.Data.SqlClient.SqlCommand selectState = new System.Data.SqlClient.SqlCommand();

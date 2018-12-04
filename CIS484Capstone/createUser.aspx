@@ -276,13 +276,13 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">  
-                      <h6 >First Name</h6>
+                      <h6 >First Name *</h6>
                       <asp:TextBox ID="txtFirstName" runat="server" class="form-control" placeholder="First name" required="required"></asp:TextBox>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">                    
-                      <h6>Last Name</h6>
+                      <h6>Last Name *</h6>
                      
                       <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server"></asp:TextBox>               
                   </div>
@@ -293,7 +293,7 @@
               <div class="form-row">
                            <div class="col-md-6">
                   <div class="form-label-group">
-                        <h6>Email</h6>
+                        <h6>Email *</h6>
                     
                    <%--  <label for="inputPassword">PASSWORD</label> --%>
                      
@@ -305,7 +305,7 @@
 
                 <div class="col-md-6">
                   <div class="form-label-group">
-                        <h6>Username</h6>
+                        <h6>Username *</h6>
                     
                    <%--  <label for="inputPassword">PASSWORD</label> --%>
                      
@@ -314,7 +314,7 @@
                  
                     <div class="col-md-6">
                   <div class="form-label-group">
-                <h6>Password</h6>
+                <h6>Password *</h6>
                
           <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" placeholder="Password" required="required"></asp:TextBox>
                       <br?/> <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/>

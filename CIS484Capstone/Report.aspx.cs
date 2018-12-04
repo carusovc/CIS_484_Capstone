@@ -37,7 +37,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
             str.Parameters.Clear();
 
             str.CommandText = "select * from Person where username= @username";
-            str.Parameters.AddWithValue("@username", Session["USER_ID"]);
+            str.Parameters.AddWithValue("@username", HttpUtility.HtmlEncode(Session["USER_ID"]));
             str.ExecuteNonQuery();
 
             //SqlCommand com = new SqlCommand(str, con);
@@ -48,7 +48,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
             da.Fill(ds);
 
-            lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+            lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
 
 
         }
@@ -119,11 +119,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
     }
 
 
-    protected void btnVisualize_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("TabAnimalReports.aspx");
-    }
-
+    
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         SearchDiv.Visible = true;
