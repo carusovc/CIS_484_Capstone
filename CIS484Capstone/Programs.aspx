@@ -1305,7 +1305,7 @@
                                                     </div>
 
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style="margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click"  /> 
+                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click"  /> 
 
                                                         <asp:Button ID="btnAllClear" runat="server" class="btn " Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
                                                     </div>
@@ -1604,7 +1604,7 @@
 
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
 
-                                                        <asp:Button ID="btnLiveSearch" runat="server" class="btn" Style="margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
+                                                        <asp:Button ID="btnLiveSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
                                                         <asp:Button ID="btnLiveClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnLiveClear_Click" />
                                                     </div>
 
@@ -1873,7 +1873,7 @@
 
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
 
-                                                        <asp:Button ID="btnOnlineSearch" runat="server" class="btn" Style="margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
+                                                        <asp:Button ID="btnOnlineSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
                                                         <asp:Button ID="btnOnlineClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnOnlineClear_Click" />
                                                     </div>
 
@@ -2314,7 +2314,7 @@
                                     <h6>On/Off Site</h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
-                                    <asp:DropDownList ID="ddlOnOffSiteEdit" runat="server">
+                                    <asp:DropDownList class="btn btn-block dropdown-toggle" ID="ddlOnOffSiteEdit" runat="server">
                                         <asp:ListItem></asp:ListItem>
                                         <asp:ListItem Value="0">Yes</asp:ListItem>
                                         <asp:ListItem Value="1">No</asp:ListItem>
@@ -2474,6 +2474,7 @@
 
 
 
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Disable" onclick="btnDelete_Click">Disable</button>
 
 
@@ -2481,7 +2482,6 @@
                     <%--                    <button type="button" id="btnDelete" runat="server" class="btn  btn-inside" text="Delete" onclick="btnDelete_Click">Delete</button>--%>
                     <asp:Button ID="Button1" runat="server" class="btn  btn-inside" Text="Save Changes" OnClick="btnUpdate_Click" />
 
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -2787,10 +2787,10 @@
                     <button type="button" id="btnDelete2" runat="server" class="btn  btn-inside" text="Delete" onclick="btnOnlineDelete_Click">Delete</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--%>
 
-
+ <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" id="Button2" runat="server" class="btn  btn-inside" data-dismiss="modal" text="Disable" onclick="btnOnlineDelete_Click">Disable</button>
                     <asp:Button ID="Button3" runat="server" class="btn  btn-inside" Text="Save Changes" OnClick="btnOnlineUpdate_Click" />
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                   
                 </div>
             </div>
 

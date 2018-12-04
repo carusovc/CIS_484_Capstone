@@ -319,7 +319,7 @@ $(function() {
 
                   
                                         <asp:GridView ID="GridView1"   runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
-                                            OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display." class="table  table-bordered table-condensed table-hover">
+                                            OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display."  class="table  table-condensed table-hover" HeaderStyle-BorderColor="#DDDDDD">
                                             <Columns>
                                                  <asp:TemplateField HeaderText="Select">
                                                 <ItemTemplate>
@@ -425,7 +425,7 @@ $(function() {
     <br />
      <br />
    
-                                    <asp:GridView   ID="CancelledPaymentGrid" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
+                                    <asp:GridView  HeaderStyle-BorderColor="#DDDDDD" ID="CancelledPaymentGrid" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
                                         OnRowDataBound="GridView2_RowDataBound" AllowSorting="False" EmptyDataText="There are no records to display." class="table stable-striped table-bordered table-condensed table-hover" >
                                         <Columns>
                                                  <asp:TemplateField HeaderText="Select">
@@ -492,7 +492,7 @@ $(function() {
                 <div id="YearlyInvoice" class="container1 block3 tab-pane  text-center WildTable">
                     <div class="InternalTab">
                                         <div class="col-md-12 ProgramTitle">
-                               <asp:DropDownList ID="drpYear3" runat="server" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AutoPostBack="True" DataSourceID="SqlDataSource6" DataTextField="YEAR" DataValueField="YEAR">
+                               <asp:DropDownList ID="drpYear3" runat="server"  class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AutoPostBack="True" DataSourceID="SqlDataSource6" DataTextField="YEAR" DataValueField="YEAR">
                                     <asp:ListItem></asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
@@ -510,8 +510,9 @@ $(function() {
                                                 <br />
 
 
-                                                <asp:GridView ID="YearlyInvoiceGrid"  HeaderStyle-Backcolor="#FFBC7C" AllowSorting="True"
-                                            HeaderStyle-Forecolor="#732700" runat="server" DataSourceID="SqlDataSource3" AutoGenerateColumns="False" DataKeyNames="PaymentID" OnRowDataBound="YearlyInvoiceGrid_RowDataBound" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
+                                                <asp:GridView ID="YearlyInvoiceGrid" HeaderStyle-BorderColor="#DDDDDD" HeaderStyle-Backcolor="#FFBC7C" AllowSorting="True"
+                                            HeaderStyle-Forecolor="#732700" runat="server" DataSourceID="SqlDataSource3" AutoGenerateColumns="False" DataKeyNames="PaymentID" 
+                                                    OnRowDataBound="YearlyInvoiceGrid_RowDataBound" EmptyDataText="There are no records to display." class="table  table-condensed table-hover">
                                             <Columns>
                                                  <asp:TemplateField HeaderText="Select" >
                                                 <ItemTemplate>

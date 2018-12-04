@@ -177,6 +177,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
 
     }
+
+   
     protected void ddlOrganization_SelectedIndexChanged1(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();

@@ -301,7 +301,7 @@ $(function() {
                     </div>
                 <div class=" col-md-8 ml-auto d-flex justify-content-end InternalAnimalForm">
                     <asp:TextBox  class="InternalAnimalForm form-control" ID="txtSearch" runat="server" style="margin-right:5px;"></asp:TextBox>
-                    <asp:Button ID ="btnSearch" class="btn" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
+                    <asp:Button ID ="btnSearch" class="btn" runat ="server" style="background-color: #FFBC7C;" Text ="Search" OnClick="btnSearch_Click" />
                     &nbsp;&nbsp;&nbsp;
                     
                 </div>

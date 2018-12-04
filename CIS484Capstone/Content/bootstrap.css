@@ -4418,9 +4418,15 @@ tbody.collapse.show {
         color: #2e3133;
     }
 
+/*.alert-success {
+    color: #155724;
+    background-color: #9CE8AB !important;
+    border-color: #7FC78E !important;
+}*/
+
 .alert-success {
     color: #155724;
-    background-color: #d4edda;
+    background-color: #D4F4DA !important;
     border-color: #c3e6cb;
 }
 
@@ -4460,10 +4466,16 @@ tbody.collapse.show {
         color: #533f03;
     }
 
+/*.alert-danger {
+    color: #721c24 !important;
+    background-color: #FFB2AA !important;
+    border-color: #EB919C !important;
+}*/
+
 .alert-danger {
     color: #721c24 !important;
-    background-color: #f8d7da !important;
-    border-color: #f5c6cb;
+    background-color: rgba(255, 84, 85, 0.3) !important;
+    border-color: #FFB5C3 !important;
 }
 
     .alert-danger hr {
