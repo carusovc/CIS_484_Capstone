@@ -109,7 +109,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown no-arrow ">
+                <li class="nav-item dropdown no-arrow active ">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                         <span>Wildlife Staff</span>
@@ -202,7 +202,7 @@
                 </div>
             </li>
 
-            <li class="nav-item dropdown no-arrow ">
+            <li class="nav-item dropdown no-arrow active ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Wildlife Staff</span>

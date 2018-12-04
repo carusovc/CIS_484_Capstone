@@ -48,8 +48,8 @@ public partial class Volunteers : System.Web.UI.Page
         }
         catch
         {
-            Session.RemoveAll();
-            Response.Redirect("Default.aspx", false);
+            //Session.RemoveAll();
+            //Response.Redirect("Default.aspx", false);
         }
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
