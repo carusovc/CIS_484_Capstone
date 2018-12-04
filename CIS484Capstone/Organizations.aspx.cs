@@ -175,6 +175,61 @@ public partial class Organizations : System.Web.UI.Page
     }
 
 
+
+    protected void btnExportOrg_Click(object sender, EventArgs e)
+    {
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        String animalReport = "Organizations Listing";
+        String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+        string onlineName = animalReport + filename;
+
+        SqlCommand cmd = new SqlCommand("SELECT [OrgName], [StreetAddress], [City], [County], [State], [PostalCode] FROM [Organization] ORDER BY [OrgName]", sc);
+
+        sc.Open();
+
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+
+        ds.WriteXml(@"C:\Users\labpatron\Desktop\" + animalReport + ".xls");
+
+        sc.Close();
+        string script = "alert('File Successfully Exported to Desktop');";
+        System.Web.UI.ScriptManager.RegisterClientScriptBlock(btnExportOrg, this.GetType(), "Test", script, true);
+
+    }
+    protected void btnContactOrg_Click(object sender, EventArgs e)
+    {
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        String animalReport = "Contacts from Organizations Listing";
+        String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+        string onlineName = animalReport + filename;
+
+        SqlCommand cmd = new SqlCommand("SELECT o.[OrgName] as OrgName, c.[ContactFirstName] as ContactFirstName, c.[ContactLastName] as ContactLastName, c.[ContactEmail] as ContactEmail, c.[PrimaryContact] as PrimaryContact FROM [Organization] as o Right Join [ContactInformation] as c on o.OrgID = c.OrgID ORDER BY [OrgName]", sc);
+
+        sc.Open();
+
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+
+        ds.WriteXml(@"C:\Users\labpatron\Desktop\" + animalReport + ".xls");
+
+        sc.Close();
+        string script = "alert('File Successfully Exported to Desktop');";
+        System.Web.UI.ScriptManager.RegisterClientScriptBlock(btnExportOrg, this.GetType(), "Test", script, true);
+
+    }
+    public override void VerifyRenderingInServerForm(Control control)
+    {
+
+    }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
 

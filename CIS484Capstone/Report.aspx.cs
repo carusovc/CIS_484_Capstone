@@ -119,11 +119,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
     }
 
 
-    protected void btnVisualize_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("TabAnimalReports.aspx");
-    }
-
+    
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         SearchDiv.Visible = true;
