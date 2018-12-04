@@ -73,6 +73,8 @@ public partial class Payments : System.Web.UI.Page
 
 
 
+        lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
+
         sc.Close();
 
         //if (ddlProgramType.Items.Count < 2)

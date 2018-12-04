@@ -984,7 +984,13 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                         
                                                     </div>
+                                             <%--OnClick="btnExportLive_Click"--%>
+                                                        <div class="mx-auto d-flex justify-content-center  col-lg-3    col-md-4 col-sm-6 ">
+                                                            <asp:Button ID="btnExportOrg" runat="server" Text="Export to Excel" OnClick="btnExportOrg_Click" class="btn btn-primary btn-inside btn-block"></asp:Button>
+
+                                                        </div>
                                                 </div>
 
 
@@ -1070,10 +1076,14 @@
                                                             </div>
                                                         </div>
 
+                                                         <%--OnClick="btnExportLive_Click"--%>
+                                                        <div class="mx-auto d-flex justify-content-center  col-lg-3    col-md-4 col-sm-6 ">
+                                                            <asp:Button ID="btnContactsExport" runat="server" Text="Export to Excel" OnClick="btnContactOrg_Click" class="btn btn-primary btn-inside btn-block"></asp:Button>
+
+                                                        </div>
 
 
-
-
+                                                         
 
 
 

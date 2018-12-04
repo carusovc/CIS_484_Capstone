@@ -23,16 +23,16 @@ public partial class MasterPage : System.Web.UI.MasterPage
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
 
-        //try
-        //{
-        //    lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + " ";
+        try
+        {
+            //lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + " ";
 
-        //}
-        //catch
-        //{
-        //    Session.RemoveAll();
-        //    Response.Redirect("Default.aspx", false);
-        //}
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
         if (!IsPostBack)
         {
@@ -214,7 +214,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@Paid", ddlPaid.SelectedItem.Value);
         update.Parameters.AddWithValue("@CancelledInvoices", ddlCancelledInvoices.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"]));
 
         update.ExecuteNonQuery();
 
@@ -421,7 +421,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@county", txtCounty.Text);
         update.Parameters.AddWithValue("@orgID", ddlOrganization.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"]));
         update.Parameters.AddWithValue("@streetAddress", txtStreetAddress2.Text);
         update.Parameters.AddWithValue("@state", ddlState2.SelectedItem.Value);
         update.Parameters.AddWithValue("@postalCode", txtPostalCode2.Text);
@@ -491,7 +491,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         String programName = txtProgramName.Text;
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTek";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"]);
 
         String category = ddlThemeCategory.SelectedValue;
 
@@ -556,7 +556,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
         String email = txtEmail.Text;
         //String secondaryEmail = txtSecondaryEmail.Text;
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTekDevs";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"]);
+
+        //String lastUpdatedBy = "WildTekDevs";
         var hiddenValue = hiddenControl.Value;
         var hiddenCity1 = hiddenCity.Value;
         var hiddenState1 = hiddenState.Value;
@@ -646,7 +648,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         String animalType = ddlAnimalType.SelectedItem.Text;
         String animalName = txtAnimalName.Text;
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTek";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"]);
 
 
         Animal newAnimal = new Animal(animalType, animalName);
@@ -706,7 +708,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         String lastName = txtEducatorLastName.Text;
 
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTek";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"]);
 
         
 
@@ -758,7 +760,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@animalName", txtBoxAnimalName.Text);
         update.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"]));
         update.Parameters.AddWithValue("@status", ddlAnimalStatus.SelectedItem.Text);
         update.ExecuteNonQuery();
 
@@ -908,12 +910,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@lastName", txtEducatorLast.Text);
         update.Parameters.AddWithValue("@educatorID", ddlEducatorName.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"]));
         update.Parameters.AddWithValue("@status", ddlEducatorStatus.SelectedItem.Value);
         update.ExecuteNonQuery();
 
         lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
-        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(Session["USER_ID"]);
 
 
 
@@ -1034,8 +1036,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
             {
                 txtEducatorFirst.Text = HttpUtility.HtmlEncode(sdr[0].ToString());
                 txtEducatorLast.Text = HttpUtility.HtmlEncode(sdr[1].ToString());
-                lblLastUpdated.Text = "Last Updated: " + sdr["LastUpdated"].ToString();
-                lblLastUpdatedBy.Text = "Last Updated By: " + sdr["LastUpdatedBy"].ToString();
+                lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr["LastUpdated"].ToString());
+                lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr["LastUpdatedBy"].ToString());
                 //ddlEducatorStatus.SelectedItem.Value = sdr[4].ToString();
 
 
@@ -1158,7 +1160,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                txtProgramThemeName.Text = sdr[0].ToString();
+                txtProgramThemeName.Text = HttpUtility.HtmlEncode(sdr[0].ToString());
             }
 
             System.Data.SqlClient.SqlCommand selectStatus = new System.Data.SqlClient.SqlCommand();
@@ -1217,7 +1219,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SqlDataReader sdr = insert.ExecuteReader();
             while (sdr.Read())
             {
-                txtProgramThemeName.Text = sdr[0].ToString();
+                txtProgramThemeName.Text = HttpUtility.HtmlEncode(sdr[0].ToString());
             }
 
             System.Data.SqlClient.SqlCommand selectStatus = new System.Data.SqlClient.SqlCommand();
@@ -1285,8 +1287,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@ProgramTypeID", ddlProgramThemeName.SelectedItem.Value);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
-        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
+        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(Session["USER_ID"]);
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         SqlConnection con2 = new SqlConnection(cs);
@@ -1338,8 +1340,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@ProgramTypeID", ddlProgramThemeName.SelectedItem.Value);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + DateTime.Today;
-        lblLastUpdatedBy.Text = "Last Updated By: " + "WildTek Developers";
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
+        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(Session["USER_ID"]);
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         SqlConnection con2 = new SqlConnection(cs);
@@ -1505,7 +1507,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         update.Parameters.AddWithValue("@VolunteerStatus", ddlVolunteerStatus.SelectedItem.Value);
         update.Parameters.AddWithValue("@VolunteerID", ddlVolunteerName.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"]));
         update.ExecuteNonQuery();
 
 
@@ -1555,7 +1557,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         string status = ddlVolunteerAddStatus.Text;
 
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTek";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"]);
 
 
         insert.CommandText = "insert into Volunteers (VolunteerFirstName, VolunteerLastName, VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus, lastUpdated, lastUpdatedBy) values (@firstName, @lastName, @phoneNumber, @email, @status, @lastUpdated, @lastUpdatedBy)";
