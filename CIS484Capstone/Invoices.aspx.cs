@@ -69,6 +69,19 @@ public partial class Invoices : System.Web.UI.Page
         /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
            server control at run time. */
     }
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
+
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
+    }
+
     protected void exportBtnCancelled(object sender, EventArgs e)
     {
         // Export Selected Rows to Excel file Here

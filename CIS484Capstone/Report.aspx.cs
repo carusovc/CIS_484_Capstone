@@ -74,6 +74,18 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
 
     }
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
+
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
+    }
 
     protected void ShowData()
     {

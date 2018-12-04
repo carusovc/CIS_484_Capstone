@@ -57,4 +57,17 @@ public partial class Tableau2 : System.Web.UI.Page
     {
         Response.Redirect("Report.aspx");
     }
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
+
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
+    }
+
 }

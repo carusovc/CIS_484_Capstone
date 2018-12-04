@@ -611,6 +611,18 @@ public partial class Programs : System.Web.UI.Page
     }
 
 
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
+
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
+    }
 
     private static DataTable GetData(string query)
     {
@@ -885,7 +897,7 @@ public partial class Programs : System.Web.UI.Page
 
         DataTable dt = new DataTable();
         SqlDataAdapter adapt = new SqlDataAdapter("SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID" +
-                    " WHERE UPPER(ProgramType.ProgramName) like UPPER('" + searchWord + "%') or (ProgramDate) like ('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
+                    " WHERE UPPER(ProgramType.ProgramName) like UPPER('%" + searchWord + "%') or (ProgramDate) like ('%" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('%" + searchWord + "%')", con); //or UPPER(z.ProgramDate) like UPPER('" + searchWord + "%') or UPPER(Organization.OrgName) like UPPER('" + searchWord + "%')
 
         if (adapt.Fill(dt) < 1)
         {
@@ -1356,7 +1368,7 @@ public partial class Programs : System.Web.UI.Page
         txtProgramDate.Text = HttpUtility.HtmlEncode("");
         txtProgramTime.Text = HttpUtility.HtmlEncode("");
         ddlOnOffSiteEdit.ClearSelection();
-        rboPayment.ClearSelection();
+       // rboPayment.ClearSelection();
         drpEducators.ClearSelection();
         ddlBirds.ClearSelection();
         ddlReptiles.ClearSelection();
@@ -1385,7 +1397,7 @@ public partial class Programs : System.Web.UI.Page
         ddlProgramType.ClearSelection();
         ddlOrganization.ClearSelection();
         ddlOnOffSiteEdit.ClearSelection();
-        rboPayment.ClearSelection();
+       // rboPayment.ClearSelection();
         drpEducators.ClearSelection();
         ddlBirds.ClearSelection();
         ddlReptiles.ClearSelection();
@@ -1860,9 +1872,10 @@ public partial class Programs : System.Web.UI.Page
         pullVolunteerID.Connection = sc;
         programVolunteerInsert.Connection = sc;
 
-
+        
+         byte onOff = Convert.ToByte(OnOff.Value);
+ 
         ////Program class attributes
-        byte onOff = Convert.ToByte(OnOff.Value);
         string status = Status.SelectedValue.ToString();
         int programTypeID = Convert.ToInt32(ddlProgram.SelectedItem.Value);
         string programAddress = Address.Value;
@@ -2732,7 +2745,7 @@ public partial class Programs : System.Web.UI.Page
         txtOnlineProgramDate.Text = HttpUtility.HtmlEncode("");
         txtOEmail.Text = HttpUtility.HtmlEncode("");
         ddlOnOffSiteEdit.ClearSelection();
-        rboPayment.ClearSelection();
+       // rboPayment.ClearSelection();
         lstOEducators.ClearSelection();
         lstOBirds.ClearSelection();
         lstOReptiles.ClearSelection();
@@ -2877,8 +2890,8 @@ public partial class Programs : System.Web.UI.Page
                 txtOComments.Text = HttpUtility.HtmlEncode(sdr[11].ToString());
 
 
-                lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[12].ToString());
-                lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[13].ToString());
+                lblLastUpdated2.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[12].ToString());
+                lblLastUpdatedBy2.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[13].ToString());
             }
 
 

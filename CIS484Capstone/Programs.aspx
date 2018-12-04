@@ -287,7 +287,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <%--<div class="form-group row">
                                 <div class="col-5">
                                     <label id="PaymentLabel" for="Payment">Payment Status:</label>
                                 </div>
@@ -296,14 +296,14 @@
                                         <option value=""></option>
                                         <option value="T1">Payment Complete</option>
                                         <option value="T2">Payment Not Complete</option>
-                                    </select>--%>
+                                    </select>
                                     <asp:DropDownList CssClass="form-control" ID="Payment" runat="server" class="dropdown-menu radioButtonList">
                                         <asp:ListItem Text="--Select Payment Status--" Value="0" />
                                         <asp:ListItem Text="Payment Complete" Value="Y" />
                                         <asp:ListItem Text="Payment Not Complete" Value="N" />
-                                    </asp:DropDownList>
+                                    </asp:DropDownList> 
                                 </div>
-                            </div>
+                            </div>--%>
 
 
 
@@ -312,7 +312,7 @@
                                     <label id="lblOnOff" for="OnOff">Was the program on or off Wildlife Center Campus?</label>
                                 </div>
                                 <div class="col-7">
-                                    <select name="OnOff" id="OnOff" onchange="scheduleA.call(this, event)" class="form-control" runat="server">
+                                    <select name="OnOff" id="OnOff" onchange="scheduleA.call(this, event)" class="dropdown-menu form-control" runat="server">
 
                                         <option value=""></option>
                                         <option value="1">On</option>
@@ -901,9 +901,11 @@
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
         <div class="ml-auto row">
         <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
-         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
-               <span>Logout</span></a>
+       <%--  <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
+               <span>Logout</span></a>--%>
+               <asp:Button ID="logout" class=" d-none d-md-block" runat="server" style="color:#FFBC7C; cursor:pointer; margin-right: 15px; background-color:transparent; border:none;" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
 </div>
+
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
                 <li class="nav-item dropdown no-arrow">
@@ -1224,13 +1226,13 @@
                                                     <%--<div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">--%>
 
                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
-                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchAll" runat="server"></asp:TextBox>
+                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchAll" runat="server" TabIndex="10"></asp:TextBox>
 
                                                     </div>
 
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
 
-                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style="margin-right: 5px; background-color: #FFBC7C !important; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click" />
+                                                        <asp:Button TabIndex="11" ID="btnAllSearch" runat="server" class="btn  " Style="margin-right: 5px; background-color: #FFBC7C !important; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click" />
 
                                                         <asp:Button ID="btnAllClear" runat="server" class="btn " Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
                                                     </div>
@@ -1259,8 +1261,7 @@
                                                         <input type="date" id="EndDateAll" class="form-control" runat="server" />
                                                     </div>
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click"  /> 
-
+                                                       
 
                                                         <br />
                                                         <asp:Button ID="btnFilterDatesAll" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnView_Click" Text="Filter Dates" />
@@ -1557,13 +1558,13 @@
                                                     <%--<div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">--%>
 
                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
-                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchLive" runat="server"></asp:TextBox>
+                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchLive" runat="server" TabIndex="12"></asp:TextBox>
 
                                                     </div>
 
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
 
-                                                        <asp:Button ID="btnLiveSearch" runat="server" class="btn" Style="margin-right: 5px; background-color: #FFBC7C !important; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
+                                                        <asp:Button TabIndex="13" ID="btnLiveSearch" runat="server" class="btn" Style="margin-right: 5px; background-color: #FFBC7C !important; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
                                                         <asp:Button ID="btnLiveClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnLiveClear_Click" />
                                                     </div>
 
@@ -1592,8 +1593,6 @@
                                                     </div>
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
 
-                                                        <asp:Button ID="btnLiveSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
-                                                        <asp:Button ID="btnLiveClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnLiveClear_Click" />
                                                         <br />
                                                         <asp:Button ID="btnFilterDatesLive" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnViewLive_Click" Text="Filter Dates" />
 
@@ -1860,13 +1859,13 @@
                                                     <%--<div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">--%>
 
                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
-                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchOnline" runat="server"></asp:TextBox>
+                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchOnline" runat="server" TabIndex="14"></asp:TextBox>
 
                                                     </div>
 
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
 
-                                                        <asp:Button ID="btnOnlineSearch" runat="server" class="btn Search" Style="margin-right: 5px; background-color: #FFBC7C !important; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
+                                                        <asp:Button TabIndex="15" ID="btnOnlineSearch" runat="server" class="btn Search" Style="margin-right: 5px; background-color: #FFBC7C !important; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
                                                         <asp:Button ID="btnOnlineClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnOnlineClear_Click" />
                                                     </div>
 
@@ -1892,11 +1891,7 @@
                                                         <input type="date" id="EndDateOnline" class="form-control" runat="server" />
                                                     </div>
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-
-                                                        <asp:Button ID="btnOnlineSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
-                                                        <asp:Button ID="btnOnlineClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnOnlineClear_Click" />
-
-                                                        <br />
+ <br />
                                                         <asp:Button ID="btnFilterDatesOnline" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn Search btn-block" OnClick="btnViewOnline_Click" Text="Filter Dates" />
 
                                                     </div>
@@ -2358,7 +2353,7 @@
                             <br />
                             <div class="row">
 
-                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                <%--<div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
                                     <h6>Payment Needed?</h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
@@ -2369,7 +2364,7 @@
                                         <asp:ListItem> Yes</asp:ListItem>
                                         <asp:ListItem> No</asp:ListItem>
                                     </asp:RadioButtonList>
-                                </div>
+                                </div>--%>
                             </div>
                             <br />
                             <div class="row">
@@ -2803,9 +2798,15 @@
                                 </div>
                             </div>
 
-                            <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
-                            &nbsp;<asp:Label ID="Label5" runat="server" Text=""></asp:Label>
+                                    <br />
 
+                            <div class="row">
+                                <div class=" col-md-12 InternalAnimalForm">
+                                    <asp:Label ID="lblLastUpdated2" class="alert-warning mb-1" runat="server" Text=""></asp:Label>
+                                    <br />
+                                    <asp:Label ID="lblLastUpdatedBy2" class="alert-warning" runat="server" Text=""></asp:Label>
+                                </div>
+                            </div>
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
