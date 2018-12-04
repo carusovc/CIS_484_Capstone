@@ -357,7 +357,7 @@
                                                 <h6>Invoice Number *</h6>
 
                                                 <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder="Enter Invoice Number" required="required"></asp:TextBox>
-
+                                                <asp:CompareValidator ID="CompareValidator6" runat="server" ControlToValidate="txtInvoiceNum" Type="Integer" Operator="DataTypeCheck" CssClass="errormesg" Display="Dynamic" forecolor ="red" ErrorMessage="Value must be a number."/>
                                             </div>
                                             <%--<asp:RequiredFieldValidator id="RequiredFieldValidator7" runat="server" ControlToValidate="txtInvoiceNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
 
@@ -372,15 +372,24 @@
 
                                         <div class="form-group row">
                                             <div class="col-sm-12 col-md-6">
-                                                <h6>Program *</h6>
-                                                <asp:DropDownList ID="ddlProgramType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChange="ddlProgramType_SelectedIndexChanged" required="required">
+                                                <h6>Program * </h6>
+
+                                                <asp:DropDownList ID="ddlProgramType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChange="ddlProgramType_SelectedIndexChanged" ValidationGroup="g1">
                                                     <asp:ListItem Value="0">--Select Program--</asp:ListItem>
                                                 </asp:DropDownList>
+                                                <asp:CompareValidator ControlToValidate="ddlProgramType" ID="CompareValidator1"
+                                                                ValidationGroup="g1" CssClass="errormesg" ErrorMessage="Please select a type"
+                                                                runat="server" Display="Dynamic" 
+                                                                Operator="NotEqual" ValueToCompare="0" Type="Integer" forecolor ="red"/>
                                                 <%--<asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
                                             <div class="col-sm-12 col-md-6">
-                                                <h6>Organization *</h6>
-                                                <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="false" DataTextField="OrgName" DataValueField="OrgID" required="required">
+                                                <h6>Organization * <asp:CompareValidator ControlToValidate="ddlOrganization" ID="CompareValidator2"
+                                                                ValidationGroup="g1" CssClass="errormesg" ErrorMessage="Please select a type"
+                                                                runat="server" Display="Dynamic" 
+                                                                Operator="NotEqual" ValueToCompare="0" Type="Integer" forecolor ="red"/></h6>
+
+                                                <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="false" DataTextField="OrgName" DataValueField="OrgID" ValidationGroup="g1">
                                                     <asp:ListItem Value="0">--Select Organization--</asp:ListItem>
                                                 </asp:DropDownList>
                                                 <%--                                  <asp:RequiredFieldValidator id="RequiredFieldValidator8" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
@@ -442,6 +451,8 @@
                                                 <h6>Amount *</h6>
 
                                                 <asp:TextBox ID="txtAmount" runat="server" class="form-control" placeholder="Enter Amount" required="required"></asp:TextBox>
+                                                 <asp:CompareValidator ID="CompareValidator5" runat="server" ControlToValidate="txtAmount" Type="Integer" Operator="DataTypeCheck" CssClass="errormesg" Display="Dynamic" forecolor ="red" ErrorMessage="Value must be a number."/>
+
                                                 <%--         <asp:CompareValidator ID="AmountValidator" runat="server" ControlToValidate="txtAmount" Type="Integer"
                                         Operator="DataTypeCheck" ErrorMessage="Value must be a money" />--%>
                                                 <%--                                <asp:RequiredFieldValidator id="RequiredFieldValidator4" runat="server" ControlToValidate="txtAmount" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
@@ -464,36 +475,42 @@
 
                                         <div class="form-group row">
                                             <div class="col-sm-12 col-md-6">
-                                                <h6>Payment Type *</h6>
-                                                <asp:DropDownList ID="ddlPaymentType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged" required="required">
+                                                <h6>Payment Type * <asp:CompareValidator ControlToValidate="ddlPaymentType" ID="CompareValidator3"
+                                                                ValidationGroup="g1" ErrorMessage="Please select a type"
+                                                                runat="server" Operator="NotEqual" ValueToCompare="0" forecolor ="red"/></h6>
+
+                                                <asp:DropDownList ID="ddlPaymentType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged" ValidationGroup="g1">
                                                     <asp:ListItem Value="0">--Payment Type--</asp:ListItem>
                                                     <asp:ListItem>Check</asp:ListItem>
                                                     <asp:ListItem>Credit</asp:ListItem>
                                                     <asp:ListItem>Debit</asp:ListItem>
                                                 </asp:DropDownList>
-
+                                                
                                             </div>
                                             <%--<asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server" ControlToValidate="ddlPaymentType" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
 
                                             <div class="col-sm-12 col-md-6">
-                                                <h6>Check Number *</h6>
-
-
+                                                <h6>Check Number</h6>
                                                 <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" ReadOnly="true" placeholder="Enter Check Number" required="required"></asp:TextBox>
-                                                <%-- <asp:CompareValidator ID="CheckNumberValidator" runat="server" ControlToValidate="txtCheckNum" Type="Integer"
-                                        Operator="DataTypeCheck" ErrorMessage="Value must be a number." />--%>
+                                                <asp:CompareValidator ID="CheckNumberValidator" runat="server" ControlToValidate="txtCheckNum" Type="Integer" Operator="DataTypeCheck" forecolor ="red" ErrorMessage="Value must be a number"/>
                                                 <%-- <asp:RequiredFieldValidator id="RequiredFieldValidator6" runat="server" ControlToValidate="txtCheckNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
                                             </div>
                                         </div>
                                         <p></p>
+
                                         <div class="form-group row">
                                             <div class="col-sm-12 col-md-6">
-                                                <h6>Payment Status *</h6>
-                                                <asp:DropDownList ID="ddlInvoicePaymentStatus" runat="server" class="form-control" AppendDataBoundItems="false" required="required">
+                                                <h6>Payment Status * <asp:CompareValidator ControlToValidate="ddlInvoicePaymentStatus" ID="CompareValidator4"
+                                                                ValidationGroup="g1" ErrorMessage="Please select a type"
+                                                                runat="server" Operator="NotEqual" ValueToCompare="0" forecolor ="red"/></h6>
+
+                                                <asp:DropDownList ID="ddlInvoicePaymentStatus" runat="server" class="form-control" AppendDataBoundItems="false" ValidationGroup="g1">
                                                     <asp:ListItem Value="0">--Payment Status--</asp:ListItem>
                                                     <asp:ListItem>Paid</asp:ListItem>
                                                     <asp:ListItem>Not Paid</asp:ListItem>
                                                 </asp:DropDownList>
+
+                                                
                                             </div>
                                         </div>
 
@@ -509,7 +526,7 @@
                                     </div>
                                     <div class="mx-auto d-flex justify-content-center">
                                         <%--<asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" class="btn btn-primary btn-inside" />--%>
-                                        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary btn-inside" Text="Submit" />
+                                        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary btn-inside" Text="Submit" ValidationGroup="g1"/>
                                         <asp:Button ID="btnInvoices" runat="server" OnClick="btnInvoices_Click" class="btn btn-primary btn-inside" Text="View Invoices" />
                                     </div>
                                     <p></p>

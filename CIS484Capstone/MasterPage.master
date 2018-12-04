@@ -733,7 +733,7 @@
                                     <h6>Organization Name</h6>
                                 </div>
                                 <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="textOrgName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="textOrgName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
 
                                 </div>
                             </div>
@@ -757,8 +757,8 @@
                                     <h6>Street Address</h6>
                                 </div>
                                 <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <input id='txtStreetAddress' name='' value=''class="form-control" >&nbsp;&nbsp;
-                                    <input id="hiddenControl" type="hidden" runat="server" />
+                                    <input id='txtStreetAddress' name='' value=''class="form-control" required="required">&nbsp;&nbsp;
+                                    <input id="hiddenControl" type="hidden" runat="server" required="required"/>
                                 </div>
                             </div>
 
@@ -770,8 +770,8 @@
                                     <h6>City</h6>
                                 </div>
                                 <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <input id="textOrgCity" name='' value='' class="form-control">&nbsp;&nbsp;
-                                    <input id="hiddenCity" type="hidden" runat="server" />
+                                    <input id="textOrgCity" name='' value='' class="form-control" required="required">&nbsp;&nbsp;
+                                    <input id="hiddenCity" type="hidden" runat="server" required="required"/>
 
                                 </div>
                             </div>
@@ -783,7 +783,7 @@
                                     <h6>County</h6>
                                 </div>
                                 <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="textOrgCounty" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="textOrgCounty" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
 
                                 </div>
                             </div>
@@ -849,8 +849,8 @@
                                         <asp:ListItem Value="WY"></asp:ListItem>
                                     </asp:DropDownList>&nbsp;&nbsp;
                                     </asp:DropDownList>&nbsp;&nbsp;--%>
-                                     <input id='state' name='' value='' class="form-control">&nbsp;&nbsp;
-                                    <input id="hiddenState" type="hidden" runat="server" />
+                                     <input id='state' name='' value='' class="form-control" required="required">&nbsp;&nbsp;
+                                    <input id="hiddenState" type="hidden" runat="server" required="required"/>
                                 </div>
                             </div>
 
@@ -860,8 +860,8 @@
                                 </div>
                                 <div class=" col-md-8 InternalOrgnaizationForm">
                                     
-                                     <input id='txtPostalCode' name='' value='' class="form-control">&nbsp;&nbsp;
-                                    <input id="hiddenZip" type="hidden" runat="server" />
+                                     <input id='txtPostalCode' name='' value='' class="form-control" required="required">&nbsp;&nbsp;
+                                    <input id="hiddenZip" type="hidden" runat="server" required="required"/>
                                 </div>
                             </div>
 
@@ -870,7 +870,7 @@
                                     <h6>Primary Contact First Name</h6>
                                 </div>
                                 <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="txtContactFirstName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="txtContactFirstName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
 
                                 </div>
                             </div>
@@ -880,7 +880,7 @@
                                     <h6>Primary Contact Last Name</h6>
                                 </div>
                                 <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="txtContactLastName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="txtContactLastName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
 
                                 </div>
                             </div>
@@ -902,7 +902,7 @@
                                 <div class=" col-md-8 InternalOrgnaizationForm">
                                     <%--                                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;--%>
 
-                                    <asp:TextBox ID="txtEmail" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="txtEmail" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
@@ -998,11 +998,14 @@
                                 <div class=" col-md-8 InternalAnimalForm">
 
                                     <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" ID="ddlAnimalType" runat="server">
-                                        <asp:ListItem Text="--Animal Type--" Value=""></asp:ListItem>
+                                        <asp:ListItem Text="--Animal Type--" Value="0"></asp:ListItem>
                                         <asp:ListItem>Bird</asp:ListItem>
                                         <asp:ListItem>Mammal</asp:ListItem>
                                         <asp:ListItem>Reptile</asp:ListItem>
                                     </asp:DropDownList>&nbsp;&nbsp;
+                                    <asp:CompareValidator ControlToValidate="ddlAnimalType" ID="CompareValidator4"
+                                                                ValidationGroup="g3" ErrorMessage="Please select a type"
+                                                                runat="server" Operator="NotEqual" ValueToCompare="0" forecolor ="red"/>
                                 </div>
                             </div>
                             <div class="row">
@@ -1014,7 +1017,7 @@
                                 </div>
                                 <div class=" col-md-8 InternalAnimalForm">
 
-                                    <asp:TextBox class="form-control" ID="txtAnimalName" runat="server"></asp:TextBox>&nbsp&nbsp
+                                    <asp:TextBox class="form-control" ID="txtAnimalName" runat="server" required="required"></asp:TextBox>&nbsp&nbsp
                                 </div>
                             </div>
 
@@ -1029,10 +1032,13 @@
                                 <div class=" col-md-8 InternalAnimalForm">
 
                                     <asp:DropDownList ID="ddlStatus" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
-                                        <asp:ListItem Text="--Status--" Value=""></asp:ListItem>
+                                        <asp:ListItem Text="--Status--" Value="0"></asp:ListItem>
                                         <asp:ListItem>Active</asp:ListItem>
                                         <asp:ListItem>Inactive</asp:ListItem>
                                     </asp:DropDownList>
+                                    <asp:CompareValidator ControlToValidate="ddlStatus" ID="CompareValidator1"
+                                                                ValidationGroup="g3" ErrorMessage="Please select a type"
+                                                                runat="server" Operator="NotEqual" ValueToCompare="0" forecolor ="red"/>
                                 </div>
                             </div>
                             <div class="row">
@@ -1052,7 +1058,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnAddAnimal" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddAnimal_Click" />
+                        <asp:Button ID="btnAddAnimal" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddAnimal_Click" ValidationGroup="g3"/>
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                     </div>
                 </div>
@@ -1080,7 +1086,7 @@
                                     <h6>First Name</h6>
                                 </div>
                                 <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:TextBox ID="txtEducatorFirstName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="txtEducatorFirstName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
@@ -1091,7 +1097,7 @@
                                     <h6>Last Name</h6>
                                 </div>
                                 <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:TextBox ID="txtEducatorLastName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="txtEducatorLastName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <%--    <div class="row">
@@ -1147,7 +1153,7 @@
                                     <h6>First Name</h6>
                                 </div>
                                 <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:TextBox ID="txtVolunteerAddFirstName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="txtVolunteerAddFirstName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
@@ -1158,7 +1164,7 @@
                                     <h6>Last Name</h6>
                                 </div>
                                 <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:TextBox ID="txtVolunteerAddLastName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="txtVolunteerAddLastName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
@@ -1172,7 +1178,7 @@
                                     <h6>Phone Number</h6>
                                 </div>
                                 <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:TextBox ID="txtVolunteerAddPhoneNumber" class="form-control" runat="server" placeholder="(___) ___-____"></asp:TextBox>
+                                    <asp:TextBox ID="txtVolunteerAddPhoneNumber" class="form-control" runat="server" placeholder="(___) ___-____" required="required"></asp:TextBox>
                                     &nbsp;&nbsp;
                                 </div>
                             </div>
@@ -1184,7 +1190,7 @@
                                     <h6>Email</h6>
                                 </div>
                                 <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:TextBox ID="txtVoluteerAddEmail" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="txtVoluteerAddEmail" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
@@ -1200,6 +1206,9 @@
                                         <asp:ListItem Text="Active" Value="Active"></asp:ListItem>
                                         <asp:ListItem Text="Inactive" Value="Inactive"></asp:ListItem>
                                     </asp:DropDownList>
+                                    <asp:CompareValidator ControlToValidate="ddlVolunteerAddStatus" ID="CompareValidator2"
+                                                                ValidationGroup="g2" ErrorMessage="Please select a type"
+                                                                runat="server" Operator="NotEqual" ValueToCompare="0" forecolor ="red"/>
                                 </div>
                             </div>
 
@@ -1210,7 +1219,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnVolunteerAdd" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddVolunteer_Click" />
+                        <asp:Button ID="btnVolunteerAdd" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddVolunteer_Click" ValidationGroup="g2"/>
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                     </div>
                 </div>

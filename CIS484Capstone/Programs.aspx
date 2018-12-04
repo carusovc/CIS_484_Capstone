@@ -1259,9 +1259,7 @@
                                                         <input type="date" id="EndDateAll" class="form-control" runat="server" />
                                                     </div>
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click"  /> 
-
-
+                                                       
                                                         <br />
                                                         <asp:Button ID="btnFilterDatesAll" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnView_Click" Text="Filter Dates" />
                                                     </div>
@@ -1592,8 +1590,6 @@
                                                     </div>
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
 
-                                                        <asp:Button ID="btnLiveSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
-                                                        <asp:Button ID="btnLiveClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnLiveClear_Click" />
                                                         <br />
                                                         <asp:Button ID="btnFilterDatesLive" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnViewLive_Click" Text="Filter Dates" />
 
@@ -1892,9 +1888,6 @@
                                                         <input type="date" id="EndDateOnline" class="form-control" runat="server" />
                                                     </div>
                                                     <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-
-                                                        <asp:Button ID="btnOnlineSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
-                                                        <asp:Button ID="btnOnlineClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnOnlineClear_Click" />
 
                                                         <br />
                                                         <asp:Button ID="btnFilterDatesOnline" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn Search btn-block" OnClick="btnViewOnline_Click" Text="Filter Dates" />
