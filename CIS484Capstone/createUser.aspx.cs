@@ -49,8 +49,8 @@ public partial class createUser : System.Web.UI.Page
         }
         catch
         {
-            Session.RemoveAll();
-            Response.Redirect("Default.aspx", false);
+           // Session.RemoveAll();
+            //Response.Redirect("Default.aspx", false);
         }
     }
     protected void btn_lgout_Click(object sender, EventArgs e)

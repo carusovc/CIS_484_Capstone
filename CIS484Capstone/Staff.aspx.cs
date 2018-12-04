@@ -273,8 +273,8 @@ public partial class Volunteers : System.Web.UI.Page
         sc.Open();
         insert.Connection = sc;
 
-        String firstName = txtEducatorFirstName.Text;
-        String lastName = txtEducatorLastName.Text;
+        //String firstName = txtEducatorFirstName.Text;
+        //String lastName = txtEducatorLastName.Text;
 
         DateTime lastUpdated = DateTime.Today;
         String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
@@ -282,19 +282,19 @@ public partial class Volunteers : System.Web.UI.Page
 
 
 
-        insert.CommandText = "insert into Educators (educatorFirstName, educatorLastName, lastUpdated, lastUpdatedBy, status) values (@firstName, @lastName, @lastUpdated, @lastUpdatedBy, @status)";
-        insert.Parameters.AddWithValue("@firstName", firstName);
-        insert.Parameters.AddWithValue("@lastName", lastName);
-        insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
-        insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
-        insert.Parameters.AddWithValue("@status", "Active");
-        insert.ExecuteNonQuery();
+       // insert.CommandText = "insert into Educators (educatorFirstName, educatorLastName, lastUpdated, lastUpdatedBy, status) values (@firstName, @lastName, @lastUpdated, @lastUpdatedBy, @status)";
+       // insert.Parameters.AddWithValue("@firstName", firstName);
+       // insert.Parameters.AddWithValue("@lastName", lastName);
+       // insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
+       // insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+       // insert.Parameters.AddWithValue("@status", "Active");
+       // insert.ExecuteNonQuery();
 
         //lblLastUpdated.Text = "Last Updated: " + lastUpdated;
         //lblLastUpdatedBy.Text = "Last Updated By: " + lastUpdatedBy;
 
-        txtEducatorFirstName.Text = "";
-        txtEducatorLastName.Text = "";
+       // txtEducatorFirstName.Text = "";
+        //txtEducatorLastName.Text = "";
         //txtEducatorEmail.Text = "";
         //txtEducatorPhone.Text = "";
 
@@ -363,7 +363,7 @@ public partial class Volunteers : System.Web.UI.Page
         }
 
         txtEducatorFirst.Text = "";
-        txtEducatorLastName.Text = "";
+        //txtEducatorLastName.Text = "";
         ddlEducatorStatus.SelectedIndex = 0;
         lblLastUpdated.Text = "";
         lblLastUpdatedBy.Text = "";

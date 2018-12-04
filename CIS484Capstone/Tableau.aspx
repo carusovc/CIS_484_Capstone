@@ -82,7 +82,7 @@
 
                         <span>Reports</span></a>
                 </li>
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Payment</span>
@@ -107,23 +107,17 @@
             </li>
 
            <li class="nav-item dropdown no-arrow ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                 <span>Educators & Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx" > Educators & Volunteers</a>
-                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                    <span>Wildlife Staff</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                    </div>
-                </li>
-            <li class="nav-item " style="display: inline-block;
-  white-space: nowrap;">
-                <a class="nav-link" href="createUser.aspx">
-
-                    <span>Create Outreach Coordinator Access</span></a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="Default.aspx">
@@ -203,22 +197,17 @@
                 </div>
             </li>
  <li class="nav-item dropdown no-arrow ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                 <span>Educators & Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx"> Educators & Volunteers</a>
-                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                    <span>Wildlife Staff</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                    </div>
-                </li>
-            <li class="nav-item">
-                <a class="nav-link" href="createUser.aspx">
-
-                    <span>Create Outreach Coordinator Access</span></a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+                </div>
             </li>
            
 

@@ -79,7 +79,7 @@
                                             <h6>Select Organization</h6>
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
-                                            <asp:DropDownList ID="ddlOrganization" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
+                                            <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
                                                 <asp:ListItem>--Select Organization--</asp:ListItem>
                                             </asp:DropDownList>&nbsp&nbsp
                                     &nbsp;&nbsp;
@@ -139,7 +139,7 @@
                                             <h6>State</h6>
                                         </div>
                                         <div class=" col-md-8 InternalOrgnaizationForm">
-                                            <asp:DropDownList ID="ddlState2" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server" placeholder="Add State/Province">
+                                            <asp:DropDownList ID="ddlState2" class="form-control" runat="server" placeholder="Add State/Province">
 
                                                 <asp:ListItem>--Select State--</asp:ListItem>
                                                 <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
@@ -219,7 +219,7 @@
                                                 <h6>Primary Contact</h6>
                                             </div>
                                             <div class=" col-md-8 InternalAnimalForm">
-                                                <asp:DropDownList ID="ddlContacts" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false">
+                                                <asp:DropDownList ID="ddlContacts" runat="server" class="form-control" AppendDataBoundItems="false">
                                                     <asp:ListItem>--Select Primary Contact--</asp:ListItem>
                                                 </asp:DropDownList>&nbsp&nbsp
                                     &nbsp;&nbsp;
@@ -251,7 +251,7 @@
                 </div>
                      </div>
             </div>
-        </div>--%>--%>
+        </div>--%>
            <div class="modal fade" id="UpdateOrganization" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content mt-5">
@@ -277,7 +277,7 @@
                                             <h6>Select Organization</h6>
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
-                                            <asp:DropDownList ID="ddlOrganization" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
+                                            <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
                                                 <asp:ListItem>--Select Organization--</asp:ListItem>
                                             </asp:DropDownList>&nbsp&nbsp
                                     &nbsp;&nbsp;
@@ -337,7 +337,7 @@
                                             <h6>State</h6>
                                         </div>
                                         <div class=" col-md-8 InternalOrgnaizationForm">
-                                            <asp:DropDownList ID="ddlState2" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server" placeholder="Add State/Province">
+                                            <asp:DropDownList ID="ddlState2" class="form-control" runat="server" placeholder="Add State/Province">
 
                                                 <asp:ListItem>--Select State--</asp:ListItem>
                                                 <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
@@ -418,7 +418,7 @@
                                                 <h6>Primary Contact</h6>
                                             </div>
                                             <div class=" col-md-8 InternalAnimalForm">
-                                                <asp:DropDownList ID="ddlContacts" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false">
+                                                <asp:DropDownList ID="ddlContacts" runat="server" class="form-control" AppendDataBoundItems="false">
                                                     <asp:ListItem>--Select Primary Contact--</asp:ListItem>
                                                 </asp:DropDownList>&nbsp&nbsp
                                     &nbsp;&nbsp;
@@ -794,7 +794,7 @@
                                 </div>
                                 <div class=" col-md-8 InternalOrgnaizationForm">
 
-                                  <%--  <asp:DropDownList ID="ddlState" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server" placeholder="Add State/Province">
+                                  <%--  <asp:DropDownList ID="ddlState" class="form-control" runat="server" placeholder="Add State/Province">
                                         <asp:ListItem>--Select State--</asp:ListItem>
                                         <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
                                         <asp:ListItem Value="AL"></asp:ListItem>
@@ -997,7 +997,7 @@
                                 </div>
                                 <div class=" col-md-8 InternalAnimalForm">
 
-                                    <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" ID="ddlAnimalType" runat="server">
+                                    <asp:DropDownList class="InternalAnimalForm form-control" ID="ddlAnimalType" runat="server">
                                         <asp:ListItem Text="--Animal Type--" Value=""></asp:ListItem>
                                         <asp:ListItem>Bird</asp:ListItem>
                                         <asp:ListItem>Mammal</asp:ListItem>
@@ -1028,7 +1028,7 @@
 
                                 <div class=" col-md-8 InternalAnimalForm">
 
-                                    <asp:DropDownList ID="ddlStatus" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
+                                    <asp:DropDownList ID="ddlStatus" class="form-control" runat="server">
                                         <asp:ListItem Text="--Status--" Value=""></asp:ListItem>
                                         <asp:ListItem>Active</asp:ListItem>
                                         <asp:ListItem>Inactive</asp:ListItem>
@@ -1195,7 +1195,7 @@
                                     <h6>Status</h6>
                                 </div>
                                 <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:DropDownList ID="ddlVolunteerAddStatus" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
+                                    <asp:DropDownList ID="ddlVolunteerAddStatus" class="form-control" runat="server">
                                         <asp:ListItem Text="--Status--" Value=""></asp:ListItem>
                                         <asp:ListItem Text="Active" Value="Active"></asp:ListItem>
                                         <asp:ListItem Text="Inactive" Value="Inactive"></asp:ListItem>
@@ -1244,7 +1244,7 @@
                                             <h6>Select Animal</h6>
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
-                                            <asp:DropDownList ID="ddlAnimal" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="AnimalName" DataValueField="AnimalID" OnSelectedIndexChanged="ddlAnimal_SelectedIndexChanged1">
+                                            <asp:DropDownList ID="ddlAnimal" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="AnimalName" DataValueField="AnimalID" OnSelectedIndexChanged="ddlAnimal_SelectedIndexChanged1">
                                                 <asp:ListItem>--Select Animal--</asp:ListItem>
 
                                             </asp:DropDownList>&nbsp&nbsp
@@ -1259,7 +1259,7 @@
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
 
-                                            <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" ID="ddlAnimalTypeEdit" runat="server">
+                                            <asp:DropDownList class="InternalAnimalForm form-control" ID="ddlAnimalTypeEdit" runat="server">
                                                 <asp:ListItem Text="--Animal Type--" Value=""></asp:ListItem>
                                                 <asp:ListItem Text="Bird" Value="0"></asp:ListItem>
                                                 <asp:ListItem Text="Mammal" Value="1"></asp:ListItem>
@@ -1289,7 +1289,7 @@
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
 
-                                            <asp:DropDownList ID="ddlAnimalStatus" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
+                                            <asp:DropDownList ID="ddlAnimalStatus" class="form-control" runat="server">
                                                 <asp:ListItem Text="--Status--" Value=""></asp:ListItem>
                                                 <asp:ListItem Text="Active" Value="0"></asp:ListItem>
                                                 <asp:ListItem Text="Inactive" Value="1"></asp:ListItem>
@@ -1345,7 +1345,7 @@
                                         </div>
                                         <div class=" col-md-8 InternalEducatorForm">
 
-                                            <asp:DropDownList ID="ddlEducatorName" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="EducatorFirstName" DataValueField="EducatorID" OnSelectedIndexChanged="ddlEducator_SelectedIndexChanged1">
+                                            <asp:DropDownList ID="ddlEducatorName" class="form-control" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="EducatorFirstName" DataValueField="EducatorID" OnSelectedIndexChanged="ddlEducator_SelectedIndexChanged1">
                                                 <asp:ListItem>--Select Educator--</asp:ListItem>
 
                                             </asp:DropDownList>
@@ -1388,7 +1388,7 @@
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
 
-                                            <asp:DropDownList ID="ddlEducatorStatus" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="Status" DataValueField="EducatorID">
+                                            <asp:DropDownList ID="ddlEducatorStatus" class="form-control" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="Status" DataValueField="EducatorID">
                                                 <asp:ListItem>--Choose Educator Status--</asp:ListItem>
                                                 <asp:ListItem Text="Active" Value="Active"></asp:ListItem>
                                                 <asp:ListItem Text="Inactive" Value="Inactive"></asp:ListItem>
@@ -1448,7 +1448,7 @@
                                         </div>
                                         <div class=" col-md-8 InternalForm">
 
-                                            <asp:DropDownList ID="ddlVolunteerName" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="VolunteerFirstName" DataValueField="VolunteerID" OnSelectedIndexChanged="ddlVolunteer_SelectedIndexChanged">
+                                            <asp:DropDownList ID="ddlVolunteerName" class="form-control" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="VolunteerFirstName" DataValueField="VolunteerID" OnSelectedIndexChanged="ddlVolunteer_SelectedIndexChanged">
                                                 <asp:ListItem>--Select Volunteer--</asp:ListItem>
                                             </asp:DropDownList>
                                             &nbsp;&nbsp;
@@ -1517,7 +1517,7 @@
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
 
-                                            <asp:DropDownList ID="ddlVolunteerStatus" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
+                                            <asp:DropDownList ID="ddlVolunteerStatus" class="form-control" runat="server">
                                                 <asp:ListItem>--Select Status--</asp:ListItem>
                                                 <asp:ListItem Text="Active" Value="Active"></asp:ListItem>
                                                 <asp:ListItem Text="Inactive" Value="Inactive"></asp:ListItem>
@@ -1572,7 +1572,7 @@
                                             <h6>Select Invoice Number</h6>
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
-                                            <asp:DropDownList ID="ddlInvoiceNumber" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="PaymentID" DataValueField="PaymentID" OnSelectedIndexChanged="ddlInvoiceNumber_SelectedIndexChanged">
+                                            <asp:DropDownList ID="ddlInvoiceNumber" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="PaymentID" DataValueField="PaymentID" OnSelectedIndexChanged="ddlInvoiceNumber_SelectedIndexChanged">
                                                 <asp:ListItem>--Select Invoice Number--</asp:ListItem>
 
                                             </asp:DropDownList>&nbsp&nbsp
@@ -1599,7 +1599,7 @@
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
 
-                                            <asp:DropDownList ID="ddlProgramName" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
+                                            <asp:DropDownList ID="ddlProgramName" class="form-control" runat="server">
                                                 <asp:ListItem Text="--Select Program Name--" Value=""></asp:ListItem>
 
                                             </asp:DropDownList>&nbsp&nbsp
@@ -1614,7 +1614,7 @@
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
 
-                                            <asp:DropDownList ID="ddlOrganizationName" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
+                                            <asp:DropDownList ID="ddlOrganizationName" class="form-control" runat="server">
                                                 <asp:ListItem Text="--Select Organization Name--" Value=""></asp:ListItem>
                                             </asp:DropDownList>&nbsp&nbsp
                                         </div>
@@ -1643,7 +1643,7 @@
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
 
-                                            <asp:DropDownList ID="ddlPaymentType" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
+                                            <asp:DropDownList ID="ddlPaymentType" class="form-control" runat="server">
                                                 <asp:ListItem Text="--Select Payment Type--" Value=""></asp:ListItem>
                                                 <asp:ListItem Text="Check"></asp:ListItem>
                                                 <asp:ListItem Text="Credit"></asp:ListItem>
@@ -1673,7 +1673,7 @@
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
 
-                                            <asp:DropDownList ID="ddlPaid" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
+                                            <asp:DropDownList ID="ddlPaid" class="form-control" runat="server">
                                                 <asp:ListItem Text="--Select Payment Status--" Value=""></asp:ListItem>
                                                 <asp:ListItem Text="Paid" Value="Y"></asp:ListItem>
                                                 <asp:ListItem Text="Not Paid" Value="N"></asp:ListItem>
@@ -1689,7 +1689,7 @@
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
 
-                                            <asp:DropDownList ID="ddlCancelledInvoices" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
+                                            <asp:DropDownList ID="ddlCancelledInvoices" class="form-control" runat="server">
                                                 <asp:ListItem Text="--Select Invoice Status--" Value=""></asp:ListItem>
                                                 <asp:ListItem Text="Invoice Cancelled " Value="Y"></asp:ListItem>
                                                 <asp:ListItem Text="Invoice Current" Value="N"></asp:ListItem>
