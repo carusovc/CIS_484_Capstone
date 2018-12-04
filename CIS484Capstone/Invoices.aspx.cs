@@ -58,8 +58,9 @@ public partial class Invoices : System.Web.UI.Page
         }
         catch
         {
-            Session.RemoveAll();
-            Response.Redirect("Default.aspx", false);
+            //Session.RemoveAll();
+         //   Response.Redirect("Default.aspx", false);
+
         }
 
     }

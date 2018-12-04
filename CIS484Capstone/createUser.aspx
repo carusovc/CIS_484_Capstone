@@ -42,15 +42,14 @@
         <a class="navbar-brand " style="color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
         <div class="ml-auto row">
             <asp:Label ID="lblWelcome" runat="server" Text="" class="" Style="color: #e0d7c3; margin-right: 15px;"></asp:Label>
-            <a class=" d-none d-md-block" style="color: #FFBC7C; margin-right: 15px;" href="Default.aspx">
-                <span>Logout</span></a>
+            <asp:Button ID="logout" runat="server" style="color:#FFBC7C; cursor:pointer; margin-right: 15px; background-color:transparent; border:none;" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
         </div>
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                        <%--<a class="nav-link" href="Programs.aspx">--%>
+                     
 
                         <span>Programs</span>
                     </a>
@@ -59,11 +58,10 @@
                         <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                     </div>
                 </li>
-                <%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>--%>
+               
                 <li class="nav-item dropdown no-arrow ">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
 
 
 
@@ -75,26 +73,13 @@
                         <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                     </div>
                 </li>
-                <%--<li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+               
+            <li class="nav-item ">
+                <a class="nav-link" href="Report.aspx">
 
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Report.aspx">Reports</a>
-                  <%-- --%>
-                <%-- --%>
-                <%--<a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>--%>--%>
-           
-                <li class="nav-item ">
-                    <a class="nav-link" href="Report.aspx">
+                    <span>Reports</span></a>
+            </li>
 
-                        <span>Reports</span></a>
-                </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="Tableau.aspx">
 
@@ -138,16 +123,13 @@
                     </div>
                 </li>
 
-                <%--<li class="nav-item active " style="display: inline-block; white-space: nowrap;">
-                    <a class="nav-link" href="createUser.aspx">
-
-                        <span>Create Outreach Coordinator Access</span></a>
-                </li>--%>
+              
                 <li class="nav-item">
                     <a class="nav-link" href="Default.aspx">
 
                         <span>Logout</span></a>
                 </li>
+
 
             </ul>
 
@@ -164,7 +146,7 @@
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <%--<a class="nav-link" href="Programs.aspx">--%>
+                 
 
                     <span>Programs</span>
                 </a>
@@ -173,9 +155,7 @@
                     <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
-            <%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>--%>
+     
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -187,19 +167,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-            <%--<li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Report.aspx">Reports</a>
-                  
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>--%>
+         
             <li class="nav-item ">
                 <a class="nav-link" href="Report.aspx">
 
@@ -240,18 +208,13 @@
                     <span>Wildlife Staff</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Staff.aspx" data-toggle="modal">Wildlife Staff</a>
-                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                    <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
-            </li>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="createUser.aspx">
-
-                    <span>Create Outreach Coordinator Access</span></a>
             </li>
 
 
@@ -273,130 +236,119 @@
                             <div class="card-header NewUserTitle text-center">Add Wildlife Center Staff</div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                        <h6>Staff Type</h6>
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                            <h6>Staff Type</h6>
+                                        </div>
+                                        <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                            <h6>Staff Type</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+                                            
+                                            <asp:DropDownList ID="ddlStaffType" class="form-control" runat="server">
+                                                <asp:ListItem Text="-- Select Staff Type --" Value="0"></asp:ListItem>
+                                                <asp:ListItem Text="Outreach Coordinator" Value="1"></asp:ListItem>
+                                                <asp:ListItem Text="Volunteer" Value="2"></asp:ListItem>
+                                            </asp:DropDownList>&nbsp&nbsp
+                                        </div>
+                                    
                                     </div>
-                                    <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                        <h6>Staff Type</h6>
-                                    </div>
-                                    <div class=" col-md-8 InternalAnimalForm">
-
-                                        <asp:DropDownList ID="ddlStaffType" runat="server">
-                                            <asp:ListItem Text="-- Select Staff Type --" Value="0"></asp:ListItem>
-                                            <asp:ListItem Text="Outreach Coordinator" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="Volunteer" Value="2"></asp:ListItem>
-                                        </asp:DropDownList>
-                                    </div>
-
-                                </div>
                                 <div class="row">
-                                    <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                        <h6>First Name</h6>
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                            <h6>First Name</h6>
+                                        </div>
+                                        <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                            <h6>First Name</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+                                            <asp:TextBox ID="txtFirstName" runat="server" class="form-control" placeholder="First name" required="required"></asp:TextBox>&nbsp&nbsp
+                                        </div>
                                     </div>
-                                    <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                        <h6>First Name</h6>
-                                    </div>
-                                    <div class=" col-md-8 InternalAnimalForm">
-                                        <asp:TextBox ID="txtFirstName" runat="server" class="form-control" placeholder="First name" required="required"></asp:TextBox>&nbsp&nbsp
-                                       
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                        <h6>Last Name</h6>
-                                    </div>
-                                    <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                        <h6>Last Name</h6>
-                                    </div>
-                                    <div class=" col-md-8 InternalAnimalForm">
-                                        <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server"></asp:TextBox>&nbsp&nbsp
-                                       
-                                    </div>
-                                </div>
 
                                 <div class="row">
-                                    <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                        <h6>Email</h6>
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                            <h6>Last Name</h6>
+                                        </div>
+                                        <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                            <h6>Last Name</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+                                            <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server"></asp:TextBox>&nbsp&nbsp
+                                        </div>
                                     </div>
-                                    <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                        <h6>Email</h6>
+
+                                  <div class="row">
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                            <h6>Email</h6>
+                                        </div>
+                                        <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                            <h6>Email</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+                                           <asp:TextBox ID="txtEmail" class="form-control" placeholder="Enter email" required="required" runat="server"></asp:TextBox>&nbsp&nbsp
+                                        </div>
                                     </div>
-                                    <div class=" col-md-8 InternalAnimalForm">
-                                        <asp:TextBox ID="txtEmail" class="form-control" placeholder="Enter email" required="required" runat="server"></asp:TextBox>&nbsp&nbsp
-                                       
-                                    </div>
-                                </div>
 
                                 <div class="row">
-                                    <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                        <h6>Phone Number</h6>
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                            <h6>Phone Number</h6>
+                                        </div>
+                                        <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                            <h6>Phone Number</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+                                            <asp:TextBox ID="txtPhoneNumber" class="form-control" placeholder="Enter Phone Number" required="required" runat="server"></asp:TextBox>&nbsp&nbsp
+                                        </div>
                                     </div>
-                                    <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                        <h6>Phone Number</h6>
+                                
+                                  <div class="row">
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                            <h6>Username</h6>
+                                        </div>
+                                        <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                            <h6>Username</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+                                            <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox>&nbsp&nbsp
+                                        </div>
                                     </div>
-                                    <div class=" col-md-8 InternalAnimalForm">
-                                        <asp:TextBox ID="txtPhoneNumber" class="form-control" placeholder="Enter Phone Number" required="required" runat="server"></asp:TextBox>&nbsp&nbsp
-                                       
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                        <h6>Username</h6>
+                                  <div class="row">
+                                        <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                            <h6>Password</h6>
+                                        </div>
+                                        <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                            <h6>Password</h6>
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+                                          <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" placeholder="Password" required="required"></asp:TextBox>
+&nbsp&nbsp
+                                        </div>
                                     </div>
-                                    <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                        <h6>Username</h6>
-                                    </div>
-                                    <div class=" col-md-8 InternalAnimalForm">
-                                        <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox>&nbsp&nbsp
-                                       
-                                    </div>
-                                </div>
+                                
 
-                                <div class="row">
-                                    <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                        <h6>Password</h6>
+                                  <div class="row">
+                                        
+                                        <div class=" text-right col-md-4 InternalOrganizationForm">
+                                           <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password" AutoPostBack="True" OnCheckedChanged="chkShowPassword_CheckedChanged" />
+&nbsp&nbsp
+                                        </div>
+                                        <div class=" col-md-8 InternalAnimalForm">
+                                         <p runat="server" class=" PasswordReq" style="font-size: 75%;">
+                                                Password must include:
+                                                <br>
+                                                1 Number, 1 Special Character
+                                                <br>
+                                                1 Capital Letter, Minimum 8 Characters 
+                                            </p>
+                                            <p runat="server" class=" PasswordReq" style="font-size: 75%;">&nbsp;</p>
+                                        </div>
                                     </div>
-                                    <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                        <h6>Password</h6>
-                                    </div>
-                                    <div class=" col-md-8 InternalAnimalForm">
-                                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" placeholder="Password" required="required"></asp:TextBox>
-                                        &nbsp&nbsp
-                                       
-                                    </div>
-                                </div>
 
-
-                                <div class="row">
-
-                                    <div class=" text-right col-md-4 InternalOrganizationForm">
-                                        <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password" AutoPostBack="True" OnCheckedChanged="chkShowPassword_CheckedChanged" />
-                                        &nbsp&nbsp
-                                       
-                                    </div>
-                                    <div class=" col-md-8 InternalAnimalForm">
-                                        <p runat="server" class=" PasswordReq" style="font-size: 75%;">
-                                            Password must include:
-                                               
-                                            <br>
-                                            1 Number, 1 Special Character
-                                               
-                                            <br>
-                                            1 Capital Letter, Minimum 8 Characters 
-                                           
-                                        </p>
-                                        <p runat="server" class=" PasswordReq" style="font-size: 75%;">&nbsp;</p>
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
+                              
+                                   <div class="row">
                                     <div class="col-md-4 mx-auto">
-
-                                        <%--  </div>   
-            <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/> --%>
+                                      
+                                    
                                         <asp:Button ID="btnSubmit" class="btn btn-primary btn-login btn-block" href="ProgramForm.aspx" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
                                     </div>
                                 </div>
@@ -404,33 +356,33 @@
 
                                 <asp:Label ID="lblStatus" runat="server"></asp:Label>
 
-                            </div>
+                                    </div>
+
+
+                                
+
+                                
+
+                             
 
 
 
-
-
-
-
-
-
-
-                            <%--  <br /> --%>
-                            <div class="text-center">
+                              
+                                <div class="text-center">
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
+
+
+                </section>
+
+
             </div>
-
-
-
-
-            </section>
-
-
-           
         </div>
-    </div>
 
     </div>
 </asp:Content>
+

@@ -350,163 +350,150 @@
                             <div class="card card-register mx-auto mt-5">
                                 <div class="card-header NewUserTitle">Add New Invoice</div>
                                 <div class="card-body">
-                                    <div class="form-group">
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <h6>Invoice Number *</h6>
-
-                                                <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder="Enter Invoice Number" required="required"></asp:TextBox>
-
-                                            </div>
-                                            <%--<asp:RequiredFieldValidator id="RequiredFieldValidator7" runat="server" ControlToValidate="txtInvoiceNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-
-                                            <div class="col-sm-12 col-md-6">
-                                                <h6>Date of Payment *</h6>
-                                                <input type="date" id="PaymentDate" class="form-control" runat="server" required="required"/>
-<%--                                                <asp:Label runat="server" ID="lblDate"></asp:Label>--%>
-                                            </div>
-                                        </div>
-                                        <p></p>
+                                    <div class="row">
 
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <h6>Program *</h6>
-                                                <asp:DropDownList ID="ddlProgramType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChange="ddlProgramType_SelectedIndexChanged" required="required">
-                                                    <asp:ListItem Value="0">--Select Program--</asp:ListItem>
-                                                </asp:DropDownList>
-                                                <%--<asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <h6>Organization *</h6>
-                                                <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="false" DataTextField="OrgName" DataValueField="OrgID" required="required">
-                                                    <asp:ListItem Value="0">--Select Organization--</asp:ListItem>
-                                                </asp:DropDownList>
-                                                <%--                                  <asp:RequiredFieldValidator id="RequiredFieldValidator8" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-                                            </div>
-
-                                        </div>
-                                        <p></p>
-
-
-                                        <div class="form-group row">
-
-
-
-                                            <%--  <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged" Style="text-align: left;" class="form-control">
-                                                <asp:ListItem>Month</asp:ListItem>
-                                                <asp:ListItem>January</asp:ListItem>
-                                                <asp:ListItem>February</asp:ListItem>
-                                                <asp:ListItem>March</asp:ListItem>
-                                                <asp:ListItem>April</asp:ListItem>
-                                                <asp:ListItem>May</asp:ListItem>
-                                                <asp:ListItem>June</asp:ListItem>
-                                                <asp:ListItem>July</asp:ListItem>
-                                                <asp:ListItem>August</asp:ListItem>
-                                                <asp:ListItem>September</asp:ListItem>
-                                                <asp:ListItem>October</asp:ListItem>
-                                                <asp:ListItem>November</asp:ListItem>
-                                                <asp:ListItem>December</asp:ListItem>
-                                            </asp:DropDownList>
-                                    <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server" ControlToValidate="ddlMonth" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
-                                
-                                   </div>
-                                 <div class="col-sm-12 col-md-6">
-                                <h6>Date</h6>
-                               
-                                <asp:DropDownList ID="ddlDate" runat="server" AutoPostBack="True" Style="text-align: left;" class="form-control">
-
-                                            <asp:ListItem Value="Day"></asp:ListItem>
-                                        </asp:DropDownList>
-                        <asp:RequiredFieldValidator id="RequiredFieldValidator2" runat="server" ControlToValidate="ddlDate" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Invoice Number *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Invoice Number *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                     <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder="Enter Invoice Number" required="required"></asp:TextBox>
 
                                 </div>
-                                   </div>
-                                <p></p>
+                            </div>
+                            <br />
 
-                                
-                                <p></p>
-
-                                <div class="form-group row">
-                              <div class="col-sm-12 col-md-6">
-                                <h6>Year</h6>
-                                
-                                <asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged" class="form-control">
-                                <asp:ListItem Value="Year"></asp:ListItem>
-                                </asp:DropDownList>
-                                    <asp:RequiredFieldValidator id="RequiredFieldValidator3" runat="server" ControlToValidate="ddlYear" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
-                                            --%>
-
-                                            <div class="col-sm-12 col-md-6">
-                                                <h6>Amount *</h6>
-
-                                                <asp:TextBox ID="txtAmount" runat="server" class="form-control" placeholder="Enter Amount" required="required"></asp:TextBox>
-                                                <%--         <asp:CompareValidator ID="AmountValidator" runat="server" ControlToValidate="txtAmount" Type="Integer"
-                                        Operator="DataTypeCheck" ErrorMessage="Value must be a money" />--%>
-                                                <%--                                <asp:RequiredFieldValidator id="RequiredFieldValidator4" runat="server" ControlToValidate="txtAmount" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-                                            </div>
-                                            <%--     <div class="col-sm-12 col-md-6">
-                                       <h6>Select</h6>
-                                       <p></p>
-                                    <asp:RadioButtonList ID="rdbPaid" runat="server"> 
-                                        <asp:ListItem Text="Paid" Value ="Y"/>
-                                        <asp:ListItem  Text="Not Paid" Value ="N"/>
-                                      
-                                 </asp:RadioButtonList>
-                                       </div>--%>
-                                        </div>
-                                        <p></p>
+                                     <div class="row">
 
 
-                                        <p></p>
-                                        <p></p>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Date of Payment *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Date of Payment *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                    <input type="date" id="PaymentDate" class="form-control" runat="server" required="required"/>
+                                </div>
+                            </div>
+                            <br />
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <h6>Payment Type *</h6>
-                                                <asp:DropDownList ID="ddlPaymentType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged" required="required">
+                                       <div class="row">
+
+
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Program *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Program *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                    <asp:DropDownList ID="ddlProgramType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChange="ddlProgramType_SelectedIndexChanged" required="required">
+                                                    <asp:ListItem Value="0">--Select Program--</asp:ListItem>
+                                                </asp:DropDownList></div>
+                            </div>
+                            <br />
+
+                                      <div class="row">
+
+
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Organization *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Organization *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                      <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="false" DataTextField="OrgName" DataValueField="OrgID" required="required">
+                                                    <asp:ListItem Value="0">--Select Organization--</asp:ListItem>
+                                                </asp:DropDownList></div>
+                            </div>
+                            <br />
+
+
+
+
+
+                                               <div class="row">
+
+
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                     <h6>Amount *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Amount *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                  <asp:TextBox ID="txtAmount" runat="server" class="form-control" placeholder="Enter Amount" required="required"></asp:TextBox>
+                            </div></div>
+                            <br />
+
+                                                    <div class="row">
+
+
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                      <h6>Payment Type *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                      <h6>Payment Type *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                     <asp:DropDownList ID="ddlPaymentType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged" required="required">
                                                     <asp:ListItem Value="0">--Payment Type--</asp:ListItem>
                                                     <asp:ListItem>Check</asp:ListItem>
                                                     <asp:ListItem>Credit</asp:ListItem>
                                                     <asp:ListItem>Debit</asp:ListItem>
                                                 </asp:DropDownList>
+                            </div></div>
+                            <br />
 
-                                            </div>
-                                            <%--<asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server" ControlToValidate="ddlPaymentType" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-
-                                            <div class="col-sm-12 col-md-6">
-                                                <h6>Check Number *</h6>
+                      <div class="row">
 
 
-                                                <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" ReadOnly="true" placeholder="Enter Check Number" required="required"></asp:TextBox>
-                                                <%-- <asp:CompareValidator ID="CheckNumberValidator" runat="server" ControlToValidate="txtCheckNum" Type="Integer"
-                                        Operator="DataTypeCheck" ErrorMessage="Value must be a number." />--%>
-                                                <%-- <asp:RequiredFieldValidator id="RequiredFieldValidator6" runat="server" ControlToValidate="txtCheckNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-                                            </div>
-                                        </div>
-                                        <p></p>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <h6>Payment Status *</h6>
-                                                <asp:DropDownList ID="ddlInvoicePaymentStatus" runat="server" class="form-control" AppendDataBoundItems="false" required="required">
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                        <h6>Check Number *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                        <h6>Check Number *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                    <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" ReadOnly="true" placeholder="Enter Check Number" required="required"></asp:TextBox>
+                                               
+                            </div></div>
+                            <br />
+
+                          
+                      <div class="row">
+
+
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                          <h6>Payment Status *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                        <h6>Payment Status *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                      <asp:DropDownList ID="ddlInvoicePaymentStatus" runat="server" class="form-control" AppendDataBoundItems="false" required="required">
                                                     <asp:ListItem Value="0">--Payment Status--</asp:ListItem>
                                                     <asp:ListItem>Paid</asp:ListItem>
                                                     <asp:ListItem>Not Paid</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </div>
-                                        </div>
+                                                </asp:DropDownList>    </div>         
+                            </div>
+                            <br />
 
 
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-12 col-md-6">
+                                      
+                                    
 
-                                                <%--<asp:TextBox ID="txtCancelledChar" runat="server" MaxLength="1" Width="70px" class="form-control" placeholder ="(Y/N)"></asp:TextBox>
-                                <asp:RequiredFieldValidator id="RequiredFieldValidator9" runat="server" ControlToValidate="txtCancelledChar" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-                                            </div>
-                                        </div>
-                                    </div>
+
+
+                                     
+                                  
                                     <div class="mx-auto d-flex justify-content-center">
                                         <%--<asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" class="btn btn-primary btn-inside" />--%>
                                         <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary btn-inside" Text="Submit" />
