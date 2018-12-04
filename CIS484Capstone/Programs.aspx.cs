@@ -1315,15 +1315,15 @@ public partial class Programs : System.Web.UI.Page
         ddlProgramID.SelectedIndex = 0;
         ddlProgramType.SelectedIndex = 0;
         ddlOrganization.SelectedIndex = 0;
-        txtStatus.Text = "";
-        txtAddress.Text = "";
-        txtCity.Text = "";
-        txtCounty.Text = "";
-        txtState.Text = "";
-        txtNumOfChildren.Text = "";
-        txtNumOfAdults.Text = "";
-        txtProgramDate.Text = "";
-        txtProgramTime.Text = "";
+        txtStatus.Text = HttpUtility.HtmlEncode("");
+        txtAddress.Text = HttpUtility.HtmlEncode("");
+        txtCity.Text = HttpUtility.HtmlEncode("");
+        txtCounty.Text = HttpUtility.HtmlEncode("");
+        txtState.Text = HttpUtility.HtmlEncode("");
+        txtNumOfChildren.Text = HttpUtility.HtmlEncode("");
+        txtNumOfAdults.Text = HttpUtility.HtmlEncode("");
+        txtProgramDate.Text = HttpUtility.HtmlEncode("");
+        txtProgramTime.Text = HttpUtility.HtmlEncode("");
         ddlOnOffSiteEdit.ClearSelection();
         rboPayment.ClearSelection();
         drpEducators.ClearSelection();
@@ -1332,7 +1332,7 @@ public partial class Programs : System.Web.UI.Page
         lstMammals.ClearSelection();
         AddGrade.ClearSelection();
         drpUpdateLiveVolunteers.ClearSelection();
-        txtComments.Text = "";
+        txtComments.Text = HttpUtility.HtmlEncode("");
 
 
 
@@ -2392,8 +2392,8 @@ public partial class Programs : System.Web.UI.Page
     protected void btnLiveClear_Click(object sender, EventArgs e)
     {
         createAccordianUsingRepeaterLive(0);
-        StartDateLive.Value = "";
-        EndDateLive.Value = "";
+        StartDateLive.Value = HttpUtility.HtmlEncode("");
+        EndDateLive.Value = HttpUtility.HtmlEncode("");
     }
 
     protected void btnOnlineSearch_Click(object sender, EventArgs e)
@@ -2405,8 +2405,8 @@ public partial class Programs : System.Web.UI.Page
     protected void btnOnlineClear_Click(object sender, EventArgs e)
     {
         createAccordianUsingRepeaterOnline(0);
-        StartDateOnline.Value = "";
-        EndDateOnline.Value = "";
+        StartDateOnline.Value = HttpUtility.HtmlEncode("");
+        EndDateOnline.Value = HttpUtility.HtmlEncode("");
     }
 
     protected void btnAllSearch_Click(object sender, EventArgs e)
@@ -2418,8 +2418,8 @@ public partial class Programs : System.Web.UI.Page
     protected void btnAllClear_Click(object sender, EventArgs e)
     {
         createAccordianUsingRepeaterAll(0);
-        StartDateAll.Value = "";
-        EndDateAll.Value = "";
+        StartDateAll.Value = HttpUtility.HtmlEncode("");
+        EndDateAll.Value = HttpUtility.HtmlEncode("");
     }
 
 
@@ -2691,14 +2691,14 @@ public partial class Programs : System.Web.UI.Page
         lstUpdateOnlineVolunteers.ClearSelection();
         ddlOnlineProgramID.SelectedIndex = 0;
         ddlOnlineProgramType.SelectedIndex = 0;
-        txtOnlineTeacher.Text = "";
-        txtOCity.Text = "";
-        txtOCountry.Text = "";
-        txtOState.Text = "";
-        txtNumOfOnlineKids.Text = "";
-        txtNumOfOnlineAdults.Text = "";
-        txtOnlineProgramDate.Text = "";
-        txtOEmail.Text = "";
+        txtOnlineTeacher.Text = HttpUtility.HtmlEncode("");
+        txtOCity.Text = HttpUtility.HtmlEncode("");
+        txtOCountry.Text = HttpUtility.HtmlEncode("");
+        txtOState.Text = HttpUtility.HtmlEncode("");
+        txtNumOfOnlineKids.Text = HttpUtility.HtmlEncode("");
+        txtNumOfOnlineAdults.Text = HttpUtility.HtmlEncode("");
+        txtOnlineProgramDate.Text = HttpUtility.HtmlEncode("");
+        txtOEmail.Text = HttpUtility.HtmlEncode("");
         ddlOnOffSiteEdit.ClearSelection();
         rboPayment.ClearSelection();
         lstOEducators.ClearSelection();
@@ -2706,7 +2706,7 @@ public partial class Programs : System.Web.UI.Page
         lstOReptiles.ClearSelection();
         lstOMammals.ClearSelection();
         lstOGrades.ClearSelection();
-        txtOComments.Text = "";
+        txtOComments.Text = HttpUtility.HtmlEncode("");
 
         con.Open();
         ddlOnlineProgramID.Items.Clear();

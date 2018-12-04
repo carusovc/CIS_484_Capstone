@@ -106,7 +106,7 @@ public partial class Organizations : System.Web.UI.Page
         String email = txtEmail.Text;
         //String secondaryEmail = txtSecondaryEmail.Text;
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTekDevs";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"]);
 
         //Organization newOrg = new Organization(orgName, city, county, streetAddress, state, postalCode);
         //insert.CommandText = "insert into Organization (orgName, city, county, lastUpdated, lastUpdatedBy, streetAddress, state, postalCode) values (@orgName, @city, @county, @lastUpdated, @lastUpdatedBy, @streetAddress, @state, @postalCode)";
@@ -303,7 +303,7 @@ public partial class Organizations : System.Web.UI.Page
         insert.Parameters.AddWithValue("@PrimaryContact", "N");
         insert.Parameters.AddWithValue("@OrgID", ddlOrg.SelectedValue);
         insert.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
-        insert.Parameters.AddWithValue("@LastUpdatedBy", "WildTek Developers");
+        insert.Parameters.AddWithValue("@LastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"]));
         insert.ExecuteNonQuery();
 
         txtContactFirstName.Text = "";

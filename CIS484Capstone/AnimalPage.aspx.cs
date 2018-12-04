@@ -56,7 +56,7 @@ public partial class AnimalPage : System.Web.UI.Page
 
             da.Fill(ds);
 
-            lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+            lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
 
 
         }
@@ -168,7 +168,7 @@ public partial class AnimalPage : System.Web.UI.Page
             }
         }
 
-        lblLastUpdated.Text = "Last Updated: " + lastUpdated;
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(lastUpdated);
         lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(lastUpdatedBy);
 
 
@@ -186,7 +186,7 @@ public partial class AnimalPage : System.Web.UI.Page
 
 
 
-        txtAnimalName.Text = "";
+        txtAnimalName.Text = HttpUtility.HtmlEncode("");
         gridAnimalMammal.DataBind();
         gridReptile.DataBind();
         gridBird.DataBind();
@@ -351,7 +351,7 @@ public partial class AnimalPage : System.Web.UI.Page
         GridView1.DataBind();
         GridView2.DataBind();
         GridView3.DataBind();
-        txtBoxAnimalName.Text = "";
+        txtBoxAnimalName.Text = HttpUtility.HtmlEncode("");
 
 
 

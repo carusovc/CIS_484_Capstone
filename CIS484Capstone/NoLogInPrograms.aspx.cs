@@ -37,7 +37,7 @@ public partial class Programs : System.Web.UI.Page
             str.Parameters.Clear();
 
             str.CommandText = "select * from Person where username= @username";
-            str.Parameters.AddWithValue("@username", Session["USER_ID"]);
+            str.Parameters.AddWithValue("@username", HttpUtility.HtmlEncode(Session["USER_ID"]));
             str.ExecuteNonQuery();
 
             //SqlCommand com = new SqlCommand(str, con);
