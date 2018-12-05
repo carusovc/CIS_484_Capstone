@@ -54,78 +54,62 @@
 </div>
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
-                <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+      <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                        <%--<a class="nav-link" href="Programs.aspx">--%>
+                    <%--<a class="nav-link" href="Programs.aspx">--%>
 
-                        <span>Programs</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                        <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
-                    </div>
-                </li>
-                <%--      <li class="nav-item">
+                    <span>Programs</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Programs.aspx">View Programs</a>
+                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
+                    
+                </div>
+            </li>
+            <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-                <li class="nav-item dropdown no-arrow  ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
 
 
-                        <span>Animals</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
-                        <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
-                    </div>
-                </li>
-                <%-- UGH BY GUNTER 11.26.18 
-           <%--  <li class="nav-item ">
-                    <a class="nav-link" href="Report.aspx">
+                    <span>Animals</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                </div>
+            </li>
+        <li class="nav-item dropdown active no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                        <span>Reports</span></a>
-                </li> --%>
+                    <span>Organizations</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                </div>
+            </li>
+             
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                <li class="nav-item ">
-                    <a class="nav-link" href="Report.aspx">
+                    <span>Payment</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    
+                </div>
+            </li>
 
-                        <span>Reports</span>
-                    </a>
+            
 
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="Tableau.aspx">
-
-                        <span>Visualization</span></a>
-                </li>
-                <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                        <span>Payment</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                        <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown no-arrow active">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                        <span>Organizations</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
-                        <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
-                    </div>
-                </li>
-
-               <li class="nav-item dropdown no-arrow ">
+             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Wildlife Staff</span>
@@ -138,13 +122,18 @@
                         <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
             </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Default.aspx">
+         <li class="nav-item ">
+                    <a class="nav-link" href="Report.aspx">
 
-                        <span>Logout</span></a>
+                        <span>Reports</span></a>
                 </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Default.aspx">
 
-            </ul>
+                    <span>Logout</span></a>
+            </li>
+
+    </ul>
 
         </div>
     </nav>
@@ -156,7 +145,7 @@
         <!-- Sidebar -->
 
         <ul class="sidebar navbar-nav d-none d-md-block">
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -183,18 +172,8 @@
                 </div>
             </li>
 
-
-            <li class="nav-item ">
-                <a class="nav-link" href="Report.aspx">
-
-                    <span>Reports</span>
-                </a>
-
-            </li>
-
             <%--<li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
                     <span>Reports</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -206,26 +185,11 @@
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
             </li>--%>
+          
+           
+           
 
-            <li class="nav-item ">
-                <a class="nav-link" href="Tableau.aspx">
-
-                    <span>Visualization</span></a>
-            </li>
-
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Payment</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-
-                </div>
-            </li>
-
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item dropdown active no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Organizations</span>
@@ -236,7 +200,18 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
-           <li class="nav-item dropdown no-arrow ">
+             <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Payment</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+
+                </div>
+            </li>
+            <li class="nav-item dropdown  no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Wildlife Staff</span>
@@ -249,7 +224,20 @@
                         <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
             </li>
-           
+              <li class="nav-item ">
+                <a class="nav-link" href="Report.aspx">
+
+                    <span>Reports</span></a>
+            </li>
+             <li class="nav-item ">
+                <a class="nav-link" href="Tableau.aspx">
+
+                    <span>Visualization</span></a>
+            </li>
+            <%--<li class="nav-item">
+                <a class="nav-link" href="createUser.aspx">
+                    <span>Create Outreach Coordinator Access</span></a>
+            </li>--%>
         </ul>
 
 
@@ -897,7 +885,7 @@
                                                         <div class="row">
                                                             <%-- for Org listing--%>
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 InternalAnimalForm">
-                                                                <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+                                                                <asp:DropDownList ID="ddlOrderBy" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
                                                                     <asp:ListItem>--Order By--</asp:ListItem>
                                                                     <%--<asp:ListItem>Program Date</asp:ListItem>--%>
                                                                     <asp:ListItem>Organization Name A-Z</asp:ListItem>

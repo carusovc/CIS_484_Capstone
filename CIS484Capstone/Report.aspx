@@ -276,16 +276,18 @@ $(function() {
 
 
 
-                            <div class="mx-auto d-flex justify-content-center">
-                                <asp:DropDownList ID="drpAnimalType" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;"  runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
-                                </asp:DropDownList>
-                            </div>
+                          
                         
 
                          <div class="row">
-                <div class=" col-md-4 InternalAnimalForm">
+                <div class=" col-md-2 InternalAnimalForm">
+                   
                     </div>
-                <div class=" col-md-8 ml-auto d-flex justify-content-end InternalAnimalForm">
+                              <div class=" col-md-4 InternalAnimalForm">
+                     <asp:DropDownList ID="drpAnimalType" class="form-control"  runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
+                                </asp:DropDownList>
+                    </div>
+                <div class=" col-md-6 ml-auto d-flex justify-content-end InternalAnimalForm">
                     <asp:TextBox  class="InternalAnimalForm form-control" ID="txtSearch" runat="server" style="margin-right:5px;"></asp:TextBox>
                     <asp:Button ID ="btnSearch" class="btn" runat ="server" style="background-color: #FFBC7C;" Text ="Search" OnClick="btnSearch_Click" />
                     &nbsp;&nbsp;&nbsp;
@@ -535,7 +537,7 @@ $(function() {
          
                                 
 
-     <%-- <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True"  class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" DataSourceID="SqlDataSource6" DataTextField="MonthName" DataValueField="MonthName">
+     <%-- <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True"  class="form-control" DataSourceID="SqlDataSource6" DataTextField="MonthName" DataValueField="MonthName">
                         <asp:ListItem></asp:ListItem>
                         </asp:DropDownList>&nbsp&nbsp&nbsp&nbsp
             <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(Program.ProgramDate) } 
@@ -555,7 +557,7 @@ $(function() {
     
          
              
-            <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True"  class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" DataSourceID="SqlDataSource7" DataTextField="YEAR" DataValueField="YEAR">
+            <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True"  class="form-control" DataSourceID="SqlDataSource7" DataTextField="YEAR" DataValueField="YEAR">
                         <asp:ListItem></asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct(YEAR(ProgramDate)) AS YEAR FROM Program"></asp:SqlDataSource>
@@ -705,12 +707,12 @@ $(function() {
 
                 <div id="YearlyTab" class="container1 block3 tab-pane  text-center WildTable">
                     <div class="InternalAnimalTab">
-    <div class="col-md-12 ProgramTitle">
+    <div class="col-md-12 mx-auto d-flex justify-content-center ProgramTitle">
              <br />
-         <asp:DropDownList ID="drpYear" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" AutoPostBack="True"   DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
+         <asp:DropDownList ID="drpYear" class="form-control" runat="server" AutoPostBack="True"   DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
         <asp:ListItem></asp:ListItem>
     </asp:DropDownList>
-			  <div class="ReportTitle text-center">Totals Based on Live Programs</div>
+			  
 			
 		</div>
 	
@@ -718,6 +720,7 @@ $(function() {
 
               <div class="row table-responsive mx-auto d-flex justify-content-center">
     <br />
+<div class="ReportTitle text-center">Totals Based on Live Programs</div>
      <br />
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 <asp:GridView ID="gridPrograms"  class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
