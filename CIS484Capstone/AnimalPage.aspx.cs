@@ -33,12 +33,44 @@ public partial class AnimalPage : System.Web.UI.Page
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
 
+        try
+        {
+            SqlConnection con = new SqlConnection(cs);
 
+            con.Open();
+
+            //string str = "select * from Person where username= @username";
+            System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+            str.Connection = sc;
+            str.Parameters.Clear();
+
+            str.CommandText = "select * from Person where username= @username";
+            str.Parameters.AddWithValue("@username", Session["USER_ID"]);
+            str.ExecuteNonQuery();
+
+            //SqlCommand com = new SqlCommand(str, con);
+
+            SqlDataAdapter da = new SqlDataAdapter(str);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
+
+
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
 
 
 
         if (!IsPostBack)
         {
+            
 
             //call read array
             SqlConnection conAnimal = new SqlConnection(cs);
@@ -66,6 +98,18 @@ public partial class AnimalPage : System.Web.UI.Page
         ViewAnimals.Visible = true;
 
 
+    }
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
+
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
     }
     protected void btnEditAnimal_Click(object sender, EventArgs e)
     {
@@ -113,7 +157,7 @@ public partial class AnimalPage : System.Web.UI.Page
         String animalType = HttpUtility.HtmlEncode(ddlAnimalType.SelectedItem.Text);
         String animalName = HttpUtility.HtmlEncode(txtAnimalName.Text);
         DateTime lastUpdated = DateTime.Today;
-        String lastUpdatedBy = "WildTekDevelopers";
+        String lastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
 
 
         Animal newAnimal = new Animal(animalType, animalName);
@@ -137,11 +181,11 @@ public partial class AnimalPage : System.Web.UI.Page
             }
         }
 
-        lblLastUpdated.Text = "Last Updated: " + lastUpdated;
+        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(lastUpdated);
         lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(lastUpdatedBy);
 
 
-        //retrieveImage.CommandText = "Select AnimalImage from Animal where animalID = 24";
+        //retrieveImage.CommandText = "Select AnimalImage from Animal where animalID = @animalID";
         //retrieveImage.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
 
         //byte[] image = (byte[])retrieveImage.ExecuteScalar();
@@ -155,7 +199,7 @@ public partial class AnimalPage : System.Web.UI.Page
 
 
 
-        txtAnimalName.Text = "";
+        txtAnimalName.Text = HttpUtility.HtmlEncode("");
         gridAnimalMammal.DataBind();
         gridReptile.DataBind();
         gridBird.DataBind();
@@ -268,7 +312,7 @@ public partial class AnimalPage : System.Web.UI.Page
         update.Parameters.AddWithValue("@animalName", txtBoxAnimalName.Text);
         update.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"].ToString()));
         update.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
         update.ExecuteNonQuery();
 
@@ -320,7 +364,7 @@ public partial class AnimalPage : System.Web.UI.Page
         GridView1.DataBind();
         GridView2.DataBind();
         GridView3.DataBind();
-        txtBoxAnimalName.Text = "";
+        txtBoxAnimalName.Text = HttpUtility.HtmlEncode("");
 
 
 
@@ -435,4 +479,6 @@ public partial class AnimalPage : System.Web.UI.Page
         gridSearch.DataSource = dt;
         gridSearch.DataBind();
     }
+
+  
 }

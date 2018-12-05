@@ -20,7 +20,7 @@ public partial class AdminLogin : System.Web.UI.Page
         {
             System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
             sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-            lblStatus.Text = "Database Connection Successful";
+            lblStatus.Text = HttpUtility.HtmlEncode("Database Connection Successful");
 
             sc.Open();
             System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();

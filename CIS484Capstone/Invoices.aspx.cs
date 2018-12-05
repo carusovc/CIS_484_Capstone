@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
@@ -19,18 +20,50 @@ public partial class Invoices : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //drpMonth.Items.Clear();
-        //drpYear.Items.Clear();
-        //drpMonth.Items.Add(new ListItem("--Select Month--", "0"));
-        //drpYear.Items.Add(new ListItem("--Select Year--", "0"));
+        //try
+        //{
+        //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        //    //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        //    sc.ConnectionString = cs;
+        //    sc.Open();
+        //    // lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
 
-        if (!IsPostBack)
-        {
-            //PopulateData();
+        //    SqlConnection con = new SqlConnection(cs);
 
-        }
+        //    con.Open();
+
+        //    //string str = "select * from Person where username= @username";
+        //    System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+        //    str.Connection = sc;
+        //    str.Parameters.Clear();
+
+            str.CommandText = "select * from Person where username= @username";
+            str.Parameters.AddWithValue("@username", HttpUtility.HtmlEncode(Session["USER_ID"]));
+            str.ExecuteNonQuery();
+
+
+        //    //SqlCommand com = new SqlCommand(str, con);
+
+        //    SqlDataAdapter da = new SqlDataAdapter(str);
+
+        //    DataSet ds = new DataSet();
+
+        //    da.Fill(ds);
+
+            lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
+
+
+
+        //}
+        //catch
+        //{
+        //    Session.RemoveAll();
+        //    Response.Redirect("Default.aspx", false);
+        //}
+
     }
- 
+
     public override void VerifyRenderingInServerForm(Control control)
     {
         /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
@@ -42,8 +75,8 @@ public partial class Invoices : System.Web.UI.Page
 
         // need to check is any row selected 
         bool isSelected = false;
-  
-       
+
+
         foreach (GridViewRow i in CancelledPaymentGrid.Rows)
         {
             CheckBox cb = (CheckBox)i.FindControl("chkSelect");
@@ -73,8 +106,8 @@ public partial class Invoices : System.Web.UI.Page
                 if (cb != null && cb.Checked)
                 {
 
-                   gvExport.Rows[i.RowIndex].Visible = true;
-          
+                    gvExport.Rows[i.RowIndex].Visible = true;
+
                 }
             }
             string invoiceyear = drpMonth2.SelectedValue.ToString() + ", " + drpYear2.SelectedValue.ToString() + " Cancelled Invoices ";
@@ -181,7 +214,7 @@ public partial class Invoices : System.Web.UI.Page
         }
     }
 
-    
+
 
     private decimal TotalNotCancelled = (decimal)0.0;
     private decimal TotalCancelled = (decimal)0.0;
@@ -248,9 +281,9 @@ public partial class Invoices : System.Web.UI.Page
             }
         }
         //else if (e.Row.RowType == DataControlRowType.Footer)
-            // If row type is footer, show calculated total value
-            // Since this example uses sales in dollars, I formatted output as currency
-            // e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
+        // If row type is footer, show calculated total value
+        // Since this example uses sales in dollars, I formatted output as currency
+        // e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
 
     }
     //protected void exportBtnYearly_Click(object sender, EventArgs e)
@@ -433,3 +466,5 @@ public partial class Invoices : System.Web.UI.Page
 
 
 }
+
+
