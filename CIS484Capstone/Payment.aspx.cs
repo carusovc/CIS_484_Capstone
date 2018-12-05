@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 
 public partial class Payments : System.Web.UI.Page
 {
@@ -73,7 +74,38 @@ public partial class Payments : System.Web.UI.Page
 
 
 
-        //lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
+        try
+        {
+            SqlConnection con = new SqlConnection(cs);
+
+            con.Open();
+
+            //string str = "select * from Person where username= @username";
+            System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+            str.Connection = sc;
+            str.Parameters.Clear();
+
+            str.CommandText = "select * from Person where username= @username";
+            str.Parameters.AddWithValue("@username", Session["USER_ID"]);
+            str.ExecuteNonQuery();
+
+            //SqlCommand com = new SqlCommand(str, con);
+
+            SqlDataAdapter da = new SqlDataAdapter(str);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
+
+
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
 
         sc.Close();
 
@@ -100,6 +132,18 @@ public partial class Payments : System.Web.UI.Page
         Response.Redirect("Invoices.aspx");
     }
 
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
+
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
+    }
 
     protected void btnSubmit_Click1(object sender, EventArgs e)
     {
@@ -144,7 +188,8 @@ public partial class Payments : System.Web.UI.Page
 
         //Temporary LastUpdated and LastUpdatedBy
         DateTime tempLastUpdated = DateTime.Today;
-        String tempLastUpdatedBy = "WildTekDevelopers";
+        String tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
+        //String tempLastUpdatedBy = "WildTekDevelopers";
         string tempPaymentDateString = PaymentDate.Value.ToString();
         DateTime paymentDate = Convert.ToDateTime(tempPaymentDateString);
 

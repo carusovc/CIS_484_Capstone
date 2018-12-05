@@ -42,9 +42,11 @@
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
         <div class="ml-auto row">
         <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
-         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
-               <span>Logout</span></a>
+       <%--  <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
+               <span>Logout</span></a>--%>
+               <asp:Button ID="logout" class=" d-none d-md-block" runat="server" style="color:#FFBC7C; cursor:pointer; margin-right: 15px; background-color:transparent; border:none;" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
 </div>
+
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown no-arrow">
@@ -242,7 +244,7 @@
 
    <div id="content-wrapper">
 
-                 <section class="login-block  col-xl-10 col-lg-10 col-md-12 col-s-12 mx-auto ">
+                <%-- <section class="login-block  col-xl-10 col-lg-10 col-md-12 col-s-12 mx-auto ">--%>
     
 
 <div class="container1">
@@ -551,10 +553,10 @@ $(function() {
 
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
+                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Paymentrecord.Paid
                                             FROM [Program] inner join [Organization] on  Program.OrgID = Organization.OrgID inner join [PaymentRecord] 
 											on PaymentRecord.PaymentID = Program.PaymentID inner join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID  WHERE 
-                                            (YEAR(paymentDate)=@Year and paymentRecord.cancelledinvoices !='Y')"
+                                            (YEAR(paymentDate)=@Year and paymentRecord.cancelledinvoices ='N')"
                                             ProviderName="System.Data.SqlClient">
                                             <SelectParameters>
 

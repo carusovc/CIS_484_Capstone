@@ -114,6 +114,18 @@ public partial class Organizations : System.Web.UI.Page
         connection.Close();
     }
 
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
+
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
+    }
 
     protected void btnAddOrg_Click(object sender, EventArgs e)
     {
@@ -138,7 +150,7 @@ public partial class Organizations : System.Web.UI.Page
         String orgName = textOrgName.Text;
         //String city = textOrgCity.Text;
         String county = textOrgCounty.Text;
-       // String streetAddress = txtStreetAddress.Text;
+        // String streetAddress = txtStreetAddress.Text;
         //String state = ddlState.SelectedValue; ;
         //String postalCode = txtPostalCode.Text;
         String contactFirstName = contactFirstName1.Text;
@@ -214,12 +226,12 @@ public partial class Organizations : System.Web.UI.Page
         ddlOrg.DataBind();
 
         textOrgName.Text = "";
-       // textOrgCity.Text = "";
+        // textOrgCity.Text = "";
         textOrgCounty.Text = "";
         //txtStreetAddress.Text = "";
-       // ddlState.SelectedIndex = 0;
+        // ddlState.SelectedIndex = 0;
         ddlOrg.SelectedIndex = 0;
-       // txtPostalCode.Text = "";
+        // txtPostalCode.Text = "";
         txtContactFirstName.Text = "";
         txtContactLastName.Text = "";
         contactFirstName1.Text = "";
@@ -328,53 +340,53 @@ public partial class Organizations : System.Web.UI.Page
 
 
 
-    protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        OrganizationSearchDiv.Visible = false;
-        gridSearch.DataBind();
+    //protected void ddlOrderBy_SelectedIndexChanged(object sender, EventArgs e)
+    //{
+    //    OrganizationSearchDiv.Visible = false;
+    //    gridSearch.DataBind();
 
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        sc.ConnectionString = cs;
-        sc.Open();
-        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
-        search.Connection = sc;
-        SqlConnection con = new SqlConnection(cs);
-
-
-        int orderType = ddlOrderBy.SelectedIndex;
-        switch (orderType)
-        {
-
-            case 0:
-                OrganizationSearchDiv.Visible = false;
-                break;
-            case 1:
-
-                DataTable dt1 = new DataTable();
-                SqlDataAdapter adapt1 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode From Organization Order by OrgName;"), con);
-                adapt1.Fill(dt1);
-                GridView1.DataSource = dt1;
-                GridView1.DataBind();
-                break;
-            case 2:
-                DataTable dt2 = new DataTable();
-                SqlDataAdapter adapt2 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode From Organization Order by City;"), con);
-                adapt2.Fill(dt2);
-                GridView1.DataSource = dt2;
-                GridView1.DataBind();
-                break;
-            case 3:
-                DataTable dt3 = new DataTable();
-                SqlDataAdapter adapt3 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode From Organization Order by County;"), con);
-                adapt3.Fill(dt3);
-                GridView1.DataSource = dt3;
-                GridView1.DataBind();
-                break;
+    //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+    //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+    //    sc.ConnectionString = cs;
+    //    sc.Open();
+    //    System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+    //    search.Connection = sc;
+    //    SqlConnection con = new SqlConnection(cs);
 
 
-        }
-    }
+    //    int orderType = ddlOrderBy.SelectedIndex;
+    //    switch (orderType)
+    //    {
+
+    //        case 0:
+    //            OrganizationSearchDiv.Visible = false;
+    //            break;
+    //        case 1:
+
+    //            DataTable dt1 = new DataTable();
+    //            SqlDataAdapter adapt1 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode From Organization Order by OrgName;"), con);
+    //            adapt1.Fill(dt1);
+    //            GridView1.DataSource = dt1;
+    //            GridView1.DataBind();
+    //            break;
+    //        case 2:
+    //            DataTable dt2 = new DataTable();
+    //            SqlDataAdapter adapt2 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode From Organization Order by City;"), con);
+    //            adapt2.Fill(dt2);
+    //            GridView1.DataSource = dt2;
+    //            GridView1.DataBind();
+    //            break;
+    //        case 3:
+    //            DataTable dt3 = new DataTable();
+    //            SqlDataAdapter adapt3 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode From Organization Order by County;"), con);
+    //            adapt3.Fill(dt3);
+    //            GridView1.DataSource = dt3;
+    //            GridView1.DataBind();
+    //            break;
+
+
+    //    }
+    //}
     protected void btnAddContact_Click(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
@@ -460,53 +472,53 @@ public partial class Organizations : System.Web.UI.Page
         connection.Close();
     }
 
-    protected void ddlContactOrderBy_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        ContactSearchDiv.Visible = false;
-        ContactSearchGrid.DataBind();
+    //protected void ddlContactOrderBy_SelectedIndexChanged(object sender, EventArgs e)
+    //{
+    //    ContactSearchDiv.Visible = false;
+    //    ContactSearchGrid.DataBind();
 
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        sc.ConnectionString = cs;
-        sc.Open();
-        System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
-        search.Connection = sc;
-        SqlConnection con = new SqlConnection(cs);
-
-
-        int orderType = ddlContactOrderBy.SelectedIndex;
-        switch (orderType)
-        {
-
-            case 0:
-                ContactSearchDiv.Visible = false;
-                break;
-            case 1:
-
-                DataTable dt1 = new DataTable();
-                SqlDataAdapter adapt1 = new SqlDataAdapter(("SELECT o.[OrgName] as OrgName, c.[ContactFirstName] as ContactFirstName, c.[ContactLastName] as ContactLastName, c.[ContactEmail] as ContactEmail, c.[PrimaryContact] as PrimaryContact FROM [Organization] as o Right Join [ContactInformation] as c on o.OrgID = c.OrgID ORDER BY [OrgName];"), con);
-                adapt1.Fill(dt1);
-                GridView3.DataSource = dt1;
-                GridView3.DataBind();
-                break;
-            case 2:
-                DataTable dt2 = new DataTable();
-                SqlDataAdapter adapt2 = new SqlDataAdapter(("SELECT o.[OrgName] as OrgName, c.[ContactFirstName] as ContactFirstName, c.[ContactLastName] as ContactLastName, c.[ContactEmail] as ContactEmail, c.[PrimaryContact] as PrimaryContact FROM [Organization] as o Right Join [ContactInformation] as c on o.OrgID = c.OrgID ORDER BY [ContactFirstName];"), con);
-                adapt2.Fill(dt2);
-                GridView3.DataSource = dt2;
-                GridView3.DataBind();
-                break;
-            case 3:
-                DataTable dt3 = new DataTable();
-                SqlDataAdapter adapt3 = new SqlDataAdapter(("SELECT o.[OrgName] as OrgName, c.[ContactFirstName] as ContactFirstName, c.[ContactLastName] as ContactLastName, c.[ContactEmail] as ContactEmail, c.[PrimaryContact] as PrimaryContact FROM [Organization] as o Right Join [ContactInformation] as c on o.OrgID = c.OrgID ORDER BY [ContactLastName];"), con);
-                adapt3.Fill(dt3);
-                GridView3.DataSource = dt3;
-                GridView3.DataBind();
-                break;
+    //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+    //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+    //    sc.ConnectionString = cs;
+    //    sc.Open();
+    //    System.Data.SqlClient.SqlCommand search = new System.Data.SqlClient.SqlCommand();
+    //    search.Connection = sc;
+    //    SqlConnection con = new SqlConnection(cs);
 
 
-        }
-    }
+    //    int orderType = ddlContactOrderBy.SelectedIndex;
+    //    switch (orderType)
+    //    {
+
+    //        case 0:
+    //            ContactSearchDiv.Visible = false;
+    //            break;
+    //        case 1:
+
+    //            DataTable dt1 = new DataTable();
+    //            SqlDataAdapter adapt1 = new SqlDataAdapter(("SELECT o.[OrgName] as OrgName, c.[ContactFirstName] as ContactFirstName, c.[ContactLastName] as ContactLastName, c.[ContactEmail] as ContactEmail, c.[PrimaryContact] as PrimaryContact FROM [Organization] as o Right Join [ContactInformation] as c on o.OrgID = c.OrgID ORDER BY [OrgName];"), con);
+    //            adapt1.Fill(dt1);
+    //            GridView3.DataSource = dt1;
+    //            GridView3.DataBind();
+    //            break;
+    //        case 2:
+    //            DataTable dt2 = new DataTable();
+    //            SqlDataAdapter adapt2 = new SqlDataAdapter(("SELECT o.[OrgName] as OrgName, c.[ContactFirstName] as ContactFirstName, c.[ContactLastName] as ContactLastName, c.[ContactEmail] as ContactEmail, c.[PrimaryContact] as PrimaryContact FROM [Organization] as o Right Join [ContactInformation] as c on o.OrgID = c.OrgID ORDER BY [ContactFirstName];"), con);
+    //            adapt2.Fill(dt2);
+    //            GridView3.DataSource = dt2;
+    //            GridView3.DataBind();
+    //            break;
+    //        case 3:
+    //            DataTable dt3 = new DataTable();
+    //            SqlDataAdapter adapt3 = new SqlDataAdapter(("SELECT o.[OrgName] as OrgName, c.[ContactFirstName] as ContactFirstName, c.[ContactLastName] as ContactLastName, c.[ContactEmail] as ContactEmail, c.[PrimaryContact] as PrimaryContact FROM [Organization] as o Right Join [ContactInformation] as c on o.OrgID = c.OrgID ORDER BY [ContactLastName];"), con);
+    //            adapt3.Fill(dt3);
+    //            GridView3.DataSource = dt3;
+    //            GridView3.DataBind();
+    //            break;
+
+
+    //    }
+    //}
 
     protected void btnContactSearch_Click(object sender, EventArgs e)
     {
@@ -666,6 +678,7 @@ public partial class Organizations : System.Web.UI.Page
 
         System.Data.SqlClient.SqlCommand updateContact = new System.Data.SqlClient.SqlCommand();
         updateContact.Connection = sc;
+        String tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
 
         update.CommandText = "update organization set orgName = @orgName, city = @city, county = @county, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, streetAddress = @streetAddress, state = @state, postalCode = @postalCode where orgID = @orgID";
         update.Parameters.AddWithValue("@orgName", txtOrgName.Text);
@@ -673,7 +686,7 @@ public partial class Organizations : System.Web.UI.Page
         update.Parameters.AddWithValue("@county", txtCounty.Text);
         update.Parameters.AddWithValue("@orgID", ddlOrganization.SelectedItem.Value);
         update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@lastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@lastUpdatedBy", tempLastUpdatedBy);
         update.Parameters.AddWithValue("@streetAddress", txtStreetAddress2.Text);
         update.Parameters.AddWithValue("@state", ddlState2.SelectedItem.Value);
         update.Parameters.AddWithValue("@postalCode", txtPostalCode2.Text);
@@ -728,7 +741,3 @@ public partial class Organizations : System.Web.UI.Page
         GridView3.DataBind();
     }
 }
-
-
-
-
