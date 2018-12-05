@@ -270,13 +270,13 @@ public partial class Invoices : System.Web.UI.Page
         {
             // if row type is DataRow, add ProductSales value to TotalSales
             // TotalNotCancelled += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "PaymentAmount"));
-            DataRowView drv = e.Row.DataItem as DataRowView;
-            if (drv["Paid"].ToString().Equals("N"))
+            DataRowView drv1 = e.Row.DataItem as DataRowView;
+            if (drv1["Paid"].ToString().Equals("N"))
             {
                 e.Row.CssClass = "alert alert-danger";
             }
 
-            else if (drv["Paid"].ToString().Equals("Y"))
+            else if (drv1["Paid"].ToString().Equals("Y"))
             {
                 e.Row.CssClass = "alert alert-success";
             }
