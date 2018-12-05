@@ -207,7 +207,7 @@ function showPosition(position) {
 
                //Update Info Window on Server Map
                userLocationInfoWindow.setPosition(latlng);
-userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistModeImage[selectedMode] +' style ="width:50px; height:50px"><h6 class ="pink-text">You Are Here</h4> <p class = "purple-text" style ="margin left:30px;">'+result[0].formatted_address+'</p>');
+                userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistModeImage[selectedMode] +' style ="width:50px; height:50px"><h6 class ="pink-text">You Are Here</h4> <p class = "purple-text" style ="margin left:30px;">'+result[0].formatted_address+'</p>');
              
                userLocationInfoWindow.open(map);
                map.setCenter(latlng);
@@ -312,13 +312,17 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
           </script>   
          
 
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+     <nav class="navbar navbar-dark bg-dark">
+  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-       
-
+  <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+        <div class="ml-auto row">
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
+       <%--  <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
+               <span>Logout</span></a>--%>
+               <asp:Button ID="logout" class=" d-none d-md-block" runat="server" style="color:#FFBC7C; cursor:pointer; margin-right: 15px; background-color:transparent; border:none;" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
+</div>
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown no-arrow">
@@ -350,11 +354,18 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-              <li class="nav-item ">
-                    <a class="nav-link" href="Report.aspx">
+        <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                        <span>Reports</span></a>
-                </li>
+                    <span>Organizations</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                </div>
+            </li>
+             
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -367,48 +378,26 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
                 </div>
             </li>
 
-            <li class="nav-item dropdown no-arrow">
+            
+
+             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Organizations</span>
+                    <span>Wildlife Staff</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
-                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
-                </div>
-            </li>
-
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Educators</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
-                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                </div>
-            </li>
-
-            <li class="nav-item dropdown no-arrow ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                 <span>Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                    </div>
-                </li>
-
-            <li class="nav-item " style="display: inline-block;
-  white-space: nowrap;">
-                <a class="nav-link" href="createUser.aspx">
-
-                    <span>Create Outreach Coordinator Access</span></a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+                </div>
             </li>
+         <li class="nav-item ">
+                    <a class="nav-link" href="Report.aspx">
+
+                        <span>Reports</span></a>
+                </li>
             <li class="nav-item">
                 <a class="nav-link" href="Default.aspx">
 
@@ -428,8 +417,8 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
 
        
 
-        <ul class=" sidebar navbar-nav d-none d-md-block " >
-            <li class="nav-item dropdown no-arrow ">
+        <ul class="sidebar navbar-nav d-none d-md-block">
+            <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -439,16 +428,15 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
                     <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
-                   
                 </div>
             </li>
             <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item active dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                     <span>Animals</span>
+                    <span>Animals</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
@@ -456,27 +444,23 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-             <li class="nav-item ">
-                    <a class="nav-link" href="Report.aspx">
 
-                        <span>Reports</span></a>
-                </li>
-            <li class="nav-item ">
-                    <a class="nav-link" href="Tableau.aspx">
-
-                        <span>Visualization</span></a>
-                </li>
-            <li class="nav-item dropdown no-arrow ">
+            <%--<li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Payment</span>
+                    <span>Reports</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                    
+                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
-            </li>
+            </li>--%>
+          
+           
+           
 
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -484,48 +468,49 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
                     <span>Organizations</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
-
-            <li class="nav-item dropdown no-arrow">
+             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Educators</span>
+                    <span>Payment</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
-                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+
                 </div>
             </li>
+            <li class="nav-item dropdown  no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-            <li class="nav-item dropdown no-arrow ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                 <span>Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
+                    <span>Wildlife Staff</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                    </div>
-                </li>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+                </div>
+            </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="Report.aspx">
 
-            <li class="nav-item">
+                    <span>Reports</span></a>
+            </li>
+             <li class="nav-item ">
+                <a class="nav-link" href="Tableau.aspx">
+
+                    <span>Visualization</span></a>
+            </li>
+            <%--<li class="nav-item">
                 <a class="nav-link" href="createUser.aspx">
-
                     <span>Create Outreach Coordinator Access</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Default.aspx">
-
-                    <span>Logout</span></a>
-            </li>
-
+            </li>--%>
         </ul>
            
 
@@ -542,23 +527,33 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
             Animal Listing</div>
         <div class="card-body">
             <div class="mx-auto d-flex justify-content-center">
-                <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal">Add Animal</div>
-                <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal">Edit Animal</div>
+                <div class="btn btn-primary btn-inside" data-target="#AddAnimalModal" data-toggle="modal"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Animal</div>
+                <div class="btn btn-primary btn-inside" data-target="#EditAnimalModal" data-toggle="modal"> <i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Animal</div>
             </div>
-                </div>
+                
             <br />
-            <div class="row">
 
-                <div class=" col-xl-6 col-lg-6 col-md-4 col-sm-4 col-sx-4 InternalAnimalForm">
-                    </div>
-                <div class=" text-right col-xl-6 col-lg-6 col-md-8 col-sm-8 col-sx-8 InternalAnimalForm">
-                    <asp:TextBox  class="InternalAnimalForm" ID="txtSearch" runat="server"></asp:TextBox>
-                    <asp:Button ID ="btnSearch" runat ="server" Text ="Search" OnClick="btnSearch_Click" />
-                    &nbsp;&nbsp;&nbsp;
-                    
-                </div>
+
+            <div class="row mx-auto d-flex justify-content-center">
+
+                                                    <div class=" col-xl-3 col-lg-4 col-md-3 col-sm-0 col-xs-0">
+                                                       
+                                                    </div>
+                                                    <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                    <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-xs-8 ">
+                                                      <asp:TextBox  class=" form-control" ID="txtSearch" runat="server"></asp:TextBox>
+
+                                                    </div>
+
+                                                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
+                                                        <asp:Button ID ="btnSearch" runat ="server" class="btn-block btn" style=" background-color: #FFBC7C;" Text ="Search" OnClick="btnSearch_Click" /></div>
             
-            </div>
+                                                      </div>
+
+                                               
+
+
+         
             <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
 
     <div class="container1 block">
@@ -589,7 +584,7 @@ userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistMo
      <br />
    
 <asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" runat="server" AutoGenerateColumns="False">
+    HeaderStyle-Forecolor="Black" runat="server" AutoGenerateColumns="False" AllowSorting="True" >
                       <Columns>
                           <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
                           <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
@@ -645,10 +640,10 @@ $(function() {
                         <br /><br /><br />--%>
                         <div class ="grid-mammal text-center">
                    
-                                  <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Mammal</h4>
-                                 <h4 class="alert d-md-none" style="background-color: #AB9993 !important; color: white !important;"> M</h4>
+                                  <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Mammal</h4>
+                                 <h4 class="alert d-md-none" style="background-color: #C7BFC4 !important; color: Black !important;"> M</h4>
                            
-    <asp:GridView ID="GridView1"  class="table table-borderless table-condensed  table-striped " runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4" AllowSorting="True" >
+    <asp:GridView ID="GridView1" class="table table-borderless table-condensed table-striped  "   runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource4" AllowSorting="True" >
         <Columns>
             <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" Visible="False">
             <ItemStyle HorizontalAlign="Center" />
@@ -669,8 +664,8 @@ $(function() {
   
        <div class ="grid-reptile text-center">
             
-             <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Reptile</h4>
-                                 <h4 class="alert d-md-none" style="background-color: #AB9993 !important; color: white !important;"> R</h4>
+             <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Reptile</h4>
+                                 <h4 class="alert d-md-none" style="background-color: #C7BFC4 !important; color: Black !important;"> R</h4>
          
                 <asp:GridView ID="GridView2"  class="table table-borderless table-condensed table-striped  " runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource5" AllowSorting="True">
                     <Columns>
@@ -688,8 +683,8 @@ $(function() {
      
         <div class ="grid-bird text-center ">
            
-            <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Bird</h4>
-                                 <h4 class="alert d-md-none" style="background-color: #AB9993 !important; color: white !important;"> B</h4>
+            <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Bird</h4>
+                                 <h4 class="alert d-md-none" style="background-color: #C7BFC4 !important; color: Black !important;"> B</h4>
                   <asp:GridView ID="GridView3"  class="table table-borderless table-condensed table-striped " runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6" AllowSorting="True" >
                       <Columns>
                           <asp:BoundField DataField="AnimalName"  SortExpression="AnimalName" />
@@ -709,17 +704,17 @@ $(function() {
                    
                          <div class="row mx-auto d-flex justify-content-center">
                             <div class="col-4">
-                                <h4 class="alert d-none d-lg-block" style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
+                                <h4 class="alert d-none d-lg-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Animal Name</h4>
                                  <h4 class=" d-md-none" style="background-color: #AB9993 !important; color: white !important; "> Name</h4>
-                                     <h4 class="alert d-none d-md-block d-lg-none" style="background-color: #AB9993 !important; color: white !important;"> Name</h4>
+                                     <h4 class="alert d-none d-md-block d-lg-none" style="background-color: #C7BFC4 !important; color: Black !important;"> Name</h4>
                             </div>
                      
                             <div class="col-4">
-                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Status</h4>
+                                 <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Status</h4>
                                  <h4 class=" d-md-none " style="background-color: #AB9993 !important; color: white !important; "> Status</h4>
                             </div>
                                <div class="col-4">
-                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Image</h4>
+                                 <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Image</h4>
                                       <h4 class=" d-md-none" style="background-color: #AB9993 !important; color: white !important; "> Image</h4>
                             </div>
                         </div>  
@@ -761,17 +756,17 @@ $(function() {
                      
                           <div class="row mx-auto d-flex justify-content-center">
                             <div class="col-4">
-                                <h4 class="alert d-none d-lg-block" style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
+                                <h4 class="alert d-none d-lg-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Animal Name</h4>
                                 <h4 class=" d-md-none " style="background-color: #AB9993 !important; color: white !important; "> Name</h4>
-                                     <h4 class="alert d-none d-md-block d-lg-none" style="background-color: #AB9993 !important; color: white !important;"> Name</h4>
+                                     <h4 class="alert d-none d-md-block d-lg-none" style="background-color: #C7BFC4 !important; color: Black !important;"> Name</h4>
                             </div>
                      
                             <div class="col-4">
-                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Status</h4>
+                                 <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Status</h4>
                                        <h4 class=" d-md-none " style="background-color: #AB9993 !important; color: white !important; "> Status</h4>
                             </div>
                                <div class="col-4">
-                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Image</h4>
+                                 <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Image</h4>
                                              <h4 class=" d-md-none" style="background-color: #AB9993 !important; color: white !important; "> Image</h4>
                             </div>
                         </div>  
@@ -807,17 +802,17 @@ $(function() {
                        
                            <div class="row mx-auto d-flex justify-content-center">
                             <div class="col-4">
-                                <h4 class="alert d-none d-lg-block" style="background-color: #AB9993 !important; color: white !important;"> Animal Name</h4>
+                                <h4 class="alert d-none d-lg-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Animal Name</h4>
                                    <h4 class=" d-md-none " style="background-color: #AB9993 !important; color: white !important; "> Name</h4>
-                                     <h4 class="alert d-none d-md-block d-lg-none" style="background-color: #AB9993 !important; color: white !important;"> Name</h4>
+                                     <h4 class="alert d-none d-md-block d-lg-none" style="background-color: #C7BFC4 !important; color: Black !important;"> Name</h4>
                             </div>
                      
                             <div class="col-4">
-                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Status</h4>
+                                 <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Status</h4>
                                         <h4 class=" d-md-none " style="background-color: #AB9993 !important; color: white !important; "> Status</h4>
                             </div>
                                <div class="col-4">
-                                 <h4 class="alert d-none d-md-block" style="background-color: #AB9993 !important; color: white !important;"> Image</h4>
+                                 <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;"> Image</h4>
                                          <h4 class=" d-md-none" style="background-color: #AB9993 !important; color: white !important; "> Image</h4>
                             </div>
                         </div>  
@@ -900,9 +895,9 @@ $(function() {
                 </div>
           <div runat="server" id="Div1">
           </div>
-      </div>
+      
         </div>
-
+          </div>
         </div>
       </div>
  
@@ -931,7 +926,7 @@ $(function() {
             <div class="row">
                 <div class=" col-md-4 InternalAnimalForm"><h6>Animal Type</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
-                    <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFAFA !important; color: #732700 !important; border-color:grey;" ID="ddlAnimalType" runat="server">
+                    <asp:DropDownList class="form-control style=" ID="ddlAnimalType" runat="server">
                         <asp:ListItem>--Animal Type--</asp:ListItem>
                         <asp:ListItem>Bird</asp:ListItem>
                         <asp:ListItem>Mammal</asp:ListItem>
@@ -950,7 +945,7 @@ $(function() {
              <div class="row">
                 <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
-                    <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" ID="ddlAnimalStatus" runat="server">
+                    <asp:DropDownList class="form-control" ID="ddlAnimalStatus" runat="server">
                          <asp:ListItem>--Status--</asp:ListItem>
                         <asp:ListItem>Active</asp:ListItem>
                         <asp:ListItem>Inactive</asp:ListItem>
@@ -1009,7 +1004,7 @@ $(function() {
           <div class="row"> 
             <div class=" col-md-4 InternalAnimalForm"><h6>Select Animal</h6> </div>
                 <div class=" col-md-3 InternalAnimalForm">
-                <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" ID="ddlAnimal" runat="server" AppendDataBoundItems="false" AutoPostBack="true" ViewStateMode="Enabled" EnableViewState="true" DataTextField="AnimalName" DataValueField="AnimalID" OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
+                <asp:DropDownList class="form-control" ID="ddlAnimal" runat="server" AppendDataBoundItems="false" AutoPostBack="true" ViewStateMode="Enabled" EnableViewState="true" DataTextField="AnimalName" DataValueField="AnimalID" OnSelectedIndexChanged ="ddlAnimal_SelectedIndexChanged1">
                 <asp:ListItem>--Select Animal--</asp:ListItem>
                 </asp:DropDownList>&nbsp&nbsp
                 </div>     
@@ -1017,7 +1012,7 @@ $(function() {
             <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Animal Type</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
-                        <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" ID="ddlAnimalTypeEdit" runat="server" AutoPostBack="True"> <%-- Github Merge issue: other version did not have autopostback --%>
+                        <asp:DropDownList class="form-control" ID="ddlAnimalTypeEdit" runat="server" AutoPostBack="True"> <%-- Github Merge issue: other version did not have autopostback --%>
                             <asp:ListItem Text="--Animal Type--" Value=""></asp:ListItem>
 
                             <%-- <asp:ListItem>All</asp:ListItem> --%>
@@ -1043,7 +1038,7 @@ $(function() {
               <div class="row"> 
                 <div class=" col-md-4 InternalAnimalForm"><h6>Status</h6> </div>
                     <div class=" col-md-3 InternalAnimalForm">
-                        <asp:DropDownList class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" ID="ddlStatus" runat="server">
+                        <asp:DropDownList class="form-control" ID="ddlStatus" runat="server">
                             <asp:ListItem>--Status--</asp:ListItem>
             <asp:ListItem>Active</asp:ListItem>
             <asp:ListItem>Inactive</asp:ListItem>
@@ -1103,4 +1098,4 @@ $(function() {
         </div>
 
     </div>
-</asp:Content>
+ </asp:Content>

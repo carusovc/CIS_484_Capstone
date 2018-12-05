@@ -11,11 +11,61 @@ using System.Data;
 
 public partial class createUser : System.Web.UI.Page
 {
+    
     protected void Page_Load(object sender, EventArgs e)
     {
+        try
+        {
+            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+            //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+            String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+            sc.ConnectionString = cs;
+            sc.Open();
+         
+            SqlConnection con = new SqlConnection(cs);
 
+            con.Open();
+
+            //string str = "select * from Person where username= @username";
+            System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+            str.Connection = sc;
+            str.Parameters.Clear();
+
+            str.CommandText = "select * from Person where username= @username";
+            str.Parameters.AddWithValue("@username", HttpUtility.HtmlEncode(Session["USER_ID"]));
+            str.ExecuteNonQuery();
+
+            //SqlCommand com = new SqlCommand(str, con);
+
+            SqlDataAdapter da = new SqlDataAdapter(str);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
+
+
+        }
+        catch
+        {
+           // Session.RemoveAll();
+            //Response.Redirect("Default.aspx", false);
+
+        }
     }
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
 
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
+    }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
 
@@ -29,8 +79,7 @@ public partial class createUser : System.Web.UI.Page
                 try
                 {
 
-                    //sc.ConnectionString = @"Data Source=wildlifecenteraws.cpe6s6lt7jmj.us-east-1.rds.amazonaws.com;Initial Catalog=WildlifeCenter;Persist Security Info=True;User ID=Master;Password=Wildlife"; // connect to database
-                    //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;"; // connect to PBKDF2 database
+          
 
                     System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
                     String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
@@ -59,12 +108,27 @@ public partial class createUser : System.Web.UI.Page
 
 
                         // INSERT USER RECORD
-                        createUser.CommandText = "insert into[dbo].[Person] values(@FName, @LName, @Username, @Email, @Status)";
+                        createUser.CommandText = "insert into[dbo].[Person] values(@FName, @LName, @Username, @Email, @Status, @PersonCategory)";
                         createUser.Parameters.Add(new SqlParameter("@FName", txtFirstName.Text));
                         createUser.Parameters.Add(new SqlParameter("@LName", txtLastName.Text));
                         createUser.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
                         createUser.Parameters.Add(new SqlParameter("@Email", txtEmail.Text));
                         createUser.Parameters.Add(new SqlParameter("@Status", "Active"));
+
+                        switch(ddlStaffType.SelectedItem.Value.ToString())
+                        {
+                            case "0":
+                                break;
+
+                            case "1":
+                                createUser.Parameters.Add(new SqlParameter("@PersonCategory", "O"));
+                                break;
+
+                            case "2":
+                                createUser.Parameters.Add(new SqlParameter("@PersonCategory", "V"));
+                                break;
+                        }
+
                         createUser.ExecuteNonQuery();
 
                         System.Data.SqlClient.SqlCommand setPass = new System.Data.SqlClient.SqlCommand();
@@ -75,8 +139,70 @@ public partial class createUser : System.Web.UI.Page
                         setPass.Parameters.Add(new SqlParameter("@Password", PasswordHash.HashPassword(txtPassword.Text))); // hash entered password
                         setPass.ExecuteNonQuery();
 
-
                         sc.Close();
+
+
+                        System.Data.SqlClient.SqlConnection sc1 = new System.Data.SqlClient.SqlConnection();
+                        String cs1 = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+                        sc1.ConnectionString = cs1;
+                        sc1.Open();
+
+                        switch (ddlStaffType.SelectedValue.ToString())
+                        {
+                            case "0":
+                                break;
+
+                            case "1":
+                                System.Data.SqlClient.SqlCommand createOutreachCoordinator = new System.Data.SqlClient.SqlCommand();
+                                createOutreachCoordinator.Connection = sc1;
+
+                                //INSERT INTO table_name (column1, column2, column3, ...)
+                                //VALUES(value1, value2, value3, ...);
+                                string lastUpdateBy = "WildtekDevs";
+                                string status = "Active";
+                                string category = "O";
+
+                                // INSERT USER RECORD
+                                createOutreachCoordinator.CommandText = "insert into[dbo].[Educators] (EducatorFirstName, " +
+                                    "EducatorLastName, LastUpdated, LastUpdatedBy, Status, EducatorPhoneNumber, EducatorEmail," +
+                                    " EducatorCategory)" +
+                                    "  values (@FName, @LName, @LU, @LUB, @Status, @PhoneNum, @Email, @PersonCategory)";
+                                createOutreachCoordinator.Parameters.Add(new SqlParameter("@FName", txtFirstName.Text));
+                                createOutreachCoordinator.Parameters.Add(new SqlParameter("@LName", txtLastName.Text));
+                                createOutreachCoordinator.Parameters.Add(new SqlParameter("@LU", DateTime.Now.ToShortDateString()));
+                                createOutreachCoordinator.Parameters.Add(new SqlParameter("@LUB", lastUpdateBy));
+                                createOutreachCoordinator.Parameters.Add(new SqlParameter("@Status", status));
+                                createOutreachCoordinator.Parameters.Add(new SqlParameter("@PhoneNum", txtPhoneNumber.Text));
+                                createOutreachCoordinator.Parameters.Add(new SqlParameter("@Email", txtEmail.Text));
+                                createOutreachCoordinator.Parameters.Add(new SqlParameter("@PersonCategory", category));
+                                createOutreachCoordinator.ExecuteNonQuery();
+
+                                break;
+
+                            case "2":
+                                System.Data.SqlClient.SqlCommand createVolunteer = new System.Data.SqlClient.SqlCommand();
+                                createVolunteer.Connection = sc1;
+
+                                //INSERT INTO table_name (column1, column2, column3, ...)
+                                //VALUES(value1, value2, value3, ...);
+
+
+                                // INSERT USER RECORD
+                                createVolunteer.CommandText = "insert into[dbo].[Volunteers] (VolunteerFirstName, VolunteerLastName, VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus, LastUpdated, LastUpdatedBy, VolunteerCategory)" +
+                                    "  values (@FName, @LName, @PhoneNum, @Email, @Status, @LU, @LUB, @PersonCategory)";
+                                createVolunteer.Parameters.Add(new SqlParameter("@FName", txtFirstName.Text));
+                                createVolunteer.Parameters.Add(new SqlParameter("@LName", txtLastName.Text));
+                                createVolunteer.Parameters.Add(new SqlParameter("@LU", DateTime.Now.ToShortDateString()));
+                                createVolunteer.Parameters.Add(new SqlParameter("@LUB", (Session["USER_ID"].ToString())));
+                                createVolunteer.Parameters.Add(new SqlParameter("@Status", "Active"));
+                                createVolunteer.Parameters.Add(new SqlParameter("@PhoneNum", txtPhoneNumber.Text));
+                                createVolunteer.Parameters.Add(new SqlParameter("@Email", txtEmail.Text));
+                                createVolunteer.Parameters.Add(new SqlParameter("@PersonCategory", "V"));
+                                createVolunteer.ExecuteNonQuery();
+
+                                break;
+                        }
+
 
                         lblStatus.Text = "User committed!";
                         txtEmail.Enabled = false;
@@ -87,6 +213,10 @@ public partial class createUser : System.Web.UI.Page
                         btnSubmit.Enabled = false;
                         chkShowPassword.Visible = false;
                        // Response.Redirect("Program.aspx", false);
+
+
+
+
                     }
                     else
                     {
@@ -97,11 +227,11 @@ public partial class createUser : System.Web.UI.Page
 
                 catch (SqlException)
                 {
-                    lblStatus.Text = "fix error.";
+                   lblStatus.Text = "fix error.";
                 }
                 catch
                 {
-                    lblStatus.Text = "Database Error - User not committed.";
+                   lblStatus.Text = "Database Error - User not committed.";
                 }
             }
         }

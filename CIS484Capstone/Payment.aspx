@@ -33,18 +33,22 @@
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
 
-               
-         
 
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+
+
+    <nav class="navbar navbar-dark bg-dark">
+  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-
-  <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
-      <li class="nav-item dropdown no-arrow">
+  <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+        <div class="ml-auto row">
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
+         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
+               <span>Logout</span></a>
+</div>
+        <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
+           <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
+      <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -54,6 +58,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
                     <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
+                    
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -72,12 +77,19 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-             <li class="nav-item ">
-                    <a class="nav-link" href="Report.aspx">
+        <li class="nav-item dropdown  no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                        <span>Reports</span></a>
-                </li>
-            <li class="nav-item dropdown no-arrow active">
+                    <span>Organizations</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                </div>
+            </li>
+             
+            <li class="nav-item dropdown active no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Payment</span>
@@ -89,47 +101,26 @@
                 </div>
             </li>
 
-            <li class="nav-item dropdown no-arrow">
+            
+
+             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Organizations</span>
+                    <span>Wildlife Staff</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
             </li>
+         <li class="nav-item ">
+                    <a class="nav-link" href="Report.aspx">
 
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Educators</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
-                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                </div>
-            </li>
-
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Volunteers</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
-                    <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                </div>
-            </li>
-
-            <li class="nav-item " style="display: inline-block;
-  white-space: nowrap;">
-                <a class="nav-link" href="createUser.aspx">
-
-                    <span>Create Outreach Coordinator Access</span></a>
-            </li>
+                        <span>Reports</span></a>
+                </li>
             <li class="nav-item">
                 <a class="nav-link" href="Default.aspx">
 
@@ -137,18 +128,18 @@
             </li>
 
     </ul>
-   
-  </div>
-</nav>
 
-    
+        </div>
+    </nav>
+
+
 
     <div id="wrapper">
 
         <!-- Sidebar -->
 
         <ul class="sidebar navbar-nav d-none d-md-block">
-            <li class="nav-item dropdown no-arrow ">
+            <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -166,7 +157,7 @@
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                     <span>Animals</span>
+                    <span>Animals</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
@@ -174,27 +165,23 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-             <li class="nav-item ">
-                    <a class="nav-link" href="Report.aspx">
 
-                        <span>Reports</span></a>
-                </li>
-            <li class="nav-item ">
-                    <a class="nav-link" href="Tableau.aspx">
-
-                        <span>Visualization</span></a>
-                </li>
-            <li class="nav-item dropdown no-arrow active">
+            <%--<li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Payment</span>
+                    <span>Reports</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                    
+                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
-            </li>
+            </li>--%>
+          
+           
+           
 
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -202,60 +189,64 @@
                     <span>Organizations</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
-
-            <li class="nav-item dropdown no-arrow">
+             <li class="nav-item active dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Educators</span>
+                    <span>Payment</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
-                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+
                 </div>
             </li>
-
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown  no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Volunteers</span>
+                    <span>Wildlife Staff</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
-                    <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
             </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="Report.aspx">
 
-            <li class="nav-item">
+                    <span>Reports</span></a>
+            </li>
+             <li class="nav-item ">
+                <a class="nav-link" href="Tableau.aspx">
+
+                    <span>Visualization</span></a>
+            </li>
+            <%--<li class="nav-item">
                 <a class="nav-link" href="createUser.aspx">
-
                     <span>Create Outreach Coordinator Access</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Default.aspx">
-
-                    <span>Logout</span></a>
-            </li>
-
+            </li>--%>
         </ul>
 
-      <div id="content-wrapper">
+
+        <div id="content-wrapper">
 
 
-        <div class="container-fluid block ">
-     
-  
-
-
+            <div class="container-fluid block ">
 
 
 
-  <%--  <div id="wrapper">
+
+
+
+
+                <%--  <div id="wrapper">
 
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
@@ -279,25 +270,25 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Report.aspx">Reports</a>
                   <%-- --%>
-                   <%-- --%>
+                <%-- --%>
                 <%--    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
                     <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>--%> 
-               <%-- </div>
+                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>--%>
+                <%-- </div>
             </li>
            <%-- <li class="nav-item dropdown no-arrow active">--%>
-<%--                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                <%--                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                     <i class="fas fa-envelope fa-fw"></i>
                     <span>Payment</span>
                 </a>--%>
-<%--                <div class="dropdown-menu dropdown-menu-right">
+                <%--                <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
                     <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                    --%>
-                
-          
+                --%>
 
-<%--            <li class="nav-item dropdown no-arrow">
+
+
+                <%--            <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                     <i class="fas fa-envelope fa-fw"></i>
                     <span>Add New Program Content</span>
@@ -310,7 +301,7 @@
                 </div>
             </li>--%>
 
-<%--            <li class="nav-item dropdown no-arrow">
+                <%--            <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                     <i class="fas fa-envelope fa-fw"></i>
                     <span>Update Program Content</span>
@@ -324,184 +315,181 @@
 
 
 
-        
 
 
 
 
 
-        <div >
-            <div class="container-fluid">
-                
-    <div class="container1">
-      <div class="card card-register mx-auto mt-5">
-                        <div class="card-header NewUserTitle">Add New Payment</div>
-                        <div class="card-body">
-                            <div class="form-group">
 
-                                 <div class="form-group row">
-                                  <div class="col-sm-12 col-md-6">
-                                    <h6>Invoice Number</h6>
-                                
-                                <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder ="Enter Invoice Number"></asp:TextBox>
-                                   
-                                     </div>
-                                <%--<asp:RequiredFieldValidator id="RequiredFieldValidator7" runat="server" ControlToValidate="txtInvoiceNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-                                     
-                                  <div class="col-sm-12 col-md-6">   
-                                      <h6>Date of Payment</h6>
-                                <asp:Label runat="server" id="lblDate"></asp:Label>
+                <div>
+                    <div class="container-fluid">
+
+                        <div class="container1">
+                            <div class="card card-register mx-auto mt-5">
+                                <div class="card-header NewUserTitle">Add New Invoice</div>
+                                <div class="card-body">
+
+                                    <div class="row">
+
+
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Invoice Number *</h6>
                                 </div>
-                                     </div>
-                                 <p></p>
-
-
-                                <div class="form-group row">
-                             <div class="col-sm-12 col-md-6">
-                                 <h6>Program</h6>
-                                    <asp:DropDownList ID="ddlProgramType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChange="ddlProgramType_SelectedIndexChanged">                                  
-                                        <asp:ListItem Value ="0">--Select Program--</asp:ListItem> </asp:DropDownList>
-                                  <%--<asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Invoice Number *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                     <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder="Enter Invoice Number" required="required"></asp:TextBox>
 
                                 </div>
-                                    <div class="col-sm-12 col-md-6">
-                               <h6>Organization</h6>
-                                    <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="false" DataTextField="OrgName" DataValueField="OrgID" >                                  
-                                        <asp:ListItem Value ="0">--Select Organization--</asp:ListItem> </asp:DropDownList>
-<%--                                  <asp:RequiredFieldValidator id="RequiredFieldValidator8" runat="server" ControlToValidate="ddlOrganization" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                            </div>
+                            <br />
 
+                                     <div class="row">
+
+
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Date of Payment *</h6>
                                 </div>
-                                 
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Date of Payment *</h6>
                                 </div>
-                                <p></p>
-                                
-
-                               <div class="form-group row">
-                        
-                            
-                               
-                              <%--  <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged" Style="text-align: left;" class="form-control">
-                                                <asp:ListItem>Month</asp:ListItem>
-                                                <asp:ListItem>January</asp:ListItem>
-                                                <asp:ListItem>February</asp:ListItem>
-                                                <asp:ListItem>March</asp:ListItem>
-                                                <asp:ListItem>April</asp:ListItem>
-                                                <asp:ListItem>May</asp:ListItem>
-                                                <asp:ListItem>June</asp:ListItem>
-                                                <asp:ListItem>July</asp:ListItem>
-                                                <asp:ListItem>August</asp:ListItem>
-                                                <asp:ListItem>September</asp:ListItem>
-                                                <asp:ListItem>October</asp:ListItem>
-                                                <asp:ListItem>November</asp:ListItem>
-                                                <asp:ListItem>December</asp:ListItem>
-                                            </asp:DropDownList>
-                                    <asp:RequiredFieldValidator id="RequiredFieldValidator1" runat="server" ControlToValidate="ddlMonth" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
-                                
-                                   </div>
-                                 <div class="col-sm-12 col-md-6">
-                                <h6>Date</h6>
-                               
-                                <asp:DropDownList ID="ddlDate" runat="server" AutoPostBack="True" Style="text-align: left;" class="form-control">
-
-                                            <asp:ListItem Value="Day"></asp:ListItem>
-                                        </asp:DropDownList>
-                        <asp:RequiredFieldValidator id="RequiredFieldValidator2" runat="server" ControlToValidate="ddlDate" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
-
+                                <div class=" col-md-6 InternalAnimalForm">
+                                    <input type="date" id="PaymentDate" class="form-control" runat="server" required="required"/>
                                 </div>
-                                   </div>
-                                <p></p>
+                            </div>
+                            <br />
 
-                                
-                                <p></p>
+                                       <div class="row">
 
-                                <div class="form-group row">
-                              <div class="col-sm-12 col-md-6">
-                                <h6>Year</h6>
-                                
-                                <asp:DropDownList ID="ddlYear" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged" class="form-control">
-                                <asp:ListItem Value="Year"></asp:ListItem>
-                                </asp:DropDownList>
-                                    <asp:RequiredFieldValidator id="RequiredFieldValidator3" runat="server" ControlToValidate="ddlYear" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>
-                                  --%>
 
-                                 <div class="col-sm-12 col-md-6">
-                                <h6>Amount</h6>
-                              
-                                <asp:TextBox ID="txtAmount" runat="server" class="form-control" placeholder ="Enter Amount"></asp:TextBox>
-                            <%--         <asp:CompareValidator ID="AmountValidator" runat="server" ControlToValidate="txtAmount" Type="Integer"
-                                        Operator="DataTypeCheck" ErrorMessage="Value must be a money" />--%>
-<%--                                <asp:RequiredFieldValidator id="RequiredFieldValidator4" runat="server" ControlToValidate="txtAmount" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-                                     
-                                
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Program *</h6>
                                 </div>
-                              <%--     <div class="col-sm-12 col-md-6">
-                                       <h6>Select</h6>
-                                       <p></p>
-                                    <asp:RadioButtonList ID="rdbPaid" runat="server"> 
-                                        <asp:ListItem Text="Paid" Value ="Y"/>
-                                        <asp:ListItem  Text="Not Paid" Value ="N"/>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Program *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                    <asp:DropDownList ID="ddlProgramType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChange="ddlProgramType_SelectedIndexChanged" required="required">
+                                                    <asp:ListItem Value="0">--Select Program--</asp:ListItem>
+                                                </asp:DropDownList></div>
+                            </div>
+                            <br />
+
+                                      <div class="row">
+
+
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Organization *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Organization *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                      <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="false" DataTextField="OrgName" DataValueField="OrgID" required="required">
+                                                    <asp:ListItem Value="0">--Select Organization--</asp:ListItem>
+                                                </asp:DropDownList></div>
+                            </div>
+                            <br />
+
+
+
+
+
+                                               <div class="row">
+
+
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                     <h6>Amount *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Amount *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                  <asp:TextBox ID="txtAmount" runat="server" class="form-control" placeholder="Enter Amount" required="required"></asp:TextBox>
+                            </div></div>
+                            <br />
+
+                                                    <div class="row">
+
+
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                      <h6>Payment Type *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                      <h6>Payment Type *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                     <asp:DropDownList ID="ddlPaymentType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged" required="required">
+                                                    <asp:ListItem Value="0">--Payment Type--</asp:ListItem>
+                                                    <asp:ListItem>Check</asp:ListItem>
+                                                    <asp:ListItem>Credit</asp:ListItem>
+                                                    <asp:ListItem>Debit</asp:ListItem>
+                                                </asp:DropDownList>
+                            </div></div>
+                            <br />
+
+                      <div class="row">
+
+
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                        <h6>Check Number *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                        <h6>Check Number *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                    <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" ReadOnly="true" placeholder="Enter Check Number" required="required"></asp:TextBox>
+                                               
+                            </div></div>
+                            <br />
+
+                          
+                      <div class="row">
+
+
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                          <h6>Payment Status *</h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                        <h6>Payment Status *</h6>
+                                </div>
+                                <div class=" col-md-6 InternalAnimalForm">
+                                      <asp:DropDownList ID="ddlInvoicePaymentStatus" runat="server" class="form-control" AppendDataBoundItems="false" required="required">
+                                                    <asp:ListItem Value="0">--Payment Status--</asp:ListItem>
+                                                    <asp:ListItem>Paid</asp:ListItem>
+                                                    <asp:ListItem>Not Paid</asp:ListItem>
+                                                </asp:DropDownList>    </div>         
+                            </div>
+                            <br />
+
+
+
                                       
-                                 </asp:RadioButtonList>
-                                       </div>--%>
+                                    
+
+
+
+                                     
+                                  
+                                    <div class="mx-auto d-flex justify-content-center">
+                                        <%--<asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" class="btn btn-primary btn-inside" />--%>
+                                        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary btn-inside" Text="Submit" />
+                                        <asp:Button ID="btnInvoices" runat="server" OnClick="btnInvoices_Click" class="btn btn-primary btn-inside" Text="View Invoices" />
+                                    </div>
+                                    <p></p>
+                                    <asp:Label ID="lblStatus" ForeColor="red" runat="server"></asp:Label>
                                 </div>
-                                <p></p>
+                            </div>
 
-                                
-                                <p></p>
-                                   <p></p>
-
-                                <div class="form-group row">
-                               <div class="col-sm-12 col-md-6">
-                                <h6> Payment Type</h6>
-                               <asp:DropDownList ID="ddlPaymentType" runat="server"  class="form-control" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged">
-                                    <asp:ListItem Value ="0">--Payment Type--</asp:ListItem>
-                                    <asp:ListItem>Check</asp:ListItem>
-                                    <asp:ListItem>Credit</asp:ListItem>
-                                    <asp:ListItem>Debit</asp:ListItem>
-                               </asp:DropDownList>
-                             
-                                </div>
-                              <%--<asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server" ControlToValidate="ddlPaymentType" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-
-                                 <div class="col-sm-12 col-md-6">
-                               <h6>Check Number</h6>
-                             
-                               
-                                <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" ReadOnly="true" placeholder ="Enter Check Number"></asp:TextBox>
-                                    <%-- <asp:CompareValidator ID="CheckNumberValidator" runat="server" ControlToValidate="txtCheckNum" Type="Integer"
-                                        Operator="DataTypeCheck" ErrorMessage="Value must be a number." />--%>
-                               <%-- <asp:RequiredFieldValidator id="RequiredFieldValidator6" runat="server" ControlToValidate="txtCheckNum" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-
-                                </div>
-                                </div>
-                                <p></p>
-
-                                <div class="form-group row">
-                                <div class="col-sm-12 col-md-6">
-                                   
-                                <%--<asp:TextBox ID="txtCancelledChar" runat="server" MaxLength="1" Width="70px" class="form-control" placeholder ="(Y/N)"></asp:TextBox>
-                                <asp:RequiredFieldValidator id="RequiredFieldValidator9" runat="server" ControlToValidate="txtCancelledChar" ErrorMessage="Required field." ForeColor="Red"></asp:RequiredFieldValidator>--%>
-
-                                </div>
                         </div>
-                        </div>
-                        <div class="mx-auto d-flex justify-content-center">
-                            <%--<asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" class="btn btn-primary btn-inside" />--%>
-                            <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary btn-inside" Text="Submit" />
-                               <asp:Button ID="btnInvoices" runat="server" OnClick="btnInvoices_Click" class="btn btn-primary btn-inside" Text="View Invoices" />
-                        </div>
-                        <p></p>
-                        <asp:Label ID="lblStatus" ForeColor="red" runat="server"></asp:Label>
                     </div>
                 </div>
-         
             </div>
-                   </div>
-                </div>
-            </div>
-           
-            </div>
+
         </div>
-         
+    </div>
+
 </asp:Content>
+
 

@@ -35,16 +35,18 @@
             
          
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+ <nav class="navbar navbar-dark bg-dark">
+  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-       
-   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
-   
-
-  <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
+  <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
+        <div class="ml-auto row">
+        <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
+         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
+               <span>Logout</span></a>
+</div>
+        <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -55,12 +57,13 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
                     <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
+                    
                 </div>
             </li>
             <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-            <li class="nav-item dropdown no-arrow ">
+            <li class="nav-item dropdown no-arrow active">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
 
@@ -73,24 +76,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-             <li class="nav-item ">
-                    <a class="nav-link" href="Report.aspx">
-
-                        <span>Reports</span></a>
-                </li>
-            <li class="nav-item dropdown no-arrow active">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Payment</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                 <%--   --%>
-                </div>
-            </li>
-
-            <li class="nav-item dropdown no-arrow">
+        <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Organizations</span>
@@ -101,37 +87,39 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
-
-            <li class="nav-item dropdown no-arrow">
+             
+            <li class="nav-item dropdown active no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Educators</span>
+                    <span>Payment</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
-                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    
                 </div>
             </li>
 
-            <li class="nav-item dropdown no-arrow">
+            
+
+             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Volunteers</span>
+                    <span>Wildlife Staff</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
-                    <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
             </li>
+         <li class="nav-item ">
+                    <a class="nav-link" href="Report.aspx">
 
-            <li class="nav-item " style="display: inline-block;
-  white-space: nowrap;">
-                <a class="nav-link" href="createUser.aspx">
-
-                    <span>Create Outreach Coordinator Access</span></a>
-            </li>
+                        <span>Reports</span></a>
+                </li>
             <li class="nav-item">
                 <a class="nav-link" href="Default.aspx">
 
@@ -139,19 +127,18 @@
             </li>
 
     </ul>
-   
-  </div>
-</nav>
+
+        </div>
+    </nav>
 
   
 
     <div id="wrapper">
 
-        <!-- Sidebar -->
-    
+         <!-- Sidebar -->
 
-        <ul class=" sidebar navbar-nav d-none d-md-block " >
-            <li class="nav-item dropdown no-arrow ">
+        <ul class="sidebar navbar-nav d-none d-md-block">
+            <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -169,7 +156,7 @@
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                     <span>Animals</span>
+                    <span>Animals</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
@@ -177,29 +164,25 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-             <li class="nav-item ">
-                    <a class="nav-link" href="Report.aspx">
 
-                        <span>Reports</span></a>
-                </li>
-            <li class="nav-item ">
-                    <a class="nav-link" href="Tableau.aspx">
-
-                        <span>Visualization</span></a>
-                </li>
-            <li class="nav-item dropdown no-arrow active">
+            <%--<li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Payment</span>
+                    <span>Reports</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                    
+                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
-            </li>
+            </li>--%>
+          
+           
+           
 
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Organizations</span>
@@ -210,45 +193,47 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
-
-
-            <li class="nav-item dropdown no-arrow">
+             <li class="nav-item dropdown active no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Educators</span>
+                    <span>Payment</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Educators.aspx">View Educators</a>
-                    <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+
                 </div>
             </li>
-
-            
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown  no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Volunteers</span>
+                    <span>Wildlife Staff</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Volunteers.aspx">View Volunteers</a>
-                    <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
             </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="Report.aspx">
 
-            <li class="nav-item">
+                    <span>Reports</span></a>
+            </li>
+             <li class="nav-item ">
+                <a class="nav-link" href="Tableau.aspx">
+
+                    <span>Visualization</span></a>
+            </li>
+            <%--<li class="nav-item">
                 <a class="nav-link" href="createUser.aspx">
-
                     <span>Create Outreach Coordinator Access</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Default.aspx">
-
-                    <span>Logout</span></a>
-            </li>
-
+            </li>--%>
         </ul>
+
+       
 
         
 
@@ -264,8 +249,8 @@
       <div class="card  mx-auto mt-5">
         <div class="card-header NewUserTitle text-center">Invoices</div>
         <div class="card-body text-center">
-            <asp:Button class="btn btn-primary btn-inside" ID="btnAddPayment" runat="server" Text="Add Payment" OnClick="btnAddPayment_Click" />
-             <div class="btn btn-primary btn-inside" data-target="#UpdatePayment" data-toggle="modal">Edit Payment</div>
+           <a href="Payment.aspx"> <div class="btn btn-primary btn-inside" ID="btnAddPayment" runat="server"  OnClick="btnAddPayment_Click"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Payment</div></a>
+             <div class="btn btn-primary btn-inside" data-target="#UpdatePayment" data-toggle="modal"> <i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Invoice</div>
             <p></p>
             <div class="block3">
                                          <script>
@@ -303,7 +288,7 @@ $(function() {
     <div class="col-md-12 ProgramTitle">
         <div class="mx-auto d-flex justify-content-center">
 
-                        <asp:DropDownList ID="drpMonth" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="MonthName" DataValueField="MonthName">
+                        <asp:DropDownList ID="drpMonth" class="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="MonthName" DataValueField="MonthName">
                         <asp:ListItem>--Select Month--</asp:ListItem>
                         </asp:DropDownList>&nbsp&nbsp&nbsp&nbsp
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(paymentDate) } 
@@ -321,7 +306,7 @@ $(function() {
             when 12 then 'December'
            END as MonthName FROM [PaymentRecord] Group by { fn MONTH(paymentDate) } order by { fn MONTH(paymentDate) }"></asp:SqlDataSource>    
 
-                                <asp:DropDownList ID="drpYear" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
+                                <asp:DropDownList ID="drpYear" class="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
                                     <asp:ListItem>--Select Year--</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
@@ -337,21 +322,22 @@ $(function() {
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
     <br />
      <br />
-   
-                                        <asp:GridView ID="GridView1"  HeaderStyle-Backcolor="#FFBC7C" HeaderStyle-Forecolor="#732700" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
-                                            OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
+
+                  
+                                        <asp:GridView ID="GridView1"   runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
+                                            OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display."  class="table  table-condensed table-hover" HeaderStyle-BorderColor="#DDDDDD">
                                             <Columns>
                                                  <asp:TemplateField HeaderText="Select">
                                                 <ItemTemplate>
                                                     <asp:CheckBox ID="chkSelect" HorizontalAlign="Center" runat="server" Width="110px" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                                <asp:BoundField DataField="PaymentDate" HeaderText="PaymentDate" SortExpression="PaymentDate">
+                                                <asp:BoundField DataField="PaymentDate" HeaderText="Invoice Date" SortExpression="PaymentDate">
                                                     
                                                 </asp:BoundField>
-                                                <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
+                                                <asp:BoundField DataField="PaymentAmount" HeaderText="Payment Amount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
                                                 </asp:BoundField>
-                                                 <asp:BoundField DataField="PaymentType" HeaderText="PaymentType" SortExpression="PaymentType" />
+                                                 <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" SortExpression="PaymentType" />
                                                 <asp:BoundField DataField="CheckNumber" HeaderText="CheckNumber" SortExpression="CheckNumber" InsertVisible="True">
                                                 </asp:BoundField>
 
@@ -364,11 +350,11 @@ $(function() {
                                                  <asp:BoundField DataField="Paid" HeaderText="Paid?" SortExpression="Paid" ReadOnly="True"/>
                                             </Columns>
 
-                                            <HeaderStyle BackColor="#FFBC7C" ForeColor="#732700"></HeaderStyle>
+                                            <HeaderStyle BackColor="#C7BFC4" ForeColor="Black"></HeaderStyle>
 
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
+                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], PaymentRecord.Paid
                                             FROM [Program] inner join [Organization] on  Program.OrgID = Organization.OrgID inner join [PaymentRecord] 
 											on PaymentRecord.PaymentID = Program.PaymentID inner join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID  WHERE (CASE { fn MONTH(paymentDate) } 
                                             when 1 then 'January'
@@ -411,9 +397,9 @@ $(function() {
 
                 <div id="CancelledInvoice" class="container1 block3 tab-pane text-center WildTable">
                     <div class="InternalTab">
-    <div class="col-md-12 ProgramTitle">
+    <div class="col-md-12 mx-auto d-flex justify-content-center ProgramTitle">
              <br />
-          <asp:DropDownList ID="drpMonth2" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource7" DataTextField="MonthName" DataValueField="MonthName">
+          <asp:DropDownList ID="drpMonth2" class="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource7" DataTextField="MonthName" DataValueField="MonthName">
                         <asp:ListItem></asp:ListItem>
                         </asp:DropDownList>&nbsp&nbsp&nbsp&nbsp
             <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(paymentDate) } 
@@ -431,22 +417,24 @@ $(function() {
             when 12 then 'December'
            END as MonthName FROM [PaymentRecord] Group by { fn MONTH(paymentDate) } order by { fn MONTH(paymentDate) }"></asp:SqlDataSource>    
 
-                                <asp:DropDownList ID="drpYear2" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource8" DataTextField="YEAR" DataValueField="YEAR">
+                                <asp:DropDownList ID="drpYear2" class="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource8" DataTextField="YEAR" DataValueField="YEAR">
                                     <asp:ListItem></asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                                     SelectCommand="SELECT Distinct(YEAR(paymentDate)) AS YEAR FROM PaymentRecord"></asp:SqlDataSource>
          <p></p>
-			  <div class="ReportTitle text-center">Cancelled Invoices</div>
+        <br />
+			  
 			
 		</div>
                      <div class="row table-responsive mx-auto d-flex  justify-content-center">
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
     <br />
-     <br />
-   
-                                    <asp:GridView  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" ID="CancelledPaymentGrid" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID"  OnRowDataBound="GridView2_RowDataBound" AllowSorting="False" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover" >
+     
+   <div class="ReportTitle text-center">Cancelled Invoices</div>
+                  <br />
+                                    <asp:GridView  HeaderStyle-BorderColor="#DDDDDD" ID="CancelledPaymentGrid" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
+                                        OnRowDataBound="GridView2_RowDataBound" AllowSorting="False" EmptyDataText="There are no records to display." class="table stable-striped table-bordered table-condensed table-hover" >
                                         <Columns>
                                                  <asp:TemplateField HeaderText="Select">
                                                 <ItemTemplate>
@@ -454,11 +442,11 @@ $(function() {
                                                 </ItemTemplate>
                                         
                                             </asp:TemplateField>
-                                                <asp:BoundField DataField="PaymentDate" HeaderText="PaymentDate" SortExpression="PaymentDate">
+                                                <asp:BoundField DataField="PaymentDate" HeaderText="Invoice Date" SortExpression="PaymentDate">
                                                 </asp:BoundField>
-                                                <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
+                                                <asp:BoundField DataField="PaymentAmount" HeaderText="Payment Amount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
                                                 </asp:BoundField>
-                                                 <asp:BoundField DataField="PaymentType" HeaderText="PaymentType" SortExpression="PaymentType" />
+                                                 <asp:BoundField DataField="PaymentType" HeaderText="Payment Type" SortExpression="PaymentType" />
                                                 <asp:BoundField DataField="CheckNumber" HeaderText="CheckNumber" SortExpression="CheckNumber" InsertVisible="True">
                                                 </asp:BoundField>
 
@@ -469,6 +457,7 @@ $(function() {
                                                 <asp:BoundField DataField="PaymentID" HeaderText="PaymentID" SortExpression="PaymentID" Visible="False" ReadOnly="True"/>
                                                 <asp:BoundField DataField="Invoice" HeaderText="Invoice" SortExpression="Invoice" />
                                             </Columns>
+                                          <HeaderStyle BackColor="#C7BFC4" ForeColor="Black"></HeaderStyle>
                                     </asp:GridView>
                                     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                                         SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
@@ -509,9 +498,9 @@ $(function() {
 
 
                 <div id="YearlyInvoice" class="container1 block3 tab-pane  text-center WildTable">
-                    <div class="InternalTab">
-                                        <div class="col-md-12 ProgramTitle">
-                               <asp:DropDownList ID="drpYear3" runat="server" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AutoPostBack="True" DataSourceID="SqlDataSource6" DataTextField="YEAR" DataValueField="YEAR">
+                    <div class="InternalTab ">
+                                        <div class="col-md-12 ProgramTitle mx-auto d-flex justify-content-center">
+                               <asp:DropDownList ID="drpYear3" runat="server"  class="form-control" AutoPostBack="True" DataSourceID="SqlDataSource6" DataTextField="YEAR" DataValueField="YEAR">
                                     <asp:ListItem></asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
@@ -529,8 +518,9 @@ $(function() {
                                                 <br />
 
 
-                                                <asp:GridView ID="YearlyInvoiceGrid"  HeaderStyle-Backcolor="#FFBC7C"
-    HeaderStyle-Forecolor="#732700" runat="server" DataSourceID="SqlDataSource3" AutoGenerateColumns="False" DataKeyNames="PaymentID" OnRowDataBound="YearlyInvoiceGrid_RowDataBound" EmptyDataText="There are no records to display." class="table table-bordered table-condensed table-hover">
+                                                <asp:GridView ID="YearlyInvoiceGrid" HeaderStyle-BorderColor="#DDDDDD" HeaderStyle-Backcolor="#FFBC7C" AllowSorting="True"
+                                            HeaderStyle-Forecolor="#732700" runat="server" DataSourceID="SqlDataSource3" AutoGenerateColumns="False" DataKeyNames="PaymentID" 
+                                                    OnRowDataBound="YearlyInvoiceGrid_RowDataBound" EmptyDataText="There are no records to display." class="table  table-condensed table-hover">
                                             <Columns>
                                                  <asp:TemplateField HeaderText="Select" >
                                                 <ItemTemplate>
@@ -538,7 +528,7 @@ $(function() {
                                                 </ItemTemplate>
                                               
                                             </asp:TemplateField>
-                                                <asp:BoundField DataField="PaymentDate" HeaderText="PaymentDate" SortExpression="PaymentDate" >
+                                                <asp:BoundField DataField="PaymentDate" HeaderText="Invoice Date" SortExpression="PaymentDate" >
                                                       <FooterStyle Font-Bold="True" HorizontalAlign="Right" />
                                                 </asp:BoundField>
                                                 <asp:BoundField DataField="PaymentAmount" HeaderText="PaymentAmount" DataFormatString="{0:c}" SortExpression="PaymentAmount">
@@ -556,7 +546,7 @@ $(function() {
                                                  <asp:BoundField DataField="Paid" HeaderText="Paid?" SortExpression="Paid" ReadOnly="True"/>
                                             </Columns>
 
-<HeaderStyle BackColor="#FFBC7C" ForeColor="#732700"></HeaderStyle>
+  <HeaderStyle BackColor="#C7BFC4" ForeColor="Black"></HeaderStyle>
 
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
@@ -639,3 +629,4 @@ $(function() {
     
 
 </asp:Content>
+

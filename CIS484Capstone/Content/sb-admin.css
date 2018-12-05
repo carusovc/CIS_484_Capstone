@@ -33,7 +33,7 @@ body html {
 
 body {
     /*background-image: url(../Images/BackgroundLogin/sunset.jpg);*/
-    background-color: #D6D1CE;
+    background-color: rgba(0, 0, 0, 0.05);
     height: auto; /* You must set a specified height */
     background-position: top; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -142,7 +142,7 @@ body.fixed-nav #content-wrapper {
 }
 
 .navbar-nav .nav-item.active .nav-link {
-    color: #fff;
+    color: #FFBC7C;
 }
 
 .navbar-nav .nav-item.dropdown .dropdown-toggle::after {
@@ -187,6 +187,7 @@ body.fixed-nav #content-wrapper {
     background-color: #34383a !important;
     min-height: calc(100vh - 56px);
     text-align: center;
+    
 }
 
     .sidebar .nav-item:last-child {
@@ -198,6 +199,7 @@ body.fixed-nav #content-wrapper {
         text-align: center;
         padding: 0.75rem 1rem;
         width: 90px;
+        
     }
 
         .sidebar .nav-item .nav-link span {
@@ -223,11 +225,12 @@ body.fixed-nav #content-wrapper {
     }
 
     .sidebar .nav-item .nav-link {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.95);
+
     }
 
         .sidebar .nav-item .nav-link:active, .sidebar .nav-item .nav-link:focus, .sidebar .nav-item .nav-link:hover {
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(255, 188, 124, 0.75);
         }
 
     .sidebar.toggled {
@@ -253,7 +256,7 @@ body.fixed-nav #content-wrapper {
             }
 
                 .sidebar .nav-item .nav-link span {
-                    font-size: 1rem;
+                    font-size: 1.05rem;
                     display: inline;
                 }
 
@@ -712,9 +715,9 @@ body.fixed-nav #content-wrapper {
         border: none;
     }
 
-    .dropdown-item {
-        color: #818282 !important;
-    }
+.dropdown-item {
+    color: rgba(255, 255, 255, 0.75);
+}
 
     .navilnk {
         color: whitesmoke !important;
@@ -750,6 +753,7 @@ body.fixed-nav #content-wrapper {
             /* Change color of dropdown links on hover */
             .dropdown-content a:hover {
                 width: auto;
+                
             }
 
     /* Show the dropdown menu on hover */
@@ -1087,6 +1091,5 @@ Regular {
     color: #963300 !important;
 }
 .NavBarHidden{display:none !important;}
-
 
 

@@ -18,6 +18,45 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        try
+        {
+            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+            //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+            String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+            sc.ConnectionString = cs;
+            sc.Open();
+            // lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
+
+            SqlConnection con = new SqlConnection(cs);
+
+            con.Open();
+
+            //string str = "select * from Person where username= @username";
+            System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+            str.Connection = sc;
+            str.Parameters.Clear();
+
+            str.CommandText = "select * from Person where username= @username";
+            str.Parameters.AddWithValue("@username", HttpUtility.HtmlEncode(Session["USER_ID"]));
+            str.ExecuteNonQuery();
+
+            //SqlCommand com = new SqlCommand(str, con);
+
+            SqlDataAdapter da = new SqlDataAdapter(str);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
+
+
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
 
         SearchDiv.Visible = false;
         if (!IsPostBack)
@@ -80,11 +119,7 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
     }
 
 
-    protected void btnVisualize_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("TabAnimalReports.aspx");
-    }
-
+    
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         SearchDiv.Visible = true;
