@@ -46,8 +46,8 @@
                <span>Logout</span></a>
 </div>
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
-      <li class="nav-item dropdown no-arrow">
+   <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
+      <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -57,6 +57,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Programs.aspx">View Programs</a>
                     <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
+                    
                 </div>
             </li>
             <%--      <li class="nav-item">
@@ -75,24 +76,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-                         <li class="nav-item active">
-                    <a class="nav-link" href="Report.aspx">
-
-                        <span>Reports</span></a>
-                </li>
-            <li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Payment</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                    
-                </div>
-            </li>
-
-            <li class="nav-item dropdown no-arrow">
+        <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Organizations</span>
@@ -103,8 +87,22 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
-
+             
             <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Invoices</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    
+                </div>
+            </li>
+
+            
+
+             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Wildlife Staff</span>
@@ -117,6 +115,11 @@
                         <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
             </li>
+         <li class="nav-item active">
+                    <a class="nav-link" href="Report.aspx">
+
+                        <span>Reports</span></a>
+                </li>
             <li class="nav-item">
                 <a class="nav-link" href="Default.aspx">
 
@@ -135,7 +138,7 @@
         <!-- Sidebar -->
 
         <ul class="sidebar navbar-nav d-none d-md-block">
-            <li class="nav-item dropdown no-arrow ">
+            <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -153,7 +156,7 @@
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                     <span>Animals</span>
+                    <span>Animals</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
@@ -161,29 +164,25 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
                 </div>
             </li>
-             <li class="nav-item active">
-                    <a class="nav-link" href="Report.aspx">
 
-                        <span>Reports</span></a>
-                </li>
-            <li class="nav-item ">
-                    <a class="nav-link" href="Tableau.aspx">
-
-                        <span>Visualization</span></a>
-                </li>
-            <li class="nav-item dropdown no-arrow ">
+            <%--<li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Payment</span>
+                    <span>Reports</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-                    
+                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
+                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
+                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
+                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
+                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
+                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
-            </li>
+            </li>--%>
+          
+           
+           
 
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Organizations</span>
@@ -194,8 +193,18 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
+             <li class="nav-item dropdown  no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-           <li class="nav-item dropdown no-arrow ">
+                    <span>Invoices</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+
+                </div>
+            </li>
+            <li class="nav-item dropdown  no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Wildlife Staff</span>
@@ -208,8 +217,20 @@
                         <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
             </li>
-          
+              <li class="nav-item active">
+                <a class="nav-link" href="Report.aspx">
 
+                    <span>Reports</span></a>
+            </li>
+             <li class="nav-item ">
+                <a class="nav-link" href="Tableau.aspx">
+
+                    <span>Visualization</span></a>
+            </li>
+            <%--<li class="nav-item">
+                <a class="nav-link" href="createUser.aspx">
+                    <span>Create Outreach Coordinator Access</span></a>
+            </li>--%>
         </ul>
 
         <div id="content-wrapper" class="section">
@@ -289,7 +310,7 @@ $(function() {
                     </div>
                 <div class=" col-md-6 ml-auto d-flex justify-content-end InternalAnimalForm">
                     <asp:TextBox  class="InternalAnimalForm form-control" ID="txtSearch" runat="server" style="margin-right:5px;"></asp:TextBox>
-                    <asp:Button ID ="btnSearch" class="btn" runat ="server" style="background-color: #FFBC7C;" Text ="Search" OnClick="btnSearch_Click" />
+                    <asp:Button ID ="btnSearch" class="btn" runat ="server" style="background-color: #C7BFC4;" Text ="Search" OnClick="btnSearch_Click" />
                     &nbsp;&nbsp;&nbsp;
                     
                 </div>
@@ -527,7 +548,7 @@ $(function() {
               <div class=" col-lg-2 col-xl-2 col-md-6 col-sm-6 text-right InternalAnimalForm">
                                  
                                 <br />
-                              <asp:Button ID="Button1" runat="server" style="margin-top:7px;" CssClass="btn btn-block" OnClick="btnView_Click" Text="Filter" />      
+                              <asp:Button ID="Button1" runat="server" style="margin-top:7px; background-color: #C7BFC4;" CssClass="btn btn-block" OnClick="btnView_Click" Text="Filter" />      
                                 </div>
               
                           

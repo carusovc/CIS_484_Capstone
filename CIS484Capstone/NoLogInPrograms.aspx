@@ -212,11 +212,11 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                        <span>Payment</span>
+                        <span>Invoices</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                        <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                        <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
+                        <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
                         
                     </div>
                 </li>

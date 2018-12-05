@@ -52,7 +52,7 @@ public partial class userLogin : System.Web.UI.Page
             System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
             findPass.Connection = sc;
             // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
-            findPass.CommandText = "select PasswordHash, pe.PersonCategory as PersonType, pe.Status as PersonStatus, e.Status as EdStatus, v.VolunteerStatus as VStatus from Pass, Person pe, Educators e, Volunteers v where Username = @Username";
+            findPass.CommandText = "select PasswordHash, pe.PersonCategory as PersonType, pe.Status as PersonStatus, e.Status as EdStatus, v.VolunteerStatus as VStatus from Pass, Person pe, Educators e, Volunteers v where pe.Username = @Username";
             findPass.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
             SqlDataReader reader = findPass.ExecuteReader(); // create a reader
                                                              // SqlDataAdapter asda = new SqlDataAdapter();

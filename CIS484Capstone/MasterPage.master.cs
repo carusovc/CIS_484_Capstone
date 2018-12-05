@@ -519,13 +519,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
         System.Data.SqlClient.SqlCommand updateContact = new System.Data.SqlClient.SqlCommand();
         updateContact.Connection = sc;
 
-        update.CommandText = "update organization set orgName = @orgName, city = @city, county = @county, lastUpdated = @lastUpdated, lastUpdatedBy = @lastUpdatedBy, streetAddress = @streetAddress, state = @state, postalCode = @postalCode where orgID = @orgID";
+        update.CommandText = "update organization set orgName = @orgName, city = @city, county = @county, lastUpdatedBy = @lastUpdatedBy, lastUpdated = @lastUpdated, streetAddress = @streetAddress, state = @state, postalCode = @postalCode where orgID = @orgID";
         update.Parameters.AddWithValue("@orgName", txtOrgName.Text);
         update.Parameters.AddWithValue("@city", txtCity.Text);
         update.Parameters.AddWithValue("@county", txtCounty.Text);
         update.Parameters.AddWithValue("@orgID", ddlOrganization.SelectedItem.Value);
-        update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@lastUpdatedBy", HttpUtility.HtmlEncode(Session["USER_ID"]));
+        update.Parameters.AddWithValue("@lastUpdated", DateTime.Today);
         update.Parameters.AddWithValue("@streetAddress", txtStreetAddress2.Text);
         update.Parameters.AddWithValue("@state", ddlState2.SelectedItem.Value);
         update.Parameters.AddWithValue("@postalCode", txtPostalCode2.Text);
