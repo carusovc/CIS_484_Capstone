@@ -369,11 +369,11 @@ function showPosition(position) {
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Payment</span>
+                    <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
                     
                 </div>
             </li>
@@ -476,11 +476,11 @@ function showPosition(position) {
              <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Payment</span>
+                    <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
 
                 </div>
             </li>
@@ -546,7 +546,7 @@ function showPosition(position) {
                                                     </div>
 
                                                     <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
-                                                        <asp:Button ID ="btnSearch" runat ="server" class="btn-block btn" style=" background-color: #FFBC7C;" Text ="Search" OnClick="btnSearch_Click" /></div>
+                                                        <asp:Button ID ="btnSearch" runat ="server" class="btn-block btn" style=" background-color: #C7BFC4;" Text ="Search" OnClick="btnSearch_Click" /></div>
             
                                                       </div>
 
@@ -583,7 +583,7 @@ function showPosition(position) {
     <br />
      <br />
    
-<asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#FFBC7C"
+<asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#C7BFC4"
     HeaderStyle-Forecolor="Black" runat="server" AutoGenerateColumns="False" AllowSorting="True" >
                       <Columns>
                           <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />

@@ -91,11 +91,11 @@
             <li class="nav-item dropdown active no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Payment</span>
+                    <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
                     
                 </div>
             </li>
@@ -196,11 +196,11 @@
              <li class="nav-item dropdown active no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Payment</span>
+                    <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
 
                 </div>
             </li>
@@ -251,6 +251,7 @@
         <div class="card-body text-center">
            <a href="Payment.aspx"> <div class="btn btn-primary btn-inside" ID="btnAddPayment" runat="server"  OnClick="btnAddPayment_Click"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Payment</div></a>
              <div class="btn btn-primary btn-inside" data-target="#UpdatePayment" data-toggle="modal"> <i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Invoice</div>
+
             <p></p>
             <div class="block3">
                                          <script>

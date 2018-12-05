@@ -1701,7 +1701,8 @@
                                     <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <asp:Button ID="PaymentUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdatePayment_Click" />
+                                      
+                                          <asp:Button ID="PaymentUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdatePayment_Click" />
 
 
                                     </div>
