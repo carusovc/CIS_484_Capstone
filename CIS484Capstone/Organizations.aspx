@@ -125,24 +125,19 @@
                     </div>
                 </li>
 
-                 <li class="nav-item dropdown no-arrow active ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+               <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                 <span>Educators & Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx"> Educators & Volunteers</a>
-                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                    <span>Wildlife Staff</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                    </div>
-                </li>
-                <li class="nav-item " style="display: inline-block; white-space: nowrap;">
-                    <a class="nav-link" href="createUser.aspx">
-
-                        <span>Create Outreach Coordinator Access</span></a>
-                </li>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+                </div>
+            </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Default.aspx">
 
@@ -241,23 +236,18 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+           <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                 <span>Educators & Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx"> Educators & Volunteers</a>
-                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                    <span>Wildlife Staff</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                    </div>
-                </li>
-            <li class="nav-item">
-                <a class="nav-link" href="createUser.aspx">
-
-                    <span>Create Outreach Coordinator Access</span></a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+                </div>
             </li>
            
         </ul>
@@ -327,7 +317,7 @@
                                             <h6>Select Organization</h6>
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
-                                            <asp:DropDownList ID="ddlOrganization" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
+                                            <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
                                                 <asp:ListItem>--Select Organization--</asp:ListItem>
                                             </asp:DropDownList>&nbsp&nbsp
                                     &nbsp;&nbsp;
@@ -387,7 +377,7 @@
                                             <h6>State</h6>
                                         </div>
                                         <div class=" col-md-8 InternalOrgnaizationForm">
-                                            <asp:DropDownList ID="ddlState2" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server" placeholder="Add State/Province">
+                                            <asp:DropDownList ID="ddlState2" class="form-control" runat="server" placeholder="Add State/Province">
 
                                                 <asp:ListItem>--Select State--</asp:ListItem>
                                                 <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
@@ -468,7 +458,7 @@
                                                 <h6>Primary Contact</h6>
                                             </div>
                                             <div class=" col-md-8 InternalAnimalForm">
-                                                <asp:DropDownList ID="ddlContacts" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false">
+                                                <asp:DropDownList ID="ddlContacts" runat="server" class="form-control" AppendDataBoundItems="false">
                                                     <asp:ListItem>--Select Primary Contact--</asp:ListItem>
                                                 </asp:DropDownList>&nbsp&nbsp
                                     &nbsp;&nbsp;
@@ -520,7 +510,7 @@
                                                                 <h6>Organization</h6>
                                                             </div>
                                                             <div class=" col-md-8 InternalOrgnaizationForm">
-                                                                <asp:DropDownList ID="ddlOrg" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
+                                                                <asp:DropDownList ID="ddlOrg" class="form-control" runat="server">
                                                                     <asp:ListItem Text="--Select Organization--" Value=""></asp:ListItem>
                                                                 </asp:DropDownList>&nbsp;&nbsp;
                                                             </div>

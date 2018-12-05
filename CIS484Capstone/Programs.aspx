@@ -904,7 +904,7 @@
          <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
                <span>Logout</span></a>
 </div>
-        <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
+        <div class="collapse navbar-collapse active" id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -965,7 +965,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown no-arrow active">
+                <li class="nav-item dropdown no-arrow ">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                         <span>Organizations</span>
@@ -977,24 +977,19 @@
                     </div>
                 </li>
 
-                 <li class="nav-item dropdown no-arrow active ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                  <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                 <span>Educators & Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx"> Educators & Volunteers</a>
-                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                    <span>Wildlife Staff</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                    </div>
-                </li>
-                <li class="nav-item " style="display: inline-block; white-space: nowrap;">
-                    <a class="nav-link" href="createUser.aspx">
-
-                        <span>Create Outreach Coordinator Access</span></a>
-                </li>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+                </div>
+            </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Default.aspx">
 
@@ -1094,25 +1089,19 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+              <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                 <span>Educators & Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx"> Educators & Volunteers</a>
-                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                    <span>Wildlife Staff</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                    </div>
-                </li>
-            <li class="nav-item">
-                <a class="nav-link" href="createUser.aspx">
-
-                    <span>Create Outreach Coordinator Access</span></a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+                </div>
             </li>
-           
         </ul>
 
 
@@ -1238,7 +1227,7 @@
                                                 </div>
 
                                                 <div class="row mx-auto justify-content-center d-flex">
-                                                    <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                                    <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                                         <br />
                                                         <asp:DropDownList ID="ddlOrderByAll" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="margin-top: 7px; background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByAll_SelectedIndexChanged">
                                                             <asp:ListItem>--Order By--</asp:ListItem>
@@ -1248,28 +1237,27 @@
 
                                                         </asp:DropDownList>&nbsp&nbsp
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
                                                         <label id="StartDateLabelAll" class="" for="StartDateAll">Start Date:</label>
 
                                                         <input type="date" id="StartDateAll" class="form-control" runat="server" />
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
                                                         <label id="EndDateLabelAll" class="" for="EndDateAll">End Date:</label>
 
                                                         <input type="date" id="EndDateAll" class="form-control" runat="server" />
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click"  /> 
+                                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
+                                                        
 
-
-                                                        <br />
+                                                       <br class="d-none d-md-block" /> 
                                                         <asp:Button ID="btnFilterDatesAll" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnView_Click" Text="Filter Dates" />
                                                     </div>
-                                                    <br />
+                                                    
 
                                                 </div>
 
-
+                                                <br />
 
 
 
@@ -1570,7 +1558,7 @@
                                                 </div>
 
                                                 <div class="row mx-auto justify-content-center d-flex">
-                                                    <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                                    <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                                         <br />
                                                         <asp:DropDownList ID="ddlOrderByLive" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="margin-top: 7px; background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByLive_SelectedIndexChanged">
                                                             <asp:ListItem>--Order By--</asp:ListItem>
@@ -1580,30 +1568,29 @@
 
                                                         </asp:DropDownList>&nbsp&nbsp
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
                                                         <label id="StartDateLabelLive" class="" for="StartDateLive">Start Date:</label>
 
                                                         <input type="date" id="StartDateLive" class="form-control" runat="server" />
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
                                                         <label id="EndDateLabelLive" class="" for="EndDateLive">End Date:</label>
 
                                                         <input type="date" id="EndDateLive" class="form-control" runat="server" />
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
 
-                                                        <asp:Button ID="btnLiveSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
-                                                        <asp:Button ID="btnLiveClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnLiveClear_Click" />
-                                                        <br />
+                                                        <br class="d-none d-md-block" /> 
+
                                                         <asp:Button ID="btnFilterDatesLive" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnViewLive_Click" Text="Filter Dates" />
 
                                                     </div>
-                                                    <br />
+                                                    
 
                                                 </div>
 
 
-
+<br />
 
 
 
@@ -1873,7 +1860,7 @@
                                                 </div>
 
                                                 <div class="row mx-auto justify-content-center d-flex">
-                                                    <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                                    <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                                         <label class="" for="StartDateOnline"></label>
                                                         <asp:DropDownList ID="ddlOrderByOnline" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; margin-top: 7px; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByOnline_SelectedIndexChanged">
                                                             <asp:ListItem>--Order By--</asp:ListItem>
@@ -1882,28 +1869,26 @@
 
                                                         </asp:DropDownList>&nbsp&nbsp
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
                                                         <label id="StartDateLabelOnline" class="" for="StartDateOnline">Start Date:</label>
                                                         <input type="date" id="StartDateOnline" class="form-control" runat="server" />
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
                                                         <label id="EndDateLabelOnline" class="" for="EndDateOnline">End Date:</label>
 
                                                         <input type="date" id="EndDateOnline" class="form-control" runat="server" />
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
 
-                                                        <asp:Button ID="btnOnlineSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-right: 5px; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
-                                                        <asp:Button ID="btnOnlineClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnOnlineClear_Click" />
-
-                                                        <br />
+                                                        
+                                                        <br class="d-none d-md-block" /> 
                                                         <asp:Button ID="btnFilterDatesOnline" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn Search btn-block" OnClick="btnViewOnline_Click" Text="Filter Dates" />
 
                                                     </div>
 
 
                                                 </div>
-
+                                                <br  /> 
 
                                             
 
