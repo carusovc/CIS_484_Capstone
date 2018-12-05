@@ -42,107 +42,93 @@
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
         <div class="ml-auto row">
         <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
-         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
-               <span>Logout</span></a>
+       <%--  <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
+               <span>Logout</span></a>--%>
+               <asp:Button ID="logout" class=" d-none d-md-block" runat="server" style="color:#FFBC7C; cursor:pointer; margin-right: 15px; background-color:transparent; border:none;" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
 </div>
+
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
-                <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+      <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                        <%--<a class="nav-link" href="Programs.aspx">--%>
+                    <%--<a class="nav-link" href="Programs.aspx">--%>
 
-                        <span>Programs</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                        <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
-                    </div>
-                </li>
-                <%--      <li class="nav-item">
+                    <span>Programs</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Programs.aspx">View Programs</a>
+                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
+                    
+                </div>
+            </li>
+            <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-                <li class="nav-item dropdown no-arrow  ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+            <li class="nav-item dropdown no-arrow active">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
 
 
-                        <span>Animals</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
-                        <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
-                    </div>
-                </li>
-                <%-- UGH BY GUNTER 11.26.18 
-           <%--  <li class="nav-item ">
+                    <span>Animals</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                </div>
+            </li>
+        <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Organizations</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                </div>
+            </li>
+             
+            <li class="nav-item dropdown active no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Invoices</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    
+                </div>
+            </li>
+
+            
+
+             <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Wildlife Staff</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+                </div>
+            </li>
+         <li class="nav-item ">
                     <a class="nav-link" href="Report.aspx">
 
                         <span>Reports</span></a>
-                </li> --%>
-
-                <li class="nav-item ">
-                    <a class="nav-link" href="Report.aspx">
-
-                        <span>Reports</span>
-                    </a>
-
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="Tableau.aspx">
+            <li class="nav-item">
+                <a class="nav-link" href="Default.aspx">
 
-                        <span>Visualization</span></a>
-                </li>
-                <li class="nav-item dropdown no-arrow active">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                    <span>Logout</span></a>
+            </li>
 
-                        <span>Payment</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                        <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown no-arrow active">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                        <span>Organizations</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
-                        <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
-                    </div>
-                </li>
-
-                 <li class="nav-item dropdown no-arrow active ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                 <span>Educators & Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx"> Educators & Volunteers</a>
-                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                    </div>
-                </li>
-                <li class="nav-item " style="display: inline-block; white-space: nowrap;">
-                    <a class="nav-link" href="createUser.aspx">
-
-                        <span>Create Outreach Coordinator Access</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Default.aspx">
-
-                        <span>Logout</span></a>
-                </li>
-
-            </ul>
+    </ul>
 
         </div>
     </nav>
@@ -154,7 +140,7 @@
          <!-- Sidebar -->
 
         <ul class="sidebar navbar-nav d-none d-md-block">
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -181,18 +167,8 @@
                 </div>
             </li>
 
-
-            <li class="nav-item ">
-                <a class="nav-link" href="Report.aspx">
-
-                    <span>Reports</span>
-                </a>
-
-            </li>
-
             <%--<li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
                     <span>Reports</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -204,26 +180,11 @@
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
             </li>--%>
+          
+           
+           
 
-            <li class="nav-item ">
-                <a class="nav-link" href="Tableau.aspx">
-
-                    <span>Visualization</span></a>
-            </li>
-
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Payment</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-
-                </div>
-            </li>
-
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Organizations</span>
@@ -234,28 +195,47 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+             <li class="nav-item dropdown active no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                 <span>Educators & Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx"> Educators & Volunteers</a>
-                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                    </div>
-                </li>
-            <li class="nav-item">
-                <a class="nav-link" href="createUser.aspx">
+                    <span>Invoices</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
 
-                    <span>Create Outreach Coordinator Access</span></a>
+                </div>
             </li>
-           
+            <li class="nav-item dropdown  no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Wildlife Staff</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+                </div>
+            </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="Report.aspx">
+
+                    <span>Reports</span></a>
+            </li>
+             <li class="nav-item ">
+                <a class="nav-link" href="Tableau.aspx">
+
+                    <span>Visualization</span></a>
+            </li>
+            <%--<li class="nav-item">
+                <a class="nav-link" href="createUser.aspx">
+                    <span>Create Outreach Coordinator Access</span></a>
+            </li>--%>
         </ul>
 
-        </ul>
+       
 
         
 
@@ -264,7 +244,7 @@
 
    <div id="content-wrapper">
 
-                 <section class="login-block  col-xl-10 col-lg-10 col-md-12 col-s-12 mx-auto ">
+                <%-- <section class="login-block  col-xl-10 col-lg-10 col-md-12 col-s-12 mx-auto ">--%>
     
 
 <div class="container1">
@@ -273,6 +253,7 @@
         <div class="card-body text-center">
            <a href="Payment.aspx"> <div class="btn btn-primary btn-inside" ID="btnAddPayment" runat="server"  OnClick="btnAddPayment_Click"><i class="fas fa-plus" style="margin-right:5px;"></i>Add Payment</div></a>
              <div class="btn btn-primary btn-inside" data-target="#UpdatePayment" data-toggle="modal"> <i class="fas fa-pencil-alt " style="margin-right:5px;" > </i>Edit Invoice</div>
+
             <p></p>
             <div class="block3">
                                          <script>
@@ -310,7 +291,7 @@ $(function() {
     <div class="col-md-12 ProgramTitle">
         <div class="mx-auto d-flex justify-content-center">
 
-                        <asp:DropDownList ID="drpMonth" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="MonthName" DataValueField="MonthName">
+                        <asp:DropDownList ID="drpMonth" class="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="MonthName" DataValueField="MonthName">
                         <asp:ListItem>--Select Month--</asp:ListItem>
                         </asp:DropDownList>&nbsp&nbsp&nbsp&nbsp
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(paymentDate) } 
@@ -328,7 +309,7 @@ $(function() {
             when 12 then 'December'
            END as MonthName FROM [PaymentRecord] Group by { fn MONTH(paymentDate) } order by { fn MONTH(paymentDate) }"></asp:SqlDataSource>    
 
-                                <asp:DropDownList ID="drpYear" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
+                                <asp:DropDownList ID="drpYear" class="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="YEAR" DataValueField="YEAR">
                                     <asp:ListItem>--Select Year--</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
@@ -419,9 +400,9 @@ $(function() {
 
                 <div id="CancelledInvoice" class="container1 block3 tab-pane text-center WildTable">
                     <div class="InternalTab">
-    <div class="col-md-12 ProgramTitle">
+    <div class="col-md-12 mx-auto d-flex justify-content-center ProgramTitle">
              <br />
-          <asp:DropDownList ID="drpMonth2" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource7" DataTextField="MonthName" DataValueField="MonthName">
+          <asp:DropDownList ID="drpMonth2" class="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource7" DataTextField="MonthName" DataValueField="MonthName">
                         <asp:ListItem></asp:ListItem>
                         </asp:DropDownList>&nbsp&nbsp&nbsp&nbsp
             <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT CASE { fn MONTH(paymentDate) } 
@@ -439,20 +420,22 @@ $(function() {
             when 12 then 'December'
            END as MonthName FROM [PaymentRecord] Group by { fn MONTH(paymentDate) } order by { fn MONTH(paymentDate) }"></asp:SqlDataSource>    
 
-                                <asp:DropDownList ID="drpYear2" class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" style="background-color: #FFFfff !important; color: #732700 !important; border-color:grey;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource8" DataTextField="YEAR" DataValueField="YEAR">
+                                <asp:DropDownList ID="drpYear2" class="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource8" DataTextField="YEAR" DataValueField="YEAR">
                                     <asp:ListItem></asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                                     SelectCommand="SELECT Distinct(YEAR(paymentDate)) AS YEAR FROM PaymentRecord"></asp:SqlDataSource>
          <p></p>
-			  <div class="ReportTitle text-center">Cancelled Invoices</div>
+        <br />
+			  
 			
 		</div>
                      <div class="row table-responsive mx-auto d-flex  justify-content-center">
               <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
     <br />
-     <br />
-   
+     
+   <div class="ReportTitle text-center">Cancelled Invoices</div>
+                  <br />
                                     <asp:GridView  HeaderStyle-BorderColor="#DDDDDD" ID="CancelledPaymentGrid" runat="server" GridLines="None" DataSourceID="SqlDataSource5" AutoGenerateColumns="False" DataKeyNames="PaymentID"  
                                         OnRowDataBound="GridView2_RowDataBound" AllowSorting="False" EmptyDataText="There are no records to display." class="table stable-striped table-bordered table-condensed table-hover" >
                                         <Columns>
@@ -518,9 +501,9 @@ $(function() {
 
 
                 <div id="YearlyInvoice" class="container1 block3 tab-pane  text-center WildTable">
-                    <div class="InternalTab">
-                                        <div class="col-md-12 ProgramTitle">
-                               <asp:DropDownList ID="drpYear3" runat="server"  class="InternalAnimalForm btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AutoPostBack="True" DataSourceID="SqlDataSource6" DataTextField="YEAR" DataValueField="YEAR">
+                    <div class="InternalTab ">
+                                        <div class="col-md-12 ProgramTitle mx-auto d-flex justify-content-center">
+                               <asp:DropDownList ID="drpYear3" runat="server"  class="form-control" AutoPostBack="True" DataSourceID="SqlDataSource6" DataTextField="YEAR" DataValueField="YEAR">
                                     <asp:ListItem></asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
@@ -570,10 +553,10 @@ $(function() {
 
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
+                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Paymentrecord.Paid
                                             FROM [Program] inner join [Organization] on  Program.OrgID = Organization.OrgID inner join [PaymentRecord] 
 											on PaymentRecord.PaymentID = Program.PaymentID inner join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID  WHERE 
-                                            (YEAR(paymentDate)=@Year and paymentRecord.cancelledinvoices !='Y')"
+                                            (YEAR(paymentDate)=@Year and paymentRecord.cancelledinvoices ='N')"
                                             ProviderName="System.Data.SqlClient">
                                             <SelectParameters>
 

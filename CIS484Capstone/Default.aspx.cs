@@ -52,11 +52,11 @@ public partial class userLogin : System.Web.UI.Page
             System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
             findPass.Connection = sc;
             // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
-            findPass.CommandText = "select PasswordHash from Pass where Username = @Username";
+            findPass.CommandText = "select PasswordHash, pe.PersonCategory as PersonType, pe.Status as PersonStatus, e.Status as EdStatus, v.VolunteerStatus as VStatus from Pass, Person pe, Educators e, Volunteers v where pe.Username = @Username";
             findPass.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
             SqlDataReader reader = findPass.ExecuteReader(); // create a reader
-           // SqlDataAdapter asda = new SqlDataAdapter();
-          //  DataSet ds = new DataSet();
+                                                             // SqlDataAdapter asda = new SqlDataAdapter();
+                                                             //  DataSet ds = new DataSet();
 
             if (reader.HasRows) // if the username exists, it will continue
             {
@@ -66,34 +66,44 @@ public partial class userLogin : System.Web.UI.Page
                     string storedHash = reader["PasswordHash"].ToString(); // store the database password into this variable
                     if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                     {
-                        lblStatus.Text = "Success!";
-                        btnLogin.Enabled = false;
-                        txtUsername.Enabled = false;
-                        txtPassword.Enabled = false;
-                        Response.Redirect("Programs.aspx", false);
-             
+                        string PersonStatus = reader["PersonStatus"].ToString(); // store the database password into this variable
+                        string EducatorStatus = reader["EdStatus"].ToString(); // store the database password into this variable
+                        string VolunteerStatus = reader["VStatus"].ToString(); // store the database password into this variable
 
-                        Session["USER_ID"] = HttpUtility.HtmlEncode(txtUsername.Text);
-                        if (txtUsername.Text.ToString().Equals("Volunteer"))
+                        if (PersonStatus.Equals("Active") && EducatorStatus.Equals("Active") && VolunteerStatus.Equals("Active"))
                         {
-                            lblStatus.Text = "Success!";
-                            btnLogin.Enabled = false;
-                            txtUsername.Enabled = false;
-                            txtPassword.Enabled = false;
-                            Response.Redirect("NoLogInPrograms.aspx", false);
 
+                            string storedCategory = reader["PersonType"].ToString();
+                            switch (storedCategory)
+                            {
+                                case "O":
+                                    lblStatus.Text = "Success!";
+                                    btnLogin.Enabled = false;
+                                    txtUsername.Enabled = false;
+                                    txtPassword.Enabled = false;
+                                    Response.Redirect("Programs.aspx", false);
+                                    Session["USER_ID"] = HttpUtility.HtmlEncode(txtUsername.Text);
+                                    break;
 
-                            Session["USER_ID"] = HttpUtility.HtmlEncode(txtUsername.Text);
+                                case "V":
+                                    lblStatus.Text = "Success!";
+                                    btnLogin.Enabled = false;
+                                    txtUsername.Enabled = false;
+                                    txtPassword.Enabled = false;
+                                    Response.Redirect("NoLogInPrograms.aspx", false);
+                                    Session["USER_ID"] = HttpUtility.HtmlEncode(txtUsername.Text);
+                                    break;
+                            }
 
                         }
-
-                    }
-
-                    else
-
+                        else
+                        {
+                            lblStatus.Text = "Inactive User - Please Contact Your Administrator.";
+                        }
+                    } else
                         lblStatus.Text = "Incorrect Username or Password. Please Try again.";
-
                 }
+
 
             }
 
@@ -334,7 +344,7 @@ public partial class userLogin : System.Web.UI.Page
             txtPassword.TextMode = TextBoxMode.SingleLine;
 
             this.txtPassword.Text = HttpUtility.HtmlEncode(txtPassword.Text);
-            
+
 
         }
 

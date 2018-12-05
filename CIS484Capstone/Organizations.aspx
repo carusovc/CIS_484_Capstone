@@ -49,107 +49,93 @@
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
         <div class="ml-auto row">
         <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
-         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
-               <span>Logout</span></a>
+         <%--  <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
+               <span>Logout</span></a>--%>
+               <asp:Button ID="logout" class=" d-none d-md-block" runat="server" style="color:#FFBC7C; cursor:pointer; margin-right: 15px; background-color:transparent; border:none;" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
 </div>
+
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
-                <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+      <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                        <%--<a class="nav-link" href="Programs.aspx">--%>
+                    <%--<a class="nav-link" href="Programs.aspx">--%>
 
-                        <span>Programs</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                        <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
-                    </div>
-                </li>
-                <%--      <li class="nav-item">
+                    <span>Programs</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Programs.aspx">View Programs</a>
+                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
+                    
+                </div>
+            </li>
+            <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-                <li class="nav-item dropdown no-arrow  ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
 
 
-                        <span>Animals</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
-                        <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
-                    </div>
-                </li>
-                <%-- UGH BY GUNTER 11.26.18 
-           <%--  <li class="nav-item ">
+                    <span>Animals</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                </div>
+            </li>
+        <li class="nav-item dropdown active no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Organizations</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                </div>
+            </li>
+             
+            <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Invoices</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    
+                </div>
+            </li>
+
+            
+
+             <li class="nav-item dropdown no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Wildlife Staff</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+                </div>
+            </li>
+         <li class="nav-item ">
                     <a class="nav-link" href="Report.aspx">
 
                         <span>Reports</span></a>
-                </li> --%>
-
-                <li class="nav-item ">
-                    <a class="nav-link" href="Report.aspx">
-
-                        <span>Reports</span>
-                    </a>
-
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="Tableau.aspx">
+            <li class="nav-item">
+                <a class="nav-link" href="Default.aspx">
 
-                        <span>Visualization</span></a>
-                </li>
-                <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                    <span>Logout</span></a>
+            </li>
 
-                        <span>Payment</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                        <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown no-arrow active">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                        <span>Organizations</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
-                        <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
-                    </div>
-                </li>
-
-                 <li class="nav-item dropdown no-arrow active ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                 <span>Educators & Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx"> Educators & Volunteers</a>
-                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                    </div>
-                </li>
-                <li class="nav-item " style="display: inline-block; white-space: nowrap;">
-                    <a class="nav-link" href="createUser.aspx">
-
-                        <span>Create Outreach Coordinator Access</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Default.aspx">
-
-                        <span>Logout</span></a>
-                </li>
-
-            </ul>
+    </ul>
 
         </div>
     </nav>
@@ -161,7 +147,7 @@
         <!-- Sidebar -->
 
         <ul class="sidebar navbar-nav d-none d-md-block">
-            <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <%--<a class="nav-link" href="Programs.aspx">--%>
@@ -188,18 +174,8 @@
                 </div>
             </li>
 
-
-            <li class="nav-item ">
-                <a class="nav-link" href="Report.aspx">
-
-                    <span>Reports</span>
-                </a>
-
-            </li>
-
             <%--<li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
                     <span>Reports</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -211,26 +187,11 @@
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
             </li>--%>
+          
+           
+           
 
-            <li class="nav-item ">
-                <a class="nav-link" href="Tableau.aspx">
-
-                    <span>Visualization</span></a>
-            </li>
-
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <span>Payment</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
-
-                </div>
-            </li>
-
-            <li class="nav-item dropdown no-arrow active">
+            <li class="nav-item dropdown active no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Organizations</span>
@@ -241,25 +202,44 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
                 </div>
             </li>
-            <li class="nav-item dropdown no-arrow ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+             <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                 <span>Educators & Volunteers</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Volunteers.aspx"> Educators & Volunteers</a>
-                        <a class="dropdown-item" href="#" data-target="#AddEducator" data-toggle="modal">Add New Educator</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>
-                    </div>
-                </li>
-            <li class="nav-item">
-                <a class="nav-link" href="createUser.aspx">
+                    <span>Invoices</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
 
-                    <span>Create Outreach Coordinator Access</span></a>
+                </div>
             </li>
-           
+            <li class="nav-item dropdown  no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    <span>Wildlife Staff</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
+                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+                </div>
+            </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="Report.aspx">
+
+                    <span>Reports</span></a>
+            </li>
+             <li class="nav-item ">
+                <a class="nav-link" href="Tableau.aspx">
+
+                    <span>Visualization</span></a>
+            </li>
+            <%--<li class="nav-item">
+                <a class="nav-link" href="createUser.aspx">
+                    <span>Create Outreach Coordinator Access</span></a>
+            </li>--%>
         </ul>
 
 
@@ -327,7 +307,7 @@
                                             <h6>Select Organization</h6>
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
-                                            <asp:DropDownList ID="ddlOrganization" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
+                                            <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
                                                 <asp:ListItem>--Select Organization--</asp:ListItem>
                                             </asp:DropDownList>&nbsp&nbsp
                                     &nbsp;&nbsp;
@@ -387,7 +367,7 @@
                                             <h6>State</h6>
                                         </div>
                                         <div class=" col-md-8 InternalOrgnaizationForm">
-                                            <asp:DropDownList ID="ddlState2" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server" placeholder="Add State/Province">
+                                            <asp:DropDownList ID="ddlState2" class="form-control" runat="server" placeholder="Add State/Province">
 
                                                 <asp:ListItem>--Select State--</asp:ListItem>
                                                 <asp:ListItem Value="Non-USA Territory"></asp:ListItem>
@@ -468,7 +448,7 @@
                                                 <h6>Primary Contact</h6>
                                             </div>
                                             <div class=" col-md-8 InternalAnimalForm">
-                                                <asp:DropDownList ID="ddlContacts" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false">
+                                                <asp:DropDownList ID="ddlContacts" runat="server" class="form-control" AppendDataBoundItems="false">
                                                     <asp:ListItem>--Select Primary Contact--</asp:ListItem>
                                                 </asp:DropDownList>&nbsp&nbsp
                                     &nbsp;&nbsp;
@@ -520,7 +500,7 @@
                                                                 <h6>Organization</h6>
                                                             </div>
                                                             <div class=" col-md-8 InternalOrgnaizationForm">
-                                                                <asp:DropDownList ID="ddlOrg" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
+                                                                <asp:DropDownList ID="ddlOrg" class="form-control" runat="server">
                                                                     <asp:ListItem Text="--Select Organization--" Value=""></asp:ListItem>
                                                                 </asp:DropDownList>&nbsp;&nbsp;
                                                             </div>
@@ -896,7 +876,6 @@
                                                         <p class="d-lg-none">Active </p>
                                                     </a>
                                                 </li>
-
                                             </ul>--%>
 
 
@@ -907,7 +886,7 @@
                                                         <div class="row">
                                                             <%-- for Org listing--%>
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 InternalAnimalForm">
-                                                                <asp:DropDownList ID="ddlOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+                                                                <asp:DropDownList ID="ddlOrderBy" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
                                                                     <asp:ListItem>--Order By--</asp:ListItem>
                                                                     <%--<asp:ListItem>Program Date</asp:ListItem>--%>
                                                                     <asp:ListItem>Organization Name A-Z</asp:ListItem>
@@ -918,7 +897,7 @@
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-5 col-sm-12 col-xs-12 InternalAnimalForm">
                                                                 <div class="form-check-inline">
                                                                     <asp:TextBox class="InternalAnimalForm form-control" Style="margin-bottom: 5px; margin-right:5px;" ID="txtSearch" runat="server"></asp:TextBox>
-                                                                    <asp:Button ID="btnSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-bottom: 5px; margin-right:5px;" Text="Search" OnClick="btnSearch_Click" />
+                                                                    <asp:Button ID="btnSearch" runat="server" class="btn" Style=" background-color: #C7BFC4; margin-bottom: 5px; margin-right:5px;" Text="Search" OnClick="btnSearch_Click" />
                                                                     <asp:Button ID="btnAllClear" runat="server" class="btn " Style="margin-bottom: 5px; margin-right: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
                                                                     &nbsp;&nbsp;&nbsp;
                                                                 </div>
@@ -943,7 +922,7 @@
                                                                     <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                                                                             <asp:GridView ID="gridSearch" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
-                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False">
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False" AllowSorting ="true">
                                                                                 <Columns>
                                                                                     <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" />
                                                                                     <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" />
@@ -967,7 +946,7 @@
                                                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                 <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                                                     <asp:GridView ID="GridView1" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
-                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False" DataSourceID ="SqlDataSource4">
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False" AllowSorting ="true" DataSourceID ="SqlDataSource4">
                                                                         <Columns>
                                                                             <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName"></asp:BoundField>
                                                                             <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress"></asp:BoundField>
@@ -1001,7 +980,8 @@
                                                         <div class="row">
                                                             <%--for contact listing--%>
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 InternalAnimalForm">
-                                                                <asp:DropDownList ID="ddlContactOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlContactOrderBy_SelectedIndexChanged">
+                                                                <asp:DropDownList ID="ddlContactOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" 
+                                                                    AppendDataBoundItems="false" AutoPostBack="true" visible="false" DataValueField="">
                                                                     <asp:ListItem>--Order By--</asp:ListItem>
                                                                     <%--<asp:ListItem>Program Date</asp:ListItem>--%>
                                                                     <asp:ListItem>Organization Name A-Z</asp:ListItem>
@@ -1012,7 +992,7 @@
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-5 col-sm-12 col-xs-12 InternalAnimalForm">
                                                                 <div class="form-check-inline">
                                                                     <asp:TextBox class="InternalAnimalForm form-control" ID="txtContactSearch" Style="margin-bottom: 5px; margin-right: 5px;" runat="server"></asp:TextBox>
-                                                                    <asp:Button ID="btnContactSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-bottom: 5px; margin-right: 5px;" Text="Search" OnClick="btnContactSearch_Click" />
+                                                                    <asp:Button ID="btnContactSearch" runat="server" class="btn" Style=" background-color: #C7BFC4; margin-bottom: 5px; margin-right: 5px;" Text="Search" OnClick="btnContactSearch_Click" />
                                                                     <asp:Button ID="btnContactClear" runat="server" class="btn " Style="margin-bottom: 5px; margin-right: 5px;" Text="Clear Filters" OnClick="btnContactClear_Click" />
                                                                     &nbsp;&nbsp;&nbsp;
                                                                 </div>
@@ -1035,7 +1015,7 @@
                                                                     <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                                                                             <asp:GridView ID="ContactSearchGrid" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
-                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False">
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AllowSorting ="true" AutoGenerateColumns="False">
                                                                                 <Columns>
                                                                                     <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" />
                                                                                     <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName" />
@@ -1058,7 +1038,7 @@
                                                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                 <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                                                     <asp:GridView ID="GridView3" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
-                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False" DataSourceID ="SqlDataSource2">
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AllowSorting ="true" AutoGenerateColumns="False" DataSourceID ="SqlDataSource2">
                                                                         <Columns>
                                                                             <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName"></asp:BoundField>
                                                                             <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName"></asp:BoundField>
@@ -1114,11 +1094,9 @@
         //THESE ARE THE SCRIPTS FOR THE MODAL GOOGLE ADDRESS VALIDAOTR 
         // This example displays an address form, using the autocomplete feature
         // of the Google Places API to help users fill in the information.
-
         // This example requires the Places library. Include the libraries=places
         // parameter when you first load the API. For example:
         // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
         var placeSearch, autocomplete;
         var componentForm = {
             street_number: 'short_name',
@@ -1128,66 +1106,46 @@
             country: 'long_name',
             postal_code: 'short_name'
         };
-
         function initAutocomplete() {
             // Create the autocomplete object, restricting the search to geographical
             // location types.
             autocomplete = new google.maps.places.Autocomplete(
                                             /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
                 { types: ['geocode'] });
-
             // When the user selects an address from the dropdown, populate the address
             // fields in the form.
             autocomplete.addListener('place_changed', fillInAddress);
         }
-
         function fillInAddress() {
             // Get the place details from the autocomplete object.
             var place = autocomplete.getPlace();
-
             for (var component in componentForm) {
-
                 document.getElementById(component).value = '';
                 document.getElementById(component).disabled = false;
             }
-
             var array = [];
-
-
             // Get each component of the address from the place details
             // and fill the corresponding field on the form.
             for (var i = 0; i < place.address_components.length; i++) {
-
                 var addressType = place.address_components[i].types[0];
-
                 
                 if (componentForm[addressType]) {
-
-
                     var val = place.address_components[i][componentForm[addressType]];
-
                     document.getElementById(addressType).value = val;
-
                 }
-
             }
-
             //array = string.split(",");
             //document.getElementById("total2").value = array;
             
             var streetNumber = place.address_components[0].types[0];
             var streetName = place.address_components[1].types[0];
             document.getElementById("txtStreetAddress").value = place.address_components[0][componentForm[streetNumber]] + " " + place.address_components[1][componentForm[streetName]];
-
             var city = place.address_components[2].types[0];
             document.getElementById("textOrgCity").value = place.address_components[2][componentForm[city]];
-
-
             var state = place.address_components[3].types[0];
             document.getElementById("state").value = place.address_components[3][componentForm[state]];
             
             
-
       
             var zip = place.address_components[5].types[0];
             document.getElementById("txtPostalCode").value = place.address_components[5][componentForm[zip]];
@@ -1198,17 +1156,13 @@
             
             var hiddenControl = '<%= hiddenControl.ClientID %>';
             document.getElementById(hiddenControl).value = document.getElementById("txtStreetAddress").value;
-
             var hiddenCity = '<%= hiddenCity.ClientID %>';
             document.getElementById(hiddenCity).value = document.getElementById("textOrgCity").value;
-
             var hiddenState = '<%= hiddenState.ClientID %>';
             document.getElementById(hiddenState).value = document.getElementById("state").value;
-
             var hiddenZip = '<%= hiddenZip.ClientID %>';
             document.getElementById(hiddenZip).value = document.getElementById("txtPostalCode").value;
         }
-
         // Bias the autocomplete object to the user's geographical location,
         // as supplied by the browser's 'navigator.geolocation' object.
         function geolocate() {
@@ -1231,31 +1185,3 @@
             async defer></script>
 
 </asp:Content>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

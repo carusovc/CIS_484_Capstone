@@ -20,47 +20,47 @@ public partial class Invoices : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //try
-        //{
-        //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        //    //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-        //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        //    sc.ConnectionString = cs;
-        //    sc.Open();
-        //    // lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
+        try
+        {
+            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+            //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+            String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+            sc.ConnectionString = cs;
+            sc.Open();
+            // lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
 
-        //    SqlConnection con = new SqlConnection(cs);
+            SqlConnection con = new SqlConnection(cs);
 
-        //    con.Open();
+            con.Open();
 
-        //    //string str = "select * from Person where username= @username";
-        //    System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
-        //    str.Connection = sc;
-        //    str.Parameters.Clear();
+            //string str = "select * from Person where username= @username";
+            System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
+            str.Connection = sc;
+            str.Parameters.Clear();
 
             str.CommandText = "select * from Person where username= @username";
             str.Parameters.AddWithValue("@username", HttpUtility.HtmlEncode(Session["USER_ID"]));
             str.ExecuteNonQuery();
 
 
-        //    //SqlCommand com = new SqlCommand(str, con);
+            //SqlCommand com = new SqlCommand(str, con);
 
-        //    SqlDataAdapter da = new SqlDataAdapter(str);
+            SqlDataAdapter da = new SqlDataAdapter(str);
 
-        //    DataSet ds = new DataSet();
+            DataSet ds = new DataSet();
 
-        //    da.Fill(ds);
+            da.Fill(ds);
 
             lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
 
+            con.Close();
 
-
-        //}
-        //catch
-        //{
-        //    Session.RemoveAll();
-        //    Response.Redirect("Default.aspx", false);
-        //}
+        }
+        catch
+        {
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
+        }
 
     }
 
@@ -69,6 +69,19 @@ public partial class Invoices : System.Web.UI.Page
         /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
            server control at run time. */
     }
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
+
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
+    }
+
     protected void exportBtnCancelled(object sender, EventArgs e)
     {
         // Export Selected Rows to Excel file Here
@@ -248,16 +261,23 @@ public partial class Invoices : System.Web.UI.Page
 
         // check row type
         if (e.Row.RowType == DataControlRowType.DataRow)
+        {
             // if row type is DataRow, add ProductSales value to TotalSales
             TotalCancelled += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "PaymentAmount"));
+            DataRowView drv = e.Row.DataItem as DataRowView;
+            if (drv["Paid"].ToString().Equals("N"))
+            {
+                e.Row.CssClass = "alert alert-danger";
+            }
+            else if (drv["Paid"].ToString().Equals("Y"))
+            {
+                e.Row.CssClass = "alert alert-success";
+            }
+        }
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value
             // Since this example uses sales in dollars, I formatted output as currency
             e.Row.Cells[2].Text = String.Format("{0:c}", HttpUtility.HtmlEncode(TotalCancelled));
-
-
-
-
 
     }
     protected void YearlyInvoiceGrid_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -280,88 +300,13 @@ public partial class Invoices : System.Web.UI.Page
                 e.Row.CssClass = "alert alert-success";
             }
         }
-        //else if (e.Row.RowType == DataControlRowType.Footer)
-        // If row type is footer, show calculated total value
+        else if (e.Row.RowType == DataControlRowType.Footer)
+          //  If row type is footer, show calculated total value
         // Since this example uses sales in dollars, I formatted output as currency
-        // e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
+         e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
 
     }
-    //protected void exportBtnYearly_Click(object sender, EventArgs e)
-    //{
-
-    //    // Export Selected Rows to Excel file Here
-
-    //    // need to check is any row selected 
-    //    bool isSelected = false;
-    //    foreach (GridViewRow i in YearlyInvoiceGrid.Rows)
-    //    {
-    //        CheckBox cb = (CheckBox)i.FindControl("chkSelect");
-
-    //        if (cb != null && cb.Checked)
-    //        {
-    //            isSelected = true;
-    //            //break;
-    //        }
-    //        else
-    //        {
-    //            string script = "alert('Please select invoices you would like to export.');";
-    //            System.Web.UI.ScriptManager.RegisterClientScriptBlock(btnyearly, this.GetType(), "Test", script, true);
-    //        }
-
-    //    }
-
-    //    // export here
-    //    if (isSelected)
-    //    {
-    //        GridView gvExport = YearlyInvoiceGrid;
-
-
-    //        // this below line for not export checkbox to excel file
-    //        gvExport.Columns[0].Visible = false;
-
-    //        foreach (GridViewRow i in YearlyInvoiceGrid.Rows)
-    //        {
-
-    //            gvExport.Rows[i.RowIndex].Visible = false;
-
-    //            CheckBox cb = (CheckBox)i.FindControl("chkSelect");
-
-    //            if (cb != null && cb.Checked)
-    //            {
-    //                gvExport.Rows[i.RowIndex].Visible = true;
-
-    //            }
-
-    //        }
-    //        string invoiceyear = drpYear.SelectedValue.ToString() + " Yearly Invoices ";
-    //        string filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
-    //        Response.Clear();
-    //        Response.Buffer = true;
-    //        //Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + "\"");
-
-    //        Response.AddHeader("content-disposition", "attachment;filename=" + invoiceyear + filename + ".xls");
-    //        Response.Charset = "";
-    //        Response.ContentType = "application/vnd.ms-excel";
-    //        StringWriter sw = new StringWriter();
-    //        HtmlTextWriter htW = new HtmlTextWriter(sw);
-
-
-
-
-    //        gvExport.RenderControl(htW);
-    //        // string filename2 = /*drpOrg.SelectedValue.ToString() +*/ " Invoice - " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
-
-
-    //        string headerTable = @"<Table><tr><td>" + invoiceyear + " " + filename + "</td></tr><tr><td></td></tr></Table>";
-
-    //        Response.Write(headerTable);
-    //        Response.Output.Write(sw.ToString());
-
-
-    //        Response.End();
-
-    //    }
-    //}
+   
     protected void cancelInvoice(object sender, EventArgs e)
     {
         //GridView GridView1 = (GridView)sender;
