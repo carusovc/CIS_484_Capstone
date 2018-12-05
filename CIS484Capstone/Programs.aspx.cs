@@ -1892,7 +1892,8 @@ public partial class Programs : System.Web.UI.Page
 
         //// TEMPORARY UPDATED AND UPDATEDBY
         //string tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
-        string tempLastUpdatedBy = "WildTek Developers";
+        //string tempLastUpdatedBy = "WildTek Developers";
+        String tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
         DateTime tempLastUpdated = DateTime.Now;
 
         ////Organization class attributes

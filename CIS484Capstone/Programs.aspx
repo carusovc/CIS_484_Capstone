@@ -1217,7 +1217,7 @@
                                                 <br />
 
 
-
+                                                <asp:Panel ID="p" runat="server" DefaultButton="btnAllSearch">
                                                 <div class="row mx-auto d-flex justify-content-center">
 
                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
@@ -1238,7 +1238,8 @@
                                                     </div>
 
                                                 </div>
-
+                                                    </asp:Panel>
+                                                 <asp:Panel ID="Panel1" runat="server" DefaultButton="btnFilterDatesAll">
                                                 <div class="row mx-auto justify-content-center d-flex">
                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                                         <br />
@@ -1269,6 +1270,7 @@
                                                     <br />
 
                                                 </div>
+                                                     </asp:Panel>
 
 
 

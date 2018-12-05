@@ -152,6 +152,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 }
                 // ddlAnimal.DataBind();
             }
+            conAnimal.Close();
 
 
 
@@ -1216,6 +1217,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 }
                 break;
         }
+        con.Open();
+        sc.Open();
     }
 
     protected void ddlProgramThemeName_SelectedIndexChanged(object sender, EventArgs e)
@@ -1382,11 +1385,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
         System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
+        String tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
 
         update.CommandText = "update ProgramType set ProgramName = @ProgramName, LastUpdated = @LastUpdated, LastUpdatedBy = @LastUpdatedBy, Status = @Status where ProgramTypeID = @ProgramTypeID";
         update.Parameters.AddWithValue("@ProgramName", txtProgramThemeName.Text);
         update.Parameters.AddWithValue("@LastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@LastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@LastUpdatedBy", tempLastUpdatedBy);
         update.Parameters.AddWithValue("@Status", ddlThemeStatus.SelectedItem.Value);
         update.Parameters.AddWithValue("@ProgramTypeID", ddlProgramThemeName.SelectedItem.Value);
         update.ExecuteNonQuery();
@@ -1435,11 +1439,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
         System.Data.SqlClient.SqlCommand update = new System.Data.SqlClient.SqlCommand();
         update.Connection = sc;
         SqlConnection con = new SqlConnection(cs);
+        String tempLastUpdatedBy = HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
 
         update.CommandText = "update OnlineProgramType set OnlineProgramTypeName = @ProgramName, LastUpdated = @LastUpdated, LastUpdatedBy = @LastUpdatedBy, Status = @Status where OnlineProgramTypeID = @ProgramTypeID";
         update.Parameters.AddWithValue("@ProgramName", txtProgramThemeName.Text);
         update.Parameters.AddWithValue("@LastUpdated", DateTime.Today);
-        update.Parameters.AddWithValue("@LastUpdatedBy", "WildTek Developers");
+        update.Parameters.AddWithValue("@LastUpdatedBy", tempLastUpdatedBy);
         update.Parameters.AddWithValue("@Status", ddlThemeStatus.SelectedItem.Value);
         update.Parameters.AddWithValue("@ProgramTypeID", ddlProgramThemeName.SelectedItem.Value);
         update.ExecuteNonQuery();

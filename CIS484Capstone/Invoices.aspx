@@ -266,7 +266,7 @@
 
    <div id="content-wrapper">
 
-                 <section class="login-block  col-xl-10 col-lg-10 col-md-12 col-s-12 mx-auto ">
+                <%-- <section class="login-block  col-xl-10 col-lg-10 col-md-12 col-s-12 mx-auto ">--%>
     
 
 <div class="container1">
@@ -572,10 +572,10 @@ $(function() {
 
                                         </asp:GridView>
                                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Program.Paid
+                                            SelectCommand="SELECT convert(varchar, PaymentDate,101) as PaymentDate,[PaymentAmount], [CheckNumber],  [PaymentType], ProgramName, [OrgName],Program.PaymentID,[Invoice], Paymentrecord.Paid
                                             FROM [Program] inner join [Organization] on  Program.OrgID = Organization.OrgID inner join [PaymentRecord] 
 											on PaymentRecord.PaymentID = Program.PaymentID inner join ProgramType on Program.ProgramTypeID = ProgramType.ProgramTypeID  WHERE 
-                                            (YEAR(paymentDate)=@Year and paymentRecord.cancelledinvoices !='Y')"
+                                            (YEAR(paymentDate)=@Year and paymentRecord.cancelledinvoices ='N')"
                                             ProviderName="System.Data.SqlClient">
                                             <SelectParameters>
 
