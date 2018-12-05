@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="createUser.aspx.cs" Inherits="createUser" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -63,6 +64,7 @@
 
 
 
+
                         <span>Animals</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
@@ -77,6 +79,7 @@
 
                     <span>Reports</span></a>
             </li>
+
                 <li class="nav-item ">
                     <a class="nav-link" href="Tableau.aspx">
 
@@ -106,7 +109,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown no-arrow ">
+                <li class="nav-item dropdown no-arrow active ">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                         <span>Wildlife Staff</span>
@@ -126,6 +129,7 @@
 
                         <span>Logout</span></a>
                 </li>
+
 
             </ul>
 
@@ -198,7 +202,7 @@
                 </div>
             </li>
 
-            <li class="nav-item dropdown no-arrow ">
+            <li class="nav-item dropdown no-arrow active ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Wildlife Staff</span>
@@ -210,6 +214,7 @@
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
                         <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
+
             </li>
 
 
@@ -380,3 +385,4 @@
 
     </div>
 </asp:Content>
+

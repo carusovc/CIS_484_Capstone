@@ -1570,6 +1570,7 @@
                                                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
 
                                                         <br class="d-none d-md-block" /> 
+
                                                         <asp:Button ID="btnFilterDatesLive" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnViewLive_Click" Text="Filter Dates" />
 
                                                     </div>
