@@ -70,7 +70,7 @@ public partial class AnimalPage : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            
+
 
             //call read array
             SqlConnection conAnimal = new SqlConnection(cs);
@@ -162,49 +162,67 @@ public partial class AnimalPage : System.Web.UI.Page
 
         Animal newAnimal = new Animal(animalType, animalName);
         string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
-        using (Stream fs = FileUpload1.PostedFile.InputStream)
+
+        try
         {
-            using (BinaryReader br = new BinaryReader(fs))
+            using (Stream fs = FileUpload1.PostedFile.InputStream)
             {
-                byte[] bytes = br.ReadBytes((Int32)fs.Length);
+                using (BinaryReader br = new BinaryReader(fs))
+                {
+                    byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
-                insert.CommandText = "Insert into Animal (animalType, animalName, lastUpdated, lastUpdatedBy, status, AnimalImage) values (@animalType, @animalName, @lastUpdated, @lastUpdatedBy, @status, @animalImage)";
-                insert.Parameters.AddWithValue("@animalType", newAnimal.getAnimalType());
-                insert.Parameters.AddWithValue("@animalName", newAnimal.getAnimalName());
-                insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
-                insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
-                insert.Parameters.AddWithValue("@status", ddlAnimalStatus.SelectedItem.Text);
-                insert.Parameters.AddWithValue("@animalImage", bytes);
+                    insert.CommandText = "Insert into Animal (animalType, animalName, lastUpdated, lastUpdatedBy, status, AnimalImage) values (@animalType, @animalName, @lastUpdated, @lastUpdatedBy, @status, @animalImage)";
+                    insert.Parameters.AddWithValue("@animalType", newAnimal.getAnimalType());
+                    insert.Parameters.AddWithValue("@animalName", newAnimal.getAnimalName());
+                    insert.Parameters.AddWithValue("@lastUpdated", lastUpdated);
+                    insert.Parameters.AddWithValue("@lastUpdatedBy", lastUpdatedBy);
+                    insert.Parameters.AddWithValue("@status", ddlAnimalStatus.SelectedItem.Text);
+                    insert.Parameters.AddWithValue("@animalImage", bytes);
 
-                insert.ExecuteNonQuery();
+                    insert.ExecuteNonQuery();
 
+                    //do something
+
+
+
+                    lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(lastUpdated);
+                    lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(lastUpdatedBy);
+
+
+                    //retrieveImage.CommandText = "Select AnimalImage from Animal where animalID = @animalID";
+                    //retrieveImage.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
+
+                    //byte[] image = (byte[])retrieveImage.ExecuteScalar();
+                    //System.Drawing.Image newImage = ByteArrayToImage(image);
+
+
+
+
+                    //animalImage.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(image);
+
+
+
+
+                    txtAnimalName.Text = HttpUtility.HtmlEncode("");
+                    gridAnimalMammal.DataBind();
+                    gridReptile.DataBind();
+                    gridBird.DataBind();
+                    ddlAnimal.DataBind();
+                    GridView1.DataBind();
+
+                }
             }
         }
-
-        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(lastUpdated);
-        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(lastUpdatedBy);
-
-
-        //retrieveImage.CommandText = "Select AnimalImage from Animal where animalID = @animalID";
-        //retrieveImage.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
-
-        //byte[] image = (byte[])retrieveImage.ExecuteScalar();
-        //System.Drawing.Image newImage = ByteArrayToImage(image);
+        catch
+        {
+            string script = "alert('Animal Could Not Be Added - Please Try Again');";
+            System.Web.UI.ScriptManager.RegisterClientScriptBlock(Button3, this.GetType(), "Test", script, true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "HidePopup", "$('#AddAnimal').modal('hide')", true);
+            Page.Response.Redirect(Page.Request.Url.ToString(), true);
 
 
+        }
 
-
-        //animalImage.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(image);
-
-
-
-
-        txtAnimalName.Text = HttpUtility.HtmlEncode("");
-        gridAnimalMammal.DataBind();
-        gridReptile.DataBind();
-        gridBird.DataBind();
-        ddlAnimal.DataBind();
-        GridView1.DataBind();
     }
 
     public System.Drawing.Image ByteArrayToImage(byte[] byteArrayIn)
@@ -367,6 +385,8 @@ public partial class AnimalPage : System.Web.UI.Page
         txtBoxAnimalName.Text = HttpUtility.HtmlEncode("");
 
 
+        Page.Response.Redirect(Page.Request.Url.ToString(), true);
+
 
 
     }
@@ -480,5 +500,5 @@ public partial class AnimalPage : System.Web.UI.Page
         gridSearch.DataBind();
     }
 
-  
+
 }

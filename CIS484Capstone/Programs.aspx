@@ -125,7 +125,6 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
 
-
                 </div>
                 <div class="modal-body">
 
@@ -175,9 +174,11 @@
 
 
                     <%-- Modal Step 1.1 - Live Modal Form--%>
+
                     <div id="step11" class="hideMe">
                         <span></span>
-
+                    <asp:UpdatePanel ID="UpdatePanelAdd" runat="server">
+                    <ContentTemplate>
                         <h4>Live Program Basics</h4>
 
                         <div class="form-group">
@@ -274,12 +275,7 @@
                                     <label id="StatusLabel" for="Status">Program Status:</label>
                                 </div>
                                 <div class="col-7">
-                                    <%--                                    <select name="Program Status" id="Status" class="form-control">
-                                        <option value="">--Select Status--</option>
-                                        <option value="Not Complete">Not Complete</option>
-                                        <option value="Complete">Complete</option>
-                                    </select>--%>
-                                    <asp:DropDownList CssClass="form-control" ID="Status" runat="server" class="dropdown-menu radioButtonList">
+                               <asp:DropDownList CssClass="form-control" ID="Status" runat="server" class="dropdown-menu radioButtonList">
                                         <asp:ListItem Text="--Select Status--" Value="0" />
                                         <asp:ListItem Text="Not Complete" Value="Not Complete" />
                                         <asp:ListItem Text="Completed" Value="Completed" />
@@ -306,21 +302,23 @@
                             </div>--%>
 
 
-
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="lblOnOff" for="OnOff">Was the program on or off Wildlife Center Campus?</label>
+                                    <label id="lblOnOff" for="OnOff">Was the program onsite at the Wildlife Center Campus?</label>
                                 </div>
                                 <div class="col-7">
-                                    <select name="OnOff" id="OnOff" onchange="scheduleA.call(this, event)" class="dropdown-menu form-control" runat="server">
-
-                                        <option value=""></option>
-                                        <option value="1">On</option>
-                                        <option value="0">Off</option>
-                                    </select>
+                                    <%--                                    <select name="Program Status" id="Status" class="form-control">
+                                        <option value="">--Select Status--</option>
+                                        <option value="Not Complete">Not Complete</option>
+                                        <option value="Complete">Complete</option>
+                                    </select>--%>
+                                    <asp:DropDownList CssClass="form-control" class="dropdown-menu" ID="OnOff" runat="server" AutoPostBack="true" OnSelectedIndexChanged="selectLocation">
+                                        <asp:ListItem Text="--Select Location--" Value="2" />
+                                        <asp:ListItem Text="OnSite" Value="1" />
+                                        <asp:ListItem Text="OffSite" Value="0" />
+                                    </asp:DropDownList>
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <div class="col-5">
                                     <label id="AddressLabel" for="Address">Program Address</label>
@@ -408,31 +406,54 @@
                                 </div>
                             </div>
 
-
-                            <p></p>
-                            <label id="AddGradeLabel" for="AddGrade">Grades</label>
-                            <asp:ListBox class="form-control" ID="lstGrades" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
+                             <div class="form-group row">
+                                <div class="col-5">
+                                     <label id="AddGradeLabel" for="AddGrade">Grades</label>
+                                </div>
+                                <div class="col-7">
+                                      <asp:ListBox class="form-control" ID="lstGrades" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
                                 <asp:ListItem Text="--Select Grades--" Value="0" />
                             </asp:ListBox>
-                            <p></p>
-                            <label id="NumOfChildrenLabel" for="NumOfChildren">Number Of Children</label>
-                            <input type="number" id="NumOfChildren" class="form-control" runat="server" />
-                            <p></p>
+                                </div>
+                            </div>
 
-                            <label id="NumOfAdultsLabel" for="NumOfAdults">Number Of Adults</label>
-                            <input type="number" id="NumOfAdults" class="form-control" runat="server" />
-                            <p></p>
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="NumOfChildrenLabel" for="NumOfChildren">Number Of Children</label>
+                                </div>
+                                <div class="col-7">
+                               <input type="number" id="NumOfChildren" class="form-control" runat="server" />
+                                </div>
+                            </div>
+
+                              <div class="form-group row">
+                                <div class="col-5">
+                                   <label id="NumOfAdultsLabel" for="NumOfAdults">Number Of Adults</label>
+                                </div>
+                                <div class="col-7">
+                           <input type="number" id="NumOfAdults" class="form-control" runat="server" />
+                                </div>
+                            </div>
+
+                             <div class="form-group row">
+                                <div class="col-5">
+                              <label id="CommentsLabel" for="Comments">Additional Comments</label>
+                                </div>
+                                <div class="col-7">
+                         <textarea name="Comments" id="Comments" rows="5" cols="100" class="form-control" runat="server"></textarea>
+                                </div>
+                            </div>
 
 
-                            <label id="CommentsLabel" for="Comments">Additional Comments</label>
-                            <textarea name="Comments" id="Comments" rows="5" cols="100" class="form-control" runat="server"></textarea>
-
-                            <p></p>
+                            
+                         
                             <%--                            <input type="button" class="btn" id="btnBackLive" value="Back" />
 
                             <%--<input type="button" class="btn" id="btnEndstep14" value="Submit" OnClick="btnSubmitLive_Click"/>--%>
                             <%--<asp:Button ID="btnsubmitLiveProgram" class="btn" runat="server" Text="Submit" OnClick="btnSubmitLive_Click" />--%>
                         </div>
+                                                </ContentTemplate>
+                        </asp:UpdatePanel>
                         <div class="modal-footer">
                             <input type="button" class="btn btn-secondary" id="btnBackLive" value="Back" />
 
@@ -440,12 +461,13 @@
                             <asp:Button ID="Button4" class="btn btn-inside" runat="server" Text="Submit" OnClick="btnSubmitLive_Click" />
                         </div>
 
+
                     </div>
 
 
                     <%--Modal Step 2.1 - Online Modal Form --%>
                     <div id="step21" class="hideMe">
-                        <span>Online Program Basics</span>
+                        <h4>Online Program Basics</h4>
                         <p></p>
                         <div class="form-group">
                             <div class="form-group row">
@@ -2893,24 +2915,24 @@
             window.location.reload();
         });
         // If statement for on or off and locaton
-        function scheduleA(event) {
-            var x = document.getElementById("OnOff").value;
-            if (x == "On") {
-                $("#Address").addClass('hideMe');
-                $("#AddressLabel").addClass('hideMe');
-                $("#CityCounty").addClass('hideMe');
-                $("#CityCountyLabel").addClass('hideMe');
-                $("#State").addClass('hideMe');
-                $("#StateLabel").addClass('hideMe');
-            } else if (x == "Off") {
-                $("#Address").removeClass('hideMe');
-                $("#AddressLabel").removeClass('hideMe');
-                $("#CityCounty").removeClass('hideMe');
-                $("#CityCountyLabel").removeClass('hideMe');
-                $("#State").removeClass('hideMe');
-                $("#StateLabel").removeClass('hideMe');
-            }
-        }
+        //function scheduleA(event) {
+        //    var x = document.getElementById("OnOff").value;
+        //    if (x == "OnSite") {
+        //        $("#Address").addClass('hideMe');
+        //        $("#AddressLabel").addClass('hideMe');
+        //        $("#CityCounty").addClass('hideMe');
+        //        $("#CityCountyLabel").addClass('hideMe');
+        //        $("#State").addClass('hideMe');
+        //        $("#StateLabel").addClass('hideMe');
+        //    } else if (x == "OffSite") {
+        //        $("#Address").removeClass('hideMe');
+        //        $("#AddressLabel").removeClass('hideMe');
+        //        $("#CityCounty").removeClass('hideMe');
+        //        $("#CityCountyLabel").removeClass('hideMe');
+        //        $("#State").removeClass('hideMe');
+        //        $("#StateLabel").removeClass('hideMe');
+        //    }
+        //}
     </script>
 
 

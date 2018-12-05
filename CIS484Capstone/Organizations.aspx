@@ -886,7 +886,7 @@
                                                         <div class="row">
                                                             <%-- for Org listing--%>
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 InternalAnimalForm">
-                                                                <asp:DropDownList ID="ddlOrderBy" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+                                                                <asp:DropDownList ID="ddlOrderBy" runat="server" visible="false" CssClass="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="">
                                                                     <asp:ListItem>--Order By--</asp:ListItem>
                                                                     <%--<asp:ListItem>Program Date</asp:ListItem>--%>
                                                                     <asp:ListItem>Organization Name A-Z</asp:ListItem>

@@ -256,7 +256,7 @@ public partial class Programs : System.Web.UI.Page
             lstSelectMammalsLive.ClearSelection();
             lstSelectVolunteersLive.ClearSelection();
             //Status.SelectedValue = "0";
-            OnOff.Value = "";
+            OnOff.SelectedValue = "2";
             Address.Value = "";
             CityCounty.Value = "";
             statesDropDown.ClearSelection();
@@ -661,7 +661,7 @@ public partial class Programs : System.Web.UI.Page
 
 
 
-            rptProgramLLLive.DataSource = GetData(string.Format("SELECT ProgramID, Status, NumberOfChildren, NumberOfAdults From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
+            rptProgramLLLive.DataSource = GetData(string.Format("SELECT ProgramID, Status, OnOff, NumberOfChildren, NumberOfAdults From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
             rptProgramLLLive.DataBind();
 
             rptProgramLL2Live.DataSource = GetData(string.Format("SELECT ProgramID, ProgramAddress, CityCounty AS City, State From Program WHERE ProgramID = " + ProgramID + "", ProgramID));
@@ -1390,6 +1390,39 @@ public partial class Programs : System.Web.UI.Page
         }
 
     }
+    //protected void selectLocation(object sender, EventArgs e)
+    //{
+    //    if (OnOff.SelectedValue == "1")
+    //    {
+    //        txtAddress.Text = HttpUtility.HtmlEncode("1800 S Delphine Ave");
+    //        txtCity.Text = HttpUtility.HtmlEncode("Waynesboro");
+    //        txtCounty.Text = HttpUtility.HtmlEncode("");
+    //        txtState.Text = HttpUtility.HtmlEncode("VA");
+    //    }
+    //    //else
+    //    //{
+            
+    //    //}
+
+    //}
+
+   protected void selectLocation(object sender, EventArgs e)
+    {
+        statesDropDown.ClearSelection();
+        if (OnOff.SelectedValue == "1")
+        {
+            Address.Value = HttpUtility.HtmlEncode("1800 S Delphine Ave");
+            CityCounty.Value = HttpUtility.HtmlEncode("Waynesboro");
+            //txtCounty.Text = HttpUtility.HtmlEncode("");
+           for (int i = 0; i < statesDropDown.Items.Count; i++)
+            {
+                if (statesDropDown.Items[i].Value == "VA")
+                {
+                    statesDropDown.Items[i].Selected = true;
+                }
+            }
+        }
+    }
 
     //Live Program ID
     protected void ddlProgramID_SelectedIndexChanged1(object sender, EventArgs e)
@@ -1873,7 +1906,7 @@ public partial class Programs : System.Web.UI.Page
         programVolunteerInsert.Connection = sc;
 
         
-         byte onOff = Convert.ToByte(OnOff.Value);
+         byte onOff = Convert.ToByte(OnOff.SelectedValue);
  
         ////Program class attributes
         string status = Status.SelectedValue.ToString();
@@ -2105,7 +2138,7 @@ public partial class Programs : System.Web.UI.Page
         lstSelectReptilesLive.ClearSelection();
         lstSelectMammalsLive.ClearSelection();
         //Status.SelectedValue = "0";
-        OnOff.Value = "";
+        OnOff.SelectedValue = "2";
         Address.Value = "";
         CityCounty.Value = "";
         statesDropDown.ClearSelection();
@@ -2113,6 +2146,7 @@ public partial class Programs : System.Web.UI.Page
         NumOfChildren.Value = "";
         NumOfAdults.Value = "";
         Comments.Value = "";
+        LContactEmail.Value = "";
 
         using (var conn = new SqlConnection(cs))
         using (var command = new SqlCommand("sp_PopulateAllProgrmas", conn)

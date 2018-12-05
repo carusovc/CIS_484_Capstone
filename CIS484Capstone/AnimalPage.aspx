@@ -1,4 +1,4 @@
-﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AnimalPage.aspx.cs" Inherits="AnimalPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AnimalPage.aspx.cs" Inherits="AnimalPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -52,7 +52,6 @@
       var start = {lat: -34.397, lng: 150.644};
       var end  = {lat: -34.397, lng: 150.644};
       var selectedMode = 'DRIVING';
-
       var tranistModeImage = {
         DRIVING : "https://media.giphy.com/media/11UMYzdwjIbLjy/giphy.gif",
         WALKING : "https://media.giphy.com/media/11UMYzdwjIbLjy/giphy.gif",
@@ -60,13 +59,11 @@
   "https://media.giphy.com/media/11UMYzdwjIbLjy/giphy.gif",
         TRANSIT : "https://media.giphy.com/media/11UMYzdwjIbLjy/giphy.gif"
 }
-
       function initMap() {
         directionsDisplay = new google.maps.DirectionsRenderer();
         directionsService = new google.maps.DirectionsService()
         geocoder = new google.maps.Geocoder;
         infoWindow = new google.maps.InfoWindow;
-
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           
@@ -86,7 +83,6 @@
                    getZipCodeFromPosition(geocoder, map, pos , infoWindow);
             
             addLatLng(pos);
-
           });
           
           //SHow current postion
@@ -131,7 +127,6 @@
           strokeWeight: 3
         });
         poly.setMap(map);
-
         // Add a listener for the click event
         map.addListener('click',  function (event) {
         
@@ -150,18 +145,14 @@
           handleLocationError(false, infoWindow, map.getCenter());
         }
       }
-
-
       // Handles click events on a map, and adds a new point to the Polyline.
       function addLatLng(latLng) {
         var path = poly.getPath();
         
         console.log("Show Location: " + latLng);
-
         // Because path is an MVCArray, we can simply append a new coordinate
         // and it will automatically appear.
         path.push(latLng);
-
         // Add a new marker at the new plotted point on the polyline.
         var marker = new google.maps.Marker({
           position: latLng,
@@ -169,7 +160,6 @@
           map: map
         });
       }
-
 function showPosition(position) {
   
    var pos = {    lat: position.coords.latitude,
@@ -179,11 +169,9 @@ function showPosition(position) {
        console.log("Show Postion: " + pos)
   
        var testPath = poly.getPath();
-
         // Because path is an MVCArray, we can simply append a new coordinate
         // and it will automatically appear.
         testPath.push(pos);
-
         // Add a new marker at the new plotted point on the polyline.
         var marker = new google.maps.Marker({
           position: pos,
@@ -191,33 +179,25 @@ function showPosition(position) {
           map: map
         });
 }
-
-
    //Reverse GeoCode position into Address and ZipCOde
       function getZipCodeFromPosition(geocoder, map, latlng, userLocationInfoWindow) {
-
        geocoder.geocode({'location': latlng}, function(result, status) {
          if (status === 'OK') {
            if (result[0]) {
-
                 console.log("GeoCode Results Found:"+JSON.stringify(result));
-
                 //Display Address
                 document.getElementById("address").textContent  = "Address: " +result[0].formatted_address;
-
                //Update Info Window on Server Map
                userLocationInfoWindow.setPosition(latlng);
                 userLocationInfoWindow.setContent('<IMG BORDER="0" ALIGN="Left" SRC='+ tranistModeImage[selectedMode] +' style ="width:50px; height:50px"><h6 class ="pink-text">You Are Here</h4> <p class = "purple-text" style ="margin left:30px;">'+result[0].formatted_address+'</p>');
              
                userLocationInfoWindow.open(map);
                map.setCenter(latlng);
-
                 //Try to Get Postal Code
                 var postal = null;
                 var city = null;
                 var state = null;
                 var country = null;
-
               for(var i=0;i<result.length;++i){
                   if(result[i].types[0]=="postal_code"){
                       postal = result[i].long_name;
@@ -235,17 +215,14 @@ function showPosition(position) {
               if (!postal) {
                 geocoder.geocode({ 'location': result[0].geometry.location }, function (results, status) {
                   if (status == google.maps.GeocoderStatus.OK) {
-
                     //Postal Code Not found, Try to get Postal code for City
                     var result=results[0].address_components;
-
                     for(var i=0;i<result.length;++i){
                      if(result[i].types[0]=="postal_code"){
                         postal = result[i].long_name;
                      }
                     }
                       if (!postal) {
-
                         //Postal Code Not found
                          document.getElementById("postal").value   = 'No Postal Code Found  for this location';
                       }else
@@ -263,7 +240,6 @@ function showPosition(position) {
               // console.log("STATE: " + state);
               // console.log("CITY: " + city);
               // console.log("COUNTRY: " + country);
-
                  } else {
                window.alert('No results found');
              }
@@ -272,8 +248,6 @@ function showPosition(position) {
            }
          });
      }
-
-
  function calcRoute(start, end) {
    
     var request = {
@@ -290,7 +264,6 @@ function showPosition(position) {
       }
     });
   }
-
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -299,7 +272,6 @@ function showPosition(position) {
         
         infoWindow.open(map);
       }
-
  $(document).ready(function(){
     $('.sidenav').sidenav();
     $('select').formSelect();
@@ -369,11 +341,11 @@ function showPosition(position) {
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Invoices</span>
+                    <span>Payment</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
                     
                 </div>
             </li>
@@ -476,11 +448,11 @@ function showPosition(position) {
              <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Invoices</span>
+                    <span>Payment</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
 
                 </div>
             </li>
@@ -546,7 +518,7 @@ function showPosition(position) {
                                                     </div>
 
                                                     <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
-                                                        <asp:Button ID ="btnSearch" runat ="server" class="btn-block btn" style=" background-color: #C7BFC4;" Text ="Search" OnClick="btnSearch_Click" /></div>
+                                                        <asp:Button ID ="btnSearch" runat ="server" class="btn-block btn" style=" background-color: #FFBC7C;" Text ="Search" OnClick="btnSearch_Click" /></div>
             
                                                       </div>
 
@@ -583,7 +555,7 @@ function showPosition(position) {
     <br />
      <br />
    
-<asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#C7BFC4"
+<asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#FFBC7C"
     HeaderStyle-Forecolor="Black" runat="server" AutoGenerateColumns="False" AllowSorting="True" >
                       <Columns>
                           <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
