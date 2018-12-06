@@ -83,7 +83,7 @@ public partial class Programs : System.Web.UI.Page
                 SqlDataReader myRead2 = cmd2.ExecuteReader();
 
 
-                string readVolunteers = "Select * from Volunteers where Status = 'Active'";
+                string readVolunteers = "Select * from Volunteers where VolunteerStatus = 'Active'";
                 SqlCommand cmdVolunteers = new SqlCommand(readVolunteers, con);
                 SqlDataReader myReadVolunteer = cmdVolunteers.ExecuteReader();
 

@@ -212,8 +212,8 @@ public partial class AnimalPage : System.Web.UI.Page
 
                 }
             }
-        }
-        catch
+        } catch
+
         {
             string script = "alert('Animal Could Not Be Added - Please Try Again');";
             System.Web.UI.ScriptManager.RegisterClientScriptBlock(Button3, this.GetType(), "Test", script, true);

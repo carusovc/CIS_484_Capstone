@@ -49,25 +49,26 @@
                 <span>Logout</span></a>
         </div>
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
-           <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
-      <li class="nav-item dropdown  no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
+                <li class="nav-item dropdown  no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <%--<a class="nav-link" href="Programs.aspx">--%>
+                        <%--<a class="nav-link" href="Programs.aspx">--%>
 
-                    <span>Programs</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Programs.aspx">View Programs</a>
-                    <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
-                    
-                </div>
-            </li>
-            <%--      <li class="nav-item">
+                        <span>Programs</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="Programs.aspx">View Programs</a>
+                        <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
+
+                    </div>
+                </li>
+                <%--      <li class="nav-item">
           <a class="nav-link" href="AnimalPage.aspx">
             <i class="fas fa-fw fa-book-open"></i>--%>
-            <li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                <li class="nav-item dropdown no-arrow ">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
 
 
 
@@ -104,34 +105,37 @@
                 </div>
             </li>
 
-            
-
-             <li class="nav-item dropdown active no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                    </div>
+                </li>
 
 
-                    <span>Wildlife Staff</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
-                    <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
-                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
+
+                <li class="nav-item dropdown active no-arrow ">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+
+                        <span>Wildlife Staff</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
+                        <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
+                        <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
                         <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
                         <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
-                </div>
-            </li>
-         <li class="nav-item ">
+                    </div>
+                </li>
+                <li class="nav-item ">
                     <a class="nav-link" href="Report.aspx">
 
                         <span>Reports</span></a>
                 </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Default.aspx">
+                <li class="nav-item">
+                    <a class="nav-link" href="Default.aspx">
 
-                    <span>Logout</span></a>
-            </li>
+                        <span>Logout</span></a>
+                </li>
 
-    </ul>
+            </ul>
 
         </div>
     </nav>
@@ -183,9 +187,9 @@
                     <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
                 </div>
             </li>--%>
-          
-           
-           
+
+
+
 
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -198,7 +202,7 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
-             <li class="nav-item dropdown no-arrow">
+            <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
                     <span>Invoices</span>
@@ -223,12 +227,12 @@
                         <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
             </li>
-              <li class="nav-item ">
+            <li class="nav-item ">
                 <a class="nav-link" href="Report.aspx">
 
                     <span>Reports</span></a>
             </li>
-             <li class="nav-item ">
+            <li class="nav-item ">
                 <a class="nav-link" href="Tableau.aspx">
 
                     <span>Visualizations</span></a>
@@ -364,7 +368,7 @@
                                 <div class="modal-dialog " role="document">
                                     <div class="modal-content mt-5">
                                         <div class="modal-header">
-                                            <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Educator</h5>
+                                            <h5 class="modal-title text-center" style="font-size: 145% !important; color: #e2561d !important;">Edit Wildlife Staff</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -379,15 +383,35 @@
                                                         <p>&nbsp;</p>
                                                         <div class="row">
                                                             <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                                <h6>Select Educator</h6>
+                                                                <h6>Select Staff Type</h6>
                                                             </div>
                                                             <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                                <h6>Select Educator</h6>
+                                                                <h6>Select Staff Type</h6>
+                                                            </div>
+                                                            <div class=" col-8 InternalAnimalForm">
+
+                                                                <asp:DropDownList ID="ddlPopulateStaff" class="form-control" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="FirstName" DataValueField="UserID" OnSelectedIndexChanged="ddlPopulateStaff_ddlVolunteer_SelectedIndexChanged">
+                                                                    <asp:ListItem Value="0">--Select Staff Type--</asp:ListItem>
+                                                                    <asp:ListItem Value="O">Outreach Coordinator</asp:ListItem>
+                                                                    <asp:ListItem Value="V">Wildlife Volunteer</asp:ListItem>
+
+
+
+                                                                </asp:DropDownList>
+                                                                &nbsp;&nbsp;
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
+                                                                <h6>Select Staff Member</h6>
+                                                            </div>
+                                                            <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
+                                                                <h6>Select Staff Member</h6>
                                                             </div>
                                                             <div class=" col-8 InternalAnimalForm">
 
                                                                 <asp:DropDownList ID="ddlEducatorName" class="form-control" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="FirstName" DataValueField="UserID" OnSelectedIndexChanged="ddlEducator_SelectedIndexChanged1">
-                                                                    <asp:ListItem>--Select Educator--</asp:ListItem>
+                                                                    <asp:ListItem>--Select Staff--</asp:ListItem>
 
                                                                 </asp:DropDownList>
                                                                 &nbsp;&nbsp;
@@ -595,7 +619,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <asp:Button ID="btnVolunteerAdd" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddVolunteer_Click" />
+                                            <%--                                            <asp:Button ID="btnVolunteerAdd" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddVolunteer_Click" />--%>
                                             <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                                         </div>
                                     </div>
@@ -723,8 +747,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             <%--<asp:Button ID="btnDeleteVolunteer" class="btn btn-primary btn-inside" runat="server" Text="Disable" OnClick="btnDeleteVolunteer_Click" />--%>
-                                            <asp:Button ID="btnUpdateVolunteer" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdateVolunteer_Click" />
-
+                                            <%--                                            <asp:Button ID="btnUpdateVolunteer" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdateVolunteer_Click" />--%>
                                         </div>
                                     </div>
                                 </div>
@@ -816,7 +839,7 @@
 
                                                                 </asp:GridView>
                                                                 <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
-                                                                 SelectCommand="Select Case when EducatorCategory = 'O' then 'Outreach Coordinator' end AS Category, EducatorFirstName AS FirstName, EducatorLastName AS LastName, EducatorPhoneNumber AS PhoneNumber, EducatorEmail AS Email, Status AS Status From Educators UNION ALL Select Case when VolunteerCategory = 'V' then 'Volunteer' end AS Category, VolunteerFirstName AS FirstName, VolunteerLastName AS LastName, VolunteerPhoneNumber AS PhoneNumber, VolunteerEmail AS Email, VolunteerStatus AS Status From Volunteers Order By FirstName"></asp:SqlDataSource>
+                                                                    SelectCommand="Select Case when EducatorCategory = 'O' then 'Outreach Coordinator' end AS Category, EducatorFirstName AS FirstName, EducatorLastName AS LastName, EducatorPhoneNumber AS PhoneNumber, EducatorEmail AS Email, Status AS Status From Educators UNION ALL Select Case when VolunteerCategory = 'V' then 'Volunteer' end AS Category, VolunteerFirstName AS FirstName, VolunteerLastName AS LastName, VolunteerPhoneNumber AS PhoneNumber, VolunteerEmail AS Email, VolunteerStatus AS Status From Volunteers Order By FirstName"></asp:SqlDataSource>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -832,7 +855,7 @@
                                                             <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                                                 <%--<h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>--%>
 
-                                                                <asp:GridView ID="GridView2" HeaderStyle-BackColor="#C7BFC4" ForeColor="Black" class="table table-striped table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" >
+                                                                <asp:GridView ID="GridView2" HeaderStyle-BackColor="#C7BFC4" ForeColor="Black" class="table table-striped table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                                                                     <Columns>
                                                                         <asp:BoundField DataField="EducatorFirstName" HeaderText="First Name" SortExpression="EducatorFirstName"></asp:BoundField>
                                                                         <asp:BoundField DataField="EducatorLastName" HeaderText="Last Name" SortExpression="EducatorLastName"></asp:BoundField>
@@ -860,7 +883,7 @@
                                                             <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                                                 <%--<h4 class="alert " style="background-color: #AB9993 !important; color: white !important;"> Organizations</h4>--%>
 
-                                                                <asp:GridView ID="GridView3" HeaderStyle-BackColor="#C7BFC4" ForeColor="Black" class="table table-striped table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlDataSource2">
+                                                                <asp:GridView ID="GridView3" HeaderStyle-BackColor="#C7BFC4" ForeColor="Black" class="table table-striped table-bordered table-condensed table-hover" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
                                                                     <Columns>
                                                                         <asp:BoundField DataField="VolunteerFirstName" HeaderText="First Name" SortExpression="VolunteerFirstName"></asp:BoundField>
                                                                         <asp:BoundField DataField="VolunteerLastName" HeaderText="Last Name" SortExpression="VolunteerLastName"></asp:BoundField>

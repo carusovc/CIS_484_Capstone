@@ -158,15 +158,16 @@ public partial class createUser : System.Web.UI.Page
 
                                 //INSERT INTO table_name (column1, column2, column3, ...)
                                 //VALUES(value1, value2, value3, ...);
-                                string lastUpdateBy = "WildtekDevs";
+                                string lastUpdateBy = "Wildlife Center";
                                 string status = "Active";
                                 string category = "O";
 
                                 // INSERT USER RECORD
-                                createOutreachCoordinator.CommandText = "insert into[dbo].[Educators] (EducatorFirstName, " +
+                                createOutreachCoordinator.CommandText = "insert into[dbo].[Educators] (Username, EducatorFirstName, " +
                                     "EducatorLastName, LastUpdated, LastUpdatedBy, Status, EducatorPhoneNumber, EducatorEmail," +
                                     " EducatorCategory)" +
-                                    "  values (@FName, @LName, @LU, @LUB, @Status, @PhoneNum, @Email, @PersonCategory)";
+                                    "  values (@userName, @FName, @LName, @LU, @LUB, @Status, @PhoneNum, @Email, @PersonCategory)";
+                                createOutreachCoordinator.Parameters.Add(new SqlParameter("@userName", txtUsername.Text));
                                 createOutreachCoordinator.Parameters.Add(new SqlParameter("@FName", txtFirstName.Text));
                                 createOutreachCoordinator.Parameters.Add(new SqlParameter("@LName", txtLastName.Text));
                                 createOutreachCoordinator.Parameters.Add(new SqlParameter("@LU", DateTime.Now.ToShortDateString()));
@@ -182,22 +183,26 @@ public partial class createUser : System.Web.UI.Page
                             case "2":
                                 System.Data.SqlClient.SqlCommand createVolunteer = new System.Data.SqlClient.SqlCommand();
                                 createVolunteer.Connection = sc1;
-
+                                string lastUpdateBy1 = "Wildlife Center";
+                                string status1 = "Active";
+                                string category1 = "V";
                                 //INSERT INTO table_name (column1, column2, column3, ...)
                                 //VALUES(value1, value2, value3, ...);
 
 
                                 // INSERT USER RECORD
-                                createVolunteer.CommandText = "insert into[dbo].[Volunteers] (VolunteerFirstName, VolunteerLastName, VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus, LastUpdated, LastUpdatedBy, VolunteerCategory)" +
-                                    "  values (@FName, @LName, @PhoneNum, @Email, @Status, @LU, @LUB, @PersonCategory)";
+                                createVolunteer.CommandText = "insert into[dbo].[Volunteers] (Username, VolunteerFirstName, VolunteerLastName," +
+                                    " VolunteerPhoneNumber, VolunteerEmail, VolunteerStatus, LastUpdated, LastUpdatedBy, VolunteerCategory)" +
+                                    "  values (@userName, @FName, @LName, @PhoneNum, @Email, @Status, @LU, @LUB, @PersonCategory)";
+                                createVolunteer.Parameters.Add(new SqlParameter("@userName", txtUsername.Text));
                                 createVolunteer.Parameters.Add(new SqlParameter("@FName", txtFirstName.Text));
                                 createVolunteer.Parameters.Add(new SqlParameter("@LName", txtLastName.Text));
-                                createVolunteer.Parameters.Add(new SqlParameter("@LU", DateTime.Now.ToShortDateString()));
-                                createVolunteer.Parameters.Add(new SqlParameter("@LUB", (Session["USER_ID"].ToString())));
-                                createVolunteer.Parameters.Add(new SqlParameter("@Status", "Active"));
                                 createVolunteer.Parameters.Add(new SqlParameter("@PhoneNum", txtPhoneNumber.Text));
                                 createVolunteer.Parameters.Add(new SqlParameter("@Email", txtEmail.Text));
-                                createVolunteer.Parameters.Add(new SqlParameter("@PersonCategory", "V"));
+                                createVolunteer.Parameters.Add(new SqlParameter("@Status", "Active"));
+                                createVolunteer.Parameters.Add(new SqlParameter("@LU", DateTime.Now.ToShortDateString()));
+                                createVolunteer.Parameters.Add(new SqlParameter("@LUB", lastUpdateBy1));
+                                createVolunteer.Parameters.Add(new SqlParameter("@PersonCategory", category1));
                                 createVolunteer.ExecuteNonQuery();
 
                                 break;
