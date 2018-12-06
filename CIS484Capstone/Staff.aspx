@@ -384,10 +384,10 @@
                                                             </div>
                                                             <div class=" col-8 InternalAnimalForm">
 
-                                                                <asp:DropDownList ID="DropDownList1" class="form-control" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="FirstName" DataValueField="UserID" OnSelectedIndexChanged="ddlEducator_SelectedIndexChanged1">
-                                                                    <asp:ListItem>--Select Staff Type--</asp:ListItem>
-                                                                    <asp:ListItem>Outreach Coordinator</asp:ListItem>
-                                                                    <asp:ListItem>Wildlife Volunteer</asp:ListItem>
+                                                                <asp:DropDownList ID="ddlPopulateStaff" class="form-control" runat="server" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="FirstName" DataValueField="UserID" OnSelectedIndexChanged="ddlPopulateStaff_ddlVolunteer_SelectedIndexChanged">
+                                                                    <asp:ListItem Value="0">--Select Staff Type--</asp:ListItem>
+                                                                    <asp:ListItem Value="O">Outreach Coordinator</asp:ListItem>
+                                                                    <asp:ListItem Value="V">Wildlife Volunteer</asp:ListItem>
 
 
 

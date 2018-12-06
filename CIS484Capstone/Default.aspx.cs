@@ -52,7 +52,8 @@ public partial class userLogin : System.Web.UI.Page
             System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
             findPass.Connection = sc;
             // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
-            findPass.CommandText = "select PasswordHash, pe.PersonCategory as PersonType, pe.Status as PersonStatus, e.Status as EdStatus, v.VolunteerStatus as VStatus from Pass, Person pe, Educators e, Volunteers v where pe.Username = @Username";
+            // findPass.CommandText = "select PasswordHash, pe.PersonCategory as PersonType, pe.Status as PersonStatus, e.Status as EdStatus, v.VolunteerStatus as VStatus from Pass, Person pe, Educators e, Volunteers v where pe.Username = @Username";
+            findPass.CommandText = "select PasswordHash, pe.Status, pe.PersonCategory from Pass pa, Person pe where pa.username = @Username";
             findPass.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
             SqlDataReader reader = findPass.ExecuteReader(); // create a reader
                                                              // SqlDataAdapter asda = new SqlDataAdapter();
@@ -66,14 +67,12 @@ public partial class userLogin : System.Web.UI.Page
                     string storedHash = reader["PasswordHash"].ToString(); // store the database password into this variable
                     if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                     {
-                        string PersonStatus = reader["PersonStatus"].ToString(); // store the database password into this variable
-                        string EducatorStatus = reader["EdStatus"].ToString(); // store the database password into this variable
-                        string VolunteerStatus = reader["VStatus"].ToString(); // store the database password into this variable
-
-                        if (PersonStatus.Equals("Active") && EducatorStatus.Equals("Active") && VolunteerStatus.Equals("Active"))
+                        string PersonStatus = reader["Status"].ToString(); // store the database password into this variable
+                       
+                        if (PersonStatus.Equals("Active"))
                         {
 
-                            string storedCategory = reader["PersonType"].ToString();
+                            string storedCategory = reader["PersonCategory"].ToString();
                             switch (storedCategory)
                             {
                                 case "O":
@@ -100,7 +99,8 @@ public partial class userLogin : System.Web.UI.Page
                         {
                             lblStatus.Text = "Inactive User - Please Contact Your Administrator.";
                         }
-                    } else
+                    }
+                    else
                         lblStatus.Text = "Incorrect Username or Password. Please Try again.";
                 }
 
