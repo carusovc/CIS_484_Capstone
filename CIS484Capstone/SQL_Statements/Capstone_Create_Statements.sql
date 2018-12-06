@@ -1,5 +1,31 @@
 Use WildTek
-Go
+
+Create Table Volunteers(
+VolunteerID int IDENTITY(1,1) NOT NULL,
+Username varchar (20) NOT NULL,
+VolunteerFirstName varchar(100) NOT NULL,
+VolunteerLastName varchar(100) Not NULL,
+VolunteerPhoneNumber varchar(15) NOT NULL,
+VolunteerEmail varchar(50) NOT NULL,
+VolunteerStatus varchar(20) NOT NULL,
+LastUpdated datetime NOT NULL,
+LastUpdatedBy varchar(100) NOT NULL,
+VolunteerCategory varchar(20) NOT NULL,
+CONSTRAINT PK_VolunteerID PRIMARY KEY (VolunteerID));
+
+
+Create Table Educators (
+EducatorID int IDENTITY(1,1) NOT NULL,
+Username varchar (20) NOT NULL,
+EducatorFirstName varchar(50) NOT NULL,
+EducatorLastName varchar(50) NULL,
+LastUpdated datetime NOT NULL,
+LastUpdatedBy varchar(100) NOT NULL,
+Status varchar(20) NULL,
+EducatorPhoneNumber varchar(15) NOT NULL, 
+EducatorEmail varchar(50) NOT NULL, 
+EducatorCategory varchar(20) NULL,
+CONSTRAINT PK_EducatorID PRIMARY KEY (EducatorID));
 
 Create Table OnlineProgramType(
 OnlineProgramTypeID int IDENTITY(1,1) NOT NULL,
@@ -16,15 +42,6 @@ LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_GradeID PRIMARY KEY (GradeID));
 
-Create Table Educators (
-EducatorID int IDENTITY(1,1) NOT NULL,
-EducatorFirstName varchar(50) NOT NULL,
-EducatorLastName varchar(50) NULL,
-LastUpdated datetime NOT NULL,
-LastUpdatedBy varchar(100) NOT NULL,
-Status varchar(20) NULL,
-CONSTRAINT PK_EducatorID PRIMARY KEY (EducatorID));
-
 Create Table Animal (
 AnimalID int IDENTITY(1,1) NOT NULL,
 AnimalType varchar(50) NOT NULL,
@@ -32,6 +49,7 @@ AnimalName varchar(50) NOT NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
 Status varchar(100) Not Null,
+animalImage varbinary(MAX),
 CONSTRAINT PK_AnimalID PRIMARY KEY (AnimalID));
 
 Create Table Organization (
@@ -94,10 +112,8 @@ ContactEmail varchar(100) NULL,
 ExtraComments varchar(250) NULL,
 LastUpdated datetime NOT NULL,
 LastUpdatedBy varchar(100) NOT NULL,
---PaymentID int NULL,
 CONSTRAINT PK_OnlineProgram PRIMARY KEY (OnlineProgramID),
 CONSTRAINT FK_OnlineProgramOnlineProgramType FOREIGN KEY (OnlineProgramTypeID) references OnlineProgramType);
---CONSTRAINT FK_OnlineProgramPaymentID FOREIGN KEY (PaymentID) references PaymentRecord
 
 Create Table OnlineVolunteers(
 OnlineProgramID int NOT NULL,
@@ -107,7 +123,8 @@ LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_OnlineVolunteers PRIMARY KEY (OnlineProgramID, VolunteerID),
 CONSTRAINT FK_OnlineVolunteersOnline FOREIGN KEY (OnlineProgramID) references OnlineProgram,
 CONSTRAINT FK_OnlineVolunteersVolunteers FOREIGN KEY (VolunteerID) references Volunteers);
-                                         
+
+
 Create Table OnlineEducators(
 OnlineProgramID int NOT NULL,
 EducatorID int NOT NULL,
@@ -125,7 +142,6 @@ LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_OnlineAnimal PRIMARY KEY (OnlineProgramID, AnimalID),
 CONSTRAINT FK_OnlineAnimalOnline FOREIGN KEY (OnlineProgramID) references OnlineProgram,
 CONSTRAINT FK_OnlineAnimalAnimal FOREIGN KEY (AnimalID) references Animal);
-
 
 Create table Program (
 ProgramID int IDENTITY(1,1) NOT NULL,
@@ -150,7 +166,6 @@ CONSTRAINT PK_ProgramID PRIMARY KEY (ProgramID),
 CONSTRAINT FK_OrgID FOREIGN KEY (OrgID) references Organization,
 CONSTRAINT FK_ProgramTypeID FOREIGN KEY (ProgramTypeID) references ProgramType,
 CONSTRAINT FK_PaymentID FOREIGN KEY (PaymentID) references PaymentRecord);
---CONSTRAINT FK_ProgramPaymentID NULL FOREIGN KEY (PaymentID) references PaymentRecord);
 
 Create Table ProgramVolunteers(
 ProgramID int NOT NULL,
@@ -160,7 +175,7 @@ LastUpdatedBy varchar(100) NOT NULL,
 CONSTRAINT PK_ProgramVolunteers PRIMARY KEY (ProgramID, VolunteerID),
 CONSTRAINT FK_ProgramVolunteersProgram FOREIGN KEY (ProgramID) references Program,
 CONSTRAINT FK_ProgramVolunteersEducator FOREIGN KEY (VolunteerID) references Volunteers);
-                                         
+
 
 Create Table ProgramEducators(
 ProgramID int NOT NULL,
@@ -222,116 +237,28 @@ ExtraComments varchar(300) NULL,
 LastUpdated datetime NULL,
 LastUpdatedBy varchar(150) NULL
 )
+                                   
 
-                                       
-Create Table Volunteers(
-VolunteerID int IDENTITY(1,1) NOT NULL,
-VolunteerFirstName varchar(100) NOT NULL,
-VolunteerLastName varchar(100) Not NULL,
-VolunteerPhoneNumber varchar(15) NOT NULL,
-VolunteerEmail varchar(50) NOT NULL,
-VolunteerStatus varchar(20) NOT NULL,
-LastUpdated datetime NOT NULL,
-LastUpdatedBy varchar(100) NOT NULL,
-CONSTRAINT PK_VolunteerID PRIMARY KEY (VolunteerID));
+CREATE TABLE Person(
+UserID int IDENTITY (1,1) NOT NULL,
+FirstName varchar(20) NOT NULL,
+LastName varchar(30) NOT NULL,
+Username varchar (20) NOT NULL,
+Email varchar (50) NULL,
+Status varchar(20) NULL,
+PersonCategory char(1) NULL
+PRIMARY KEY (UserID));
 
-                                       
-Create Procedure [dbo].[InsertLivePrograms]
-AS
-BEGIN
-INSERT INTO AllPrograms(ProgramCategory, ProgramDate, ProgramType, LiveProgramTime, EventMonth, LiveProgramStatus, NumberOfChildren, NumberOfAdults, LiveProgramStreetAddress, CityCounty, State, LiveProgramOnOff, LiveProgramPaid, ExtraComments, LastUpdated, LastUpdatedBy)
-Select 'Live Program' as ProgramCategory, p.ProgramDate, ProgramType.ProgramName, p.ProgramTime, p.EventMonth, p.Status, p.NumberOfChildren, p.NumberOfAdults, p.NumberOfAdults, p.CityCounty, p.State, p.OnOff, p.Paid, p.ExtraComments, p.LastUpdated, p.LastUpdatedBy
-From Program p inner join ProgramType on p.ProgramTypeID = ProgramType.ProgramTypeID
-WHERE ProgramID Between 0 and 1000
-Order By p.ProgramDate Desc
-END
-                                       
-Create Procedure [dbo].[InsertOnlinePrograms]
-AS
-BEGIN
-INSERT INTO AllPrograms(ProgramCategory, ProgramDate, ProgramType, EventMonth, NumberOfChildren, NumberOfAdults, CityCounty, OnlineProgramCountry, State, OnlineTeacherName, OnlinePrimaryContactEmail, OnlineSecondaryEmail, ExtraComments, LastUpdated, LastUpdatedBy) 
-Select 'Online Program' as ProgramCategory, o.ProgramDate, OnlineProgramType.OnlineProgramTypeName, o.Month, o.NumberOfKids, o.NumberOfPeople, o.City, o.Country, o.State, o.TeacherName, o.ContactEmail, o.SecondaryEmail, o.ExtraComments, o.LastUpdated, o.LastUpdatedBy
-From OnlineProgram o inner join OnlineProgramType on o.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID
-WHERE OnlineProgramID Between 1 and 100
-Order By o.ProgramDate Desc
-End                                       
+CREATE TABLE Pass(
+UserID int FOREIGN KEY references Person(UserID) NOT NULL,
+Username varchar(30) NOT NULL,
+PasswordHash varchar(256) NOT NULL,
+PRIMARY KEY (UserID));
 
-                                       
-Create Procedure [dbo].[spChangePassword]
-@GUID uniqueidentifier,
-@Password nvarchar(100)
-as
-Begin
- Declare @UserID int
- 
- Select @UserID = UserID 
- from tblResetPasswordRequests
- where ID= @GUID
- 
- if(@UserID is null)
- Begin
-  -- If UserId does not exist
-  Select 0 as IsPasswordChanged
- End
- Else
- Begin
-  -- If UserId exists, Update with new password
-  Update Pass set
-  [PasswordHash] = @Password
-  where UserID = @UserID
-  
-  -- Delete the password reset request row 
-  Delete from tblResetPasswordRequests
-  where ID = @GUID
-  
-  Select 1 as IsPasswordChanged
- End
-End
-                                       
-                                       
-Create Procedure [dbo].[spIsPasswordResetLinkValid] 
-@GUID uniqueidentifier
-as
-Begin
- Declare @UserID int
- 
- If(Exists(Select UserID from tblResetPasswordRequests where ID = @GUID))
- Begin
-  Select 1 as IsValidPasswordResetLink
- End
- Else
- Begin
-  Select 0 as IsValidPasswordResetLink
- End
-End
-           
-           
-Create Procedure [dbo].[spResetPassword]
-@Username nvarchar(100)
-as
-Begin
- Declare @UserID int
- Declare @Email nvarchar(100)
- 
- Select @UserID = UserID, @Email = Email 
- from Person
- where Username = @Username
- 
- if(@UserID IS NOT NULL)
- Begin
-  --If username exists
-  Declare @GUID UniqueIdentifier
-  Set @GUID = NEWID()
-  
-  Insert into tblResetPasswordRequests
-  (ID, UserID, ResetRequestDateTime)
-  Values(@GUID, @UserID, GETDATE())
-  
-  Select 1 as ReturnCode, @GUID as UniqueID, @Email as Email
- End
- Else
- Begin
-  --If username does not exist
-  SELECT 0 as ReturnCode, NULL as UniqueID, NULL as Email
- End
-End
+
+Create table tblResetPasswordRequests
+(
+ ID UniqueIdentifier Primary key,
+ UserID int Foreign key references Person(UserID),
+ ResetRequestDateTime DateTime
+)
