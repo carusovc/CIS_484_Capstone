@@ -276,10 +276,14 @@
                                         <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
                                             <h6>Select Organization</h6>
                                         </div>
+                                        
                                         <div class=" col-md-8 InternalAnimalForm">
                                             <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged1">
                                                 <asp:ListItem>--Select Organization--</asp:ListItem>
                                             </asp:DropDownList>&nbsp&nbsp
+
+                                            
+
                                     &nbsp;&nbsp;
                                         </div>
                                     </div>
@@ -444,7 +448,7 @@
                 <div class="modal-footer">
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdateOrganization_Click" />
+                    <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdateOrganization_Click"/>
 
                     </div>
                 </div>
@@ -489,16 +493,18 @@
                                         <br />
 
                                         <div class="d-none d-md-block text-right col-md-5  InternalOrganizationForm">
-                                            <h6>Program Theme Name</h6>
+                                            <h6>Program Theme Name *</h6>
                                         </div>
                                         <div class=" d-md-none text-left col-md-5  InternalOrganizationForm">
-                                            <h6>Program Theme Name</h6>
+                                            <h6>Program Theme Name *</h6>
                                         </div>
 
                                         <div class=" col-md-6 InternalAnimalForm">
 
                                             <asp:TextBox class="form-control btn-block" ID="txtProgramName" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                         </div>
+                                        
+
                                     </div>
                                     <div>
                                     </div>
@@ -726,73 +732,73 @@
                         <div runat="server" id="OrgAddDiv">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Organization Name</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Organization Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Organization Name</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Organization Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="textOrgName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-7 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="textOrgName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
 
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Enter Address</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Enter Address<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Enter Address</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Enter Address<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                <div class=" col-md-7 InternalOrgnaizationForm">
                                    <%-- <asp:TextBox ID="autocomplete" placeholder="Enter your address" runat="server" onFocus="geolocate()"></asp:TextBox>&nbsp;&nbsp;--%>
                                     <input  id="autocomplete" class="form-control" placeholder="Enter your address"  onFocus="geolocate()"  type="text"/>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Street Address</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Street Address<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Street Address</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Street Address<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <input id='txtStreetAddress' name='' value=''class="form-control" required="required">&nbsp;&nbsp;
-                                    <input id="hiddenControl" type="hidden" runat="server" required="required"/>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>City</h6>
-                                </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>City</h6>
-                                </div>
-                                <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <input id="textOrgCity" name='' value='' class="form-control" required="required">&nbsp;&nbsp;
-                                    <input id="hiddenCity" type="hidden" runat="server" required="required"/>
-
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>County</h6>
-                                </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>County</h6>
-                                </div>
-                                <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="textOrgCounty" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
-
+                                <div class=" col-md-7 InternalOrgnaizationForm">
+                                    <input id='txtStreetAddress' name='' value=''class="form-control" >&nbsp;&nbsp;
+                                    <input id="hiddenControl" type="hidden" runat="server" />
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>State</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>City<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>City<span style="COLOR: red"> *</span></h6>
+                                </div>
+                                <div class=" col-md-7 InternalOrgnaizationForm">
+                                    <input id="textOrgCity" name='' value='' class="form-control">&nbsp;&nbsp;
+                                    <input id="hiddenCity" type="hidden" runat="server" />
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>County<span style="COLOR: red"> *</span></h6>
+                                </div>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>County<span style="COLOR: red"> *</span></h6>
+                                </div>
+                                <div class=" col-md-7 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="textOrgCounty" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class=" text-right col-md-5 InternalOrganizationForm">
+                                    <h6>State<span style="COLOR: red"> *</span></h6>
+                                </div>
+                                <div class=" col-md-7 InternalOrgnaizationForm">
 
                                   <%--  <asp:DropDownList ID="ddlState" class="form-control" runat="server" placeholder="Add State/Province">
                                         <asp:ListItem>--Select State--</asp:ListItem>
@@ -849,38 +855,38 @@
                                         <asp:ListItem Value="WY"></asp:ListItem>
                                     </asp:DropDownList>&nbsp;&nbsp;
                                     </asp:DropDownList>&nbsp;&nbsp;--%>
-                                     <input id='state' name='' value='' class="form-control" required="required">&nbsp;&nbsp;
-                                    <input id="hiddenState" type="hidden" runat="server" required="required"/>
+                                     <input id='state' name='' value='' class="form-control">&nbsp;&nbsp;
+                                    <input id="hiddenState" type="hidden" runat="server" />
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Postal Code</h6>
+                                <div class=" text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Postal Code<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                <div class=" col-md-7 InternalOrgnaizationForm">
                                     
-                                     <input id='txtPostalCode' name='' value='' class="form-control" required="required">&nbsp;&nbsp;
-                                    <input id="hiddenZip" type="hidden" runat="server" required="required"/>
+                                     <input id='txtPostalCode' name='' value='' class="form-control">&nbsp;&nbsp;
+                                    <input id="hiddenZip" type="hidden" runat="server" />
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Primary Contact First Name</h6>
+                                <div class=" text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Primary Contact First Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="txtContactFirstName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-7 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtContactFirstName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
 
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Primary Contact Last Name</h6>
+                                <div class=" text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Primary Contact Last Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalOrgnaizationForm">
-                                    <asp:TextBox ID="txtContactLastName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-7 InternalOrgnaizationForm">
+                                    <asp:TextBox ID="txtContactLastName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
 
                                 </div>
                             </div>
@@ -896,13 +902,13 @@
                             </div>--%>
 
                             <div class="row">
-                                <div class=" text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Primary Contact Email</h6>
+                                <div class=" text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Primary Contact Email<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalOrgnaizationForm">
+                                <div class=" col-md-7 InternalOrgnaizationForm">
                                     <%--                                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>&nbsp;&nbsp;--%>
 
-                                    <asp:TextBox ID="txtEmail" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
+                                    <asp:TextBox ID="txtEmail" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
@@ -989,69 +995,60 @@
                         <div runat="server" id="Div1">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Animal Type</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Animal Type<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Animal Type</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Animal Type<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalAnimalForm">
-
-
+                                <div class=" col-md-7 InternalAnimalForm">
 
                                     <asp:DropDownList class="InternalAnimalForm form-control" ID="ddlAnimalType" runat="server">
-                                        <asp:ListItem Text="--Animal Type--" Value="0"></asp:ListItem>
+                                        <asp:ListItem Text="--Animal Type--" Value=""></asp:ListItem>
                                         <asp:ListItem>Bird</asp:ListItem>
                                         <asp:ListItem>Mammal</asp:ListItem>
                                         <asp:ListItem>Reptile</asp:ListItem>
                                     </asp:DropDownList>&nbsp;&nbsp;
-                                    <asp:CompareValidator ControlToValidate="ddlAnimalType" ID="CompareValidator4"
-                                                                ValidationGroup="g3" ErrorMessage="Please select a type"
-                                                                runat="server" Operator="NotEqual" ValueToCompare="0" forecolor ="red"/>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Animal Name</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Animal Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Animal Name</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Animal Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalAnimalForm">
+                                <div class=" col-md-7 InternalAnimalForm">
 
-                                    <asp:TextBox class="form-control" ID="txtAnimalName" runat="server" required="required"></asp:TextBox>&nbsp&nbsp
+                                    <asp:TextBox class="form-control" ID="txtAnimalName" runat="server"></asp:TextBox>&nbsp&nbsp
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Status</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Status<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Status</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Status<span style="COLOR: red"> *</span></h6>
                                 </div>
 
-                                <div class=" col-md-8 InternalAnimalForm">
-
+                                <div class=" col-md-7 InternalAnimalForm">
 
                                     <asp:DropDownList ID="ddlStatus" class="form-control" runat="server">
-                                        <asp:ListItem Text="--Status--" Value="0"></asp:ListItem>
+                                        <asp:ListItem Text="--Status--" Value=""></asp:ListItem>
                                         <asp:ListItem>Active</asp:ListItem>
                                         <asp:ListItem>Inactive</asp:ListItem>
                                     </asp:DropDownList>
-                                    <asp:CompareValidator ControlToValidate="ddlStatus" ID="CompareValidator1"
-                                                                ValidationGroup="g3" ErrorMessage="Please select a type"
-                                                                runat="server" Operator="NotEqual" ValueToCompare="0" forecolor ="red"/>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 InternalAnimalForm">
+                                <div class=" col-md-5 InternalAnimalForm">
                                     Upload Picture:
                                     <asp:FileUpload ID="FileUpload1" runat="server" />
                                 </div>
                             </div>
                             <div class="row">
-                                <div class=" col-md-4 InternalAnimalForm">
+                                <div class=" col-md-5 InternalAnimalForm">
                                     <asp:Image ID="animalImage" runat="server" />
                                 </div>
                             </div>
@@ -1061,7 +1058,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnAddAnimal" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddAnimal_Click" ValidationGroup="g3"/>
+                        <asp:Button ID="btnAddAnimal" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddAnimal_Click" />
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                     </div>
                 </div>
@@ -1082,25 +1079,25 @@
                         <div runat="server" id="EducatorAddDiv">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>First Name</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>First Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>First Name</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>First Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:TextBox ID="txtEducatorFirstName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-7 InternalEducatorForm">
+                                    <asp:TextBox ID="txtEducatorFirstName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Last Name</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Last Name</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:TextBox ID="txtEducatorLastName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-7 InternalEducatorForm">
+                                    <asp:TextBox ID="txtEducatorLastName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <%--    <div class="row">
@@ -1149,69 +1146,66 @@
                         <div runat="server" id="Div3">
                             <p>&nbsp;</p>
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>First Name</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>First Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>First Name</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>First Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:TextBox ID="txtVolunteerAddFirstName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-7 InternalEducatorForm">
+                                    <asp:TextBox ID="txtVolunteerAddFirstName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Last Name</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Last Name</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:TextBox ID="txtVolunteerAddLastName" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-7 InternalEducatorForm">
+                                    <asp:TextBox ID="txtVolunteerAddLastName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
 
 
 
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Phone Number</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Phone Number<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Phone Number</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Phone Number<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:TextBox ID="txtVolunteerAddPhoneNumber" class="form-control" runat="server" placeholder="(___) ___-____" required="required"></asp:TextBox>
+                                <div class=" col-md-7 InternalEducatorForm">
+                                    <asp:TextBox ID="txtVolunteerAddPhoneNumber" class="form-control" runat="server" placeholder="(___) ___-____"></asp:TextBox>
                                     &nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Email</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Email<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Email</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Email<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalEducatorForm">
-                                    <asp:TextBox ID="txtVoluteerAddEmail" class="form-control" runat="server" required="required"></asp:TextBox>&nbsp;&nbsp;
+                                <div class=" col-md-7 InternalEducatorForm">
+                                    <asp:TextBox ID="txtVoluteerAddEmail" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                    <h6>Status</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Status<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                    <h6>Status</h6>
+                                <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
+                                    <h6>Status<span style="COLOR: red"> *</span></h6>
                                 </div>
-                                <div class=" col-md-8 InternalEducatorForm">
+                                <div class=" col-md-7 InternalEducatorForm">
                                     <asp:DropDownList ID="ddlVolunteerAddStatus" class="form-control" runat="server">
                                         <asp:ListItem Text="--Status--" Value=""></asp:ListItem>
                                         <asp:ListItem Text="Active" Value="Active"></asp:ListItem>
                                         <asp:ListItem Text="Inactive" Value="Inactive"></asp:ListItem>
                                     </asp:DropDownList>
-                                    <asp:CompareValidator ControlToValidate="ddlVolunteerAddStatus" ID="CompareValidator2"
-                                                                ValidationGroup="g2" ErrorMessage="Please select a type"
-                                                                runat="server" Operator="NotEqual" ValueToCompare="0" forecolor ="red"/>
                                 </div>
                             </div>
 
@@ -1222,7 +1216,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <asp:Button ID="btnVolunteerAdd" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddVolunteer_Click" ValidationGroup="g2"/>
+                        <asp:Button ID="btnVolunteerAdd" class="btn btn-primary btn-inside" runat="server" Text="Submit" OnClick="btnAddVolunteer_Click" />
                         <%-- <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                     </div>
                 </div>
@@ -1713,8 +1707,7 @@
                                     <%--<asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />--%>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                      
-                                          <asp:Button ID="PaymentUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdatePayment_Click" />
+                                        <asp:Button ID="PaymentUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdatePayment_Click" />
 
 
                                     </div>
@@ -1889,4 +1882,3 @@
     <!-- end of do not delete -->
 </body>
 </html>
-

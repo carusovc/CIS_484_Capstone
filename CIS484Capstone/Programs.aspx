@@ -133,15 +133,15 @@
                     <div id="SelectProgramType">
                         <span></span>
                         <h3>Enter your program basics</h3>
-
+                        <br />
                         <div class="form-group">
                             <div class="form-group row">
-                                <div class="col-3">
-                                    <label id="lblProgramType" for="ProgramType">Type of Program:</label>
+                                <div class="col-5">
+                                    <label id="lblProgramType" for="ProgramType">Type of Program<span style="COLOR: red"> *</span></label>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-7">
                                     <select name="LiveOnline" id="LiveOnline" class="form-control">
-                                        <option value=""></option>
+                                        <option value="">--Select Program Type--</option>
                                         <option value="Live">Live Program</option>
                                         <option value="Online">Online Program</option>
 
@@ -150,18 +150,18 @@
                             </div>
                             <p></p>
                             <div class="form-group row">
-                                <div class="col-3">
-                                    <label id="ProgramDateLabel" for="ProgramDate">Program Date:</label>
+                                <div class="col-5">
+                                    <label id="ProgramDateLabel" for="ProgramDate">Program Date<span style="COLOR: red"> *</span></label>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-7">
                                     <input type="date" id="ProgramDate" class="form-control" runat="server" />
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-3">
-                                    <label id="ProgramTimeLabel" for="ProgramTime">Program Time:</label>
+                                <div class="col-5">
+                                    <label id="ProgramTimeLabel" for="ProgramTime">Program Time<span style="COLOR: red"> *</span></label>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-7">
                                     <input type="time" id="ProgramTime" class="form-control" runat="server" />
                                 </div>
                             </div>
@@ -185,7 +185,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="TypeLabel" for="Type">Program Type:</label>
+                                    <label id="TypeLabel" for="Type">Program Type<span style="COLOR: red"> *</span></label>
                                 </div>
 
                                 <div class="col-7">
@@ -198,7 +198,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="OrganizationLabel" for="Organization">Organization:</label>
+                                    <label id="OrganizationLabel" for="Organization">Organization<span style="COLOR: red"> *</span></label>
                                 </div>
                                 <div class="col-7">
                                     <asp:DropDownList CssClass="form-control" ID="dropDownOrganization" runat="server" class="dropdown-menu radioButtonList">
@@ -272,7 +272,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="StatusLabel" for="Status">Program Status:</label>
+                                    <label id="StatusLabel" for="Status">Program Status<span style="COLOR: red"> *</span></label>
                                 </div>
                                 <div class="col-7">
                                <asp:DropDownList CssClass="form-control" ID="Status" runat="server" class="dropdown-menu radioButtonList">
@@ -304,7 +304,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="lblOnOff" for="OnOff">Was the program onsite at the Wildlife Center Campus?</label>
+                                    <label id="lblOnOff" for="OnOff">Was the program onsite at the Wildlife Center Campus?<span style="COLOR: red"> *</span></label>
                                 </div>
                                 <div class="col-7">
                                     <%--                                    <select name="Program Status" id="Status" class="form-control">
@@ -419,7 +419,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="NumOfChildrenLabel" for="NumOfChildren">Number Of Children</label>
+                                    <label id="NumOfChildrenLabel" for="NumOfChildren">Number Of Children<span style="COLOR: red"> *</span></label>
                                 </div>
                                 <div class="col-7">
                                <input type="number" id="NumOfChildren" class="form-control" runat="server" />
@@ -428,7 +428,7 @@
 
                               <div class="form-group row">
                                 <div class="col-5">
-                                   <label id="NumOfAdultsLabel" for="NumOfAdults">Number Of Adults</label>
+                                   <label id="NumOfAdultsLabel" for="NumOfAdults">Number Of Adults<span style="COLOR: red"> *</span></label>
                                 </div>
                                 <div class="col-7">
                            <input type="number" id="NumOfAdults" class="form-control" runat="server" />
@@ -471,8 +471,8 @@
                         <p></p>
                         <div class="form-group">
                             <div class="form-group row">
-                                <div class="col-5">
-                                    <label id="OnlineTypeLabel" for="Type">Online Program Type:</label>
+                                <div class="col-4">
+                                    <label id="OnlineTypeLabel" for="Type">Online Program Type<span style="COLOR: red"> *</span></label>
                                 </div>
 
                                 <div class="col-7">
@@ -867,7 +867,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="OnlineNumOfChildrenLabel" for="OnlineNumOfChildren">Number Of Children:</label>
+                                    <label id="OnlineNumOfChildrenLabel" for="OnlineNumOfChildren">Number Of Children<span style="COLOR: red"> *</span></label>
                                 </div>
                                 <div class="col-7">
                                     <input type="number" id="OnlineNumOfChildren" class="form-control" runat="server" />
@@ -876,7 +876,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="OnlineNumOfAdultsLabel" for="OnlineNumOfAdults">Number Of Adults:</label>
+                                    <label id="OnlineNumOfAdultsLabel" for="OnlineNumOfAdults">Number Of Adults<span style="COLOR: red"> *</span></label>
                                 </div>
                                 <div class="col-7">
                                     <input type="number" id="OnlineNumOfAdults" class="form-control" runat="server" />

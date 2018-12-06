@@ -43,11 +43,9 @@
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
         <div class="ml-auto row">
         <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
-         <%--  <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
-               <span>Logout</span></a>--%>
-               <asp:Button ID="logout" class=" d-none d-md-block" runat="server" style="color:#FFBC7C; cursor:pointer; margin-right: 15px; background-color:transparent; border:none;" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
+         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
+               <span>Logout</span></a>
 </div>
-
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
            <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown  no-arrow">
@@ -94,11 +92,11 @@
             <li class="nav-item dropdown active no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Invoices</span>
+                    <span>Payment</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
                     
                 </div>
             </li>
@@ -199,11 +197,11 @@
              <li class="nav-item active dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Invoices</span>
+                    <span>Payment</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
 
                 </div>
             </li>
@@ -249,7 +247,6 @@
 
 
                 <%--  <div id="wrapper">
-
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
             <li class="nav-item">
@@ -281,11 +278,11 @@
            <%-- <li class="nav-item dropdown no-arrow active">--%>
                 <%--                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                     <i class="fas fa-envelope fa-fw"></i>
-                    <span>Invoices</span>
+                    <span>Payment</span>
                 </a>--%>
                 <%--                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
+                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
                 --%>
 
 
@@ -335,14 +332,13 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                    <h6>Invoice Number *</h6>
+                                    <h6>Invoice Number<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                    <h6>Invoice Number *</h6>
+                                    <h6>Invoice Number<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                      <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder="Enter Invoice Number" required="required"></asp:TextBox>
-                                                <asp:CompareValidator ID="CompareValidator6" runat="server" ControlToValidate="txtInvoiceNum" Type="Integer" Operator="DataTypeCheck" CssClass="errormesg" Display="Dynamic" forecolor ="red" ErrorMessage="Value must be a number."/>
 
                                 </div>
                             </div>
@@ -352,10 +348,10 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                    <h6>Date of Payment *</h6>
+                                    <h6>Date of Payment<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                    <h6>Date of Payment *</h6>
+                                    <h6>Date of Payment<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                     <input type="date" id="PaymentDate" class="form-control" runat="server" required="required"/>
@@ -366,20 +362,16 @@
                                        <div class="row">
 
 
-
-                                    <h6>Program *</h6>
+                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                    <h6>Program<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                    <h6>Program *</h6>
+                                    <h6>Program<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                     <asp:DropDownList ID="ddlProgramType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChange="ddlProgramType_SelectedIndexChanged" required="required">
                                                     <asp:ListItem Value="0">--Select Program--</asp:ListItem>
-                                                </asp:DropDownList>
-                                                   <asp:CompareValidator ControlToValidate="ddlProgramType" ID="CompareValidator1"
-                                                                ValidationGroup="g1" CssClass="errormesg" ErrorMessage="Please select a type"
-                                                                runat="server" Display="Dynamic" 
-                                                                Operator="NotEqual" ValueToCompare="0" Type="Integer" forecolor ="red"/></div>
+                                                </asp:DropDownList></div>
                             </div>
                             <br />
 
@@ -387,13 +379,10 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                    <h6>Organization *</h6>
+                                    <h6>Organization<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                    <h6>Organization * <asp:CompareValidator ControlToValidate="ddlOrganization" ID="CompareValidator2"
-                                                                ValidationGroup="g1" CssClass="errormesg" ErrorMessage="Please select a type"
-                                                                runat="server" Display="Dynamic" 
-                                                                Operator="NotEqual" ValueToCompare="0" Type="Integer" forecolor ="red"/></h6>
+                                    <h6>Organization<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                       <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="false" DataTextField="OrgName" DataValueField="OrgID" required="required">
@@ -410,32 +399,24 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                     <h6>Amount *</h6>
+                                     <h6>Amount<span style="COLOR: red"> *</span></h6>
                                 </div>
-
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                    <h6>Amount *</h6>
+                                    <h6>Amount<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                   <asp:TextBox ID="txtAmount" runat="server" class="form-control" placeholder="Enter Amount" required="required"></asp:TextBox>
-                                 <asp:CompareValidator ID="CompareValidator5" runat="server" ControlToValidate="txtAmount" Type="Integer" Operator="DataTypeCheck" CssClass="errormesg" Display="Dynamic" forecolor ="red" ErrorMessage="Value must be a number."/>
-
                             </div></div>
                             <br />
 
                                                     <div class="row">
 
 
-
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                      <h6>Payment Type *<asp:CompareValidator ControlToValidate="ddlPaymentType" ID="CompareValidator3"
-                                                                ValidationGroup="g1" ErrorMessage="Please select a type"
-                                                                runat="server" Operator="NotEqual" ValueToCompare="0" forecolor ="red"/></h6>
+                                      <h6>Payment Type<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                      <h6>Payment Type *<asp:CompareValidator ControlToValidate="ddlPaymentType" ID="CompareValidator3"
-                                                                ValidationGroup="g1" ErrorMessage="Please select a type"
-                                                                runat="server" Operator="NotEqual" ValueToCompare="0" forecolor ="red"/></h6>
+                                      <h6>Payment Type<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                      <asp:DropDownList ID="ddlPaymentType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged" required="required">
@@ -444,23 +425,21 @@
                                                     <asp:ListItem>Credit</asp:ListItem>
                                                     <asp:ListItem>Debit</asp:ListItem>
                                                 </asp:DropDownList>
-
-                            </div>
+                            </div></div>
                             <br />
 
                       <div class="row">
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                        <h6>Check Number *</h6>
+                                        <h6>Check Number</h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                        <h6>Check Number *</h6>
+                                        <h6>Check Number</h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                     <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" ReadOnly="true" placeholder="Enter Check Number" required="required"></asp:TextBox>
-                                     <asp:CompareValidator ID="CheckNumberValidator" runat="server" ControlToValidate="txtCheckNum" Type="Integer" Operator="DataTypeCheck" forecolor ="red" ErrorMessage="Value must be a number"/>
-         
+                                               
                             </div></div>
                             <br />
 
@@ -469,14 +448,10 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                          <h6>Payment Status * <asp:CompareValidator ControlToValidate="ddlInvoicePaymentStatus" ID="CompareValidator4"
-                                                                ValidationGroup="g1" ErrorMessage="Please select a type"
-                                                                runat="server" Operator="NotEqual" ValueToCompare="0" forecolor ="red"/></h6>
+                                          <h6>Payment Status<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                        <h6>Payment Status *<asp:CompareValidator ControlToValidate="ddlInvoicePaymentStatus" ID="CompareValidator4"
-                                                                ValidationGroup="g1" ErrorMessage="Please select a type"
-                                                                runat="server" Operator="NotEqual" ValueToCompare="0" forecolor ="red"/></h6>
+                                        <h6>Payment Status<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                       <asp:DropDownList ID="ddlInvoicePaymentStatus" runat="server" class="form-control" AppendDataBoundItems="false" required="required">
@@ -489,10 +464,16 @@
 
 
 
+                                      
+                                    
+
+
+
+                                     
                                   
                                     <div class="mx-auto d-flex justify-content-center">
                                         <%--<asp:Button ID="btnPopulate" runat="server" Text="Populate" OnClick="btnPopulate_Click" class="btn btn-primary btn-inside" />--%>
-                                        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary btn-inside" Text="Submit" ValidationGroup="g1"/>
+                                        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click1" class="btn btn-primary btn-inside" Text="Submit" />
                                         <asp:Button ID="btnInvoices" runat="server" OnClick="btnInvoices_Click" class="btn btn-primary btn-inside" Text="View Invoices" />
                                     </div>
                                     <p></p>
@@ -509,5 +490,3 @@
     </div>
 
 </asp:Content>
-
-
