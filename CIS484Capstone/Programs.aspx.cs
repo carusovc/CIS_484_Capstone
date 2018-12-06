@@ -15,7 +15,7 @@ using System.Drawing;
 public partial class Programs : System.Web.UI.Page
 {
 
-    int index = 1;
+    //int index = 1;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -29,7 +29,7 @@ public partial class Programs : System.Web.UI.Page
         {
 
 
-            //string str = "select * from Person where username= @username";
+            
             System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
             str.Connection = sc;
             str.Parameters.Clear();
@@ -38,7 +38,7 @@ public partial class Programs : System.Web.UI.Page
             str.Parameters.AddWithValue("@username", Session["USER_ID"]);
             str.ExecuteNonQuery();
 
-            //SqlCommand com = new SqlCommand(str, con);
+        
 
             SqlDataAdapter da = new SqlDataAdapter(str);
 
@@ -79,7 +79,7 @@ public partial class Programs : System.Web.UI.Page
             {
 
 
-                //string str = "select * from Person where username= @username";
+               
                 System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
                 str.Connection = sc;
                 str.Parameters.Clear();
@@ -88,7 +88,7 @@ public partial class Programs : System.Web.UI.Page
                 str.Parameters.AddWithValue("@username", Session["USER_ID"]);
                 str.ExecuteNonQuery();
 
-                //SqlCommand com = new SqlCommand(str, con);
+              
 
                 SqlDataAdapter da = new SqlDataAdapter(str);
 
@@ -96,7 +96,7 @@ public partial class Programs : System.Web.UI.Page
 
                 da.Fill(ds);
 
-                //lblWelcome.Text = "Welcome, " + ds.Tables[0].Rows[0]["Firstname"].ToString() + " ";
+       
             }
             catch
             {
@@ -135,13 +135,7 @@ public partial class Programs : System.Web.UI.Page
                     ddlOnlineProgramType.Items.Add(new ListItem(myRead1["OnlineProgramTypeName"].ToString(), myRead1["OnlineProgramTypeID"].ToString()));
                 }
 
-                //while (myRead2.Read())
-                //{
-                //    ddlOTeacher.Items.Add(new ListItem(myRead2["EducatorFirstName"].ToString(), myRead2["EducatorID"].ToString()));
-                //}
-                //ddlOnlineProgramID.DataBind();
-
-
+         
 
                 if (AddGrade.Items.Count < 2)
                 {
@@ -305,7 +299,7 @@ public partial class Programs : System.Web.UI.Page
                     while (myRead1.Read())
                     {
                         ddlProgram.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
-                        //ddlProgramType.Items.Add(new ListItem(myRead1["ProgramName"].ToString(), myRead1["ProgramTypeID"].ToString()));
+                       
                     }
                 }
                 if (ddlProgramType.Items.Count < 2)
@@ -329,7 +323,7 @@ public partial class Programs : System.Web.UI.Page
                     while (myReadLive3.Read())
                     {
                         lstSelectEducatorsLive.Items.Add(new ListItem(myReadLive3["EducatorFirstName"].ToString() + " " + myReadLive3["EducatorLastName"].ToString(), myReadLive3["EducatorID"].ToString()));
-                        //drpEducators.Items.Add(new ListItem(myReadLive3["EducatorFirstName"].ToString() + " " + myReadLive3["EducatorLastName"].ToString(), myReadLive3["EducatorID"].ToString()));
+                       
 
                     }
                 }
@@ -425,14 +419,6 @@ public partial class Programs : System.Web.UI.Page
                 SqlDataReader myReadOnline1 = cmdOnline1.ExecuteReader();
                 SqlDataReader myReadOnline2 = cmdOnline2.ExecuteReader();
 
-
-
-                //Online Program
-                //while (myReadOnline.Read())
-                //{
-
-                //    lstOnlineProgramType.Items.Add(new ListItem(myReadOnline["OnlineProgramID"].ToString(), myReadOnline["OnlineProgramID"].ToString()));
-                //}
 
                 while (myReadOnline1.Read())
                 {
@@ -614,9 +600,6 @@ public partial class Programs : System.Web.UI.Page
     protected void btn_lgout_Click(object sender, EventArgs e)
     {
 
-
-        //Session.Clear();
-        //Session.Abandon();
         Session.RemoveAll();
 
         Session["USER_ID"] = null;
@@ -1135,8 +1118,8 @@ public partial class Programs : System.Web.UI.Page
         update.Parameters.AddWithValue("@programID", tempProgramID);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
-        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(Session["USER_ID"].ToString()); 
+        //lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
+        //lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(Session["USER_ID"].ToString()); 
 
 
         // Delete Educators from associated table
@@ -1333,28 +1316,6 @@ public partial class Programs : System.Web.UI.Page
         }
 
 
-        //System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-        //SqlConnection con2 = new SqlConnection(cs);
-
-        //ddlProgramID.Items.Clear();
-        ////call read array
-        //con.Open();
-        //if (con.State == System.Data.ConnectionState.Open)
-        //{
-
-        //    string read = "SELECT ProgramID, convert(varchar, ProgramDate,101) as ProgramDate, ProgramType.ProgramName AS ProgramType, Organization.OrgName As Organization from Program z inner join ProgramType on z.ProgramTypeID = ProgramType.ProgramTypeID inner join Organization on z.OrgID = Organization.OrgID";
-        //    SqlCommand cmd = new SqlCommand(read, con);
-        //    SqlDataReader myRead = cmd.ExecuteReader();
-
-        //    while (myRead.Read())
-        //    {
-
-        //        ddlProgramID.Items.Add((new ListItem(myRead["ProgramID"].ToString(), myRead["ProgramID"].ToString())) + ": " + (new ListItem(myRead["ProgramDate"].ToString(), myRead["ProgramDate"].ToString())) + "--" + (new ListItem(myRead["ProgramType"].ToString(), myRead["ProgramType"].ToString())));
-
-
-        //    }
-
-        //}
         ddlProgramID.SelectedIndex = 0;
         ddlProgramType.SelectedIndex = 0;
         ddlOrganization.SelectedIndex = 0;
@@ -1390,21 +1351,6 @@ public partial class Programs : System.Web.UI.Page
         }
 
     }
-    //protected void selectLocation(object sender, EventArgs e)
-    //{
-    //    if (OnOff.SelectedValue == "1")
-    //    {
-    //        txtAddress.Text = HttpUtility.HtmlEncode("1800 S Delphine Ave");
-    //        txtCity.Text = HttpUtility.HtmlEncode("Waynesboro");
-    //        txtCounty.Text = HttpUtility.HtmlEncode("");
-    //        txtState.Text = HttpUtility.HtmlEncode("VA");
-    //    }
-    //    //else
-    //    //{
-            
-    //    //}
-
-    //}
 
    protected void selectLocation(object sender, EventArgs e)
     {
@@ -1560,22 +1506,7 @@ public partial class Programs : System.Web.UI.Page
 
                     }
                 }
-                //for (int i = 0; i < ddlState1.Items.Count; i++)
-                //{
-
-                //    if (ddlState1.Items[i].ToString() == sdr[6].ToString())
-                //    {
-                //        ddlState1.Items[i].Selected = true;
-                //    }
-                //}
-
-                //for (int i = 0; i < ddlStatus.Items.Count; i++)
-                //{
-                //    if (ddlStatus.Items[i].ToString() == sdr[3].ToString())
-                //    {
-                //        ddlStatus.Items[i].Selected = true;
-                //    }
-                //}
+           
 
                 if (sdr[7].ToString() == "1")
                 {
@@ -1595,36 +1526,12 @@ public partial class Programs : System.Web.UI.Page
                 txtProgramTime.Text = HttpUtility.HtmlEncode(sdr[12].ToString());
                 //txtMonth.Text = sdr[13].ToString();
                 txtComments.Text = HttpUtility.HtmlEncode(sdr[14].ToString());
-                lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[15].ToString());
-                lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[16].ToString());
+               // lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[15].ToString());
+                //lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[16].ToString());
             }
 
 
-            //while (sdr1.Read())
-            //{
-            //    for (int i = 0; i < ddlProgramType.Items.Count; i++)
-            //    {
-            //        if (ddlProgramType.Items[i].ToString() == sdr1[0].ToString())
-            //        {
-            //            ddlProgramType.Items[i].Selected = true;
-
-            //        }
-            //    }
-            //    //ddlProgramType.SelectedItem.Text = sdr1[0].ToString();
-            //}
-
-            //while (sdr2.Read())
-            //{
-            //    for (int i = 0; i < ddlOrganization.Items.Count; i++)
-            //    {
-            //        if (ddlOrganization.Items[i].ToString() == sdr2[0].ToString())
-            //        {
-            //            ddlOrganization.Items[i].Selected = true;
-
-            //        }
-            //    }
-            //    //ddlOrganization.SelectedItem.Text = sdr2[0].ToString();
-            //}
+           
 
             while (sdr3.Read())
             {
@@ -1670,7 +1577,7 @@ public partial class Programs : System.Web.UI.Page
 
                     }
                 }
-                //txtTempGrades.Text += sdr4[0].ToString() + " ";
+           
             }
 
             while (sdr5.Read())
@@ -1687,7 +1594,7 @@ public partial class Programs : System.Web.UI.Page
                     }
 
                 }
-                //txtTempBirds.Text += sdr5[0].ToString() + " ";
+              
             }
 
             while (sdr6.Read())
@@ -1704,7 +1611,7 @@ public partial class Programs : System.Web.UI.Page
                     }
 
                 }
-                //txtTempReptiles.Text += sdr6[0].ToString() + " ";
+          
             }
 
 
@@ -2576,8 +2483,8 @@ public partial class Programs : System.Web.UI.Page
         //update.Parameters.AddWithValue("@secondaryEmail", txtSecondaryEmail.Text);
         update.ExecuteNonQuery();
 
-        lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
-        lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
+       // lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(DateTime.Today);
+       // lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(Session["USER_ID"].ToString());
 
         // Delete Educators from associated table
         deleteEducator.CommandText = "Delete from OnlineEducators where OnlineProgramID = @onlineProgramID";
@@ -2925,8 +2832,8 @@ public partial class Programs : System.Web.UI.Page
                 txtOComments.Text = HttpUtility.HtmlEncode(sdr[11].ToString());
 
 
-                lblLastUpdated2.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[12].ToString());
-                lblLastUpdatedBy2.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[13].ToString());
+               // lblLastUpdated2.Text = "Last Updated: " + HttpUtility.HtmlEncode(sdr[12].ToString());
+               // lblLastUpdatedBy2.Text = "Last Updated By: " + HttpUtility.HtmlEncode(sdr[13].ToString());
             }
 
 
@@ -2972,17 +2879,7 @@ public partial class Programs : System.Web.UI.Page
 
                     }
                 }
-                //int id = Convert.ToInt32(sdr2[0].ToString());
-                //drpEducators.SelectedIndex = id;
-
-
-                //txtEducators.Text += sdr2.GetString(1) + " ";
-
-                //int count = sdr2.GetInt32(0);
-                //for (int i =0; i<count;i++)
-                //{
-                //    drpEducators.SelectedIndex = i;
-                //}
+           
             }
 
             while (sdr3.Read())

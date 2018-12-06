@@ -132,12 +132,12 @@
                     <%-- Modal Step 1 - Selector--%>
                     <div id="SelectProgramType">
                         <span></span>
-                        <h3>Enter your program basics</h3>
+                        <h4>Enter Program Information</h4>
 
                         <div class="form-group">
                             <div class="form-group row">
                                 <div class="col-3">
-                                    <label id="lblProgramType" for="ProgramType">Type of Program:</label>
+                                    <label id="lblProgramType" for="ProgramType">Type of Program</label>
                                 </div>
                                 <div class="col-6">
                                     <select name="LiveOnline" id="LiveOnline" class="form-control">
@@ -151,7 +151,7 @@
                             <p></p>
                             <div class="form-group row">
                                 <div class="col-3">
-                                    <label id="ProgramDateLabel" for="ProgramDate">Program Date:</label>
+                                    <label id="ProgramDateLabel" for="ProgramDate">Program Date</label>
                                 </div>
                                 <div class="col-6">
                                     <input type="date" id="ProgramDate" class="form-control" runat="server" />
@@ -159,7 +159,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-3">
-                                    <label id="ProgramTimeLabel" for="ProgramTime">Program Time:</label>
+                                    <label id="ProgramTimeLabel" for="ProgramTime">Program Time</label>
                                 </div>
                                 <div class="col-6">
                                     <input type="time" id="ProgramTime" class="form-control" runat="server" />
@@ -956,7 +956,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
         <li class="nav-item dropdown  no-arrow">
@@ -967,7 +967,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
              
@@ -977,8 +977,9 @@
                     <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
                     <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice</a>
+                    
                     
                 </div>
             </li>
@@ -1045,24 +1046,10 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
-
-            <%--<li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>--%>
-          
+       
            
            
 
@@ -1074,7 +1061,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
              <li class="nav-item dropdown  no-arrow">
@@ -1083,8 +1070,9 @@
                     <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                     <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice</a>
+                   
 
                 </div>
             </li>
@@ -1096,9 +1084,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
                     <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
-                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+
                 </div>
             </li>
               <li class="nav-item ">
@@ -1109,12 +1095,9 @@
              <li class="nav-item ">
                 <a class="nav-link" href="Tableau.aspx">
 
-                    <span>Visualization</span></a>
+                    <span>Visualizations</span></a>
             </li>
-            <%--<li class="nav-item">
-                <a class="nav-link" href="createUser.aspx">
-                    <span>Create Outreach Coordinator Access</span></a>
-            </li>--%>
+
         </ul>
 
 
@@ -1218,7 +1201,7 @@
 
 
                                                 <asp:Panel ID="p" runat="server" DefaultButton="btnAllSearch">
-                                                <div class="row mx-auto d-flex justify-content-center">
+                                                <div class="row mx-auto d-flex justify-content-center" >
 
                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                                     </div>
@@ -1229,13 +1212,19 @@
                                                         <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchAll" runat="server" TabIndex="10"></asp:TextBox>
 
                                                     </div>
+                                                    
+                                                    <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6 ">
 
-                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn btn-block  " Style="margin-right: 6px; background-color: #C7BFC4 !important; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click" />
+                                                            </div>
 
-                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style="margin-right: 5px; background-color: #C7BFC4 !important; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click" />
+                                                    <div class="col-xl-1 col-lg-2 col-md-6 col-sm-6 col-xs-6 ">
 
-                                                        <asp:Button ID="btnAllClear" runat="server" class="btn " Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
+                                                        
+                                                        <asp:Button ID="btnAllClear" runat="server" class="btn btn-block " Style="margin-bottom: 6px; " Text="Clear" OnClick="btnAllClear_Click" />
                                                     </div>
+
+                                                      
 
                                                 </div>
                                                     </asp:Panel>
@@ -1243,7 +1232,7 @@
                                                 <div class="row mx-auto justify-content-center d-flex">
                                                     <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                                         <br />
-                                                        <asp:DropDownList ID="ddlOrderByAll" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="margin-top: 7px; background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByAll_SelectedIndexChanged">
+                                                        <asp:DropDownList ID="ddlOrderByAll" runat="server" class="form-control" Style="margin-top: 7px; " AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByAll_SelectedIndexChanged">
                                                             <asp:ListItem>--Order By--</asp:ListItem>
                                                             <asp:ListItem>Program Category</asp:ListItem>
                                                             <asp:ListItem>Program Date</asp:ListItem>
@@ -1565,18 +1554,24 @@
 
                                                     </div>
 
-                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                     <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6 ">
 
-                                                        <asp:Button ID="btnLiveSearch" runat="server" class="btn" Style="margin-right: 5px; background-color: #C7BFC4 !important; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
-                                                        <asp:Button ID="btnLiveClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnLiveClear_Click" />
-                                                    </div>
+                                                       <asp:Button ID="btnLiveSearch" runat="server" class="btn btn-block" Style="margin-right: 5px; background-color: #C7BFC4 !important; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
+                                                            </div>
+
+                                                    <div class="col-xl-1 col-lg-2 col-md-6 col-sm-6 col-xs-6 ">
+
+                                                        
+                                                        <asp:Button ID="btnLiveClear" runat="server" class="btn btn-block" Style="margin-bottom: 5px;" Text="Clear " OnClick="btnLiveClear_Click" />
+                                                      </div>
+
 
                                                 </div>
 
                                                 <div class="row mx-auto justify-content-center d-flex">
                                                     <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                                         <br />
-                                                        <asp:DropDownList ID="ddlOrderByLive" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="margin-top: 7px; background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByLive_SelectedIndexChanged">
+                                                        <asp:DropDownList ID="ddlOrderByLive" runat="server" class="form-control" Style=" margin-top: 7px;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByLive_SelectedIndexChanged">
                                                             <asp:ListItem>--Order By--</asp:ListItem>
                                                             <asp:ListItem>Program Date</asp:ListItem>
                                                             <asp:ListItem>Organization A-Z</asp:ListItem>
@@ -1596,10 +1591,10 @@
                                                     </div>
                                                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
 
-                                                        <br class="d-none d-md-block" /> 
+                                                      
 
-                                                        <br />
-                                                        <asp:Button ID="btnFilterDatesLive" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnViewLive_Click" Text="Filter Dates" />
+                                                         <br class="d-none d-md-block" /> 
+                                                        <asp:Button ID="btnFilterDatesLive" runat="server" Style="margin-top: 7px; background-color: #C7BFC4 !important;" CssClass="btn btn-block" OnClick="btnViewLive_Click" Text="Filter Dates" />
 
                                                     </div>
                                                     
@@ -1868,18 +1863,26 @@
 
                                                     </div>
 
-                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                     <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6 ">
 
-                                                        <asp:Button ID="btnOnlineSearch" runat="server" class="btn Search" Style="margin-right: 5px; background-color: #C7BFC4 !important; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
-                                                        <asp:Button ID="btnOnlineClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnOnlineClear_Click" />
-                                                    </div>
+                                                      <asp:Button ID="btnOnlineSearch" runat="server" class="btn btn-block" Style="margin-right: 5px; background-color: #C7BFC4 !important; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
+                                                          </div>
+
+                                                    <div class="col-xl-1 col-lg-2 col-md-6 col-sm-6 col-xs-6 ">
+
+                                                        
+                                                        <asp:Button ID="btnOnlineClear" runat="server" class="btn btn-block" Style="margin-bottom: 5px;" Text="Clear" OnClick="btnOnlineClear_Click" />
+                                                     </div>
+
+
+                                                    
 
                                                 </div>
 
                                                 <div class="row mx-auto justify-content-center d-flex">
                                                     <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                                         <label class="" for="StartDateOnline"></label>
-                                                        <asp:DropDownList ID="ddlOrderByOnline" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; margin-top: 7px; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByOnline_SelectedIndexChanged">
+                                                        <asp:DropDownList ID="ddlOrderByOnline" runat="server" class="form-control" Style=" margin-top: 7px;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByOnline_SelectedIndexChanged">
                                                             <asp:ListItem>--Order By--</asp:ListItem>
                                                             <asp:ListItem>Program Date</asp:ListItem>
                                                             <asp:ListItem>Program Type A-Z</asp:ListItem>

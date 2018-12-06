@@ -77,7 +77,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
         <li class="nav-item dropdown  no-arrow">
@@ -88,7 +88,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
              
@@ -98,8 +98,9 @@
                     <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                     <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice</a>
+                   
                     
                 </div>
             </li>
@@ -165,7 +166,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
 
@@ -194,7 +195,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
              <li class="nav-item dropdown no-arrow">
@@ -203,8 +204,9 @@
                     <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Invoice Form</a>
                     <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice</a>
+                    
 
                 </div>
             </li>
@@ -229,7 +231,7 @@
              <li class="nav-item ">
                 <a class="nav-link" href="Tableau.aspx">
 
-                    <span>Visualization</span></a>
+                    <span>Visualizations</span></a>
             </li>
             <%--<li class="nav-item">
                 <a class="nav-link" href="createUser.aspx">
@@ -279,7 +281,8 @@
                                     }
                                 });       </script>
 
-                            <ul class="nav nav-tabs block4" id="myTab" role="tablist">
+                            
+                            <ul class="nav nav-tabs block4" id="myTab" style="margin-left:40px;" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active d-sm-none TabStyle" id="LiveTabTheme1" data-toggle="tab" href="#LiveTabTheme" style="color: black;">Live</a>
                                     <a class="nav-link active d-none d-sm-block TabStyle" id="LiveTabTheme2" data-toggle="tab" href="#LiveTabTheme" style="color: black;">Live Program Themes</a>
@@ -304,8 +307,8 @@
 
 
                                             <br class="d-none d-sm-block" />
-                                            <div class="row text-right">
-                                                <div class="   col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 InternalAnimalForm">
+                                            <div class="row text-right" >
+                                                <div class="   col-xl-11 col-lg-12 col-md-12 col-sm-12 col-xs-12 InternalAnimalForm" >
                                                     <div class="form-check-inline">
                                                         <asp:TextBox class="InternalAnimalForm form-control" Style="margin-right: 5px;" ID="txtSearch" runat="server"></asp:TextBox>
 
