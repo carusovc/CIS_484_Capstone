@@ -13,11 +13,11 @@ public partial class createUser : System.Web.UI.Page
 {
     
     protected void Page_Load(object sender, EventArgs e)
-    {
+    { 
+        //Test for session variable for secure access to page
         try
         {
             System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
             String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
             sc.ConnectionString = cs;
             sc.Open();
@@ -26,7 +26,6 @@ public partial class createUser : System.Web.UI.Page
 
             con.Open();
 
-            //string str = "select * from Person where username= @username";
             System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
             str.Connection = sc;
             str.Parameters.Clear();
@@ -35,37 +34,33 @@ public partial class createUser : System.Web.UI.Page
             str.Parameters.AddWithValue("@username", HttpUtility.HtmlEncode(Session["USER_ID"]));
             str.ExecuteNonQuery();
 
-            //SqlCommand com = new SqlCommand(str, con);
-
             SqlDataAdapter da = new SqlDataAdapter(str);
 
             DataSet ds = new DataSet();
 
             da.Fill(ds);
 
-            //lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
-
-
         }
         catch
         {
+            //redirect to the login page
             Session.RemoveAll();
             Response.Redirect("Default.aspx", false);
 
         }
     }
+
+    //removes the session variable when the user logs in
     protected void btn_lgout_Click(object sender, EventArgs e)
     {
 
-
-        //Session.Clear();
-        //Session.Abandon();
         Session.RemoveAll();
 
         Session["USER_ID"] = null;
 
         Response.Redirect("Default.aspx");
     }
+    //determines crudentials are correct, inserts new information into the database to create a new user
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
 
@@ -78,8 +73,6 @@ public partial class createUser : System.Web.UI.Page
                 // COMMIT VALUES
                 try
                 {
-
-          
 
                     System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
                     String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
@@ -95,16 +88,12 @@ public partial class createUser : System.Web.UI.Page
                     cmd.Parameters.AddWithValue("@UserName", txtUsername.Text);
 
                     exists = (int)cmd.ExecuteScalar() > 0;
-                    // exists = Convert.ToBoolean(cmd.ExecuteScalar());
-
-
 
                     // if exists, show a message error
                     if (!exists)
                     {
                         System.Data.SqlClient.SqlCommand createUser = new System.Data.SqlClient.SqlCommand();
                         createUser.Connection = sc;
-
 
 
                         // INSERT USER RECORD
@@ -244,26 +233,27 @@ public partial class createUser : System.Web.UI.Page
             lblStatus.Text = "Fill in a value for all fields.";
     }
 
-    protected void lnkLogin_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("createUser.aspx", false);
-    }
+    //protected void lnkLogin_Click(object sender, EventArgs e)
+    //{
+    //    Response.Redirect("createUser.aspx", false);
+    //}
 
-    protected void lnkAnother_Click(object sender, EventArgs e)
-    {
-        txtFirstName.Enabled = true;
-        txtLastName.Enabled = true;
-        txtEmail.Enabled = true;
-        txtUsername.Enabled = true;
-        txtPassword.Enabled = true;
-        btnSubmit.Enabled = true;
-        txtFirstName.Text = "";
-        txtLastName.Text = "";
-        txtUsername.Text = "";
-        txtPassword.Text = "";
-        chkShowPassword.Visible = true;
-    }
+    //protected void lnkAnother_Click(object sender, EventArgs e)
+    //{
+    //    txtFirstName.Enabled = true;
+    //    txtLastName.Enabled = true;
+    //    txtEmail.Enabled = true;
+    //    txtUsername.Enabled = true;
+    //    txtPassword.Enabled = true;
+    //    btnSubmit.Enabled = true;
+    //    txtFirstName.Text = "";
+    //    txtLastName.Text = "";
+    //    txtUsername.Text = "";
+    //    txtPassword.Text = "";
+    //    chkShowPassword.Visible = true;
+    //}
 
+        //validates the newly created password before the user can be submitted
     private bool validatePassword(string password)
     {
         bool temp;
@@ -286,7 +276,7 @@ public partial class createUser : System.Web.UI.Page
 
         return temp;
     }
-
+    //shows the password is the box is selected 
     protected void chkShowPassword_CheckedChanged(object sender, EventArgs e)
     {
         if (chkShowPassword.Checked)
@@ -303,7 +293,7 @@ public partial class createUser : System.Web.UI.Page
 
 
     }
-
+    //checks that the username has not been created already
     public static bool CheckUserName(string username)
     {
         bool status = false;

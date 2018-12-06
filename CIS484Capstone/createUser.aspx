@@ -34,7 +34,7 @@
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
 
-
+     <%--navigation bar for responsive design--%>
     <nav class="navbar navbar-dark bg-dark">
         <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,8 +49,6 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                     
-
                         <span>Programs</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
@@ -61,9 +59,6 @@
                
                 <li class="nav-item dropdown no-arrow ">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-
-
 
                         <span>Animals</span>
                     </a>
@@ -141,13 +136,11 @@
 
     <div id="wrapper">
 
-        <!-- Sidebar -->
+      <!-- Sidebar on every page for an Outreach Coordinator -->
 
         <ul class="sidebar navbar-nav d-none d-md-block">
             <li class="nav-item dropdown active no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <%--<a class="nav-link" href="Programs.aspx">--%>
 
                     <span>Programs</span>
                 </a>
@@ -156,9 +149,7 @@
                     <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
-            <%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>--%>
+
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -171,10 +162,6 @@
                 </div>
             </li>
 
-
-          
-           
-           
 
             <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -206,9 +193,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
                     <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
-                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+     
                 </div>
             </li>
               <li class="nav-item ">
@@ -221,23 +206,15 @@
 
                     <span>Visualization</span></a>
             </li>
-            <%--<li class="nav-item">
-                <a class="nav-link" href="createUser.aspx">
-                    <span>Create Outreach Coordinator Access</span></a>
-            </li>--%>
+
         </ul>
 
         <div id="content-wrapper">
 
 
-
+                   <!--Form to add a new staff member -->
             <div class="container-fluid ">
-
-
-
-                <section class="login-block">
-
-
+         
                     <div class="container1">
                         <div class="card card-register mx-auto mt-5">
                             <div class="card-header NewUserTitle text-center">Add Wildlife Center Staff</div>
@@ -366,30 +343,14 @@
                                     </div>
 
 
-                                
-
-                                
-
-                             
-
-
-
-                              
                                 <div class="text-center">
                                 </div>
                             </div>
                         </div>
                     </div>
 
-
-
-
-                </section>
-
-
             </div>
         </div>
 
-    </div>
 </asp:Content>
 

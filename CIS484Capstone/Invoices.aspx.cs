@@ -20,20 +20,17 @@ public partial class Invoices : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Test for session variable for secure access to page
         try
         {
             System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
             String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
             sc.ConnectionString = cs;
             sc.Open();
-            // lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
-
             SqlConnection con = new SqlConnection(cs);
 
             con.Open();
 
-            //string str = "select * from Person where username= @username";
             System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
             str.Connection = sc;
             str.Parameters.Clear();
@@ -41,10 +38,6 @@ public partial class Invoices : System.Web.UI.Page
             str.CommandText = "select * from Person where username= @username";
             str.Parameters.AddWithValue("@username", HttpUtility.HtmlEncode(Session["USER_ID"]));
             str.ExecuteNonQuery();
-
-
-            //SqlCommand com = new SqlCommand(str, con);
-
             SqlDataAdapter da = new SqlDataAdapter(str);
 
             DataSet ds = new DataSet();
@@ -58,6 +51,7 @@ public partial class Invoices : System.Web.UI.Page
         }
         catch
         {
+            //clears the session variable without a UseriD when logged in
             Session.RemoveAll();
             Response.Redirect("Default.aspx", false);
         }
@@ -69,19 +63,17 @@ public partial class Invoices : System.Web.UI.Page
         /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
            server control at run time. */
     }
+    //revert to home page on logout
     protected void btn_lgout_Click(object sender, EventArgs e)
     {
 
-
-        //Session.Clear();
-        //Session.Abandon();
         Session.RemoveAll();
 
         Session["USER_ID"] = null;
 
         Response.Redirect("Default.aspx");
     }
-
+    //export to the excel button based on the selected Invoices
     protected void exportBtnCancelled(object sender, EventArgs e)
     {
         // Export Selected Rows to Excel file Here
@@ -101,6 +93,7 @@ public partial class Invoices : System.Web.UI.Page
             }
             else
             {
+                //error checking
                 string script = "alert('Please select invoices you would like to export.');";
                 System.Web.UI.ScriptManager.RegisterClientScriptBlock(btnExportCancelled, this.GetType(), "Test", script, true);
             }
@@ -127,7 +120,6 @@ public partial class Invoices : System.Web.UI.Page
             string filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
             Response.Clear();
             Response.Buffer = true;
-            //Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + "\"");
             Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + ".xls");
             Response.Charset = "";
             Response.ContentType = "application/vnd.ms-excel";
@@ -136,7 +128,6 @@ public partial class Invoices : System.Web.UI.Page
 
 
             gvExport.RenderControl(htW);
-            // string filename2 = /*drpOrg.SelectedValue.ToString() +*/ " Invoice - " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
 
             string headerTable = @"<Table>" + invoiceyear + " " + filename + "</td></tr><tr><td></td></tr></Table>";
 
@@ -148,7 +139,7 @@ public partial class Invoices : System.Web.UI.Page
         }
 
     }
-
+    //export to the excel button based on the selected Invoices
     protected void exportBtnYearly_Click(object sender, EventArgs e)
     {
 
@@ -201,7 +192,6 @@ public partial class Invoices : System.Web.UI.Page
             string filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
             Response.Clear();
             Response.Buffer = true;
-            //Response.AddHeader("content-disposition", "attachment;filename=\"" + invoiceyear + filename + "\"");
 
             Response.AddHeader("content-disposition", "attachment;filename=" + invoiceyear + filename + ".xls");
             Response.Charset = "";
@@ -213,9 +203,6 @@ public partial class Invoices : System.Web.UI.Page
 
 
             gvExport.RenderControl(htW);
-            // string filename2 = /*drpOrg.SelectedValue.ToString() +*/ " Invoice - " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
-
-
             string headerTable = @"<Table><tr><td>" + invoiceyear + " " + filename + "</td></tr><tr><td></td></tr></Table>";
 
             Response.Write(headerTable);
@@ -231,6 +218,7 @@ public partial class Invoices : System.Web.UI.Page
 
     private decimal TotalNotCancelled = (decimal)0.0;
     private decimal TotalCancelled = (decimal)0.0;
+    //formats the gridview based on color of paid or not paid, and format to type currency
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
 
@@ -256,6 +244,7 @@ public partial class Invoices : System.Web.UI.Page
             e.Row.Cells[2].Text = String.Format("{0:c}", HttpUtility.HtmlEncode(TotalNotCancelled));
 
     }
+    //formats the gridview based on color of paid or not paid, and format to type currency
     protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
     {
 
@@ -280,6 +269,7 @@ public partial class Invoices : System.Web.UI.Page
             e.Row.Cells[2].Text = String.Format("{0:c}", HttpUtility.HtmlEncode(TotalCancelled));
 
     }
+    //formats the yearly gridview based on color of paid or not paid, and format to type currency
     protected void YearlyInvoiceGrid_RowDataBound(object sender, GridViewRowEventArgs e)
     {
 
@@ -306,7 +296,7 @@ public partial class Invoices : System.Web.UI.Page
             e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
 
     }
-
+    //updates the payment from current to cancelled invoice type
     protected void cancelInvoice(object sender, EventArgs e)
     {
         //GridView GridView1 = (GridView)sender;
@@ -338,12 +328,13 @@ public partial class Invoices : System.Web.UI.Page
             }
         }
     }
-
+    //redirect to the Add Invoice page for a new invoice
     protected void btnAddPayment_Click(object sender, EventArgs e)
     {
         Response.Redirect("Payment.aspx");
     }
-
+    
+    //export selected invoices to excel
     protected void exportBtnInvoices_ClickAv(object sender, EventArgs e)
     {
         // Export Selected Rows to Excel file Here

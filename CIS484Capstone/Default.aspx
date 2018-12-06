@@ -1,25 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="userLogin" %>
-
-
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-
-
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
-
-
     <meta charset="UTF-8">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
-
-
+    
     <!-- Bootstrap v4 -->
 
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
@@ -29,7 +18,7 @@
     <link href="Content/sb-admin.css" rel="stylesheet" type="text/css" media="screen">
 
 
-
+    <!-- styles the login page -->
     <style>
         body {
             background-image: url(../Images/BackgroundLogin/sunset.jpg);
@@ -46,10 +35,6 @@
 
     <section class="login-block">
 
-
-
-
-
         <div class="container1">
 
             <div class="card card-register mx-auto mt-5 " style="width: 24rem;">
@@ -57,8 +42,6 @@
                 <div class="card-header NewUserTitle">Wildlife Center Login</div>
 
                 <div class="card-body ">
-
-
 
                     <div class="row mx-auto">
 
@@ -72,15 +55,6 @@
 
                             </div>
 
-
-
-                            <%--<div class="form-group">
-            <h6>Password</h6>
-            <asp:TextBox ID="txtPassword" class="input-md textinput textInput form-control" name="password1" placeholder="Password" style="margin-bottom: 10px" runat="server" TextMode="Password"></asp:TextBox>
-       
-  
-       <asp:CheckBox ID="chkShowPassword" runat="server" Text="Show Password"  AutoPostback ="True" OnCheckedChanged ="chkShowPassword_CheckedChanged"/> </div>
-                   <br />--%>
                         </div>
 
                     </div>
@@ -129,7 +103,6 @@
 
                             <div class="form-group">
 
-                                <%--                <asp:Button ID="createForm" class="btn btn-primary  btn-login btn-block" runat="server" OnClick="btnForm_Click" Text="Enter Program Information" />--%>
                             </div>
 
                         </div>
@@ -150,18 +123,6 @@
 
                     <div class="form-check">
 
-                        <%--<label class="form-check-label">
-            <input type="checkbox" class="form-check-input">
-                <small>Remember Me</small>
-            </label>--%>
-
-
-
-
-
-
-
-                        <%--This needs to be removed --%>
                     </div>
 
                 </div>
@@ -172,57 +133,7 @@
 
         </div>
 
-
-
-        <%--This is the image on the login screen --%>
-
-        <%--<div class="col-md-8 banner-sec">
-           <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="/Images/BackgroundLogin/bird.jpg);" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="/Images/BackgroundLogin/eagle.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="/Images/BackgroundLogin/sunset.jpg" alt="Third slide">
-    </div>
-  </div>
-</div>
-           </div>--%>
-
-        </div>
-
-      </div>
-
-    </div>
-
- 
-
- 
-
- 
-
-      
-
     </section>
-
-
-
-
-
-
-
-
-
-
-
-    </div> 
-
-</section>
-
-   
 
  
 

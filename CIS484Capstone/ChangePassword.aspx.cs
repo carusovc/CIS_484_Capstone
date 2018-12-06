@@ -25,7 +25,7 @@ using System.Text.RegularExpressions;
 public partial class ChangePassword : System.Web.UI.Page
 
 {
-
+    //determines if the link to change password has expired or is no longer valid
     protected void Page_Load(object sender, EventArgs e)
 
     {
@@ -51,7 +51,7 @@ public partial class ChangePassword : System.Web.UI.Page
     }
 
 
-
+    //saves the newly created password and makes sure it is validated
     protected void btnSave_Click(object sender, EventArgs e)
 
     {
@@ -100,7 +100,7 @@ public partial class ChangePassword : System.Web.UI.Page
     }
 
 
-
+    //executes the stored procedure to change the Hashes password
     private bool ExecuteSP(string SPName, List<SqlParameter> SPParameters)
 
     {
@@ -116,13 +116,6 @@ public partial class ChangePassword : System.Web.UI.Page
             cmd.CommandType = CommandType.StoredProcedure;
 
 
-
-
-
-
-
-
-
             foreach (SqlParameter parameter in SPParameters)
 
             {
@@ -131,22 +124,16 @@ public partial class ChangePassword : System.Web.UI.Page
 
             }
 
-
-
             con.Open();
-
-
-
-
-
+  
             return Convert.ToBoolean(cmd.ExecuteScalar());
-
+         
         }
 
     }
 
 
-
+    //method to validate link to reset
     private bool IsPasswordResetLinkValid()
 
     {
@@ -178,7 +165,7 @@ public partial class ChangePassword : System.Web.UI.Page
     }
 
 
-
+    //method to change password
     private bool ChangeUserPassword()
 
     {
@@ -219,14 +206,12 @@ public partial class ChangePassword : System.Web.UI.Page
 
     }
 
-    
+    //method to validate the newly entered Password
     private bool validatePassword(string password)
 
     {
 
         bool temp;
-
-
 
         // Regular expression to validate password
 

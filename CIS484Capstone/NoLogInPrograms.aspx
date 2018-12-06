@@ -26,7 +26,7 @@
 
 
 
-
+    <!--function of the accordian to display the programs -->
     <script>
         $(function () {
             var icons = {
@@ -52,7 +52,7 @@
     </script>
 
 
-    <%-- Needed Coverage Check 11/5/18 CVC --%>
+    <%-- display the plus and minus of the to expand the program information --%>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
         $("body").on("click", "[src*=plus]", function () {
@@ -96,7 +96,7 @@
     <!-- Logo FOnt-->
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
-    <script>
+   <%-- <script>
         $(document).ready(function () {
             $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                 $('#calendar0').fullCalendar('render');
@@ -104,17 +104,9 @@
             });
             $('#myTab a:first').tab('show');
         });
-    </script>
+    </script>--%>
 
-
-
-
-    <%--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand logo" href="Programs.aspx">Wildtek</a>
-        </nav>--%>
+<!-- button popup modal to add a new animal  -->
 
     <div id="addProgramModal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
@@ -129,7 +121,7 @@
                 <div class="modal-body">
 
 
-                    <%-- Modal Step 1 - Selector--%>
+                    <%-- Modal Step 1 - Selector, first step of the modal--%>
                     <div id="SelectProgramType">
                         <span></span>
                         <h3>Enter Program Information</h3>
@@ -286,35 +278,11 @@
                                         </div>
                                     </div>
 
-                                    <%--<div class="form-group row">
-                                <div class="col-5">
-                                    <label id="PaymentLabel" for="Payment">Payment Status:</label>
-                                </div>
-                                <div class="col-7">
-                                    <%--                                    <select name="Payment Status" id="Payment" class="form-control">
-                                        <option value=""></option>
-                                        <option value="T1">Payment Complete</option>
-                                        <option value="T2">Payment Not Complete</option>
-                                    </select>
-                                    <asp:DropDownList CssClass="form-control" ID="Payment" runat="server" class="dropdown-menu radioButtonList">
-                                        <asp:ListItem Text="--Select Payment Status--" Value="0" />
-                                        <asp:ListItem Text="Payment Complete" Value="Y" />
-                                        <asp:ListItem Text="Payment Not Complete" Value="N" />
-                                    </asp:DropDownList> 
-                                </div>
-                            </div>--%>
-
-
                                     <div class="form-group row">
                                         <div class="col-5">
                                             <label id="lblOnOff" for="OnOff">Was the program onsite at the Wildlife Center Campus?<span style="color: red"> *</span></label>
                                         </div>
-                                        <div class="col-7">
-                                            <%--                                    <select name="Program Status" id="Status" class="form-control">
-                                        <option value="">--Select Status--</option>
-                                        <option value="Not Complete">Not Complete</option>
-                                        <option value="Complete">Complete</option>
-                                    </select>--%>
+ 
                                             <asp:DropDownList CssClass="form-control" class="dropdown-menu" ID="OnOff" runat="server" AutoPostBack="true" OnSelectedIndexChanged="selectLocation">
                                                 <asp:ListItem Text="--Select Location--" Value="2" />
                                                 <asp:ListItem Text="OnSite" Value="1" />

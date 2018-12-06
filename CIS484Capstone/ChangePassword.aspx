@@ -67,7 +67,7 @@
          
 
  
-
+    <!--Basic  nav bar for a Change of Password Option-->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -98,7 +98,7 @@
    
 
  
-
+    <!--Allows user to enter new password, and confirms the new password -->
     <div id="wrapper">
       <div id="content-wrapper">
 

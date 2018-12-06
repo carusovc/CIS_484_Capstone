@@ -40,7 +40,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">--%>
-
+    
+    <!-- Scripts used to create the map for geotracking, sshowing the position of the Animal -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script type="text/javascript">
@@ -282,7 +283,7 @@
         });
     </script>
 
-
+    <%--navigation bar for responsive design--%>
     <nav class="navbar navbar-dark bg-dark">
         <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -290,16 +291,13 @@
         <a class="navbar-brand " style="color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
         <div class="ml-auto row">
             <asp:Label ID="lblWelcome" runat="server" Text="" class="" Style="color: #e0d7c3; margin-right: 15px;"></asp:Label>
-            <%--  <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
-               <span>Logout</span></a>--%>
+            
             <asp:Button ID="logout" class=" d-none d-md-block" runat="server" Style="color: #FFBC7C; cursor: pointer; margin-right: 15px; background-color: transparent; border: none;" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
         </div>
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                        <%--<a class="nav-link" href="Programs.aspx">--%>
 
                         <span>Programs</span>
                     </a>
@@ -309,13 +307,9 @@
 
                     </div>
                 </li>
-                <%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>--%>
+
                 <li class="nav-item dropdown no-arrow active">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-
 
                         <span>Animals</span>
                     </a>
@@ -349,8 +343,6 @@
                     </div>
                 </li>
 
-
-
                 <li class="nav-item dropdown no-arrow ">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -359,9 +351,7 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
                         <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
-                        <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+
                     </div>
                 </li>
                 <li class="nav-item ">
@@ -384,9 +374,7 @@
 
     <div id="wrapper">
 
-        <!-- Sidebar -->
-
-
+        <!-- Sidebar on every page for an Outreach Coordinator -->
 
         <ul class="sidebar navbar-nav d-none d-md-block">
             <li class="nav-item dropdown  no-arrow">
@@ -401,9 +389,7 @@
                     <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
-            <%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>--%>
+
             <li class="nav-item active dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -415,23 +401,6 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
-
-            <%--<li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>--%>
-
-
-
 
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -463,9 +432,6 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
                     <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
-                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
             </li>
             <li class="nav-item ">
@@ -478,19 +444,16 @@
 
                     <span>Visualizations</span></a>
             </li>
-            <%--<li class="nav-item">
-                <a class="nav-link" href="createUser.aspx">
-                    <span>Create Outreach Coordinator Access</span></a>
-            </li>--%>
+
         </ul>
 
 
         <div id="content-wrapper">
             <div class="container-fluid ">
 
-
+                <%--buttons for Add and Edit Animals as pop ups on the Animal Page--%>
                 <section class="login-block  col-lg-10 col-xl-8 col-md-10 col-s-5 mx-auto ">
-                    <%--<section class="card card-register mx-auto mt-5">--%>
+                    
                     <div class="container1">
                         <div class="card  mx-auto mt-3">
                             <div class="card-header NewUserTitle text-center">
@@ -526,7 +489,7 @@
 
 
 
-
+                                <%--Animal Search Bar and Results--%>
                                     <div class="col-lg-12 col-md-12 col-s-12 mx-auto">
 
                                         <div class="container1 block">
@@ -554,7 +517,7 @@
                                                         <div class="col-md-12 mx-auto d-flex justify-content-center">
                                                             <br />
                                                             <br />
-
+                                                            <%--results of the Search for an Animal--%>
                                                             <asp:GridView ID="gridSearch" class="table table-bordered table-borderless table-striped table-condensed " HeaderStyle-BackColor="#C7BFC4"
                                                                 HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False" AllowSorting="True">
                                                                 <Columns>
@@ -574,6 +537,7 @@
 
 
                                             </div>
+                                            <%--determines which tab is active for the Animal--%>
                                             <script>
                                                 $(function () {
                                                     $('a[data-toggle="tab"]').on('click', function (e) {
@@ -586,7 +550,7 @@
                                                     }
                                                 });       </script>
 
-                                            <%-- this div  is the internal div--%>
+                                            <%-- this div  is the internal div to create the Tabs to view the different types of Animals--%>
 
                                             <ul class="nav nav-tabs block4" id="myTab" role="tablist">
                                                 <li class="nav-item">
@@ -601,16 +565,12 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link TabStyle" data-toggle="tab" href="#AnimalsBirdTab" style="color: black;">Bird</a>
                                                 </li>
-                                                <%-- <li class="nav-item">
-                    <a class="nav-link TabStyle" data-toggle="tab" href="#Location" style="color:black;">Location Tracking</a>
-                </li>--%>
+                                          
                                             </ul>
+                                              <%--View all Animals--%>
                                             <div class="tab-content">
                                                 <div id="AnimalsAllTab" class="container1 block3 tab-pane  WildTable active">
                                                     <div class="InternalAnimalTab">
-                                                        <%--<p>  Hello</p>
-                        <br />
-                        <br /><br /><br />--%>
                                                         <div class="grid-mammal text-center">
 
                                                             <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;">Mammal</h4>
@@ -633,7 +593,7 @@
                                                             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
                                                                 SelectCommand="SELECT [AnimalType], [AnimalName] FROM [Animal] WHERE ([AnimalType] = 'Mammal') ORDER BY [AnimalName]"></asp:SqlDataSource>
                                                         </div>
-
+                                                         
                                                         <div class="grid-reptile text-center">
 
                                                             <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;">Reptile</h4>
@@ -651,7 +611,7 @@
 
 
                                                         </div>
-
+                                                       
                                                         <div class="grid-bird text-center ">
 
                                                             <h4 class="alert d-none d-md-block" style="background-color: #C7BFC4 !important; color: Black !important;">Bird</h4>
@@ -668,7 +628,7 @@
                                                     </div>
                                                 </div>
 
-
+                                                  <%--View Mammals--%>
                                                 <div id="AnimalsMammalTab" class="container1 block3 tab-pane text-center WildTable">
                                                     <div class="InternalAnimalTab">
 
@@ -720,7 +680,7 @@
 
 
 
-
+                                                  <%--View Reptiles--%>
                                                 <div id="AnimalsReptileTab" class="container1 block3 tab-pane  text-center WildTable">
                                                     <div class="InternalAnimalTab">
 
@@ -766,7 +726,7 @@
 
 
 
-
+                                                  <%--View Birds--%>
                                                 <div id="AnimalsBirdTab" class="container1 block3 tab-pane text-center  WildTable">
                                                     <div class="InternalAnimalTab">
 
@@ -818,14 +778,6 @@
                                                     <div class="InternalAnimalTab">
 
                                                         <div>
-
-
-
-
-                                                            <%--<label>Mode Of Travel</label>
-  </div>
-       
-      </div>--%>
 
                                                             <div class="row">
                                                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -879,7 +831,7 @@
 
 
     </div>
-
+      <%--Ability to Add an Animal--%>
     <div class="modal fade" id="AddAnimalModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -956,7 +908,7 @@
 
 
 
-    <!-- Edit Animal Modal - Megan-->
+    <!-- Edit Animal Modal -->
 
     <div class="modal fade" id="EditAnimalModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -1010,13 +962,6 @@
                                         <asp:TextBox ID="txtBoxAnimalName" placeholder=" Animal Name" runat="server"></asp:TextBox>&nbsp&nbsp
                                     </div>
                                 </div>
-                                <%-- <div class="row"> 
-                <div class=" col-md-4 InternalAnimalForm"><h6>Age</h6> </div>
-                    <div class=" col-md-3 InternalAnimalForm">
-                         <asp:TextBox ID="txtAge" placeholder="Animal Age" runat="server"></asp:TextBox>
-                    </div>
-              </div>--%>
-
                                 <div class="row">
                                     <div class=" col-md-4 InternalAnimalForm">
                                         <h6>Status</h6>
@@ -1029,21 +974,10 @@
                                         </asp:DropDownList>
                                     </div>
                                 </div>
-                                <%--                   <div class ="row">
-                <div class =" col-md-4 InternalAnimalForm">
-                    Upload Picture: <asp:FileUpload ID="FileUpload2" runat="server" />
-                    </div>
-            </div>--%>
-                                <asp:Label ID="lblLastUpdated" runat="server" Text=""></asp:Label>&nbsp;
-              <asp:Label ID="lblLastUpdatedBy" runat="server" Text=""></asp:Label>
-                                <%--              <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate1_Click" />--%>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <%--                <button type="button" class="btn btn-primary btn-inside" OnClick="btnUpdate1_Click">Update</button>--%>
                                     <asp:Button ID="btnUpdate" class="btn btn-primary btn-inside" runat="server" Text="Save Changes" OnClick="btnUpdate1_Click" Enabled="true"></asp:Button>
-                                    <%--<asp:Button ID="btnDelete" class="btn btn-primary btn-inside" runat="server" Text="Delete" OnClick="btnDelete_Click" />--%>
 
-                                    <%--        <button type="button" class="btn btn-primary btn-inside">Save changes</button>--%>
                                 </div>
 
                                 <div></div>

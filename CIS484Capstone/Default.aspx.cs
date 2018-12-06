@@ -52,9 +52,7 @@ public partial class userLogin : System.Web.UI.Page
             System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
             findPass.Connection = sc;
             // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
-            // findPass.CommandText = "select PasswordHash, pe.PersonCategory as PersonType, pe.Status as PersonStatus, e.Status as EdStatus, v.VolunteerStatus as VStatus from Pass, Person pe, Educators e, Volunteers v where pe.Username = @Username";
-            findPass.CommandText = "select PasswordHash, pe.Status, pe.PersonCategory from Pass pa, Person pe where pa.username = @Username";
-            //findPass.CommandText = "select PasswordHash, pe.PersonCategory as PersonType, pe.Status as PersonStatus, e.Status as EdStatus, v.VolunteerStatus as VStatus from Pass, Person pe, Educators e, Volunteers v where pe.Username = @Username";
+            findPass.CommandText = "select PasswordHash, pe.Status, pe.PersonCategory from Pass pa, Person pe where pa.username = @Username and pe.username = @Username";
             findPass.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
             SqlDataReader reader = findPass.ExecuteReader(); // create a reader
                                                              // SqlDataAdapter asda = new SqlDataAdapter();
@@ -82,8 +80,8 @@ public partial class userLogin : System.Web.UI.Page
                                     btnLogin.Enabled = false;
                                     txtUsername.Enabled = false;
                                     txtPassword.Enabled = false;
-                                    Response.Redirect("Programs.aspx", true);
                                     Session["USER_ID"] = HttpUtility.HtmlEncode(txtUsername.Text);
+                                    Response.Redirect("Programs.aspx");
                                     break;
 
                                 case "V":
@@ -91,8 +89,9 @@ public partial class userLogin : System.Web.UI.Page
                                     btnLogin.Enabled = false;
                                     txtUsername.Enabled = false;
                                     txtPassword.Enabled = false;
-                                    Response.Redirect("NoLogInPrograms.aspx", false);
                                     Session["USER_ID"] = HttpUtility.HtmlEncode(txtUsername.Text);
+
+                                    Response.Redirect("NoLogInPrograms.aspx");
                                     break;
                             }
 
@@ -129,6 +128,7 @@ public partial class userLogin : System.Web.UI.Page
         HttpResponse.RemoveOutputCacheItem("/Default.aspx");
 
     }
+    //clears cache 
     public static void ClearCache()
     {
         HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);
@@ -147,28 +147,7 @@ public partial class userLogin : System.Web.UI.Page
         for (int i = 0; i < keys.Count; i++)
             Cache.Remove(keys[i]);
     }
-    public void showdata()
-    {
-        //System.Data.SqlClient.SqlCommand findname = new System.Data.SqlClient.SqlCommand();
-        //findname.CommandText = "Select * from Person where Username = @Username";
-        //findname.Parameters.AddWithValue("@Username", txtUsername.Text);
-
-        // findname.Connection = sc;
-        //asda.SelectCommand = firstuser;
-        //asda.Fill(ds);
-        ////// SELECT FirstName STRING WHERE THE ENTERED USERNAME MATCHES
-        //lblWelcome.Text = asda.Tables{ }0.Rows[0]["Firstname"].ToString();
-        //
-
-        //
-        //string strUsername = Convert.ToString(findname.ExecuteScalar());
-
-
-
-        //HttpContext.Current.Session["USER_ID"] = strUsername;
-
-    }
-
+    //lets the user reset their password
     protected void btnResetPassword_Click(object sender, EventArgs e)
 
     {
@@ -183,20 +162,8 @@ public partial class userLogin : System.Web.UI.Page
 
             cmd.CommandType = CommandType.StoredProcedure;
 
-
-
             SqlParameter paramUsername = new SqlParameter("@UserName", txtUsername.Text);
-
-            //SqlCommand findPersonID = new SqlCommand("Select UserID from Person where Username = @User", con);
-
-            //findPersonID.Parameters.AddWithValue("@User", Person.updateUserName);
-
-            //int personID = Convert.ToInt32(findPersonID.ExecuteScalar());
-
             cmd.Parameters.Add(paramUsername);
-
-
-
             con.Open();
 
             SqlDataReader rdr = cmd.ExecuteReader();
@@ -208,17 +175,11 @@ public partial class userLogin : System.Web.UI.Page
                 string script = "alert('First Enter a Username');";
 
                 System.Web.UI.ScriptManager.RegisterClientScriptBlock(btnReset, this.GetType(), "Test", script, true);
-
             }
 
             else
 
             {
-
-
-
-
-
                 while (rdr.Read())
 
                 {
@@ -242,13 +203,6 @@ public partial class userLogin : System.Web.UI.Page
                     else
 
                     {
-
-                        //lblMessage.ForeColor = System.Drawing.Color.Red;
-
-                        // lblMessage.Text = "Username not found!";
-
-
-
                         string script = "alert('Username not found!');";
 
                         System.Web.UI.ScriptManager.RegisterClientScriptBlock(btnReset, this.GetType(), "Test", script, true);
@@ -262,7 +216,7 @@ public partial class userLogin : System.Web.UI.Page
         }
 
     }
-
+    //sends an email if the user forgets their password 
     private void SendPasswordResetEmail(string ToEmail, string UserName, string UniqueId)
 
     {
@@ -270,10 +224,6 @@ public partial class userLogin : System.Web.UI.Page
         // MailMessage class is present is System.Net.Mail namespace
 
         MailMessage mailMessage = new MailMessage("wildtek6@gmail.com", ToEmail);
-
-
-
-
 
         // StringBuilder class is present in System.Text namespace
 
@@ -288,10 +238,6 @@ public partial class userLogin : System.Web.UI.Page
         sbEmailBody.Append("<br/>"); sbEmailBody.Append("http://wildtek.site/ChangePassword.aspx?uid=" + UniqueId);
 
         sbEmailBody.Append("<br/><br/>");
-
-
-
-
 
         mailMessage.IsBodyHtml = true;
 
@@ -323,16 +269,7 @@ public partial class userLogin : System.Web.UI.Page
 
     }
 
-    protected void lnkCreate_Click(object sender, EventArgs e)
-
-    {
-
-        Response.Redirect("createUser.aspx", false);
-
-    }
-
-
-
+    
     //Method to show password on checkbox clicked
 
     protected void chkShowPassword_CheckedChanged(object sender, EventArgs e)
@@ -362,18 +299,6 @@ public partial class userLogin : System.Web.UI.Page
 
         }
 
-
-
     }
-
-
-
-    //protected void btnForm_Click(object sender, EventArgs e)
-
-    //{
-
-    //    Response.Redirect("NoLogInPrograms.aspx");
-
-    //}
 
 }

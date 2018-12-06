@@ -34,7 +34,7 @@
 
 
 
-
+       <%--navigation bar for responsive design--%>
     <nav class="navbar navbar-dark bg-dark">
         <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -42,8 +42,6 @@
         <a class="navbar-brand " style="color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
         <div class="ml-auto row">
             <asp:Label ID="lblWelcome" runat="server" Text="" class="" Style="color: #e0d7c3; margin-right: 15px;"></asp:Label>
-            <%--  <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
-               <span>Logout</span></a>--%>
             <asp:Button ID="logout" class=" d-none d-md-block" runat="server" Style="color: #FFBC7C; cursor: pointer; margin-right: 15px; background-color: transparent; border: none;" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
         </div>
 
@@ -52,7 +50,6 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                        <%--<a class="nav-link" href="Programs.aspx">--%>
 
                         <span>Programs</span>
                     </a>
@@ -62,9 +59,7 @@
 
                     </div>
                 </li>
-                <%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>--%>
+
                 <li class="nav-item dropdown no-arrow active">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -112,10 +107,7 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
                         <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
-                        <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
-                    </div>
+                       </div>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="Report.aspx">
@@ -137,8 +129,7 @@
 
     <div id="wrapper">
 
-        <!-- Sidebar -->
-
+          <!-- Sidebar on every page for an Outreach Coordinator -->
         <ul class="sidebar navbar-nav d-none d-md-block">
             <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -152,9 +143,6 @@
                     <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
-            <%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>--%>
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -166,23 +154,6 @@
                     <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
-
-            <%--<li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>--%>
-
-
-
 
             <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -215,10 +186,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
                     <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
-                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
-                </div>
+   </div>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="Report.aspx">
@@ -230,10 +198,7 @@
 
                     <span>Visualizations</span></a>
             </li>
-            <%--<li class="nav-item">
-                <a class="nav-link" href="createUser.aspx">
-                    <span>Create Outreach Coordinator Access</span></a>
-            </li>--%>
+
         </ul>
 
 
@@ -244,21 +209,20 @@
 
 
         <div id="content-wrapper">
-
-            <%-- <section class="login-block  col-xl-10 col-lg-10 col-md-12 col-s-12 mx-auto ">--%>
-
+               <%--buttons for Add and Edit Animals as pop ups on the Animal Page--%>
 
             <div class="container1">
                 <div class="card  mx-auto mt-5">
                     <div class="card-header NewUserTitle text-center">Invoices</div>
                     <div class="card-body text-center">
                         <a href="Payment.aspx">
-                            <div class="btn btn-primary btn-inside" id="btnAddPayment" runat="server" onclick="btnAddPayment_Click"><i class="fas fa-plus" style="margin-right: 5px;"></i>Add Payment</div>
+                            <div class="btn btn-primary btn-inside" id="btnAddPayment" runat="server" onclick="btnAddPayment_Click"><i class="fas fa-plus" style="margin-right: 5px;"></i>Add Invoice</div>
                         </a>
                         <div class="btn btn-primary btn-inside" data-target="#UpdatePayment" data-toggle="modal"><i class="fas fa-pencil-alt " style="margin-right: 5px;"></i>Edit Invoice</div>
 
                         <p></p>
                         <div class="block3">
+                               <%--determines which tab is active for the Animal--%>
                             <script>
                                 $(function () {
                                     $('a[data-toggle="tab"]').on('click', function (e) {
@@ -271,7 +235,7 @@
                                     }
                                 });       </script>
 
-
+                               <%--tabs to switch between the different views of the invoice types--%>
                             <ul class="nav nav-tabs block4" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active TabStyle" id="CurrentInvoiceNav" data-toggle="tab" href="#CurrentInvoice" style="color: black;">Current Invoices</a>
@@ -287,7 +251,7 @@
 
 
 
-
+                               <%--allows the user to select a month and year to view an invoice about  --%>
                             <div class="tab-content">
                                 <div id="CurrentInvoice" class="container1 block3 tab-pane  WildTable active">
                                     <div class="InternalTab">
@@ -329,7 +293,7 @@
                                                 <br />
                                                 <br />
 
-
+                                                   <%--gridview to see information about the payments/ invoices--%>
                                                 <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="PaymentID"
                                                     OnRowDataBound="GridView1_RowDataBound" EmptyDataText="There are no records to display." class="table  table-condensed table-hover" HeaderStyle-BorderColor="#DDDDDD">
                                                     <Columns>
@@ -395,7 +359,7 @@
                                     </div>
                                 </div>
 
-
+                                   <%--choose what month and year to view cancelled invoices about--%>
                                 <div id="CancelledInvoice" class="container1 block3 tab-pane text-center WildTable">
                                     <div class="InternalTab">
                                         <div class="col-md-12 mx-auto d-flex justify-content-center ProgramTitle">
@@ -478,7 +442,6 @@
 
                                                         <asp:ControlParameter ControlID="drpMonth2" Name="Month" PropertyName="SelectedValue" Type="String" />
                                                         <asp:ControlParameter ControlID="drpYear2" Name="Year" PropertyName="SelectedValue" Type="String" />
-                                                        <%-- <asp:ControlParameter ControlID="drpOrg" Name="OrgName" PropertyName="SelectedValue"  Type="String" />--%>
                                                     </SelectParameters>
                                                 </asp:SqlDataSource>
                                             </div>
@@ -494,7 +457,7 @@
 
 
 
-
+                         <%--determines year t oview all current and cancelled invoices about --%>
                                 <div id="YearlyInvoice" class="container1 block3 tab-pane  text-center WildTable">
                                     <div class="InternalTab ">
                                         <div class="col-md-12 ProgramTitle mx-auto d-flex justify-content-center">
@@ -569,18 +532,7 @@
                             </div>
 
 
-
-
-
-
-
                         </div>
-
-
-
-
-
-
 
                         <%-- Version 1 All --%>
                         <div class="tab-content">
@@ -592,13 +544,6 @@
                             </div>
                         </div>
 
-
-
-
-
-
-
-
                     </div>
                 </div>
 
@@ -607,19 +552,7 @@
         </div>
 
 
-        </section>   
     </div>
-    </div>
-         
-        
-     
-
-
-
-       
-        
-
-    
 
 </asp:Content>
 

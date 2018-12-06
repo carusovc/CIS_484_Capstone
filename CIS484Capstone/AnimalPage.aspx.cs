@@ -25,21 +25,19 @@ public partial class AnimalPage : System.Web.UI.Page
 
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
 
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
-
+        //Test for session variable for secure access to page
         try
         {
             SqlConnection con = new SqlConnection(cs);
 
             con.Open();
 
-            //string str = "select * from Person where username= @username";
             System.Data.SqlClient.SqlCommand str = new System.Data.SqlClient.SqlCommand();
             str.Connection = sc;
             str.Parameters.Clear();
@@ -47,8 +45,6 @@ public partial class AnimalPage : System.Web.UI.Page
             str.CommandText = "select * from Person where username= @username";
             str.Parameters.AddWithValue("@username", Session["USER_ID"]);
             str.ExecuteNonQuery();
-
-            //SqlCommand com = new SqlCommand(str, con);
 
             SqlDataAdapter da = new SqlDataAdapter(str);
 
@@ -62,15 +58,15 @@ public partial class AnimalPage : System.Web.UI.Page
         }
         catch
         {
+            //redirect to the login page
             Session.RemoveAll();
             Response.Redirect("Default.aspx", false);
         }
 
 
-
+        //reads the listing of animals from the database
         if (!IsPostBack)
         {
-
 
             //call read array
             SqlConnection conAnimal = new SqlConnection(cs);
@@ -92,13 +88,14 @@ public partial class AnimalPage : System.Web.UI.Page
 
     }
 
-    protected void btnAddAnimal_Click(object sender, EventArgs e)
-    {
-        AnimalAddDiv.Visible = true;
-        ViewAnimals.Visible = true;
+    //protected void btnAddAnimal_Click(object sender, EventArgs e)
+    //{
+    //    AnimalAddDiv.Visible = true;
+    //    ViewAnimals.Visible = true;
 
 
-    }
+    //}
+    //removes the session variable when the user logs in
     protected void btn_lgout_Click(object sender, EventArgs e)
     {
 
@@ -111,34 +108,26 @@ public partial class AnimalPage : System.Web.UI.Page
 
         Response.Redirect("Default.aspx");
     }
-    protected void btnEditAnimal_Click(object sender, EventArgs e)
-    {
-        AnimalEditDiv.Visible = true;
-
-        ViewAnimals.Visible = false;
-        ddlAnimal.DataBind();
-
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        sc.ConnectionString = cs;
-        sc.Open();
-
-        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
-        insert.Connection = sc;
-
-
-
-    }
-    //protected void btnViewAnimal_Click(object sender, EventArgs e)
+    //gets information to fill form when wanting to edit an Animal
+    //protected void btnEditAnimal_Click(object sender, EventArgs e)
     //{
-    //    addAnimal.Visible = false;
-    //    ViewAnimals.Visible = true;
+    //    AnimalEditDiv.Visible = true;
+
+    //    ViewAnimals.Visible = false;
+    //    ddlAnimal.DataBind();
+
+    //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+    //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+    //    sc.ConnectionString = cs;
+    //    sc.Open();
+
+    //    System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+    //    insert.Connection = sc;
+
+
 
     //}
-
-
-
+    //inserts new information into the database when entering new animal in the popup
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
@@ -185,8 +174,8 @@ public partial class AnimalPage : System.Web.UI.Page
 
 
 
-                    lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(lastUpdated);
-                    lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(lastUpdatedBy);
+                    //lblLastUpdated.Text = "Last Updated: " + HttpUtility.HtmlEncode(lastUpdated);
+                   // lblLastUpdatedBy.Text = "Last Updated By: " + HttpUtility.HtmlEncode(lastUpdatedBy);
 
 
                     //retrieveImage.CommandText = "Select AnimalImage from Animal where animalID = @animalID";
@@ -202,7 +191,7 @@ public partial class AnimalPage : System.Web.UI.Page
 
 
 
-
+                    //binds the newly created animal into the dropdowns and gridviews
                     txtAnimalName.Text = HttpUtility.HtmlEncode("");
                     gridAnimalMammal.DataBind();
                     gridReptile.DataBind();
@@ -215,6 +204,7 @@ public partial class AnimalPage : System.Web.UI.Page
         } catch
 
         {
+            //error catching animal not added
             string script = "alert('Animal Could Not Be Added - Please Try Again');";
             System.Web.UI.ScriptManager.RegisterClientScriptBlock(Button3, this.GetType(), "Test", script, true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "HidePopup", "$('#AddAnimal').modal('hide')", true);
@@ -224,7 +214,7 @@ public partial class AnimalPage : System.Web.UI.Page
         }
 
     }
-
+    //converstion of the image to be able to be uploaded
     public System.Drawing.Image ByteArrayToImage(byte[] byteArrayIn)
     {
         using (var ms = new MemoryStream(byteArrayIn))
@@ -232,11 +222,12 @@ public partial class AnimalPage : System.Web.UI.Page
             return System.Drawing.Image.FromStream(ms);
         }
     }
+
+    //on the change of the dropdown for animal type, select animal information from database
     protected void ddlAnimal_SelectedIndexChanged1(object sender, EventArgs e)
     {
         AnimalEditDiv.Visible = true;
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
@@ -245,9 +236,6 @@ public partial class AnimalPage : System.Web.UI.Page
         insert.Connection = sc;
         insert.Parameters.Clear();
 
-
-
-        //ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#EditAnimalModal').modal('show');});</script>", true);
 
 
         //call read array
@@ -304,13 +292,12 @@ public partial class AnimalPage : System.Web.UI.Page
             throw ex;
         }
 
-        //UpdatePanel2.Update();
     }
 
+    //on the edit of an animal, the information is updated in the database
     protected void btnUpdate1_Click(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
@@ -334,27 +321,7 @@ public partial class AnimalPage : System.Web.UI.Page
         update.Parameters.AddWithValue("@status", ddlStatus.SelectedItem.Text);
         update.ExecuteNonQuery();
 
-        //select.CommandText = "select animalImage from Animal where AnimalID = @animalID";
-        //select.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
-        //SqlDataReader sdr = select.ExecuteReader();
-        //if (sdr[0].ToString() == null)
-        //{
-
-        //    string filename = Path.GetFileName(FileUpload2.PostedFile.FileName);
-        //    using (Stream fs = FileUpload2.PostedFile.InputStream)
-        //    {
-        //        using (BinaryReader br = new BinaryReader(fs))
-        //        {
-        //            byte[] bytes = br.ReadBytes((Int32)fs.Length);
-        //            imageInsert.CommandText = "update Animal set animalImage = @animalImage where animalID = @animalID";
-        //            imageInsert.Parameters.AddWithValue("@animalImage", bytes);
-        //            imageInsert.Parameters.AddWithValue("@animalID", ddlAnimal.SelectedItem.Value);
-        //            imageInsert.ExecuteNonQuery();
-        //        }
-        //    }
-
-        //}
-
+       
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         SqlConnection con2 = new SqlConnection(cs);
 
@@ -373,9 +340,9 @@ public partial class AnimalPage : System.Web.UI.Page
 
                 ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
             }
-            // ddlAnimal.DataBind();
 
         }
+        //databinds the updated information into the database
         gridAnimalMammal.DataBind();
         gridReptile.DataBind();
         gridBird.DataBind();
@@ -387,10 +354,8 @@ public partial class AnimalPage : System.Web.UI.Page
 
         Page.Response.Redirect(Page.Request.Url.ToString(), true);
 
-
-
     }
-
+    //databinds the image that has been uploaded of the Animal
     protected void gridBird_RowDataBound(object sender, GridViewRowEventArgs e)
     {
 
@@ -405,7 +370,7 @@ public partial class AnimalPage : System.Web.UI.Page
             }
         }
     }
-
+    //databinds the image that has been uploaded of the Animal
     protected void gridMammal_RowDataBound(object sender, GridViewRowEventArgs e)
     {
 
@@ -419,7 +384,7 @@ public partial class AnimalPage : System.Web.UI.Page
             }
         }
     }
-
+    //databinds the image that has been uploaded of the Animal
     protected void gridReptile_RowDataBound(object sender, GridViewRowEventArgs e)
     {
 
@@ -433,55 +398,14 @@ public partial class AnimalPage : System.Web.UI.Page
             }
         }
     }
-    //protected void btnDelete_Click(object sender, EventArgs e)
-    //{
-    //    System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-    //    // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-    //    String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-    //    sc.ConnectionString = cs;
-    //    sc.Open();
-    //    System.Data.SqlClient.SqlCommand delete = new System.Data.SqlClient.SqlCommand();
-    //    delete.Connection = sc;
-    //    ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
-    //    //call read array
-    //    SqlConnection con = new SqlConnection(cs);
-    //    delete.CommandText = "Delete from Animal where AnimalID = @AnimalID";
-    //    delete.Parameters.AddWithValue("@AnimalID", ddlAnimal.SelectedItem.Value);
-    //    delete.ExecuteNonQuery();
-    //    ddlAnimal.Items.Clear();
-    //    //call read array
-    //    con.Open();
-    //    if (con.State == System.Data.ConnectionState.Open)
-    //    {
-    //        string read = "Select * from Animal";
-    //        SqlCommand cmd = new SqlCommand(read, con);
-    //        SqlDataReader myRead = cmd.ExecuteReader();
-    //        while (myRead.Read())
-    //        {
-    //            ddlAnimal.Items.Add(new ListItem(myRead["AnimalName"].ToString(), myRead["AnimalID"].ToString()));
-    //        }
-    //        // ddlAnimal.DataBind();
-    //    }
-    //    txtAnimalName.Text = "";
-    //    gridAnimalMammal.DataBind();
-    //    gridReptile.DataBind();
-    //    gridBird.DataBind();
-
-    //}
-
+   
+    //Serach button to search through the gridviews about the Animal
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         AnimalSearchDiv.Visible = true;
         gridSearch.DataBind();
-        //gridAnimalMammal.Visible = false;
-        //gridBird.Visible = false;
-        //gridReptile.Visible = false;
-        //gridSearch.Visible = true;
-
-
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
         String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
         sc.ConnectionString = cs;
         sc.Open();
