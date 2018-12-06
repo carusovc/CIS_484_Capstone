@@ -284,15 +284,14 @@
                             
                             <ul class="nav nav-tabs block4" id="myTab" style="margin-left:40px;" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active d-sm-none TabStyle" id="LiveTabTheme1" data-toggle="tab" href="#LiveTabTheme" style="color: black;">Live</a>
-                                    <a class="nav-link active d-none d-sm-block TabStyle" id="LiveTabTheme2" data-toggle="tab" href="#LiveTabTheme" style="color: black;">Live Program Themes</a>
+                                   <a class="nav-link active d-none d-sm-block TabStyle" id="LiveTabTheme2" data-toggle="tab" href="#LiveTabTheme" style="color: black;">Live Program Themes</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link d-sm-none TabStyle" id="OnlineTab" data-toggle="tab" href="#OnlineTabTheme" style="color: black;">Online</a>
-                                    <a class="nav-link d-none d-sm-block TabStyle" id="OnlineTab2" data-toggle="tab" href="#OnlineTabTheme" style="color: black;">Online Program Themes</a>
+                                   <a class="nav-link d-none d-sm-block TabStyle" id="OnlineTab2" data-toggle="tab" href="#OnlineTabTheme" style="color: black;">Online Program Themes</a>
                                 </li>
 
                             </ul>
+
 
 
 
@@ -349,16 +348,16 @@
 
                                             <br class="d-none d-sm-block" />
                                             <div class="row text-right">
-                                                <div class="   col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 InternalAnimalForm">
+                                             
+                                                <div class="   col-xl-11 col-lg-12 col-md-12 col-sm-12 col-xs-12 InternalAnimalForm" >
                                                     <div class="form-check-inline">
-                                                        <asp:TextBox class="InternalAnimalForm form-control" Style="margin-right: 5px;" ID="TextBox1" runat="server"></asp:TextBox>
+                                                        <asp:TextBox class="InternalAnimalForm form-control" Style="margin-right: 5px;" ID="TextBox2" runat="server"></asp:TextBox>
 
 
-                                                        <asp:Button ID="Button2" runat="server" class="btn" Text="Search" />
+                                                       <asp:Button ID="Button2" runat="server" class="btn" Text="Search" />
                                                         &nbsp;&nbsp;&nbsp;
                                                     </div>
                                                 </div>
-
 
                                             </div>
                                             <br />
@@ -392,5 +391,7 @@
     </div>
     </div>
 </asp:Content>
+
+
 
 

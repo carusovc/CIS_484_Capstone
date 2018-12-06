@@ -47,11 +47,11 @@ public partial class Payments : System.Web.UI.Page
 
         try
         {
-            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-            String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-            sc.ConnectionString = cs;
-            sc.Open();
+            //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+            ////sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+            //String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+            //sc.ConnectionString = cs;
+            //sc.Open();
             // lblWelcome.Text = "Welcome, " + Session["USER_ID"].ToString() + "!";
 
             SqlConnection con = new SqlConnection(cs);
@@ -75,7 +75,7 @@ public partial class Payments : System.Web.UI.Page
 
             da.Fill(ds);
 
-            //lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
+            lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
 
 
         }
@@ -134,6 +134,21 @@ public partial class Payments : System.Web.UI.Page
 
 
     }
+
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
+
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
+    }
+
+
     protected void btnInvoices_Click(object sender, EventArgs e)
     {
         Response.Redirect("Invoices.aspx");

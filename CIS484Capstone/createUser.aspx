@@ -267,7 +267,7 @@
                                             <h6>First Name<span style="COLOR: red"> *</span></h6>
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
-                                            <asp:TextBox ID="txtFirstName" runat="server" class="form-control" placeholder="First name" required="required"></asp:TextBox>&nbsp&nbsp
+                                            <asp:TextBox ID="txtFirstName" runat="server" class="form-control" placeholder="First name"  ></asp:TextBox>&nbsp&nbsp
                                         </div>
                                     </div>
 
@@ -279,7 +279,7 @@
                                             <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
-                                            <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name" required="required" runat="server"></asp:TextBox>&nbsp&nbsp
+                                            <asp:TextBox ID="txtLastName" class="form-control" placeholder="Last name"   runat="server"></asp:TextBox>&nbsp&nbsp
                                         </div>
                                     </div>
 
@@ -291,7 +291,7 @@
                                             <h6>Email<span style="COLOR: red"> *</span></h6>
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
-                                           <asp:TextBox ID="txtEmail" class="form-control" placeholder="Enter email" required="required" runat="server"></asp:TextBox>&nbsp&nbsp
+                                           <asp:TextBox ID="txtEmail" class="form-control" placeholder="Enter email"   runat="server"></asp:TextBox>&nbsp&nbsp
                                         </div>
                                     </div>
 
@@ -303,7 +303,7 @@
                                             <h6>Phone Number<span style="COLOR: red"> *</span></h6>
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
-                                            <asp:TextBox ID="txtPhoneNumber" class="form-control" placeholder="Enter Phone Number" required="required" runat="server"></asp:TextBox>&nbsp&nbsp
+                                            <asp:TextBox ID="txtPhoneNumber" class="form-control" placeholder="Enter Phone Number"   runat="server"></asp:TextBox>&nbsp&nbsp
                                         </div>
                                     </div>
                                 
@@ -315,7 +315,7 @@
                                             <h6>Username<span style="COLOR: red"> *</span></h6>
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
-                                            <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username" required="required" runat="server"></asp:TextBox>&nbsp&nbsp
+                                            <asp:TextBox ID="txtUsername" class="form-control" placeholder="Pick a username"   runat="server"></asp:TextBox>&nbsp&nbsp
                                         </div>
                                     </div>
 
@@ -327,7 +327,7 @@
                                             <h6>Password<span style="COLOR: red"> *</span></h6>
                                         </div>
                                         <div class=" col-md-8 InternalAnimalForm">
-                                          <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" placeholder="Password" required="required"></asp:TextBox>
+                                          <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" placeholder="Password"  ></asp:TextBox>
 &nbsp&nbsp
                                         </div>
                                     </div>

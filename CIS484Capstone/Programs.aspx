@@ -1544,7 +1544,7 @@
 
                                                 <br />
 
-
+                                                <asp:Panel ID="Panel2" runat="server" DefaultButton="btnLiveSearch">
                                                 <div class="row mx-auto d-flex justify-content-center">
 
                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
@@ -1570,6 +1570,7 @@
 
 
                                                 </div>
+                                                    </asp:Panel>
 
                                                 <div class="row mx-auto justify-content-center d-flex">
                                                     <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
@@ -1853,7 +1854,7 @@
 
                                                 <br />
 
-
+                                                <asp:Panel ID="Panel3" runat="server" DefaultButton="btnOnlineSearch">
                                                 <div class="row mx-auto d-flex justify-content-center">
 
                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
@@ -1877,10 +1878,10 @@
                                                         <asp:Button ID="btnOnlineClear" runat="server" class="btn btn-block" Style="margin-bottom: 5px;" Text="Clear" OnClick="btnOnlineClear_Click" />
                                                      </div>
 
-
                                                     
 
                                                 </div>
+                                                    </asp:Panel>
 
                                                 <div class="row mx-auto justify-content-center d-flex">
                                                     <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">

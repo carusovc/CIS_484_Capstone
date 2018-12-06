@@ -289,24 +289,24 @@ public partial class Invoices : System.Web.UI.Page
         {
             // if row type is DataRow, add ProductSales value to TotalSales
             // TotalNotCancelled += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "PaymentAmount"));
-            DataRowView drv1 = e.Row.DataItem as DataRowView;
-            if (drv1["Paid"].ToString().Equals("N"))
+            DataRowView drv = e.Row.DataItem as DataRowView;
+            if (drv["Paid"].ToString().Equals("N"))
             {
                 e.Row.CssClass = "alert alert-danger";
             }
 
-            else if (drv1["Paid"].ToString().Equals("Y"))
+            else if (drv["Paid"].ToString().Equals("Y"))
             {
                 e.Row.CssClass = "alert alert-success";
             }
         }
         else if (e.Row.RowType == DataControlRowType.Footer)
-          //  If row type is footer, show calculated total value
-        // Since this example uses sales in dollars, I formatted output as currency
-         e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
+            //  If row type is footer, show calculated total value
+            // Since this example uses sales in dollars, I formatted output as currency
+            e.Row.Cells[2].Text = String.Format("{0:c}", TotalNotCancelled);
 
     }
-   
+
     protected void cancelInvoice(object sender, EventArgs e)
     {
         //GridView GridView1 = (GridView)sender;
@@ -411,5 +411,6 @@ public partial class Invoices : System.Web.UI.Page
 
 
 }
+
 
 

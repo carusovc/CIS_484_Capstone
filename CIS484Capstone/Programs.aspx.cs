@@ -987,7 +987,7 @@ public partial class Programs : System.Web.UI.Page
         String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
         string onlineName = animalReport + filename;
 
-        SqlCommand cmd = new SqlCommand("Select pt.ProgramName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, CONVERT(VARCHAR(15), ProgramTime, 100) as ProgramTime, o.OrgName, ProgramAddress,CityCounty, State, Status, NumberOfChildren, NumberOfAdults," +
+        SqlCommand cmd = new SqlCommand("Select pt.ProgramName, CONVERT(VARCHAR(15), ProgramDate, 101) as ProgramDate, CONVERT(VARCHAR(15), ProgramTime, 100) as ProgramTime, o.OrgName, ProgramAddress,CityCounty, p.State, p.Status, p.NumberOfChildren, p.NumberOfAdults," +
             "Case when OnOff = 1 then 'On' else 'Off' end as 'On or Off Site', Case when Paid = 'Y' then 'Not Paid' else 'Paid' end as 'Paid?', ExtraComments FROM Program p inner join ProgramType pt on  p.programtypeid = pt.programtypeid inner join Organization o on p.orgid = o.orgid", sc);
 
         sc.Open();

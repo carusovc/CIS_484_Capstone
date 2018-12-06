@@ -68,12 +68,13 @@ public partial class userLogin : System.Web.UI.Page
                     string storedHash = reader["PasswordHash"].ToString(); // store the database password into this variable
                     if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                     {
-                        string PersonStatus = reader["Status"].ToString(); // store the database password into this variable
+                        string PersonStatus = "";
+                        PersonStatus = reader["Status"].ToString(); // store the database password into this variable
                        
                         if (PersonStatus.Equals("Active"))
                         {
-
-                            string storedCategory = reader["PersonCategory"].ToString();
+                            string storedCategory = "";
+                            storedCategory = reader["PersonCategory"].ToString();
                             switch (storedCategory)
                             {
                                 case "O":
@@ -81,7 +82,7 @@ public partial class userLogin : System.Web.UI.Page
                                     btnLogin.Enabled = false;
                                     txtUsername.Enabled = false;
                                     txtPassword.Enabled = false;
-                                    Response.Redirect("Programs.aspx", false);
+                                    Response.Redirect("Programs.aspx", true);
                                     Session["USER_ID"] = HttpUtility.HtmlEncode(txtUsername.Text);
                                     break;
 
