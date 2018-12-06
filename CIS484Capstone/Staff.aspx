@@ -308,10 +308,10 @@
                                                 <p>&nbsp;</p>
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>First Name</h6>
+                                                        <h6>First Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>First Name</h6>
+                                                        <h6>First Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:TextBox ID="txtFirstName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -319,10 +319,10 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>Last Name</h6>
+                                                        <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>Last Name</h6>
+                                                        <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:TextBox ID="txtLastName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -526,10 +526,10 @@
                                                 <p>&nbsp;</p>
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>First Name</h6>
+                                                        <h6>First Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>First Name</h6>
+                                                        <h6>First Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:TextBox ID="txtVolunteerAddFirstName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -537,10 +537,10 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>Last Name</h6>
+                                                        <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>Last Name</h6>
+                                                        <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:TextBox ID="txtVolunteerAddLastName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -551,10 +551,10 @@
 
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>Phone Number</h6>
+                                                        <h6>Phone Number<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>Phone Number</h6>
+                                                        <h6>Phone Number<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:TextBox ID="txtVolunteerAddPhoneNumber" class="form-control" runat="server" placeholder="(___) ___-____"></asp:TextBox>
@@ -563,10 +563,10 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>Email</h6>
+                                                        <h6>Email<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>Email</h6>
+                                                        <h6>Email<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:TextBox ID="txtVoluteerAddEmail" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -574,10 +574,10 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>Status</h6>
+                                                        <h6>Status<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>Status</h6>
+                                                        <h6>Status<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:DropDownList ID="ddlVolunteerAddStatus" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
