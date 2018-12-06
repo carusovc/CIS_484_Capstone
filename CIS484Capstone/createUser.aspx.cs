@@ -43,14 +43,14 @@ public partial class createUser : System.Web.UI.Page
 
             da.Fill(ds);
 
-            lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
+            //lblWelcome.Text = "Welcome, " + HttpUtility.HtmlEncode(ds.Tables[0].Rows[0]["Firstname"].ToString()) + " ";
 
 
         }
         catch
         {
-           // Session.RemoveAll();
-            //Response.Redirect("Default.aspx", false);
+            Session.RemoveAll();
+            Response.Redirect("Default.aspx", false);
 
         }
     }

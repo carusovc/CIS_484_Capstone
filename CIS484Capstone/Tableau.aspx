@@ -44,16 +44,13 @@
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
         <div class="ml-auto row">
         <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
-         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
-               <span>Logout</span></a>
+               <asp:Button ID="logout" class=" d-none d-md-block" runat="server" style="color:#FFBC7C; cursor:pointer; margin-right: 15px; background-color:transparent; border:none;" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
 </div>
+
   <div class="collapse navbar-collapse "  id="navbarTogglerDemo03">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-
-                    <%--<a class="nav-link" href="Programs.aspx">--%>
-
                     <span>Programs</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -62,9 +59,7 @@
                     
                 </div>
             </li>
-            <%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>--%>
+
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -75,7 +70,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
         <li class="nav-item dropdown  no-arrow">
@@ -86,18 +81,19 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
              
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Payment</span>
+                    <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice</a>
+                    
                     
                 </div>
             </li>
@@ -112,9 +108,6 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
                     <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
-                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
                 </div>
             </li>
          <li class="nav-item ">
@@ -143,7 +136,6 @@
             <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <%--<a class="nav-link" href="Programs.aspx">--%>
 
                     <span>Programs</span>
                 </a>
@@ -152,9 +144,7 @@
                     <a class="dropdown-item" href="ProgramTheme.aspx">View Program Themes</a>
                 </div>
             </li>
-            <%--      <li class="nav-item">
-          <a class="nav-link" href="AnimalPage.aspx">
-            <i class="fas fa-fw fa-book-open"></i>--%>
+
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
@@ -163,25 +153,10 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
-
-            <%--<li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>--%>
-          
-           
+         
            
 
             <li class="nav-item dropdown  no-arrow">
@@ -192,17 +167,18 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
              <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Payment</span>
+                    <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice</a>
+                    
 
                 </div>
             </li>
@@ -214,9 +190,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
                     <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
-                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+     
                 </div>
             </li>
               <li class="nav-item ">
@@ -227,12 +201,8 @@
              <li class="nav-item active">
                 <a class="nav-link" href="Tableau.aspx">
 
-                    <span>Visualization</span></a>
+                    <span>Visualizations</span></a>
             </li>
-            <%--<li class="nav-item">
-                <a class="nav-link" href="createUser.aspx">
-                    <span>Create Outreach Coordinator Access</span></a>
-            </li>--%>
         </ul>
 
       <div id="content-wrapper">
@@ -246,15 +216,13 @@
             
                 <div class="container1 supreme-container ">
                     <div class="card  mx-auto mt-5">
-                        <div class="card-header NewUserTitle text-center">Visualization</div>
+                        <div class="card-header NewUserTitle text-center">Visualizations</div>
                         <div class="card-body d-none d-lg-block">
 
                           
 
 
                           <div class="mx-auto d-flex justify-content-center">
-
-<%--                                <asp:SqlDataSource ID="SqlDataSource10" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>" SelectCommand="SELECT Distinct YEAR(ProgramDate) AS YEAR FROM Program Order By YEAR(ProgramDate)"></asp:SqlDataSource>--%>
 
                             </div>
 
@@ -274,9 +242,7 @@ $(function() {
                 <li class="nav-item">
                     <a class="nav-link active TabStyle" data-toggle="tab" href="#AnimalTab" style="color:black;">Animal</a>
                 </li>
-               <%-- <li class="nav-item">
-                    <a class="nav-link TabStyle" data-toggle="tab" href="#GradeTab" style="color:black;">Grades</a>
-                </li>--%>
+
                 <li class="nav-item">
                     <a class="nav-link TabStyle" data-toggle="tab" href="#LiveTab" style="color:black;">Live</a>
                 </li>
@@ -299,17 +265,9 @@ $(function() {
                             vizElement.parentNode.insertBefore(scriptElement, vizElement);                
 
                         </script>
-       
 
 </div>
                     </div>
-              <%--  <div id="GradeTab" class="container1 block3 tab-pane  WildTable">
-                    <div class="InternalAnimalTab">
-                   
-                      <div class='tableauPlaceholder' id='viz1542384175924' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Gr&#47;GradeReport&#47;GradeDash&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GradeReport&#47;GradeDash' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Gr&#47;GradeReport&#47;GradeDash&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1542384175924');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-                </div>
-
-</div>--%>
 
                 <div id="LiveTab" class="container1 block3 tab-pane   WildTable">
                     <div class="InternalAnimalTab col-md-12 mx-auto d-flex justify-content-center">
@@ -346,35 +304,12 @@ $(function() {
           </div>
         </div>
                     </div>
-      
-                
-
-
-
-
-                
-
-
-
-
 
     </section>
 
 
      
         <div class="container-fluid ">
-
-
-
-
-           
-          
-
-
-          
-   
-
-          
 
            </div>
    </div>

@@ -79,6 +79,18 @@ public partial class Volunteers : System.Web.UI.Page
         }
 
     }
+    protected void btn_lgout_Click(object sender, EventArgs e)
+    {
+
+
+        //Session.Clear();
+        //Session.Abandon();
+        Session.RemoveAll();
+
+        Session["USER_ID"] = null;
+
+        Response.Redirect("Default.aspx");
+    }
 
     // THIS CODE POPULATES NAME BASED ON EMPLOYEE TYPE
     protected void ddlPopulateStaff_ddlVolunteer_SelectedIndexChanged(object sender, EventArgs e)

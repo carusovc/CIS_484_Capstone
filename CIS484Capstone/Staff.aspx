@@ -71,34 +71,39 @@
 
 
 
-                        <span>Animals</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
-                        <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown  no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                        <span>Organizations</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
-                        <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
-                    </div>
-                </li>
+                    <span>Animals</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
+                </div>
+            </li>
+        <li class="nav-item dropdown  no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                <li class="nav-item dropdown  no-arrow ">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                    <span>Organizations</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
+                </div>
+            </li>
+             
+            <li class="nav-item dropdown  no-arrow ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                        <span>Payment</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                        <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <span>Invoices</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice</a>
+                    
+                    
+                </div>
+            </li>
 
                     </div>
                 </li>
@@ -165,7 +170,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
 
@@ -194,17 +199,18 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Payment</span>
+                    <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice</a>
+                    
 
                 </div>
             </li>
@@ -229,7 +235,7 @@
             <li class="nav-item ">
                 <a class="nav-link" href="Tableau.aspx">
 
-                    <span>Visualization</span></a>
+                    <span>Visualizations</span></a>
             </li>
             <%--<li class="nav-item">
                 <a class="nav-link" href="createUser.aspx">
@@ -306,10 +312,10 @@
                                                 <p>&nbsp;</p>
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>First Name</h6>
+                                                        <h6>First Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>First Name</h6>
+                                                        <h6>First Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:TextBox ID="txtFirstName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -317,10 +323,10 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>Last Name</h6>
+                                                        <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>Last Name</h6>
+                                                        <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:TextBox ID="txtLastName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -544,10 +550,10 @@
                                                 <p>&nbsp;</p>
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>First Name</h6>
+                                                        <h6>First Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>First Name</h6>
+                                                        <h6>First Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:TextBox ID="txtVolunteerAddFirstName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -555,10 +561,10 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>Last Name</h6>
+                                                        <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>Last Name</h6>
+                                                        <h6>Last Name<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:TextBox ID="txtVolunteerAddLastName" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -569,10 +575,10 @@
 
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>Phone Number</h6>
+                                                        <h6>Phone Number<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>Phone Number</h6>
+                                                        <h6>Phone Number<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:TextBox ID="txtVolunteerAddPhoneNumber" class="form-control" runat="server" placeholder="(___) ___-____"></asp:TextBox>
@@ -581,10 +587,10 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>Email</h6>
+                                                        <h6>Email<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>Email</h6>
+                                                        <h6>Email<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:TextBox ID="txtVoluteerAddEmail" class="form-control" runat="server"></asp:TextBox>&nbsp;&nbsp;
@@ -592,10 +598,10 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="d-none d-md-block text-right col-md-4 InternalOrganizationForm">
-                                                        <h6>Status</h6>
+                                                        <h6>Status<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" d-md-none text-left col-md-4 InternalOrganizationForm">
-                                                        <h6>Status</h6>
+                                                        <h6>Status<span style="COLOR: red"> *</span></h6>
                                                     </div>
                                                     <div class=" col-8 InternalAnimalForm">
                                                         <asp:DropDownList ID="ddlVolunteerAddStatus" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" runat="server">
@@ -782,7 +788,7 @@
                                             });       </script>
 
 
-                                        <ul class="nav nav-tabs" role="tablist" id="myTab">
+                                        <ul class="nav nav-tabs" role="tablist" id="myTab" style="margin-left:12px;">
                                             <li role="presentation"><a href="#AllStaffTab" style="color: black;" class="nav-link  active  TabStyle" aria-controls="profile" role="tab" data-toggle="tab">All Staff </a></li>
                                             <li role="presentation" class=""><a href="#OutreachCoordTab" class="nav-link    TabStyle" style="color: black;" aria-controls="home" role="tab" data-toggle="tab">Outreach Coordinators</a></li>
                                             <li role="presentation" class=""><a href="#VolunteerTab" class="nav-link    TabStyle" style="color: black;" aria-controls="home" role="tab" data-toggle="tab">Volunteers</a></li>

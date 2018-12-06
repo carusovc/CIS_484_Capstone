@@ -70,7 +70,7 @@ public partial class AnimalPage : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            
+
 
             //call read array
             SqlConnection conAnimal = new SqlConnection(cs);
@@ -213,6 +213,7 @@ public partial class AnimalPage : System.Web.UI.Page
                 }
             }
         } catch
+
         {
             string script = "alert('Animal Could Not Be Added - Please Try Again');";
             System.Web.UI.ScriptManager.RegisterClientScriptBlock(Button3, this.GetType(), "Test", script, true);
@@ -499,5 +500,5 @@ public partial class AnimalPage : System.Web.UI.Page
         gridSearch.DataBind();
     }
 
-  
+
 }

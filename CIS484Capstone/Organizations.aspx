@@ -49,9 +49,11 @@
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
         <div class="ml-auto row">
         <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
-         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
-               <span>Logout</span></a>
+         <%--  <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
+               <span>Logout</span></a>--%>
+               <asp:Button ID="logout" class=" d-none d-md-block" runat="server" style="color:#FFBC7C; cursor:pointer; margin-right: 15px; background-color:transparent; border:none;" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
 </div>
+
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown no-arrow">
@@ -80,7 +82,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
         <li class="nav-item dropdown active no-arrow">
@@ -91,18 +93,19 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
              
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Payment</span>
+                    <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice</a>
+                    
                     
                 </div>
             </li>
@@ -168,7 +171,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
 
@@ -197,17 +200,18 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
              <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Payment</span>
+                    <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice</a>
+                    
 
                 </div>
             </li>
@@ -232,7 +236,7 @@
              <li class="nav-item ">
                 <a class="nav-link" href="Tableau.aspx">
 
-                    <span>Visualization</span></a>
+                    <span>Visualizations</span></a>
             </li>
             <%--<li class="nav-item">
                 <a class="nav-link" href="createUser.aspx">
@@ -874,7 +878,6 @@
                                                         <p class="d-lg-none">Active </p>
                                                     </a>
                                                 </li>
-
                                             </ul>--%>
 
 
@@ -885,7 +888,7 @@
                                                         <div class="row">
                                                             <%-- for Org listing--%>
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 InternalAnimalForm">
-                                                                <asp:DropDownList ID="ddlOrderBy" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderBy_SelectedIndexChanged">
+                                                                <asp:DropDownList ID="ddlOrderBy" runat="server" visible="false" CssClass="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="">
                                                                     <asp:ListItem>--Order By--</asp:ListItem>
                                                                     <%--<asp:ListItem>Program Date</asp:ListItem>--%>
                                                                     <asp:ListItem>Organization Name A-Z</asp:ListItem>
@@ -896,7 +899,7 @@
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-5 col-sm-12 col-xs-12 InternalAnimalForm">
                                                                 <div class="form-check-inline">
                                                                     <asp:TextBox class="InternalAnimalForm form-control" Style="margin-bottom: 5px; margin-right:5px;" ID="txtSearch" runat="server"></asp:TextBox>
-                                                                    <asp:Button ID="btnSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-bottom: 5px; margin-right:5px;" Text="Search" OnClick="btnSearch_Click" />
+                                                                    <asp:Button ID="btnSearch" runat="server" class="btn" Style=" background-color: #C7BFC4; margin-bottom: 5px; margin-right:5px;" Text="Search" OnClick="btnSearch_Click" />
                                                                     <asp:Button ID="btnAllClear" runat="server" class="btn " Style="margin-bottom: 5px; margin-right: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
                                                                     &nbsp;&nbsp;&nbsp;
                                                                 </div>
@@ -921,7 +924,7 @@
                                                                     <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                                                                             <asp:GridView ID="gridSearch" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
-                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False">
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False" AllowSorting ="true">
                                                                                 <Columns>
                                                                                     <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" />
                                                                                     <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress" />
@@ -945,7 +948,7 @@
                                                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                 <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                                                     <asp:GridView ID="GridView1" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
-                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False" DataSourceID ="SqlDataSource4">
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False" AllowSorting ="true" DataSourceID ="SqlDataSource4">
                                                                         <Columns>
                                                                             <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName"></asp:BoundField>
                                                                             <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" SortExpression="StreetAddress"></asp:BoundField>
@@ -979,7 +982,8 @@
                                                         <div class="row">
                                                             <%--for contact listing--%>
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 InternalAnimalForm">
-                                                                <asp:DropDownList ID="ddlContactOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlContactOrderBy_SelectedIndexChanged">
+                                                                <asp:DropDownList ID="ddlContactOrderBy" runat="server" class="btn btn-secondary btn-sm dropdown-toggle" Style="background-color: #FFFfff !important; color: #732700 !important; border-color: grey;" 
+                                                                    AppendDataBoundItems="false" AutoPostBack="true" visible="false" DataValueField="">
                                                                     <asp:ListItem>--Order By--</asp:ListItem>
                                                                     <%--<asp:ListItem>Program Date</asp:ListItem>--%>
                                                                     <asp:ListItem>Organization Name A-Z</asp:ListItem>
@@ -990,7 +994,7 @@
                                                             <div class=" mx-auto d-flex justify-content-center col-xl-4 col-lg-6 col-md-5 col-sm-12 col-xs-12 InternalAnimalForm">
                                                                 <div class="form-check-inline">
                                                                     <asp:TextBox class="InternalAnimalForm form-control" ID="txtContactSearch" Style="margin-bottom: 5px; margin-right: 5px;" runat="server"></asp:TextBox>
-                                                                    <asp:Button ID="btnContactSearch" runat="server" class="btn" Style=" background-color: #FFBC7C; margin-bottom: 5px; margin-right: 5px;" Text="Search" OnClick="btnContactSearch_Click" />
+                                                                    <asp:Button ID="btnContactSearch" runat="server" class="btn" Style=" background-color: #C7BFC4; margin-bottom: 5px; margin-right: 5px;" Text="Search" OnClick="btnContactSearch_Click" />
                                                                     <asp:Button ID="btnContactClear" runat="server" class="btn " Style="margin-bottom: 5px; margin-right: 5px;" Text="Clear Filters" OnClick="btnContactClear_Click" />
                                                                     &nbsp;&nbsp;&nbsp;
                                                                 </div>
@@ -1013,7 +1017,7 @@
                                                                     <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                                                                             <asp:GridView ID="ContactSearchGrid" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
-                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False">
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AllowSorting ="true" AutoGenerateColumns="False">
                                                                                 <Columns>
                                                                                     <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName" />
                                                                                     <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName" />
@@ -1036,7 +1040,7 @@
                                                             <div class="row table-responsive mx-auto d-flex  justify-content-center">
                                                                 <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
                                                                     <asp:GridView ID="GridView3" class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4"
-                                                                                HeaderStyle-ForeColor="Black" runat="server" AutoGenerateColumns="False" DataSourceID ="SqlDataSource2">
+                                                                                HeaderStyle-ForeColor="Black" runat="server" AllowSorting ="true" AutoGenerateColumns="False" DataSourceID ="SqlDataSource2">
                                                                         <Columns>
                                                                             <asp:BoundField DataField="OrgName" HeaderText="Organization Name" SortExpression="OrgName"></asp:BoundField>
                                                                             <asp:BoundField DataField="ContactFirstName" HeaderText="Contact First Name" SortExpression="ContactFirstName"></asp:BoundField>
@@ -1092,11 +1096,9 @@
         //THESE ARE THE SCRIPTS FOR THE MODAL GOOGLE ADDRESS VALIDAOTR 
         // This example displays an address form, using the autocomplete feature
         // of the Google Places API to help users fill in the information.
-
         // This example requires the Places library. Include the libraries=places
         // parameter when you first load the API. For example:
         // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
         var placeSearch, autocomplete;
         var componentForm = {
             street_number: 'short_name',
@@ -1106,66 +1108,46 @@
             country: 'long_name',
             postal_code: 'short_name'
         };
-
         function initAutocomplete() {
             // Create the autocomplete object, restricting the search to geographical
             // location types.
             autocomplete = new google.maps.places.Autocomplete(
                                             /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
                 { types: ['geocode'] });
-
             // When the user selects an address from the dropdown, populate the address
             // fields in the form.
             autocomplete.addListener('place_changed', fillInAddress);
         }
-
         function fillInAddress() {
             // Get the place details from the autocomplete object.
             var place = autocomplete.getPlace();
-
             for (var component in componentForm) {
-
                 document.getElementById(component).value = '';
                 document.getElementById(component).disabled = false;
             }
-
             var array = [];
-
-
             // Get each component of the address from the place details
             // and fill the corresponding field on the form.
             for (var i = 0; i < place.address_components.length; i++) {
-
                 var addressType = place.address_components[i].types[0];
-
                 
                 if (componentForm[addressType]) {
-
-
                     var val = place.address_components[i][componentForm[addressType]];
-
                     document.getElementById(addressType).value = val;
-
                 }
-
             }
-
             //array = string.split(",");
             //document.getElementById("total2").value = array;
             
             var streetNumber = place.address_components[0].types[0];
             var streetName = place.address_components[1].types[0];
             document.getElementById("txtStreetAddress").value = place.address_components[0][componentForm[streetNumber]] + " " + place.address_components[1][componentForm[streetName]];
-
             var city = place.address_components[2].types[0];
             document.getElementById("textOrgCity").value = place.address_components[2][componentForm[city]];
-
-
             var state = place.address_components[3].types[0];
             document.getElementById("state").value = place.address_components[3][componentForm[state]];
             
             
-
       
             var zip = place.address_components[5].types[0];
             document.getElementById("txtPostalCode").value = place.address_components[5][componentForm[zip]];
@@ -1176,17 +1158,13 @@
             
             var hiddenControl = '<%= hiddenControl.ClientID %>';
             document.getElementById(hiddenControl).value = document.getElementById("txtStreetAddress").value;
-
             var hiddenCity = '<%= hiddenCity.ClientID %>';
             document.getElementById(hiddenCity).value = document.getElementById("textOrgCity").value;
-
             var hiddenState = '<%= hiddenState.ClientID %>';
             document.getElementById(hiddenState).value = document.getElementById("state").value;
-
             var hiddenZip = '<%= hiddenZip.ClientID %>';
             document.getElementById(hiddenZip).value = document.getElementById("txtPostalCode").value;
         }
-
         // Bias the autocomplete object to the user's geographical location,
         // as supplied by the browser's 'navigator.geolocation' object.
         function geolocate() {
@@ -1209,31 +1187,3 @@
             async defer></script>
 
 </asp:Content>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

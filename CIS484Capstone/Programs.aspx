@@ -125,7 +125,6 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
 
-
                 </div>
                 <div class="modal-body">
 
@@ -133,16 +132,17 @@
                     <%-- Modal Step 1 - Selector--%>
                     <div id="SelectProgramType">
                         <span></span>
-                        <h3>Enter your program basics</h3>
-
+                        <h3>Enter Program Information</h3>
+                        <br />
                         <div class="form-group">
                             <div class="form-group row">
-                                <div class="col-3">
-                                    <label id="lblProgramType" for="ProgramType">Type of Program:</label>
+                                <div class="col-5">
+                                    <label id="lblProgramType" for="ProgramType">Type of Program<span style="COLOR: red"> *</span></label>
+
                                 </div>
-                                <div class="col-6">
+                                <div class="col-7">
                                     <select name="LiveOnline" id="LiveOnline" class="form-control">
-                                        <option value=""></option>
+                                        <option value="">--Select Program Type--</option>
                                         <option value="Live">Live Program</option>
                                         <option value="Online">Online Program</option>
 
@@ -151,18 +151,20 @@
                             </div>
                             <p></p>
                             <div class="form-group row">
-                                <div class="col-3">
-                                    <label id="ProgramDateLabel" for="ProgramDate">Program Date:</label>
+                                <div class="col-5">
+                                    <label id="ProgramDateLabel" for="ProgramDate">Program Date<span style="COLOR: red"> *</span></label>
+
                                 </div>
-                                <div class="col-6">
+                                <div class="col-7">
                                     <input type="date" id="ProgramDate" class="form-control" runat="server" />
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-3">
-                                    <label id="ProgramTimeLabel" for="ProgramTime">Program Time:</label>
+                                <div class="col-5">
+                                    <label id="ProgramTimeLabel" for="ProgramTime">Program Time<span style="COLOR: red"> *</span></label>
+
                                 </div>
-                                <div class="col-6">
+                                <div class="col-7">
                                     <input type="time" id="ProgramTime" class="form-control" runat="server" />
                                 </div>
                             </div>
@@ -175,16 +177,18 @@
 
 
                     <%-- Modal Step 1.1 - Live Modal Form--%>
+
                     <div id="step11" class="hideMe">
                         <span></span>
-
+                    <asp:UpdatePanel ID="UpdatePanelAdd" runat="server">
+                    <ContentTemplate>
                         <h4>Live Program Basics</h4>
 
                         <div class="form-group">
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="TypeLabel" for="Type">Program Type:</label>
+                                    <label id="TypeLabel" for="Type">Program Type<span style="COLOR: red"> *</span></label>
                                 </div>
 
                                 <div class="col-7">
@@ -197,7 +201,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="OrganizationLabel" for="Organization">Organization:</label>
+                                    <label id="OrganizationLabel" for="Organization">Organization<span style="COLOR: red"> *</span></label>
                                 </div>
                                 <div class="col-7">
                                     <asp:DropDownList CssClass="form-control" ID="dropDownOrganization" runat="server" class="dropdown-menu radioButtonList">
@@ -271,15 +275,10 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="StatusLabel" for="Status">Program Status:</label>
+                                    <label id="StatusLabel" for="Status">Program Status<span style="COLOR: red"> *</span></label>
                                 </div>
                                 <div class="col-7">
-                                    <%--                                    <select name="Program Status" id="Status" class="form-control">
-                                        <option value="">--Select Status--</option>
-                                        <option value="Not Complete">Not Complete</option>
-                                        <option value="Complete">Complete</option>
-                                    </select>--%>
-                                    <asp:DropDownList CssClass="form-control" ID="Status" runat="server" class="dropdown-menu radioButtonList">
+                               <asp:DropDownList CssClass="form-control" ID="Status" runat="server" class="dropdown-menu radioButtonList">
                                         <asp:ListItem Text="--Select Status--" Value="0" />
                                         <asp:ListItem Text="Not Complete" Value="Not Complete" />
                                         <asp:ListItem Text="Completed" Value="Completed" />
@@ -287,7 +286,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <%--<div class="form-group row">
                                 <div class="col-5">
                                     <label id="PaymentLabel" for="Payment">Payment Status:</label>
                                 </div>
@@ -296,31 +295,33 @@
                                         <option value=""></option>
                                         <option value="T1">Payment Complete</option>
                                         <option value="T2">Payment Not Complete</option>
-                                    </select>--%>
+                                    </select>
                                     <asp:DropDownList CssClass="form-control" ID="Payment" runat="server" class="dropdown-menu radioButtonList">
                                         <asp:ListItem Text="--Select Payment Status--" Value="0" />
                                         <asp:ListItem Text="Payment Complete" Value="Y" />
                                         <asp:ListItem Text="Payment Not Complete" Value="N" />
-                                    </asp:DropDownList>
+                                    </asp:DropDownList> 
                                 </div>
-                            </div>
-
+                            </div>--%>
 
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="lblOnOff" for="OnOff">Was the program on or off Wildlife Center Campus?</label>
+                                    <label id="lblOnOff" for="OnOff">Was the program onsite at the Wildlife Center Campus?<span style="COLOR: red"> *</span></label>
                                 </div>
                                 <div class="col-7">
-                                    <select name="OnOff" id="OnOff" onchange="scheduleA.call(this, event)" class="form-control" runat="server">
-
-                                        <option value=""></option>
-                                        <option value="1">On</option>
-                                        <option value="0">Off</option>
-                                    </select>
+                                    <%--                                    <select name="Program Status" id="Status" class="form-control">
+                                        <option value="">--Select Status--</option>
+                                        <option value="Not Complete">Not Complete</option>
+                                        <option value="Complete">Complete</option>
+                                    </select>--%>
+                                    <asp:DropDownList CssClass="form-control" class="dropdown-menu" ID="OnOff" runat="server" AutoPostBack="true" OnSelectedIndexChanged="selectLocation">
+                                        <asp:ListItem Text="--Select Location--" Value="2" />
+                                        <asp:ListItem Text="OnSite" Value="1" />
+                                        <asp:ListItem Text="OffSite" Value="0" />
+                                    </asp:DropDownList>
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <div class="col-5">
                                     <label id="AddressLabel" for="Address">Program Address</label>
@@ -408,31 +409,54 @@
                                 </div>
                             </div>
 
-
-                            <p></p>
-                            <label id="AddGradeLabel" for="AddGrade">Grades</label>
-                            <asp:ListBox class="form-control" ID="lstGrades" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
+                             <div class="form-group row">
+                                <div class="col-5">
+                                     <label id="AddGradeLabel" for="AddGrade">Grades</label>
+                                </div>
+                                <div class="col-7">
+                                      <asp:ListBox class="form-control" ID="lstGrades" runat="server" placeholder="Add Grade" SelectionMode="Multiple">
                                 <asp:ListItem Text="--Select Grades--" Value="0" />
                             </asp:ListBox>
-                            <p></p>
-                            <label id="NumOfChildrenLabel" for="NumOfChildren">Number Of Children</label>
-                            <input type="number" id="NumOfChildren" class="form-control" runat="server" />
-                            <p></p>
+                                </div>
+                            </div>
 
-                            <label id="NumOfAdultsLabel" for="NumOfAdults">Number Of Adults</label>
-                            <input type="number" id="NumOfAdults" class="form-control" runat="server" />
-                            <p></p>
+                            <div class="form-group row">
+                                <div class="col-5">
+                                    <label id="NumOfChildrenLabel" for="NumOfChildren">Number Of Children<span style="COLOR: red"> *</span></label>
+                                </div>
+                                <div class="col-7">
+                               <input type="number" id="NumOfChildren" class="form-control" runat="server" />
+                                </div>
+                            </div>
+
+                              <div class="form-group row">
+                                <div class="col-5">
+                                   <label id="NumOfAdultsLabel" for="NumOfAdults">Number Of Adults<span style="COLOR: red"> *</span></label>
+                                </div>
+                                <div class="col-7">
+                           <input type="number" id="NumOfAdults" class="form-control" runat="server" />
+                                </div>
+                            </div>
+
+                             <div class="form-group row">
+                                <div class="col-5">
+                              <label id="CommentsLabel" for="Comments">Additional Comments</label>
+                                </div>
+                                <div class="col-7">
+                         <textarea name="Comments" id="Comments" rows="5" cols="100" class="form-control" runat="server"></textarea>
+                                </div>
+                            </div>
 
 
-                            <label id="CommentsLabel" for="Comments">Additional Comments</label>
-                            <textarea name="Comments" id="Comments" rows="5" cols="100" class="form-control" runat="server"></textarea>
-
-                            <p></p>
+                            
+                         
                             <%--                            <input type="button" class="btn" id="btnBackLive" value="Back" />
 
                             <%--<input type="button" class="btn" id="btnEndstep14" value="Submit" OnClick="btnSubmitLive_Click"/>--%>
                             <%--<asp:Button ID="btnsubmitLiveProgram" class="btn" runat="server" Text="Submit" OnClick="btnSubmitLive_Click" />--%>
                         </div>
+                                                </ContentTemplate>
+                        </asp:UpdatePanel>
                         <div class="modal-footer">
                             <input type="button" class="btn btn-secondary" id="btnBackLive" value="Back" />
 
@@ -440,17 +464,18 @@
                             <asp:Button ID="Button4" class="btn btn-inside" runat="server" Text="Submit" OnClick="btnSubmitLive_Click" />
                         </div>
 
+
                     </div>
 
 
                     <%--Modal Step 2.1 - Online Modal Form --%>
                     <div id="step21" class="hideMe">
-                        <span>Online Program Basics</span>
+                        <h4>Online Program Basics</h4>
                         <p></p>
                         <div class="form-group">
                             <div class="form-group row">
-                                <div class="col-5">
-                                    <label id="OnlineTypeLabel" for="Type">Online Program Type:</label>
+                                <div class="col-4">
+                                    <label id="OnlineTypeLabel" for="Type">Online Program Type<span style="COLOR: red"> *</span></label>
                                 </div>
 
                                 <div class="col-7">
@@ -845,7 +870,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="OnlineNumOfChildrenLabel" for="OnlineNumOfChildren">Number Of Children:</label>
+                                    <label id="OnlineNumOfChildrenLabel" for="OnlineNumOfChildren">Number Of Children<span style="COLOR: red"> *</span></label>
                                 </div>
                                 <div class="col-7">
                                     <input type="number" id="OnlineNumOfChildren" class="form-control" runat="server" />
@@ -854,7 +879,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="OnlineNumOfAdultsLabel" for="OnlineNumOfAdults">Number Of Adults:</label>
+                                    <label id="OnlineNumOfAdultsLabel" for="OnlineNumOfAdults">Number Of Adults<span style="COLOR: red"> *</span></label>
                                 </div>
                                 <div class="col-7">
                                     <input type="number" id="OnlineNumOfAdults" class="form-control" runat="server" />
@@ -901,10 +926,12 @@
   <a class="navbar-brand " style=" color: #FFBC7C; font-weight: 400; font-size: 150%;" href="Programs.aspx">Wildlife Center of Virginia</a>
         <div class="ml-auto row">
         <asp:Label ID="lblWelcome" runat="server" Text="" class="" style="color:#e0d7c3; margin-right: 15px;" ></asp:Label>
-         <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
-               <span>Logout</span></a>
+       <%--  <a class=" d-none d-md-block" style="color:#FFBC7C; margin-right: 15px;" href="Default.aspx">
+               <span>Logout</span></a>--%>
+               <asp:Button ID="logout" class=" d-none d-md-block" runat="server" style="color:#FFBC7C; cursor:pointer; margin-right: 15px; background-color:transparent; border:none;" Text="Logout" OnClick="btn_lgout_Click" CausesValidation="false" />
 </div>
-        <div class="collapse navbar-collapse active" id="navbarTogglerDemo03">
+
+        <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-md-none">
       <li class="nav-item dropdown active no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
@@ -932,7 +959,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
         <li class="nav-item dropdown  no-arrow">
@@ -943,18 +970,19 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
              
             <li class="nav-item dropdown no-arrow ">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Payment</span>
+                    <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                    <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice</a>
+                    
                     
                 </div>
             </li>
@@ -1021,24 +1049,10 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
-
-            <%--<li class="nav-item dropdown no-arrow ">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-                    <span>Reports</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="AnimalMonthlyWildlifeReport.aspx">Animal</a>
-                    <a class="dropdown-item" href="MonthlyWildlifeReport.aspx">Monthly</a>
-                    <a class="dropdown-item" href="YearlyWildlifeReport.aspx">Yearly</a>
-                    <a class="dropdown-item" href="TabLiveReports.aspx">Live Program</a>
-                    <a class="dropdown-item" href="TabOnlineProgramReports.aspx">Online Program</a>
-                    <a class="dropdown-item" href="TabGradeReport.aspx">Grade</a>
-                </div>
-            </li>--%>
-          
+       
            
            
 
@@ -1050,17 +1064,18 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
              <li class="nav-item dropdown  no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
 
-                    <span>Payment</span>
+                    <span>Invoices</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="Payment.aspx">New Payment Form</a>
-                    <a class="dropdown-item" href="Invoices.aspx">Invoices</a>
+                     <a class="dropdown-item" href="Invoices.aspx">View Invoices</a>
+                    <a class="dropdown-item" href="Payment.aspx">New Invoice</a>
+                   
 
                 </div>
             </li>
@@ -1072,9 +1087,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Staff.aspx">View Wildlife Staff</a>
                     <a class="dropdown-item" href="createUser.aspx">Add Wildlife Staff</a>
-                    <%--<a class="dropdown-item" href="#" data-target="#UpdateEducator" data-toggle="modal">Edit Educators</a>
-                        <a class="dropdown-item" href="#" data-target="#AddVolunteer" data-toggle="modal">Add New Volunteer</a>
-                        <a class="dropdown-item" href="#" data-target="#UpdateVolunteer" data-toggle="modal">Edit Volunteers</a>--%>
+
                 </div>
             </li>
               <li class="nav-item ">
@@ -1085,12 +1098,9 @@
              <li class="nav-item ">
                 <a class="nav-link" href="Tableau.aspx">
 
-                    <span>Visualization</span></a>
+                    <span>Visualizations</span></a>
             </li>
-            <%--<li class="nav-item">
-                <a class="nav-link" href="createUser.aspx">
-                    <span>Create Outreach Coordinator Access</span></a>
-            </li>--%>
+
         </ul>
 
 
@@ -1193,8 +1203,8 @@
                                                 <br />
 
 
-
-                                                <div class="row mx-auto d-flex justify-content-center">
+                                                <asp:Panel ID="p" runat="server" DefaultButton="btnAllSearch">
+                                                <div class="row mx-auto d-flex justify-content-center" >
 
                                                     <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                                     </div>
@@ -1202,23 +1212,30 @@
                                                     <%--<div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">--%>
 
                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
-                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchAll" runat="server"></asp:TextBox>
+                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchAll" runat="server" TabIndex="10"></asp:TextBox>
 
                                                     </div>
+                                                    
+                                                    <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6 ">
 
-                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn btn-block  " Style="margin-right: 6px; background-color: #C7BFC4 !important; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click" />
+                                                            </div>
 
-                                                        <asp:Button ID="btnAllSearch" runat="server" class="btn  " Style="margin-right: 5px; background-color: #FFBC7C !important; margin-bottom: 5px;" Text="Search" OnClick="btnAllSearch_Click" />
+                                                    <div class="col-xl-1 col-lg-2 col-md-6 col-sm-6 col-xs-6 ">
 
-                                                        <asp:Button ID="btnAllClear" runat="server" class="btn " Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnAllClear_Click" />
+                                                        
+                                                        <asp:Button ID="btnAllClear" runat="server" class="btn btn-block " Style="margin-bottom: 6px; " Text="Clear" OnClick="btnAllClear_Click" />
                                                     </div>
+
+                                                      
 
                                                 </div>
-
+                                                    </asp:Panel>
+                                                 <asp:Panel ID="Panel1" runat="server" DefaultButton="btnFilterDatesAll">
                                                 <div class="row mx-auto justify-content-center d-flex">
                                                     <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                                         <br />
-                                                        <asp:DropDownList ID="ddlOrderByAll" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="margin-top: 7px; background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByAll_SelectedIndexChanged">
+                                                        <asp:DropDownList ID="ddlOrderByAll" runat="server" class="form-control" Style="margin-top: 7px; " AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByAll_SelectedIndexChanged">
                                                             <asp:ListItem>--Order By--</asp:ListItem>
                                                             <asp:ListItem>Program Category</asp:ListItem>
                                                             <asp:ListItem>Program Date</asp:ListItem>
@@ -1236,15 +1253,17 @@
 
                                                         <input type="date" id="EndDateAll" class="form-control" runat="server" />
                                                     </div>
+
                                                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
                                                         
 
                                                        <br class="d-none d-md-block" /> 
-                                                        <asp:Button ID="btnFilterDatesAll" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnView_Click" Text="Filter Dates" />
+                                                        <asp:Button ID="btnFilterDatesAll" runat="server" Style="margin-top: 7px; background-color: #C7BFC4 !important;" CssClass="btn btn-block" OnClick="btnView_Click" Text="Filter Dates" />
                                                     </div>
                                                     
 
                                                 </div>
+                                                     </asp:Panel>
 
                                                 <br />
 
@@ -1534,22 +1553,28 @@
                                                     <%--<div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">--%>
 
                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
-                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchLive" runat="server"></asp:TextBox>
+                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchLive" runat="server" TabIndex="12"></asp:TextBox>
 
                                                     </div>
 
-                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                     <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6 ">
 
-                                                        <asp:Button ID="btnLiveSearch" runat="server" class="btn" Style="margin-right: 5px; background-color: #FFBC7C !important; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
-                                                        <asp:Button ID="btnLiveClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnLiveClear_Click" />
-                                                    </div>
+                                                       <asp:Button ID="btnLiveSearch" runat="server" class="btn btn-block" Style="margin-right: 5px; background-color: #C7BFC4 !important; margin-bottom: 5px;" Text="Search" OnClick="btnLiveSearch_Click" />
+                                                            </div>
+
+                                                    <div class="col-xl-1 col-lg-2 col-md-6 col-sm-6 col-xs-6 ">
+
+                                                        
+                                                        <asp:Button ID="btnLiveClear" runat="server" class="btn btn-block" Style="margin-bottom: 5px;" Text="Clear " OnClick="btnLiveClear_Click" />
+                                                      </div>
+
 
                                                 </div>
 
                                                 <div class="row mx-auto justify-content-center d-flex">
                                                     <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                                         <br />
-                                                        <asp:DropDownList ID="ddlOrderByLive" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="margin-top: 7px; background-color: #FFFAFA !important; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByLive_SelectedIndexChanged">
+                                                        <asp:DropDownList ID="ddlOrderByLive" runat="server" class="form-control" Style=" margin-top: 7px;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByLive_SelectedIndexChanged">
                                                             <asp:ListItem>--Order By--</asp:ListItem>
                                                             <asp:ListItem>Program Date</asp:ListItem>
                                                             <asp:ListItem>Organization A-Z</asp:ListItem>
@@ -1569,9 +1594,10 @@
                                                     </div>
                                                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
 
-                                                        <br class="d-none d-md-block" /> 
+                                                      
 
-                                                        <asp:Button ID="btnFilterDatesLive" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn btn-block" OnClick="btnViewLive_Click" Text="Filter Dates" />
+                                                         <br class="d-none d-md-block" /> 
+                                                        <asp:Button ID="btnFilterDatesLive" runat="server" Style="margin-top: 7px; background-color: #C7BFC4 !important;" CssClass="btn btn-block" OnClick="btnViewLive_Click" Text="Filter Dates" />
 
                                                     </div>
                                                     
@@ -1836,22 +1862,30 @@
                                                     <%--<div class=" col-lg-3 col-xl-3 col-md-6 col-sm-12 InternalAnimalForm">--%>
 
                                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
-                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchOnline" runat="server"></asp:TextBox>
+                                                        <asp:TextBox class="InternalAnimalForm form-control" ID="txtSearchOnline" runat="server" TabIndex="14"></asp:TextBox>
 
                                                     </div>
 
-                                                    <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                                     <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6 ">
 
-                                                        <asp:Button ID="btnOnlineSearch" runat="server" class="btn Search" Style="margin-right: 5px; background-color: #FFBC7C !important; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
-                                                        <asp:Button ID="btnOnlineClear" runat="server" class="btn" Style="margin-bottom: 5px;" Text="Clear Filters" OnClick="btnOnlineClear_Click" />
-                                                    </div>
+                                                      <asp:Button ID="btnOnlineSearch" runat="server" class="btn btn-block" Style="margin-right: 5px; background-color: #C7BFC4 !important; margin-bottom: 5px;" Text="Search" OnClick="btnOnlineSearch_Click" />
+                                                          </div>
+
+                                                    <div class="col-xl-1 col-lg-2 col-md-6 col-sm-6 col-xs-6 ">
+
+                                                        
+                                                        <asp:Button ID="btnOnlineClear" runat="server" class="btn btn-block" Style="margin-bottom: 5px;" Text="Clear" OnClick="btnOnlineClear_Click" />
+                                                     </div>
+
+
+                                                    
 
                                                 </div>
 
                                                 <div class="row mx-auto justify-content-center d-flex">
                                                     <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                                         <label class="" for="StartDateOnline"></label>
-                                                        <asp:DropDownList ID="ddlOrderByOnline" runat="server" class="btn btn-secondary btn-block dropdown-toggle" Style="background-color: #FFFAFA !important; margin-top: 7px; color: #732700 !important;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByOnline_SelectedIndexChanged">
+                                                        <asp:DropDownList ID="ddlOrderByOnline" runat="server" class="form-control" Style=" margin-top: 7px;" AppendDataBoundItems="false" AutoPostBack="true" DataValueField="" OnSelectedIndexChanged="ddlOrderByOnline_SelectedIndexChanged">
                                                             <asp:ListItem>--Order By--</asp:ListItem>
                                                             <asp:ListItem>Program Date</asp:ListItem>
                                                             <asp:ListItem>Program Type A-Z</asp:ListItem>
@@ -1867,11 +1901,12 @@
 
                                                         <input type="date" id="EndDateOnline" class="form-control" runat="server" />
                                                     </div>
+
                                                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 ">
 
                                                         
                                                         <br class="d-none d-md-block" /> 
-                                                        <asp:Button ID="btnFilterDatesOnline" runat="server" Style="margin-top: 7px; background-color: #FFBC7C !important;" CssClass="btn Search btn-block" OnClick="btnViewOnline_Click" Text="Filter Dates" />
+                                                        <asp:Button ID="btnFilterDatesOnline" runat="server" Style="margin-top: 7px; background-color: #C7BFC4 !important;" CssClass="btn Search btn-block" OnClick="btnViewOnline_Click" Text="Filter Dates" />
 
                                                     </div>
 
@@ -2332,7 +2367,7 @@
                             <br />
                             <div class="row">
 
-                                <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
+                                <%--<div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
                                     <h6>Payment Needed?</h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
@@ -2343,7 +2378,7 @@
                                         <asp:ListItem> Yes</asp:ListItem>
                                         <asp:ListItem> No</asp:ListItem>
                                     </asp:RadioButtonList>
-                                </div>
+                                </div>--%>
                             </div>
                             <br />
                             <div class="row">
@@ -2777,9 +2812,15 @@
                                 </div>
                             </div>
 
-                            <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
-                            &nbsp;<asp:Label ID="Label5" runat="server" Text=""></asp:Label>
+                                    <br />
 
+                            <div class="row">
+                                <div class=" col-md-12 InternalAnimalForm">
+                                    <asp:Label ID="lblLastUpdated2" class="alert-warning mb-1" runat="server" Text=""></asp:Label>
+                                    <br />
+                                    <asp:Label ID="lblLastUpdatedBy2" class="alert-warning" runat="server" Text=""></asp:Label>
+                                </div>
+                            </div>
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
@@ -2882,24 +2923,24 @@
             window.location.reload();
         });
         // If statement for on or off and locaton
-        function scheduleA(event) {
-            var x = document.getElementById("OnOff").value;
-            if (x == "On") {
-                $("#Address").addClass('hideMe');
-                $("#AddressLabel").addClass('hideMe');
-                $("#CityCounty").addClass('hideMe');
-                $("#CityCountyLabel").addClass('hideMe');
-                $("#State").addClass('hideMe');
-                $("#StateLabel").addClass('hideMe');
-            } else if (x == "Off") {
-                $("#Address").removeClass('hideMe');
-                $("#AddressLabel").removeClass('hideMe');
-                $("#CityCounty").removeClass('hideMe');
-                $("#CityCountyLabel").removeClass('hideMe');
-                $("#State").removeClass('hideMe');
-                $("#StateLabel").removeClass('hideMe');
-            }
-        }
+        //function scheduleA(event) {
+        //    var x = document.getElementById("OnOff").value;
+        //    if (x == "OnSite") {
+        //        $("#Address").addClass('hideMe');
+        //        $("#AddressLabel").addClass('hideMe');
+        //        $("#CityCounty").addClass('hideMe');
+        //        $("#CityCountyLabel").addClass('hideMe');
+        //        $("#State").addClass('hideMe');
+        //        $("#StateLabel").addClass('hideMe');
+        //    } else if (x == "OffSite") {
+        //        $("#Address").removeClass('hideMe');
+        //        $("#AddressLabel").removeClass('hideMe');
+        //        $("#CityCounty").removeClass('hideMe');
+        //        $("#CityCountyLabel").removeClass('hideMe');
+        //        $("#State").removeClass('hideMe');
+        //        $("#StateLabel").removeClass('hideMe');
+        //    }
+        //}
     </script>
 
 

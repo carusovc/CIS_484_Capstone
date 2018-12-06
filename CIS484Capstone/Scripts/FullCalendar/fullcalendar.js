@@ -6934,7 +6934,7 @@ var DayGrid = /** @class */ (function (_super) {
         // append the segments from the "more..." popover
         return _super.prototype.getOwnEventSegs.call(this).concat(this.popoverSegs || []);
     };
-    /* Event Drag Visualization
+    /* Event Drag Visualizations
     ------------------------------------------------------------------------------------------------------------------*/
     // Renders a visual indication of an event or external element being dragged.
     // `eventLocation` has zoned start and end (optional)
@@ -6954,7 +6954,7 @@ var DayGrid = /** @class */ (function (_super) {
         this.unrenderHighlight();
         this.helperRenderer.unrender();
     };
-    /* Event Resize Visualization
+    /* Event Resize Visualizations
     ------------------------------------------------------------------------------------------------------------------*/
     // Renders a visual indication of an event being resized
     DayGrid.prototype.renderEventResize = function (eventFootprints, seg, isTouch) {
@@ -12077,7 +12077,7 @@ var TimeGrid = /** @class */ (function (_super) {
     TimeGrid.prototype.getHitEl = function (hit) {
         return this.colEls.eq(hit.col);
     };
-    /* Event Drag Visualization
+    /* Event Drag Visualizations
     ------------------------------------------------------------------------------------------------------------------*/
     // Renders a visual indication of an event being dragged over the specified date(s).
     // A returned value of `true` signals that a mock "helper" event has been rendered.
@@ -12101,7 +12101,7 @@ var TimeGrid = /** @class */ (function (_super) {
         this.unrenderHighlight();
         this.helperRenderer.unrender();
     };
-    /* Event Resize Visualization
+    /* Event Resize Visualizations
     ------------------------------------------------------------------------------------------------------------------*/
     // Renders a visual indication of an event being resized
     TimeGrid.prototype.renderEventResize = function (eventFootprints, seg, isTouch) {

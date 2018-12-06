@@ -247,7 +247,6 @@
 
 
                 <%--  <div id="wrapper">
-
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
             <li class="nav-item">
@@ -333,10 +332,10 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                    <h6>Invoice Number *</h6>
+                                    <h6>Invoice Number<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                    <h6>Invoice Number *</h6>
+                                    <h6>Invoice Number<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                      <asp:TextBox ID="txtInvoiceNum" runat="server" class="form-control" placeholder="Enter Invoice Number" required="required"></asp:TextBox>
@@ -349,10 +348,10 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                    <h6>Date of Payment *</h6>
+                                    <h6>Date of Payment<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                    <h6>Date of Payment *</h6>
+                                    <h6>Date of Payment<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                     <input type="date" id="PaymentDate" class="form-control" runat="server" required="required"/>
@@ -364,10 +363,11 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                    <h6>Program *</h6>
+                                    <h6>Program<span style="COLOR: red"> *</span></h6>
+
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                    <h6>Program *</h6>
+                                    <h6>Program<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                     <asp:DropDownList ID="ddlProgramType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" DataTextField="OrgName" DataValueField="OrgID" OnSelectedIndexChange="ddlProgramType_SelectedIndexChanged" required="required">
@@ -380,10 +380,11 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                    <h6>Organization *</h6>
+                                    <h6>Organization<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                    <h6>Organization *</h6>
+                                    <h6>Organization<span style="COLOR: red"> *</span></h6>
+
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                       <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="false" DataTextField="OrgName" DataValueField="OrgID" required="required">
@@ -400,10 +401,10 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                     <h6>Amount *</h6>
+                                     <h6>Amount<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                    <h6>Amount *</h6>
+                                    <h6>Amount<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                   <asp:TextBox ID="txtAmount" runat="server" class="form-control" placeholder="Enter Amount" required="required"></asp:TextBox>
@@ -414,10 +415,11 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                      <h6>Payment Type *</h6>
+                                      <h6>Payment Type<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                      <h6>Payment Type *</h6>
+                                      <h6>Payment Type<span style="COLOR: red"> *</span></h6>
+
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                      <asp:DropDownList ID="ddlPaymentType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged" required="required">
@@ -433,10 +435,10 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                        <h6>Check Number *</h6>
+                                        <h6>Check Number</h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                        <h6>Check Number *</h6>
+                                        <h6>Check Number</h6>
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                     <asp:TextBox ID="txtCheckNum" runat="server" class="form-control" ReadOnly="true" placeholder="Enter Check Number" required="required"></asp:TextBox>
@@ -449,10 +451,11 @@
 
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                          <h6>Payment Status *</h6>
+                                          <h6>Payment Status<span style="COLOR: red"> *</span></h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                        <h6>Payment Status *</h6>
+                                        <h6>Payment Status<span style="COLOR: red"> *</span></h6>
+
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                       <asp:DropDownList ID="ddlInvoicePaymentStatus" runat="server" class="form-control" AppendDataBoundItems="false" required="required">
@@ -491,5 +494,4 @@
     </div>
 
 </asp:Content>
-
 
