@@ -364,6 +364,7 @@
 
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
                                     <h6>Program<span style="COLOR: red"> *</span></h6>
+
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
                                     <h6>Program<span style="COLOR: red"> *</span></h6>
@@ -383,6 +384,7 @@
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
                                     <h6>Organization<span style="COLOR: red"> *</span></h6>
+
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                       <asp:DropDownList ID="ddlOrganization" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="false" DataTextField="OrgName" DataValueField="OrgID" required="required">
@@ -417,6 +419,7 @@
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
                                       <h6>Payment Type<span style="COLOR: red"> *</span></h6>
+
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                      <asp:DropDownList ID="ddlPaymentType" runat="server" class="form-control" AppendDataBoundItems="false" AutoPostBack="true" OnSelectedIndexChanged="ddlPaymentType_SelectedIndexChanged" required="required">
@@ -452,6 +455,7 @@
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
                                         <h6>Payment Status<span style="COLOR: red"> *</span></h6>
+
                                 </div>
                                 <div class=" col-md-6 InternalAnimalForm">
                                       <asp:DropDownList ID="ddlInvoicePaymentStatus" runat="server" class="form-control" AppendDataBoundItems="false" required="required">
@@ -490,3 +494,4 @@
     </div>
 
 </asp:Content>
+

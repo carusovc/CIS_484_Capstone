@@ -323,7 +323,7 @@ function showPosition(position) {
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
         <li class="nav-item dropdown no-arrow">
@@ -334,7 +334,7 @@ function showPosition(position) {
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
              
@@ -413,7 +413,7 @@ function showPosition(position) {
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="AnimalPage.aspx">View Animals</a>
                     <a class="dropdown-item" href="#" data-target="#AddAnimal" data-toggle="modal">Add New Animal</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animals</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateAnimal" data-toggle="modal">Edit Animal</a>
                 </div>
             </li>
 
@@ -442,7 +442,7 @@ function showPosition(position) {
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="Organizations.aspx">View Organizations</a>
                     <a class="dropdown-item" href="#" data-target="#AddOrganization" data-toggle="modal">Add New Organization</a>
-                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organizations</a>
+                    <a class="dropdown-item" href="#" data-target="#UpdateOrganization" data-toggle="modal">Edit Organization</a>
                 </div>
             </li>
              <li class="nav-item dropdown no-arrow">
@@ -477,7 +477,7 @@ function showPosition(position) {
              <li class="nav-item ">
                 <a class="nav-link" href="Tableau.aspx">
 
-                    <span>Visualization</span></a>
+                    <span>Visualizations</span></a>
             </li>
             <%--<li class="nav-item">
                 <a class="nav-link" href="createUser.aspx">
@@ -511,14 +511,14 @@ function showPosition(position) {
                                                     <div class=" col-xl-3 col-lg-4 col-md-3 col-sm-0 col-xs-0">
                                                        
                                                     </div>
-                                                    <div class="col-xl-3 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
-                                                    <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-xs-8 ">
+                                                    <div class="col-xl-4 col-lg-0 col-md-0 col-sm-0 col-xs-0"></div>
+                                                    <div class="col-xl-3 col-lg-5 col-md-6 col-sm-8 col-xs-8 text-right ">
                                                       <asp:TextBox  class=" form-control" ID="txtSearch" runat="server"></asp:TextBox>
 
                                                     </div>
 
                                                     <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
-                                                        <asp:Button ID ="btnSearch" runat ="server" class="btn-block btn" style=" background-color: #FFBC7C;" Text ="Search" OnClick="btnSearch_Click" /></div>
+                                                        <asp:Button ID ="btnSearch" runat ="server" class="btn-block btn" style=" background-color: #C7BFC4;" Text ="Search" OnClick="btnSearch_Click" /></div>
             
                                                       </div>
 
@@ -555,7 +555,7 @@ function showPosition(position) {
     <br />
      <br />
    
-<asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#FFBC7C"
+<asp:GridView ID="gridSearch"  class="table table-bordered table-borderless table-striped table-condensed "  HeaderStyle-Backcolor="#C7BFC4"
     HeaderStyle-Forecolor="Black" runat="server" AutoGenerateColumns="False" AllowSorting="True" >
                       <Columns>
                           <asp:BoundField DataField="AnimalType" HeaderText="Animal Type" SortExpression="AnimalType" />
