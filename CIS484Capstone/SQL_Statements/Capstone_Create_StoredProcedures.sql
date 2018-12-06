@@ -11,8 +11,8 @@ END
 Create Procedure [dbo].[InsertOnlinePrograms]
 AS
 BEGIN
-INSERT INTO AllPrograms(ProgramCategory, ProgramDate, ProgramType, EventMonth, NumberOfChildren, NumberOfAdults, CityCounty, OnlineProgramCountry, State, OnlineTeacherName, OnlinePrimaryContactEmail, OnlineSecondaryEmail, ExtraComments, LastUpdated, LastUpdatedBy) 
-Select 'Online Program' as ProgramCategory, o.ProgramDate, OnlineProgramType.OnlineProgramTypeName, o.Month, o.NumberOfKids, o.NumberOfPeople, o.City, o.Country, o.State, o.TeacherName, o.ContactEmail, o.SecondaryEmail, o.ExtraComments, o.LastUpdated, o.LastUpdatedBy
+INSERT INTO AllPrograms(ProgramCategory, ProgramDate, ProgramType, EventMonth, NumberOfChildren, NumberOfAdults, CityCounty, OnlineProgramCountry, State, OnlineTeacherName, OnlinePrimaryContactEmail, ExtraComments, LastUpdated, LastUpdatedBy) 
+Select 'Online Program' as ProgramCategory, o.ProgramDate, OnlineProgramType.OnlineProgramTypeName, o.Month, o.NumberOfKids, o.NumberOfPeople, o.City, o.Country, o.State, o.TeacherName, o.ContactEmail, o.ExtraComments, o.LastUpdated, o.LastUpdatedBy
 From OnlineProgram o inner join OnlineProgramType on o.OnlineProgramTypeID = OnlineProgramType.OnlineProgramTypeID
 WHERE OnlineProgramID Between 1 and 100
 Order By o.ProgramDate Desc
