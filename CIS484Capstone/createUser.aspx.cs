@@ -44,8 +44,8 @@ public partial class createUser : System.Web.UI.Page
         catch
         {
             //redirect to the login page
-            Session.RemoveAll();
-            Response.Redirect("Default.aspx", false);
+           // Session.RemoveAll();
+            //Response.Redirect("Default.aspx", false);
 
         }
     }
