@@ -254,14 +254,14 @@ public partial class Invoices : System.Web.UI.Page
             // if row type is DataRow, add ProductSales value to TotalSales
             TotalCancelled += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "PaymentAmount"));
             DataRowView drv = e.Row.DataItem as DataRowView;
-            if (drv["Paid"].ToString().Equals("N"))
-            {
-                e.Row.CssClass = "alert alert-danger";
-            }
-            else if (drv["Paid"].ToString().Equals("Y"))
-            {
-                e.Row.CssClass = "alert alert-success";
-            }
+            //if (drv["CancelledInvoices"].ToString().Equals("N"))
+            //{
+            //    e.Row.CssClass = "alert alert-danger";
+            //}
+            //else if (drv["Paid"].ToString().Equals("Y"))
+            //{
+            //    e.Row.CssClass = "alert alert-success";
+            //}
         }
         else if (e.Row.RowType == DataControlRowType.Footer)
             // If row type is footer, show calculated total value

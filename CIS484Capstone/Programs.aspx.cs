@@ -890,7 +890,7 @@ public partial class Programs : System.Web.UI.Page
 
         else
         {
-            adapt.Fill(dt);
+            //adapt.Fill(dt);
             NoRecordsLive.Visible = false;
             rptProgramHLLive.Visible = true;
             rptProgramHLLive.DataSource = dt;
@@ -925,7 +925,7 @@ public partial class Programs : System.Web.UI.Page
 
         else
         {
-            adapt.Fill(dt);
+            //adapt.Fill(dt);
             NoRecords.Visible = false;
             rptProgramHLAll.Visible = true;
             rptProgramHLAll.DataSource = dt;
@@ -962,7 +962,7 @@ public partial class Programs : System.Web.UI.Page
 
         else
         {
-            adapt.Fill(dt);
+            //adapt.Fill(dt);
             NoRecordsOnline.Visible = false;
             rptProgramHLOnline.Visible = true;
             rptProgramHLOnline.DataSource = dt;
@@ -2381,6 +2381,7 @@ public partial class Programs : System.Web.UI.Page
         createAccordianUsingRepeaterLive(0);
         StartDateLive.Value = HttpUtility.HtmlEncode("");
         EndDateLive.Value = HttpUtility.HtmlEncode("");
+        txtSearchLive.Text = "";
     }
 
     protected void btnOnlineSearch_Click(object sender, EventArgs e)
@@ -2394,6 +2395,7 @@ public partial class Programs : System.Web.UI.Page
         createAccordianUsingRepeaterOnline(0);
         StartDateOnline.Value = HttpUtility.HtmlEncode("");
         EndDateOnline.Value = HttpUtility.HtmlEncode("");
+        txtSearchOnline.Text = "";
     }
 
     protected void btnAllSearch_Click(object sender, EventArgs e)
@@ -2407,6 +2409,7 @@ public partial class Programs : System.Web.UI.Page
         createAccordianUsingRepeaterAll(0);
         StartDateAll.Value = HttpUtility.HtmlEncode("");
         EndDateAll.Value = HttpUtility.HtmlEncode("");
+        txtSearchAll.Text = "";
     }
 
 
@@ -3131,7 +3134,7 @@ public partial class Programs : System.Web.UI.Page
 
         else
         {
-            adapt.Fill(dt);
+            //adapt.Fill(dt);
             NoRecords.Visible = false;
             rptProgramHLAll.Visible = true;
             rptProgramHLAll.DataSource = dt;
@@ -3169,7 +3172,7 @@ public partial class Programs : System.Web.UI.Page
 
         else
         {
-            adapt.Fill(dt);
+           // adapt.Fill(dt);
             NoRecordsLive.Visible = false;
             rptProgramHLLive.Visible = true;
             rptProgramHLLive.DataSource = dt;
@@ -3204,7 +3207,7 @@ public partial class Programs : System.Web.UI.Page
 
         else
         {
-            adapt.Fill(dt);
+           // adapt.Fill(dt);
             NoRecordsOnline.Visible = false;
             rptProgramHLOnline.Visible = true;
             rptProgramHLOnline.DataSource = dt;

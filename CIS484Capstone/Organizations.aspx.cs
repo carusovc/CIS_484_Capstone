@@ -112,6 +112,7 @@ public partial class Organizations : System.Web.UI.Page
         }
 
         connection.Close();
+        sc.Close();
     }
 
     protected void btn_lgout_Click(object sender, EventArgs e)
@@ -306,7 +307,7 @@ public partial class Organizations : System.Web.UI.Page
     {
 
         OrganizationSearchDiv.Visible = true;
-        gridSearch.DataBind();
+        //gridSearch.DataBind();
         //gridAnimalMammal.Visible = false;
         //gridBird.Visible = false;
         //gridReptile.Visible = false;
@@ -333,6 +334,7 @@ public partial class Organizations : System.Web.UI.Page
         adapt.Fill(dt);
         gridSearch.DataSource = dt;
         gridSearch.DataBind();
+        gridSearch.Visible = true;
 
     }
 
@@ -455,21 +457,22 @@ public partial class Organizations : System.Web.UI.Page
         txtSearch.Text = "";
         ddlOrderBy.SelectedIndex = 0;
         gridSearch.Visible = false;
+        GridView1.Visible = true;
 
-        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        // sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
-        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
-        sc.ConnectionString = cs;
-        sc.Open();
+        //System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        //// sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+        //String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        //sc.ConnectionString = cs;
+        //sc.Open();
 
-        SqlConnection connection = new SqlConnection(cs);
-        connection.Open();
-        DataTable dt1 = new DataTable();
-        SqlDataAdapter adapt1 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode From Organization Order by OrgName;"), connection);
-        adapt1.Fill(dt1);
-        GridView1.DataSource = dt1;
-        GridView1.DataBind();
-        connection.Close();
+        //SqlConnection connection = new SqlConnection(cs);
+        //connection.Open();
+        //DataTable dt1 = new DataTable();
+        //SqlDataAdapter adapt1 = new SqlDataAdapter(("Select OrgName, StreetAddress, City, County, State, PostalCode From Organization Order by OrgName;"), connection);
+        //adapt1.Fill(dt1);
+        //GridView1.DataSource = dt1;
+        //GridView1.DataBind();
+        //connection.Close();
     }
 
     //protected void ddlContactOrderBy_SelectedIndexChanged(object sender, EventArgs e)
@@ -522,7 +525,7 @@ public partial class Organizations : System.Web.UI.Page
 
     protected void btnContactSearch_Click(object sender, EventArgs e)
     {
-        ContactSearchDiv.Visible = true;
+        //ContactSearchDiv.Visible = true;
         GridView3.Visible = true;
 
 
@@ -547,6 +550,8 @@ public partial class Organizations : System.Web.UI.Page
         adapt.Fill(dt);
         ContactSearchGrid.DataSource = dt;
         ContactSearchGrid.DataBind();
+        ContactSearchDiv.Visible = true;
+
 
 
     }
@@ -556,6 +561,7 @@ public partial class Organizations : System.Web.UI.Page
     {
         ContactSearchDiv.Visible = false;
         GridView3.Visible = true;
+        txtContactSearch.Text = "";
     }
 
     protected void ddlOrganization_SelectedIndexChanged1(object sender, EventArgs e)

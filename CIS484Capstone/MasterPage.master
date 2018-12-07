@@ -786,10 +786,10 @@
                             </div>
                             <div class="row">
                                 <div class="d-none d-md-block text-right col-md-5 InternalOrganizationForm">
-                                    <h6>County<span style="COLOR: red"> *</span></h6>
+                                    <h6>County</h6>
                                 </div>
                                 <div class=" d-md-none text-left col-md-5 InternalOrganizationForm">
-                                    <h6>County<span style="COLOR: red"> *</span></h6>
+                                    <h6>County</h6>
                                 </div>
                                 <div class=" col-md-7 InternalOrgnaizationForm">
 
