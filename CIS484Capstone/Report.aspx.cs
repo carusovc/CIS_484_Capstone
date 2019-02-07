@@ -255,9 +255,9 @@ public partial class AnimalMonthlyWildlifeReport : System.Web.UI.Page
 
         onlineCon.Open();
 
-        SqlCommand onlineCmd = new SqlCommand("SELECT convert(varchar, OnlineProgram.ProgramDate,101) AS ProgramDate, Count(OnlineProgram.OnlineProgramID) as TotalOnlinePrograms," +
+        SqlCommand onlineCmd = new SqlCommand("SELECT convert(varchar, OnlineProgram.ProgramDate,101) AS ProgramDate, OnlineProgram.Country, Count(OnlineProgram.OnlineProgramID) as TotalOnlinePrograms," +
        " SUM(NumberOfKids) as NumberOfKids, SUM(NumberOfPeople) as NumberOfPeople FROM[OnlineProgram] WHERE OnlineProgram.ProgramDate BETWEEN" +
-        " @startDate AND @endDate GROUP BY OnlineProgram.ProgramDate ORDER BY OnlineProgram.ProgramDate", onlineCon);
+        " @startDate AND @endDate GROUP BY OnlineProgram.ProgramDate, OnlineProgram.Country ORDER BY OnlineProgram.ProgramDate", onlineCon);
         onlineCmd.Parameters.AddWithValue("@startDate", StartDate.Value.ToString());
         onlineCmd.Parameters.AddWithValue("@endDate", EndDate.Value.ToString());
         onlineCmd.ExecuteNonQuery();

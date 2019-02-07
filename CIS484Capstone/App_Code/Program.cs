@@ -14,8 +14,8 @@ public class Program
     private int programTypeID;
     private String programAddress;
     private byte onOff;
-    private int numOfChildren;
-    private int numOfAdult;
+    private int? numOfChildren;
+    private int? numOfAdult;
     private char waitForPayment;
     private DateTime date;
     //private String reportMonth;
@@ -29,7 +29,7 @@ public class Program
     }
     //Overload Constructor
     public Program(byte onOff, string status, string programAddress, string cityCounty, int programTypeID,
-        int numOfChildren, int numOfAdult, char waitForPayment, DateTime date, string time, string comments)
+        int? numOfChildren, int? numOfAdult, char waitForPayment, DateTime date, string time, string comments)
     {
         setOnOff(onOff);
         setStatus(status);
@@ -92,12 +92,12 @@ public class Program
     }
 
 
-    public void setNumOfChildren(int numOfChildren)
+    public void setNumOfChildren(int? numOfChildren)
     {
         this.numOfChildren = numOfChildren;
     }
 
-    public void setNumOfAdult(int numOfAdult)
+    public void setNumOfAdult(int? numOfAdult)
     {
         this.numOfAdult = numOfAdult;
     }
@@ -166,12 +166,12 @@ public class Program
 
 
 
-    public int getNumOfChildren()
+    public int? getNumOfChildren()
     {
         return numOfChildren;
     }
 
-    public int getNumOfAdult()
+    public int? getNumOfAdult()
     {
         return numOfAdult;
     }

@@ -370,7 +370,7 @@ $(function() {
                                 <div class="InternalTab">
                                     <div class="col-md-12 ProgramTitle">
                                         <br />
-                                        <div class="ReportTitle text-center">Count of Animal Total Program Involvement</div>
+                                        <div class="ReportTitle text-center">Lifetime Animal Program Involvement</div>
 
                                     </div>
                                 </div>
@@ -676,6 +676,10 @@ $(function() {
              <asp:BoundField DataField="ProgramDate" HeaderText="Date" SortExpression="Program Date" ReadOnly="True" >
                  <HeaderStyle HorizontalAlign="Left" />
             <ItemStyle HorizontalAlign="Left" />
+            </asp:BoundField>
+            <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" ReadOnly="True" >
+                  <HeaderStyle HorizontalAlign="Center" />
+            <ItemStyle HorizontalAlign="Center" />
             </asp:BoundField>
              <asp:BoundField DataField="TotalOnlinePrograms" HeaderText="Total Online Programs" SortExpression="TotalOnlinePrograms" ReadOnly="True" >
                   <HeaderStyle HorizontalAlign="Center" />

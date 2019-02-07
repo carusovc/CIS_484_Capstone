@@ -422,7 +422,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="NumOfChildrenLabel" for="NumOfChildren">Number Of Children<span style="COLOR: red"> *</span></label>
+                                    <label id="NumOfChildrenLabel" for="NumOfChildren">Number Of Children</label>
                                 </div>
                                 <div class="col-7">
                                <input type="number" id="NumOfChildren" class="form-control" runat="server" />
@@ -431,7 +431,7 @@
 
                               <div class="form-group row">
                                 <div class="col-5">
-                                   <label id="NumOfAdultsLabel" for="NumOfAdults">Number Of Adults<span style="COLOR: red"> *</span></label>
+                                   <label id="NumOfAdultsLabel" for="NumOfAdults">Number Of Adults</label>
                                 </div>
                                 <div class="col-7">
                            <input type="number" id="NumOfAdults" class="form-control" runat="server" />

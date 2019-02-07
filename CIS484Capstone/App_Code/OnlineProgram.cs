@@ -19,11 +19,11 @@ public class OnlineProgram
     //private int dateOfMonth;
     private String month;
     private int type;
-    private int kidsInClass;
+    private int? kidsInClass;
     private String city;
     private String stateTerritory;
     private String country;
-    private int numOfPeople;
+    private int? numOfPeople;
     private String comments;
     private String teacher;
     private String email;
@@ -35,7 +35,7 @@ public class OnlineProgram
 
 
     //Overload Constructor
-    public OnlineProgram(DateTime date, int type, int kidsInClass, int numOfPeople, string city, string stateTerritory, string country, string teacher, string email, string comments)
+    public OnlineProgram(DateTime date, int type, int? kidsInClass, int? numOfPeople, string city, string stateTerritory, string country, string teacher, string email, string comments)
     {
         setDate(date);
         //setProgramTime(date);
@@ -73,7 +73,7 @@ public class OnlineProgram
         this.type = type;
     }
 
-    public void setKidsInClass(int kidsInClass)
+    public void setKidsInClass(int? kidsInClass)
     {
         this.kidsInClass = kidsInClass;
     }
@@ -93,7 +93,7 @@ public class OnlineProgram
         this.country = country;
     }
 
-    public void setNumOfPeople(int numOfPeople)
+    public void setNumOfPeople(int? numOfPeople)
     {
         this.numOfPeople = numOfPeople;
     }
@@ -159,7 +159,7 @@ public class OnlineProgram
         return type;
     }
 
-    public int getKidsInClass()
+    public int? getKidsInClass()
     {
         return kidsInClass;
     }
@@ -174,7 +174,7 @@ public class OnlineProgram
         return country;
     }
 
-    public int getNumOfPeople()
+    public int? getNumOfPeople()
     {
         return numOfPeople;
     }

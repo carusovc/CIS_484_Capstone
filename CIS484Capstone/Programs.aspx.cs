@@ -1819,8 +1819,25 @@ public partial class Programs : System.Web.UI.Page
         string status = Status.SelectedValue.ToString();
         int programTypeID = Convert.ToInt32(ddlProgram.SelectedItem.Value);
         string programAddress = Address.Value;
-        int numOfChildren = Convert.ToInt32(NumOfChildren.Value);
-        int numOfAdult = Convert.ToInt32(NumOfAdults.Value);
+        int? numOfChildren;
+        if(NumOfChildren.Value.Length > 0)
+        {
+            numOfChildren = Convert.ToInt32(NumOfChildren.Value);
+        }
+        else
+        {
+            numOfChildren = null;
+        }
+        //int numOfChildren = Convert.ToInt32(NumOfChildren.Value);
+        int? numOfAdult;
+        if (NumOfAdults.Value.Length > 0)
+        {
+            numOfAdult = Convert.ToInt32(NumOfAdults.Value);
+        }
+        else
+        {
+            numOfAdult = null;
+        }
         //char waitForPayment = Convert.ToChar(Payment.SelectedItem.Value);
         char waitForPayment = 'N';
         DateTime programDate = Convert.ToDateTime(ProgramDate.Value);
@@ -1854,8 +1871,22 @@ public partial class Programs : System.Web.UI.Page
         insert.Parameters.AddWithValue("@cityCounty", newProgram.getCityCounty());
         insert.Parameters.AddWithValue("@State", statesDropDown.SelectedItem.Text);
         insert.Parameters.AddWithValue("@onOff", newProgram.getOnOff());
-        insert.Parameters.AddWithValue("@numberOfChildren", newProgram.getNumOfChildren());
-        insert.Parameters.AddWithValue("@numberOfAdults", newProgram.getNumOfAdult());
+        if (newProgram.getNumOfChildren() == null)
+        {
+            insert.Parameters.AddWithValue("@numberOfChildren", DBNull.Value);
+        }
+        else
+        {
+            insert.Parameters.AddWithValue("@numberOfChildren", newProgram.getNumOfChildren());
+        }
+        if (newProgram.getNumOfAdult() == null)
+        {
+            insert.Parameters.AddWithValue("@numberOfAdults", DBNull.Value);
+        }
+        else
+        {
+            insert.Parameters.AddWithValue("@numberOfAdults", newProgram.getNumOfAdult());
+        }
         insert.Parameters.AddWithValue("@paid", newProgram.getWaitForPayment());
         insert.Parameters.AddWithValue("@programDate", newProgram.getDate());
         insert.Parameters.AddWithValue("@programTime", newProgram.getTime());
@@ -2106,8 +2137,24 @@ public partial class Programs : System.Web.UI.Page
         //Online Program ;
         //int onlineProgramTypeID = Convert.ToInt32(ddlProgramType.SelectedItem.Value);
         int typeID = Convert.ToInt32(lstOnlineProgramType.SelectedValue);
-        int numOfKids = Convert.ToInt32(OnlineNumOfChildren.Value);
-        int numOfPeople = Convert.ToInt32(OnlineNumOfAdults.Value);
+        int? numOfKids;
+        if (OnlineNumOfChildren.Value.Length > 0)
+        {
+            numOfKids = Convert.ToInt32(OnlineNumOfChildren.Value);
+        }
+        else
+        {
+            numOfKids = null;
+        }
+        int? numOfPeople;
+        if (OnlineNumOfAdults.Value.Length > 0)
+        {
+            numOfPeople = Convert.ToInt32(OnlineNumOfAdults.Value);
+        }
+        else
+        {
+            numOfPeople = null;
+        }
         string city = OnlineCityCounty.Value;
         string stateTerritory = OnlineState.SelectedValue;
         string country = ddlCountry.SelectedValue.ToString();
@@ -2131,8 +2178,23 @@ public partial class Programs : System.Web.UI.Page
         insert.Parameters.AddWithValue("@programDate", newOnlineProgram.getDate());
         insert.Parameters.AddWithValue("@month", newOnlineProgram.getDate().ToString("MMMM"));
         insert.Parameters.AddWithValue("@typeID", newOnlineProgram.getType());
-        insert.Parameters.AddWithValue("@numOfKids", newOnlineProgram.getKidsInClass());
-        insert.Parameters.AddWithValue("@numOfPeople", newOnlineProgram.getNumOfPeople());
+        if (newOnlineProgram.getKidsInClass() == null)
+        {
+            insert.Parameters.AddWithValue("@numOfKids", DBNull.Value);
+
+        }
+        else
+        {
+            insert.Parameters.AddWithValue("@numOfKids", newOnlineProgram.getKidsInClass());
+        }
+        if (newOnlineProgram.getNumOfPeople() == null)
+        {
+            insert.Parameters.AddWithValue("@numOfPeople", DBNull.Value);
+        }
+        else
+        {
+            insert.Parameters.AddWithValue("@numOfPeople", newOnlineProgram.getNumOfPeople());
+        }
         insert.Parameters.AddWithValue("@city", newOnlineProgram.getCity());
         insert.Parameters.AddWithValue("@state", newOnlineProgram.getstateTerritory());
         insert.Parameters.AddWithValue("@country", newOnlineProgram.getCountry());
