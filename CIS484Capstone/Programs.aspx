@@ -1533,6 +1533,105 @@
                                                         </FooterTemplate>
                                                     </asp:Repeater>
                                                 </div>
+                                           
+                                            <asp:GridView  class="table table-striped table-bordered table-condensed table-hover" HeaderStyle-BackColor="#C7BFC4" HeaderStyle-ForeColor="Black" runat="server" ID="GridView1" AutoGenerateColumns="False" AllowSorting="True">
+
+                                        <Columns>
+                                            <asp:BoundField DataField="ProgramCategory" HeaderText="Program Category" SortExpression="ProgramCategory">
+                                                <ItemStyle HorizontalAlign="Left" />
+                                            </asp:BoundField>
+                                           <asp:BoundField DataField="ProgramDate" HeaderText="Program Date" ReadOnly="True" SortExpression="ProgramDate">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="ProgramType" HeaderText="Program Type" ReadOnly="True" SortExpression="ProgramType">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="LiveProgramTime" HeaderText="Live Program Time" ReadOnly="True" SortExpression="LiveProgramTime">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="EventMonth" HeaderText="Event Month" ReadOnly="True" SortExpression="EventMonth">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="LiveProgramStatus" HeaderText="Live Program Status" ReadOnly="True" SortExpression="LiveProgramStatus">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="NumberOfChildren" HeaderText="Number Of Children" ReadOnly="True" SortExpression="NumberOfChildren">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="NumberOfAdults" HeaderText="Number Of Adults" ReadOnly="True" SortExpression="NumberOfAdults">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="LiveProgramStreetAddress" HeaderText="Live Program Street Address" ReadOnly="True" SortExpression="LiveProgramStreetAddress">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="CityCounty" HeaderText="City County" ReadOnly="True" SortExpression="CityCounty">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="OnlineProgramCountry" HeaderText="Online Program Country" ReadOnly="True" SortExpression="OnlineProgramCountry">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="State" HeaderText="State" ReadOnly="True" SortExpression="State">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="LiveProgramOnOff" HeaderText="Live Program On/Off" ReadOnly="True" SortExpression="LiveProgramOnOff">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="LiveProgramPaid" HeaderText="LiveProgramPaid" ReadOnly="True" SortExpression="LiveProgramPaid">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="OnlineTeacherName" HeaderText="OnlineTeacherName" ReadOnly="True" SortExpression="OnlineTeacherName">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="OnlinePrimaryContactEmail" HeaderText="OnlinePrimaryContactEmail" ReadOnly="True" SortExpression="OnlinePrimaryContactEmail">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="OnlineSecondaryEmail" HeaderText="OnlineSecondaryEmail" ReadOnly="True" SortExpression="OnlineSecondaryEmail">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="ExtraComments" HeaderText="ExtraComments" ReadOnly="True" SortExpression="ExtraComments">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="LastUpdated" HeaderText="LastUpdated" ReadOnly="True" SortExpression="LastUpdated">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                            <asp:BoundField DataField="LastUpdatedBy" HeaderText="LastUpdatedBy" ReadOnly="True" SortExpression="LastUpdatedBy">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                        </Columns>
+                                    </asp:GridView>
+
+                                   <%-- <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:WildTekConnectionString %>"
+                                        SelectCommand="SELECT [AllProgramID]
+                                          ,[ProgramCategory]
+                                          ,[ProgramDate]
+                                          ,[ProgramType]
+                                          ,[LiveProgramTime]
+                                          ,[EventMonth]
+                                          ,[LiveProgramStatus]
+                                          ,[NumberOfChildren]
+                                          ,[NumberOfAdults]
+                                          ,[LiveProgramStreetAddress]
+                                          ,[CityCounty]
+                                          ,[OnlineProgramCountry]
+                                          ,[State]
+                                          ,[LiveProgramOnOff]
+                                          ,[LiveProgramPaid]
+                                          ,[LiveProgramPaymentID]
+                                          ,[OnlineTeacherName]
+                                          ,[OnlinePrimaryContactEmail]
+                                          ,[OnlineSecondaryEmail]
+                                          ,[ExtraComments]
+                                          ,[LastUpdated]
+                                          ,[LastUpdatedBy]
+                                      FROM [WildTek].[dbo].[AllPrograms]">
+                                        <SelectParameters>
+                                            
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>--%>
+
+                                    <asp:Button ID="btnExportAllPrograms" runat="server" Text="Export to Excel" OnClick="btnExportPrograms_Click" class="btn btn-primary btn-inside btn-block"></asp:Button>    
+                                            
+                                            
                                             </div>
 
                                             <%-- For the Live Programs--%>

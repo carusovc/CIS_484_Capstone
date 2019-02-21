@@ -3282,5 +3282,92 @@ public partial class Programs : System.Web.UI.Page
 
     }
 
+    protected void btnExportPrograms_Click(object sender, EventArgs e)
+    {
+        GridView1.Visible = true;
+        GridView1.AllowPaging = false;
+        ShowData();
+        String allProgramsReport = "All Programs Report ";
+        String filename = "Created on: " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString() + "/" + DateTime.Now.Year.ToString();
+        HttpResponse response = HttpContext.Current.Response;
+
+        //StringWriter sw3 = new StringWriter();
+        //HtmlTextWriter htW3 = new HtmlTextWriter(sw3);
+
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter htW = new HtmlTextWriter(sw);
+
+        //StringWriter sw2 = new StringWriter();
+        //HtmlTextWriter htW2 = new HtmlTextWriter(sw2);
+
+
+        response.Clear();
+        response.Buffer = true;
+        response.Charset = "";
+        response.ContentType = "application/vnd.xls";
+        response.AddHeader("content-disposition", "attachment; filename=\"" + allProgramsReport + filename + "\"" + ".xls");
+
+
+        string headerTable = @"<Table>" + allProgramsReport + " " + filename + "<tr><td></td></tr></Table>";
+        string headerTable1 = @"<Table>" + " All Programs Report: Live and Online <tr><td></td></tr></Table>";
+
+        //string headerTable2 = @"<Table>" + drpAnimalType.SelectedValue.ToString() + " Totals Based on Online Programs <tr><td></td></tr></Table>";
+        //string headerTable3 = @"<Table> Count of " + drpAnimalType.SelectedValue.ToString() + " Total Program Involvement <tr><td></td></tr></Table>";
+
+        string blankline = @"<Table><tr><td></td></tr></Table>";
+
+        //Response.Write(headerTable3);
+        //GridView1.RenderControl(htW3);
+        //Response.Output.Write(sw3.ToString());
+        //Response.Write(blankline);
+
+        Response.Write(headerTable1);
+        GridView1.RenderControl(htW);
+        Response.Output.Write(sw.ToString());
+        Response.Write(blankline);
+
+        //Response.Write(headerTable2);
+        //gridOnlinePrograms.RenderControl(htW2);
+        //Response.Output.Write(sw2.ToString());
+        //Response.Write(blankline);
+
+
+        Response.End();
+        GridView1.Visible = false;
+    }
+    protected void ShowData()
+    {
+
+        System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
+        //sc.ConnectionString = @"Server=localhost;Database=WildTek;Trusted_Connection=Yes;";
+
+
+        String cs = ConfigurationManager.ConnectionStrings["WildTekConnectionString"].ConnectionString;
+        sc.ConnectionString = cs;
+        sc.Open();
+
+
+        System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+        insert.Connection = sc;
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "ModalView", "<script>$function(){ $('#myModal').modal('show');});</script>", false);
+
+
+        DataTable dt = new DataTable();
+        //con = new SqlConnection(sc);
+        //con.Open();
+        SqlCommand cmd = new SqlCommand("SELECT [AllProgramID], [ProgramCategory], [ProgramDate], [ProgramType],[LiveProgramTime], [EventMonth], " +
+            "[LiveProgramStatus], [NumberOfChildren],[NumberOfAdults],[LiveProgramStreetAddress],[CityCounty],[OnlineProgramCountry],[State],[LiveProgramOnOff],[LiveProgramPaid],[LiveProgramPaymentID]," +
+            "[OnlineTeacherName],[OnlinePrimaryContactEmail],[OnlineSecondaryEmail],[ExtraComments],[LastUpdated],[LastUpdatedBy] FROM[WildTek].[dbo].[AllPrograms]", sc);
+        //cmd.Parameters.AddWithValue("@AnimalType", drpAnimalType.Text.ToString());
+        SqlDataAdapter adapt = new SqlDataAdapter(cmd);
+        adapt.Fill(dt);
+        if (dt.Rows.Count > 0)
+        {
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+        }
+        sc.Close();
+    }
+
 }
 
