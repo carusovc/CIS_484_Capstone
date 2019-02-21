@@ -870,7 +870,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="OnlineNumOfChildrenLabel" for="OnlineNumOfChildren">Number Of Children<span style="COLOR: red"> *</span></label>
+                                    <label id="OnlineNumOfChildrenLabel" for="OnlineNumOfChildren">Number Of Children</label>
                                 </div>
                                 <div class="col-7">
                                     <input type="number" id="OnlineNumOfChildren" class="form-control" runat="server" />
@@ -879,7 +879,7 @@
 
                             <div class="form-group row">
                                 <div class="col-5">
-                                    <label id="OnlineNumOfAdultsLabel" for="OnlineNumOfAdults">Number Of Adults<span style="COLOR: red"> *</span></label>
+                                    <label id="OnlineNumOfAdultsLabel" for="OnlineNumOfAdults">Number Of Adults</label>
                                 </div>
                                 <div class="col-7">
                                     <input type="number" id="OnlineNumOfAdults" class="form-control" runat="server" />

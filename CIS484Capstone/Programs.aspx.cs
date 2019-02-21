@@ -2223,8 +2223,8 @@ public partial class Programs : System.Web.UI.Page
 
                 //// Pulls Educator Name based on the selected educator
                 //// MAY NEED TO CHANGE IF WE COMPOSITE EDUCATORS
-                pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE EducatorFirstName = @EducatorFN";
-                pullEducatorID.Parameters.AddWithValue("@EducatorFN", li.Text);
+                pullEducatorID.CommandText = "SELECT EducatorID From Educators WHERE (EducatorFirstName + ' ' + EducatorLastName) = @EducatorName";
+                pullEducatorID.Parameters.AddWithValue("@EducatorName", li.Text);
                 int tempEducatorID = (int)pullEducatorID.ExecuteScalar();
 
                 //// Inserts programID and EducatorID into Assocaited table ProgramEducators
